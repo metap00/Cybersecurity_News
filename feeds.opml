@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head>
+    <title>Cybersecurity News Feeds</title>
+  </head>
+  <body>
+    <outline text="Cybersecurity" title="Cybersecurity">
+      <outline type="rss" text="Krebs on Security" title="Krebs on Security" xmlUrl="https://krebsonsecurity.com/feed/" htmlUrl="https://krebsonsecurity.com"/>
+      <outline type="rss" text="The Hacker News" title="The Hacker News" xmlUrl="https://feeds.feedburner.com/TheHackersNews" htmlUrl="https://thehackernews.com"/>
+      <outline type="rss" text="Bleeping Computer" title="Bleeping Computer" xmlUrl="https://www.bleepingcomputer.com/feed/" htmlUrl="https://www.bleepingcomputer.com"/>
+      <outline type="rss" text="SANS Internet Storm Center" title="SANS Internet Storm Center" xmlUrl="https://isc.sans.edu/rssfeed_small.xml" htmlUrl="https://isc.sans.edu"/>
+      <outline type="rss" text="CISA Advisories" title="CISA Advisories" xmlUrl="https://www.cisa.gov/uscert/ncas/all.xml" htmlUrl="https://www.cisa.gov"/>
+      <outline type="rss" text="Ars Technica Security" title="Ars Technica Security" xmlUrl="https://feeds.arstechnica.com/arstechnica/security" htmlUrl="https://arstechnica.com/security"/>
+      <outline type="rss" text="Schneier on Security" title="Schneier on Security" xmlUrl="https://www.schneier.com/feed/atom/" htmlUrl="https://www.schneier.com"/>
+      <outline type="rss" text="SecurityWeek" title="SecurityWeek" xmlUrl="https://www.securityweek.com/feed/" htmlUrl="https://www.securityweek.com"/>
+      <outline type="rss" text="Dark Reading" title="Dark Reading" xmlUrl="https://www.darkreading.com/rss/all" htmlUrl="https://www.darkreading.com"/>
+      <outline type="rss" text="Graham Cluley" title="Graham Cluley" xmlUrl="https://grahamcluley.com/feed/" htmlUrl="https://grahamcluley.com"/>
+    </outline>
+  </body>
+</opml>
