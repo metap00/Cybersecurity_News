@@ -18,7 +18,8 @@ jobs:
       - name: Send digest email
         run: |
           python3 << 'PYEOF'
-          import os, json, subprocess, urllib.request
+          import os, json, subprocess, smtplib
+          from email.mime.text import MIMEText
 
           result = subprocess.run(
               ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD', '--', 'summaries/*.md'],
@@ -34,22 +35,15 @@ jobs:
           with open(summary_file) as f:
               content = f.read()
 
-          api_key = os.environ['RESEND_API_KEY']
-          payload = json.dumps({
-              "from": "onboarding@resend.dev",
-              "to": "mihai.s.pop00@gmail.com",
-              "subject": f"Cybersecurity News \u2014 {date}",
-              "text": content
-          }).encode()
+          msg = MIMEText(content)
+          msg['Subject'] = f'Cybersecurity News — {date}'
+          msg['From'] = 'mihai.s.pop00@gmail.com'
+          msg['To'] = 'mihai.s.pop00@gmail.com'
 
-          req = urllib.request.Request(
-              "https://api.resend.com/emails",
-              data=payload,
-              headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-              method="POST"
-          )
-          with urllib.request.urlopen(req) as resp:
-              print("Email sent:", resp.read().decode())
+          with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+              server.login('mihai.s.pop00@gmail.com', os.environ['GMAIL_APP_PASSWORD'])
+              server.send_message(msg)
+              print("Email sent successfully")
           PYEOF
         env:
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
