@@ -1,0 +1,55 @@
+name: Send Daily Digest Email
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'summaries/*.md'
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Send digest email
+        run: |
+          python3 << 'PYEOF'
+          import os, json, subprocess, urllib.request
+
+          result = subprocess.run(
+              ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD', '--', 'summaries/*.md'],
+              capture_output=True, text=True
+          )
+          files = [f for f in result.stdout.strip().split('\n') if f]
+          if not files:
+              print("No summary file found"); exit(0)
+
+          summary_file = files[0]
+          date = os.path.basename(summary_file).replace('.md', '')
+
+          with open(summary_file) as f:
+              content = f.read()
+
+          api_key = os.environ['RESEND_API_KEY']
+          payload = json.dumps({
+              "from": "onboarding@resend.dev",
+              "to": "mihai.s.pop00@gmail.com",
+              "subject": f"Cybersecurity News \u2014 {date}",
+              "text": content
+          }).encode()
+
+          req = urllib.request.Request(
+              "https://api.resend.com/emails",
+              data=payload,
+              headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+              method="POST"
+          )
+          with urllib.request.urlopen(req) as resp:
+              print("Email sent:", resp.read().decode())
+          PYEOF
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
