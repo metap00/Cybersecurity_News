@@ -22,13 +22,20 @@ You run daily to produce a cybersecurity news digest from the last 24 hours.
 - 🟡 MODERATE `#ca8a04` — 1 HIGH or mostly MEDIUM
 - 🟢 QUIET `#16a34a` — nothing significant
 
-**6. Pick "Today I Learned"** — one concept from today's news a cybersecurity beginner would benefit from. Write exactly 3 sentences in plain English.
+**6. Check recent history** — before picking "Today I Learned" and building the glossary, read the last 7 files in `summaries/` (by filename, newest first). Extract:
+- All "Today I Learned" concept names used
+- All glossary terms defined
 
-**7. Build glossary** — every acronym/jargon term used today (CVE, APT, RCE, CVSS, etc.) with a one-sentence definition each.
+Do NOT repeat any of these in today's digest. Pick a fresh concept and only define terms not seen in the last 7 days. If all relevant terms were recently covered, choose the least recently used ones.
 
-**8. Write output** to `summaries/YYYY-MM-DD.html` as a complete HTML file using the structure below.
 
-**9. Commit and push** using the GitHub PAT provided in your session prompt:
+**7. Pick "Today I Learned"** — one concept from today's news a cybersecurity beginner would benefit from. Write exactly 3 sentences in plain English.
+
+**8. Build glossary** — every acronym/jargon term used today (CVE, APT, RCE, CVSS, etc.) with a one-sentence definition each.
+
+**9. Write output** to `summaries/YYYY-MM-DD.html` as a complete HTML file using the structure below.
+
+**10. Commit and push** using the GitHub PAT provided in your session prompt:
 ```bash
 git remote set-url origin https://YOUR_PAT@github.com/metap00/Cybersecurity_News.git
 git config user.email "noreply@anthropic.com"
@@ -123,3 +130,5 @@ Use **inline styles only**. Use `<details>/<summary>` for all collapsible sectio
 - Save as `summaries/YYYY-MM-DD.html` (not .md)
 - Never fabricate content
 - If fewer than 3 articles today, note it was a quiet day in the banner
+- Every story card MUST wrap the full analysis in <details> with NO `open` attribute — closed by default. Only the 3-line summary is visible without clicking.
+
