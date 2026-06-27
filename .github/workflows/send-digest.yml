@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'summaries/*.md'
+      - 'summaries/*.html'
 
 jobs:
   send-email:
@@ -18,11 +18,12 @@ jobs:
       - name: Send digest email
         run: |
           python3 << 'PYEOF'
-          import os, json, subprocess, smtplib
+          import os, subprocess, smtplib
           from email.mime.text import MIMEText
+          from email.mime.multipart import MIMEMultipart
 
           result = subprocess.run(
-              ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD', '--', 'summaries/*.md'],
+              ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD', '--', 'summaries/*.html'],
               capture_output=True, text=True
           )
           files = [f for f in result.stdout.strip().split('\n') if f]
@@ -30,15 +31,16 @@ jobs:
               print("No summary file found"); exit(0)
 
           summary_file = files[0]
-          date = os.path.basename(summary_file).replace('.md', '')
+          date = os.path.basename(summary_file).replace('.html', '')
 
           with open(summary_file) as f:
               content = f.read()
 
-          msg = MIMEText(content)
+          msg = MIMEMultipart('alternative')
           msg['Subject'] = f'Cybersecurity News — {date}'
           msg['From'] = 'mihai.s.pop00@gmail.com'
           msg['To'] = 'mihai.s.pop00@gmail.com'
+          msg.attach(MIMEText(content, 'html'))
 
           with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
               server.login('mihai.s.pop00@gmail.com', os.environ['GMAIL_APP_PASSWORD'])
