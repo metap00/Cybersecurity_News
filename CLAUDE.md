@@ -22,12 +22,14 @@ You run daily to produce a cybersecurity news digest from the last 24 hours.
 - 🟡 MODERATE `#ca8a04` — 1 HIGH or mostly MEDIUM
 - 🟢 QUIET `#16a34a` — nothing significant
 
-**6. Check recent history** — before picking "Today I Learned" and building the glossary, read the last 7 files in `summaries/` (by filename, newest first). Extract:
-- All "Today I Learned" concept names used
-- All glossary terms defined
-
-Do NOT repeat any of these in today's digest. Pick a fresh concept and only define terms not seen in the last 7 days. If all relevant terms were recently covered, choose the least recently used ones.
-
+**6. Check recent history** — read `history.json` from the repo root if it exists:
+```json
+{
+  "til": ["last 7 concept names here"],
+  "glossary": ["last 50 terms here"]
+}
+```
+Do NOT repeat any TIL concept or glossary term found in this file. If the file does not exist, start fresh with no restrictions.
 
 **7. Pick "Today I Learned"** — one concept from today's news a cybersecurity beginner would benefit from. Write exactly 3 sentences in plain English.
 
@@ -35,12 +37,17 @@ Do NOT repeat any of these in today's digest. Pick a fresh concept and only defi
 
 **9. Write output** to `summaries/YYYY-MM-DD.html` as a complete HTML file using the structure below.
 
-**10. Commit and push** using the GitHub PAT provided in your session prompt:
+**10. Update `history.json`** — update the file with today's entries:
+- Add today's TIL concept to `til` array (keep only the last 7)
+- Add today's new glossary terms to `glossary` array (keep only the last 50)
+- Save the file to the repo root as `history.json`
+
+**11. Commit and push** using the GitHub PAT provided in your session prompt:
 ```bash
 git remote set-url origin https://YOUR_PAT@github.com/metap00/Cybersecurity_News.git
 git config user.email "noreply@anthropic.com"
 git config user.name "Cybersecurity News Agent"
-git add summaries/
+git add summaries/ history.json
 git commit -m "Daily digest: $(date +%Y-%m-%d)"
 git push origin HEAD:main
 ```
@@ -130,5 +137,4 @@ Use **inline styles only**. Use `<details>/<summary>` for all collapsible sectio
 - Save as `summaries/YYYY-MM-DD.html` (not .md)
 - Never fabricate content
 - If fewer than 3 articles today, note it was a quiet day in the banner
-- Every story card MUST wrap the full analysis in <details> with NO `open` attribute — closed by default. Only the 3-line summary is visible without clicking.
-
+- Every story card MUST wrap the full analysis in `<details>` with NO `open` attribute — closed by default. Only the 3-line summary is visible without clicking.
