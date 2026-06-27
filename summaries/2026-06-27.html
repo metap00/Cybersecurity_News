@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Cybersecurity Digest — 2026-06-27</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — June 27, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">13 stories · 2 critical · 5 high · 6 medium</div>
+</div>
+
+<!-- STORY 1: ShinyHunters Oracle PeopleSoft — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Help Net Security · today</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/shinyhunters-exploits-oracle-peoplesoft.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">ShinyHunters Exploits Oracle PeopleSoft Zero-Day (CVE-2026-35273) Across 100+ Universities</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> The ShinyHunters cybercrime group weaponized an unauthenticated remote code execution zero-day (CVE-2026-35273, CVSS 9.8) in Oracle PeopleSoft to breach more than 100 organizations between May 27 and June 9, stealing student records before Oracle published an advisory on June 10.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Primarily higher-education institutions worldwide (68% of victims), with the University of Nottingham publicly confirming a breach exposing 454,600 current and former students' personal and academic data.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Oracle's out-of-band patch for PeopleSoft Enterprise PeopleTools 8.61/8.62 immediately, audit for the README-IF-YOU-SEE-THIS-YOUVE-BEEN-HACKED.TXT marker file in PeopleSoft directories, and treat any administrative credentials as compromised.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-35273 resides in the Environment Management component of Oracle PeopleSoft Enterprise PeopleTools. Rated CVSS 9.8 out of 10, the flaw requires no authentication and no user interaction — an attacker only needs HTTP network access to execute arbitrary code as the server. ShinyHunters turned this bug into a large-scale extortion campaign, exfiltrating sensitive records and threatening to publish unless victims paid a ransom.</p>
+      <p>The attack spanned May 27 to June 9 across more than 300 vulnerable instances at over 100 organizations, and Oracle published its emergency advisory on June 10 — meaning the flaw was an active zero-day throughout the entire campaign window. Post-exploitation scripts were observed spreading laterally over SSH by brute-forcing internal hosts listed in /etc/hosts, then dropping a visible ransom marker file in PeopleSoft directories.</p>
+      <p>Data confirmed published on ShinyHunters' leak site already includes tens of gigabytes of student records: names, home addresses, phone numbers, emails, dates of birth, ethnicity, enrollment status, GPAs, majors, and student IDs. The University of Nottingham is the highest-profile confirmed victim with 454,600 records exposed. Mandiant notified over 100 organizations as victims.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Oracle PeopleSoft is software used by universities to manage student records, HR, and finances. A "zero-day" means hackers found and exploited the bug before the company knew it existed and could release a fix. In this case, hundreds of thousands of students' personal information was stolen because a flaw let criminals walk right into school systems without even needing a password.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-35273 · CVSS: 9.8/10 — Unauthenticated network-reachable RCE in a widely deployed enterprise HR and student-records platform, zero user interaction required, already mass-exploited in the wild.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 2: FortiBleed — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Recorded Future / CISA · today</span>
+  </div>
+  <a href="https://www.recordedfuture.com/blog/critical-fortibleed-campaign" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">FortiBleed: 430,000 Fortinet Firewalls Compromised, 110 Million Credentials Stolen in Mass Campaign</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> A Russian-speaking, financially motivated Initial Access Broker (IAB) conducted a credential-harvesting campaign dubbed "FortiBleed," compromising over 430,000 internet-facing FortiGate firewalls and VPN gateways across 194 countries by exploiting weak credentials and abusing FortiOS's own built-in diagnostic tools to intercept traffic.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprise and government organizations globally relying on Fortinet FortiGate for perimeter defense and VPN access, with compromised credentials spanning 21,600+ domains including credentials, session tokens, and authentication hashes for 24 protocols.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately rotate all FortiGate admin and VPN credentials, enable MFA on all management interfaces, audit for unauthorized admin accounts, and disable diagnostic sniffers; follow CISA's June 18 hardening guidance at cisa.gov.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>FortiBleed is one of the most expansive credential-theft campaigns ever documented against network infrastructure. Since early 2026, the IAB combined brute-force attacks on weak passwords with reuse of credentials from prior breaches to gain administrative access to FortiGate appliances. Once inside, they deployed a custom tool called FortigateSniffer — built on top of FortiOS's own legitimate diagnostic sniffer feature — to capture in-transit credentials, tokens, secrets, and authentication hashes across 24 protocols.</p>
+      <p>As of mid-June 2026, confirmed credentials from roughly 86,644 unique devices had been catalogued, representing approximately half of all internet-facing Fortinet firewalls. The broader campaign total has grown to 430,000+ compromised devices and over 110 million stolen credentials. CISA issued an advisory on June 18 urging organizations to harden Fortinet devices, citing the active mass exploitation.</p>
+      <p>The IAB monetizes stolen access by selling it to ransomware operators, making this a critical enabler of downstream ransomware attacks across every sector. The combination of scale (194 countries, 21,600+ domains) and the method of weaponizing vendor-provided diagnostic tools makes detection and remediation especially difficult.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A firewall is like a security guard for a company's network — FortiGate is a brand of firewall used by hundreds of thousands of businesses worldwide. Criminals found that many of these firewalls used weak or reused passwords, then turned the firewall's own built-in tools against it to silently copy every username and password flowing through the device. Those stolen credentials are then sold to ransomware gangs who use them to break into and encrypt corporate networks.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE — attack leverages credential reuse + brute force + FortiOS native tooling abuse · CVSS: N/A — Real-world severity: CRITICAL based on 430,000+ devices compromised and 110M+ credentials stolen.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 3: Klue Supply Chain Attack — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · today</span>
+  </div>
+  <a href="https://www.securityweek.com/more-cybersecurity-firms-disclose-impact-from-klue-hack/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">More Cybersecurity Firms Disclose Breach via Klue Supply Chain Attack — HackerOne, Huntress, Snyk, Tanium Among Victims</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Hackers used a compromised legacy credential on June 11–12 to breach Klue (a market intelligence SaaS platform), then stole OAuth tokens from Klue's Salesforce integration to exfiltrate data from the Salesforce instances of Klue's customers — including over two dozen companies, many of them cybersecurity vendors.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> At least nine organizations have publicly confirmed impact including HackerOne, Huntress, Jamf, OneTrust, Recorded Future, Snyk, and Tanium, with roughly two dozen companies total notifying customers of the incident.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit and revoke any third-party OAuth tokens connected to your Salesforce instance, review third-party SaaS vendors' access permissions, and enable Salesforce's Event Monitoring for anomalous API access.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>The Klue breach is a textbook supply chain attack: rather than attacking HackerOne, Huntress, or Snyk directly (companies with strong security practices), the Icarus cybercrime group targeted a third-party vendor — Klue — that these firms trusted. Klue is a competitive intelligence platform used by many tech companies. After gaining access via a legacy (old) credential, attackers obtained the OAuth tokens Klue used to connect to its customers' Salesforce accounts.</p>
+      <p>OAuth tokens are essentially access keys that let one application read another's data without needing a password. By stealing these tokens, the attackers could read and download data from the Salesforce CRM systems of every Klue customer — which held sales pipeline data, customer contacts, internal intelligence reports, and other sensitive business information. Icarus posted a ransom note threatening to publish the stolen data.</p>
+      <p>The attack is particularly damaging because several of the victims are cybersecurity companies themselves, potentially exposing vulnerability research, threat intelligence data, and client security configurations. The incident underscores that even security-focused organizations can be compromised through their less-scrutinized vendors.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a master key that opens many locks — that's what an OAuth token is: it lets one app access another without re-entering a password each time. When hackers stole Klue's master keys (tokens), they could walk into the Salesforce databases of dozens of companies as if they belonged there. This is called a supply chain attack — targeting a less-guarded third-party vendor to get at the well-protected companies behind it.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned — credential theft + OAuth token hijacking · Severity: HIGH — Multiple cybersecurity vendors' CRM data compromised in cascading supply chain breach.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 4: Cisco Unified CM CVE-2026-20230 — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / CISA · today</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/cisa-sets-urgent-deadline-to-fix-cisco-flaw-exploited-in-attacks/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">CISA Sets Tomorrow (June 28) Deadline for Cisco Unified CM SSRF Flaw Actively Exploiting Federal Networks</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-20230, a CVSS 8.6 server-side request forgery vulnerability in Cisco Unified Communications Manager, to its KEV catalog with a mandatory June 28 remediation deadline after attackers used it to write arbitrary files and drop webshells on government systems, achieving a path to root access.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All organizations running Cisco Unified Communications Manager or Unified CM Session Management Edition with the WebDialer service enabled, including numerous U.S. federal agencies under BOD 26-04.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Cisco's patch (released June 3) immediately — note that patching alone does not evict attackers who have already dropped webshells; conduct a full incident response if exploitation is suspected.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-20230 exploits improper input validation in Cisco Unified Communications Manager's WebDialer service. An unauthenticated remote attacker can send crafted HTTP requests that cause the server to make unauthorized requests on the attacker's behalf (SSRF), and critically, to write arbitrary files to the underlying operating system — files that can later be used to escalate to root access.</p>
+      <p>Active exploitation was observed the weekend of June 21–22, 2026, when security firm Defused detected attackers writing arbitrary text files to affected endpoints. Subsequent investigation confirmed webshell drops — persistent backdoors that survive reboots. Security researchers at TechTimes reported that patching the vulnerable code alone will not remove already-installed webshells, meaning organizations that delayed patching face a full incident response, not just a patch job.</p>
+      <p>CISA added the flaw to its Known Exploited Vulnerabilities Catalog under the emergency BOD 26-04 3-day mandate, giving federal agencies until June 28 — tomorrow — to patch or disconnect affected systems. Cisco released a fix on June 3 and has marked the vulnerability as critical severity.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Cisco Unified Communications Manager is the phone system software used by large companies and government agencies — it handles calls, voicemail, and video. This bug let attackers trick the server into writing files it shouldn't, like leaving a hidden backdoor. CISA's "KEV Catalog" is like a most-wanted list of bugs actively being exploited right now, and when they add a flaw, federal agencies must patch it within days.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-20230 · CVSS: 8.6/10 — Unauthenticated SSRF leading to arbitrary file write and root escalation; webshell drops confirmed; CISA KEV with June 28 mandatory remediation deadline.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 5: Cisco SD-WAN Zero-Day CVE-2026-20245 — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Mandiant · today</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Cisco Catalyst SD-WAN Zero-Day (CVE-2026-20245) Exploited Months Before Disclosure to Gain Root on Service Providers</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> An unknown threat actor exploited CVE-2026-20245 (CVSS 7.8) in Cisco Catalyst SD-WAN Manager as a zero-day at least two months before Cisco's disclosure, using a crafted file upload to escalate from a compromised admin account to full root on a telecom service provider's SD-WAN management infrastructure.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations and service providers running Cisco Catalyst SD-WAN Manager with internet-facing or network-accessible management interfaces where an attacker already holds valid (possibly low-privilege) credentials.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Cisco's June 12 patch immediately, audit for rogue accounts (the attackers created one named "troot"), review management access logs for unauthorized file uploads, and restrict SD-WAN manager interfaces to private networks only.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-20245 is a command injection vulnerability in the CLI of Cisco Catalyst SD-WAN Manager. An attacker with authenticated access (such as a compromised administrator account) can upload a specially crafted file that triggers arbitrary command execution as root. The vulnerability stems from insufficient validation of user-supplied input during file upload operations.</p>
+      <p>Mandiant identified a real-world intrusion at a telecom service provider in early 2026 where the threat actor exploited this zero-day to escalate from a compromised admin account to root. They then created a rogue account named "troot" with unrestricted shell access and ran scripts to erase forensic evidence of the intrusion — a level of operational sophistication suggesting a nation-state or advanced criminal actor.</p>
+      <p>The two-month gap between exploitation and public disclosure is alarming: it means organizations had no opportunity to patch while under active attack. Cisco released a patch on June 12, 2026. The attack against a service provider is especially significant because SD-WAN managers control the networking infrastructure for potentially thousands of downstream enterprise customers.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SD-WAN is technology companies use to connect their offices and cloud services across different locations — like the brain of a company's wide-area network. The attacker secretly had access to this "brain" for two months before anyone knew. Once they got in, they created a hidden account and wiped their tracks — like a burglar who made a copy of the master key and erased the security footage.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-20245 · CVSS: 7.8/10 — Authenticated local CLI command injection with root escalation; exploited as zero-day for 2+ months; patch available June 12, 2026.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 6: Mistic Backdoor / KongTuke — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / The Hacker News · today</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/stealthy-mistic-backdoor-linked-to-ransomware-access-broker-kongtuke/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">New Mistic Backdoor Deployed by KongTuke Initial Access Broker Targeting Insurance, Education, and IT Sectors</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> A stealthy backdoor named Mistic has been deployed since April 2026 in financially motivated attacks across insurance, education, IT, and professional services sectors, linked to the KongTuke (Woodgnat) initial access broker, which specializes in selling corporate network access to ransomware groups.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations across multiple industries; KongTuke has been active since at least 2024 and typically sells compromised network access to ransomware operators, meaning victims are at high risk of a follow-on ransomware attack.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor endpoint detection systems for unusual persistence mechanisms, review for anomalous outbound connections, hunt for ClickFix and ModeloRAT campaign indicators of compromise, and contact your incident response team if suspicious activity is found.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Mistic is a newly identified backdoor assessed to be operated by KongTuke, a financially motivated initial access broker active since at least 2024. An IAB's business model is to compromise corporate networks and then sell that persistent foothold to ransomware groups who execute the final encryption-and-extortion stage. Mistic is designed for stealth and long-term persistence, making it difficult to detect with standard endpoint tools.</p>
+      <p>The malware has been linked to both the ClickFix social engineering campaign — which tricks users into running malicious PowerShell commands — and ModeloRAT, a remote access trojan. This multi-tool approach allows KongTuke to maintain redundant access even if one component is detected and removed. Attacks have targeted organizations in insurance, education, IT, and professional services since April 2026.</p>
+      <p>The primary danger of an IAB deployment is the downstream ransomware threat: once KongTuke sells access to a ransomware group, victims can expect data exfiltration followed by network-wide encryption within days to weeks. Early detection of Mistic is the last opportunity to prevent a full ransomware incident.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> An initial access broker is like a criminal locksmith — they pick the lock to get into a company's network, then sell the key to ransomware gangs. "Mistic" is the hidden tool they leave behind to keep that door open. Because these brokers sell access to the highest bidder, discovering Mistic on a network is a fire alarm: ransomware could arrive within days.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — custom malware; linked to ClickFix + ModeloRAT campaign chain · Severity: HIGH — Active IAB operation with direct ransomware pipeline across multiple sectors.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 7: Microsoft Defender Zero-Day CVE-2026-50656 — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Morphisec · today</span>
+  </div>
+  <a href="https://www.morphisec.com/blog/microsoft-defender-zero-day-rogueplanet-when-your-detector-becomes-the-attack-surface/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">RoguePlanet: Microsoft Defender Zero-Day (CVE-2026-50656) Turns Antivirus into SYSTEM-Level Privilege Escalation Vector</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Security researchers at Morphisec disclosed CVE-2026-50656 (dubbed RoguePlanet), a privilege escalation vulnerability in Microsoft Defender rated CVSS 7.8 that allows a local attacker to escalate from a standard user account to SYSTEM-level access — the highest privilege level in Windows.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any Windows system running Microsoft Defender (virtually all Windows endpoints), making this an exceptionally broad attack surface particularly dangerous when chained with an initial access mechanism.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Ensure Windows Update and Microsoft Defender signature/engine updates are enabled and current; Microsoft is expected to release a patch through Windows Update — verify your systems have applied the latest Defender engine update.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-50656, named "RoguePlanet" by Morphisec researchers, is a privilege escalation flaw in Microsoft Defender — the antivirus and security platform built into every modern Windows installation. The irony is stark: the tool designed to protect systems against malware becomes the attack surface itself. Attackers with a local foothold can exploit this flaw to escalate to SYSTEM privileges — the most powerful account in Windows, capable of accessing any file, process, or configuration on the machine.</p>
+      <p>Privilege escalation vulnerabilities like RoguePlanet are particularly valuable in the attack kill chain. They're typically used as a second stage: after attackers gain initial access (via phishing, a vulnerable web app, or an IAB like KongTuke), they use flaws like this to break out of low-privilege sandboxes and gain total control over the system. At SYSTEM level, they can disable security software, dump credential hashes, and move laterally across the network.</p>
+      <p>Microsoft Defender is installed on virtually every Windows endpoint worldwide, making the potential attack surface enormous. Morphisec's disclosure gives Microsoft the opportunity to patch quickly, but the vulnerability will remain dangerous until organizations apply the update.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Your antivirus (Microsoft Defender) is supposed to stop hackers — but this bug means the antivirus itself can be used against you. If a hacker gets into your computer at a low level (like as a regular user), they can use this flaw in Defender to become the all-powerful administrator instantly. Think of it like a security guard whose uniform comes with a master key — and someone figured out how to steal that key.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-50656 (RoguePlanet) · CVSS: 7.8/10 — Local privilege escalation to SYSTEM in Microsoft Defender; affects virtually all Windows endpoints; patch expected via Windows Update.</div>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Supply Chain Attacks ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A supply chain attack targets a trusted third-party vendor — like a software platform or cloud integration — rather than attacking a company directly, exploiting the trust relationship between the vendor and its customers to gain access to many organizations at once. Today's Klue breach is a perfect example: hackers couldn't easily break into security-hardened companies like HackerOne or Huntress, so they attacked a less-defended market intelligence tool those companies trusted, then used stolen OAuth "master keys" to walk into their Salesforce databases. This is why modern security teams now scrutinize every vendor in their supply chain and regularly audit third-party application permissions — your security is only as strong as the least-secure vendor you trust.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: CVE · CVSS · RCE · SSRF · Zero-Day · IAB · KEV · OAuth · MFA · SD-WAN · PoC · Webshell ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CVE</strong> — Common Vulnerabilities and Exposures; a standardized ID (e.g. CVE-2026-35273) assigned to each publicly known security flaw so researchers and defenders can reference it unambiguously.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System; a 0–10 scale rating how severe a security flaw is, where 9.0–10 is Critical, 7.0–8.9 is High, 4.0–6.9 is Medium, and below 4.0 is Low.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RCE</strong> — Remote Code Execution; a class of vulnerability that lets an attacker run arbitrary code on a victim's system over a network, without physical access.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SSRF</strong> — Server-Side Request Forgery; an attack where a server is tricked into making unauthorized network requests on behalf of an attacker, potentially exposing internal systems or writing malicious files.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Zero-Day</strong> — A vulnerability that is unknown to the vendor and is being actively exploited in the wild, giving defenders "zero days" to patch before attacks occur.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">IAB</strong> — Initial Access Broker; a cybercriminal specialist who breaks into corporate networks and sells that persistent access to ransomware groups or other threat actors.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">KEV</strong> — Known Exploited Vulnerabilities; CISA's catalog of security flaws confirmed to be actively exploited in real attacks, with mandatory remediation deadlines for federal agencies.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">OAuth</strong> — Open Authorization; an open standard that lets applications access each other's data using temporary tokens instead of sharing passwords, widely used for third-party integrations.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MFA</strong> — Multi-Factor Authentication; a login method requiring two or more verification factors (e.g., password + a code sent to your phone), making stolen passwords alone insufficient to log in.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SD-WAN</strong> — Software-Defined Wide Area Network; enterprise networking technology that uses software to intelligently route traffic across multiple locations and cloud services.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PoC</strong> — Proof of Concept; a working exploit demonstration that proves a vulnerability can be triggered, often published by researchers to pressure vendors into releasing patches quickly.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Webshell</strong> — A malicious script uploaded to a web server that provides attackers with persistent remote access and code execution through an ordinary web browser, surviving reboots and patches.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">APT</strong> — Advanced Persistent Threat; a sophisticated, often nation-state-sponsored attacker who quietly maintains long-term access to a target network rather than causing immediate visible damage.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/french-government-messaging-platform-breached-by-mysterious-misere-hacker/" style="color:#374151;text-decoration:none;">French Government Chat App Tchap Breached — 73,467 Accounts Stolen by Threat Actor 'Misere'</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.nintendolife.com/news/2026/06/hacker-group-claims-to-have-stolen-nintendo-data-posts-usd2-million-ransom" style="color:#374151;text-decoration:none;">Nintendo Hit by ShadowByt3$ Ransomware — Employee Data Stolen via TinyPulse, $2M Ransom Demanded</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Nintendo Life</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.cisa.gov/news-events/alerts/2026/06/23/cisa-adds-four-known-exploited-vulnerabilities-catalog" style="color:#374151;text-decoration:none;">CISA Adds Four Vulnerabilities to KEV Catalog: Ubiquiti UniFi (3 CVEs) and Lantronix EDS5000</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://sharkstriker.com/blog/june-2026-data-breaches/" style="color:#374151;text-decoration:none;">South African Police Service Breach Exposes Medical Records of 3,000 Officers Including PTSD and Cancer Diagnoses</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SharkStriker</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://securityonline.info/" style="color:#374151;text-decoration:none;">Langflow Cryptominer Malware Exploits CVE-2026-33017 to Hijack AI Development Servers</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Security Online</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://sharkstriker.com/blog/june-2026-data-breaches/" style="color:#374151;text-decoration:none;">London Hydro Utility Breach Exposes Customer Names, Addresses, and Account Numbers</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SharkStriker</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · June 27, 2026
+</div>
+
+</body>
+</html>
