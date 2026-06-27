@@ -7,242 +7,218 @@
 <div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
   <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
   <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — June 27, 2026</div>
-  <div style="font-size:13px;opacity:.85;margin-top:4px;">13 stories · 2 critical · 5 high · 6 medium</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">100+ advisories · 8 critical · 40 high · 35 medium · Source: GitHub Advisory Database</div>
 </div>
 
-<!-- STORY 1: ShinyHunters Oracle PeopleSoft — CRITICAL -->
+<!-- STORY 1: mcp-pinot CVSS 10.0 — CRITICAL -->
 <div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
   <div style="margin-bottom:8px;">
     <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
-    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Help Net Security · today</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">GitHub Advisory Database · 19 hours ago</span>
   </div>
-  <a href="https://thehackernews.com/2026/06/shinyhunters-exploits-oracle-peoplesoft.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">ShinyHunters Exploits Oracle PeopleSoft Zero-Day (CVE-2026-35273) Across 100+ Universities</a>
+  <a href="https://github.com/advisories/GHSA-73cv-556c-w3g6" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">mcp-pinot: Unauthenticated Remote Tool Invocation via Default oauth_enabled=False + 0.0.0.0 Bind (CVE-2026-49257)</a>
   <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
-    <div>🔍 <strong>What happened:</strong> The ShinyHunters cybercrime group weaponized an unauthenticated remote code execution zero-day (CVE-2026-35273, CVSS 9.8) in Oracle PeopleSoft to breach more than 100 organizations between May 27 and June 9, stealing student records before Oracle published an advisory on June 10.</div>
-    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Primarily higher-education institutions worldwide (68% of victims), with the University of Nottingham publicly confirming a breach exposing 454,600 current and former students' personal and academic data.</div>
-    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Oracle's out-of-band patch for PeopleSoft Enterprise PeopleTools 8.61/8.62 immediately, audit for the README-IF-YOU-SEE-THIS-YOUVE-BEEN-HACKED.TXT marker file in PeopleSoft directories, and treat any administrative credentials as compromised.</div>
+    <div>🔍 <strong>What happened:</strong> The mcp-pinot MCP server shipped with OAuth disabled by default and bound to all network interfaces (0.0.0.0), allowing anyone on the network — no credentials required — to invoke any Apache Pinot database tool, including queries and schema modifications.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running mcp-pinot (the Python MCP server for Apache Pinot) before version 3.1.0, particularly any deployment exposed beyond localhost such as in Kubernetes or Docker environments.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to mcp-pinot v3.1.0 immediately, which defaults to 127.0.0.1 binding and requires OAuth before any non-loopback exposure; if you cannot upgrade, firewall the server and restrict access to localhost only.</div>
   </div>
   <details style="margin-top:10px;">
     <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
     <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
-      <p>CVE-2026-35273 resides in the Environment Management component of Oracle PeopleSoft Enterprise PeopleTools. Rated CVSS 9.8 out of 10, the flaw requires no authentication and no user interaction — an attacker only needs HTTP network access to execute arbitrary code as the server. ShinyHunters turned this bug into a large-scale extortion campaign, exfiltrating sensitive records and threatening to publish unless victims paid a ransom.</p>
-      <p>The attack spanned May 27 to June 9 across more than 300 vulnerable instances at over 100 organizations, and Oracle published its emergency advisory on June 10 — meaning the flaw was an active zero-day throughout the entire campaign window. Post-exploitation scripts were observed spreading laterally over SSH by brute-forcing internal hosts listed in /etc/hosts, then dropping a visible ransom marker file in PeopleSoft directories.</p>
-      <p>Data confirmed published on ShinyHunters' leak site already includes tens of gigabytes of student records: names, home addresses, phone numbers, emails, dates of birth, ethnicity, enrollment status, GPAs, majors, and student IDs. The University of Nottingham is the highest-profile confirmed victim with 454,600 records exposed. Mandiant notified over 100 organizations as victims.</p>
+      <p>mcp-pinot is a Model Context Protocol server that bridges AI assistants (such as Claude or GPT-based tools) to Apache Pinot, a real-time distributed OLAP datastore used in analytics pipelines. The vulnerability stems from two insecure defaults: <code>oauth_enabled=False</code> by default, meaning no authentication was enforced, and the HTTP server bound to <code>0.0.0.0</code>, meaning it accepted connections from all network interfaces — not just localhost.</p>
+      <p>This combination produced a perfect CVSS 10.0: network-accessible, no authentication required, no user interaction needed, with full scope impact on confidentiality, integrity, and availability. An attacker on the same network (or any network if the server was internet-facing) could invoke any registered MCP tool — running SQL queries, modifying Pinot schemas, or fetching sensitive analytics data — with zero friction.</p>
+      <p>The fix was merged in PR #95 and released as v3.1.0 on May 25. The advisory was published June 26, 2026. The patch changes the default bind host to 127.0.0.1, requires OAuth to be explicitly enabled before any non-loopback exposure, makes Helm chart exposure opt-in and OAuth-gated, and adds input validation to the argument parser.</p>
       <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
-        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Oracle PeopleSoft is software used by universities to manage student records, HR, and finances. A "zero-day" means hackers found and exploited the bug before the company knew it existed and could release a fix. In this case, hundreds of thousands of students' personal information was stolen because a flaw let criminals walk right into school systems without even needing a password.
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> MCP (Model Context Protocol) is how AI assistants connect to tools and databases. Imagine leaving the door to your database server wide open with a sign saying "no password needed." That is exactly what mcp-pinot did by default — it listened for commands from anyone on the network without checking who they were. Anyone nearby could have read, modified, or deleted your analytics data just by sending the right request.
       </div>
-      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-35273 · CVSS: 9.8/10 — Unauthenticated network-reachable RCE in a widely deployed enterprise HR and student-records platform, zero user interaction required, already mass-exploited in the wild.</div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-49257 · CVSS: 10.0/10 — A perfect-score vulnerability: network-reachable, no authentication, no user interaction, complete impact across confidentiality, integrity, and availability.</div>
     </div>
   </details>
 </div>
 
-<!-- STORY 2: FortiBleed — CRITICAL -->
+<!-- STORY 2: Nezha WebSocket Session Hijack — CRITICAL -->
 <div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
   <div style="margin-bottom:8px;">
     <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
-    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Recorded Future / CISA · today</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">GitHub Advisory Database · 18 hours ago</span>
   </div>
-  <a href="https://www.recordedfuture.com/blog/critical-fortibleed-campaign" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">FortiBleed: 430,000 Fortinet Firewalls Compromised, 110 Million Credentials Stolen in Mass Campaign</a>
+  <a href="https://github.com/advisories/GHSA-q6xx-5vr8-p898" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Nezha Dashboard: Cross-Tenant Terminal and File Manager Session Hijack via Unvalidated WebSocket UUID</a>
   <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
-    <div>🔍 <strong>What happened:</strong> A Russian-speaking, financially motivated Initial Access Broker (IAB) conducted a credential-harvesting campaign dubbed "FortiBleed," compromising over 430,000 internet-facing FortiGate firewalls and VPN gateways across 194 countries by exploiting weak credentials and abusing FortiOS's own built-in diagnostic tools to intercept traffic.</div>
-    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprise and government organizations globally relying on Fortinet FortiGate for perimeter defense and VPN access, with compromised credentials spanning 21,600+ domains including credentials, session tokens, and authentication hashes for 24 protocols.</div>
-    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately rotate all FortiGate admin and VPN credentials, enable MFA on all management interfaces, audit for unauthorized admin accounts, and disable diagnostic sniffers; follow CISA's June 18 hardening guidance at cisa.gov.</div>
+    <div>🔍 <strong>What happened:</strong> In Nezha v1.14.13–v1.14.14 and v2.0.0–v2.0.9, any authenticated dashboard user can hijack another user's active terminal or file-manager WebSocket session simply by knowing the session's stream UUID, as the server checks authentication but never verifies session ownership.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Teams and hosting providers using Nezha as a multi-user server monitoring and management dashboard — particularly those where different users manage different servers from the same dashboard instance.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> No patch is available yet; restrict Nezha dashboard access to fully trusted administrators only, and avoid multi-tenant deployments until a fix is released.</div>
   </div>
   <details style="margin-top:10px;">
     <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
     <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
-      <p>FortiBleed is one of the most expansive credential-theft campaigns ever documented against network infrastructure. Since early 2026, the IAB combined brute-force attacks on weak passwords with reuse of credentials from prior breaches to gain administrative access to FortiGate appliances. Once inside, they deployed a custom tool called FortigateSniffer — built on top of FortiOS's own legitimate diagnostic sniffer feature — to capture in-transit credentials, tokens, secrets, and authentication hashes across 24 protocols.</p>
-      <p>As of mid-June 2026, confirmed credentials from roughly 86,644 unique devices had been catalogued, representing approximately half of all internet-facing Fortinet firewalls. The broader campaign total has grown to 430,000+ compromised devices and over 110 million stolen credentials. CISA issued an advisory on June 18 urging organizations to harden Fortinet devices, citing the active mass exploitation.</p>
-      <p>The IAB monetizes stolen access by selling it to ransomware operators, making this a critical enabler of downstream ransomware attacks across every sector. The combination of scale (194 countries, 21,600+ domains) and the method of weaponizing vendor-provided diagnostic tools makes detection and remediation especially difficult.</p>
+      <p>Nezha is a popular open-source server monitoring platform that gives administrators a web dashboard to view metrics, open terminals, and manage files on remote servers. The terminal and file-manager features work over WebSocket — persistent real-time connections identified by a UUID (a unique session ID) generated when the session is created.</p>
+      <p>The vulnerability is a classic authorization failure: the WebSocket endpoints <code>GET /ws/terminal/:id</code> and <code>GET /ws/file/:id</code> verify that the requester is a logged-in user, but they never verify that the logged-in user actually owns the session referenced by <code>:id</code>. Any dashboard user — even a low-privilege "RoleMember" — who obtains a live stream UUID can attach to that session and gain interactive shell access or full file-manager control on the target server. This is cross-tenant access: a user on Server A can compromise Server B's terminal if they learn the UUID.</p>
+      <p>Scoring CVSS 9.9 (network, low complexity, low privilege, no user interaction, changed scope, high impact across all three CIA dimensions), this flaw is rated critical. The UUID can potentially be predicted, brute-forced (if short), observed in logs, or obtained via social engineering. No patch exists at time of publication.</p>
       <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
-        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A firewall is like a security guard for a company's network — FortiGate is a brand of firewall used by hundreds of thousands of businesses worldwide. Criminals found that many of these firewalls used weak or reused passwords, then turned the firewall's own built-in tools against it to silently copy every username and password flowing through the device. Those stolen credentials are then sold to ransomware gangs who use them to break into and encrypt corporate networks.
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of a hotel where every room has a unique door code. This bug is like the hotel giving you a master key as long as you know any room's code — even if that room belongs to a different guest. In Nezha, each server management session gets a unique ID (like a room code), but the system never checks whether you own the session you're trying to open. A malicious user could take over any other user's server terminal.
       </div>
-      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE — attack leverages credential reuse + brute force + FortiOS native tooling abuse · CVSS: N/A — Real-world severity: CRITICAL based on 430,000+ devices compromised and 110M+ credentials stolen.</div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned yet · CVSS: 9.9/10 — Authenticated low-privilege user can hijack any active server terminal across tenant boundaries; no patch available.</div>
     </div>
   </details>
 </div>
 
-<!-- STORY 3: Klue Supply Chain Attack — HIGH -->
-<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+<!-- STORY 3: deepstream Prototype Pollution — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
   <div style="margin-bottom:8px;">
-    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
-    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · today</span>
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">GitHub Advisory Database · 19 hours ago</span>
   </div>
-  <a href="https://www.securityweek.com/more-cybersecurity-firms-disclose-impact-from-klue-hack/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">More Cybersecurity Firms Disclose Breach via Klue Supply Chain Attack — HackerOne, Huntress, Snyk, Tanium Among Victims</a>
+  <a href="https://github.com/advisories/GHSA-9v98-6g37-x9g6" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">deepstream Server: Prototype Pollution Enables Privilege Escalation from Any Authenticated Write User (CVE-2026-49252)</a>
   <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
-    <div>🔍 <strong>What happened:</strong> Hackers used a compromised legacy credential on June 11–12 to breach Klue (a market intelligence SaaS platform), then stole OAuth tokens from Klue's Salesforce integration to exfiltrate data from the Salesforce instances of Klue's customers — including over two dozen companies, many of them cybersecurity vendors.</div>
-    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> At least nine organizations have publicly confirmed impact including HackerOne, Huntress, Jamf, OneTrust, Recorded Future, Snyk, and Tanium, with roughly two dozen companies total notifying customers of the incident.</div>
-    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit and revoke any third-party OAuth tokens connected to your Salesforce instance, review third-party SaaS vendors' access permissions, and enable Salesforce's Event Monitoring for anomalous API access.</div>
+    <div>🔍 <strong>What happened:</strong> deepstream server versions up to 10.0.4 are vulnerable to prototype pollution — an attacker with write access to any record can inject malicious properties into JavaScript's base Object prototype, potentially escalating privileges to administrator level.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Applications using <code>@deepstream/server</code> for real-time data synchronization, gaming backends, collaborative apps, or IoT platforms where users with write permissions may be untrusted or partially trusted.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to deepstream v10.0.5 immediately; as a temporary workaround, filter all incoming messages containing the paths <code>__proto__</code>, <code>constructor</code>, or <code>prototype</code> before they reach the server's message pipeline.</div>
   </div>
   <details style="margin-top:10px;">
     <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
     <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
-      <p>The Klue breach is a textbook supply chain attack: rather than attacking HackerOne, Huntress, or Snyk directly (companies with strong security practices), the Icarus cybercrime group targeted a third-party vendor — Klue — that these firms trusted. Klue is a competitive intelligence platform used by many tech companies. After gaining access via a legacy (old) credential, attackers obtained the OAuth tokens Klue used to connect to its customers' Salesforce accounts.</p>
-      <p>OAuth tokens are essentially access keys that let one application read another's data without needing a password. By stealing these tokens, the attackers could read and download data from the Salesforce CRM systems of every Klue customer — which held sales pipeline data, customer contacts, internal intelligence reports, and other sensitive business information. Icarus posted a ransom note threatening to publish the stolen data.</p>
-      <p>The attack is particularly damaging because several of the victims are cybersecurity companies themselves, potentially exposing vulnerability research, threat intelligence data, and client security configurations. The incident underscores that even security-focused organizations can be compromised through their less-scrutinized vendors.</p>
+      <p>deepstream is a real-time data server used to synchronize state across clients — common in collaborative editing, multiplayer games, dashboards, and IoT applications. Its core concept is a "record" — a shared, mutable JSON object that any permitted client can read or write to.</p>
+      <p>The prototype pollution vulnerability means that when a client writes to a record using a specially crafted path like <code>__proto__.isAdmin</code> or <code>constructor.prototype.role</code>, deepstream processes the path without sanitization and mutates JavaScript's base <code>Object.prototype</code>. Because every JavaScript object inherits from <code>Object.prototype</code>, this mutation affects all objects on the server — including internal authorization objects. The result can be privilege escalation: the attacker's session may gain permissions they were never granted, up to and including administrative control.</p>
+      <p>CVSS 9.9 reflects the near-universal impact: once prototype pollution succeeds, server-wide state is compromised. The fix (v10.0.5) adds path sanitization before record mutations are applied. The recommended workaround — blocking messages with <code>__proto__</code>, <code>constructor</code>, and <code>prototype</code> in paths at the network layer — is effective but must be applied before message parsing to prevent exploitation.</p>
       <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
-        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a master key that opens many locks — that's what an OAuth token is: it lets one app access another without re-entering a password each time. When hackers stole Klue's master keys (tokens), they could walk into the Salesforce databases of dozens of companies as if they belonged there. This is called a supply chain attack — targeting a less-guarded third-party vendor to get at the well-protected companies behind it.
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> In JavaScript, every object shares a common ancestor called "Object.prototype" — like a template all objects copy from. Prototype pollution is when an attacker tricks the server into adding properties to that shared template, which then magically appears on every object in the program. It is like sneaking a skeleton key onto a key ring that all the locks in a building are based on — suddenly every door is open.
       </div>
-      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned — credential theft + OAuth token hijacking · Severity: HIGH — Multiple cybersecurity vendors' CRM data compromised in cascading supply chain breach.</div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-49252 · CVSS: 9.9/10 — Authenticated user with record-write permission can pollute the global Object prototype, enabling server-wide privilege escalation. Fixed in v10.0.5.</div>
     </div>
   </details>
 </div>
 
-<!-- STORY 4: Cisco Unified CM CVE-2026-20230 — HIGH -->
-<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+<!-- STORY 4: Incus Arbitrary File Write — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
   <div style="margin-bottom:8px;">
-    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
-    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / CISA · today</span>
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">GitHub Advisory Database · 21 hours ago</span>
   </div>
-  <a href="https://www.bleepingcomputer.com/news/security/cisa-sets-urgent-deadline-to-fix-cisco-flaw-exploited-in-attacks/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">CISA Sets Tomorrow (June 28) Deadline for Cisco Unified CM SSRF Flaw Actively Exploiting Federal Networks</a>
+  <a href="https://github.com/advisories/GHSA-f6m5-xw2g-xc4x" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Incus Container Runtime: Malicious Image Server Triggers Arbitrary File Write and Root Code Execution (CVE-2026-48769)</a>
   <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
-    <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-20230, a CVSS 8.6 server-side request forgery vulnerability in Cisco Unified Communications Manager, to its KEV catalog with a mandatory June 28 remediation deadline after attackers used it to write arbitrary files and drop webshells on government systems, achieving a path to root access.</div>
-    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All organizations running Cisco Unified Communications Manager or Unified CM Session Management Edition with the WebDialer service enabled, including numerous U.S. federal agencies under BOD 26-04.</div>
-    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Cisco's patch (released June 3) immediately — note that patching alone does not evict attackers who have already dropped webshells; conduct a full incident response if exploitation is suspected.</div>
+    <div>🔍 <strong>What happened:</strong> The Incus container daemon trusts the <code>Incus-Image-Hash</code> HTTP response header from image servers without validation, allowing a malicious image server to control the file path used during image download and write arbitrary content to arbitrary locations on the host filesystem, leading to RCE as root.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Operators using Incus (the LXC/LXD successor for Linux containers and VMs) to pull images from external or third-party image servers, especially automated pipelines that fetch images without manual oversight.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> No patch is available yet; restrict <code>source.type=url</code> image pulls to a curated allowlist of fully trusted servers and avoid pulling images from any untrusted source until fixed.</div>
   </div>
   <details style="margin-top:10px;">
     <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
     <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
-      <p>CVE-2026-20230 exploits improper input validation in Cisco Unified Communications Manager's WebDialer service. An unauthenticated remote attacker can send crafted HTTP requests that cause the server to make unauthorized requests on the attacker's behalf (SSRF), and critically, to write arbitrary files to the underlying operating system — files that can later be used to escalate to root access.</p>
-      <p>Active exploitation was observed the weekend of June 21–22, 2026, when security firm Defused detected attackers writing arbitrary text files to affected endpoints. Subsequent investigation confirmed webshell drops — persistent backdoors that survive reboots. Security researchers at TechTimes reported that patching the vulnerable code alone will not remove already-installed webshells, meaning organizations that delayed patching face a full incident response, not just a patch job.</p>
-      <p>CISA added the flaw to its Known Exploited Vulnerabilities Catalog under the emergency BOD 26-04 3-day mandate, giving federal agencies until June 28 — tomorrow — to patch or disconnect affected systems. Cisco released a fix on June 3 and has marked the vulnerability as critical severity.</p>
+      <p>Incus is an open-source system for managing Linux containers and virtual machines, used in cloud hosting, development environments, and infrastructure automation. When a user creates a container from a URL-based image source (<code>source.type=url</code>), the daemon issues an HTTP HEAD request to the image server to discover the image hash and download URL via response headers.</p>
+      <p>The vulnerability lies in <code>cmd/incusd/images.go</code>: the daemon reads the <code>Incus-Image-Hash</code> header value from the server's response and uses it directly as the <code>Alias</code> parameter — without any sanitization or path validation — when constructing the local file path for the downloaded image. A malicious image server can return a crafted hash value containing path traversal sequences (e.g., <code>../../etc/cron.d/backdoor</code>), causing the daemon to write attacker-controlled content to any location on the host filesystem. Since incusd typically runs as root, this constitutes arbitrary root file write, which trivially leads to root code execution (e.g., via cron, authorized_keys, or LD_PRELOAD).</p>
+      <p>With a CVSS score of 9.9 and a Changed Scope, the blast radius extends beyond the container daemon itself to the entire host system. No patch has been released at time of publication.</p>
       <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
-        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Cisco Unified Communications Manager is the phone system software used by large companies and government agencies — it handles calls, voicemail, and video. This bug let attackers trick the server into writing files it shouldn't, like leaving a hidden backdoor. CISA's "KEV Catalog" is like a most-wanted list of bugs actively being exploited right now, and when they add a flaw, federal agencies must patch it within days.
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When you download a container image, the software asks the image server "where should I save this file?" This bug means a rogue image server can answer "save it here: /etc/cron.d/evil" — and the software obeys. Since the container manager runs with full administrator (root) privileges, the attacker can then make the computer run any command they want just by setting up a fake image server.
       </div>
-      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-20230 · CVSS: 8.6/10 — Unauthenticated SSRF leading to arbitrary file write and root escalation; webshell drops confirmed; CISA KEV with June 28 mandatory remediation deadline.</div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-48769 · CVSS: 9.9/10 — Malicious image server achieves root arbitrary file write on the host via an unsanitized HTTP header; no patch available.</div>
     </div>
   </details>
 </div>
 
-<!-- STORY 5: Cisco SD-WAN Zero-Day CVE-2026-20245 — HIGH -->
-<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+<!-- STORY 5: Relyra SAML Auth Bypass — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
   <div style="margin-bottom:8px;">
-    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
-    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Mandiant · today</span>
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">GitHub Advisory Database · 19 hours ago</span>
   </div>
-  <a href="https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-zero-day-cve-2026.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Cisco Catalyst SD-WAN Zero-Day (CVE-2026-20245) Exploited Months Before Disclosure to Gain Root on Service Providers</a>
+  <a href="https://github.com/advisories/GHSA-jv46-xfwm-36j7" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Relyra SAML Library: Signatures Never Cryptographically Verified — Authentication Bypass in All Versions (CVE-2026-49454)</a>
   <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
-    <div>🔍 <strong>What happened:</strong> An unknown threat actor exploited CVE-2026-20245 (CVSS 7.8) in Cisco Catalyst SD-WAN Manager as a zero-day at least two months before Cisco's disclosure, using a crafted file upload to escalate from a compromised admin account to full root on a telecom service provider's SD-WAN management infrastructure.</div>
-    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations and service providers running Cisco Catalyst SD-WAN Manager with internet-facing or network-accessible management interfaces where an attacker already holds valid (possibly low-privilege) credentials.</div>
-    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Cisco's June 12 patch immediately, audit for rogue accounts (the attackers created one named "troot"), review management access logs for unauthorized file uploads, and restrict SD-WAN manager interfaces to private networks only.</div>
+    <div>🔍 <strong>What happened:</strong> The Erlang SAML library Relyra (versions 1.0.0 and 1.1.0) accepted forged SAML authentication assertions because it never actually performed cryptographic signature verification — the <code>SignatureValue</code> field was present and parsed but never validated against the configured identity provider's public key.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Applications using Relyra for SAML-based Single Sign-On (SSO) authentication, particularly Erlang/Elixir services integrated with enterprise identity providers like Okta, Azure AD, or PingFederate.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> No patch is available; immediately disable Relyra-based SAML authentication and fall back to an alternative auth method — any account protected only by Relyra-mediated SAML should be treated as potentially compromised.</div>
   </div>
   <details style="margin-top:10px;">
     <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
     <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
-      <p>CVE-2026-20245 is a command injection vulnerability in the CLI of Cisco Catalyst SD-WAN Manager. An attacker with authenticated access (such as a compromised administrator account) can upload a specially crafted file that triggers arbitrary command execution as root. The vulnerability stems from insufficient validation of user-supplied input during file upload operations.</p>
-      <p>Mandiant identified a real-world intrusion at a telecom service provider in early 2026 where the threat actor exploited this zero-day to escalate from a compromised admin account to root. They then created a rogue account named "troot" with unrestricted shell access and ran scripts to erase forensic evidence of the intrusion — a level of operational sophistication suggesting a nation-state or advanced criminal actor.</p>
-      <p>The two-month gap between exploitation and public disclosure is alarming: it means organizations had no opportunity to patch while under active attack. Cisco released a patch on June 12, 2026. The attack against a service provider is especially significant because SD-WAN managers control the networking infrastructure for potentially thousands of downstream enterprise customers.</p>
+      <p>SAML (Security Assertion Markup Language) is a protocol used in enterprise SSO: an identity provider (like Okta or Azure AD) issues a digitally signed XML assertion saying "this user is authenticated." A service provider (your app) must verify that signature before trusting the assertion — that verification is the entire security boundary of SAML.</p>
+      <p>Relyra's critical flaw: in versions 1.0.0 and 1.1.0, the library parsed the SAML XML structure, extracted the <code>SignatureValue</code> element, but never called <code>:public_key.verify</code> against the canonicalized <code>SignedInfo</code> using the configured IdP certificate's public key. Similarly, <code>DigestValue</code> was never recomputed over the canonicalized referenced element. The result: any attacker can construct a completely fabricated SAML assertion (with arbitrary user identity, roles, and attributes), include a fake or empty <code>SignatureValue</code>, and Relyra will accept it as valid authentication.</p>
+      <p>This is a total authentication bypass — CVSS 9.1. An attacker who knows the SAML endpoint URL can log in as any user, including administrators, without possessing any credentials. No patch is available at time of disclosure.</p>
       <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
-        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SD-WAN is technology companies use to connect their offices and cloud services across different locations — like the brain of a company's wide-area network. The attacker secretly had access to this "brain" for two months before anyone knew. Once they got in, they created a hidden account and wiped their tracks — like a burglar who made a copy of the master key and erased the security footage.
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SAML is like a signed letter from HR saying "this person is an employee." The signature proves HR wrote it and nobody tampered with it. Relyra's bug is that it read the letter and trusted it without ever checking whether the signature was real — like a bouncer who glances at the wristband but never actually scans it. Anyone who forged a letter, even with gibberish for a signature, would be let right in.
       </div>
-      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-20245 · CVSS: 7.8/10 — Authenticated local CLI command injection with root escalation; exploited as zero-day for 2+ months; patch available June 12, 2026.</div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-49454 · CVSS: 9.1/10 — Total SAML authentication bypass; forged assertions are accepted as valid. Affects all Relyra versions. No patch available.</div>
     </div>
   </details>
 </div>
 
-<!-- STORY 6: Mistic Backdoor / KongTuke — HIGH -->
-<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+<!-- STORY 6: Nezha Pre-Auth JWT Leak — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
   <div style="margin-bottom:8px;">
-    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
-    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / The Hacker News · today</span>
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">GitHub Advisory Database · 17 hours ago</span>
   </div>
-  <a href="https://www.bleepingcomputer.com/news/security/stealthy-mistic-backdoor-linked-to-ransomware-access-broker-kongtuke/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">New Mistic Backdoor Deployed by KongTuke Initial Access Broker Targeting Insurance, Education, and IT Sectors</a>
+  <a href="https://github.com/advisories/GHSA-5c25-7vpj-9mqh" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Nezha Monitoring: Pre-Auth Path Traversal via /dashboard.. Prefix Confusion Leaks Master JWT Secret (CVE-2026-53519)</a>
   <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
-    <div>🔍 <strong>What happened:</strong> A stealthy backdoor named Mistic has been deployed since April 2026 in financially motivated attacks across insurance, education, IT, and professional services sectors, linked to the KongTuke (Woodgnat) initial access broker, which specializes in selling corporate network access to ransomware groups.</div>
-    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations across multiple industries; KongTuke has been active since at least 2024 and typically sells compromised network access to ransomware operators, meaning victims are at high risk of a follow-on ransomware attack.</div>
-    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor endpoint detection systems for unusual persistence mechanisms, review for anomalous outbound connections, hunt for ClickFix and ModeloRAT campaign indicators of compromise, and contact your incident response team if suspicious activity is found.</div>
+    <div>🔍 <strong>What happened:</strong> Nezha's dashboard frontend handler uses a string prefix check (<code>strings.HasPrefix(url, "/dashboard")</code>) to decide whether to serve admin assets, but the check matches <code>/dashboard..</code> — allowing an unauthenticated attacker to request <code>/dashboard../data/config.yaml</code>, which resolves to the server's <code>config.yaml</code> containing the <code>jwt_secret_key</code>.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Anyone running an internet-exposed Nezha monitoring dashboard — once an attacker has the <code>jwt_secret_key</code>, they can forge admin-level JWTs and take over the entire dashboard without credentials.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> No patch is available yet; immediately firewall your Nezha dashboard from the internet, restrict to VPN or internal network access only, and rotate the <code>jwt_secret_key</code> if the dashboard was ever internet-accessible.</div>
   </div>
   <details style="margin-top:10px;">
     <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
     <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
-      <p>Mistic is a newly identified backdoor assessed to be operated by KongTuke, a financially motivated initial access broker active since at least 2024. An IAB's business model is to compromise corporate networks and then sell that persistent foothold to ransomware groups who execute the final encryption-and-extortion stage. Mistic is designed for stealth and long-term persistence, making it difficult to detect with standard endpoint tools.</p>
-      <p>The malware has been linked to both the ClickFix social engineering campaign — which tricks users into running malicious PowerShell commands — and ModeloRAT, a remote access trojan. This multi-tool approach allows KongTuke to maintain redundant access even if one component is detected and removed. Attacks have targeted organizations in insurance, education, IT, and professional services since April 2026.</p>
-      <p>The primary danger of an IAB deployment is the downstream ransomware threat: once KongTuke sells access to a ransomware group, victims can expect data exfiltration followed by network-wide encryption within days to weeks. Early detection of Mistic is the last opportunity to prevent a full ransomware incident.</p>
+      <p>This is a path traversal vulnerability rooted in a subtle string-matching mistake. Nezha's <code>NoRoute</code> fallback handler is supposed to serve the admin frontend for any URL that starts with <code>/dashboard</code> (meaning URLs like <code>/dashboard/overview</code> or <code>/dashboard/settings</code>). The check uses <code>strings.HasPrefix(url, "/dashboard")</code> — which also matches <code>/dashboard..</code> because the string <code>/dashboard..</code> does indeed start with <code>/dashboard</code>.</p>
+      <p>When the handler strips the <code>/dashboard</code> prefix using <code>strings.TrimPrefix</code>, the remainder is <code>../data/config.yaml</code>. This gets joined with the admin frontend asset directory via <code>path.Join("admin-dist", "../data/config.yaml")</code>, which Go's path normalizer resolves to <code>data/config.yaml</code> — the server's configuration file. This file is then served verbatim by <code>http.ServeFile</code> without any authentication check, because the handler never reaches the authentication middleware (it was treated as a frontend asset request).</p>
+      <p>The <code>config.yaml</code> file typically contains <code>jwt_secret_key</code> — the HMAC secret used to sign all JWTs for dashboard authentication. With this key in hand, an attacker can forge a JWT claiming any identity (including administrator) and authenticate to the dashboard without credentials. Combined with the GHSA-q6xx WebSocket session hijack also published today, a Nezha dashboard compromise is now trivial end-to-end.</p>
       <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
-        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> An initial access broker is like a criminal locksmith — they pick the lock to get into a company's network, then sell the key to ransomware gangs. "Mistic" is the hidden tool they leave behind to keep that door open. Because these brokers sell access to the highest bidder, discovering Mistic on a network is a fire alarm: ransomware could arrive within days.
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A JWT secret key is like the master stamp used to certify every login token. If someone steals that stamp, they can create fake tokens that say "I am the administrator" — and the system will believe them. This bug lets anyone, without logging in, trick the server into handing over that master stamp just by using a slightly misspelled web address (<code>/dashboard..</code> instead of <code>/dashboard</code>).
       </div>
-      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — custom malware; linked to ClickFix + ModeloRAT campaign chain · Severity: HIGH — Active IAB operation with direct ransomware pipeline across multiple sectors.</div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-53519 · CVSS: 9.1/10 — Pre-authentication path traversal leaks jwt_secret_key; enables complete admin takeover. No patch available.</div>
     </div>
   </details>
 </div>
 
-<!-- STORY 7: Microsoft Defender Zero-Day CVE-2026-50656 — HIGH -->
+<!-- STORY 7: pnpm Mass Vulnerabilities — HIGH -->
 <div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
   <div style="margin-bottom:8px;">
     <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
-    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Morphisec · today</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">GitHub Advisory Database · 17 hours ago</span>
   </div>
-  <a href="https://www.morphisec.com/blog/microsoft-defender-zero-day-rogueplanet-when-your-detector-becomes-the-attack-surface/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">RoguePlanet: Microsoft Defender Zero-Day (CVE-2026-50656) Turns Antivirus into SYSTEM-Level Privilege Escalation Vector</a>
+  <a href="https://github.com/advisories/GHSA-w466-c33r-3gjp" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">pnpm: 15+ Security Advisories Published Today — Malicious Lock Files Can Execute Code, Traverse Paths, and Steal Credentials (CVE-2026-55698 and more)</a>
   <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
-    <div>🔍 <strong>What happened:</strong> Security researchers at Morphisec disclosed CVE-2026-50656 (dubbed RoguePlanet), a privilege escalation vulnerability in Microsoft Defender rated CVSS 7.8 that allows a local attacker to escalate from a standard user account to SYSTEM-level access — the highest privilege level in Windows.</div>
-    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any Windows system running Microsoft Defender (virtually all Windows endpoints), making this an exceptionally broad attack surface particularly dangerous when chained with an initial access mechanism.</div>
-    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Ensure Windows Update and Microsoft Defender signature/engine updates are enabled and current; Microsoft is expected to release a patch through Windows Update — verify your systems have applied the latest Defender engine update.</div>
+    <div>🔍 <strong>What happened:</strong> GitHub published a coordinated batch of 15+ security advisories for the pnpm JavaScript package manager today, covering lock file–based code execution (CVSS 8.8), path traversal enabling symlink placement outside project directories, manifest identity spoofing that bypasses build allowlists, and repository config that can exfiltrate environment secrets to attacker-controlled registries.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All JavaScript and Node.js developers using pnpm as their package manager, particularly those who run <code>pnpm install</code> on code or lock files from untrusted sources such as public repositories, open-source contributions, or cloned third-party projects.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Treat any <code>pnpm-lock.yaml</code> from an untrusted source as potentially malicious; do not run <code>pnpm install</code> on unreviewed lock files; monitor the pnpm GitHub for patched releases and upgrade as soon as fixes are available.</div>
   </div>
   <details style="margin-top:10px;">
     <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
     <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
-      <p>CVE-2026-50656, named "RoguePlanet" by Morphisec researchers, is a privilege escalation flaw in Microsoft Defender — the antivirus and security platform built into every modern Windows installation. The irony is stark: the tool designed to protect systems against malware becomes the attack surface itself. Attackers with a local foothold can exploit this flaw to escalate to SYSTEM privileges — the most powerful account in Windows, capable of accessing any file, process, or configuration on the machine.</p>
-      <p>Privilege escalation vulnerabilities like RoguePlanet are particularly valuable in the attack kill chain. They're typically used as a second stage: after attackers gain initial access (via phishing, a vulnerable web app, or an IAB like KongTuke), they use flaws like this to break out of low-privilege sandboxes and gain total control over the system. At SYSTEM level, they can disable security software, dump credential hashes, and move laterally across the network.</p>
-      <p>Microsoft Defender is installed on virtually every Windows endpoint worldwide, making the potential attack surface enormous. Morphisec's disclosure gives Microsoft the opportunity to patch quickly, but the vulnerability will remain dangerous until organizations apply the update.</p>
+      <p>Today's pnpm advisory batch reveals a systemic supply-chain attack surface in pnpm's lock file handling. The most severe issue (CVE-2026-55698, CVSS 8.8) shows that a crafted <code>pnpm-lock.yaml</code> can include a malicious <code>packageManager</code> field that redirects pnpm's own self-resolution to execute attacker-controlled bytes — effectively turning a <code>pnpm install</code> command into arbitrary code execution before any package scripts even run.</p>
+      <p>Additional critical flaws include: path traversal in <code>configDependencies</code> symlink creation (CVSS 8.2) allowing symlinks to be planted outside the project directory; transitive dependency alias traversal (CVSS 8.8) enabling registry-published packages to replace project-level paths with attacker-controlled symlinks; arbitrary file write/delete via malicious <code>.patch</code> files (CVSS 7.3) committed to repositories; manifest identity spoofing (CVSS 7.5) that satisfies <code>allowBuilds</code> allowlists with a spoofed package identity; and environment secret expansion (CVSS 6.5) where repository config can cause victim environment variables to leak into requests sent to attacker-selected registries.</p>
+      <p>All vulnerabilities remain unpatched at time of publication. The sheer number of issues published simultaneously suggests a coordinated security research disclosure covering the entire pnpm lock file and config dependency attack surface.</p>
       <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
-        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Your antivirus (Microsoft Defender) is supposed to stop hackers — but this bug means the antivirus itself can be used against you. If a hacker gets into your computer at a low level (like as a regular user), they can use this flaw in Defender to become the all-powerful administrator instantly. Think of it like a security guard whose uniform comes with a master key — and someone figured out how to steal that key.
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> pnpm is a popular tool developers use to install code libraries (packages) for their projects. A "lock file" records the exact version of every package installed. These bugs mean a bad actor can create a poisoned lock file that, when a developer runs the install command, secretly runs malicious code, plants hidden files on their computer, or even steals secret environment variables (like API keys). It is like a shopping list that, when you hand it to the cashier, also quietly steals your wallet.
       </div>
-      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-50656 (RoguePlanet) · CVSS: 7.8/10 — Local privilege escalation to SYSTEM in Microsoft Defender; affects virtually all Windows endpoints; patch expected via Windows Update.</div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-55698 (lead) · CVSS: 8.8/10 — 15+ flaws across lock file handling, patch application, and registry config; all unpatched. Full list: GHSA-w466, GHSA-hwx4, GHSA-qrv3, GHSA-5wx6, GHSA-gj8w, GHSA-rxhj, GHSA-72r4, GHSA-fr4h, GHSA-v23m, GHSA-3qhv, and more.</div>
     </div>
   </details>
 </div>
 
 <!-- TODAY I LEARNED -->
 <details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
-  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Supply Chain Attacks ▶</summary>
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Prototype Pollution ▶</summary>
   <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
-    A supply chain attack targets a trusted third-party vendor — like a software platform or cloud integration — rather than attacking a company directly, exploiting the trust relationship between the vendor and its customers to gain access to many organizations at once. Today's Klue breach is a perfect example: hackers couldn't easily break into security-hardened companies like HackerOne or Huntress, so they attacked a less-defended market intelligence tool those companies trusted, then used stolen OAuth "master keys" to walk into their Salesforce databases. This is why modern security teams now scrutinize every vendor in their supply chain and regularly audit third-party application permissions — your security is only as strong as the least-secure vendor you trust.
+    In JavaScript, every object secretly inherits from a shared ancestor called <code>Object.prototype</code> — think of it as a master blueprint that all objects copy their default behaviors from. Prototype pollution is an attack where a malicious input tricks an application into adding or overwriting properties on that master blueprint, causing the injected properties to silently appear on every object in the entire running program. Today's deepstream vulnerability (CVE-2026-49252) demonstrates just how dangerous this can be: by writing a record with a path like <code>__proto__.isAdmin</code>, an attacker can make the server believe every user is an administrator without ever touching the user database.
   </div>
 </details>
 
 <!-- GLOSSARY -->
 <details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
-  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: CVE · CVSS · RCE · SSRF · Zero-Day · IAB · KEV · OAuth · MFA · SD-WAN · PoC · Webshell ▶</summary>
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: CVE · CVSS · MCP · SAML · JWT · IDOR · Path Traversal · Prototype Pollution · RCE · Supply Chain Attack · WebSocket · OAuth · SSRF · XSS · DoS ▶</summary>
   <div style="margin-top:10px;">
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">CVE</strong> — Common Vulnerabilities and Exposures; a standardized ID (e.g. CVE-2026-35273) assigned to each publicly known security flaw so researchers and defenders can reference it unambiguously.
-    </div>
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System; a 0–10 scale rating how severe a security flaw is, where 9.0–10 is Critical, 7.0–8.9 is High, 4.0–6.9 is Medium, and below 4.0 is Low.
-    </div>
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">RCE</strong> — Remote Code Execution; a class of vulnerability that lets an attacker run arbitrary code on a victim's system over a network, without physical access.
-    </div>
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">SSRF</strong> — Server-Side Request Forgery; an attack where a server is tricked into making unauthorized network requests on behalf of an attacker, potentially exposing internal systems or writing malicious files.
-    </div>
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">Zero-Day</strong> — A vulnerability that is unknown to the vendor and is being actively exploited in the wild, giving defenders "zero days" to patch before attacks occur.
-    </div>
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">IAB</strong> — Initial Access Broker; a cybercriminal specialist who breaks into corporate networks and sells that persistent access to ransomware groups or other threat actors.
-    </div>
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">KEV</strong> — Known Exploited Vulnerabilities; CISA's catalog of security flaws confirmed to be actively exploited in real attacks, with mandatory remediation deadlines for federal agencies.
-    </div>
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">OAuth</strong> — Open Authorization; an open standard that lets applications access each other's data using temporary tokens instead of sharing passwords, widely used for third-party integrations.
-    </div>
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">MFA</strong> — Multi-Factor Authentication; a login method requiring two or more verification factors (e.g., password + a code sent to your phone), making stolen passwords alone insufficient to log in.
-    </div>
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">SD-WAN</strong> — Software-Defined Wide Area Network; enterprise networking technology that uses software to intelligently route traffic across multiple locations and cloud services.
-    </div>
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">PoC</strong> — Proof of Concept; a working exploit demonstration that proves a vulnerability can be triggered, often published by researchers to pressure vendors into releasing patches quickly.
-    </div>
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">Webshell</strong> — A malicious script uploaded to a web server that provides attackers with persistent remote access and code execution through an ordinary web browser, surviving reboots and patches.
-    </div>
-    <div style="padding:7px 0;font-size:13px;">
-      <strong style="color:#111827;">APT</strong> — Advanced Persistent Threat; a sophisticated, often nation-state-sponsored attacker who quietly maintains long-term access to a target network rather than causing immediate visible damage.
-    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">CVE</strong> — Common Vulnerabilities and Exposures; a standardized identifier (e.g. CVE-2026-49252) assigned to each publicly known security vulnerability.</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System; a 0–10 numeric scale rating vulnerability severity, where 9.0–10.0 is Critical, 7.0–8.9 is High, 4.0–6.9 is Medium, and 0.1–3.9 is Low.</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">MCP</strong> — Model Context Protocol; an open standard that lets AI assistants securely connect to external data sources, tools, and databases in a structured way.</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">SAML</strong> — Security Assertion Markup Language; an XML-based protocol that lets identity providers (like Okta or Azure AD) pass signed authentication assertions to service providers so users only log in once (SSO).</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">JWT</strong> — JSON Web Token; a compact, digitally signed token used to securely transmit identity claims between parties — signing requires a secret key that, if stolen, lets anyone forge valid tokens.</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">IDOR</strong> — Insecure Direct Object Reference; a vulnerability where user-supplied input (like an ID or filename) is used to access objects directly without verifying the requester owns or is authorized to access that object.</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">Path Traversal</strong> — An attack that uses sequences like <code>../</code> in file paths or URLs to navigate outside the intended directory and read or write sensitive files on the server.</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">Prototype Pollution</strong> — A JavaScript attack where malicious input injects properties into <code>Object.prototype</code>, the shared ancestor of all JS objects, causing those properties to silently appear on every object in the application.</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">RCE</strong> — Remote Code Execution; a class of vulnerability allowing an attacker to run arbitrary commands on a victim's system over a network, typically the most severe outcome of exploitation.</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">Supply Chain Attack</strong> — A cyberattack targeting a trusted software dependency or build tool rather than the victim directly — the attacker compromises something the victim installs or trusts.</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">WebSocket</strong> — A communication protocol providing full-duplex (two-way simultaneous) communication over a single TCP connection, commonly used for real-time features like live terminals and chat.</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">OAuth</strong> — An open standard for access delegation that lets users grant applications limited access to their accounts on other services without sharing passwords.</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">SSRF</strong> — Server-Side Request Forgery; an attack that forces a server to make HTTP requests to attacker-specified targets, often used to probe internal services or cloud metadata APIs.</div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;"><strong style="color:#111827;">XSS</strong> — Cross-Site Scripting; an attack where malicious JavaScript is injected into a trusted web page and executed in other users' browsers, enabling session theft, credential harvesting, or page defacement.</div>
+    <div style="padding:7px 0;font-size:13px;"><strong style="color:#111827;">DoS</strong> — Denial of Service; an attack that makes a system or service unavailable to legitimate users, typically by exhausting CPU, memory, connections, or other resources.</div>
   </div>
 </details>
 
@@ -250,40 +226,100 @@
 <div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
   <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
   <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
-    <a href="https://www.securityweek.com/french-government-messaging-platform-breached-by-mysterious-misere-hacker/" style="color:#374151;text-decoration:none;">French Government Chat App Tchap Breached — 73,467 Accounts Stolen by Threat Actor 'Misere'</a>
-    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+    <span style="background:#dc2626;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">CRITICAL</span>
+    <a href="https://github.com/advisories/GHSA-98x5-vq43-vc5p" style="color:#374151;text-decoration:none;">semantic-router 0.1.8–0.1.14 Transitively Exposed to Compromised litellm==1.82.8 Supply Chain Wheel (CVE-2026-42208)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://github.com/advisories/GHSA-c6v2-3ffm-vcmc" style="color:#374151;text-decoration:none;">Nebula Mesh Web UI: Cross-Operator IDOR Allows Any User to Read, Block, or Delete Other Operators' Hosts (CVE-2026-49258, CVSS 8.8)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://github.com/advisories/GHSA-4c8j-mgm4-qqvp" style="color:#374151;text-decoration:none;">Remark42: Stored XSS via Content-Type Spoofing on /api/v1/img Proxy Endpoint (CVE-2026-48788, CVSS 8.2)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://github.com/advisories/GHSA-f5gc-qxf8-mh9g" style="color:#374151;text-decoration:none;">php-weasyprint: Shell Command Injection via Inverted is_executable() Guard on WeasyPrint Binary Path (CVE-2026-49260, CVSS 8.2)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://github.com/advisories/GHSA-4gxv-p5g5-j7w7" style="color:#374151;text-decoration:none;">gonic Music Server: Arbitrary File Write via Playlist M3U Content to Attacker-Controlled Path (CVE-2026-49340, CVSS 8.1)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://github.com/advisories/GHSA-2fmj-p74r-3wjm" style="color:#374151;text-decoration:none;">PhpWeasyPrint: PHAR Deserialization via Output Filename Bypasses CVE-2023-28115 Case-Insensitive Fix (CVE-2026-49286, CVSS 8.1)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://github.com/advisories/GHSA-4hf8-5mjm-rfgq" style="color:#374151;text-decoration:none;">LINE Desktop MCP Server: Read/Send Tools Exposed Without Authentication via Streamable HTTP (CVE-2026-49357, CVSS 7.5)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://github.com/advisories/GHSA-pw9p-jvrm-f7rm" style="color:#374151;text-decoration:none;">PHP Standard Library: Missing HTTP/2 Content-Length Validation Enables Request Smuggling (CVE-2026-48979, CVSS 7.5)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://github.com/advisories/GHSA-5w7q-77mv-v69f" style="color:#374151;text-decoration:none;">python-socketio / python-engineio: Three DoS Vulnerabilities Including Unbound Thread Allocation and Payload Size Bypass (CVE-2026-48804, CVSS 7.5)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://github.com/advisories/GHSA-jqc5-2p7q-fqfc" style="color:#374151;text-decoration:none;">Hysteria Proxy: Three Vulnerabilities — Large Header DoS, Tiny Datagram Frame Crash, UDP ACL Bypass (CVSS 7.5)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://github.com/advisories/GHSA-hmgp-w9jm-vp95" style="color:#374151;text-decoration:none;">Subsonic API / gonic: IDOR Allows Any Authenticated User to Read or Delete Other Users' Playlists (CVE-2026-49338, CVSS 7.1)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
   </div>
   <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
     <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
-    <a href="https://www.nintendolife.com/news/2026/06/hacker-group-claims-to-have-stolen-nintendo-data-posts-usd2-million-ransom" style="color:#374151;text-decoration:none;">Nintendo Hit by ShadowByt3$ Ransomware — Employee Data Stolen via TinyPulse, $2M Ransom Demanded</a>
-    <span style="color:#9ca3af;font-size:11px;"> · Nintendo Life</span>
+    <a href="https://github.com/advisories/GHSA-9rc6-8cjv-rcvx" style="color:#374151;text-decoration:none;">Nezha Monitoring: OAuth2 Redirect URL Allows Host Header Injection (CVE-2026-53523, CVSS 6.8)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
   </div>
   <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
     <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
-    <a href="https://www.cisa.gov/news-events/alerts/2026/06/23/cisa-adds-four-known-exploited-vulnerabilities-catalog" style="color:#374151;text-decoration:none;">CISA Adds Four Vulnerabilities to KEV Catalog: Ubiquiti UniFi (3 CVEs) and Lantronix EDS5000</a>
-    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+    <a href="https://github.com/advisories/GHSA-cg7w-rg45-pc59" style="color:#374151;text-decoration:none;">pydantic-ai: SSRF Blocklist Bypass via IPv4-Compatible and NAT64 IPv6 Addresses (Incomplete Fix of CVE-2026-46678, CVSS 6.8)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
   </div>
   <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
     <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
-    <a href="https://sharkstriker.com/blog/june-2026-data-breaches/" style="color:#374151;text-decoration:none;">South African Police Service Breach Exposes Medical Records of 3,000 Officers Including PTSD and Cancer Diagnoses</a>
-    <span style="color:#9ca3af;font-size:11px;"> · SharkStriker</span>
+    <a href="https://github.com/advisories/GHSA-44cp-c3ww-9rv5" style="color:#374151;text-decoration:none;">ImageMagick: Heap Buffer Over-Write in SF3 Encoder When Writing Multi-Frame Images (CVE-2026-53465, CVSS 6.2)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
   </div>
   <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
     <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
-    <a href="https://securityonline.info/" style="color:#374151;text-decoration:none;">Langflow Cryptominer Malware Exploits CVE-2026-33017 to Hijack AI Development Servers</a>
-    <span style="color:#9ca3af;font-size:11px;"> · Security Online</span>
+    <a href="https://github.com/advisories/GHSA-h77m-qrj7-jxcw" style="color:#374151;text-decoration:none;">Statamic CMS: CSV Formula Injection in Form Submission Exports (CVE-2026-54243, CVSS 6.1)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://github.com/advisories/GHSA-wphv-vfrh-23q5" style="color:#374151;text-decoration:none;">joserfc: b64=false RFC 7797 JWS Payloads Bypass Registry Payload-Size Limits During Deserialization (CVE-2026-48990, CVSS 5.3)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://github.com/advisories/GHSA-57f6-pvx8-hwj6" style="color:#374151;text-decoration:none;">turso-cli: Platform JWT Persisted with World-Readable File Permissions (0o644) (CVE-2026-48790, CVSS 5.5)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
   </div>
   <div style="padding:6px 0;font-size:13px;">
-    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
-    <a href="https://sharkstriker.com/blog/june-2026-data-breaches/" style="color:#374151;text-decoration:none;">London Hydro Utility Breach Exposes Customer Names, Addresses, and Account Numbers</a>
-    <span style="color:#9ca3af;font-size:11px;"> · SharkStriker</span>
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://github.com/advisories/GHSA-cr2j-534f-mf3g" style="color:#374151;text-decoration:none;">Apptainer: 'limit container paths' Directive Incorrectly Matched — Path Containment Bypass (CVE-2026-48785, CVSS 4.8)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitHub Advisory Database</span>
   </div>
 </div>
 
 <!-- FOOTER -->
 <div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
-  Generated by Claude · 10 feeds monitored · June 27, 2026
+  Generated by Claude · GitHub Advisory Database (10 RSS feeds blocked by network policy) · June 27, 2026
 </div>
 
 </body>

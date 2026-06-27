@@ -1,0 +1,4 @@
+{
+  "til": ["Prototype Pollution"],
+  "glossary": ["CVE", "CVSS", "MCP", "SAML", "JWT", "IDOR", "Path Traversal", "Prototype Pollution", "RCE", "Supply Chain Attack", "WebSocket", "OAuth", "SSRF", "XSS", "DoS"]
+}
