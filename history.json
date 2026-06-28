@@ -1,4 +1,4 @@
 {
-  "til": ["Prototype Pollution"],
-  "glossary": ["CVE", "CVSS", "MCP", "SAML", "JWT", "IDOR", "Path Traversal", "Prototype Pollution", "RCE", "Supply Chain Attack", "WebSocket", "OAuth", "SSRF", "XSS", "DoS"]
+  "til": ["Prototype Pollution", "Infostealer Malware"],
+  "glossary": ["CVE", "CVSS", "MCP", "SAML", "JWT", "IDOR", "Path Traversal", "Prototype Pollution", "RCE", "Supply Chain Attack", "WebSocket", "OAuth", "SSRF", "XSS", "DoS", "IKEv1", "KEV", "APT", "VPN", "Infostealer", "Zero-day", "Ransomware", "Botnet", "Patch Tuesday", "GRU", "BOD", "FCEB"]
 }

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — June 28, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">14 stories · 2 critical · 4 high · 8 medium/low</div>
+</div>
+
+<!-- STORY 1: Check Point VPN Zero-Day (CRITICAL) -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · ongoing campaign (first exploited May 7)</span>
+  </div>
+  <a href="https://www.helpnetsecurity.com/2026/06/08/check-point-cve-2026-50751-qilin-ransomware/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Qilin Ransomware Exploits Check Point VPN Zero-Day (CVE-2026-50751) — No Password Required</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> A critical authentication bypass in Check Point's Remote Access VPN (CVE-2026-50751, CVSS 9.3) let attackers connect to enterprise networks without a password by exploiting a logic flaw in the deprecated IKEv1 protocol, with Qilin ransomware affiliates actively exploiting it since May 7, 2026 — more than a month before a patch existed.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Check Point Security Gateways with IKEv1 VPN client support across automotive, healthcare, publishing, and government sectors.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Check Point's emergency hotfix immediately, disable IKEv1 if unused, and conduct forensic review of VPN authentication logs dating back to May 7, 2026.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-50751 exposes a fundamental authentication design flaw in Check Point's IKEv1 VPN implementation. The gateway reads four trailing bytes from a client-supplied payload and writes them directly into an authentication flag register — meaning the connecting client can instruct the server to skip signature verification or certificate processing entirely. An attacker can thus establish a fully authenticated VPN session without ever possessing valid credentials.</p>
+      <p>The Qilin ransomware affiliate group exploited this as a zero-day starting May 7, gaining over a month of uncontested initial access before Check Point released a hotfix on June 8. CISA immediately added the flaw to its Known Exploited Vulnerabilities (KEV) catalog and ordered U.S. federal agencies to patch by June 11 under BOD 22-01. Confirmed victim sectors include automotive, healthcare, publishing, and government, with post-compromise lateral movement and ransomware deployment observed in multiple cases.</p>
+      <p>Organizations that haven't applied the hotfix should treat any VPN gateway with IKEv1 enabled as potentially compromised. Disabling IKEv1 legacy client support is an effective mitigation even before full patching — most modern VPN clients use IKEv2 exclusively.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A VPN is like a secure tunnel that lets employees connect to their office network from home. This bug let attackers walk through that tunnel without a key — the "security checkpoint" could be told to skip checking credentials entirely just by sending special instructions. Imagine a bank vault where the guard could be told "you don't need to check IDs today" and would comply. Qilin is a well-known ransomware criminal gang that locks up victim computers and demands payment to unlock them.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-50751 · CVSS: 9.3/10 — Unauthenticated remote authentication bypass via client-controlled IKEv1 auth flags; network-accessible, no user interaction required, exploitation confirmed in the wild since May 7, 2026.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 2: Russian GRU Messaging Campaign (CRITICAL) -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · 1 day ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/ukraine-says-russian-intelligence-used.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">SSU &amp; FBI Expose Russian Intelligence Campaign Hijacking Officials' Messaging Accounts Across Ukraine, Europe, and the US</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Russia's intelligence services conducted a systematic, long-running social engineering campaign — using fake platform-support SMS messages sent in early morning hours — to steal credentials and hijack messaging accounts of government officials, military personnel, politicians, and activists across Ukraine, Europe, and the United States.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Government officials, military personnel, politicians, and activists in Ukraine and across Europe and the US, with thousands of accounts confirmed compromised and sensitive military, political, and economic communications intercepted.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Enable multi-factor authentication on all messaging applications, treat any unsolicited "platform support" SMS as suspicious, and report suspected phishing attempts through official government security channels.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Ukraine's Security Service (SSU) and the U.S. FBI jointly disclosed a coordinated Russian intelligence operation targeting messaging accounts of high-value individuals across three continents. The attackers sent SMS messages impersonating messaging platform support bots — deliberately timed for early morning hours when recipients are mentally less guarded — urging targets to disclose account credentials or approve suspicious login requests.</p>
+      <p>The campaign's stated objective was intelligence collection: intercepting sensitive military, political, and economic communications exchanged through private channels. Targets extended beyond official accounts to include personal accounts of Ukrainian nationals, broadening the intelligence harvest. The SSU noted this is consistent with long-documented Russian intelligence tradecraft focused on signals intelligence gathering during the ongoing conflict. Thousands of accounts have been compromised across the targeted countries.</p>
+      <p>This operation is assessed to be the work of Russian state intelligence services (GRU or FSB), consistent with prior documented campaigns. The deliberate early-morning timing reflects sophisticated behavioral targeting designed to catch officials before they have fully engaged their security awareness. Organizations supporting government functions should immediately mandate hardware-based multi-factor authentication for all messaging applications.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> This is called "social engineering" — instead of hacking computers, attackers trick people. Russian intelligence sent fake text messages pretending to be from a messaging app's customer support, asking officials to verify their accounts. Once an official typed in their login details, the attackers used them to read all their private messages. It's the digital equivalent of someone calling you and pretending to be your bank to ask for your PIN — the technology is different, but the deception is the same.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — social engineering / credential phishing campaign · Nation-state attribution: Russian intelligence services (GRU/FSB assessed) · Disclosed jointly by SSU and FBI, June 25–27, 2026 · Multi-country, ongoing operation.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 3: Ubiquiti UniFi Triple Zero-Day CVSS 10.0 (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / Cybersecurity News · 5 days ago</span>
+  </div>
+  <a href="https://cybersecuritynews.com/cisa-ubiquiti-unifi-os-vulnerability/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">CISA Adds Three CVSS-10.0 Ubiquiti UniFi OS Flaws to KEV — Complete Unauthenticated Device Takeover Chain Actively Exploited</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> CISA added three maximum-severity (CVSS 10.0) Ubiquiti UniFi OS vulnerabilities to its KEV catalog on June 23, confirming a Mirai botnet campaign is actively chaining all three flaws (CVE-2026-34908, CVE-2026-34909, CVE-2026-34910) to achieve full unauthenticated root-level code execution on UniFi networking devices.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Anyone running Ubiquiti UniFi OS-powered devices — Cloud Gateways, Network Controllers, Protect NVRs, Access Hubs, and Talk appliances — in homes, small businesses, and enterprise environments worldwide.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update to UniFi OS Server 5.0.8+ and firmware 5.1.12+ immediately; patches have been available since May 22, 2026, and the CISA-mandated federal deadline of June 26 has already passed.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Three vulnerabilities chain together to make any Ubiquiti UniFi OS device trivially exploitable from the network with no credentials whatsoever. CVE-2026-34908 (improper access control, CVSS 10.0) serves as the entry point, bypassing all authentication. CVE-2026-34909 (path traversal, CVSS 10.0) then allows manipulation of the underlying file system. CVE-2026-34910 (improper input validation, CVSS 10.0) completes the attack chain by enabling arbitrary OS command injection executed as root. Each vulnerability alone is severe; together they constitute a fully weaponized, no-credentials-required takeover.</p>
+      <p>Ubiquiti devices are extremely popular in home offices, small businesses, schools, and enterprise environments — hundreds of thousands of units are internet-exposed globally. A Mirai/Gaafgyt botnet campaign is actively scanning for and exploiting unpatched devices. Compromised devices are typically enrolled into DDoS botnets or used as persistent network footholds for further attacks. Patches were available since May 22, giving organizations over five weeks to act before CISA's June 26 deadline.</p>
+      <p>Any UniFi device not yet updated should be treated as potentially compromised. Defenders should examine outbound traffic from UniFi devices for botnet command-and-control communication patterns and review recent admin access logs for unauthorized changes.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Ubiquiti UniFi is a popular brand of home and office networking equipment — routers, security cameras, and network switches. These three bugs, used together like steps in a ladder, let attackers take complete control of any UniFi device visible on the internet, with no password needed. Once taken over, your router can be used to attack other people's computers or spy on everything you do online. If you have Ubiquiti equipment, update it right now.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-34908 / CVE-2026-34909 / CVE-2026-34910 · CVSS: 10.0 / 10.0 / 10.0 — Maximum severity; unauthenticated network attacker achieves full OS-level root code execution on all UniFi OS devices. Mirai botnet exploitation confirmed.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 4: Microsoft Patch Tuesday June 2026 (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybersecurity News · 19 days ago</span>
+  </div>
+  <a href="https://cybersecuritynews.com/microsoft-patch-tuesday-june-2026/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Microsoft June 2026 Patch Tuesday: 198 Vulnerabilities Fixed Including 3 Zero-Days and Triple CVSS 9.8 Windows RCEs</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Microsoft's June 2026 Patch Tuesday addressed 198 vulnerabilities including three actively disclosed zero-days and 37 critical patches, headlined by three separate CVSS 9.8 remote code execution flaws in the Windows Kernel (CVE-2026-45657), HTTP.sys (CVE-2026-47291), and the DHCP Client Service (CVE-2026-44815) — all exploitable without authentication.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All organizations and individuals running Windows, Windows Server, and Azure Kubernetes Service; the kernel RCE is particularly dangerous for any Windows system reachable over a network.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply June 2026 Windows updates immediately, prioritizing CVE-2026-45657, CVE-2026-47291, and CVE-2026-44815 as all three carry CVSS 9.8 and are remotely exploitable with no credentials required.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>June's Patch Tuesday is among the heaviest of 2026. Three CVSS 9.8 vulnerabilities stand out as immediate patching priorities. CVE-2026-45657 is a use-after-free and heap overflow in the Windows Kernel — the deepest layer of the operating system — allowing unauthenticated remote attackers to execute arbitrary code with no user interaction. CVE-2026-47291 is an integer overflow in HTTP.sys exploitable via specially crafted network packets sent to any Windows web server. CVE-2026-44815 is a stack-based buffer overflow in the Windows DHCP Client Service; any attacker operating a rogue DHCP server on the same network segment can achieve remote code execution against unpatched clients.</p>
+      <p>Three zero-days were also addressed — vulnerabilities that were publicly known or under active exploitation before Microsoft had patches available. Azure Kubernetes Service received a fix for CVE-2026-32193 (CVSS 8.8), a path traversal enabling privilege escalation in cloud container environments. Security teams should treat this month's update cycle as urgent: the combination of multiple 9.8-severity remotely exploitable flaws and active zero-days represents a high-value targeting opportunity for threat actors.</p>
+      <p>Organizations with Windows Server systems exposed to the internet should prioritize HTTP.sys patching, while enterprise network defenders should audit for rogue DHCP server activity in response to CVE-2026-44815.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Every second Tuesday of the month, Microsoft releases security fixes for Windows — this is called "Patch Tuesday." Think of it like a monthly check-up where vulnerabilities found by security researchers get patched. This month's batch was exceptionally serious: three separate bugs scored 9.8 out of 10 for severity, meaning attackers could take over a Windows computer over the internet without you doing anything at all — no clicking a link, no opening a file. If automatic Windows Updates are on, you may already be protected.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-45657 · CVSS: 9.8/10 — Unauthenticated remote Windows Kernel RCE via use-after-free and heap overflow; no user interaction required, network-accessible, low attack complexity.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 5: Operation Endgame — Amadey & StealC Takedown (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · 3 days ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/amadey-and-stealc-malware-network.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Operation Endgame Phase 2: Amadey &amp; StealC Infostealer Networks Dismantled — 326 Servers, 27 Million Stolen Credentials Recovered</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> A coordinated international law enforcement operation (June 15–19, 2026) partnering Europol, FBI, Bitdefender, ESET, Microsoft, and Bitsight dismantled criminal infrastructure behind the Amadey and StealC infostealer malware families — seizing 326 servers, 142 domains, and $47 million in cryptocurrency while recovering 27 million stolen login credentials.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Over 140,000 infected computers globally were identified; Microsoft alone severed criminal control of 18,000+ victim machines — any individual or organization whose credentials were harvested by these malware families.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Check if your credentials appear in recent breach databases via Have I Been Pwned, change passwords for all accounts that may have been accessed on potentially infected machines, and enable multi-factor authentication everywhere.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Operation Endgame's second phase targeted Amadey and StealC — two infostealer malware families that function as credential-harvesting pipelines feeding stolen login data into the ransomware and financial fraud ecosystem. Amadey has operated since 2018 as a modular loader and credential stealer. StealC emerged in 2023 as a commercial "malware-as-a-service" sold to cybercriminals on dark web forums. Together, they infected more than 140,000 computers globally in just the first two weeks of May 2026.</p>
+      <p>Law enforcement from multiple countries executed simultaneous takedowns June 15–19, dismantling 326 command-and-control servers and 142 domains. Microsoft's Digital Crimes Unit identified and remotely cleaned 18,000+ victim machines. The 27 million recovered credentials represent a significant blow to cybercriminal supply chains — these credentials would otherwise fuel ransomware deployments, banking fraud, and business email compromise. The $47 million in seized cryptocurrency represents direct criminal profit from credential trafficking.</p>
+      <p>While this is a major disruption, defenders should note that infostealer operations historically reconstitute rapidly — successor infrastructure typically emerges within weeks. Organizations should treat this as a window to improve credential hygiene rather than a permanent solution.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> An "infostealer" is malware that silently runs on your computer collecting your saved passwords and sending them to criminals — without you ever knowing. Those stolen passwords are then sold to other criminals who use them to break into your bank or email. This operation was like a global police raid that shut down the criminal headquarters — the servers that received all those stolen passwords — and recovered millions of them before they could be used for further harm.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — malware infrastructure disruption · Amadey &amp; StealC infostealer families · Operation Endgame Phase 2 · June 15–19, 2026 · 326 servers / 142 domains seized · $47M cryptocurrency frozen · 27M credentials recovered.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 6: Oracle PeopleSoft Zero-Day / ShinyHunters (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Tenable · 19 days ago</span>
+  </div>
+  <a href="https://www.tenable.com/blog/oracle-june-2026-critical-security-patch-update-addresses-243-cves-cve-2026-35273" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">ShinyHunters Exploited Oracle PeopleSoft Zero-Day (CVE-2026-35273) Before June Quarterly Patch Release</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> The ShinyHunters extortion group exploited CVE-2026-35273 — a remote code execution zero-day in Oracle PeopleSoft Enterprise PeopleTools — before Oracle's June 2026 Critical Patch Update (CPU) addressed it alongside 242 other CVEs, with nearly 50% of the 243 patches rated critical.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Oracle PeopleSoft Enterprise — widely deployed in universities, large corporations, and government agencies for HR, finance, and student administration — with internet-accessible deployments at highest risk.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Oracle's June 2026 CPU patches immediately and conduct forensic review of any externally accessible PeopleSoft deployments for evidence of unauthorized access by ShinyHunters.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Oracle's June 2026 Critical Patch Update is one of the largest quarterly security releases on record — 243 CVEs across 11 product families with nearly 50% classified critical. The standout incident is CVE-2026-35273, a remote code execution vulnerability in PeopleSoft Enterprise PeopleTools that ShinyHunters exploited in the wild before Oracle had a patch available, representing a true zero-day exploitation window.</p>
+      <p>ShinyHunters is a financially motivated extortion group with a history of large-scale data theft — previous targets include Snowflake customers, Ticketmaster, and numerous cloud HR platforms. PeopleSoft's deployment in universities and HR departments makes it a high-value target due to the concentration of Social Security numbers, financial records, payroll data, and student personal information it typically handles. The group's pattern is to exfiltrate sensitive data and threaten public release unless ransom is paid.</p>
+      <p>Oracle's quarterly patching cycle (versus Microsoft's monthly cadence) creates structural vulnerability windows where newly discovered flaws may go unpatched for up to three months. Organizations should strongly consider whether PeopleSoft administrative interfaces need to be internet-accessible at all, and restrict access to VPN-only where possible.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Oracle PeopleSoft is the software many universities and large companies use to manage payroll, HR records, and student data — it holds a lot of sensitive personal information. ShinyHunters found a secret back door into this software before Oracle even knew it existed (called a "zero-day") and used it to steal data for ransom. Oracle only releases patches four times a year, meaning attackers sometimes have months to exploit a newly discovered flaw before a fix is available.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-35273 · CVSS score not publicly confirmed · Remote code execution in Oracle PeopleSoft Enterprise PeopleTools — exploited in the wild by ShinyHunters group prior to Oracle June 2026 CPU release.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 7: Nintendo / TinyPulse Breach (MEDIUM) -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybersecurity News · 16 days ago</span>
+  </div>
+  <a href="https://cybersecuritynews.com/shadowbyt3-claim-breach-of-nintendo/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">SHADOWBYT3$ Demands $2M Ransom After Stealing Nintendo Employee Data via Third-Party HR Survey Platform TinyPulse</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> The SHADOWBYT3$ extortion-as-a-service group claimed to have stolen 859 MB of Nintendo employee data by compromising TinyPulse — a third-party HR engagement survey platform used by Nintendo of America — and demanded a $2 million ransom that Nintendo declined to pay.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Nintendo of America employees whose names, corporate email addresses, internal survey responses, analytics, and workplace feedback records were allegedly exfiltrated; Nintendo confirmed limited impact to internal survey content only.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Affected Nintendo employees should be alert to targeted phishing using work email addresses; all organizations should audit the security posture and data access scope of third-party SaaS platforms handling employee data.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>SHADOWBYT3$ is an extortion-as-a-service group that emerged in October 2025. Rather than directly attacking Nintendo's hardened core infrastructure, the group targeted TinyPulse — a third-party SaaS platform Nintendo used for employee engagement surveys. This third-party vector is a recurring pattern in modern breaches: attackers identify the weakest link in an organization's vendor ecosystem rather than confronting the well-defended primary target directly.</p>
+      <p>Nintendo confirmed a data loss "limited to internal survey content comprising a small subset of our employees" and stated explicitly that no customer data, financial data, or core systems were compromised. The attackers initially demanded $2 million from Nintendo directly; when declined, they pivoted to demanding payment from TinyPulse with a secondary June 16 deadline. The 859 MB of alleged data includes employee names, corporate email addresses, internal survey analytics, and workplace feedback records — useful for crafting targeted spear-phishing attacks against Nintendo staff.</p>
+      <p>This incident underscores that third-party vendor risk management is not optional. Companies routinely grant HR and engagement platforms access to employee directories and sensitive internal metrics without applying the same scrutiny as core business systems. The data exposed here — even if "just" survey responses — provides the raw material for future social engineering campaigns.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Rather than breaking into Nintendo's well-guarded main systems, hackers went after a smaller company that Nintendo used for employee surveys — like picking the back door of a building instead of the fortified front entrance. Nintendo's main systems and customer data were safe, but some employee information from the survey tool was taken. The hackers then demanded $2 million in ransom, which Nintendo refused to pay.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — third-party SaaS breach via TinyPulse HR platform · SHADOWBYT3$ extortion-as-a-service group · 859 MB alleged exfiltration · $2M ransom demanded and declined · Nintendo confirms limited employee survey data impact only.</div>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Infostealer Malware ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    An infostealer is a type of malware that silently runs in the background of an infected computer, harvesting saved passwords, browser session cookies, credit card numbers, and cryptocurrency wallet keys — then quietly sending all of that data to criminals without the victim ever noticing. Unlike ransomware, which announces itself with a dramatic ransom demand, infostealers are engineered to be completely invisible and can operate undetected for months. The stolen credentials are typically sold in bulk on dark web marketplaces, where ransomware groups and financial fraudsters buy them as "ready-made keys" to break into bank accounts, corporate networks, and email inboxes — making infostealers one of the primary fuel sources for the broader cybercrime ecosystem.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: IKEv1 · KEV · APT · VPN · Infostealer · Zero-day · Ransomware · Botnet · Patch Tuesday · GRU · BOD · FCEB ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">IKEv1</strong> — Internet Key Exchange version 1, a legacy VPN key-negotiation protocol deprecated due to security weaknesses but still supported by many older gateways, creating an active exploitation surface.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">KEV</strong> — CISA's Known Exploited Vulnerabilities catalog, a curated public list of security flaws confirmed to be actively exploited in the wild; federal agencies must patch KEV entries by mandatory deadlines.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">APT</strong> — Advanced Persistent Threat, a sophisticated and typically state-backed hacking group that conducts prolonged, targeted intrusion campaigns to steal intelligence or cause strategic disruption.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">VPN</strong> — Virtual Private Network, an encrypted connection that creates a secure "tunnel" between a remote device and a corporate network over the internet, widely used for remote work access.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Infostealer</strong> — Malware designed to silently harvest saved passwords, browser cookies, and financial credentials from infected machines and exfiltrate them to criminal infrastructure for resale or exploitation.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Zero-day</strong> — A software vulnerability that is being actively exploited before the vendor is aware of it or has released a fix, giving defenders zero days of advance warning to prepare defenses.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Ransomware</strong> — Malware that encrypts a victim's files and demands a ransom payment for the decryption key, often combined with data theft threats ("double extortion") to increase pressure to pay.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Botnet</strong> — A network of malware-infected computers ("bots") remotely controlled by an attacker and used collectively for DDoS attacks, spam campaigns, or as launchpads for further intrusions.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Patch Tuesday</strong> — Microsoft's monthly schedule for releasing security updates, always on the second Tuesday of the month; many other vendors time their own security releases around this cycle.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">GRU</strong> — Russia's Main Directorate of the General Staff (military intelligence agency), widely attributed to numerous high-profile cyberattacks, election interference operations, and espionage campaigns globally.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">BOD</strong> — Binding Operational Directive, a mandatory cybersecurity policy issued by CISA that requires U.S. federal civilian agencies to take specific security actions by a legally binding deadline.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">FCEB</strong> — Federal Civilian Executive Branch, the U.S. government departments and agencies (excluding the military) that are legally subject to CISA's binding security directives and mandates.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.cisa.gov/news-events/alerts/2026/06/23/cisa-adds-four-known-exploited-vulnerabilities-catalog" style="color:#374151;text-decoration:none;">CISA Adds PTC Windchill CVE-2026-12569 (CVSS 9.3) to KEV — RCE via Improper Input Validation in Industrial PDM Software</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/state-sponsored-hacktivism-attacks-on-the-rise/" style="color:#374151;text-decoration:none;">State-Sponsored Hacktivism Surges 47% Since January 2026, Blurring Lines Between Political Activism and Nation-State Ops</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Cybersecurity News</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://sharkstriker.com/blog/june-2026-data-breaches/" style="color:#374151;text-decoration:none;">Bajaj Auto Detects Unauthorized System Access on June 23; Incident Response Procedures Immediately Activated</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SharkStriker</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://sharkstriker.com/blog/june-2026-data-breaches/" style="color:#374151;text-decoration:none;">London Hydro Confirms Hackers Gained Unauthorized Access on June 20; Customer Data Likely Accessed</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SharkStriker</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.brightdefense.com/resources/recent-data-breaches/" style="color:#374151;text-decoration:none;">MagMutual Insurance Company Reports Data Breach Discovered June 26, 2026</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Bright Defense</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://therecord.media/britain-nation-state-cyberattacks-richard-horne-rusi" style="color:#374151;text-decoration:none;">UK Cyber Chief: 75% of Critical Infrastructure Attacks Are Nation-State; 200+ Incidents Handled in Past Year</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Record</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.armis.com/blog/nation-state-attacks-hit-machine-speed-key-takeaways-of-the-2026-armis-cyberwarfare-report-and-what-it-means-for-security-teams/" style="color:#374151;text-decoration:none;">2026 Armis Cyberwarfare Report: Nation-State Attackers Now Break Into Networks in Under 30 Seconds</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Armis</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · June 28, 2026
+</div>
+
+</body>
+</html>
