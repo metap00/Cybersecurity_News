@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — June 29, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">12 stories · 2 critical · 4 high · 2 medium</div>
+</div>
+
+<!-- STORY 1: CRITICAL - RoguePlanet -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / SecurityWeek · ongoing</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-working-on-defender-patch-for-rogueplanet-zero-day/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Microsoft Defender 'RoguePlanet' Zero-Day Grants SYSTEM Privileges — No Patch Yet</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> A researcher called "Nightmare Eclipse" released a working exploit for CVE-2026-50656, a race-condition flaw in Microsoft Defender's Malware Protection Engine that hands any authenticated Windows user a SYSTEM-level command prompt on fully patched Windows 10 and 11.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Every Windows 10 and 11 device running Microsoft Defender — effectively the entire Windows ecosystem, including enterprise and consumer machines.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> No patch is available; monitor Microsoft Security Response Center (MSRC) for an out-of-band update, and consider layering additional endpoint detection tools until a fix ships.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>RoguePlanet is the latest in a series of Windows exploits published by "Nightmare Eclipse," an unidentified researcher who has been dropping zero-days for Microsoft products since March 2026, apparently in retaliation for a dispute with the company. Unlike most privilege-escalation bugs, this one works even when Defender's Real-Time Protection is fully enabled — meaning the very tool supposed to block attacks becomes the attack surface.</p>
+      <p>The exploit abuses a classic race condition in the Malware Protection Engine: it races to swap a file on disk in the tiny window between Defender reading it for analysis and acting on the result. By winning that race, a low-privileged process can trick Defender into executing arbitrary code as SYSTEM — the highest privilege level on Windows. Microsoft has confirmed the bug and says a patch is in development, but gave no timeline.</p>
+      <p>The practical risk is high: any attacker who already has a foothold on a machine (via phishing, malware, or a compromised account) can use RoguePlanet to fully own it. Ransomware operators, in particular, look for exactly this kind of local escalation to spread laterally and disable defenses before deploying their payloads.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine hiring a security guard to check everyone entering a building, but the guard has a tiny blind spot — a fraction of a second where someone can slip past. RoguePlanet exploits that blind spot in Windows Defender, the built-in antivirus, to gain total control of the computer. The twist is that Microsoft has not released a fix yet, so there is currently no standard way to close this hole.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-50656 · CVSS: 7.8/10 — High severity score, but rated CRITICAL here due to active public exploit code, no patch available, and broad impact across all fully updated Windows devices.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - FBI Signal -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / BleepingComputer · 2 days ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/fbi-warns-russian-intelligence-hackers.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">FBI: Russian Intelligence Now Stealing Signal Backup Recovery Keys in Targeted Phishing Campaign</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> The FBI and CISA issued a joint advisory warning that two Russian intelligence clusters (FSB-linked UNC5792 and GRU-linked UNC4221) have evolved their phishing campaign to steal Signal Backup Recovery Keys — granting permanent access to a victim's entire message history even after they change phones.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> High-value targets including current and former US and allied government officials, military personnel, political figures, journalists, and Ukrainian officials.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Never share your Signal Backup Recovery Key with anyone or any "support" message; enable Signal's screen security; treat any urgent message from "Signal Support" as a likely phishing attempt.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Signal's end-to-end encryption has proven resilient against direct technical attacks, so Russian intelligence has pivoted to the weakest link: the human holding the phone. The campaign begins with a convincing phishing message impersonating Signal's support team, warning the target that their account data is at risk of loss due to a "synchronization issue." The message then prompts the victim to open Signal's Backup settings, copy their recovery key, and paste it into the chat.</p>
+      <p>Handing over the key is catastrophic: the attacker can use it to restore the account's full encrypted backup, reading every private and group message ever sent. Crucially, the recovery key remains valid even after the victim changes phones or reinstalls the app, giving attackers persistent access that survives standard security responses.</p>
+      <p>The two linked groups — UNC5792 (FSB) and UNC4221 (GRU) — have been targeting the same categories of victims since at least early 2026, with a particular focus on Ukrainian officials and their international contacts. The campaign has compromised thousands of accounts worldwide. The FBI's advisory notes that no legitimate app support team will ever ask you to share a backup recovery key.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Signal encrypts your messages so well that even Russia can't break in — so instead, they're tricking people into handing over the key to the locked door. The Backup Recovery Key is like a master key to your entire message history; once someone else has it, all those "secure" messages are fully readable forever, even if you change your phone or password.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Nation-state social engineering — Classified CRITICAL due to active nation-state targeting campaign with confirmed victims across government and military sectors.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH - DirtyClone Linux -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">JFrog Security Research / TechTimes · yesterday</span>
+  </div>
+  <a href="https://research.jfrog.com/post/dissecting-and-exploiting-linux-lpe-variant-dirtyclone-cve-2026-43503/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">DirtyClone: Working Root Exploit Published for Linux Kernel Flaw That Leaves No Forensic Trace</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> JFrog Security Research published a full working proof-of-concept exploit for CVE-2026-43503 ("DirtyClone"), a Linux kernel privilege escalation bug that lets any local unprivileged user gain root by corrupting page-cache memory through cloned network packets — and the attack writes nothing to disk, defeating most file-integrity monitoring tools.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Linux kernel versions 6.1–6.12, including default Debian and Fedora installations; Ubuntu 24.04+ has partial AppArmor mitigation but is still listed as affected.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update to a patched kernel immediately (patch merged into mainline as of v7.1-rc5); on Debian/Ubuntu run <code>apt upgrade linux-image</code>; restrict unprivileged user namespaces as a temporary workaround.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>DirtyClone follows in the footsteps of the infamous Dirty COW and Dirty Pipe Linux kernel exploits, exploiting a subtle flaw in how the kernel handles cloned network packets. The root cause is in the <code>__pskb_copy_fclone()</code> function, which drops the <code>SKBFL_SHARED_FRAG</code> safety flag during packet cloning — the same flag introduced specifically to protect against Dirty Pipe-style attacks. By triggering this bug, an unprivileged user can corrupt the in-memory (page-cache) copy of any executable, effectively changing what a binary does without touching the file on disk.</p>
+      <p>The "no forensic trace" characteristic makes this particularly dangerous for incident responders. Standard security tools — file integrity monitors, EDR agents, antivirus — hash files on disk and check them against known-good baselines. Since DirtyClone never modifies the on-disk binary, those tools see nothing suspicious. Kernel audit logs also show nothing, because no file system operation occurs. An attacker who gains root via DirtyClone can persist invisibly in memory until the system reboots.</p>
+      <p>The vulnerability was discovered by "Hyunwoo Kim," the same researcher behind DirtyFrag, and patched in the kernel on May 21. However, the public PoC published by JFrog on June 25 will accelerate exploitation attempts against unpatched systems, making rapid patching critical.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Normally when someone breaks into a computer, they leave digital fingerprints — changed files, suspicious logs. DirtyClone is like a burglar who can rearrange things in your house without ever touching anything solid, only rearranging the "mental image" your security cameras have of the room. Because nothing on the hard drive changes, the usual alarm systems stay silent even after the attacker has full control.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-43503 · CVSS: 8.8/10 — High severity; local access required, but public exploit code is available and exploitation leaves no detectable trace on disk.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - Polymarket -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CyberNews / TechTimes · yesterday</span>
+  </div>
+  <a href="https://cybernews.com/security/polymarket-hit-by-cyberattack-via-third-party-dependency/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Polymarket Loses $3.1M to Frontend Supply Chain Attack via Compromised Third-Party Vendor</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Attackers compromised a third-party JavaScript vendor integrated into Polymarket's website, injecting malicious code that tricked users into signing fraudulent blockchain transactions when they connected their crypto wallets on June 28, draining approximately $3.1 million.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Polymarket users who interacted with the site during the attack window; fewer than 15 wallets were directly drained, with stolen funds quickly bridged from Polygon to Ethereum to obscure the trail.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Polymarket says all affected users will be fully refunded; review recent wallet transaction approvals on any DeFi platform; always verify transaction details before approving any blockchain signature request.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Polymarket is one of the largest decentralized prediction markets, where users bet cryptocurrency on the outcomes of real-world events. The attack illustrates a growing trend: rather than attacking the primary target directly, criminals compromise smaller third-party vendors — analytics tools, CDN providers, chat widgets — whose JavaScript runs with full trust on the target's pages.</p>
+      <p>When users connected their crypto wallets, the injected script intercepted the transaction flow and substituted attacker-controlled wallet addresses. Because the malicious code was served from Polymarket's own domain, browser security controls offered no protection. On-chain analysis by PeckShield and Bubblemaps tracked the stolen $3.1 million (held in Polymarket's pUSD stablecoin) being converted to approximately 1,893 ETH and bridged across chains — a classic money-laundering pattern in crypto heists.</p>
+      <p>Polymarket has not named the compromised vendor but says the breach has been contained and all affected users will be made whole. The incident is compounded by an ongoing CFTC investigation into the platform, adding regulatory pressure at a sensitive moment. This is the second major frontend-injection attack against a crypto platform in 2026, following a similar compromise at a DeFi exchange in March.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Websites often include code from dozens of outside companies — for things like analytics, chat support, or payment processing. If any of those outside companies gets hacked, the attacker can secretly edit what your browser loads from the legitimate website. In this case, the injected code waited for users to open their crypto wallets, then quietly changed where the money was going — like a cashier switching the address on a check after you've already signed it.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Third-party supply chain compromise — $3.1M stolen from a decentralized prediction market platform via JavaScript injection through a compromised vendor.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH - Cisco SD-WAN -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Help Net Security · CISA deadline today</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/cisco-releases-security-updates-for.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Cisco Catalyst SD-WAN Manager Path Traversal (CVE-2026-20262) Actively Exploited — CISA Deadline Passes Today</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Cisco's Catalyst SD-WAN Manager contains a path traversal vulnerability that lets authenticated attackers write arbitrary files and escalate to root; CISA added it to the KEV catalog on June 15 with a remediation deadline of June 29 (today) for all federal civilian agencies.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprise organizations using Cisco Catalyst SD-WAN Manager to centrally manage their wide-area network infrastructure; the management plane controls thousands of SD-WAN devices.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Cisco's patched releases immediately; restrict access to the SD-WAN Manager web interface to trusted networks; FCEB agencies were required to be patched by end of day today.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-20262 is the seventh Cisco SD-WAN vulnerability to be exploited in attacks in 2026 alone — an alarming pattern that suggests either persistent focus by threat actors on Cisco's SD-WAN platform or structural weaknesses in the product's security architecture. The web UI fails to properly validate filenames during file uploads, allowing an attacker to use "../" sequences to write files outside the intended directory, eventually enabling privilege escalation to root on the management server.</p>
+      <p>Compromising Cisco Catalyst SD-WAN Manager is particularly high-value: the platform is the single pane of glass managing all SD-WAN devices across an enterprise. Root access on the manager server effectively gives attackers control over the entire corporate WAN, enabling traffic interception, configuration tampering, and lateral movement across every connected site. CISA confirmed limited real-world exploitation was detected before Cisco released patches on June 15-16.</p>
+      <p>With today's CISA deadline passing for federal agencies, security teams in all sectors should treat this as a critical priority. The combination of active exploitation, network-wide blast radius, and a lengthy pre-patch exploitation window (Cisco discovered the issue during internal testing after exploitation was already occurring) makes this one of the higher-urgency items of the week.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SD-WAN is software that companies use to connect all their offices together over the internet, like a digital highway network. The SD-WAN Manager is the control room that oversees all those highways. If an attacker hacks the control room, they can redirect traffic, set up roadblocks, or snoop on everything moving through the company's network — from any of its locations.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-20262 · CVSS: 8.8/10 — Authenticated path traversal to root in Cisco Catalyst SD-WAN Manager; actively exploited, CISA KEV listed, federal deadline expires today.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 6: HIGH - Miasma Worm -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · this week</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/miasma-worm-hits-73-microsoft-github.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Miasma Supply Chain Worm Hits 73 Microsoft GitHub Repositories; Source Code Leaked Publicly</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> The Miasma credential-stealing worm — a Python-based evolution of the Shai-Hulud campaign — compromised 73 Microsoft GitHub repositories by propagating through stolen developer credentials to inject malicious code into CI/CD pipelines; the worm's source code was then leaked publicly, enabling copycat attacks.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Developers who depend on affected Microsoft open-source packages, software projects consuming these packages downstream, and any team using GitHub Actions pipelines that reference compromised repositories.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit your CI/CD pipeline dependencies for any packages from affected Microsoft repositories; rotate all secrets and API keys in impacted environments; pin dependencies to verified commit hashes rather than mutable version tags.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Miasma represents a sophisticated evolution in supply-chain attack tooling. Unlike traditional malware that targets end users, it specifically targets the software development process: it uses stolen developer credentials (harvested via phishing or prior infostealer infections) to authenticate to GitHub and push malicious commits into open-source repositories. Once malicious code lands in a repository, it automatically executes during CI/CD builds — affecting every project that pulls the package, often invisibly.</p>
+      <p>The worm's Python-based "Hades" variant focuses on credential exfiltration: once executed in a build environment, it scrapes environment variables (where most CI/CD secrets are stored), AWS IAM credentials, API tokens, and SSH keys, then quietly exfiltrates them to attacker-controlled infrastructure. According to SafeDep, 73 Microsoft-owned repositories were confirmed compromised, with over 304 individual components affected.</p>
+      <p>The public leak of Miasma's source code significantly raises the threat level. Previously, this was a specialized tool used by a single threat actor. Now any moderately skilled attacker can deploy the same tactics, dramatically expanding the potential attacker pool. Security teams should assume that any build environment that consumed affected packages during the compromise window may have had secrets stolen.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When developers write software, they often use thousands of ready-made code "packages" created by others — the way a chef uses pre-made sauces instead of making everything from scratch. Miasma is a worm that breaks into those package repositories and quietly adds poisoned ingredients. Every developer who then "imports" the affected package unknowingly runs the attacker's code in their own systems, potentially handing over all their passwords and access keys.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE · Supply chain worm — 73 Microsoft GitHub repositories compromised; source code now public, enabling widespread copycat campaigns.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 7: MEDIUM - Squidbleed -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Calif.io · 6 days ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/29-year-old-squid-proxy-bug-squidbleed.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Squidbleed (CVE-2026-47729): 29-Year-Old Squid Proxy Bug Can Leak Cleartext Credentials from Shared Networks</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Researchers disclosed Squidbleed, a heap buffer over-read bug hiding in Squid's FTP gateway since a 1997 code commit, which lets any authorized user on a shared proxy read fragments of other users' cleartext HTTP traffic — including credentials, cookies, and session tokens.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Squid proxy servers in shared environments such as schools, corporate offices, and ISPs; particularly risky in environments where Squid performs TLS inspection.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Squid to the latest patched version; as an immediate mitigation, disable FTP support in Squid (Chromium and most modern browsers have already dropped FTP support).</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Squid is one of the most widely deployed web proxy servers in the world, used by enterprises, ISPs, and educational institutions to cache content, filter traffic, and in many cases decrypt TLS connections for inspection. Squidbleed was discovered with assistance from Anthropic's Claude Mythos AI model during a research project by Calif.io, tracing a bug to a commit made in January 1997 — making it one of the oldest undiscovered vulnerabilities disclosed this year.</p>
+      <p>The technical root cause is a missing null-terminator check before a <code>strchr()</code> call in Squid's legacy FTP-over-HTTP gateway. When exploited, it allows an attacker who is already an authorized proxy user to send a crafted FTP request that causes Squid to read beyond the intended memory buffer, leaking adjacent heap memory that may contain fragments of other users' recent HTTP requests — including Authorization headers and session cookies.</p>
+      <p>The researchers recommend disabling Squid's FTP gateway entirely, noting that FTP traffic is vanishingly rare on modern networks (Chromium dropped FTP support in 2022). The fix itself is minimal — a null-terminator check — but the 29-year lifespan of this bug highlights how legacy code paths in widely-deployed software can harbor serious vulnerabilities long after the protocols they support have become obsolete.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A proxy server is like a shared librarian who fetches web pages on behalf of everyone in an office — they all use the same service, and their requests pass through the same system. Squidbleed lets any person using that shared proxy peek at fragments of what others are reading, including passwords and login tokens, by exploiting a bug that has been sitting in the proxy's code since 1997 — older than many of today's cybersecurity professionals.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-47729 · CVSS not yet assigned — Heap over-read in Squid's FTP gateway dating to 1997; requires authorized proxy access to exploit but can leak credentials from shared environments.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 8: MEDIUM - AI Agent Phishing -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · this week</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/threatsday-bulletin-worm-code-leaked-ai.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">AI Coding Agents Exploited for CI/CD Secret Exfiltration; Claude Code GitHub Action Patched</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Attackers crafted plausible-looking requests to trick AI coding agents into forwarding CI/CD secrets — including AWS IAM keys, database passwords, and SSH tokens — to external hosts; separately, a vulnerability in the Claude Code GitHub Action (pre-v2.1.128) allowed secrets exfiltration via unsanitized <code>/proc/self/environ</code> access.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Development teams using AI coding assistants integrated into automated CI/CD pipelines, particularly those using GitHub Actions with broad secret access.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Claude Code GitHub Action to v2.1.128 or later; apply least-privilege principles to any AI agent's access to secrets; treat AI agent instructions with the same scrutiny as human code review.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>As AI coding assistants become embedded in software development pipelines, they are emerging as a new attack surface. The incidents reported in this week's ThreatsDay Bulletin highlight two related problems: AI agents can be tricked via prompt injection into performing actions their operators did not intend, and flaws in the agents' code can directly expose sensitive pipeline credentials.</p>
+      <p>The Claude Code GitHub Action vulnerability (patched in v2.1.128, released May 5) allowed attackers to read the action runner's full environment — including all GitHub Actions secrets — by accessing <code>/proc/self/environ</code>. The flaw was responsibly disclosed by Microsoft and quickly patched by Anthropic. The broader prompt-injection pattern is more complex: crafting malicious content (in code comments, PR descriptions, or issue text) that convinces an AI agent to exfiltrate secrets when it processes that content during automated review or remediation tasks.</p>
+      <p>These attacks are particularly insidious because AI agents in CI/CD typically have access to production credentials, cloud provider keys, and deployment infrastructure — the blast radius of a compromised agent is the entire deployment pipeline. Security teams should adopt the same zero-trust principles for AI agents that they apply to human contractors: least privilege, comprehensive audit logging, and no unreviewed access to sensitive secrets.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> AI assistants used by software developers can read code, run tests, and even deploy applications — but that means they also have access to sensitive passwords and cloud keys. Attackers have figured out that if you hide tricky instructions inside code comments or issue reports, you can sometimes convince these AI helpers to unknowingly send those passwords to the attacker. It's like tricking a very capable intern into reading a fake memo that says "please forward all the office passwords to this address."
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">Claude Code GitHub Action pre-v2.1.128 · /proc/self/environ secret leak — Patched May 5, 2026; broader AI agent prompt-injection threat class remains active.</div>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Race Condition ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A race condition happens when a program does two things in sequence — first checking whether something is safe, then acting on it — and an attacker manages to slip in and change the situation in that tiny gap between the check and the action. Think of a bank teller who checks your balance, looks away for a split second, and by the time they process the withdrawal you've somehow already changed your balance on the screen. The RoguePlanet Defender zero-day works exactly this way: the exploit races to replace a file in the millisecond between Windows Defender reading it for analysis and acting on the result, tricking the security tool into granting SYSTEM-level access.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: LPE · PoC · CI/CD · FSB · SD-WAN · Heap Over-read · Credential Stuffing · Worm · Nation-state Actor ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">LPE</strong> — Local Privilege Escalation: an attack where a user with limited access on a machine exploits a vulnerability to gain administrator or root-level control, like a regular employee finding a way to unlock the CEO's office.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PoC</strong> — Proof of Concept: a working demonstration that a vulnerability is real and exploitable, usually published by security researchers to pressure vendors into releasing patches; once a PoC is public, exploitation by less-skilled attackers becomes far easier.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CI/CD</strong> — Continuous Integration/Continuous Deployment: automated pipelines that build, test, and publish software code whenever developers make changes; a high-value target for supply-chain attackers because compromising the pipeline can inject malicious code into every software release.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">FSB</strong> — Federal Security Service: Russia's primary domestic intelligence and counterintelligence agency, successor to the Soviet KGB, known for conducting offensive cyber operations against foreign governments and dissidents.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SD-WAN</strong> — Software-Defined Wide Area Network: technology that uses software to manage and route enterprise network traffic across multiple physical locations; widely deployed in large organizations, making vulnerabilities in its management plane extremely high-impact.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Heap Over-read</strong> — a memory vulnerability where a program reads beyond the end of an allocated memory buffer, potentially exposing adjacent data such as passwords, session tokens, or cryptographic keys stored nearby.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Credential Stuffing</strong> — an automated attack where usernames and passwords stolen from one breach are systematically tested against other services, exploiting the common habit of password reuse across multiple accounts.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Worm</strong> — self-replicating malware that spreads across systems or networks without requiring a user to click anything, automatically exploiting vulnerabilities or stolen credentials to copy itself into new environments.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Nation-state Actor</strong> — a hacking group that operates on behalf of a government, typically pursuing intelligence value, espionage, or geopolitical disruption rather than financial gain, with access to significant resources and long operational timelines.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/cisa-warns-fortinet-users-to-secure-devices-after-fortibleed-leak/" style="color:#374151;text-decoration:none;">FortiBleed: 74,000 Fortinet Firewall Credentials Exposed — CISA Urges Immediate Rotation</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/06/one-click-microsoft-365-copilot-flaw.html" style="color:#374151;text-decoration:none;">One-Click Microsoft 365 Copilot Flaw Could Have Let Attackers Steal Emails, Files, and MFA Codes</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.securityweek.com/two-new-reports-offer-competing-explanations-for-cybersecuritys-growing-crisis/" style="color:#374151;text-decoration:none;">Two New Reports Offer Competing Explanations for Cybersecurity's Growing Crisis in 2026</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://krebsonsecurity.com/2026/06/scattered-spider-hackers-plead-guilty-on-day-1-of-trial/" style="color:#374151;text-decoration:none;">Scattered Spider Member Tyler Buchanan Pleads Guilty to Wire Fraud and Identity Theft</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Krebs on Security</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · June 29, 2026
+</div>
+
+</body>
+</html>
