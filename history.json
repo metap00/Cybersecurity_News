@@ -1,4 +1,4 @@
 {
-  "til": ["Prototype Pollution", "Infostealer Malware", "Race Condition"],
-  "glossary": ["CVE", "CVSS", "MCP", "SAML", "JWT", "IDOR", "Path Traversal", "Prototype Pollution", "RCE", "Supply Chain Attack", "WebSocket", "OAuth", "SSRF", "XSS", "DoS", "IKEv1", "KEV", "APT", "VPN", "Infostealer", "Zero-day", "Ransomware", "Botnet", "Patch Tuesday", "GRU", "BOD", "FCEB", "LPE", "PoC", "CI/CD", "FSB", "SD-WAN", "Heap Over-read", "Credential Stuffing", "Worm", "Nation-state Actor"]
+  "til": ["Prototype Pollution", "Infostealer Malware", "Race Condition", "Authentication Bypass"],
+  "glossary": ["CVE", "CVSS", "MCP", "SAML", "JWT", "IDOR", "Path Traversal", "Prototype Pollution", "RCE", "Supply Chain Attack", "WebSocket", "OAuth", "SSRF", "XSS", "DoS", "IKEv1", "KEV", "APT", "VPN", "Infostealer", "Zero-day", "Ransomware", "Botnet", "Patch Tuesday", "GRU", "BOD", "FCEB", "LPE", "PoC", "CI/CD", "FSB", "SD-WAN", "Heap Over-read", "Credential Stuffing", "Worm", "Nation-state Actor", "Authentication Bypass", "IKEv2", "Copy-on-Write", "Page Cache", "SSL VPN", "Credential Harvesting", "Extortion", "Emergency Directive", "PSIRT", "Blockchain C2"]
 }

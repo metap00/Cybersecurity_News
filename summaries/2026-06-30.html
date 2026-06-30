@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — June 30, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 2 high · 2 medium · 1 low</div>
+</div>
+
+<!-- STORY 1: ShinyHunters Oracle PeopleSoft -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · ongoing</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/shinyhunters-exploits-oracle-peoplesoft.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">ShinyHunters Exploits Oracle PeopleSoft Zero-Day to Breach 100+ Universities and Steal 455,000 Student Records</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> The ShinyHunters cybercrime group exploited an unpatched zero-day flaw (CVE-2026-35273, CVSS 9.8) in Oracle PeopleSoft's Environment Management component to breach more than 100 organizations — 68% of them universities — stealing sensitive student records and now demanding payment to suppress the data.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Over 455,000 students and alumni at universities primarily in the United States, with exposed records including names, addresses, phone numbers, passport numbers, GPAs, ethnicity, disability status, and enrollment details.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Oracle's emergency out-of-band patch for CVE-2026-35273 immediately, audit PeopleSoft logs for SSH lateral movement and the attacker marker file, and check HaveIBeenPwned if you are a student or staff at a potentially affected institution.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">Between May 27 and June 9, 2026 — before Oracle was aware of the vulnerability — ShinyHunters exploited CVE-2026-35273 as a true zero-day, compromising approximately 300 PeopleSoft instances. Mandiant identified over 100 victim organizations by correlating IP addresses with exposed endpoints and notified them after Oracle published an emergency advisory on June 10. Because the exploitation predated the advisory by nearly two weeks, every affected organization had no opportunity to patch in advance.</p>
+      <p style="margin:0 0 10px 0;">The attack tooling was automated and aggressive. A shell script named <code>[victim]_fanout.sh</code> spread over SSH by spraying a hardcoded credential list against internal hosts discovered via /etc/hosts, then dropped a taunting marker file named README-IF-YOU-SEE-THIS-YOUVE-BEEN-HACKED.TXT in PeopleSoft directories. Have I Been Pwned has catalogued roughly 455,000 unique email addresses in the leaked dataset. The University of Nottingham publicly confirmed that a "significant amount of data" in its student records was compromised, including passport numbers and sensitive personal attributes.</p>
+      <p style="margin:0 0 10px 0;">ShinyHunters is following its established double-extortion playbook — stealing data first, then demanding ransoms under threat of public release. The simultaneous targeting of 300+ PeopleSoft instances suggests fully automated exploitation at scale, likely scanning the internet for the vulnerable endpoint. Any organization running PeopleSoft that has not yet applied the June 10 patch should treat its environment as potentially compromised and initiate incident response procedures.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Oracle PeopleSoft is software that universities use to manage student records — think of it as a digital filing cabinet for your enrollment, grades, and personal details. ShinyHunters found a hidden bug in PeopleSoft that let them walk in without a password, copied hundreds of thousands of student files, and are now demanding money from the universities to keep that data private. This is called "extortion."
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-35273 · CVSS: 9.8/10 — Maximum-severity unauthenticated remote code execution in Oracle PeopleSoft's Environment Management component; exploitable remotely with no user interaction required, active zero-day exploitation confirmed from May 27 onward.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 2: FortiBleed -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · ongoing</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/cisa-warns-fortinet-users-to-secure-devices-after-fortibleed-leak/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">FortiBleed: Russian-Speaking Actors Harvest Credentials from 86,644 Fortinet Firewalls Across 194 Countries</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> A Russian-speaking cybercriminal syndicate automated the harvest of validated administrator and VPN credentials from 86,644 internet-facing Fortinet FortiGate firewalls — roughly half of all publicly exposed Fortinet perimeter devices globally — in a campaign running since at least February 2026.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations in 194 countries with confirmed named victims including Foxconn, Samsung, Comcast, Siemens, Lenovo, PwC, Accenture, Oracle, and numerous government agencies and critical infrastructure operators.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately terminate all active SSL VPN and admin sessions, reset all VPN and administrative credentials, enforce multi-factor authentication on Fortinet management interfaces, and investigate for lateral movement dating back to February 2026.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">The FortiBleed campaign became public on June 13, 2026, when security researcher Volodymyr "Bob" Diachenko discovered an exposed attacker-controlled server hosting a database of validated FortiGate credentials alongside the automated harvesting tooling itself. The attackers scanned the entire internet for FortiGate devices, tested known-weak and default passwords against VPN interfaces, and catalogued the working credentials in a structured database. The campaign had been running since at least February 2026.</p>
+      <p style="margin:0 0 10px 0;">By June 19, the confirmed device count reached 86,644 unique compromised endpoints across 194 countries — approximately half of all internet-facing Fortinet perimeter devices. The credential database includes organizations from technology, manufacturing, telecommunications, professional services, and government sectors. CISA issued an emergency advisory on June 18; the UK National Cyber Security Centre published a global warning; and Fortinet's PSIRT issued a formal blog post — all within a six-day window. Recorded Future independently verified the scope through their threat intelligence feeds.</p>
+      <p style="margin:0 0 10px 0;">Unlike most breaches that exploit a software vulnerability, FortiBleed targeted weak or default passwords — meaning no patch can remediate organizations already compromised. Attacker persistence established since February means full eradication requires resetting all credentials, auditing all systems reachable from the affected firewalls, and reviewing months of logs for signs of lateral movement and data staging.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A Fortinet FortiGate is a firewall — the security gate between a company's internal network and the internet. In FortiBleed, criminals built a robot that automatically tried commonly-used passwords against tens of thousands of these firewalls, collected the ones that worked, and compiled a giant list of "keys" to those organizations' networks. If your company uses Fortinet gear, those keys may already be in criminal hands since February.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Campaign-based credential harvesting via password spraying since February 2026 — the attack exploits weak or default passwords rather than a software vulnerability; patching alone is insufficient for already-compromised devices.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 3: Check Point VPN + Qilin Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · ongoing</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/check-point-links-vpn-zero-day-attacks-to-qilin-ransomware-gang/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Check Point VPN Zero-Day (CVE-2026-50751, CVSS 9.3) Actively Exploited by Qilin Ransomware Affiliate</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> A critical authentication bypass vulnerability (CVE-2026-50751, CVSS 9.3) in Check Point VPN's deprecated IKEv1 implementation is being actively exploited by a Qilin ransomware affiliate to establish unauthorized VPN sessions without credentials, with CISA issuing an emergency directive requiring federal agencies to patch immediately.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Check Point Remote Access VPN, Mobile Access blades, or Spark firewalls configured with the deprecated IKEv1 protocol, with confirmed ransomware incidents linked to attacks that began May 7 and surged in early June.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Check Point's emergency hotfix immediately, disable IKEv1 and restrict VPN authentication to IKEv2 only, enforce Machine Certificate Authentication, enable IPS signatures for CVE-2026-50751, and investigate VPN logs from May 7 onward for unauthorized sessions.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">CVE-2026-50751 exploits a logic flow weakness in how Check Point's Remote Access and Mobile Access components validate digital certificates during IKEv1 key exchange. An unauthenticated remote attacker can complete the IKEv1 handshake without providing valid user credentials, establishing a full VPN session that appears authorized. The vulnerability affects only configurations using IKEv1 — a protocol that has been formally deprecated for years — but many organizations still run it for legacy client compatibility.</p>
+      <p style="margin:0 0 10px 0;">A Qilin ransomware affiliate began exploiting this flaw on May 7, 2026, with attacks surging in early June. The threat actor used dedicated VPS infrastructure to conduct attacks, leveraged the Tox protocol for encrypted command-and-control communications, and used the legitimate open-source Rclone tool to exfiltrate data before deploying ransomware to encrypt victim systems — a classic double-extortion pattern. Check Point confirmed at least one confirmed ransomware incident tied directly to this exploit chain.</p>
+      <p style="margin:0 0 10px 0;">Qilin is a ransomware-as-a-service operation active since 2022 that provides its ransomware toolkit to affiliates in exchange for a revenue share. The exploitation of a VPN zero-day for initial access is particularly dangerous because VPN traffic is inherently trusted by network defenses — the malicious session looks identical to a legitimate remote worker connecting to the office. Organizations should review VPN session logs from May 7 onward for sessions from unfamiliar IP addresses or at unusual times.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A VPN lets remote employees securely connect to their company network as if they were in the office. This bug in Check Point's VPN software had a flaw in an old "handshake" procedure (IKEv1) that let criminals pretend they had a valid login and get inside the network without a password. Once inside, the Qilin ransomware gang scrambled all the company's files and demanded a ransom payment to restore access.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-50751 · CVSS: 9.3/10 — Authentication bypass in Check Point Remote Access VPN and Mobile Access via a logic error in IKEv1 certificate validation; exploitable remotely by unauthenticated attackers, actively used to deliver Qilin ransomware.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 4: DirtyClone Linux LPE -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · 2 days ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/new-dirtyclone-linux-kernel-flaw-lets.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">DirtyClone (CVE-2026-43503): Working Linux Kernel Root Exploit Published — Attack Leaves No Forensic Trace</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> JFrog Security Research published a complete working exploit chain for DirtyClone (CVE-2026-43503), a Linux kernel local privilege escalation flaw that allows any unprivileged local user to gain root access by abusing a race condition in how cloned network packets handle copy-on-write memory — and the attack leaves zero on-disk forensic evidence.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Systems running Linux kernel versions 6.1 through 6.12, including default installations of Debian, Ubuntu, and Fedora, covering millions of servers, cloud instances, containers, and developer workstations worldwide.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the patched kernel from your Linux distribution immediately; if patching is not possible right away, restrict untrusted local user access and deploy runtime kernel security modules (SELinux, AppArmor) to limit blast radius.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">DirtyClone is the latest in a series of "dirty" Linux kernel privilege escalation bugs. The flaw lives in the kernel networking stack: when network packets are cloned for multi-recipient delivery, two internal helper functions drop a safety flag that marks the packet's memory as shared with an on-disk file. An attacker can race to modify that shared memory before the safety flag is restored, corrupting the page cache — the in-memory representation of a file — and thereby gaining root-level write access to any file on the system.</p>
+      <p style="margin:0 0 10px 0;">The attack's most alarming characteristic is its forensic invisibility. Because it modifies only the page cache (the in-memory copy of a file) without writing anything to disk, file-integrity monitoring tools that hash on-disk binaries will report the system as clean even after the attack succeeds. Standard kernel audit logs and system call traces also show nothing anomalous, because no traditional file system write operation occurs. JFrog demonstrated successful exploitation on default Debian, Ubuntu, and Fedora configurations.</p>
+      <p style="margin:0 0 10px 0;">Linux kernel versions 6.1 through 6.12 are confirmed vulnerable. The 5.15 and 5.10 LTS branches are under investigation. No confirmed in-the-wild exploitation of DirtyClone had been reported as of June 28, but the publication of a complete working PoC dramatically compresses the window before attackers operationalize it. All major distributions are releasing patched kernels; apply them as an emergency priority, particularly on multi-tenant servers and cloud instances.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> The Linux kernel is the core of the operating system — the software in charge of everything, including who has permission to do what. DirtyClone is a bug that lets a regular (non-admin) user trick the kernel into handing them root (administrator) access by manipulating how the kernel copies network data in memory. The scariest part: the attack is essentially invisible — it leaves no footprint in files or logs, so security monitoring tools won't detect that anything happened.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-43503 · CVSS: 7.8/10 — Local privilege escalation to root via a race condition in Linux kernel copy-on-write handling for cloned socket buffers; requires local access but grants root and leaves no on-disk forensic trace, defeating file-integrity monitoring.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 5: npm/Go Supply Chain Attack -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · 1 day ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/hijacked-npm-and-go-packages-use-vs.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Hijacked npm and Go Packages Deploy Python Infostealer via VS Code Tasks and Blockchain C2</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Attackers hijacked two npm packages and a cluster of Go modules, embedding a Python infostealer that activates automatically through VS Code workspace tasks, retrieves encrypted instructions from blockchain transaction data to evade blocking, and exfiltrates credentials and sensitive files from developer machines.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Developers on Windows, Linux, and macOS who installed the compromised packages and opened the project folder in VS Code, potentially exposing API keys, cloud tokens, SSH keys, browser-stored credentials, and sensitive source code.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit installed npm and Go dependencies against the affected package names, inspect VS Code workspace task files (.vscode/tasks.json) in all projects for unexpected entries, rotate any credentials stored in your development environment, and use dependency scanning tools like Snyk or Socket.dev.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">The two hijacked npm packages were uploaded on May 25, 2026. Rather than relying on npm lifecycle hooks (install-time scripts that security scanners commonly flag), the malware hidden its execution inside a VS Code workspace task configured to run automatically when the project folder is opened — a vector that most dependency scanning tools do not inspect. This approach bypasses many common supply chain defenses that focus exclusively on install-time execution.</p>
+      <p style="margin:0 0 10px 0;">The payload chain is notably sophisticated. The VS Code task retrieves encrypted JavaScript from blockchain transaction data — a command-and-control technique that makes the C2 channel virtually impossible to block via URL or domain blacklists, since the Bitcoin blockchain is a public, immutable, and widely trusted network. From there, the malware connects to attacker-controlled infrastructure via a socket.io backdoor and deploys a Python-based infostealer targeting browser-saved credentials, cloud provider configuration files, SSH keys, and API tokens stored in developer environments.</p>
+      <p style="margin:0 0 10px 0;">This attack is the latest in a surge of supply chain compromises targeting the developer ecosystem in 2026, following the Miasma worm campaign (June 1) and the Red Hat npm namespace compromise. Developer machines are high-value targets because they typically hold credentials to production cloud environments, code signing certificates, and access to internal infrastructure. Treat open-source packages with the same scrutiny as third-party executables: verify publisher identity, check recent commit history, and scan for unexpected files before installing.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Developers share reusable code as "packages" through public registries like npm. Attackers took over two legitimate packages and booby-trapped them: when a developer opens the infected project in VS Code (a popular code editor), a hidden task silently fires up a data-stealing program. That program then uses the Bitcoin blockchain — normally used for cryptocurrency — as a secret message board to receive instructions, making it nearly impossible to detect or block.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Supply chain compromise via npm and Go package hijacking — the attack leverages VS Code workspace task automation and blockchain-based C2 to evade traditional security controls; affects all platforms where affected packages were installed.</div>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Authentication Bypass ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    An authentication bypass is a vulnerability that lets an attacker skip the login check entirely — not by guessing or stealing a password, but by exploiting a flaw in the code that validates credentials, tricking the system into believing a successful login already occurred. In today's Check Point VPN story (CVE-2026-50751), the weakness was a logic error in how the software verified digital certificates during the IKEv1 handshake: the check could be satisfied without ever supplying a real user password, so an attacker walked through the front door without a key. Authentication bypasses are among the most severe vulnerability classes because they undermine the foundation of access control — it doesn't matter how strong your password is if the software can be fooled into ignoring the password entirely.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: Authentication Bypass · IKEv2 · Copy-on-Write · Page Cache · SSL VPN · Credential Harvesting · Extortion · Emergency Directive · PSIRT · Blockchain C2 ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Authentication Bypass</strong> — A vulnerability that lets an attacker skip or fool a login check, gaining access without valid credentials.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">IKEv2</strong> — Internet Key Exchange version 2, the modern and more secure successor to the deprecated IKEv1 protocol for negotiating VPN tunnel parameters; CVE-2026-50751 only affects IKEv1 configurations.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Copy-on-Write (COW)</strong> — A memory optimization where multiple processes share the same data until one modifies it, at which point a private copy is made; DirtyClone exploits a race condition in this mechanism.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Page Cache</strong> — The region of RAM where the OS caches recently accessed file data for fast access; the DirtyClone exploit corrupts this in-memory copy without touching the on-disk binary, defeating file-integrity monitoring tools.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SSL VPN</strong> — A type of VPN that uses the TLS/SSL protocol (the same encryption as HTTPS) to create a secure remote-access tunnel, typically accessible via a web browser or lightweight client.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Credential Harvesting</strong> — The automated mass collection of valid login credentials from compromised systems, VPN traffic, or exposed databases, as seen at scale in the FortiBleed campaign.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Extortion</strong> — In cybercrime, the demand for payment under threat of publishing, selling, or further distributing stolen data; ShinyHunters employs this tactic against breached universities.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Emergency Directive</strong> — A binding, compulsory order from CISA requiring all Federal Civilian Executive Branch agencies to remediate a specific vulnerability within a very tight, non-negotiable deadline.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PSIRT</strong> — Product Security Incident Response Team; a vendor's internal team responsible for investigating, coordinating disclosure of, and publishing remediation guidance for security vulnerabilities in their products.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Blockchain C2</strong> — A command-and-control technique where malware reads encrypted attacker instructions embedded in public blockchain transactions, making the C2 channel nearly impossible to block since the blockchain itself is decentralized and widely accessible.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/06/microsoft-patches-record-206-flaws.html" style="color:#374151;text-decoration:none;">Microsoft June Patch Tuesday: Record 208 CVEs Including CVE-2026-45657 (CVSS 9.8 Windows Kernel RCE) and 3 Zero-Days</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" style="color:#374151;text-decoration:none;">CISA Adds Lantronix EDS5000 Code Injection Flaw (CVE-2025-67038, CVSS 9.8) to KEV Catalog, Orders Patch by June 26</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.esecurityplanet.com/weekly-roundup/zero-days-ai-exploits-and-supply-chain-risks-define-this-week-in-cybersecurity-in-june-2026/" style="color:#374151;text-decoration:none;">Device Code Phishing Kits Surge 37x in 2026 as 18+ Active Kits Target Microsoft 365 and Azure Tokens</a>
+    <span style="color:#9ca3af;font-size:11px;"> · eSecurity Planet</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.gopher.security/news/vulnerability-exploits-dominate-cyber-intrusions-in-2026-trends" style="color:#374151;text-decoration:none;">Trump Signs Executive Order Directing Federal Agencies to Build AI Cybersecurity Risk Evaluation Frameworks</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Quantum Safe News Center</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · June 30, 2026
+</div>
+
+</body>
+</html>
