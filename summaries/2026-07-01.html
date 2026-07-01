@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Cybersecurity News — 2026-07-01</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — July 1, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 5 high · 1 medium</div>
+</div>
+
+<!-- STORY 1: SimpleHelp CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Help Net Security · 16 hours ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/attackers-exploit-simplehelp-cve-2026.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Maximum-Severity SimpleHelp Flaw Exploited to Deploy Djinn Stealer and TaskWeaver</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Attackers are actively exploiting CVE-2026-48558 (CVSS 10.0), a maximum-severity OIDC authentication bypass in SimpleHelp RMM, to deploy two previously unseen malware families — the TaskWeaver loader and Djinn Stealer — across Windows, macOS, and Linux systems simultaneously.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running unpatched SimpleHelp servers with OIDC authentication enabled; Djinn Stealer specifically harvests credentials for cloud platforms, AI developer tools, source-control systems, package registries, and cryptocurrency wallets.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch SimpleHelp to the fixed release immediately — CISA added this to the KEV catalog on June 30 with a mandatory patch deadline of July 2 for all FCEB agencies.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-48558 exploits a critical flaw in how SimpleHelp handles the OpenID Connect (OIDC) single sign-on flow. In deployments where OIDC authentication is enabled, an unauthenticated attacker can craft a request that completely bypasses the credential check, creating and assuming a fully-privileged "Technician" session. From that position, the attacker can remote into any managed endpoint and execute scripts with full administrative rights — the equivalent of hijacking the IT department's master console.</p>
+      <p>Once inside, the threat actor deploys TaskWeaver: a heavily obfuscated Node.js loader disguised as <em>jquery.js</em> and executed via <em>node.exe</em>. TaskWeaver establishes an encrypted, reusable payload delivery channel and installs the second stage, Djinn Stealer. Djinn is a cross-platform credential harvester notable for a uniquely modern targeting profile — it goes after AWS, Azure, and GCP credentials, GitHub and GitLab tokens, npm and PyPI registry secrets, AI coding assistant keys (such as Copilot and Cursor configurations), SSH private keys, browser saved passwords, and cryptocurrency wallet seed phrases. The breadth reflects exactly where sensitive organizational access now lives.</p>
+      <p>CISA added CVE-2026-48558 to the Known Exploited Vulnerabilities (KEV) catalog on June 30, giving FCEB agencies until July 2 to patch — an unusually short two-day window that signals active, widespread exploitation. The CVSS 10.0 score reflects the worst-case combination: network-reachable, zero privileges required, zero user interaction, and complete compromise of confidentiality, integrity, and availability.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SimpleHelp is software IT teams use to remotely fix employees' computers. Think of OIDC as a "sign in with Google" button on the SimpleHelp login page — normally safe, but this bug let attackers skip the button entirely and walk straight in as a trusted IT admin. Once inside, they installed a hidden password-stealing program that quietly copied every cloud service password, developer key, and crypto wallet seed it could find, then sent that data to the attackers. Patching is the only fix.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-48558 · CVSS: 10.0/10 — Network-reachable, no authentication, no user interaction, complete system compromise. CISA KEV deadline: July 2, 2026.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 2: Aflac Japan CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / Bleeping Computer · 18 hours ago</span>
+  </div>
+  <a href="https://www.securityweek.com/aflac-japan-data-breach-impacts-4-38-million/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Aflac Japan Data Breach Exposes 4.38 Million Customers — Bank Accounts Included</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Aflac Life Insurance Japan disclosed a data breach affecting approximately 4.38 million customers following a series of unauthorized access attempts against its customer portal between June 15–25, 2026, detected when system load spiked abnormally.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> 4.38 million Aflac Japan policyholders had names, addresses, phone numbers, and policy details exposed; roughly 230,000 of those also had premium payment bank account details compromised.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Affected customers should monitor bank statements closely, be alert for phishing calls using real policy details, and await direct notification letters from Aflac Japan.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Aflac Life Insurance Japan detected the intrusion when its systems showed abnormal load increases from a surge in unusual access traffic. The company confirmed multiple unauthorized access attempts occurred between June 15 and June 25, targeting the customer portal and related infrastructure. The incident has been reported to Japan's Financial Services Agency and local law enforcement. Aflac Japan states the breach is limited to Japanese operations and no misuse of the stolen data has been confirmed at the time of disclosure.</p>
+      <p>The scope is significant: 4.38 million records is a substantial portion of a major insurance customer base. The most dangerous subset — approximately 230,000 records — includes bank account numbers tied to premium payments. The combination of full name, address, phone number, insurance policy details, and bank account data creates an extremely rich profile for targeted fraud. Criminals can use the policy numbers to impersonate Aflac convincingly when calling victims, dramatically increasing the success rate of social engineering attacks.</p>
+      <p>This breach follows a separate cyberattack on Aflac's U.S. operations in 2025, raising broader questions about enterprise-wide security posture across the company's global subsidiaries. Insurance companies are high-value targets because their databases contain verified personal and financial information on large populations.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of this breach as thieves breaking into an insurance company's file room and photographing millions of customer folders. Each folder has your name, home address, phone number, and insurance details. For 230,000 customers, the folder also had their bank account number. Even if no money has been stolen yet, criminals can now call those customers pretending to be Aflac — quoting real policy numbers — and trick them into revealing more information or authorizing fraudulent account changes.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE · CVSS: N/A — Unauthorized access to customer portal; 4.38M records exposed, 230K with bank account details. Second Aflac breach in two years.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 3: Oracle EBS HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / SecurityWeek · 20 hours ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/oracle-e-business-suite-flaw-cve-2026.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Oracle E-Business Suite CVE-2026-46817 (CVSS 9.8) Exploited in the Wild — 450+ Exposed Instances</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Attackers began exploiting CVE-2026-46817, a critical unauthenticated privilege management flaw in Oracle EBS Payments, with crafted POST requests to <code>/OA_HTML/ibytransmit</code> attempting to read system files — despite no public PoC existing, suggesting independent weaponization.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Oracle EBS versions 12.2.3 through 12.2.15; Shadowserver tracks over 450 internet-exposed EBS instances, concentrated in the United States and Europe.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Oracle's May 2026 Critical Patch Update immediately; if immediate patching is not feasible, restrict network access to the <code>/OA_HTML/ibytransmit</code> endpoint at the firewall or WAF.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-46817 resides in the File Transmission component of Oracle EBS's Payments module. The flaw enables unauthenticated attackers with HTTP network access to take over vulnerable systems through low-complexity attacks — no credentials, no social engineering, no user interaction required. Researchers at Defused observed active exploitation beginning over the weekend of June 28–29, 2026, with attackers sending crafted XML POST requests via the CODEX_PULL transmission scheme and probing for system file access.</p>
+      <p>What makes this exploitation particularly concerning is the absence of any public proof-of-concept code. Attackers appear to have independently developed working exploits, suggesting either a sophisticated threat actor with dedicated research capacity or rapid weaponization from private vulnerability intelligence. Oracle included patches in its May 2026 Critical Patch Update — meaning organizations now unpatched six weeks later are at elevated risk. Oracle EBS is widely deployed for financial management, HR, and supply chain operations, making a successful compromise equivalent to gaining a foothold in the core nervous system of an enterprise.</p>
+      <p>The Shadowserver Foundation reports over 450 internet-facing EBS instances, with nearly 200 each in the United States and Europe. Any organization that has not applied the May CPU should treat this as an emergency patch situation.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Oracle E-Business Suite is like the central nervous system of a large company — it handles payroll, accounts payable, purchasing, and supply chains all in one place. This vulnerability is like discovering the delivery entrance to that system has no lock: anyone who finds it can walk in without any badge or password and start reading confidential financial records. Attackers found this open door this weekend. Oracle provided the lock (the patch) back in May, but organizations that haven't installed it yet are still wide open.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-46817 · CVSS: 9.8/10 — Unauthenticated network attack, low complexity, no user interaction, high impact on confidentiality/integrity/availability. Patched in Oracle May 2026 CPU.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 4: LoadMaster HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / watchTowr Labs · 21 hours ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/progress-kemp-loadmaster-flaw-could-let.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Public PoC Released for Critical Progress Kemp LoadMaster Pre-Auth RCE (CVE-2026-8037, CVSS 9.8)</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> watchTowr Labs published a detailed technical write-up and working proof-of-concept exploit for CVE-2026-8037, an uninitialized-heap memory bug in Progress Kemp LoadMaster's API input handler that allows unauthenticated attackers to execute arbitrary shell commands as root.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running LoadMaster GA &le; v7.2.63.1 or LTSF &le; v7.2.54.17 with the API enabled; LoadMaster is widely deployed as an enterprise ADC and load balancer sitting at the network perimeter.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to LoadMaster GA v7.2.63.2 or LTSF v7.2.54.18 immediately — a working public PoC now exists, meaning exploitation attempts are likely within 24–72 hours.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-8037 lives in LoadMaster's <code>escape_quotes()</code> function, which sanitizes user input before passing it to a shell command. The underlying bug: the original code used <code>malloc()</code> to allocate a buffer but never zero-initialized it and never appended a null terminator after writing the escaped output. An attacker can craft API input that exploits this uninitialized-memory state to break out of the intended code path and inject arbitrary shell commands — all without supplying any credentials.</p>
+      <p>Progress published its advisory and fixed versions on June 4, 2026. However, watchTowr Labs published a full technical write-up and working exploit chain on June 29, dramatically lowering the barrier for opportunistic attackers. No confirmed attacks on CVE-2026-8037 have been reported yet, but the historical pattern for published PoCs targeting network edge devices shows exploitation typically begins within 24–72 hours of public disclosure.</p>
+      <p>LoadMaster is an Application Delivery Controller (ADC) that sits at the perimeter of many enterprise networks, routing and load-balancing traffic to web applications and internal services. Compromising it gives an attacker a privileged network position to intercept traffic, pivot into internal networks, and disrupt business operations — a high-value target for both ransomware operators and espionage groups.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> LoadMaster is a device that stands at the front door of a company's internet presence and directs incoming visitors to the right servers. This vulnerability is like a gatekeeper who was supposed to check names for suspicious characters, but their notepad was half-filled with random old scribbles — someone figured out how to exploit those scribbles to impersonate the head of security and walk right through. Yesterday, researchers published step-by-step instructions showing exactly how to do this trick, meaning many more attackers will now attempt it. Update now.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-8037 · CVSS: 9.8/10 — Pre-authentication RCE via uninitialized heap memory in API input handler; public PoC published June 29, 2026. No exploits confirmed yet.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 5: RustDuck HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · 22 hours ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/rustduck-botnet-rebuilds-in-rust-to.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">RustDuck Botnet Hijacks Routers and IP Cameras for DDoS Attacks — IoT Devices at Risk</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> QiAnXin's XLab researchers disclosed RustDuck, a two-stage Rust-written DDoS botnet active since February 2026 that compromises home routers, IP cameras, Android TV boxes, and exposed servers by exploiting default credentials and known CVEs in devices from TVT, Ruijie, TP-Link, and ZTE.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Anyone with internet-exposed IoT devices using default or weak passwords, or running unpatched firmware — particularly home users, small businesses, and organizations with unmanaged edge devices.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Change default passwords on all routers and cameras, update device firmware, and disable Telnet, SSH, and remote management interfaces unless strictly required.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>RustDuck is a two-stage malware: it first compromises a device via brute-forced Telnet/SSH credentials or known CVEs in popular consumer devices, then downloads and installs a Rust-compiled DDoS agent. The choice of Rust is strategically significant — Rust-compiled malware is substantially harder to reverse-engineer than the typical C-based IoT malware descended from Mirai, and Rust's memory-safety properties make deployed agents more stable and resilient. Researchers at QiAnXin's XLab have tracked the botnet since February 2026.</p>
+      <p>RustDuck also specifically targets exposed Android Debug Bridge (ADB) interfaces, which are frequently left open by default on Android TV boxes and set-top boxes. The botnet's primary delivery server infrastructure overlaps with a separate ADB-targeting DDoS botnet seen in spring 2026, suggesting a common operator or shared infrastructure. The end goal is DDoS-for-hire: infected devices flood target websites and services with junk traffic on demand — a criminal service model where anyone can rent the attack capacity.</p>
+      <p>Consumer IoT devices are prized for DDoS botnets because they are globally distributed across diverse IP ranges, almost universally unmonitored by their owners, and rarely receive security updates. A home router compromised six months ago could be quietly participating in attacks on critical infrastructure or gaming platforms without any visible sign to its owner.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine criminals going door-to-door through neighborhoods where people left their front doors unlocked (default passwords) or had broken locks (unpatched bugs). They quietly install a secret switch in each home. Weeks later, when they want to knock a website offline, they flip all those switches at once — millions of devices flood the target with traffic until it collapses. Your home router or security camera could be one of those switches without you ever noticing. The fix is simple: log into your router, change the default password, and update the firmware.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE — multiple IoT device CVEs exploited · CVSS: N/A — Rust-based DDoS botnet active since Feb 2026; operator infrastructure overlaps with a second active botnet campaign.</div>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: OIDC Authentication ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    OpenID Connect (OIDC) is an identity verification layer built on top of OAuth 2.0 that lets applications confirm who you are by delegating the login to a trusted provider — like Google, Microsoft, or Okta — instead of managing passwords themselves; you've used it every time you clicked "Sign in with Google." When a flaw exists in how a server processes the OIDC handshake, attackers can trick the system into granting a fully-authenticated session without ever supplying a password — exactly what CVE-2026-48558 did to SimpleHelp, creating a privileged technician account from thin air. The safest defenses are to keep OIDC-enabled software patched promptly, monitor audit logs for unexpected new privileged user creation, and layer additional verification (such as requiring MFA re-confirmation for sensitive actions) even inside an already-authenticated OIDC session.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: OIDC · RAT · ADC · ERP · DDoS · IoT · Uninitialized Memory · Djinn Stealer ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">OIDC</strong> — OpenID Connect; an identity authentication protocol built on OAuth 2.0 that lets applications verify a user's identity through a trusted third-party provider (e.g., Google, Microsoft, Okta) instead of managing passwords directly.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RAT</strong> — Remote Access Trojan; malware that secretly installs itself on a victim's machine and gives attackers full remote control — file access, command execution, camera/microphone access — without the victim's knowledge.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ADC</strong> — Application Delivery Controller; a network device (like Progress Kemp LoadMaster) that sits at the edge of enterprise networks, load-balancing and optimizing traffic between users and backend application servers.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ERP</strong> — Enterprise Resource Planning; integrated business software (like Oracle E-Business Suite) that centrally manages a company's core operations — finance, HR, supply chain, and procurement — in one platform.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">DDoS</strong> — Distributed Denial of Service; an attack that simultaneously floods a target server or website with traffic from thousands of hijacked devices, overwhelming it until it becomes unavailable to legitimate users.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">IoT</strong> — Internet of Things; the category of internet-connected consumer and industrial devices — routers, IP cameras, smart TVs, thermostats — that often ship with weak default security settings and rarely receive regular updates.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Uninitialized Memory</strong> — a programming error where a block of memory is allocated but never zeroed out before use, leaving it filled with leftover data; attackers can exploit this to inject malicious values or leak sensitive information, as in CVE-2026-8037.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Djinn Stealer</strong> — a newly discovered cross-platform credential harvester (Windows/macOS/Linux) deployed in the SimpleHelp attack campaign; uniquely targets cloud platform tokens, AI development tool secrets, source-control credentials, package registry API keys, and cryptocurrency wallet seed phrases.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://www.bleepingcomputer.com/news/security/cisa-splunk-enterprise-flaw-actively-exploited-patch-by-sunday/" style="color:#374151;text-decoration:none;">CISA: Splunk Enterprise CVE-2026-20253 Actively Exploited — Agencies Must Patch by Sunday</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://www.securityweek.com/microsoft-working-on-patch-for-rogueplanet-zero-day/" style="color:#374151;text-decoration:none;">Microsoft Working on Patch for Unpatched "RoguePlanet" Defender Zero-Day (CVE-2026-50656, CVSS 7.8) as Researcher Threatens July 14 Mass Drop</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://krebsonsecurity.com/2026/06/scattered-spider-hackers-plead-guilty-on-day-1-of-trial/" style="color:#374151;text-decoration:none;">Scattered Spider Hackers Plead Guilty on Day 1 of Trial — Sentencing Set for July 15 in London</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Krebs on Security</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · July 1, 2026
+</div>
+
+</body>
+</html>
