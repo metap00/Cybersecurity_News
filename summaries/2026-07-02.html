@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Cybersecurity Digest — July 2, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — July 2, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">10 stories · 2 critical · 6 high · 1 medium · 1 low</div>
+</div>
+
+<!-- STORY 1 — CRITICAL: Azure CLI LSHIY Password Spray -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · ~20 hours ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/azure-cli-password-spray-hits-at-least.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Azure CLI Password Spray Hits 78 Accounts in 81M+ Attempts — Chinese-Nexus Actor Bypasses MFA</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> A threat actor linked to Chinese-origin infrastructure (LSHIY LLC, AS32167) launched over 81 million automated login attempts against Microsoft Azure CLI between June 12–26, successfully compromising 78 accounts across 64 organizations by replaying old breach credentials through a deprecated OAuth flow.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization using Microsoft Azure CLI, especially those with legacy accounts holding passwords exposed in prior data breaches that were never rotated.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Disable the ROPC OAuth flow in your Azure tenant, enforce Conditional Access Policies blocking legacy authentication, and audit sign-in logs for traffic from IPv6 range 2a0a:d683::/32.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">Researchers at Huntress documented this ongoing campaign, tracked as LSHIY after the infrastructure provider supplying the IPv6 attack range (2a0a:d683::/32). The actor replays old username-and-password pairs exposed in prior data breaches, targeting the Resource Owner Password Credentials (ROPC) OAuth flow within Azure CLI — a deprecated authentication pathway that allows direct credential submission without triggering modern MFA or Conditional Access Policy checks.</p>
+      <p style="margin:0 0 10px 0;">Between June 12 and 21, the actor averaged two to four successful account compromises daily. The pace jumped dramatically on June 22, when 30 identities across 23 businesses were hit in a single day. Third-party telemetry consistently links LSHIY's IPv6 prefixes to Chinese-origin traffic; corporate records reference addresses in Hong Kong, Wuhan, and a New York shared office — though definitive nation-state attribution has not been confirmed.</p>
+      <p style="margin:0 0 10px 0;">The core weakness here is organizational hygiene, not a software bug: many enterprises have not disabled legacy OAuth flows or required users to rotate passwords exposed in prior breaches. ROPC was designed for backwards compatibility and explicitly bypasses phishing-resistant MFA, making even otherwise well-secured Azure tenants vulnerable if legacy authentication remains enabled in their policy set.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine someone found an old key to your house from a past break-in and tried it on your new lock — and it still worked. That's what's happening here: old passwords leaked in previous hacks are being tried against Microsoft cloud accounts using a backdoor login method that skips two-factor authentication entirely. The fix is to close that backdoor by disabling the old login method and making sure every account uses modern authentication that can't be bypassed this way.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — campaign exploits legacy ROPC misconfiguration, not a software vulnerability · Severity: CRITICAL — nation-scale credential spraying, active MFA bypass, confirmed account compromises at 64 organizations.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 2 — CRITICAL: Oracle E-Business Suite CVE-2026-46817 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · ~8 hours ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/oracle-e-business-suite-flaw-cve-2026.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Oracle E-Business Suite Flaw CVE-2026-46817 Actively Exploited — 456 Attacks Recorded in 24 Hours</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Attackers began actively exploiting a CVSS 9.8 unauthenticated flaw in Oracle E-Business Suite's Payments module, with Shadowserver honeypots recording 456 exploitation attempts in a single day across North America, Asia, and Europe.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Oracle EBS versions 12.2.3 through 12.2.15, particularly those using the Oracle Payments component who have not yet applied Oracle's May 2026 Critical Security Patch Update.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Oracle's May 2026 Critical Security Patch Update (CSPU) immediately; if patching is not possible, restrict HTTP network access to Oracle EBS systems as a compensating control.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">CVE-2026-46817 is an improper privilege management and authentication flaw in the File Transmission component of Oracle E-Business Suite's Payments module. Carrying a CVSS score of 9.8, it allows an unauthenticated attacker with HTTP network access to take over vulnerable instances through low-complexity attacks — no credentials, no prior access required. Affected versions span 12.2.3 through 12.2.15, a range covering years of commonly deployed production builds.</p>
+      <p style="margin:0 0 10px 0;">Oracle patched the flaw in its May 2026 CSPU, but exploitation began almost immediately after security researchers published technical details. Defused Cyber first confirmed in-the-wild exploitation on Oracle EBS honeypots over the weekend of June 27–28 — with no public proof-of-concept having previously existed. Shadowserver then recorded 456 exploitation attempts in a single day: 193 hits in North America, 181 in Asia, 53 in Europe, 18 in South America, 9 in Africa, and 2 in Oceania, signaling broad global targeting.</p>
+      <p style="margin:0 0 10px 0;">Oracle EBS handles enterprise-critical functions — payments, procurement, financials, and supply chain. A successful takeover via CVE-2026-46817 could expose payment data, permit fraudulent transactions, or serve as a persistent beachhead into corporate infrastructure. The breadth of global targeting suggests this is not a targeted campaign but opportunistic mass-scanning — attackers probing the internet for any unpatched instance they can find.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Oracle E-Business Suite is software that large companies use to manage payments and finances. This bug, rated nearly perfect 9.8/10 in severity, lets a hacker log into the system without any password. Oracle released a fix in May, but attackers are scanning the entire internet right now looking for companies that haven't installed the update — it's like a locksmith published blueprints for a skeleton key and burglars immediately started using it on every door they could find.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-46817 · CVSS: 9.8/10 — Pre-authentication privilege escalation in Oracle Payments; patch available in Oracle's May 2026 CSPU; active exploitation confirmed globally.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 3 — HIGH: Cursor AI DuneSlide -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · ~18 hours ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/critical-cursor-flaws-could-let-prompt.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">DuneSlide: Zero-Click Prompt Injection Flaws in Cursor IDE Let Attackers Escape Sandbox and Run Commands</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Cato AI Labs disclosed two critical vulnerabilities (CVE-2026-50548/50549) in Cursor IDE that allow attacker-controlled content inside a code repository to silently escape the editor's sandboxing and execute arbitrary commands on a developer's machine — with zero clicks required.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All developers using Cursor IDE before version 3.0 who open repositories or files containing untrusted or externally sourced content.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Cursor IDE to version 3.0 immediately; treat AI-powered IDE agents with the same suspicion as untrusted user input when opening unknown repositories.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">Cato AI Labs named this dual vulnerability chain "DuneSlide." Both CVE-2026-50548 and CVE-2026-50549 carry a CVSS score of 9.8 (9.3 under CVSS v4.0) and exploit prompt injection — the ability to embed adversarial instructions inside data that an AI model reads and then acts upon — to escape Cursor's sandboxed execution environment and execute arbitrary commands directly on the developer's host OS.</p>
+      <p style="margin:0 0 10px 0;">CVE-2026-50548 abuses a working-directory allowlist bug: when Cursor's AI agent sets a non-default working_directory on its run_terminal_cmd tool, Cursor automatically adds that path to the allowed-write list without verifying it's inside the project sandbox. An injected prompt can direct the agent to set this path to any system location. CVE-2026-50549 exploits a symlink-resolution fallback: when Cursor's safety check cannot resolve the real destination of a path (because the attacker makes a parent directory temporarily unreadable), Cursor trusts the shortcut's unverified in-project path instead — permitting writes outside the sandbox.</p>
+      <p style="margin:0 0 10px 0;">The zero-click nature is the critical differentiator. An attacker could embed malicious prompt instructions in a package README, a source file, or a data file inside a repository. When a developer opens that repository and the AI agent parses the file, the agent could download and execute a backdoor or exfiltrate SSH keys before the developer interacts with the editor at all. This is a supply-chain attack surface unique to AI-native development tools. Cursor 3.0 (released April 2) contains the fix.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Cursor is a popular code editor with a built-in AI assistant. These bugs mean a hacker could hide secret instructions inside a code project — like hiding a message in a document saying "as soon as you read this, hand your house key to the stranger outside" — and the AI would literally follow those instructions, running harmful programs on the developer's computer before the developer clicks anything. The fix is simply updating the editor to version 3.0.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-50548 &amp; CVE-2026-50549 · CVSS: 9.8/10 — Zero-click prompt injection to pre-authenticated RCE via sandbox escape in Cursor IDE; patched in Cursor 3.0.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 4 — HIGH: Progress Kemp LoadMaster CVE-2026-8037 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · ~6 hours ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Progress Kemp LoadMaster CVE-2026-8037 Now Under Active Exploitation — Pre-Auth Root RCE at the Network Edge</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Active exploitation attempts began against CVE-2026-8037, a pre-authentication RCE flaw (CVSS 9.8) in Progress Kemp LoadMaster load balancers, where attackers send a crafted request to the /accessv2 API endpoint to gain root-level command execution with no credentials required.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprise networks deploying Kemp LoadMaster appliances, especially those with the management interface exposed to the public internet.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply patched firmware immediately; restrict internet access to the LoadMaster management interface as a compensating control until the update is deployed.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">CVE-2026-8037 lives inside the escape_quotes() function in Kemp LoadMaster's API handler — a function meant to sanitize user input before passing it to a shell command. A coding flaw causes it to fail to properly null-terminate sanitized strings, leading to an out-of-bounds read into adjacent heap memory. Attackers craft requests to the /accessv2 endpoint that inject shell commands via this uninitialized heap read, gaining root-level execution on the appliance with no authentication required.</p>
+      <p style="margin:0 0 10px 0;">WatchTowr Labs published a full technical write-up and exploit chain on June 29, 2026, after coordinating disclosure with Progress. Exploitation attempts commenced within 48 hours, with eSentire's Threat Response Unit confirming active attempts on July 1. Zero Day Initiative assigned the vulnerability a CVSS score of 9.8, the highest possible risk tier.</p>
+      <p style="margin:0 0 10px 0;">The deployment position of Kemp LoadMaster amplifies the impact: as a load balancer, it sits at the outermost edge of enterprise networks — the first appliance to receive inbound internet traffic. A compromised appliance gives attackers traffic interception capabilities, a persistent network foothold for lateral movement, and a trusted internal IP from which to pivot deeper. Many enterprises have slow patch cycles for edge appliances because taking a load balancer offline requires coordinated traffic failover.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A load balancer is like a traffic director at the front door of a company's computer network — it decides which server handles each incoming request. This bug means anyone on the internet can send a specially crafted message to the load balancer and take full control of it, without needing any username or password. Because it sits right at the front door, controlling it is like getting the master key to everything behind it.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-8037 · CVSS: 9.8/10 — Uninitialized heap read in input sanitization leads to pre-authenticated root command injection via the LoadMaster management API; patched firmware available.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 5 — HIGH: Langflow CVE-2026-33017 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · ~30 hours ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/langflow-rce-exploited-to-deploy-monero.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Langflow RCE CVE-2026-33017 Exploited to Deploy Monero Miner and SSH-Propagating Worm on AI Servers</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Attackers are exploiting a CVSS 9.3 unauthenticated RCE flaw in Langflow's public build endpoint to deploy a Monero cryptocurrency miner that comes bundled with an SSH worm, which automatically spreads to every SSH-reachable host found in the victim's known_hosts file.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Developers and organizations running Langflow AI orchestration platforms on versions prior to 1.9.0, particularly instances exposed to the public internet.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Langflow to version 1.9.0 or later immediately; set AUTO_LOGIN=false and remove public internet exposure from Langflow instances.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">CVE-2026-33017 is an unauthenticated RCE flaw in Langflow's POST /api/v1/build_public_tmp/{flow_id}/flow endpoint. The endpoint accepts an attacker-controlled "code" field and evaluates it as Python directly within the server process — with no authentication check whatsoever. Carrying a CVSS v4.0 score of 9.3, the flaw affects all Langflow versions before 1.9.0 and was being exploited in the wild within 20 hours of public disclosure.</p>
+      <p style="margin:0 0 10px 0;">TrendMicro's analysis of the attack reveals a bash dropper that creates a hidden persistence directory at /var/tmp/.xlamb/, downloads the main malware binary (lambsys.elf), and launches it as a background Monero cryptocurrency miner. The dropper doubles as an SSH-key-reuse worm: it enumerates ~/.ssh/known_hosts and available SSH agent sockets, then attempts to authenticate to every known host using the victim's own SSH credentials, propagating itself laterally across the victim's entire reachable infrastructure.</p>
+      <p style="margin:0 0 10px 0;">The self-propagating SSH worm component makes this particularly dangerous for cloud and shared environments. An attacker who gains entry through a single exposed Langflow instance can potentially reach internal servers, CI/CD pipelines, and cloud workloads that implicitly trust the compromised machine via shared SSH key rings — turning a single vulnerable endpoint into a broad infrastructure compromise.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Langflow is a visual tool developers use to build AI applications. This vulnerability means a hacker can send a message to an exposed Langflow server and take full control without a password. The malware that gets installed does two things: it quietly uses your server's computing power to generate cryptocurrency for the attacker (costing you real money in electricity and cloud bills), and it secretly spreads itself to every other server your machine connects to via SSH — like a virus that copies itself from device to device across your whole network.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-33017 · CVSS: 9.3/10 (v4.0) — Unauthenticated RCE via Python code evaluation in Langflow's public build endpoint; patched in Langflow 1.9.0.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 6 — HIGH: BlueHammer CVE-2026-33825 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · ~4 hours ago</span>
+  </div>
+  <a href="https://www.securityweek.com/bluehammer-vulnerability-exploited-in-ransomware-attacks/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">BlueHammer (CVE-2026-33825): CISA Confirms Microsoft Defender Flaw Now Leveraged in Ransomware Attacks</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> CISA updated its Known Exploited Vulnerabilities catalog to confirm ransomware groups are actively leveraging "BlueHammer" (CVE-2026-33825), a privilege escalation flaw in Microsoft Defender, to elevate access during attacks — months after a patch was first available.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Windows users and organizations running Microsoft Defender on endpoints that have not applied the April 14, 2026 cumulative security update.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's April 14, 2026 cumulative update for Microsoft Defender across all Windows endpoints immediately; verify patch deployment via your endpoint management tooling.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">CVE-2026-33825, nicknamed "BlueHammer," is a local privilege escalation (LPE) vulnerability in Microsoft Defender stemming from insufficient access control granularity. An authenticated local attacker can exploit the flaw to elevate their privileges on a targeted Windows system. Microsoft released a fix on April 14, 2026, and CISA first added BlueHammer to its KEV catalog on April 22 after confirming in-the-wild exploitation. CISA's updated KEV entry now explicitly ties the flaw to ransomware campaigns.</p>
+      <p style="margin:0 0 10px 0;">LPE vulnerabilities like BlueHammer function as force multipliers during ransomware attacks. After achieving an initial foothold — via phishing, another vulnerability, or stolen credentials — ransomware operators use privilege escalation to gain SYSTEM or Administrator rights. From that elevated position, they can disable security tools, move laterally across the network, exfiltrate data for double-extortion leverage, and finally deploy ransomware payloads at scale. BlueHammer fits cleanly into this playbook.</p>
+      <p style="margin:0 0 10px 0;">The researcher behind BlueHammer's discovery, known publicly as Chaotic Eclipse and Nightmare Eclipse, disclosed the vulnerability after a public dispute with Microsoft's vulnerability handling process. This type of friction-driven full disclosure creates time pressure for defenders: attackers often monitor researcher disputes and capitalize on new technical details before organizations have finished patching.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Microsoft Defender is the antivirus software built into Windows. BlueHammer is a bug that lets a hacker who has already gotten a foot in the door "level up" their access — like a visitor who snuck into the lobby finding a master keycard that opens every room. Ransomware gangs are using this as a stepping stone: they get a small initial foothold through another method, then use BlueHammer to take complete control of the machine before locking all files and demanding payment.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-33825 · Severity: HIGH — Local privilege escalation in Microsoft Defender; patch available since April 14, 2026; CISA KEV confirmed ransomware exploitation July 2026.</div>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Prompt Injection ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Prompt injection is an attack where a malicious actor hides secret instructions inside text that an AI system will read, causing the AI to follow those instructions instead of its legitimate task — similar to slipping a forged note into someone's to-do list. These hidden instructions can appear anywhere the AI ingests untrusted data: documents, emails, web pages, code files, or even database records. Today's DuneSlide vulnerabilities in Cursor IDE are a real-world example: by hiding adversarial prompts in a code repository's files, an attacker could hijack the AI editor's actions and execute commands on a developer's computer without any user clicking anything.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: ROPC · Password Spray · Prompt Injection · Sandbox Escape · MFA · CAP · CVSS · OWA · Cryptominer · Load Balancer · EEMS ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ROPC</strong> — Resource Owner Password Credentials, a deprecated OAuth flow that lets apps collect usernames and passwords directly, bypassing modern authentication controls like MFA.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Password Spray</strong> — An attack where a threat actor tries a small set of common passwords against a large number of accounts to avoid triggering lockout thresholds that would activate if many passwords were tried on one account.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Prompt Injection</strong> — An attack where malicious instructions embedded in data or documents manipulate an AI model into performing unintended or harmful actions instead of its legitimate task.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Sandbox Escape</strong> — A technique by which malicious code breaks out of a restricted execution environment (sandbox) designed to contain it, gaining access to the broader operating system.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MFA</strong> — Multi-Factor Authentication, a security mechanism requiring two or more verification factors (e.g., a password plus a one-time code) to prove identity, making stolen passwords alone insufficient for account access.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CAP</strong> — Conditional Access Policy, a Microsoft Azure control that enforces access rules (such as requiring MFA or blocking legacy auth) based on conditions like user location, device compliance, or sign-in risk.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System, a standardized framework that assigns vulnerabilities a severity score from 0 to 10 (where 10 is most severe) to help organizations prioritize patching efforts.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">OWA</strong> — Outlook Web Access, Microsoft's browser-based interface for reading and sending email on Exchange Server without installing the Outlook desktop application.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Cryptominer</strong> — Malware that secretly hijacks a victim's computing resources to solve cryptocurrency mining calculations for the attacker, costing the victim electricity, cloud compute costs, and system performance.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Load Balancer</strong> — A network appliance that distributes incoming traffic across multiple servers to improve performance and availability; often sits at the edge of enterprise networks, making it a high-value attack target.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">EEMS</strong> — Exchange Emergency Mitigation Service, a Microsoft feature that automatically pushes temporary mitigations to on-premises Exchange Server when a vulnerability is discovered, bridging the gap before a permanent patch is released.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://cyberscoop.com/cisco-sdwan-zero-day-vulnerability-exploited-cve202620245/" style="color:#374151;text-decoration:none;">Cisco Catalyst SD-WAN Zero-Day CVE-2026-20245 Exploited Months Before Disclosure — Root Escalation via CSV Upload</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CyberScoop</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/06/chrome-v8-zero-day-cve-2026-11645.html" style="color:#374151;text-decoration:none;">Chrome V8 Zero-Day CVE-2026-11645 Exploited in the Wild — Out-of-Bounds Read/Write Enables Remote Code Execution</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://sharkstriker.com/blog/july-2026-data-breaches/" style="color:#374151;text-decoration:none;">July 2026 Ransomware Roundup: Qilin Claims Chemco, Krybit Lists Ford Motor Company on Leak Site</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SharkStriker</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.proofpoint.com/us/blog/threat-insight/more-cves-same-playbook-2026-vulnerability-exploitation-wild" style="color:#374151;text-decoration:none;">Report: 67.2% of Exploited CVEs Are Now Zero-Days in 2026, Up From 16.1% in 2018</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Proofpoint</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · July 2, 2026
+</div>
+
+</body>
+</html>
