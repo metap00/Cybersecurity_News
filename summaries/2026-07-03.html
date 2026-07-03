@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Cybersecurity Digest — July 3, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — July 3, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 1 critical · 3 high · 4 medium</div>
+</div>
+
+<!-- STORY 1: DHS HSIN BREACH - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · 12 hours ago</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/dhs-confirms-hackers-breached-hsin-info-sharing-platform/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">DHS Confirms Hackers Breached HSIN Federal Information-Sharing Platform</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Unauthorized attackers compromised the Homeland Security Information Network (HSIN) — the primary U.S. platform linking federal, state, local, and private-sector partners for threat intelligence — with the intrusion sitting undetected for weeks during active FIFA World Cup 2026 security operations.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Thousands of federal, state, and local government partners plus private-sector entities that rely on HSIN for real-time threat coordination and emergency response; DHS confirmed classified networks were not impacted.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> HSIN partner organizations should audit access logs from May–June 2026, report anomalous activity to DHS, and review documents shared on the platform during that window for potential exposure.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">The Homeland Security Information Network (HSIN) is the backbone of domestic security coordination in the United States — a secure, web-based platform that connects over 120,000 government and private-sector users for sharing real-time threat intelligence, coordinating emergency response, and planning event security. DHS confirmed on July 2, 2026 that an attacker gained unauthorized access to both HSIN's core servers and a SharePoint document collaboration system integrated into the platform.</p>
+      <p style="margin:0 0 10px 0;">The breach is believed to have begun in late May or early June 2026, meaning the attacker could have observed sensitive communications and downloaded documents for several weeks before detection. The timing is particularly troubling because HSIN was actively being used for FIFA World Cup 2026 security coordination across U.S. host cities. DHS says classified networks were not impacted and the platform remains operational, but the investigation is ongoing and no threat actor has been publicly attributed.</p>
+      <p style="margin:0 0 10px 0;">The intrusion pattern — long dwell time, intelligence-collection focus, pivot through a collaboration platform — is consistent with the tactics of advanced persistent threat actors specializing in espionage rather than destructive operations. The use of a SharePoint integration as a lateral movement path echoes techniques observed in prior nation-state campaigns including the 2020 SolarWinds incident.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of HSIN like a highly secure group chat used by police, emergency managers, intelligence officials, and private security firms to share sensitive threat warnings. A hacker getting inside is like someone secretly reading every message in that group chat for weeks — they don't need to break encryption if they're already sitting at one of the authorized desks. Even though formally classified information wasn't stored there, knowing who is worried about what and when is itself extremely valuable intelligence to an adversary.
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 2: BlueHammer CVE-2026-33825 ransomware - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / SecurityWeek · 2 days ago</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/cisa-windows-bluehammer-flaw-now-exploited-by-ransomware-gangs/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">CISA: Windows Defender BlueHammer (CVE-2026-33825) Now Actively Exploited by Ransomware Gangs</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> CISA updated its Known Exploited Vulnerabilities catalog to confirm that ransomware gangs are now actively weaponizing BlueHammer, a Microsoft Defender privilege escalation flaw that provides SYSTEM-level access via the Windows Security Account Manager (SAM) database.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows 10 and Windows 11 systems that have not yet applied Microsoft's April 14, 2026 patch; organizations that delayed patching now face active ransomware deployment risk.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's April 2026 security update immediately, verify patch deployment across all endpoints via your patch management console, and check EDR logs for suspicious SAM database access patterns.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">BlueHammer (CVE-2026-33825) is a privilege escalation vulnerability in the Microsoft Malware Protection Engine — the core scanning component that powers Microsoft Defender. It was leaked in early April 2026 by a security researcher using the alias "Nightmare Eclipse," who released proof-of-concept code in protest over Microsoft's vulnerability disclosure practices. Microsoft patched the flaw on April 14, and CISA first added it to its Known Exploited Vulnerabilities catalog on April 22.</p>
+      <p style="margin:0 0 10px 0;">The escalation from targeted zero-day exploitation to ransomware group adoption follows a well-documented threat landscape pattern: once a reliable exploit has public PoC code and a patch exists, ransomware operators — who often purchase or license exploit capabilities rather than developing them — begin incorporating it into their attack chains. BlueHammer gives attackers who already have limited local access (e.g., through a phishing compromise) a reliable path to SYSTEM privileges and SAM database access, enabling them to harvest password hashes for lateral movement before deploying ransomware payloads.</p>
+      <p style="margin:0 0 10px 0;">CISA's KEV update to flag ransomware involvement is significant because it is based on confirmed evidence, not theoretical risk. Organizations that applied the April patch are protected; those that haven't face an elevated probability of encountering this exploit chain in active campaigns.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a building where a security guard (Microsoft Defender) is supposed to protect the master key vault. BlueHammer is a trick that lets someone impersonate the guard, enter the vault, and copy all the master keys. Ransomware groups are now using this trick as a stepping stone: they first get a foot in the door through a phishing email, then use BlueHammer to become a system administrator, copy all the passwords, and finally lock everything up and demand a ransom to unlock it.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-33825 · CVSS: 7.8/10 — HIGH severity local privilege escalation; requires some existing access to a machine but grants complete operating system control once triggered.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 3: SharePoint CVE-2026-45659 - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / The Register · 1 day ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/sharepoint-rce-cve-2026-45659-added-to.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">CISA Adds SharePoint RCE Bug CVE-2026-45659 to KEV — Federal Agencies Must Patch by July 4</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> CISA confirmed active exploitation of a Microsoft SharePoint deserialization remote code execution vulnerability (CVE-2026-45659, CVSS 8.8), adding it to the KEV catalog on July 1 with a July 4 patch deadline for federal agencies — overriding Microsoft's own earlier "less likely to be exploited" assessment.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running on-premises SharePoint Server 2016, 2019, or Subscription Edition; any authenticated user with as little as Site Member permissions can exploit it; SharePoint Online (Microsoft 365) is not vulnerable.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's May 2026 SharePoint security update immediately; audit IIS application logs for deserialization errors or unauthorized code execution, and restrict SharePoint access to trusted accounts where possible.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">CVE-2026-45659 is a deserialization vulnerability in Microsoft SharePoint Server that allows any authenticated user — including low-privileged accounts such as a standard "Site Member" — to execute arbitrary code on the SharePoint server. Microsoft patched the flaw in May 2026 but initially assessed exploitation as "less likely," a risk rating that CISA's July 1 KEV addition has directly contradicted with evidence of real-world attacks in progress.</p>
+      <p style="margin:0 0 10px 0;">The vulnerability stems from CWE-502 (Deserialization of Untrusted Data): SharePoint processes structured data packages from users without adequately validating their contents before reconstruction. An attacker crafts a malicious serialized payload and submits it to the server, which automatically "unpacks" it and runs the embedded instructions server-side. The consequences include data theft, ransomware deployment on the SharePoint server itself, or using it as a pivot point to reach internal network resources.</p>
+      <p style="margin:0 0 10px 0;">The low privilege requirement makes this especially dangerous: unlike vulnerabilities requiring administrative access, CVE-2026-45659 can be triggered with any valid user account. After a phishing email yields a standard SharePoint credential, an attacker has everything needed to execute code on the server. FCEB agencies face a July 4 deadline, reflecting CISA's assessment that active exploitation makes delay unacceptable.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Serialization is like gift-wrapping data for storage or transport, and deserialization is the unwrapping on the other end. This vulnerability is like a mailroom that automatically opens every package without checking what's inside. Attackers send a "package" containing hidden instructions, and when SharePoint's mailroom opens it, those instructions run immediately with full server permissions — like finding a bomb inside a gift box that explodes the moment it's unwrapped.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-45659 · CVSS: 8.8/10 — HIGH severity; network-accessible RCE requiring only authenticated (non-admin) access, with full impact on confidentiality, integrity, and availability.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 4: ChocoPoC RAT - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Sekoia · 1 day ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/new-chocopoc-rat-targets-vulnerability.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">ChocoPoC RAT Targets Security Researchers via Trojanized GitHub PoC Exploit Repositories</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Attackers published at least seven fake proof-of-concept exploit repos on GitHub for high-profile CVEs, hiding a Remote Access Trojan called ChocoPoC inside Python dependency packages; the malware steals browser credentials and communicates back to attackers using Mapbox as a dead-drop command-and-control channel with domain fronting to evade detection.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Security researchers, penetration testers, and developers who cloned and ran PoC exploits for CVEs in FortiWeb, PAN-OS, Ivanti Sentry, Check Point VPN, and Joomla SP Page Builder; YesWeHack and Sekoia reported the malware and its servers were still live as of July 1.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Always run PoC exploit code in an isolated VM, never on a personal or work machine; audit Python packages in any exploit repos recently cloned, and check browser credential stores and network logs for anomalous Mapbox API traffic.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p style="margin:0 0 10px 0;">The ChocoPoC campaign, jointly disclosed by YesWeHack and Sekoia on July 1, 2026, targets security practitioners at the moment they are most eager to act quickly — downloading fresh exploit code to test hot new vulnerabilities. The attackers create GitHub repositories that convincingly imitate legitimate PoC exploits for trending CVEs, then hide the malware not in the main exploit file but in a Python dependency package that the PoC instructs the researcher to install — a technique designed to survive a quick code review of the main files.</p>
+      <p style="margin:0 0 10px 0;">Once installed, ChocoPoC harvests saved passwords, cookies, browser history, and autofill data from Chrome, Brave, Edge, and Firefox, and enumerates running processes, network configuration, and shell history. The attacker also receives a persistent remote shell for arbitrary command execution and file exfiltration. The campaign's most technically sophisticated element is its C2 channel: malware configuration is hosted as a dataset on Mapbox (a legitimate mapping-services provider), and communications are routed through DNS-over-HTTPS and domain fronting so that traffic resembles routine Mapbox API calls — difficult to detect or block via standard network controls.</p>
+      <p style="margin:0 0 10px 0;">Targeting security researchers is a high-value strategy: these machines often hold credentials for client environments, zero-day research notes, and access to restricted security infrastructure. The tactic mirrors prior nation-state campaigns (notably Lazarus Group operations in 2021 and 2024), though no attribution has been made for ChocoPoC. Any researcher who ran a PoC from GitHub in recent weeks should treat their machine as potentially compromised and initiate forensic review.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Security researchers often download "proof-of-concept" code from GitHub to verify whether a vulnerability is real — like grabbing a lockpick guide to test your lock. ChocoPoC is like a booby-trapped guide: the guide itself looks legitimate, but one of the tools it asks you to install is secretly a spy that reads all your notes and passwords and phones them home. The spy then disguises its communications as normal map-loading requests so your security software doesn't flag it as suspicious.
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Deserialization Attack ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Serialization is the process of converting program data — like a user profile or a document — into a flat stream of bytes so it can be stored or sent over a network, and deserialization is the reverse: reconstructing those bytes back into live program objects. A deserialization attack happens when a program automatically reconstructs a serialized payload without first verifying that its contents are safe, allowing an attacker to craft a malicious "package" that executes hidden instructions the moment the program unwraps it. Today's SharePoint vulnerability (CVE-2026-45659) is a textbook example: even a standard employee account can upload a poisoned serialized package to the server, which SharePoint trustingly unpacks — running the attacker's code with the server's full permissions before anyone can stop it.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: RCE · XSS · EoP · HSIN · SAM · Dead Drop C2 · Domain Fronting · Deserialization · Phantom Squatting ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RCE</strong> — Remote Code Execution; a class of vulnerability that lets an attacker run arbitrary commands on a victim machine over a network, without requiring physical access or the victim to take any action.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">XSS</strong> — Cross-Site Scripting; an attack where malicious JavaScript is injected into a trusted web page and runs inside another user's browser, enabling session cookie theft, credential harvesting, or page defacement.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">EoP</strong> — Elevation of Privilege; an attack or vulnerability class that allows a low-privileged user to gain higher-level access (such as from a standard user account to SYSTEM or root) than they were authorized to have.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">HSIN</strong> — Homeland Security Information Network; the U.S. government's secure web platform that connects over 120,000 federal, state, local, and private-sector partners to share real-time threat intelligence and coordinate emergency and event security operations.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SAM</strong> — Security Account Manager; the Windows database that stores hashed passwords for local user accounts, which attackers prize because gaining read access lets them crack or relay those credentials to move laterally across a network.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Dead Drop C2</strong> — A command-and-control technique where malware reads its instructions from a legitimate, trusted third-party service (such as cloud storage, a mapping API, or a social media post) rather than connecting directly to an attacker-controlled server, making the traffic harder to detect or block.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Domain Fronting</strong> — A technique that disguises malicious network traffic by routing it through a high-reputation content delivery network (CDN) or cloud service, making command-and-control communications appear as legitimate requests to trusted services like Google or Mapbox.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Deserialization</strong> — The process of reconstructing a program object from a stored or transmitted byte stream; insecure deserialization occurs when this reconstruction happens without content validation, allowing attackers to embed executable instructions in the data that run automatically when unpacked.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Phantom Squatting</strong> — An emerging attack technique where adversaries register domain names that AI tools commonly hallucinate or suggest, then host phishing pages or malware at those addresses to capture users who follow AI-generated links to non-existent or invented URLs.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://www.securityweek.com/microsoft-working-on-patch-for-rogueplanet-zero-day/" style="color:#374151;text-decoration:none;">RoguePlanet (CVE-2026-50656): Microsoft Defender Zero-Day Grants SYSTEM Access on Fully Patched Windows — No Patch Yet</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.dexpose.io/qilin-ransomware-strikes-canadian-manufacturing-leader-chamco/" style="color:#374151;text-decoration:none;">Qilin Ransomware Claims Attack on Canadian Manufacturer Chamco, Threatens Data Leak</a>
+    <span style="color:#9ca3af;font-size:11px;"> · DeXpose</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.dexpose.io/krybit-ransomware-targets-ford-de-mexico/" style="color:#374151;text-decoration:none;">Krybit Ransomware Lists Ford Motor Company Mexico as Victim on Dark Web Portal</a>
+    <span style="color:#9ca3af;font-size:11px;"> · DeXpose / SOCRadar</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/hackers-use-mapbox-dead-drop-c2/" style="color:#374151;text-decoration:none;">Palo Alto Unit 42: "Phantom Squatting" — Attackers Register AI-Hallucinated Domains to Intercept Misdirected Users</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CybersecurityNews</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · July 3, 2026
+</div>
+
+</body>
+</html>
