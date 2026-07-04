@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Cybersecurity Digest — July 4, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — July 4, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">10 stories · 2 critical · 6 high · 2 medium</div>
+</div>
+
+<!-- STORY 1: Bad Epoll — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cyber Tech World / kernelCTF · ~18 hours ago</span>
+  </div>
+  <a href="https://news.cybertechworld.co.in/index.php/2026/07/03/new-bad-epoll-linux-kernel-flaw-lets-unprivileged-users-gain-root-hits-android/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">New "Bad Epoll" Linux Kernel Flaw Lets Unprivileged Users Gain Root, Hits Android (CVE-2026-46242)</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> A use-after-free race condition in the Linux kernel's epoll subsystem allows any unprivileged local user to escalate to root, and can even be triggered from inside Chrome's renderer sandbox.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All systems running Linux kernel v6.4 or newer (including Android Pixel 10 on kernel 6.6+) that have not yet backported the April 24, 2026 fix.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply your distribution's kernel patch immediately; Android users should install OEM updates when released; check RHSA-2026:19568 for Red Hat guidance.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Bad Epoll was discovered and weaponized as a 0-day submission to Google's kernelCTF program, which offers $71,337+ for working Linux kernel exploits. The vulnerability is a race-condition use-after-free (UAF) in the epoll event notification subsystem — a core kernel interface used by virtually every networked Linux application. The race window is extraordinarily narrow (approximately six CPU instructions), but the researcher demonstrated reliable exploitation using goroutine scheduling tricks documented in the public proof-of-concept.</p>
+      <p>What elevates this from a dangerous LPE to a CRITICAL finding is the sandbox-escape capability: the exploit can be triggered from inside Chrome's renderer sandbox, which normally blocks access to nearly all kernel bugs. This creates a credible two-stage attack chain — a browser exploit lands the attacker in the sandboxed renderer, then Bad Epoll escapes the sandbox to root the entire OS. The kernel fix was merged on April 24, 2026, but many distributions are still shipping unpatched kernels, and a full Android root exploit targeting Pixel 10 (kernel 6.6) is reportedly still in development by the original researcher.</p>
+      <p>The flaw was introduced by a kernel commit from April 8, 2023 and affects any kernel version from v6.4 onward that hasn't backported the patch. Enterprise Linux users should check their distribution's security errata — Red Hat issued RHSA-2026:19568, and other major distributions have issued advisories.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> The Linux kernel is the core of the operating system — it controls who gets access to hardware, memory, and administrative privileges. The epoll system is how programs efficiently wait for network events, and this bug tricks it into accidentally handing an attacker root (administrator) access. What makes this especially dangerous is that it can be triggered from inside a web browser's protected bubble, meaning a malicious webpage could — in theory — result in complete control of the computer beneath it.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-46242 · CVSS: 7.8/10 — Local privilege escalation to root via UAF race condition; PoC public; sandbox escape via Chrome renderer confirmed.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 2: SharePoint RCE — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / CISA · ~3 days ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/sharepoint-rce-cve-2026-45659-added-to.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">SharePoint RCE CVE-2026-45659 Added to CISA KEV After Active Exploitation — Federal Patch Deadline: Today</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Microsoft SharePoint's deserialization flaw (CVSS 8.8) is being actively exploited; CISA added it to the Known Exploited Vulnerabilities catalog July 1, with a mandatory patch deadline for federal agencies of July 4, 2026.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running SharePoint Server Subscription Edition, SharePoint Server 2019, or SharePoint Enterprise Server 2016 that hasn't applied Microsoft's May 2026 patches.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's May 2026 SharePoint security update immediately — the CVSS 8.8 score and active exploitation make this a highest-priority patch regardless of your federal status.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-45659 is a deserialization vulnerability — attackers send a maliciously crafted serialized data object to SharePoint, and the server unpacks and executes it without sufficient validation. The attacker only needs "Site Member" permissions (the lowest standard SharePoint role), enabling anyone with a valid low-privilege account to trigger remote code execution on the server. The server-side SharePoint service account is often a highly privileged Active Directory account, so this bug can quickly translate into domain-level access.</p>
+      <p>A notable wrinkle here: Microsoft originally assessed exploitation as "less likely" when the vulnerability was disclosed in May 2026. CISA's KEV listing on July 1 contradicted that assessment with evidence of actual in-the-wild attacks. This pattern — vendor underestimating exploitation likelihood, defenders later scrambling — is unfortunately recurring in 2026. CISA has not publicly attributed the attacks or described the attack chain, suggesting active investigations are ongoing.</p>
+      <p>The mandatory patch deadline for FCEB (Federal Civilian Executive Branch) agencies was July 4, 2026 — today. Private-sector organizations should treat this with the same urgency: SharePoint is a core collaboration platform in thousands of enterprises, and an authenticated low-privilege user exploiting this flaw could exfiltrate documents, deploy malware, or use the server as a pivot point into internal networks.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SharePoint is software companies use to share and store documents internally — like a corporate intranet. Deserialization vulnerabilities work like poisoned gift packages: the server receives what looks like a normal file or request, unpacks it, and accidentally runs malicious code hidden inside. Any employee with standard document-sharing access could trigger this, making it one of the more accessible attack paths against enterprise SharePoint installations.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-45659 · CVSS: 8.8/10 — Authenticated (low-privilege) network RCE via deserialization; actively exploited; added to CISA KEV July 1, 2026.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 3: Kemp LoadMaster Pre-Auth RCE — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / watchTowr Labs · ~1 day ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Progress Kemp LoadMaster Pre-Auth RCE (CVE-2026-8037, CVSS 9.8) Faces Active Exploitation Attempts</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> A command injection flaw in LoadMaster's API endpoint allows completely unauthenticated root-level code execution on internet-facing load balancer appliances, with active exploitation attempts logged since June 29.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using Kemp LoadMaster GA ≤7.2.63.1 or LTSF ≤7.2.54.17 with the API feature enabled on an internet-accessible interface.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade LoadMaster firmware to the patched version immediately; if patching is delayed, disable the API feature or restrict API access to trusted IPs only.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-8037 sits in a function called <code>escape_quotes()</code> inside LoadMaster's web API at the <code>/accessv2</code> endpoint. The function fails to null-terminate sanitized strings, leaving a door open for command injection — an attacker can craft a request that breaks out of the expected string context and executes arbitrary shell commands as root. Since this endpoint requires no authentication, the entire attack is reachable from the open internet with no credentials whatsoever.</p>
+      <p>watchTowr Labs published a full exploit chain on June 29, 2026, and eSentire's Threat Response Unit (TRU) recorded active exploitation attempts beginning that same day. So far, TRU reports the observed attempts have failed — attackers appear to still be refining their tools. With CVSS 9.8 and a public, functional exploit, however, the window before successful exploitation is very short. LoadMaster is deployed at network perimeters worldwide to distribute traffic across backend servers, meaning a compromised appliance hands attackers a privileged vantage point from which they can intercept, redirect, or manipulate all application traffic.</p>
+      <p>Progress has released patched firmware; the priority should be to upgrade immediately. For temporary mitigation, disabling or ACL-restricting the LoadMaster API feature eliminates the attack surface entirely.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A load balancer sits between the internet and a company's servers, distributing incoming web traffic so no single server gets overwhelmed — like a traffic cop for web requests. This bug lets any attacker on the internet skip the "cop" entirely and issue orders as if they own the intersection. From there, they can see and alter all the traffic flowing through — like reading and modifying letters as they pass through a compromised post office.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-8037 · CVSS: 9.8/10 — Pre-authentication, remote root code execution via command injection; public PoC available; active exploitation attempts observed June 29+.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 4: RoguePlanet — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Morphisec · ~1 week ago, no patch yet</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/microsoft-confirms-rogueplanet-defender_02022423645.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Microsoft Confirms "RoguePlanet" Defender Zero-Day (CVE-2026-50656) — SYSTEM Access on Fully Patched Windows, Still Unpatched</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> A TOCTOU race condition in Microsoft Defender's scanning engine lets a local attacker escalate to SYSTEM on fully patched Windows 10 and 11 — a public PoC exists and no patch is available as of July 4, 2026.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows 10 and Windows 11 users globally, with or without optional security updates applied through June 2026 Patch Tuesday.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor Microsoft Security Update Guide for a patch; restrict local user account privileges as a partial mitigation; consider additional endpoint detection until a fix ships.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>RoguePlanet exploits a TOCTOU (Time-of-Check to Time-of-Use) race condition inside MsMpEng.exe, the core Microsoft Malware Protection Engine. Defender evaluates a file path to determine its safety, then reopens that same path later for analysis or remediation — but crucially, it does not hold an exclusive lock across both operations. An attacker can swap the file between these two moments, causing Defender (which runs with SYSTEM privileges to fight malware) to operate on attacker-controlled content and effectively hand over SYSTEM access.</p>
+      <p>What makes this story particularly significant is the human element: the researcher who discovered and publicly released this flaw, known only as "Nightmare Eclipse," did so deliberately as a protest against how Microsoft's Security Response Center (MSRC) handles bug bounty submissions. A working PoC has been publicly available for weeks. The flaw works regardless of whether Defender's Real-Time Protection is enabled — the Malware Protection Engine runs regardless. Microsoft confirmed the vulnerability and rated it "Exploitation More Likely" but has not shipped a fix as of today.</p>
+      <p>This is the second Defender zero-day released by Nightmare Eclipse in 2026, following BlueHammer (CVE-2026-33825). The pattern of repeated zero-days from a single researcher protesting disclosure practices is creating sustained risk for the entire Windows ecosystem while Microsoft manages the situation.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Microsoft Defender is the built-in antivirus on Windows — it runs with the highest system privileges specifically so it can fight dangerous malware. This bug exploits that high privilege like a bait-and-switch: you hand Defender something harmless, it checks it and approves it, then before it can act you swap it for something malicious. Because Defender trusts itself implicitly, it carries out operations on the malicious content with full admin power, giving the attacker complete control of the PC.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-50656 · CVSS: 7.8/10 — Local TOCTOU race in MsMpEng.exe; escalates to SYSTEM; public PoC available; no patch as of July 4, 2026.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 5: BlueHammer + Ransomware — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer / CISA · ~3 days ago</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/cisa-windows-bluehammer-flaw-now-exploited-by-ransomware-gangs/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">CISA: Windows "BlueHammer" Defender Flaw (CVE-2026-33825) Now Exploited by Ransomware Gangs</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> CISA updated the KEV catalog entry for BlueHammer (CVE-2026-33825) to confirm it is now being weaponized in ransomware attacks, giving attackers access to Windows SAM password hashes for rapid network takeover.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any Windows user or organization that has not applied Microsoft's April 14, 2026 Patch Tuesday security update.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Install the April 14, 2026 Microsoft security update immediately; audit all Windows endpoints for patch compliance; consider password rotation for local accounts on unpatched systems.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>BlueHammer abuses "insufficient granularity of access control" in Microsoft Defender to grant local attackers read access to the SAM (Security Account Manager) database — the Windows file that stores NTLM password hashes for all local accounts. With those hashes in hand, attackers can either crack them offline to recover plaintext passwords, or use "pass-the-hash" attacks to authenticate as those users without cracking. In enterprise environments, this rapidly enables lateral movement across every machine sharing the same local admin credentials.</p>
+      <p>The CISA update explicitly labels BlueHammer as used in ransomware campaigns — a significant escalation from its initial KEV listing in April. Ransomware groups typically use BlueHammer-style LPE flaws as a post-initial-access escalation step: they gain a foothold via phishing or another vulnerability, then use BlueHammer to grab credentials, spread across the network, and deploy their encryption payload across hundreds of machines simultaneously. A patch has been available since April 14, 2026 — organizations running unpatched systems are at immediate risk.</p>
+      <p>Like RoguePlanet, BlueHammer was originally leaked publicly by the researcher "Nightmare Eclipse" as a protest against Microsoft's security response processes, before Microsoft had patched the issue. The public PoC remains freely available, making this accessible even to lower-sophistication attackers beyond the ransomware groups CISA identified.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Windows stores scrambled versions of every local user's password in a locked file called the SAM database. BlueHammer picks the lock on that file, letting attackers grab all those scrambled passwords. Ransomware gangs use this to quickly collect every password across a company's computers, then spread their file-encrypting software to every machine at once — often locking up an entire organization within hours of gaining initial access. The fix has been out since April; there is no good reason to still be unpatched.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-33825 · CVSS: 7.8/10 — Local Defender LPE exposing SAM password hashes; confirmed ransomware exploitation; patch available since April 14, 2026.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 6: ServiceNow API Breach — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · ~3 weeks ago, ongoing</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/servicenow-discloses-security-incident-exposing-customer-data/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">ServiceNow Discloses API Security Incident — Unauthenticated Endpoint Exposed Customer Instance Data for Months</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Attackers exploited an API endpoint in ServiceNow that was misconfigured with no authentication requirement, allowing anyone to query sensitive data from enterprise customer instances between June 2-5, 2026.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises using ServiceNow's Australia-region platform and customers on certain older releases — instances typically contain IT tickets, employee PII, HR records, and internal documentation.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit your ServiceNow instance's access logs for activity from June 2-5; verify the June 5 security update is applied; rotate credentials and API keys stored in your instance.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>The vulnerable endpoint was ServiceNow's REST API at <code>/api/now/related_list_edit/create</code>, which had been deployed with the parameter <code>requires_authentication=false</code>. This meant anyone on the internet could send structured database queries to the endpoint and receive data from the customer's ServiceNow instance tables as if they were an authenticated administrator. Attackers used this to extract enterprise IT records — support tickets, employee data, change management documentation, and potentially credentials stored in configuration items.</p>
+      <p>The most concerning element of this incident is the timeline. ServiceNow received an internal bug description on April 7, 2026 — and a formal bug bounty submission on April 22 — but classified the issue as non-urgent. No patch was applied for nearly two months. Active exploitation began on June 2; ServiceNow detected it and applied a server-side fix on June 5, then disclosed publicly on June 9. The delay between discovery and patch raises serious questions about internal security response prioritization.</p>
+      <p>ServiceNow is a critical enterprise platform used by thousands of organizations for IT service management, HR operations, security incident response, and more. Sensitive data exposed in a ServiceNow breach can enable highly targeted spear-phishing, supply chain attacks, and insider threat investigations by adversaries who now understand an organization's internal processes and personnel.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> ServiceNow is software that companies use to manage IT support tickets and business workflows — like a corporate helpdesk system. This breach is like discovering the helpdesk left its filing cabinets unlocked and facing the street: anyone who walked by could flip through employee records, IT issues, and confidential internal documentation. If your employer uses ServiceNow, information about you — support requests, HR matters, security incidents — may have been read without authorization.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · ServiceNow API misconfiguration (authentication bypass) · exploited June 2-5, 2026 · patch applied June 5, 2026.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 7: ToddyCat/Umbrij — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Kaspersky Securelist · ~2 days ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/toddycat-linked-umbrij-malware-abuses.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">ToddyCat APT Deploys "Umbrij" Malware Abusing OAuth to Silently Access Corporate Gmail Accounts</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> The ToddyCat nation-state threat group deployed a new .NET backdoor called Umbrij that abuses Google's OAuth API to gain persistent, passwordless access to corporate Gmail accounts for espionage without alerting users.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations in Europe and Asia using Gmail for corporate communications, particularly those running Bitdefender ConnectAgent, Microsoft Visual Studio testing tools, or legacy Google Desktop Search software.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit Google Workspace for unauthorized OAuth application grants; check for DLL sideloading artifacts in trusted process directories; review email forwarding rules for any newly added routes.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Umbrij, analyzed in depth by Kaspersky's Securelist team, represents a notable advancement in corporate espionage tradecraft. Unlike credential-theft attacks, it abuses Google's OAuth authorization framework — the legitimate system powering "Sign in with Google" — to obtain access tokens that grant persistent, silent read access to a target's email. The attacker never needs the user's password; once the token is obtained, it survives password changes. Kaspersky calls the specific technique "Shadow Token via Remote Debug" (STRD).</p>
+      <p>The initial infection uses DLL sideloading — the malware places a malicious DLL file with the same name as one expected by a trusted application (Bitdefender ConnectAgent, Microsoft VS testing tools, or discontinued Google Desktop Search). When a user launches the trusted program, it inadvertently loads and executes the attacker's code. The Umbrij .NET binary is then heavily obfuscated using ConfuserEx to defeat signature-based detection. From there, it silently registers an OAuth application with Google and grants itself access to the target's Gmail, harvesting strategic corporate communications.</p>
+      <p>ToddyCat has been active since at least 2020, primarily targeting government and military organizations across Europe and Asia. The shift to Gmail-hosted corporate email accounts indicates an evolving intelligence mandate focused on private-sector strategic planning. Organizations with high-value intellectual property, diplomatic communication, or defense supply chain roles are at particular risk.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> OAuth is the technology behind "Login with Google" — it lets apps access parts of your Google account with your permission. ToddyCat's malware tricks this system into granting permanent email access without you ever seeing or approving a prompt. The malware then hides inside trusted programs (like antivirus software) to avoid detection, quietly reading and forwarding your company's emails to foreign intelligence servers. Changing your password doesn't help — the OAuth token remains valid until explicitly revoked.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE · ToddyCat APT · Umbrij .NET backdoor · DLL sideloading + OAuth token theft via STRD technique · targets corporate Gmail in Europe/Asia.</div>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: DLL Sideloading ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    DLL sideloading is an attack technique where an adversary places a malicious file with the same name as a DLL (a shared code library) that a legitimate program expects to find in the same folder, so when you launch the trusted application, it accidentally loads and runs the attacker's code instead of the real library. Because the malicious code runs inside a trusted, well-known process, many security tools see only the trusted program's name and let it continue without raising an alarm. Today's ToddyCat/Umbrij campaign used DLL sideloading to hide inside Bitdefender ConnectAgent and Microsoft Visual Studio testing tools, allowing the malware to steal Gmail access tokens while appearing completely normal to endpoint security software.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: CVE · KEV · OAuth · UAF · TOCTOU · APT · DLL Sideloading ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CVE</strong> — Common Vulnerabilities and Exposures; a standardized naming system that assigns each publicly known security vulnerability a unique identifier (e.g., CVE-2026-45659), enabling consistent tracking and communication across the industry.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">KEV</strong> — CISA's Known Exploited Vulnerabilities catalog; a regularly updated list of vulnerabilities with confirmed real-world exploitation, used to prioritize patching — especially mandatory for U.S. federal agencies.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">OAuth</strong> — Open Authorization; an industry-standard framework that allows applications to access a user's account data (email, files, contacts) with delegated permissions, without requiring the user to share their actual password.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">UAF (Use-After-Free)</strong> — A class of memory corruption vulnerability where a program continues using a block of memory after it has been freed and potentially reallocated, allowing attackers to inject malicious data or code into that memory space.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">TOCTOU</strong> — Time-of-Check to Time-of-Use; a race condition vulnerability where an attacker changes a resource (file, object, path) between the moment a program verifies it is safe and the moment the program actually uses it, causing the program to act on untrusted data.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">APT (Advanced Persistent Threat)</strong> — A sophisticated, long-running cyberattack campaign typically conducted by nation-state actors or highly organized criminal groups, characterized by stealthy access, persistence over months or years, and focused intelligence or disruption objectives.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">DLL Sideloading</strong> — A technique where attackers place a malicious DLL (Dynamic Link Library) file with the same name as one expected by a trusted application, causing the legitimate program to load and execute the attacker's code instead of the real library.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" style="color:#374151;text-decoration:none;">PTC Windchill &amp; FlexPLM CVE-2026-12569 Added to CISA KEV — Web Shells Deployed on Exposed Systems</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/new-avalon-malware-framework-packs.html" style="color:#374151;text-decoration:none;">New "Avalon" Modular Malware Framework Packs CrownX Ransomware — AI-Assisted Development Evades 8 EDRs</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://securityaffairs.com/194338/uncategorized/dirtyclone-fourth-linux-kernel-flaw-in-six-weeks-escalates-to-root.html" style="color:#374151;text-decoration:none;">DirtyClone (CVE-2026-43503): Fourth Linux Kernel LPE in Six Weeks — Silent Attack Leaves No Disk Traces</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Security Affairs</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · July 4, 2026
+</div>
+
+</body>
+</html>
