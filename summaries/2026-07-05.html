@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Cybersecurity Digest — July 5, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — July 5, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 4 high · 2 medium</div>
+</div>
+
+<!-- STORY 1: Bad Epoll - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Today</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/new-bad-epoll-linux-kernel-flaw-lets.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">"Bad Epoll" Linux Kernel Zero-Day Lets Any User Grab Root — Public Exploit Hits 99% Success Rate</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Researcher Jaeyoung Chung publicly disclosed CVE-2026-46242, a use-after-free race condition in the Linux kernel's epoll subsystem that allows any unprivileged local user to escalate to root — the exploit succeeds 99% of the time and works on Linux servers, desktops, and Android devices running kernel 6.4 or later.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any system running Linux kernel version 6.4 or later without the April 24 mainline patch, including most unpatched cloud servers, Linux workstations, and Android phones whose vendor has not yet shipped the fix.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply your Linux distribution's kernel security update immediately; if your distro hasn't released a backport yet, monitor their security advisories closely and consider temporary mitigations such as restricting local user access on sensitive servers.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>Bad Epoll targets the Linux kernel's <strong>epoll</strong> subsystem — the mechanism programs use to watch many file descriptors (open files, network sockets) for activity at once. The specific flaw is a use-after-free (UAF) in the <code>ep_remove()</code> cleanup function: the code clears a pointer under a lock but then continues referencing the now-freed memory object inside the same locked section. A concurrent kernel path called <code>__fput()</code> can race to free the underlying <code>struct eventpoll</code> at exactly this moment, corrupting kernel memory in a controlled way.</p>
+      <p>Researcher Jaeyoung Chung built a reliable exploit around this six-instruction-wide timing window, achieving root on 99% of attempts on tested kernelCTF targets. The attack requires only a standard unprivileged user account — no special hardware, no prior vulnerability chain. Strikingly, an Anthropic AI model (Mythos) successfully identified a companion race condition in the same 2,500-line commit that introduced Bad Epoll (now tracked as CVE-2026-43074), but missed this second flaw sitting directly adjacent to it, highlighting the current limits of AI-assisted code auditing.</p>
+      <p>The upstream kernel patch (commit a6dc643c6931) has been in mainline since April 24, 2026 — 70 days before the public writeup dropped — but the flaw was not publicly announced at that time. Many distribution vendors have not yet backported the fix, leaving production systems exposed despite the patch technically existing. CVE-2026-46242 is not currently on CISA's KEV catalog, and no confirmed in-the-wild exploitation has been reported yet. However, with a public proof-of-concept now available, the window before active exploitation is narrow.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of the Linux kernel as the "engine room" of your computer — it controls everything beneath the apps you use. Bad Epoll tricks the engine into accidentally freeing a piece of memory it's still using, like pulling a support beam out from under a building while construction is ongoing. An attacker sitting at any regular user account on your Linux machine can use this trick to instantly become the all-powerful "root" administrator, with total control over every file, process, and secret on the system.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-46242 · CVSS: Pending NVD assignment (severity: High/Critical — local privilege escalation to root with public PoC)</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 2: RoguePlanet - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Morphisec / The Hacker News · Ongoing — Unpatched</span>
+  </div>
+  <a href="https://www.morphisec.com/blog/microsoft-defender-zero-day-rogueplanet-when-your-detector-becomes-the-attack-surface/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">RoguePlanet (CVE-2026-50656): Microsoft Defender Zero-Day Grants SYSTEM Access — No Patch Yet</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Security researcher Chaotic Eclipse published a working privilege escalation exploit for Microsoft Defender (CVE-2026-50656) that exploits a race condition in the Malware Protection Engine to hand any low-privileged attacker a shell with full SYSTEM-level privileges on any up-to-date Windows machine.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows users whose systems include Microsoft Defender — effectively the vast majority of Windows desktops and servers worldwide — with the exploit confirmed to work even when Defender's real-time protection is enabled and the system is fully patched.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Watch Microsoft's Security Response Center for an emergency out-of-band patch; in the interim, restrict local user account access on sensitive Windows systems and deploy additional endpoint controls such as application allowlisting.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>RoguePlanet is a privilege escalation vulnerability in the Microsoft Malware Protection Engine — the core scanning component that runs as SYSTEM (the highest Windows privilege level) to inspect files and processes in real time. Researcher Chaotic Eclipse (aka Nightmare-Eclipse) found a race condition in this engine's scanning logic that can be won by a low-privileged attacker to hijack the engine's SYSTEM-level execution context and open a command shell with full administrative control.</p>
+      <p>The particularly alarming aspect of RoguePlanet is that it works <em>because</em> Defender is running, not despite it. Real-time protection must be active for the attack surface to exist, meaning disabling Defender's active scanning would technically prevent the exploit but also remove the system's primary malware defense. Microsoft confirmed the vulnerability after Chaotic Eclipse's public disclosure and stated that a patch is in development — but as of July 5, 2026, no fix has shipped.</p>
+      <p>This is the fourth zero-day in Microsoft Defender disclosed by the same researcher this year, following BlueHammer (CVE-2026-33825), UnDefend (CVE-2026-45498), and RedSun (CVE-2026-41091) — all three of which Microsoft has since patched. The pattern suggests a systematic audit of Defender's scanning engine internals by a single researcher with deep knowledge of its attack surface. Given the public PoC and high reliability, RoguePlanet should be treated as actively exploitable until a patch arrives.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Microsoft Defender is the built-in antivirus on Windows that runs as the most privileged user on the computer to scan everything. RoguePlanet turns Defender's own power against you — by racing to slip malicious instructions in at the precise moment Defender is doing its most powerful work, an attacker with only a basic user account can hijack Defender's privileges and take full control of the computer. It's like pickpocketing the security guard's master key while he's patting you down.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-50656 · CVSS: 7.8/10 — High severity; local attack vector, low privileges required, no user interaction needed, HIGH integrity and confidentiality impact.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 3: SharePoint RCE - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Today</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/sharepoint-rce-cve-2026-45659-added-to.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">SharePoint RCE (CVE-2026-45659) in CISA KEV: Storm-2603 Deploys Warlock Ransomware via Active Exploitation</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> CISA confirmed active exploitation of SharePoint Server deserialization flaw CVE-2026-45659 by Storm-2603, a threat actor deploying Warlock ransomware against enterprise SharePoint environments; CISA added the flaw to its KEV catalog with a federal patch deadline of July 4.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running on-premises SharePoint Server Subscription Edition, 2019, or Enterprise Server 2016 where any authenticated user (even with minimal Site Member permissions) could trigger remote code execution on the server.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's May 2026 cumulative update for SharePoint immediately — the federal deadline has already passed; scan for indicators of Storm-2603 compromise including unusual PowerShell executions from the SharePoint service account.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-45659 is a deserialization vulnerability in Microsoft SharePoint Server — the widely-deployed collaboration and document-management platform used by most large enterprises. Deserialization flaws occur when an application trusts and processes data structures sent by users without sufficiently validating them first, allowing an attacker to craft a malicious payload that executes arbitrary code when the server unpacks it.</p>
+      <p>The flaw requires only Site Member permissions — the lowest non-guest permission level in SharePoint — to exploit successfully, and the attack complexity is rated Low because no specialized knowledge or prior system access is needed. Microsoft patched the vulnerability in May 2026, but CISA's addition to the KEV catalog confirms real-world attackers have weaponized it before many organizations could deploy the patch. The specific threat actor, Storm-2603, has been observed exploiting vulnerable SharePoint servers since mid-2025 to install Warlock ransomware across enterprise networks.</p>
+      <p>The July 4, 2026 FCEB remediation deadline has now passed. For non-federal organizations, CISA's KEV additions serve as a strong signal that active campaigns are underway and patches should be treated as emergency responses rather than routine maintenance. Organizations that rely on cloud-hosted SharePoint Online (Microsoft 365) are not affected — this vulnerability only impacts self-hosted, on-premises installations.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SharePoint is like an internal company website where employees share files and collaborate. This bug means any employee with a basic account can sneak a hidden command into the website's code, and the server will blindly run it — giving the attacker full control. Hackers are already using this to install ransomware (software that locks up all your company's files and demands payment to get them back), so patching immediately is urgent.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-45659 · CVSS: 8.8/10 — High severity; network-accessible, low privileges required, no user interaction, HIGH confidentiality, integrity, and availability impact.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 4: Oracle PeopleSoft / Nissan - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · This week</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/nissan-discloses-employee-data-breach-linked-to-oracle-zero-day-attacks/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Nissan Employee SSNs and Banking Data Exposed After ShinyHunters Exploit Oracle PeopleSoft Zero-Day</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> ShinyHunters exploited an unauthenticated RCE zero-day (CVE-2026-35273) in Oracle PeopleSoft between May 27 and June 9, compromising 300+ instances at over 100 organizations including Nissan Americas, stealing employee Social Security numbers, banking information, and financial data.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Current and former Nissan Americas employees across the US, Canada, Mexico, and Brazil, plus employees at more than 100 other enterprises and universities worldwide that ran unpatched PeopleSoft during the attack window.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Oracle's emergency out-of-band patch (released June 10, 2026) immediately if not already done; affected individuals should place credit freezes and monitor for identity theft, as SSNs and banking details are high-value data for fraud.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-35273 is a critical unauthenticated remote code execution flaw in Oracle PeopleSoft — the enterprise HR, finance, and student management platform used by governments, universities, and major corporations worldwide. The vulnerability allows an attacker with only network access over HTTP to completely compromise a PeopleSoft environment without any credentials. ShinyHunters, a prolific financially motivated extortion group, chained this zero-day with previously known vulnerabilities to stage a coordinated attack across hundreds of targets simultaneously.</p>
+      <p>The attack window ran from May 27 to June 9, 2026 — 14 days before Oracle issued an emergency out-of-band patch on June 10. Mandiant, which investigated the campaign, notified over 100 affected organizations. Nissan Americas confirmed the breach affected current and former employees across four countries, with exposed data including SSNs, banking account details, and tax/financial information — precisely the category of data needed for identity fraud, fraudulent tax filings, and account takeover attacks.</p>
+      <p>This breach illustrates the dangerous speed at which financially motivated threat actors can operationalize zero-days at scale. ShinyHunters likely discovered or purchased the exploit and immediately deployed it against hundreds of exposed PeopleSoft installations before Oracle could respond. The breadth of the attack — universities, automotive, government — reflects PeopleSoft's ubiquity in enterprise environments that often lag on patching due to complex upgrade processes.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> PeopleSoft is the software many large employers use to manage payroll, HR records, and benefits — it holds some of the most sensitive data an employer has about you. This bug let hackers walk right in without needing a password, like a bank vault with a broken door. Once inside, they grabbed Social Security numbers and banking details for employees at Nissan and over 100 other organizations — data that can be used to steal identities, drain bank accounts, or file fake tax returns in victims' names.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-35273 · CVSS: Critical (unauthenticated RCE over HTTP, zero-day exploited at scale across 100+ organizations before patch availability).</div>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Kernel Privilege Escalation ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    The <strong>kernel</strong> is the deepest, most powerful layer of an operating system — it runs as the highest-privileged user on the machine and directly controls hardware, memory, and every process running on the computer. <strong>Privilege escalation</strong> is when an attacker who starts with a limited, low-powered account finds a bug that lets them "level up" their permissions to root or SYSTEM — the all-powerful administrator level — even though no one authorized that upgrade. Today's "Bad Epoll" zero-day is a textbook example: by exploiting a tiny timing flaw in kernel cleanup code, an ordinary user with no special access can become root with 99% reliability, turning a limited guest account into unlimited control over the entire machine.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: Zero-Day · CISA · Kernel · IDE · ShinyHunters · Storm-2603 ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Zero-Day</strong> — A software vulnerability that is publicly known or actively exploited before the vendor has released a patch, leaving defenders with no official fix available.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CISA</strong> — Cybersecurity and Infrastructure Security Agency; the U.S. federal body that coordinates national cyber defenses, issues binding operational directives, and maintains the Known Exploited Vulnerabilities (KEV) catalog.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Kernel</strong> — The innermost core of an operating system that directly manages hardware, memory, and processes; bugs in the kernel are especially dangerous because they grant attackers the highest possible system privileges.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">IDE</strong> — Integrated Development Environment; a software application such as JetBrains IntelliJ IDEA or PyCharm that gives programmers a single workspace for writing, testing, and debugging code.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ShinyHunters</strong> — A financially motivated cybercriminal group known for large-scale data theft from corporate databases and cloud storage, frequently selling stolen records and extorting victims through data-leak threats.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Storm-2603</strong> — A Microsoft-tracked threat actor group that has exploited known vulnerabilities in on-premises servers — particularly SharePoint — to deploy Warlock ransomware against enterprise targets since mid-2025.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://cybersecuritynews.com/jetbrains-vulnerabilities/" style="color:#374151;text-decoration:none;">JetBrains Patches Critical Auth Bypass (CVSS 9.8) and RCE Across Entire IDE Ecosystem</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CyberSecurityNews</span>
+    <div style="font-size:12px;color:#6b7280;margin-top:2px;margin-left:0;">CVE-2026-56141 (CVSS 9.8) in JetBrains Hub enables account takeover via predictable restore codes; CVE-2026-49382 allows RCE in IntelliJ IDEA via template injection. Self-hosted users must upgrade immediately.</div>
+  </div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://www.bleepingcomputer.com/news/security/data-breach-exposes-up-to-142-million-email-logins-at-six-isps/" style="color:#374151;text-decoration:none;">KDDI Data Breach Exposes 14.2 Million Email Logins Across Six Japanese ISPs</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Bleeping Computer</span>
+    <div style="font-size:12px;color:#6b7280;margin-top:2px;">Unauthorized access to KDDI's shared email infrastructure (detected June 17) exposed email addresses and hashed passwords for customers of STNet, JCOM, Nifty, BIGLOBE, and two others. Impacted users urged to change passwords immediately.</div>
+  </div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://sharkstriker.com/blog/july-2026-data-breaches/" style="color:#374151;text-decoration:none;">Qilin Ransomware Group Claims Attack on Chemco, Calgary-Based Manufacturer</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SharkStriker</span>
+    <div style="font-size:12px;color:#6b7280;margin-top:2px;">Qilin ransomware operators listed Chemco on their data-leak site, one of 98 organizations hit by ransomware groups in July 2026 so far. Chemco has not yet publicly confirmed the breach.</div>
+  </div>
+
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.privacyguides.org/news/2026/07/03/data-breach-roundup-june-26-july-2-2026/" style="color:#374151;text-decoration:none;">FBI and Partners Dismantle NetNut: Residential Proxy Network of 2 Million Hijacked Home Devices</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Privacy Guides</span>
+    <div style="font-size:12px;color:#6b7280;margin-top:2px;">Law enforcement disrupted NetNut, one of the world's largest residential proxy networks built on secretly hijacked home routers and devices, used to anonymize cybercrime and cyberespionage traffic. No arrests announced yet.</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · July 5, 2026
+</div>
+
+</body>
+</html>
