@@ -1,11 +1,14 @@
 {
-  "til": ["Authentication Bypass", "OIDC Authentication", "Prompt Injection", "Deserialization Attack", "DLL Sideloading", "Kernel Privilege Escalation", "BYOVD"],
-  "glossary": ["OIDC", "RAT", "ADC", "ERP", "DDoS", "IoT", "Uninitialized Memory", "Djinn Stealer", "ROPC", "Password Spray", "Prompt Injection", "Sandbox Escape", "MFA", "CAP", "CVSS", "OWA", "Cryptominer", "Load Balancer", "EEMS", "RCE", "XSS", "EoP", "HSIN", "SAM", "Dead Drop C2", "Domain Fronting", "Deserialization", "Phantom Squatting", "CVE", "KEV", "OAuth", "UAF", "TOCTOU", "APT", "DLL Sideloading", "Zero-Day", "CISA", "Kernel", "IDE", "ShinyHunters", "Storm-2603", "RaaS", "BYOVD", "SD-WAN", "LPE", "Session Token", "RMM", "PoC", "BOD", "NetScaler"],
+  "til": ["OIDC Authentication", "Prompt Injection", "Deserialization Attack", "DLL Sideloading", "Kernel Privilege Escalation", "BYOVD", "Race Condition"],
+  "glossary": ["IoT", "Uninitialized Memory", "Djinn Stealer", "ROPC", "Password Spray", "Prompt Injection", "Sandbox Escape", "MFA", "CAP", "CVSS", "OWA", "Cryptominer", "Load Balancer", "EEMS", "RCE", "XSS", "EoP", "HSIN", "SAM", "Dead Drop C2", "Domain Fronting", "Deserialization", "Phantom Squatting", "CVE", "KEV", "OAuth", "UAF", "TOCTOU", "APT", "DLL Sideloading", "Zero-Day", "CISA", "Kernel", "IDE", "ShinyHunters", "Storm-2603", "RaaS", "BYOVD", "SD-WAN", "LPE", "Session Token", "RMM", "PoC", "BOD", "NetScaler", "Dwell Time", "Double Extortion", "Heap Buffer", "Memory Disclosure", "Command Injection"],
   "week": {
     "critical": 3,
     "high": 4,
     "medium": 3,
     "techniques": ["T1213", "T1190", "T1068", "T1078", "T1539", "T1059.003"],
-    "actors": ["ShinyHunters", "Cl0p", "UAT-8616", "Anubis"]
-  }
+    "actors": ["ShinyHunters", "Cl0p", "UAT-8616", "Anubis", "Qilin"]
+  },
+  "digests": [
+    {"date": "2026-07-06", "threat": "ELEVATED", "critical": 3, "high": 4, "medium": 3}
+  ]
 }
