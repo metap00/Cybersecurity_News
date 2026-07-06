@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<!-- BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — July 6, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">10 stories · 3 critical · 4 high · ~12 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-06.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: DHS HSIN BREACH -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/dhs-confirms-hackers-breached-hsin-info-sharing-platform/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">DHS Confirms Hackers Breached HSIN Federal Information-Sharing Platform</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Unknown threat actors silently accessed the Homeland Security Information Network from late May through early June 2026, reading federal threat-intel sharing traffic during active World Cup security planning.</div>
+    <div style="margin-top:2px;">👤 U.S. federal, state, and local agencies plus private-sector critical infrastructure partners who share sensitive operational data via HSIN.</div>
+    <div style="margin-top:2px;">✅ Immediately rotate all HSIN credentials, audit access logs for the May–June window, and treat any intelligence shared via the platform as potentially compromised.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Collection] T1213 · Data from Information Repositories</div>
+</div>
+
+<!-- STORY 2: ORACLE PEOPLESOFT CVE-2026-35273 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/shinyhunters-exploits-oracle-peoplesoft.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">ShinyHunters &amp; Cl0p Exploit Oracle PeopleSoft Zero-Day — 100+ Organizations Breached Including Nissan, Kubota, Aflac</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-35273 (CVSS 9.8), a no-credentials-required RCE in Oracle PeopleSoft PeopleTools, was exploited as a zero-day for two weeks; July 3 brought a wave of breach notifications from 100+ affected organizations.</div>
+    <div style="margin-top:2px;">👤 Any organization running PeopleSoft PeopleTools 8.61 or 8.62 — Nissan, Kubota North America, Aflac Japan confirmed; Mandiant tracked 300+ compromised instances globally.</div>
+    <div style="margin-top:2px;">✅ Apply Oracle's emergency patch, audit PeopleSoft access logs back to May 27, and assume all HR and financial data in unpatched instances was exfiltrated.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 3: ROGUEPLANET CVE-2026-50656 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security / Morphisec</span>
+  </div>
+  <a href="https://www.helpnetsecurity.com/2026/06/17/rogueplanet-zero-day-cve-2026-50656/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">RoguePlanet: Microsoft Defender Zero-Day Grants SYSTEM Access on Fully Patched Windows — No Patch Available</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Researcher "Nightmare Eclipse" published a working exploit for CVE-2026-50656, a TOCTOU race condition in Defender's scanning engine (MsMpEng.exe) giving any local user SYSTEM access on fully updated Windows 10 and 11; no patch exists yet.</div>
+    <div style="margin-top:2px;">👤 Every Windows 10/11 user worldwide — Defender is on by default, and the exploit works whether Real-Time Protection is enabled or disabled.</div>
+    <div style="margin-top:2px;">✅ Enforce least-privilege for local accounts, monitor for unexpected SYSTEM process creation from MsMpEng.exe, and apply Microsoft's fix the moment it ships.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html" style="color:#374151;text-decoration:none;">Kemp LoadMaster Pre-Auth RCE CVE-2026-8037 (CVSS 9.6) Actively Exploited After PoC Drop</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://www.securityweek.com/cisco-patches-another-sd-wan-zero-day-the-sixth-exploited-in-2026/" style="color:#374151;text-decoration:none;">Cisco Patches Sixth SD-WAN Zero-Day of 2026 (CVE-2026-20182) — UAT-8616 Auth Bypass</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/07/ransomware-groups-turn-to-citrix-bleed.html" style="color:#374151;text-decoration:none;">Anubis RaaS Claims 91 Victims via Citrix Bleed 2 MFA Bypass + BYOVD + RMM Tools</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/07/sharepoint-rce-cve-2026-45659-added-to.html" style="color:#374151;text-decoration:none;">CISA Adds SharePoint RCE CVE-2026-45659 (CVSS 8.8) to KEV — Active Exploitation Confirmed</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/joomla-litespeed-vulnerabilities-exploited-in-attacks/" style="color:#374151;text-decoration:none;">Joomla JCE &amp; LiteSpeed Plugin CVEs Added to CISA KEV — Automated Exploitation Active</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.dexpose.io/qilin-ransomware-strikes-canadian-manufacturing-leader-chamco/" style="color:#374151;text-decoration:none;">Qilin Ransomware Claims Canadian Manufacturer Chamco</a>
+    <span style="color:#9ca3af;"> · DeXpose</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.dexpose.io/krybit-ransomware-targets-ford-de-mexico/" style="color:#374151;text-decoration:none;">Krybit Ransomware Targets Ford de Mexico — Customer Credential Leak Threatened</a>
+    <span style="color:#9ca3af;"> · DeXpose</span>
+  </div>
+</div>
+
+<!-- CTA -->
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-06.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">
+  Generated by Claude · July 6, 2026
+</div>
+
+</body>
+</html>
