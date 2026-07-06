@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'summaries/*.html'
+      - 'summaries/*-email.html'
 
 jobs:
   send-email:
@@ -23,15 +23,15 @@ jobs:
           from email.mime.multipart import MIMEMultipart
 
           result = subprocess.run(
-              ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD', '--', 'summaries/*.html'],
+              ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD', '--', 'summaries/*-email.html'],
               capture_output=True, text=True
           )
           files = [f for f in result.stdout.strip().split('\n') if f]
           if not files:
-              print("No summary file found"); exit(0)
+              print("No email file found"); exit(0)
 
           summary_file = files[0]
-          date = os.path.basename(summary_file).replace('.html', '')
+          date = os.path.basename(summary_file).replace('-email.html', '')
 
           with open(summary_file) as f:
               content = f.read()
