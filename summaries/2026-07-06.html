@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Cybersecurity Digest — July 6, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — July 6, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">10 stories · 3 critical · 4 high · 3 medium</div>
+</div>
+
+<!-- STORY 1: DHS HSIN BREACH -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · 3 days ago</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/dhs-confirms-hackers-breached-hsin-info-sharing-platform/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">DHS Confirms Hackers Breached HSIN Federal Information-Sharing Platform</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Unknown threat actors breached the Homeland Security Information Network (HSIN), the federal platform linking real-time threat intelligence, emergency response coordination, and World Cup security planning across government and private-sector partners, with the intrusion sitting undetected from late May through early June before DHS confirmed it July 1.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> U.S. federal agencies, state and local governments, and private-sector partners who share sensitive operational and event security data via HSIN; breach timing coincides with active FIFA World Cup security planning cycles.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> HSIN-connected organizations should immediately rotate all platform credentials, audit access logs for the May–June window, and treat any intelligence exchanged via the network as potentially known to the adversary.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>The Department of Homeland Security has confirmed that hackers compromised the Homeland Security Information Network, a classified-but-unclassified platform that serves as the backbone of domestic threat intelligence sharing. The breach affected HSIN servers and a connected SharePoint collaboration system. The intrusion is believed to have occurred between late May and early June 2026 — a window that overlaps entirely with the operational buildup to the FIFA World Cup, which DHS was actively coordinating security responses for through the network.</p>
+      <p>No threat actor has yet been attributed, and the full scope of what was accessed or exfiltrated remains under investigation. Critically, HSIN connects not just federal agencies but state, local, tribal, and territorial law enforcement as well as private-sector critical infrastructure partners. The platform's value to an adversary lies not in any single document but in visibility into how the U.S. government coordinates its real-time threat response — intelligence about intelligence.</p>
+      <p>DHS stated that no classified networks were impacted and the system remains operational, but that assurance addresses only one narrow question. The deeper issue is that any actor with weeks of access to the government's primary unclassified coordination hub could have mapped communication patterns, response protocols, and personnel relationships with significant counterintelligence value.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> HSIN is like a secure group chat used by thousands of government agencies to share threat alerts and coordinate responses. Hackers secretly joined that group chat for weeks — not to blow anything up, but to silently read every message. Even without classified data, watching how defenders talk to each other is enormously valuable to an attacker planning their next move.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Nation-state-tier intrusion with weeks of dwell time inside a critical federal coordination platform</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 2: ORACLE PEOPLESOFT CVE-2026-35273 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · 3 days ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/06/shinyhunters-exploits-oracle-peoplesoft.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">ShinyHunters &amp; Cl0p Exploit Oracle PeopleSoft Zero-Day — 100+ Organizations Breached Including Nissan, Kubota, Aflac</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Two major threat groups — ShinyHunters and the Cl0p ransomware gang — exploited CVE-2026-35273, a missing-authentication RCE flaw in Oracle PeopleSoft PeopleTools, as a zero-day for nearly two weeks before Oracle released an emergency patch on June 10; on July 3, a cluster of breach notifications arrived from over 100 compromised organizations.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running Oracle PeopleSoft PeopleTools 8.61 or 8.62; confirmed victims include Nissan, Kubota North America, and Aflac Japan, with Mandiant tying the campaign to over 300 compromised PeopleSoft instances globally.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Oracle's emergency patch immediately, audit all PeopleSoft access logs back to May 27, assume all HR and financial data stored in unpatched instances has been exfiltrated, and engage incident response if you ran a vulnerable version during that window.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-35273 is a missing authentication vulnerability in the Updates Environment Management component of Oracle PeopleSoft PeopleTools. It is remotely exploitable without credentials and allows full remote code execution on affected servers. The CVSS score is 9.8, the highest tier. Between May 27 and June 9, threat actors linked to the ShinyHunters extortion ecosystem treated it as a zero-day — attacking at scale before any patch existed.</p>
+      <p>The July 3 disclosure cluster was the delayed blast wave from that six-week campaign: Nissan, Kubota North America, and Aflac's Japan subsidiary all sent breach notifications the same week. Google's Mandiant, which investigated the campaign, tied it to more than 100 organizations and over 300 individual PeopleSoft instances. The Cl0p ransomware group — well-known for large-scale exploitation of enterprise software zero-days (MOVEit, GoAnywhere) — has also been confirmed as a participant, using the flaw for data extortion rather than encryption.</p>
+      <p>Oracle's emergency patch shipped June 10 but the damage was done. PeopleSoft stores HR records, payroll, benefits, and student information for universities, insurers, and manufacturers — data that fuels long-tail fraud and phishing campaigns. Organizations that haven't yet patched are still exposed to any other threat actors who reverse-engineered the fix.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a building where the front door lock was broken for two weeks, but nobody knew — and professional burglars quietly walked in and copied the contents of every filing cabinet. That's what happened here: attackers exploited a "no key required" flaw in a software system that holds sensitive employee and customer records at hundreds of major companies, copying data before anyone even knew the door was unlocked.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-35273 · CVSS: 9.8/10 — Maximum severity; the flaw requires zero credentials and is fully remotely exploitable, placing it in the most dangerous vulnerability category.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 3: MICROSOFT DEFENDER ROGUEPLANET CVE-2026-50656 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · ongoing — no patch yet</span>
+  </div>
+  <a href="https://www.helpnetsecurity.com/2026/06/17/rogueplanet-zero-day-cve-2026-50656/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">RoguePlanet: Microsoft Defender Zero-Day Grants SYSTEM Access on Fully Patched Windows — No Patch Available</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> A researcher known as "Nightmare Eclipse" published a working exploit for CVE-2026-50656, a race condition in the Microsoft Malware Protection Engine that gives any local user SYSTEM-level control on fully patched Windows 10 and 11 — weaponizing Defender itself as the attack surface; Microsoft confirmed the flaw and rated it "Exploitation More Likely" but has not yet released a fix.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows 10 and 11 users worldwide — Microsoft Defender is enabled by default on every modern Windows machine, and the exploit works regardless of whether Real-Time Protection is active.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> No patch exists yet; enforce the principle of least privilege (restrict local user accounts), monitor for unexpected SYSTEM-level process creation, and apply Microsoft's update the moment it becomes available — this is a high-priority patch-as-soon-as-available situation.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>RoguePlanet exploits a Time-of-Check to Time-of-Use (TOCTOU) race condition inside Microsoft's Malware Protection Engine — the scanning core shared by Microsoft Defender, Defender for Endpoint, and related security products. The flaw is mapped to CWE-59 (improper link resolution before file access). By winning a file-system race against the Defender scanning process, an attacker with any local code execution can spawn a command shell running as SYSTEM — the highest privilege level on Windows.</p>
+      <p>The dangerous irony is the attack surface: the security tool itself. Defender's engine runs with elevated permissions by design so it can inspect and remediate files across the entire system. RoguePlanet abuses that trust. The public PoC works on fully updated Windows 10 and 11 machines through the June 2026 Patch Tuesday cycle, making "keep your system updated" insufficient advice until Microsoft ships a fix.</p>
+      <p>The researcher responsible, "Nightmare Eclipse," has been releasing zero-day exploits for Microsoft software since March 2026 — reportedly as retaliation for a dispute with the company. Microsoft's CVSS 4.0 base score of 7.8 technically makes this HIGH rather than CRITICAL, but the combination of no patch, public exploit, and universal Windows exposure elevates the real-world risk to CRITICAL tier. Attackers who already have a foothold (via phishing or a web shell) will use RoguePlanet to immediately go from a limited user to full system control.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Your antivirus works by having special permission to scan every file on your computer. RoguePlanet tricks that scanning process into accidentally giving the attacker those same special permissions — it's like someone using the security guard's master key to get into every room. The scary part: this works on computers that are completely up to date, and there's no fix available yet.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-50656 · CVSS: 7.8/10 — Local privilege escalation to SYSTEM; real-world risk rated CRITICAL due to universal Windows exposure, no available patch, and existing public exploit code.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 4: KEMP LOADMASTER CVE-2026-8037 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · 5 days ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Progress Kemp LoadMaster Pre-Auth RCE (CVE-2026-8037, CVSS 9.6) Actively Exploited After PoC Release</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Attackers began actively exploiting CVE-2026-8037, a pre-authentication OS command injection flaw in Progress Kemp LoadMaster network appliances, within hours of a public PoC being released on June 29; the underlying bug is an uninitialized heap buffer in the <code>escape_quotes()</code> function that allows arbitrary command execution via the /accessv2 API endpoint.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running LoadMaster GA v7.2.63.1 or earlier and LTSF v7.2.54.17 or earlier with the LoadMaster API enabled; because LoadMaster sits at the network perimeter handling TLS termination and authentication flows, a compromise gives attackers a privileged position to intercept traffic.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update to GA v7.2.63.2 or LTSF v7.2.54.18 immediately; if patching is not immediately possible, disable the LoadMaster API; treat any internet-exposed LoadMaster that was unpatched after June 29 as fully compromised and initiate incident response.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-8037 is a pre-authentication remote code execution vulnerability in Progress Kemp LoadMaster, an application delivery controller widely used in enterprise and healthcare environments. The bug originates in the <code>escape_quotes()</code> function, which allocates a heap buffer using <code>malloc()</code> but fails to null-terminate escaped strings — creating an out-of-bounds read into adjacent heap memory. An attacker can manipulate that adjacent heap data to inject OS commands that the application then executes via <code>system()</code>. No credentials are required.</p>
+      <p>The vulnerability was originally disclosed on June 4 with patches available, but exploitation attempts were minimal until watchTowr Labs published a detailed technical write-up and functional PoC on June 29. Within hours of that release, eSentire's Threat Response Unit detected active exploitation attempts targeting internet-exposed LoadMaster appliances. This is the classic "PoC to attack" acceleration pattern: defenders had 25 days to patch; the PoC collapsed that window to near-zero for anyone still running a vulnerable version.</p>
+      <p>The impact of a compromised LoadMaster extends far beyond the device itself. Because these appliances act as the front door for enterprise applications — handling authentication, TLS decryption, and traffic routing — an attacker with root access can intercept credentials, inject content into web sessions, and pivot laterally into internal networks with a level of trust that is difficult to detect or contain.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A LoadMaster is a network device that acts like a traffic cop, directing web requests to the right server. This vulnerability let attackers send a specially crafted request to the traffic cop — without logging in at all — and take complete control of it. Once they own the traffic cop, they can see and manipulate everything flowing through it, like a postal worker secretly reading every package they handle.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-8037 · CVSS: 9.6/10 — Pre-authentication OS command injection with root code execution; actively exploited in the wild since June 29 following public PoC release.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 5: CISCO SD-WAN CVE-2026-20182 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · yesterday</span>
+  </div>
+  <a href="https://www.securityweek.com/cisco-patches-another-sd-wan-zero-day-the-sixth-exploited-in-2026/" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Cisco Patches Sixth SD-WAN Zero-Day of 2026 — Authentication Bypass Grants Remote Admin Access</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> Cisco patched CVE-2026-20182, an authentication bypass in Cisco Catalyst SD-WAN Controller and Manager that lets a remote, unauthenticated attacker gain full admin privileges via specially crafted network packets — the sixth SD-WAN zero-day exploited in targeted attacks this year, this one attributed to threat actor UAT-8616.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using Cisco Catalyst SD-WAN Controller (formerly vSmart) or Cisco Catalyst SD-WAN Manager (formerly vManage); two of the six 2026 SD-WAN flaws carried a perfect CVSS score of 10.0, reflecting a sustained, sophisticated targeting campaign against this product line.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Cisco's patch immediately; CISA has added CVE-2026-20182 to its KEV catalog with a three-day remediation deadline for federal agencies; move all SD-WAN management interfaces off the public internet if they aren't already.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-20182 is the sixth actively exploited Cisco SD-WAN vulnerability disclosed in 2026 — a pattern that security researchers describe as a sustained, coordinated effort to compromise enterprise WAN infrastructure. This particular flaw resides in the peering authentication mechanism of Cisco Catalyst SD-WAN Controller and Manager, allowing an unauthenticated remote attacker to bypass authentication entirely and gain administrative control by sending specially crafted packets. Cisco became aware of active exploitation in May and confirmed the flaw before releasing a patch in early July.</p>
+      <p>The threat actor behind this campaign, tracked as UAT-8616, has been associated with multiple SD-WAN zero-days throughout 2026. The volume and velocity of these discoveries — six zero-days in six months, two carrying CVSS 10.0 scores — suggests that either the product line has fundamental architectural security issues or that UAT-8616 has invested deeply in vulnerability research against Cisco's SD-WAN codebase, possibly for nation-state intelligence collection purposes.</p>
+      <p>SD-WAN controllers are high-value targets because they manage the routing and security policies for an organization's entire wide-area network. Compromise gives an attacker visibility into network topology, the ability to redirect traffic, and a persistent foothold that survives device replacements if configuration backups are also compromised.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SD-WAN is the software "brain" that tells a company's network how to route data between offices and cloud services. This vulnerability let attackers walk straight into that brain's control room — no password needed — and take over. It's the sixth time this year that hackers have found a way into this same "brain" system, which suggests they're specifically hunting for weaknesses in it.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-20182 · CVSS score pending full disclosure — Authentication bypass yielding remote admin access; CISA-mandated 3-day remediation window for federal agencies.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 6: ANUBIS RANSOMWARE / CITRIX BLEED 2 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · 4 days ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/ransomware-groups-turn-to-citrix-bleed.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">Anubis RaaS Claims 91 Victims Using Citrix Bleed 2 MFA Bypass + BYOVD + Legitimate RMM Tools</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> The Anubis ransomware-as-a-service group has claimed 91 victims by exploiting CVE-2025-5777 (Citrix Bleed 2), a pre-authentication memory disclosure flaw in Citrix NetScaler appliances that leaks session tokens to bypass MFA entirely — then using BYOVD techniques and legitimate RMM tools like ScreenConnect and Zoho Assist to move laterally while blending in with normal IT activity.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched Citrix NetScaler appliances exposed to the internet; 91 victims across multiple industries have been claimed on Anubis's leak site, with 11 added in June 2026 alone.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Citrix's patch for CVE-2025-5777, force-invalidate all active NetScaler sessions after patching, audit RMM software installations for unauthorized instances, and review lateral movement indicators originating from any NetScaler-adjacent system.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2025-5777, dubbed "Citrix Bleed 2," is a pre-authentication memory disclosure vulnerability in Citrix NetScaler appliances — network devices used for VPN access, TLS termination, and application delivery in enterprise environments. The flaw leaks session tokens from the appliance's memory without requiring any credentials. With a valid session token in hand, an attacker can impersonate an already-authenticated user and bypass MFA entirely, since the authentication check has already been passed by the legitimate user whose token was stolen.</p>
+      <p>Anubis, a RaaS operation that emerged in late 2024 as a rebrand of Sphinx ransomware, has built a sophisticated tradecraft around this flaw. After obtaining initial access via stolen session tokens, affiliates deploy BYOVD (Bring Your Own Vulnerable Driver) techniques to disable endpoint security tools, then pivot to legitimate RMM software — ScreenConnect, Zoho Assist, MeshAgent, UltraVNC — to maintain persistent access while appearing indistinguishable from authorized IT administration activity. Arctic Wolf documented this full attack chain in a detailed report this week.</p>
+      <p>The combination of a pre-auth memory bug, MFA bypass, driver-based defense evasion, and legitimate tool abuse represents the current gold standard of ransomware sophistication. Each individual component is not new, but their orchestrated combination makes detection at any single layer extremely difficult.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of a session token as a temporary visitor badge — once you've shown your ID at the front desk and passed security, you get a badge that lets you move around freely. Citrix Bleed 2 let attackers reach into the lobby and steal someone else's badge without ever going through security themselves — not even needing a password or a second-factor code. Then they used that stolen badge to wander around the building, taking notes and planting ransomware while looking exactly like authorized staff.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2025-5777 · CVSS: 9.4/10 — Pre-authentication memory disclosure enabling session hijacking and complete MFA bypass; 91 confirmed victims across Anubis RaaS operations.</div>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 7: SHAREPOINT CVE-2026-45659 CISA KEV -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · 2 days ago</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/sharepoint-rce-cve-2026-45659-added-to.html" style="font-size:15px;font-weight:bold;color:#111827;text-decoration:none;">CISA Adds SharePoint RCE CVE-2026-45659 to KEV Catalog — Federal Agencies Had July 4 Deadline</a>
+  <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+    <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-45659, a deserialization-of-untrusted-data RCE vulnerability (CVSS 8.8) in Microsoft SharePoint Server, to its Known Exploited Vulnerabilities catalog after confirming active exploitation; the patch has been available since late May but federal agencies were given a July 4 deadline under a Binding Operational Directive.</div>
+    <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running on-premises Microsoft SharePoint Server; the flaw requires an authenticated attacker (a valid network account), making credential-theft or phishing a natural precursor to exploitation — particularly concerning for organizations that use SharePoint as an intranet hub.</div>
+    <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the May SharePoint patch immediately if not done; scan for signs of post-exploitation such as unusual process spawning from SharePoint worker processes; if your SharePoint is internet-facing and was unpatched, treat it as compromised and investigate.</div>
+  </div>
+  <details style="margin-top:10px;">
+    <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+    <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+      <p>CVE-2026-45659 is a deserialization vulnerability in Microsoft SharePoint Server. When SharePoint processes certain types of data, it "deserializes" it — converting it from a stored format back into live objects the software can work with. If untrusted data is passed through this process, an attacker can craft malicious input that, when deserialized, causes the server to execute arbitrary code with the SharePoint process's permissions. The CVSS score of 8.8 reflects that a network-accessible authenticated user can trigger remote code execution — a relatively low bar in enterprise environments where phishing is routine.</p>
+      <p>CISA's addition of the flaw to KEV confirms that active exploitation was observed before the catalog update, meaning the vulnerability has been weaponized against real targets. Organizations that patched in May are protected; those that did not have now potentially faced weeks of exposure to threat actors with a working exploit. The July 4 BOD deadline for FCEB agencies was designed to prevent government systems from remaining vulnerable over a holiday weekend.</p>
+      <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+        <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SharePoint is the digital workplace where many companies store documents, project files, and internal news. This flaw let someone with just a regular company login send a specially poisoned file to the server — which would then accidentally run it as a command, handing the attacker control. Think of it as slipping a trick question into a form that the system then executes instead of just reading.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-45659 · CVSS: 8.8/10 — Authenticated network-exploitable RCE via deserialization of untrusted data; CISA KEV-listed with confirmed active exploitation.</div>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: BYOVD (Bring Your Own Vulnerable Driver) ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    BYOVD stands for "Bring Your Own Vulnerable Driver" — it's a technique where attackers secretly install a legitimate but outdated Windows driver (low-level software that talks directly to the hardware) that contains known security flaws, exploiting Windows's willingness to run officially signed drivers at the highest privilege level. Because the driver carries a valid digital signature from a real software vendor, Windows lets it run in the same protected zone as the operating system itself, giving attackers a way to silently disable antivirus and security tools that would otherwise catch them. Anubis ransomware affiliates used BYOVD again this week alongside the Citrix Bleed 2 exploit, illustrating how modern attackers chain multiple techniques together — each one borrowing trust from something legitimate — to slip past every layer of defense in sequence.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: RaaS · BYOVD · SD-WAN · LPE · Session Token · RMM · PoC · BOD · NetScaler ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RaaS</strong> — Ransomware-as-a-Service: a criminal business model where ransomware developers lease their malware, infrastructure, and support to "affiliates" who carry out attacks and then split the ransom proceeds with the developers.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">BYOVD</strong> — Bring Your Own Vulnerable Driver: an attack technique where attackers load a legitimate but outdated, signed Windows kernel driver that contains known flaws, exploiting it to disable security software or escalate privileges from within the OS's trusted zone.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SD-WAN</strong> — Software-Defined Wide Area Network: technology that uses software to centrally control and route network traffic across multiple office locations and cloud services, replacing traditional hardware-only WAN routers.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">LPE</strong> — Local Privilege Escalation: a class of vulnerability that allows an attacker who already has limited access to a system (e.g., a normal user account) to gain much higher permissions, such as administrator or SYSTEM-level control.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Session Token</strong> — A temporary cryptographic credential a server issues after a successful login; it acts as a "you're already authenticated" pass, meaning anyone who steals the token can impersonate that user without knowing their password or MFA code.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RMM</strong> — Remote Monitoring and Management: software used by IT administrators to remotely access, monitor, and manage computers across an organization; ransomware groups increasingly abuse legitimate RMM tools to maintain persistent access while blending in with normal IT activity.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PoC</strong> — Proof of Concept: working demonstration code that proves a vulnerability is exploitable; when PoC code becomes public, active exploitation attempts typically surge within hours to days as lower-skilled attackers can use it without understanding the underlying flaw.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">BOD</strong> — Binding Operational Directive: a mandatory policy issued by CISA that legally compels U.S. federal civilian executive branch agencies to take specific cybersecurity actions (such as patching a vulnerability) within defined deadlines.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">NetScaler</strong> — Citrix NetScaler is an enterprise network appliance that handles VPN remote access, application load balancing, and TLS encryption; widely deployed as the front door to corporate web applications and therefore a high-value target for attackers seeking network-level access.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/joomla-litespeed-vulnerabilities-exploited-in-attacks/" style="color:#374151;text-decoration:none;">Joomla JCE (CVE-2026-48907) and LiteSpeed cPanel Plugin (CVE-2026-54420) Both Added to CISA KEV — Automated Exploits Active</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/ransomware-groups-turn-to-citrix-bleed.html" style="color:#374151;text-decoration:none;">Stolen FortiGate Firewall Credentials Weaponized by INC and Lynx Ransomware Groups in Active Campaigns</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.dexpose.io/qilin-ransomware-strikes-canadian-manufacturing-leader-chamco/" style="color:#374151;text-decoration:none;">Qilin Ransomware Claims Attack on Canadian Manufacturer Chamco</a>
+    <span style="color:#9ca3af;font-size:11px;"> · DeXpose</span>
+  </div>
+
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.dexpose.io/krybit-ransomware-targets-ford-de-mexico/" style="color:#374151;text-decoration:none;">Krybit Ransomware Targets Ford de Mexico, Threatens to Leak Customer Credential Data</a>
+    <span style="color:#9ca3af;font-size:11px;"> · DeXpose</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · July 6, 2026
+</div>
+
+</body>
+</html>
