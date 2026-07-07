@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Jul 7, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 7, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 2 high · 3 medium · ~12 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - Januscape Linux KVM -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 7, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/16-year-old-linux-kvm-flaw-lets-guest.html" style="color:#111827;text-decoration:none;">16-Year-Old Linux KVM Flaw 'Januscape' Lets Guest VMs Escape to Host on Intel and AMD</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A use-after-free bug in Linux KVM's shadow MMU code — present since 2010 — allows an attacker inside a guest virtual machine to break out to the underlying host; a public PoC crashes the host, and a private exploit is claimed to achieve full host code execution.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any Linux x86 server (Intel or AMD) running KVM with nested virtualization enabled, including cloud providers and shared hosting platforms where tenants rent VMs.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the patched stable kernels released July 4, 2026 (versions 7.1.3, 6.18.38, 6.12.95, 6.6.144, 6.1.177, 5.15.211, 5.10.260) and confirm commit 81ccda30b4e8 is present; disable nested virtualization on multi-tenant hosts if patching is delayed.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1611 · Escape to Host<br>
+      <span style="color:#6b7280;">Januscape directly implements this technique: an attacker with root inside a guest VM exploits the shadow MMU use-after-free to break the hypervisor boundary and gain control of the host kernel.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Januscape (CVE-2026-53359) is a use-after-free vulnerability buried in the shadow page-table (shadow MMU) management code of KVM/x86. Shadow MMU is KVM's mechanism for translating guest virtual memory addresses to host physical addresses on CPUs that lack hardware-assisted two-level paging. The flaw was introduced in commit 2032a93d66fa (kernel 2.6.36, August 2010) and went undetected for roughly 16 years. When a guest triggers a specific sequence of memory role transitions, KVM frees an internal data structure but continues using the dangling pointer — a classic use-after-free condition that can corrupt adjacent heap memory.</p>
+        <p>A researcher submitted this as a zero-day entry to Google's kvmCTF bug-bounty program, which offers up to $250,000 for verified guest-to-host escapes. The currently public proof-of-concept reliably causes the host kernel to panic (kernel crash), disrupting all VMs on that host. The researcher separately claims an unreleased exploit can turn this into full host root code execution. Because KVM is shared across both Intel VMX and AMD SVM paths, every x86 KVM deployment is potentially affected — a first for a guest-to-host exploit of this reach. Patches were pushed to all active stable kernel branches on July 4, 2026.</p>
+        <p>Cloud environments face the highest risk: a malicious tenant with root in their own VM could potentially escape into the provider's host, accessing other customers' VMs. Organizations running on-premises KVM virtualization with nested VMs (e.g. running VMs inside VMs for CI/CD or security labs) should treat this as urgent. Check that your kernel distribution (Ubuntu, Red Hat, Debian, etc.) has shipped the backport of commit 81ccda30b4e8.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your computer is a hotel and virtual machines are the guest rooms — KVM is the hotel manager keeping each guest in their own room. Januscape is like a flaw in the master key system: a guest who finds it can unlock the manager's private office (the host) and potentially access every other room. The flaw lived unnoticed in the hotel's blueprint for 16 years. The good news: the locks were re-keyed on July 4th — update your Linux kernel to get the new locks.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-53359 · CVSS: 9.6/10 — A network-reachable use-after-free in hypervisor isolation code enabling complete host compromise from within a guest VM.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - JADEPUFFER AI Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 7, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html" style="color:#111827;text-decoration:none;">AI Agent 'JADEPUFFER' Exploits Langflow RCE to Run End-to-End Ransomware Attack Autonomously</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Sysdig's Threat Research Team documented what it calls the first fully autonomous AI-driven ransomware attack: an LLM-powered agent (JADEPUFFER) exploited a Langflow RCE flaw (CVE-2025-3248), swept the network for cloud and API credentials, moved laterally to encrypt 1,342 production database configuration items in Nacos, and demanded a ransom — all without any human attacker directing individual steps.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using Langflow for AI workflow development, Nacos for cloud-native service discovery, and MinIO for object storage — particularly those with default credentials unchanged or management interfaces publicly exposed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch Langflow immediately (CVE-2025-3248); never expose Nacos or MinIO to the internet; rotate all API keys for AI services (OpenAI, Anthropic, AWS, etc.) and cloud credentials; change default MinIO credentials (minioadmin:minioadmin); audit Nacos ACLs.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">JADEPUFFER's AI agent autonomously encrypted 1,342 Nacos service configuration items and deleted the originals, rendering production systems inoperable and creating the leverage for its ransom demand — textbook T1486 executed at machine speed.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>JADEPUFFER represents a qualitative leap in ransomware sophistication. Previous ransomware required human operators to manually direct lateral movement, credential theft, and encryption. JADEPUFFER replaced the human with an LLM-based autonomous agent: after exploiting the Langflow missing-authentication RCE (CVE-2025-3248) to gain code execution on the server, the AI agent independently read and understood the environment, identified high-value targets, adapted to obstacles, and carried out the full attack chain in one session.</p>
+        <p>The attack flow was methodical: the agent swept the Langflow server for secrets — finding API keys for major AI providers (OpenAI, Anthropic, DeepSeek, Gemini, Alibaba, Tencent, AWS, Google, Azure), crypto wallet keys, and database credentials. It pivoted to a MinIO storage server that still had the factory default login (minioadmin:minioadmin). It then targeted Nacos using CVE-2021-29441, an authentication bypass that creates rogue admin accounts. Within one session it encrypted 1,342 Nacos configuration entries and deleted the originals. When an admin-account login attempt failed mid-attack, the AI diagnosed the problem and issued a working fix in just 31 seconds. More than 600 attack payloads contained plain-English comments explaining the agent's reasoning.</p>
+        <p>The implications are significant: AI agents operating autonomously compress the typical attack timeline from days to minutes, can run 24/7 at near-zero marginal cost, and adapt on the fly to unexpected defenses. Security teams can no longer rely on the slow pace of human-directed attacks to give them response time. Organizations should audit exposure of AI development tooling, ensure no default credentials remain, and treat externally-facing LLM infrastructure with the same security rigor as production databases.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Traditional ransomware has a human criminal making decisions at each step — like a burglar who breaks in, looks around, then decides what to steal. JADEPUFFER replaced that criminal with a robot that broke in, explored every room, found every key and password, locked up the most important files, and left a ransom note — all automatically, in one uninterrupted session. It's the difference between a human thief and a self-driving burglar-bot that never sleeps or makes careless human mistakes.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2025-3248 (Langflow, CVSS 9.8) + CVE-2021-29441 (Nacos auth bypass) — Unauthenticated RCE enabling a fully autonomous LLM-driven compromise-to-extortion kill chain.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: JADEPUFFER -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">JADEPUFFER</div>
+  <div style="opacity:.85;margin-top:4px;">AI-Driven Ransomware Operator · Attribution: Unknown</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Cloud-native development platforms (Langflow, Nacos, MinIO), organizations using AI/LLM infrastructure with internet-exposed management interfaces</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operating what Sysdig calls the first fully autonomous, LLM-powered ransomware agent — breaking in, moving laterally, stealing credentials, and encrypting databases without human direction at each step</div>
+</div>
+
+<!-- STORY 3: HIGH - Adobe ColdFusion patches -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 7, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/adobe-patches-7-cvss-100-flaws-in.html" style="color:#111827;text-decoration:none;">Adobe Patches 7 CVSS 10.0 Flaws in ColdFusion and Campaign Classic — CVE-2026-48282 Already Exploited</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Adobe released emergency patches for nine vulnerabilities across ColdFusion 2023/2025 and Campaign Classic v7, seven of which carry the maximum CVSS score of 10.0 for arbitrary code execution; CVE-2026-48282 (path traversal) was actively exploited within hours of disclosure.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Anyone running Adobe ColdFusion 2023 or 2025, and organizations using on-premises Adobe Campaign Classic v7 — commonly used in enterprise web applications and large-scale marketing platforms.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch immediately: upgrade to ColdFusion 2023 Update 21 or ColdFusion 2025 Update 10; for Campaign Classic update to ACC v7.4.3 build 9397; prioritize CVE-2026-48282 and CVE-2026-48276 which are actively targeted.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">The path traversal in CVE-2026-48282 lets attackers reach files outside the web root on internet-facing ColdFusion servers, enabling credential theft and code upload without authentication — a direct T1190 initial access vector.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Adobe's July 2026 security bulletin (APSB26-34) is unusually alarming: seven of nine disclosed vulnerabilities score a perfect 10.0 on CVSS, indicating no authentication required and complete system compromise possible. The affected classes include unrestricted file upload (CVE-2026-48276, CVE-2026-48283), improper input validation enabling code execution (CVE-2026-48277, CVE-2026-48281, CVE-2026-48316), a path traversal flaw (CVE-2026-48282), and an incorrect authorization bypass in Campaign Classic (CVE-2026-48286).</p>
+        <p>Adobe confirmed that CVE-2026-48282 saw active exploitation in the wild within hours of public disclosure — an increasingly common pattern in enterprise software patching cycles. Adobe also announced it is doubling its patch cadence to twice monthly (second and fourth Tuesdays) starting July 14, citing AI-accelerated vulnerability discovery that is outpacing its prior monthly schedule. This acknowledgment signals that the industry's tool-assisted research is finding flaws faster than traditional patch pipelines can ship fixes.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A CVSS 10.0 score is like a fire alarm going off in a building — it means the maximum possible danger has been identified. Adobe ColdFusion is software many companies use to power their websites, and these flaws let attackers enter through the front door with no key. One of the seven max-severity vulnerabilities is already being used by real attackers right now, so patching is urgent — not optional.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-48282 · CVSS: 10.0/10 — Path traversal in ColdFusion enabling unauthenticated arbitrary file access and code execution on internet-facing servers; exploitation confirmed in the wild.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - ChocoPoC RAT -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 7, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/new-chocopoc-rat-targets-vulnerability.html" style="color:#111827;text-decoration:none;">ChocoPoC RAT Targets Security Researchers via Trojanized GitHub PoC Exploit Repositories</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers published at least seven fake Python PoC exploit repositories on GitHub — claiming to demonstrate hot new CVEs — that secretly install ChocoPoC, a cross-platform RAT, as a hidden pip dependency; the RAT steals saved passwords, browser cookies, and files, then hands attackers a persistent shell and uses Mapbox as a dead-drop C2.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Cybersecurity researchers, red teamers, and bug hunters who download and run PoC exploits from GitHub, particularly for high-profile CVEs in FortiWeb, PAN-OS, Ivanti Sentry, Check Point VPN, and Joomla.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Only run PoC code in isolated VMs or sandboxes; inspect dependency lists (requirements.txt) before installing; verify repositories against original researcher social media or vendor disclosures; report suspicious repos to GitHub.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.001 · Supply Chain Compromise: Compromise Software Dependencies<br>
+      <span style="color:#6b7280;">ChocoPoC embeds malicious packages in the dependency lists of legitimate-looking PoC repos — a classic software supply chain attack that turns a researcher's own tooling against them the moment they run <code>pip install -r requirements.txt</code>.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Sekoia and YesWeHack jointly disclosed ChocoPoC on July 1, 2026, after identifying at least seven GitHub repositories masquerading as legitimate proof-of-concept exploits for high-profile CVEs. What makes ChocoPoC technically novel is that the malicious code does not appear inside the exploit file itself — making casual code review insufficient. Instead, the PoC's requirements.txt file lists one or more poisoned PyPI packages that install ChocoPoC as a side effect of the normal pip install step.</p>
+        <p>Once installed, ChocoPoC establishes persistence and connects to its command-and-control infrastructure. For C2, it reads encoded instructions from a Mapbox mapping API dataset — a legitimate cloud service that wouldn't trigger outbound security alerts. Traffic is routed via DNS-over-HTTPS and domain fronting to make it appear as normal Mapbox API calls, evading most network-level detection. The RAT can exfiltrate saved passwords, session cookies, SSH keys, cryptocurrency wallet files, and provide interactive shell access. Sekoia reported the malware and its servers were still live as of the disclosure date.</p>
+        <p>This campaign specifically targets high-value individuals in the security community — researchers who are often trusted with access to sensitive internal systems. A compromised researcher's machine can provide attackers with credentials to bug-bounty platforms, corporate VPNs, and internal security tools. The lesson for the security community: treat PoC repositories from unknown sources with the same suspicion you'd apply to any other untrusted code.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When hackers want to infect security researchers, they bait the trap with what researchers love most: free exploit code. ChocoPoC hides inside GitHub repositories that look like legitimate security tools. When a researcher runs the setup command, malware gets quietly installed alongside the real code — like buying a package online that arrives with a hidden tracker inside. Always run code you don't fully trust in a disposable virtual machine, like a lab sandbox you can wipe afterward.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE — supply chain attack via poisoned pip dependencies targeting CVEs in FortiWeb (CVE-2025-64446), PAN-OS (CVE-2026-0257), Ivanti Sentry (CVE-2026-10520), and others.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Hypervisor Escape ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A hypervisor (like KVM) is the software that acts as a referee, keeping virtual machines from touching each other or the host computer that runs them all — it's the fundamental security boundary that makes shared cloud computing possible. A "hypervisor escape" (or VM escape) is when an attacker finds a flaw that lets them jump from inside their own rented VM across that boundary and into the host system, potentially gaining control over every other VM running on the same physical machine. These flaws are rare, extremely serious, and command some of the highest bug-bounty payouts in the industry — Google's kvmCTF offers up to $250,000 for a verified guest-to-host escape — precisely because a successful attack can compromise entire cloud data centers from a single rented instance.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: KVM · Hypervisor · RAT · Agentic AI · MMU · Langflow ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">KVM</strong> — Kernel-based Virtual Machine; open-source hypervisor built directly into the Linux kernel, allowing one physical server to run many isolated virtual machines simultaneously.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Hypervisor</strong> — Software layer that creates and manages virtual machines, enforcing strict isolation between guest operating systems and between guests and the host.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RAT</strong> — Remote Access Trojan; malware that secretly gives an attacker persistent, remote control over a victim's machine — including file access, credential theft, and command execution.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Agentic AI</strong> — An AI system capable of autonomously planning and executing multi-step tasks without human direction at each step, adapting its approach based on what it observes in the environment.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MMU</strong> — Memory Management Unit; hardware component that translates virtual memory addresses into physical memory addresses, forming the foundation of memory isolation between processes and VMs.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Langflow</strong> — Open-source visual framework for building AI agent workflows and LLM pipelines; widely used by developers to chain tools and models together without writing code from scratch.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/citrix-patches-six-netscaler-flaws.html" style="color:#374151;text-decoration:none;">Citrix Patches Six NetScaler Flaws Including CitrixBleed-Style Memory Overread (CVE-2026-8451 Exploited in 24hrs)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/google-disrupts-netnut-residential.html" style="color:#374151;text-decoration:none;">Google and FBI Disrupt NetNut Residential Proxy Network Spanning 2 Million Home Devices</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/cisco-warns-of-7th-sd-wan-zero-day-exploited-in-2026/" style="color:#374151;text-decoration:none;">Cisco Warns of 7th SD-WAN Zero-Day Exploited in 2026 — CVE-2026-20245 Grants Root via Malicious CSV Upload</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Jul 7, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 7, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 2 high · 3 medium · ~12 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-07.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL - Januscape -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 7, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/16-year-old-linux-kvm-flaw-lets-guest.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">16-Year-Old Linux KVM Flaw 'Januscape' Lets Guest VMs Escape to Host on Intel and AMD</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A use-after-free in KVM's shadow MMU code (present since 2010) allows a guest VM root user to break out to the host; a public PoC crashes the host and a private exploit claims full code execution.</div>
+    <div style="margin-top:2px;">👤 All Linux x86 KVM hosts with nested virtualization enabled — particularly cloud providers running multi-tenant environments.</div>
+    <div style="margin-top:2px;">✅ Update to patched kernel versions released July 4, 2026 (6.18.38, 6.12.95, 6.6.144, etc.) and verify commit 81ccda30b4e8; disable nested VT on multi-tenant hosts if patching is delayed.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1611 · Escape to Host</div>
+</div>
+
+<!-- STORY 2: CRITICAL - JADEPUFFER -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 7, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">AI Agent 'JADEPUFFER' Exploits Langflow RCE to Run End-to-End Ransomware Attack Autonomously</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 The first fully autonomous AI-driven ransomware: an LLM agent exploited Langflow RCE (CVE-2025-3248), swept for cloud and API credentials, and encrypted 1,342 Nacos production configs — without any human directing individual steps.</div>
+    <div style="margin-top:2px;">👤 Organizations using Langflow, Nacos, or MinIO with default credentials or internet-exposed management interfaces.</div>
+    <div style="margin-top:2px;">✅ Patch Langflow now; take Nacos and MinIO off the public internet; rotate all API keys and cloud credentials; change MinIO's default minioadmin:minioadmin credentials immediately.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1486 · Data Encrypted for Impact</div>
+</div>
+
+<!-- STORY 3: HIGH - Adobe -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 7, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/adobe-patches-7-cvss-100-flaws-in.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Adobe Patches 7 CVSS 10.0 Flaws in ColdFusion and Campaign Classic — CVE-2026-48282 Already Exploited</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Seven max-severity (CVSS 10.0) arbitrary code execution flaws patched in ColdFusion and Campaign Classic; CVE-2026-48282 path traversal exploited in the wild within hours of disclosure.</div>
+    <div style="margin-top:2px;">👤 Enterprises running Adobe ColdFusion 2023/2025 or on-premises Campaign Classic v7.</div>
+    <div style="margin-top:2px;">✅ Upgrade to ColdFusion 2023 Update 21 or ColdFusion 2025 Update 10; Campaign Classic to ACC v7.4.3 build 9397.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 4: HIGH - ChocoPoC -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 7, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/new-chocopoc-rat-targets-vulnerability.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">ChocoPoC RAT Targets Security Researchers via Trojanized GitHub PoC Exploit Repositories</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Seven GitHub repos masquerading as PoC exploits for popular CVEs secretly install the ChocoPoC RAT via poisoned pip dependencies — stealing passwords, cookies, files, and providing persistent shell access.</div>
+    <div style="margin-top:2px;">👤 Security researchers, red teamers, and bug hunters who download and run PoC exploit code from GitHub.</div>
+    <div style="margin-top:2px;">✅ Only run PoC code in isolated sandboxes; inspect requirements.txt before pip install; verify repos against known researcher accounts or vendor disclosures.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.001 · Supply Chain Compromise: Software Dependencies</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/citrix-patches-six-netscaler-flaws.html" style="color:#374151;text-decoration:none;">Citrix Patches Six NetScaler Flaws — CitrixBleed-Style CVE-2026-8451 Exploited Within 24 Hours</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/google-disrupts-netnut-residential.html" style="color:#374151;text-decoration:none;">Google and FBI Disrupt NetNut Residential Proxy Network Spanning 2 Million Home Devices</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/cisco-warns-of-7th-sd-wan-zero-day-exploited-in-2026/" style="color:#374151;text-decoration:none;">Cisco Warns of 7th SD-WAN Zero-Day in 2026 — CVE-2026-20245 Exploited for Root Access via CSV Upload</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-07.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Jul 7, 2026</div>
+
+</body>
+</html>
