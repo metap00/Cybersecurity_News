@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Jul 9, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 9, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 2 high · 1 medium · ~10 min read</div>
+</div>
+
+<!-- STORY 1: Adobe ColdFusion CVE-2026-48282 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Jul 7, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/critical-adobe-coldfusion-vulnerability-exploited-in-attacks/" style="color:#111827;text-decoration:none;">Adobe ColdFusion CVE-2026-48282 Exploited Within 2 Hours of Disclosure — CISA Mandates July 10 Patch</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers began exploiting a CVSS 10/10 path traversal flaw in Adobe ColdFusion (CVE-2026-48282) within two hours of its public disclosure, enabling arbitrary code execution on unpatched servers.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Adobe ColdFusion 2023 or 2025 versions without the June 30 patches, particularly federal agencies facing a mandatory July 10 patch deadline from CISA.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Adobe's June 30 ColdFusion security update immediately; federal agencies must comply with CISA's Binding Operational Directive by July 10 or risk unauthorized system access.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers sent crafted HTTP requests exploiting the path traversal flaw to bypass directory restrictions and execute arbitrary code on internet-facing ColdFusion servers, gaining initial access without credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-48282 is a path traversal vulnerability in Adobe ColdFusion rated CVSS 10.0/10 — the maximum possible score — allowing unauthenticated remote attackers to read and write arbitrary files on the server, ultimately enabling full remote code execution. Adobe patched the flaw on June 30 for ColdFusion 2025 and 2023 versions, alongside 10 additional bugs — five of which were also rated CVSS 10. Despite a patch being available for over a week, threat actors exploited CVE-2026-48282 within just two hours of its public disclosure, with initial exploitation traced to an IP address geolocated to India.</p>
+        <p>CISA added CVE-2026-48282 to its Known Exploited Vulnerabilities (KEV) catalog on July 7, issuing a mandatory remediation deadline of July 10 for all federal civilian agencies under Binding Operational Directive 26-04. Organizations using ColdFusion in web-facing environments — including e-commerce platforms, government portals, and internal web tools — should treat this as a P1 emergency patch given the CVSS 10 score, active exploitation, and trivially exploitable nature.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Adobe ColdFusion is a server platform that powers websites and web apps. Path traversal is like tricking a librarian into fetching a book from a locked room by writing a note that says "go up two floors and three cabinets over." Attackers used a similar trick to escape ColdFusion's intended folders and access any file on the server — which lets them plant backdoors or steal sensitive configuration files containing passwords. The vulnerability is so severe it scored a perfect 10/10, and attackers were already exploiting it within two hours of it becoming public knowledge.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-48282 · CVSS: 10.0/10 — Maximum severity; unauthenticated path traversal enabling arbitrary code execution with no user interaction required.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Ubiquiti UniFi CVE-2026-50746 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">TechTimes · Jul 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.techtimes.com/articles/319919/20260708/unifi-cvss-100-flaw-exposes-100000-endpoints-unauthenticated-takeover.htm" style="color:#111827;text-decoration:none;">Ubiquiti Discloses 25 UniFi Flaws Including CVSS 10.0 Command Injection Exposing 100,000 Endpoints</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Ubiquiti disclosed 25 security vulnerabilities across its UniFi product line, headlined by CVE-2026-50746 — a CVSS 10.0/10 unauthenticated command injection flaw in UniFi Connect that lets any network-adjacent attacker run arbitrary OS commands without credentials.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Businesses and facilities running UniFi Connect Application version 3.4.16 or earlier, including smart building operators, EV charging networks, and commercial lighting deployments; Censys estimates roughly 100,000 UniFi OS endpoints are internet-exposed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update UniFi Connect Application to version 3.4.20 or later immediately and review Ubiquiti Security Advisory Bulletin 066 for all 25 vulnerabilities across UniFi Talk, Access, Protect, and OS.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Execution] T1059 · Command and Scripting Interpreter<br>
+      <span style="color:#6b7280;">The access control failure (CWE-284) in UniFi Connect allows attackers to invoke arbitrary OS commands through a network-facing API with no authentication gate, directly executing attacker-supplied interpreter commands on the underlying system.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-50746 stems from an Improper Access Control flaw (CWE-284) in the UniFi Connect Application (versions 3.4.16 and earlier): the application's command execution pathway is reachable from the network without passing through any authentication gate. An attacker with network adjacency — or, for the estimated 100,000 internet-exposed UniFi OS endpoints identified by Censys — can send a specially crafted request to trigger arbitrary operating system command execution.</p>
+        <p>Ubiquiti's Security Advisory Bulletin 066 covers 25 total vulnerabilities across the UniFi ecosystem including UniFi Talk (VoIP management), UniFi Access (physical access control), UniFi Protect (camera systems), and UniFi OS Server and hardware families. The breadth of affected products means enterprise and commercial environments that have deployed UniFi for building automation, security cameras, intercom systems, and EV charging infrastructure may all require simultaneous patching across multiple product lines. No active exploitation has been publicly reported yet, but with a CVSS 10.0 score and internet-exposed endpoints, exploit development is likely imminent.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Ubiquiti's UniFi products are popular networking and building management hardware found in offices, hotels, gyms, and commercial spaces. CVE-2026-50746 is like having a smart building control panel where anyone can walk up, say a magic phrase, and take over every light, camera, and door lock — no key, badge, or password required. With roughly 100,000 of these devices visible from the internet, this represents 100,000 potentially unlocked front doors waiting for someone to try them.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-50746 · CVSS: 10.0/10 — Perfect score; unauthenticated network-adjacent command injection in networking/building automation infrastructure used in commercial facilities worldwide.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Gitea CVE-2026-20896 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Security Affairs · Jul 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityaffairs.com/194902/hacking/critical-gitea-docker-bug-under-active-exploitation-exposes-repositories-and-secrets.html" style="color:#111827;text-decoration:none;">Gitea Docker CVE-2026-20896 Under Active Probing — One HTTP Header Grants Full Admin Access</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Thirteen days after public disclosure, threat actors began actively probing Gitea Docker instances for CVE-2026-20896 (CVSS 9.8), a critical authentication bypass that lets any remote attacker impersonate any user — including administrators — by injecting a single crafted HTTP header.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Self-hosted Gitea Docker deployments running versions prior to 1.26.3 with reverse-proxy authentication enabled, exposing source code, CI/CD pipelines, deploy keys, and any secrets accidentally committed to repositories.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Gitea Docker to version 1.26.3 or later immediately; if an emergency patch isn't possible, restrict REVERSE_PROXY_TRUSTED_PROXIES from the default wildcard (*) to an explicit IP allowlist.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1550 · Use Alternate Authentication Material<br>
+      <span style="color:#6b7280;">Attackers inject a forged X-WEBAUTH-USER HTTP header to impersonate any Gitea user without valid credentials, exploiting the default misconfiguration that causes Gitea to blindly trust all reverse-proxy sources as legitimate authenticators.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-20896 exploits a dangerous default in Gitea's Docker image configuration: the REVERSE_PROXY_TRUSTED_PROXIES parameter defaults to *, meaning Gitea trusts any IP address as a legitimate reverse proxy. An unauthenticated attacker anywhere on the internet can add a single header — X-WEBAUTH-USER: admin — to an HTTP request and instantly receive full administrative access to the Gitea instance. Thirteen days after public disclosure, automated reconnaissance activity was detected originating from a ProtonVPN exit node, scanning for HTTP/HTTPS ports and fingerprinting Gitea deployments before attempting the header injection.</p>
+        <p>Successful exploitation exposes everything stored in Gitea: private source code repositories, secrets accidentally committed by developers (API keys, database credentials, deployment tokens), CI/CD pipeline configurations, and deploy keys that grant write access to production systems. This makes Gitea instances a high-value supply chain attack target — compromising a developer's Gitea server can be a stepping stone to poisoning software builds or exfiltrating proprietary code. The flaw was patched in version 1.26.3, released in late June, with the wildcard default removed and reverse-proxy authentication made an explicit opt-in.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Gitea is like GitHub but self-hosted — organizations run it on their own servers to store code privately. This vulnerability is equivalent to a hotel that lets anyone claim to be the manager just by saying the word "manager" at the front desk — no ID check. The flaw exists because Gitea's default settings trust whoever knocks on the door, even from the open internet. An attacker can walk up claiming to be admin, then access every private code repository, including ones containing accidentally left-in passwords, API keys, and server credentials.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-20896 · CVSS: 9.8/10 — Critical; unauthenticated remote authentication bypass via single HTTP header injection affecting Gitea Docker deployments with default reverse-proxy settings.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Armored Likho APT -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Hackread · Jul 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://hackread.com/armored-likho-government-energy-busysnake-stealer/" style="color:#111827;text-decoration:none;">Armored Likho APT Deploys AI-Assisted BusySnake Stealer Against Government and Power Sector Targets</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Kaspersky detailed a campaign by the newly identified APT group Armored Likho using a Python-based infostealer called BusySnake — delivered via spear-phishing RAR attachments — against government agencies and electric power organizations, with evidence the first-stage malware loaders were generated using AI tools.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Government agencies and electric power sector organizations in Russia, Brazil, and Kazakhstan, particularly employees in departments handling administrative, regulatory, or energy infrastructure work.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Treat unsolicited RAR or ZIP attachments with extreme suspicion; enforce policies blocking execution of Python EXE binaries; deploy behavioral detection tools rather than signature-only antivirus, as AI-generated loaders evade static signatures.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1566.001 · Phishing: Spearphishing Attachment<br>
+      <span style="color:#6b7280;">Armored Likho delivers spear-phishing emails mimicking official government notices with RAR archive attachments containing EXE droppers, which fetch and execute the BusySnake Python stealer from attacker-controlled GitHub repositories after the victim opens the archive.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Armored Likho (also tracked as Eagle Werewolf) is a newly identified threat cluster uncovered by Kaspersky that represents a sophisticated, targeted espionage operation focused on government and critical energy infrastructure. The attack chain begins with carefully crafted spear-phishing emails disguised as official government notices or social program communications — highly convincing lures designed for the specific targets. Opening the attached RAR archive launches an EXE dropper that retrieves additional payloads from attacker-controlled GitHub repositories, a technique that leverages legitimate, trusted infrastructure to blend in with normal network traffic and evade security filtering.</p>
+        <p>The BusySnake payload is a Python-based infostealer capable of harvesting browser-stored passwords and cookies, clipboard contents, cryptographic keys, messaging application data, and Telegram session tokens — everything needed to silently impersonate a victim across their online accounts and potentially pivot to government systems. A particularly notable finding from Kaspersky's analysis is evidence that first-stage loader payloads were likely generated with AI assistance: the code contains redundant comments and over-explained code blocks characteristic of LLM-generated output. This signals that threat actors are actively using AI tooling to accelerate malware development and lower the technical barrier to creating sophisticated attack tools.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> An infostealer is malware that silently copies your saved passwords, browser cookies, and chat messages, then sends them to attackers. Armored Likho sends government employees fake official emails with attachments. When the employee opens the file, malware quietly installs itself and harvests everything — from government login credentials to personal Telegram sessions. What makes this group notable is that researchers found signs they used AI to help write parts of their malware, making it easier to create attacks that evade traditional detection and harder for defenders to recognize through known patterns.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Armored Likho -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Armored Likho (Eagle Werewolf)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attribution: Unknown (Eastern European targeting pattern)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government agencies and electric power sector organizations in Russia, Brazil, and Kazakhstan</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> BusySnake Python infostealer, AI-assisted malware loader generation, GitHub-hosted payload delivery, spear-phishing with official government document lures</div>
+</div>
+
+<!-- STORY 5: UNK_MassTraction -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Hackread · Jul 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://hackread.com/unk-masstraction-roundcube-us-canada-universities/" style="color:#111827;text-decoration:none;">China-Aligned UNK_MassTraction Exploits Roundcube XSS to Target US and Canadian University Research</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A China-linked espionage cluster dubbed UNK_MassTraction is exploiting a Roundcube cross-site scripting vulnerability (CVE-2024-42009) against physics and engineering departments at US and Canadian universities, deploying the IceCube browser stealer and VShell in-memory backdoor to exfiltrate research data and credentials.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> US and Canadian university faculty, researchers, and administrators in physics, astrophysics, particle physics, and engineering departments — particularly those with national security research ties or connections to strategic science programs.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch Roundcube to the latest version immediately to close CVE-2024-42009; monitor mail server logs for unexpected webshell activity or unusual outbound connections; consider supplementary authentication for webmail access.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Execution] T1203 · Exploitation for Client Execution<br>
+      <span style="color:#6b7280;">UNK_MassTraction delivers emails containing XSS payloads that auto-execute the moment the recipient opens the message in a vulnerable Roundcube client — triggering JavaScript that loads the IceCube stealer without requiring any additional click or user interaction.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>UNK_MassTraction emerged in May 2026 as a China-linked espionage cluster first documented by Proofpoint, targeting the academic research sector with a focus on disciplines relevant to national security and advanced science. The group weaponizes CVE-2024-42009, a cross-site scripting flaw in Roundcube's HTML sanitization engine. A malicious email, when opened in a vulnerable Roundcube client, triggers an onanimationstart CSS event that automatically loads external JavaScript — no link click required by the victim.</p>
+        <p>The injected JavaScript deploys IceCube, a fully-featured browser stealer that escapes Roundcube's iframe sandbox via DOM traversal to gain access to the full browser DOM, exfiltrating session tokens, webmail credentials, and the contents of the victim's inbox. For persistent server-level access, the group also installs webshells or deploys VShell — an in-memory backdoor — into the mail server's process space, surviving reboots via memory injection rather than disk-based persistence. The highly targeted scope of UNK_MassTraction (specifically physics and particle physics departments with national security research ties) indicates a strategic intelligence collection mission aligned with state-level technology acquisition priorities.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Roundcube is a widely-used web-based email program at universities and organizations. This attack is like a letter that, the moment you open the envelope and begin reading it, secretly photographs your entire filing cabinet and sends the photos to attackers — without you clicking anything. The email auto-executes hidden code when opened in the browser, stealing login credentials and email contents. The attackers specifically chase university research in physics and national security — exactly the kind of cutting-edge science that governments consider strategically valuable and worth stealing.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2024-42009 · CVSS: N/A — n-day Roundcube XSS vulnerability exploited for client-side code execution via HTML email; patch available in Roundcube 1.6.9+.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: UNK_MassTraction -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">UNK_MassTraction</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: China (China-aligned)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> US and Canadian university physics, astrophysics, particle physics, and engineering departments with national security research connections</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Roundcube XSS exploitation (CVE-2024-42009), IceCube browser-DOM stealer, VShell in-memory backdoor, academic espionage targeting strategic science research</div>
+</div>
+
+<!-- STORY 6: CISA KEV Additions -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 7, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/cisa-adds-4-actively-exploited-adobe.html" style="color:#111827;text-decoration:none;">CISA Adds 4 Actively Exploited Flaws to KEV: Adobe ColdFusion, Langflow, and Two Joomla Extensions</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added four actively exploited vulnerabilities to its Known Exploited Vulnerabilities catalog on July 7: Adobe ColdFusion (CVE-2026-48282), Langflow (CVE-2025-25028), and two Joomla third-party extension flaws, all confirmed exploited in the wild.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Federal civilian agencies required to patch by July 10 under BOD 26-04; all organizations running unpatched Adobe ColdFusion, Langflow AI workflow platforms, or vulnerable Joomla extensions.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Review CISA's KEV catalog for the four new entries and apply all available patches immediately; treat KEV listings as confirmed-exploited priorities requiring emergency patching, not routine maintenance windows.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">All four KEV-listed vulnerabilities involve attackers exploiting internet-facing web applications and platforms to gain initial footholds in target environments, consistent with the ongoing trend of opportunistic exploitation of unpatched public-facing services.</span>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Path Traversal Attacks ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A path traversal attack tricks a web application into reading or writing files outside the directory it's supposed to operate in, by using sequences like <code>../</code> (meaning "go up one folder") to navigate up the file system to sensitive locations like password files or configuration data. For example, a web app that serves images from <code>/var/www/images/</code> might be fooled into reading <code>/etc/passwd</code> if an attacker requests the path <code>../../../../etc/passwd</code>. Today's Adobe ColdFusion CVE-2026-48282 is a textbook path traversal: attackers escaped the intended web directory to read arbitrary server files and ultimately execute code — underscoring why input validation on file paths is one of the most critical security controls a developer can implement.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: Path Traversal · Infostealer · Webshell · Spear-Phishing · Reverse Proxy ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Path Traversal</strong> — An attack that uses <code>../</code> sequences in file path inputs to escape a web application's intended directory and access unauthorized files on the server.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Infostealer</strong> — Malware that quietly harvests credentials, browser cookies, clipboard contents, and other sensitive data from an infected system, then exfiltrates them to attacker infrastructure.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Webshell</strong> — A malicious script installed on a compromised web server that gives attackers persistent remote access and the ability to execute commands, browse files, and pivot deeper into the network.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Spear-Phishing</strong> — A targeted phishing attack that uses personalized lures crafted specifically for a particular individual or organization, as opposed to generic mass-distribution phishing emails.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Reverse Proxy</strong> — A server that sits in front of backend services and forwards client requests to them; when misconfigured (such as with a wildcard trust setting), it can be abused by attackers to impersonate legitimate authenticated traffic.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-working-on-defender-patch-for-rogueplanet-zero-day/" style="color:#374151;text-decoration:none;">RoguePlanet (CVE-2026-50656): Microsoft Defender Zero-Day Grants SYSTEM Privileges on Fully Patched Windows — Patch Still in Development</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybernews.com/" style="color:#374151;text-decoration:none;">Google Dialogflow CX Agent Isolation Flaw: Researcher Finds Cross-Agent Compromise Risk in Same GCP Project — Now Patched</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Cybernews</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://zecurit.com/endpoint-management/patch-tuesday/" style="color:#374151;text-decoration:none;">July 2026 Patch Tuesday Preview: Microsoft Expected to Release 100–140 Patches on July 14, Including Kerberos RC4 Hardening Enforcement</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Zecurit</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Jul 9, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
