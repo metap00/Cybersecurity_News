@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Jul 13, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 13, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 4 high · 2 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: BlueHammer -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/cisa-windows-bluehammer-flaw-now-exploited-by-ransomware-gangs/" style="color:#111827;text-decoration:none;">CISA: BlueHammer Windows Defender Flaw Now Weaponized by Ransomware Gangs</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA confirmed ransomware groups are actively exploiting BlueHammer (CVE-2026-33825), a Windows Defender privilege escalation flaw, escalating it from targeted intrusions to widespread ransomware deployment campaigns.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running Windows machines that haven't applied the April 14, 2026 cumulative Patch Tuesday update, especially those with Defender-managed endpoints.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the April 2026 Patch Tuesday cumulative update immediately, verify Defender definitions are current, and audit all endpoints for lateral movement indicators following any recent network intrusion.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [PRIVILEGE ESCALATION] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Ransomware affiliates exploit a TOCTOU race condition in Windows Defender's threat remediation engine to escalate from a standard user account to NT AUTHORITY\SYSTEM — then deploy ransomware across the compromised host before defenders can respond.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">BlueHammer exploits a time-of-check to time-of-use (TOCTOU) race condition in Microsoft Defender Antivirus's threat remediation engine. When Defender identifies and attempts to remove a threat, there is a brief window between when it evaluates a file's permissions and when it acts on them — attackers can swap in a malicious process during that gap to inherit SYSTEM-level rights. The exploit requires only a standard unprivileged user account with no network access and no user interaction required.</p>
+        <p style="margin:0 0 10px;">Huntress researchers documented a real-world intrusion chain in April 2026 where attackers gained initial access via a compromised FortiGate SSL VPN, then used BlueHammer alongside a Defender-neutering tool called "UnDefend" to achieve SYSTEM access, moved laterally across the network, and staged ransomware for deployment. CISA's July 2026 KEV update now confirms this attack chain is being replicated at scale by multiple ransomware affiliates — meaning the techniques have been commoditized across the ransomware ecosystem.</p>
+        <p style="margin:0 0 10px;">Despite the patch being available since April 14, 2026, the gap between patch release and enterprise-wide deployment remains wide. Ransomware operators routinely scan for unpatched systems and prioritize privilege escalation flaws that are reliable and require no user interaction — BlueHammer fits that profile exactly.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of Windows Defender as a security guard checking ID badges. BlueHammer tricks that guard by swapping a legitimate badge with a fake one in the split second between when the guard looks at it and when they open the door — granting the attacker complete control over the computer. Ransomware gangs now use this trick to go from "limited visitor" to "full administrator" before locking your files for ransom.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-33825 · CVSS: High severity (local exploitation) — Local privilege escalation via Defender remediation race condition; requires only a standard user account with no network access or user interaction needed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: GhostLock -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/15-year-old-ghostlock-flaw-enables-root.html" style="color:#111827;text-decoration:none;">GhostLock (CVE-2026-43499): Public Exploit Gives Any Linux User Root Access in 5 Seconds</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Nebula Security released a 97%-reliable public proof-of-concept exploit for GhostLock, a 15-year-old use-after-free bug in the Linux kernel's futex subsystem that grants any local user full root access and container escape in under five seconds.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Virtually every Linux system running a mainstream distribution since 2011 — Ubuntu 20.04/22.04/24.04 LTS patches remain in progress while AlmaLinux 8/9/10 and some cloud kernels are already patched.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply kernel updates immediately; check your distribution's security advisory for patch availability; if your distro's patch isn't available yet, consider restricting local user access to sensitive systems until it is.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [PRIVILEGE ESCALATION] T1611 · Escape to Host<br>
+      <span style="color:#6b7280;">GhostLock enables an unprivileged local user to gain root access and — critically — works inside containers to escape Docker or Kubernetes pod isolation and fully compromise the underlying host, making it especially dangerous for cloud multi-tenant environments.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">GhostLock is a use-after-free vulnerability in the Linux kernel's rt_mutex (real-time mutex) code, triggered via the futex (fast userspace mutex) subsystem — a mechanism that coordinates thread locking between user-space programs and the kernel. The flaw has existed in kernel code since 2011, shipping in every major Linux distribution by default. A use-after-free means the kernel briefly references a freed memory chunk; attackers craft concurrent threading calls to corrupt that memory at precisely the right moment, redirecting kernel execution to attacker-controlled code with root privileges.</p>
+        <p style="margin:0 0 10px;">What elevates this beyond a typical local privilege escalation is the container escape capability. Any application running inside a Docker container or Kubernetes pod — even one with minimal permissions — can exploit GhostLock to break out of its isolation boundary and own the underlying host. Nebula Security's weaponized exploit achieves root in roughly five seconds with 97% reliability. Google's kernelCTF program awarded the team $92,337, reflecting the severity. Ubuntu's widely deployed LTS releases (20.04, 22.04, 24.04) remain listed as vulnerable or patch-in-progress, covering tens of millions of production servers worldwide.</p>
+        <p style="margin:0 0 10px;">The public PoC's release dramatically shortens the exploitation window. Threat actors will incorporate it into attack toolkits quickly. Organizations relying on container isolation for multi-tenant workload separation should treat this as an urgent business-impacting vulnerability.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine the Linux kernel as a highly organized librarian tracking which books are "checked out." GhostLock is like slipping a book back on the shelf while the librarian's back is turned, then checking it out under a fake identity — the librarian gets confused and hands over a master key. Any logged-in user on a Linux machine can run this trick to become the all-powerful "root" administrator in seconds. It even works from inside the walled-off areas (containers) cloud services use to separate customers — a major security boundary collapse.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-43499 · CVSS: Pending NVD scoring — Local privilege escalation with container escape; 97%-reliable public exploit released; patch urgency is critical for all unpatched Linux systems.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Ubiquiti UniFi -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/ubiquiti-warns-of-new-max-severity-unifi-os-vulnerability/" style="color:#111827;text-decoration:none;">Ubiquiti Patches CVSS 10.0 UniFi Flaw That Lets Unauthenticated Attackers Execute Commands</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Ubiquiti disclosed CVE-2026-50746, a perfect-score CVSS 10.0 command injection flaw in UniFi Connect Application that any network-adjacent unauthenticated attacker can exploit to execute arbitrary commands on the host device with no user interaction required.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running UniFi Connect Application version 3.4.16 or earlier to manage smart building infrastructure such as commercial LED lighting and electric vehicle charging systems.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update UniFi Connect Application to version 3.4.20 or later immediately through the Ubiquiti UI portal; additionally restrict network access to the management interface to trusted IP ranges.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [INITIAL ACCESS] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Improper access controls in the UniFi Connect management interface allow any network-adjacent attacker to inject and execute arbitrary OS commands on the host without credentials — providing an unauthenticated foothold into smart building networks that may be bridged to corporate IT infrastructure.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">CVE-2026-50746 stems from improper access control in Ubiquiti's UniFi Connect Application, a platform used to manage smart commercial building systems — networked LED lighting, EV charging infrastructure, and building automation. Its maximum CVSS score of 10.0 reflects the worst-case combination of factors: network-exploitable, zero authentication, low attack complexity, zero user interaction, and complete system compromise. Ubiquiti's Security Advisory Bulletin 066 covers seven total vulnerabilities across the UniFi ecosystem, with CVE-2026-50746 being the most severe.</p>
+        <p style="margin:0 0 10px;">The attack surface here bridges IT and OT (operational technology). Physical facility systems are increasingly networked alongside corporate infrastructure to enable centralized management. An attacker who exploits this flaw from within the network could pivot from controlling building systems to accessing adjacent corporate servers, disable physical security controls, or use the compromised host as a persistent foothold. While Ubiquiti has not confirmed active in-the-wild exploitation, the zero-authentication requirement and CVSS 10.0 rating make this a high-priority target once weaponized exploit code circulates.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> UniFi Connect is software used to control smart building features — lights, EV chargers — from one central system. This vulnerability is like leaving the master control room door wide open with the keys inside. Anyone on the same network can walk in and take over without any password. Because modern offices connect these building systems to the same network as company computers, an attacker who takes over the lighting controller could potentially hop to the company's servers next.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-50746 · CVSS: 10.0/10 — Network-adjacent, zero authentication, zero user interaction; improper access control enabling command injection on the host; patch to version 3.4.20+ immediately.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Progress ShareFile -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/progress-urges-sharefile-customers-to-shut-down-servers-over-credible-threat/" style="color:#111827;text-decoration:none;">Progress Tells ShareFile Customers to Power Down Servers Immediately — No Patch Available</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Progress Software issued an emergency order for ShareFile customers running on-premises Storage Zone Controllers to immediately shut down their Windows servers after identifying a "credible external security threat" for which no patch currently exists.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations self-hosting ShareFile data via Windows-based Storage Zone Controllers — standard cloud-only ShareFile accounts are not affected.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Power down Storage Zone Controller servers immediately per Progress's guidance; do not bring them back online until Progress provides remediation; contact ShareFile support for alternative temporary data access options.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [PERSISTENCE] T1505.003 · Server Software Component: Web Shell<br>
+      <span style="color:#6b7280;">Previously disclosed chained vulnerabilities in Storage Zone Controller allowed unauthenticated ASPX webshell uploads for persistent RCE; the current undisclosed "credible threat" almost certainly exploits the same software component via a newly identified or unpatched code path in the Windows-based controller service.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">Progress Software's emergency shutdown order is striking for what it omits: no CVE, no patch, and no description of the threat's nature. The instruction to physically power down servers — rather than simply apply a patch or firewall rule — signals either active exploitation in the wild or a vulnerability so severe that no temporary mitigation can reliably contain it. This pattern closely mirrors the MOVEit Transfer breach of 2023, where Progress was also the vendor and similar on-premises file transfer software was exploited at scale by ransomware affiliates before a patch was available.</p>
+        <p style="margin:0 0 10px;">Context matters: in April 2026, watchTowr Labs disclosed CVE-2026-2699 and CVE-2026-2701, two chainable vulnerabilities in Storage Zone Controller that allowed unauthenticated attackers to reach restricted configuration pages and upload malicious ASPX webshells for full remote code execution. The current emergency strongly suggests a new or closely related unpatched vulnerability exists in the same codebase. Progress's shutdown-as-mitigation approach, combined with its statement that there is no indication of unauthorized data access "yet," suggests the company may be aware of active scanning or early exploitation attempts.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> ShareFile is software that lets companies store and share files securely on their own servers. Progress — the company that makes it — is basically telling customers to "unplug the server right now," which is something software vendors almost never say. They're doing it because a serious attack is possible and they don't have a fix ready yet. It's like a car manufacturer calling you to pull over and turn off the engine because they discovered the brakes might fail — before a recall fix is available.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-2699 (related, historical) · CVSS: 9.8/10 — The current threat has no assigned CVE; customers must treat any exposed Storage Zone Controller as critically compromised until Progress issues remediation guidance.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Helix Vishing Group -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 10, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/new-helix-vishing-group-emerges-in-sharepoint-data-theft-attacks/" style="color:#111827;text-decoration:none;">Helix: New Data Extortion Group Bypasses MFA via Vishing and SharePoint Exfiltration</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researchers disclosed a new criminal group called Helix that uses voice phishing calls impersonating managers, OAuth device code phishing, and MFA hijacking to break into Microsoft 365 accounts and steal SharePoint data for extortion.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprise Microsoft 365 and SharePoint users, particularly employees who may receive convincing calls appearing to originate from IT support or management due to caller ID spoofing.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Disable OAuth device code flow in Azure AD conditional access, train employees to verify unexpected callers via callback to a known number, enable MFA registration activity alerts, and audit SharePoint external sharing permissions.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [CREDENTIAL ACCESS] T1621 · Multi-Factor Authentication Request Generation<br>
+      <span style="color:#6b7280;">Helix abuses the legitimate OAuth device code flow to generate authentication requests that the victim unknowingly approves over the phone; operators then register their own MFA authenticator for persistent access — effectively owning a valid session without ever learning the victim's password.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">Helix's attack chain weaponizes legitimate Microsoft authentication features rather than exploiting software vulnerabilities. The group begins with a vishing call — using caller ID spoofing to appear as the victim's manager — convincing them to visit a Microsoft URL and enter a short device code. This OAuth device code flow was designed for TVs and printers unable to display a login page, but Helix weaponizes it because the victim sees a genuine Microsoft domain and hears a familiar voice. The entered code grants Helix full Microsoft 365 account access.</p>
+        <p style="margin:0 0 10px;">Persistence comes immediately: operators register their own MFA authenticator app, effectively maintaining access even after the victim changes their password or IT revokes sessions. They then enumerate and exfiltrate SharePoint files before threatening to publish the data unless a ransom is paid — pure extortion without ransomware encryption. ReliaQuest researchers found infrastructure and IP overlap with BlackFile (UNC6671), a now-defunct group that fragmented into successor operations including "Pink" and "Redact" after shutting down in April 2026, suggesting Helix may be reusing their tooling and playbook.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> MFA (multi-factor authentication) is the second security step — like a text code — that protects your account even if someone has your password. Helix bypasses it by calling you, pretending to be your boss, and convincing you to "approve" what sounds like a routine IT request. In reality, you're approving the attacker's device as trusted on your account. They then add their own MFA device, so they keep access even after you change your password — and then steal your company's files to hold for ransom.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- HELIX THREAT ACTOR CARD -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Helix</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Data Extortion Group · Attribution: Unknown (suspected BlackFile/UNC6671 successor)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Enterprise organizations using Microsoft 365 and SharePoint, especially those with accessible IT help-desk functions that attackers can impersonate</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Caller ID spoofing, OAuth device code phishing, MFA authenticator hijacking, SharePoint enumeration and bulk exfiltration, data extortion without encryption</div>
+</div>
+
+<!-- STORY 6: Injective Labs npm Supply Chain -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 10, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/injective-labs-github-compromise-pushes.html" style="color:#111827;text-decoration:none;">18 Injective Labs npm Packages Backdoored via GitHub Compromise to Steal Crypto Wallet Keys</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers compromised a developer's GitHub account with write access to Injective Labs' repository, pushed malicious commits embedding fake "telemetry" code into 18 npm packages, and exfiltrated cryptocurrency wallet private keys and seed phrases from any developer who installed them.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Developers who installed any @injectivelabs scoped npm package at version 1.20.21 — particularly sdk-ts — between July 8–9, 2026; the malicious version was downloaded 310 times before being deprecated.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> If you installed the compromised version, immediately rotate all cryptocurrency wallet private keys and seed phrases, update to version 1.20.23+, and audit your dependency tree for the malicious key-derivation-telemetry.ts file.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [INITIAL ACCESS] T1195.002 · Supply Chain Compromise: Compromise Software Supply Chain<br>
+      <span style="color:#6b7280;">By compromising an established contributor's GitHub account and publishing malicious versions of 18 official SDK packages, attackers bypassed developer trust and reached any application that automatically installs these packages as part of its build pipeline.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">The Injective Labs attack illustrates how a single compromised developer account becomes a supply chain entry point. The attacker gained write access via an established contributor account (thomasRalee) with a long history of legitimate commits, lending the malicious changes credibility. Two commits were pushed directly to the master branch without pull request review, adding key-derivation-telemetry.ts — disguised as a harmless analytics helper. Critically, the malware activates not at install time but when SDK functions that generate or import wallet keys are called — making it invisible to standard npm security scanners.</p>
+        <p style="margin:0 0 10px;">Once triggered, the malware captures the full mnemonic seed phrase and private key, base64-encodes them, and sends them to an attacker-controlled server. The malicious version was live for less than an hour and was downloaded 310 times across 18 affected packages. Despite the speed of response, the deprecated packages were not removed from npm — they remain accessible — and malicious GitHub release artifacts are still downloadable. Developers relying on automated dependency pinning may have cached the malicious version without realizing it.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Developers use npm (a software library store) to download ready-made tools into their projects, similar to downloading an app. Injective Labs makes tools for cryptocurrency applications. Attackers hacked a trusted developer's account and slipped a malicious ingredient into the official recipe — when other developers downloaded and used it, their app secretly sent cryptocurrency wallet passwords to the hackers. The good news: the compromise lasted less than an hour and no funds are reported lost.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 7: Operation DragonReturn -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 6, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/suspected-china-nexus-hackers-use-fake.html" style="color:#111827;text-decoration:none;">Operation DragonReturn: China-Linked Silver Fox Deploys DcRAT via Fake Indian Tax Filing Utility</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The China-nexus threat group Silver Fox is running a spear-phishing campaign impersonating India's Income Tax Department, distributing malware-laced fake tax utilities that install DcRAT and ValleyRat remote access trojans — with the latest payload variant achieving a 0/66 antivirus detection rate.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Indian taxpayers, tax professionals, and corporate finance teams during the AY2026-27 ITR (Income Tax Return) filing season, particularly those in government-adjacent roles.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Download tax utilities only from the official government domain (incometax.gov.in); verify digital code signatures before running any tax software; treat unsolicited emails claiming to be from the Income Tax Department as phishing attempts.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [EXECUTION] T1204.002 · User Execution: Malicious File<br>
+      <span style="color:#6b7280;">Silver Fox clones the exact filename of a legitimate Indian government tax utility, relying on victims to unwittingly execute the malicious file during the urgency of tax filing season — a timing attack that achieves 0/66 AV detection, rendering all signature-based defenses useless.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">Operation DragonReturn is a multi-stage espionage campaign documented by Seqrite Labs, active since May 18, 2026, and attributed to Silver Fox — a Chinese cybercrime group previously observed conducting tax-themed phishing campaigns. The campaign exploits India's AY2026-27 ITR filing season by distributing a ZIP archive whose filename exactly matches a legitimate government tax utility, making it indistinguishable from the real tool based on filename alone. Spear-phishing emails impersonating the Income Tax Department of the Ministry of Finance drive victims to download and execute the payload.</p>
+        <p style="margin:0 0 10px;">The campaign's operational security is sophisticated: the threat actor rotated payloads five times across May and June 2026, with each variant outpacing the antivirus signatures generated by the previous round. The June 12 variant achieved a 0/66 detection rate — completely invisible to all tested antivirus engines, rendering signature-based defenses entirely ineffective. The final payload chain includes DcRAT for remote control, ValleyRat for secondary persistence, plus modules for screenshot capture and credential exfiltration. Infrastructure analysis linked C2 servers to ChinaNet IP blocks and a Chinese-language DcRAT management panel.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Every year during tax season, Indians download official software to file their taxes online. This attack creates a fake version of that software with an identical filename — you think you're installing a government tool, but you're secretly installing spyware that lets hackers see your screen, steal files, and remotely control your computer. The hackers have updated the malware five times to stay invisible to antivirus software, and the latest version passes through every single scanner completely undetected.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- SILVER FOX THREAT ACTOR CARD -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Silver Fox</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State Affiliated · Attributed to: China</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government finance departments, tax authorities, and corporate finance teams across South and Southeast Asia — with a focus on India's Ministry of Finance infrastructure</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Tax-season phishing lures cloning official government utilities, rapid payload rotation to evade antivirus detection, multi-stage RAT deployment (DcRAT, ValleyRat), ChinaNet C2 infrastructure, and espionage-focused financial data exfiltration</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Software Supply Chain Poisoning ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    When attackers target the tools and libraries that developers use to build software — rather than attacking the final product or its users directly — they can infect thousands of applications at once with a single upstream compromise. The Injective Labs attack showed how a single hijacked developer account gave attackers access to publish malicious npm packages under an official, trusted namespace, automatically reaching any developer who installed those packages as part of their normal build pipeline. Because most developers install third-party packages without auditing every line of code, supply chain poisoning is one of the highest-leverage attack vectors available — one compromised package can cascade into millions of deployed applications worldwide before anyone detects the change.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: npm · Supply Chain Attack · MFA · Vishing · CVSS · Container Escape · Futex ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">npm</strong> — Node Package Manager; the world's largest registry for JavaScript software packages, used by millions of developers to share and install reusable code libraries.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Supply Chain Attack</strong> — A cyberattack targeting software libraries, development tools, or upstream vendors rather than the final victim directly, allowing a single compromise to cascade into many downstream users simultaneously.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MFA</strong> — Multi-Factor Authentication; a login security method requiring users to verify identity through two or more independent methods (e.g., password plus a one-time code from an authenticator app).
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Vishing</strong> — Voice phishing; a social engineering attack conducted via telephone call where attackers impersonate trusted entities (IT support, managers, government officials) to manipulate victims into revealing credentials or taking harmful actions.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System; a standardized 0–10 scale for rating software vulnerability severity, where 9.0–10.0 is Critical, 7.0–8.9 is High, 4.0–6.9 is Medium, and 0.1–3.9 is Low.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Container Escape</strong> — An attack where malicious code running inside a containerized environment (like Docker or a Kubernetes pod) exploits a vulnerability to break out of its isolation boundary and access the underlying host system.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Futex</strong> — Fast Userspace Mutex; a Linux kernel synchronization primitive coordinating concurrent thread locking; the GhostLock vulnerability resided in the kernel's futex/rt_mutex code path, where a use-after-free bug enabled privilege escalation to root.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.esecurityplanet.com/weekly-roundup/ai-driven-attacks-critical-exploits-and-global-breaches-define-this-week-in-july-2026-in-cybersecurity/" style="color:#374151;text-decoration:none;">Ryuk Ransomware Member Pleads Guilty to Attacks on U.S. Organizations</a>
+    <span style="color:#9ca3af;font-size:11px;"> · eSecurity Planet</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/chrome-150-update-patches-27-vulnerabilities/" style="color:#374151;text-decoration:none;">Chrome 150 Update Patches 27 Vulnerabilities Including Two Critical Flaws</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Jul 13, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

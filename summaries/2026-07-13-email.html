@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 13, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 4 high · ~8 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-13.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: BlueHammer -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 12, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/cisa-windows-bluehammer-flaw-now-exploited-by-ransomware-gangs/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA: BlueHammer Windows Defender Flaw Now Weaponized by Ransomware Gangs</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CISA confirmed ransomware groups are actively exploiting BlueHammer (CVE-2026-33825), a Windows Defender TOCTOU race condition enabling SYSTEM-level privilege escalation.</div>
+    <div style="margin-top:2px;">👤 All unpatched Windows systems — particularly those that haven't applied the April 14, 2026 cumulative update.</div>
+    <div style="margin-top:2px;">✅ Apply the April 2026 Patch Tuesday update immediately and audit endpoints for lateral movement indicators.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [PRIVILEGE ESCALATION] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- STORY 2: GhostLock -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 9, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/15-year-old-ghostlock-flaw-enables-root.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">GhostLock (CVE-2026-43499): Public Exploit Gives Any Linux User Root Access in 5 Seconds</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A 97%-reliable public proof-of-concept for GhostLock — a 15-year-old Linux kernel futex use-after-free — grants any local user root access and container escape in under five seconds.</div>
+    <div style="margin-top:2px;">👤 Virtually every Linux distribution since 2011; Ubuntu 20.04/22.04/24.04 LTS patches remain in progress.</div>
+    <div style="margin-top:2px;">✅ Apply kernel updates immediately; check your distro's security advisory for patch availability.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [PRIVILEGE ESCALATION] T1611 · Escape to Host</div>
+</div>
+
+<!-- STORY 3: Ubiquiti -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 12, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/ubiquiti-warns-of-new-max-severity-unifi-os-vulnerability/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Ubiquiti Patches CVSS 10.0 UniFi Flaw That Lets Unauthenticated Attackers Execute Commands</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-50746 (CVSS 10.0) is a command injection flaw in UniFi Connect Application ≤3.4.16 allowing unauthenticated network-adjacent attackers to execute arbitrary OS commands on the host.</div>
+    <div style="margin-top:2px;">👤 Organizations using UniFi Connect for smart building management (LED lighting, EV chargers) on versions ≤3.4.16.</div>
+    <div style="margin-top:2px;">✅ Update UniFi Connect Application to version 3.4.20 or later immediately; restrict network access to management interfaces.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [INITIAL ACCESS] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 4: Progress ShareFile -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 11, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/progress-urges-sharefile-customers-to-shut-down-servers-over-credible-threat/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Progress Tells ShareFile Customers to Power Down Servers Immediately — No Patch Available</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Progress Software issued an emergency order to shut down ShareFile Storage Zone Controller servers due to a "credible external security threat" with no patch currently available.</div>
+    <div style="margin-top:2px;">👤 Organizations self-hosting ShareFile data on Windows-based Storage Zone Controllers; cloud-only accounts are unaffected.</div>
+    <div style="margin-top:2px;">✅ Power down Storage Zone Controller servers now per Progress's guidance and await remediation instructions before restoring service.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [PERSISTENCE] T1505.003 · Server Software Component: Web Shell</div>
+</div>
+
+<!-- STORY 5: Helix -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 10, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/new-helix-vishing-group-emerges-in-sharepoint-data-theft-attacks/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Helix: New Data Extortion Group Bypasses MFA via Vishing and SharePoint Exfiltration</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 New criminal group Helix uses vishing calls impersonating managers, OAuth device code phishing, and MFA hijacking to steal Microsoft 365 credentials and exfiltrate SharePoint data.</div>
+    <div style="margin-top:2px;">👤 Enterprise Microsoft 365 and SharePoint users; employees susceptible to caller ID spoofing from what appears to be IT or management.</div>
+    <div style="margin-top:2px;">✅ Disable OAuth device code flow in Azure AD, train staff on vishing verification procedures, and enable MFA registration alerts.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [CREDENTIAL ACCESS] T1621 · Multi-Factor Authentication Request Generation</div>
+</div>
+
+<!-- STORY 6: Injective Labs -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 10, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/injective-labs-github-compromise-pushes.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">18 Injective Labs npm Packages Backdoored via GitHub Compromise to Steal Crypto Wallet Keys</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers compromised a developer's GitHub account, backdoored 18 @injectivelabs npm packages with wallet key-stealing code disguised as telemetry, and exfiltrated credentials from 310 downloads.</div>
+    <div style="margin-top:2px;">👤 Developers who installed @injectivelabs packages at version 1.20.21 between July 8–9, 2026.</div>
+    <div style="margin-top:2px;">✅ Rotate all wallet private keys and seed phrases immediately if you installed v1.20.21; update to v1.20.23+.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [INITIAL ACCESS] T1195.002 · Supply Chain Compromise: Compromise Software Supply Chain</div>
+</div>
+
+<!-- STORY 7: Operation DragonReturn -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 6, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/suspected-china-nexus-hackers-use-fake.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Operation DragonReturn: China-Linked Silver Fox Deploys DcRAT via Fake Indian Tax Filing Utility</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 China-nexus group Silver Fox distributes fake Indian tax utilities installing DcRAT and ValleyRat RATs, with the latest variant achieving 0/66 antivirus detection across all tested engines.</div>
+    <div style="margin-top:2px;">👤 Indian taxpayers, tax professionals, and corporate finance teams during the active AY2026-27 ITR filing season.</div>
+    <div style="margin-top:2px;">✅ Download tax software only from incometax.gov.in; verify digital signatures; treat all unsolicited tax emails as phishing.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [EXECUTION] T1204.002 · User Execution: Malicious File</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.esecurityplanet.com/weekly-roundup/ai-driven-attacks-critical-exploits-and-global-breaches-define-this-week-in-july-2026-in-cybersecurity/" style="color:#374151;text-decoration:none;">Ryuk Ransomware Member Pleads Guilty to Attacks on U.S. Organizations</a>
+    <span style="color:#9ca3af;"> · eSecurity Planet</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/chrome-150-update-patches-27-vulnerabilities/" style="color:#374151;text-decoration:none;">Chrome 150 Update Patches 27 Vulnerabilities Including Two Critical Flaws</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-13.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Jul 13, 2026</div>
+
+</body>
+</html>
