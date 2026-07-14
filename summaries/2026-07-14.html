@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Jul 14, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 14, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~5 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - ShareFile -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / Progress · Jul 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/progress-urges-sharefile-customers-to-shut-down-servers-over-credible-threat/" style="color:#111827;text-decoration:none;">Progress Orders Emergency ShareFile Shutdown Over Credible Security Threat — No Patch Available</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Progress Software issued an emergency directive ordering all ShareFile Storage Zone Controller customers to immediately shut down their on-premises servers while it investigates a credible but undisclosed security threat for which no patch yet exists.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises self-hosting ShareFile Storage Zone Controllers — the Windows servers that bridge Progress's cloud platform with on-premises file storage; cloud-only ShareFile accounts are unaffected.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Manually shut down the Windows server hosting your Storage Zone Controller immediately; do not wait for a patch — Progress explicitly states this is mandatory even after cloud services are restored.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">The threat actor appears to have identified an exploitable vulnerability in internet-exposed ShareFile Storage Zone Controllers, prompting an emergency forced shutdown before any patch exists — mirroring the pre-patch window that enabled the 2023 MOVEit mass-exploitation campaign.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        Progress Software issued an emergency directive on July 13, 2026, ordering all customers running on-premises ShareFile Storage Zone Controllers to shut down their servers immediately. The Storage Zone Controller is a Windows-based server organizations self-host at their network edge, allowing ShareFile's cloud platform to manage files stored on local infrastructure. Progress stated it was aware of a "credible security threat" but has not disclosed the vulnerability's nature, whether a CVE has been assigned, or how it was discovered.
+        <br><br>
+        The urgency of the response — shutting down servers rather than applying a patch — strongly suggests either a zero-day vulnerability with no immediate fix, or active exploitation already in progress. This pattern is deeply reminiscent of the 2023 MOVEit Transfer crisis, where Progress Software faced the same scenario: a critical flaw being actively exploited before a patch was available. MOVEit ultimately resulted in data theft from over 2,700 organizations and became one of the most damaging ransomware-adjacent campaigns in history.
+        <br><br>
+        The Storage Zone Controller sits at the network's edge and is internet-reachable by design, making it an attractive target. Compromising it could allow attackers to exfiltrate enterprise files while bypassing cloud-side security monitoring entirely. Organizations that cannot immediately shut down should prioritize isolating the server from the internet and monitoring for lateral movement indicators.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> ShareFile is like a corporate Dropbox — it lets employees share large files securely. Organizations that store those files on their own servers (rather than in Progress's cloud) run a piece of software called a Storage Zone Controller. Progress has told all such customers to immediately turn off that server because they've found something alarming — but won't say exactly what it is yet. The fact that there's no fix available yet makes this especially urgent.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned yet · CVSS: Unknown — emergency shutdown directive issued without patch availability or public vulnerability details.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - Russian FSB Routers -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / NSA · Jul 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a" style="color:#111827;text-decoration:none;">18-Nation Advisory: Russian FSB Center 16 Systematically Compromising Routers to Infiltrate Critical Infrastructure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The NSA, CISA, FBI, and 15 partner agencies from 9 countries issued a joint advisory confirming that Russian FSB Center 16 (Berserk Bear) is actively exploiting weak SNMP configurations on internet-exposed routers to steal network topology data and establish persistent footholds in critical infrastructure worldwide.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations across defense, energy, financial services, government, healthcare, and communications sectors — particularly those using default SNMP community strings or running Cisco Smart Install.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately disable Cisco Smart Install, migrate all routers to SNMPv3 with unique credentials, block TFTP and SNMP traffic at edge firewalls, and audit router configurations for unauthorized changes or unknown TFTP transfers.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1602.001 · Data from Configuration Repository: SNMP MIB Dump<br>
+      <span style="color:#6b7280;">FSB Center 16 uses SNMP with default or guessed community strings to issue commands that copy complete router configuration files via TFTP to attacker-controlled servers, exposing full network topology, routing tables, credentials, and pivot points.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        Russia's FSB Center 16 — tracked in the threat intelligence community as Berserk Bear, Energetic Bear, Dragonfly, and Ghost Blizzard — has been running a sustained campaign targeting internet-exposed routers that accept weak or default SNMP authentication. SNMP (Simple Network Management Protocol) is used to monitor and manage network equipment, but version 1 and 2c rely on simple plaintext "community strings" as passwords. Attackers scan IP ranges for routers accepting strings like "public," "private," or "community," then use those strings to pull complete configuration dumps via TFTP.
+        <br><br>
+        The stolen configuration files are a goldmine: they reveal the organization's entire network architecture, internal IP address ranges, routing rules, access control lists, and sometimes include credentials for VPNs and other services in plaintext. Armed with this information, attackers can plan highly targeted intrusions, identify the most valuable assets, and exploit trust relationships between network segments. In some campaigns, the group has gone further by loading modified router firmware to establish backdoors that survive reboots and factory resets.
+        <br><br>
+        The 18-nation signature on this advisory is exceptional — it signals a coordinated intelligence assessment that this campaign is significantly escalating. Berserk Bear has historically focused on pre-positioning within critical infrastructure, and past campaigns have targeted power grids in Europe and North America. Geopolitical analysts note that such pre-positioning campaigns typically precede attempts at sabotage during periods of heightened tension.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Your internet router is like the front door of your network — and it can be configured to let network administrators manage it remotely. FSB Center 16 (hackers working for Russia's intelligence service) are scanning the entire internet for routers with weak or default passwords on that remote management feature. When they find one, they quietly copy the router's "instruction manual" — a file that reveals exactly how the network is built — so they can plan break-ins or potentially cause outages later.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No software CVE — exploitation relies on misconfiguration (default/weak SNMP community strings), not an unpatched software flaw.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: FSB Center 16 -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">FSB Center 16 (Berserk Bear / Ghost Blizzard)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-state · Attributed to: Russian Federation (Federal Security Service)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Critical infrastructure worldwide — energy grids, defense contractors, government networks, financial systems, and healthcare organizations primarily in NATO and allied nations.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Long-running pre-positioning campaigns against OT/ICS environments; router and network device compromise for persistent access; stealing network configurations to enable future sabotage; also tracked as Energetic Bear, Dragonfly, Crouching Yeti, and Static Tundra.</div>
+</div>
+
+<!-- STORY 3: HIGH - Joomla Zero-Days -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / CISA · Jul 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/icagenda-and-balbooa-forms-joomla-flaws.html" style="color:#111827;text-decoration:none;">CISA KEV: Joomla Zero-Days CVE-2026-48939 &amp; CVE-2026-56291 Exploited in Automated Attacks Since June</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added two CVSS 10.0 file-upload vulnerabilities in popular Joomla extensions to its KEV catalog — CVE-2026-48939 (iCagenda event plugin) and CVE-2026-56291 (Balbooa Forms builder) — with iCagenda exploitation confirmed in automated zero-day attacks since June 15, 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any Joomla website using the iCagenda or Balbooa Forms extensions — widely used by small businesses, nonprofits, government sites, and educational institutions globally.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update iCagenda to version 4.0.8 or 3.9.15 and Balbooa Forms to version 2.4.1 immediately; if patching is delayed, disable file upload functionality in both plugins as a temporary mitigation.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Persistence] T1505.003 · Server Software Component: Web Shell<br>
+      <span style="color:#6b7280;">Attackers exploit the unrestricted file upload flaw in both Joomla extensions to upload PHP web shells, gaining persistent server-side remote code execution on victim web servers and enabling follow-on data theft, ransomware staging, or cryptomining.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        Two vulnerabilities in widely-deployed Joomla extensions have been weaponized as zero-days. CVE-2026-48939 in the iCagenda event calendar plugin allows unauthenticated attackers to upload arbitrary files — including PHP scripts — through the plugin's event attachment feature, which lacks file type validation. CVE-2026-56291 in Balbooa Forms exploits the same class of vulnerability through the forms plugin's file input fields. Both carry CVSS scores of 10.0 — the highest possible rating — reflecting that they require no privileges and grant full server control.
+        <br><br>
+        CISA's addition of both to the KEV catalog on July 13 — with the same day as the federal patching deadline — signals extreme urgency. CVE-2026-48939 has been confirmed in automated mass-scanning attacks against Joomla sites since June 15, meaning attackers have had nearly a month of unpatched exploitation time. Automated scanners identify Joomla installations, check for the vulnerable plugins, then upload PHP web shells that provide persistent remote execution on the web server.
+        <br><br>
+        Web shells uploaded through these flaws can persist even after plugin removal unless the uploaded files are specifically found and deleted from the server's file system. Organizations should scan their web roots for unexpected PHP files, review server logs for unusual file upload requests, and check for indicators of compromise before applying patches.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Joomla is a popular website-building platform. These two plugins had a critical flaw: they let anyone upload any type of file without checking what it was. Attackers used this to upload a "web shell" — a hidden program that gives them remote control over the entire web server, like leaving a skeleton key inside someone's house. Since June, automated bots have been scanning the entire internet for Joomla sites with these plugins and exploiting them automatically.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-48939 (iCagenda) · CVSS: 10.0 — Unauthenticated arbitrary file upload enabling PHP code execution on Joomla web servers. CVE-2026-56291 (Balbooa Forms) · CVSS: 10.0 — Unrestricted file upload via forms plugin leading to remote code execution.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - Zimbra XSS -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / BleepingComputer · Jul 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/critical-zimbra-flaw-could-let-crafted_0483473395.html" style="color:#111827;text-decoration:none;">Google TAG Reports Critical Zimbra Stored XSS — Crafted Email Executes Code in Logged-In Sessions</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Zimbra released emergency patch ZCS 10.1.19 for a critical stored cross-site scripting vulnerability in its Classic Web Client — reported by Google's Threat Analysis Group — where a specially crafted email automatically executes malicious JavaScript in the recipient's authenticated session when opened.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running on-premises Zimbra Collaboration Suite with the Classic Web Client — used by approximately 200,000 businesses, governments, and universities across 140 countries for email and collaboration.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to Zimbra Collaboration Suite 10.1.19 immediately; if immediate patching is not possible, switch users to the Modern Web Client as a temporary workaround until the patch is applied.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1059.007 · Command and Scripting Interpreter: JavaScript<br>
+      <span style="color:#6b7280;">The stored XSS payload is embedded in a crafted email and automatically executes JavaScript within the victim's authenticated browser session on email open, enabling session token theft, account takeover, or delivery of additional malware without any additional user interaction.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        Zimbra Collaboration Suite's Classic Web Client contains a critical stored XSS vulnerability that allows an attacker to craft a malicious email that automatically executes JavaScript code in the recipient's browser when the message is opened or previewed. Unlike reflected XSS attacks — which require the victim to click a suspicious link — stored XSS payloads persist within the email server and fire automatically for every user who views the message, including on reply chains and forwarded copies.
+        <br><br>
+        The vulnerability was discovered and reported by Google's Threat Analysis Group (TAG), which exclusively tracks state-sponsored attackers. TAG's involvement is a significant escalation signal: the group has previously discovered identical Zimbra flaws actively exploited by Russian groups (Winter Vivern, APT28) and North Korean actors to steal email credentials from NATO government ministries, military organizations, and diplomatic missions. While public exploitation has not been confirmed for this specific flaw, TAG typically discloses vulnerabilities only after verifying attacker interest or active use.
+        <br><br>
+        A successful attack could enable full email account takeover, exfiltration of sensitive communications, and lateral movement by hijacking authenticated sessions to reach connected systems. For government and intelligence targets — common Zimbra users — this represents a particularly high-value attack vector given the sensitivity of communications stored in enterprise email systems.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Zimbra is an email platform used by governments and companies around the world. This flaw lets an attacker send you a specially crafted email that secretly runs a program in your browser the moment you open it — without you clicking anything suspicious. The fact that Google's team that specifically tracks government hackers found this vulnerability means it was likely being used or prepared for use by a nation-state spy group to steal sensitive government emails.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE: Not yet assigned · CVSS: Critical (estimated 9.x) — Stored XSS enabling unauthenticated code execution in authenticated email sessions; reported by Google TAG, suggesting state-sponsored interest.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH - Forg365 PhaaS -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / BleepingComputer · Jul 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html" style="color:#111827;text-decoration:none;">Forg365: New $400/Month PhaaS Combines AI Lures, Device Code Phishing &amp; AitM to Bypass MFA on Microsoft 365</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researchers disclosed Forg365, a new Phishing-as-a-Service platform sold on Telegram for $400/month that combines AI-generated phishing lures, device code flow abuse, and adversary-in-the-middle session interception to bypass MFA and hijack Microsoft 365 accounts at scale.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Microsoft 365 users at any organization that hasn't restricted device code flow authentication — enterprises, government agencies, universities, and mid-market businesses are all exposed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Block device code flow in Entra ID Conditional Access policies unless strictly required; require phishing-resistant MFA (FIDO2 hardware keys); monitor for unexpected OAuth token grants; alert on ForgCookie Chrome extension installation.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1528 · Steal Application Access Token<br>
+      <span style="color:#6b7280;">Forg365 abuses Microsoft's OAuth 2.0 Device Authorization Flow to trick victims into entering a legitimate device code that authorizes an attacker-controlled session — stealing valid access tokens without ever needing the user's password or MFA code.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        Forg365 is a sophisticated Phishing-as-a-Service platform sold through Telegram for $400/month or $3,800/year, targeting Microsoft 365 using two complementary attack vectors. The device code phishing branch presents victims with a Microsoft-styled page using a legitimate Microsoft Authentication Broker flow — so users see real Microsoft sign-in surfaces — but the authorization code they enter activates an attacker-controlled OAuth session rather than their own device. The AitM (adversary-in-the-middle) branch sits transparently between victim and real Microsoft login pages, capturing session cookies in real time to bypass MFA entirely.
+        <br><br>
+        The platform includes antibot detection (redirecting VPN traffic to harmless decoy pages), AI-assisted lure generation using legitimate email delivery infrastructure like Amazon SES and Twilio SendGrid, and a Chrome browser extension named ForgCookie for persistent post-compromise account access. Most concerning is its post-compromise capability: operators can configure keyword monitoring across compromised inboxes and use AI to draft contextually appropriate responses within victim email threads — enabling highly convincing spear-phishing of colleagues from the victim's own trusted email address.
+        <br><br>
+        The $400/month price point means even low-skilled criminal actors can now run sophisticated, MFA-bypassing attacks at scale. The commoditization of these capabilities follows a trend of once-advanced attack techniques becoming accessible to a much broader criminal ecosystem.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Microsoft has a login method designed for smart TVs and devices without keyboards — it shows you a code on screen and asks you to type it on your phone to approve the login. Forg365 tricks you into using that code to approve an attacker's login session instead of your own. You see a real Microsoft page, you complete real Microsoft authentication steps, but you've just unlocked the attacker's door rather than your own. Even if you have two-factor authentication turned on, this attack can bypass it completely.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — Forg365 exploits legitimate OAuth 2.0 protocol features (Device Authorization Flow) abusively rather than a software vulnerability.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Phishing-as-a-Service (PhaaS) ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Phishing-as-a-Service (PhaaS) works like a subscription software toolkit — for a monthly fee, criminals can buy ready-made phishing pages, AI-crafted email lures, and automated attack infrastructure without needing any hacking skills themselves, the same way a business buys accounting software instead of hiring a programmer. Just as Software-as-a-Service lowered the bar for building legitimate applications, PhaaS platforms like today's Forg365 have democratized sophisticated credential theft, meaning even low-skilled actors can now run large-scale campaigns that bypass multi-factor authentication. The business model mirrors legitimate SaaS — tiered pricing, regular feature updates, and customer-support channels — turning what was once elite hacker tradecraft into a commodity anyone with $400/month can access.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: PhaaS · AitM · SNMP · FSB · Device Code Flow · Storage Zone Controller ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PhaaS (Phishing-as-a-Service)</strong> — A subscription-based criminal business model that sells ready-made phishing toolkits — including fake login pages, email templates, and automation infrastructure — to attackers who lack the technical skills to build them from scratch.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">AitM (Adversary-in-the-Middle)</strong> — An attack where the adversary sits transparently between a victim and a legitimate service, relaying login traffic in real time to capture session cookies and authentication tokens even after the victim has completed MFA.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SNMP (Simple Network Management Protocol)</strong> — A protocol used to remotely monitor and manage network devices like routers and switches; older versions (v1 and v2c) use weak plaintext "community strings" as passwords, making them vulnerable to exploitation if left at default values.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">FSB (Federal Security Service)</strong> — Russia's primary domestic intelligence and counterintelligence agency, successor to the KGB, which also operates significant offensive cyber capabilities; FSB Center 16 is the unit responsible for targeted infrastructure attacks.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Device Code Flow</strong> — An OAuth 2.0 authentication method designed for devices without keyboards (smart TVs, IoT devices) that displays a short code users must enter on a separate device; abused in phishing attacks to trick victims into authorizing attacker-controlled sessions.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Storage Zone Controller</strong> — A Citrix ShareFile component that organizations install on their own servers so files remain on local infrastructure while still using ShareFile's cloud platform for management and sharing; internet-exposed by design, making it a target for external attacks.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/hackers-backdoor-jscrambler-npm-package-with-infostealer-malware/" style="color:#374151;text-decoration:none;">Jscrambler npm Supply Chain Attack: IronWorm Infostealer Downloaded ~1,500 Times, Targets Developer Credentials &amp; AI Tool Configs</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://defend.network/briefings/npm-supply-chain-zimbra-rce-android-malware-2026-07-13.html" style="color:#374151;text-decoration:none;">RedHook Android Malware Evolves to Abuse Wireless ADB for Shell-Level Access Without USB Connection</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Defend.Network</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Jul 14, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 14, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~5 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-14.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL - ShareFile -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / Progress · Jul 13, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/progress-urges-sharefile-customers-to-shut-down-servers-over-credible-threat/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Progress Orders Emergency ShareFile Shutdown Over Credible Security Threat — No Patch Available</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Progress Software ordered all ShareFile Storage Zone Controller customers to immediately shut down on-premises servers over a credible but undisclosed threat with no patch yet available.</div>
+    <div style="margin-top:2px;">👤 Enterprises running on-premises ShareFile Storage Zone Controllers — cloud-only ShareFile accounts are not affected.</div>
+    <div style="margin-top:2px;">✅ Manually shut down the Windows server hosting your Storage Zone Controller right now — this is mandatory even after cloud services are restored.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: CRITICAL - Russian FSB Routers -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / NSA · Jul 13, 2026</span>
+  </div>
+  <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">18-Nation Advisory: Russian FSB Center 16 (Berserk Bear) Compromising Routers to Infiltrate Critical Infrastructure</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 NSA, CISA, FBI, and 15 partner agencies confirmed Russian FSB Center 16 is exploiting default SNMP credentials on internet-exposed routers to steal network configurations and pre-position within critical infrastructure globally.</div>
+    <div style="margin-top:2px;">👤 Defense, energy, financial, government, and healthcare organizations worldwide — especially those using default SNMP community strings or Cisco Smart Install.</div>
+    <div style="margin-top:2px;">✅ Disable Cisco Smart Install, migrate to SNMPv3 with unique credentials, and block TFTP/SNMP at edge firewalls immediately.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Collection] T1602.001 · Data from Configuration Repository: SNMP MIB Dump</div>
+</div>
+
+<!-- STORY 3: HIGH - Joomla Zero-Days -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / CISA · Jul 13, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/icagenda-and-balbooa-forms-joomla-flaws.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA KEV: Joomla Zero-Days CVE-2026-48939 &amp; CVE-2026-56291 (Both CVSS 10.0) Exploited Since June</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CISA added two CVSS 10.0 Joomla extension flaws to KEV — iCagenda (CVE-2026-48939) and Balbooa Forms (CVE-2026-56291) — both allowing unauthenticated file upload for PHP web shell installation; iCagenda exploited in automated attacks since June 15.</div>
+    <div style="margin-top:2px;">👤 Any Joomla website using iCagenda or Balbooa Forms plugins — businesses, nonprofits, government sites, and educational institutions globally.</div>
+    <div style="margin-top:2px;">✅ Update iCagenda to 4.0.8/3.9.15 and Balbooa Forms to 2.4.1 immediately; scan web roots for unexpected PHP files.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Persistence] T1505.003 · Server Software Component: Web Shell</div>
+</div>
+
+<!-- STORY 4: HIGH - Zimbra XSS -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 13, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/critical-zimbra-flaw-could-let-crafted_0483473395.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Google TAG Reports Critical Zimbra Stored XSS — Crafted Email Auto-Executes Code in Authenticated Sessions</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Google's Threat Analysis Group disclosed a critical stored XSS in Zimbra Classic Web Client where specially crafted emails auto-execute JavaScript in the victim's session on open — Zimbra released emergency patch ZCS 10.1.19.</div>
+    <div style="margin-top:2px;">👤 Organizations running on-premises Zimbra Collaboration Suite (Classic Web Client) — ~200,000 businesses, governments, and universities in 140 countries.</div>
+    <div style="margin-top:2px;">✅ Upgrade to Zimbra Collaboration Suite 10.1.19 immediately; switch to Modern Web Client as temporary mitigation if patching is delayed.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1059.007 · Command and Scripting Interpreter: JavaScript</div>
+</div>
+
+<!-- STORY 5: HIGH - Forg365 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 13, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Forg365: $400/Month PhaaS Uses AI + Device Code Phishing + AitM to Bypass MFA on Microsoft 365</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Researchers disclosed Forg365, a new PhaaS platform on Telegram combining AI-generated lures, OAuth device code flow abuse, and adversary-in-the-middle session interception to bypass MFA and compromise M365 accounts at scale.</div>
+    <div style="margin-top:2px;">👤 Microsoft 365 users at any organization that hasn't blocked device code flow authentication.</div>
+    <div style="margin-top:2px;">✅ Disable device code flow in Entra ID Conditional Access; require FIDO2/hardware key MFA; monitor for unexpected OAuth token grants.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1528 · Steal Application Access Token</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/hackers-backdoor-jscrambler-npm-package-with-infostealer-malware/" style="color:#374151;text-decoration:none;">Jscrambler npm Supply Chain Attack: IronWorm Infostealer Targets Developer Credentials &amp; AI Tool Configs</a>
+    <span style="color:#9ca3af;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://defend.network/briefings/npm-supply-chain-zimbra-rce-android-malware-2026-07-13.html" style="color:#374151;text-decoration:none;">RedHook Android Malware Abuses Wireless ADB for Shell Access Without USB Connection</a>
+    <span style="color:#9ca3af;"> · Defend.Network</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-14.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Jul 14, 2026</div>
+
+</body>
+</html>
