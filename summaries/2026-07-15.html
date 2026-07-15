@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Jul 15, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 15, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 4 high · 2 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1 — CRITICAL: Microsoft Patch Tuesday -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / BleepingComputer · Jul 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/microsoft-patches-record-622-vulnerabilities-including-two-exploited-zero-days/" style="color:#111827;text-decoration:none;">Microsoft Patches Record 569+ CVEs Including Two Zero-Days Actively Exploited in SharePoint and AD FS</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's July 2026 Patch Tuesday — the largest in company history — addressed 569 to 622 CVEs across Windows, SharePoint, and Active Directory Federation Services, including two zero-days confirmed as actively exploited in the wild before patches were available.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All organizations running Microsoft SharePoint Server (2016, 2019, Subscription Edition) and Active Directory Federation Services are at immediate risk; 59 vulnerabilities are rated Critical, 48 of which enable remote code execution.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply July 2026 Patch Tuesday updates immediately — CISA has mandated federal agencies patch CVE-2026-56164 (SharePoint) by July 17 and CVE-2026-56155 (AD FS) by July 28 under BOD 26-04.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1134 · Access Token Manipulation<br>
+      <span style="color:#6b7280;">The AD FS zero-day (CVE-2026-56155) allows attackers to forge administrative authentication tokens through Microsoft's federation service, effectively granting domain-level authority without valid credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>This Patch Tuesday shattered records with between 569 and 622 CVEs patched in a single update cycle — nearly triple the previous single-month record. Two vulnerabilities stand out because attackers were already using them before Microsoft released fixes, classifying them as exploited zero-days.</p>
+        <p><strong>CVE-2026-56155</strong> is an Elevation of Privilege flaw in Active Directory Federation Services (CVSS 7.8, rated Important). Microsoft's own Detection and Response Team (DART) discovered it while investigating live attacks, indicating the bug was found embedded in an ongoing incident — a rare and alarming attribution. Successful exploitation grants full administrator privileges over the federation environment.</p>
+        <p><strong>CVE-2026-56164</strong> is an EoP bug in SharePoint Server (CVSS 5.3, rated Moderate) that is uniquely dangerous: an unauthenticated attacker can exploit it remotely with no user interaction required, escalating privileges over the network on SharePoint 2016 through Subscription Edition. CISA added both to the Known Exploited Vulnerabilities catalog on July 14 with mandatory federal remediation deadlines.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of Patch Tuesday like a monthly safety recall for your car — but this month Microsoft recalled over 500 parts at once, and two of those defects are already being exploited by criminals on the road. The most dangerous bugs let hackers quietly become administrators on corporate login systems (AD FS) and document-sharing platforms (SharePoint) without even needing a password.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-56155 · CVSS: 7.8/10 — EoP in AD FS, attacker gains administrator-level control of Microsoft's identity federation service. | CVE-2026-56164 · CVSS: 5.3/10 — Unauthenticated network EoP in SharePoint Server across all supported versions.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2 — CRITICAL: SonicWall SMA1000 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-sma1000-flaws-exploited-in-zero-day-attacks-patch-now/" style="color:#111827;text-decoration:none;">SonicWall SMA1000 Zero-Days (CVSS 10.0 + 7.2) Actively Exploited — CISA Mandates Patch by July 17</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> SonicWall disclosed two zero-day vulnerabilities in its SMA1000 remote access appliances — a CVSS 10.0 unauthenticated SSRF flaw and a CVSS 7.2 post-authentication OS command injection — confirmed as actively exploited in multiple customer environments.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using SonicWall SMA1000 appliances as VPN or remote access gateways are directly exposed; CISA added both to KEV and federal agencies must patch or discontinue use by July 17, 2026.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the SonicWall security updates immediately; if indicators of compromise are present, re-image or re-deploy affected appliances, rotate all passwords and administrator credentials, and reset TOTP tokens.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">Attackers exploit the SMA1000 Workplace interface — an internet-facing remote access service — via unauthenticated SSRF to probe and reach internal network resources without needing any credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>SonicWall's SMA1000 is a popular enterprise VPN and remote access appliance used at the network perimeter. CISA added both new SonicWall flaws to its KEV catalog on July 14, 2026, the same day Microsoft's zero-days were added — an unusually synchronized mass KEV update reflecting the severity of active exploitation.</p>
+        <p><strong>CVE-2026-15409</strong> (CVSS 10.0) is a critical Server-Side Request Forgery vulnerability in the SMA1000 Appliance Work Place interface. Because it requires no authentication, any attacker with network access to the device can force it to relay requests to internal systems — effectively using the VPN appliance as an internal network pivot point. This is particularly dangerous because SMA1000 appliances typically have privileged network access by design.</p>
+        <p><strong>CVE-2026-15410</strong> (CVSS 7.2) is a post-authentication command injection flaw in the Appliance Management Console. Chaining these two vulnerabilities — using CVE-2026-15409 for initial reconnaissance and CVE-2026-15410 after gaining credentials — gives attackers full OS-level command execution on the appliance. SonicWall investigated multiple confirmed incidents and found evidence of both bugs being used in tandem.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your company's front door is a VPN device that lets remote workers in. These bugs let attackers knock on that door and, without any key (no username, no password), peer through the peephole at your entire internal office. Then, if they get a low-level key somehow, they can fully break in and take control of the door itself. SonicWall is saying: change the locks now.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-15409 · CVSS: 10.0/10 — Unauthenticated SSRF in SMA1000 Work Place interface, enabling internal network reconnaissance. | CVE-2026-15410 · CVSS: 7.2/10 — Authenticated OS command injection in the Management Console, enabling full appliance compromise.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3 — HIGH: ESET UEFI Secure Boot bypass -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">ESET Research / Help Net Security · Jul 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.welivesecurity.com/en/eset-research/forgotten-uefi-shims-undermining-secure-boot/" style="color:#111827;text-decoration:none;">ESET: 11 Forgotten Microsoft-Signed UEFI Shims Let Attackers Bypass Secure Boot on Any UEFI Machine</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> ESET researchers found 11 old but still-valid UEFI shim bootloaders (version 0.9 and below), signed by Microsoft's UEFI CA 2011 certificate, that can be abused on any machine trusting that CA to bypass Secure Boot and execute arbitrary pre-OS code.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any UEFI-based system trusting the Microsoft Corporation UEFI CA 2011 third-party certificate — including most enterprise and consumer PCs — is vulnerable to bootkit deployment if an attacker has physical or high-privilege OS-level access.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Microsoft revoked the vulnerable shims in the June 9, 2026 Patch Tuesday; ensure that update is applied, as it adds the shims to the UEFI Secure Boot Forbidden Signature Database (DBX).</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1542.003 · Pre-OS Boot: Bootkit<br>
+      <span style="color:#6b7280;">Attackers load a vulnerable signed UEFI shim during system boot — before the OS initialises — to execute untrusted code that survives OS reinstalls and can deploy persistent bootkits like BlackLotus or HybridPetya.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>ESET's research exposed a systemic gap in UEFI Secure Boot's revocation model: old shim bootloaders that were signed legitimately years ago but have since been replaced by secure versions were never explicitly blacklisted. Because the signing certificate is still trusted, an attacker can "bring their own vulnerable shim" — a BYOVD-style technique applied to the firmware layer — and use it to bypass Secure Boot entirely.</p>
+        <p>The 11 affected shims are all at version 0.9 or below, used in older Linux distributions. They are tracked under CVE-2026-8863 and CVE-2026-10797. While ESET disclosed the issues responsibly in February 2026 and Microsoft revoked them in the June Patch Tuesday, many organisations have not yet applied that update, leaving them exposed. The vulnerable shims can enable deployment of known UEFI bootkits including Bootkitty, HybridPetya, and BlackLotus.</p>
+        <p>This research highlights a critical gap in how UEFI firmware trust is managed: the signing infrastructure is sound, but its revocation list (DBX) is only as effective as the patch cadence of the organisations relying on it. ESET has called for a more systematic approach to shim lifecycle management across the ecosystem.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Secure Boot is like a bouncer at your computer's door that checks everyone's ID before the computer fully wakes up. These old "IDs" (shim files) were legitimate once, but their owners did dangerous things. The bouncer should have added them to a banned list, but didn't — so attackers can still use those old IDs to sneak past security before your antivirus even loads.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-8863 &amp; CVE-2026-10797 — UEFI Secure Boot bypass via unsigned-code execution through trusted-but-vulnerable signed shims; patched in Microsoft's June 2026 Patch Tuesday DBX update.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4 — HIGH: Fake GitHub repos infostealer -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Arctic Wolf / BleepingComputer · Jul 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://arcticwolf.com/resources/blog/fake-github-repositories-deliver-boryptgrab-lineage-infostealer/" style="color:#111827;text-decoration:none;">292 Fake GitHub Repositories Impersonate Security Tools and Crypto Services to Deliver BoryptGrab Infostealer</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Since June 26, 2026, a Russian-speaking threat actor published 292 deceptive GitHub repositories mimicking security vendors (including Arctic Wolf), cryptocurrency platforms, developer tools, and gaming software to distribute the BoryptGrab infostealer — a new variant with a previously undocumented Chrome App-Bound Encryption bypass.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Security professionals, developers, and crypto users who search for and download tools from GitHub are targeted; BoryptGrab steals data from 19 browsers, 32 crypto wallets, and exfiltrates messaging and social media credentials.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Verify the authenticity of GitHub repositories before downloading — check star history, contributor activity, and official vendor channels; treat any repository with a suspiciously short history or "secure download" link as a red flag.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1036.005 · Masquerading: Match Legitimate Name or Location<br>
+      <span style="color:#6b7280;">Repositories clone the names, branding, and README styles of legitimate security and developer tools so that victims searching for trusted software find and download the malicious version instead.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Arctic Wolf researchers identified a large-scale brand impersonation campaign on GitHub targeting security practitioners and developers — the very people most likely to be guarded against social engineering. The 292 fake repositories each contain polished README documents styled to look like official project pages, with a hidden download link routing victims to a "secure download" page that delivers BoryptGrab malware.</p>
+        <p>BoryptGrab is a lineage of infostealer malware with a new capability that distinguishes this campaign: it bypasses Chrome's App-Bound Encryption — a defence Google introduced to prevent credential theft from the browser's local storage — by injecting directly into the Chrome browser process rather than reading the encrypted storage from disk. This represents a novel evasion technique that security products are only beginning to detect.</p>
+        <p>The stolen data includes credentials from 19 browsers and session tokens from 32 cryptocurrency wallets, compressed and exfiltrated to a Russia-based C2 server. Language artefacts in the malware and hosting choices attribute the campaign to a Russian-speaking financially motivated operator. GitHub has been notified and is removing the repositories, but the actor is repopulating them rapidly.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine searching "trusted lock brand" on Amazon and the first five results are convincing-looking counterfeits that secretly contain trackers. This is the same scam on GitHub: fake tool repositories look genuine enough to fool even experienced developers, and the malware they deliver can empty your crypto wallet and steal all your passwords without you noticing.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned — campaign-tracked malware. BoryptGrab variant includes novel Chrome App-Bound Encryption bypass via in-process code injection; 292 repositories confirmed as of July 14, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5 — HIGH: Nihon Kotsu cyberattack -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / TechRadar · Jul 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/japans-largest-taxi-operator-shuts-systems-after-cyberattack/" style="color:#111827;text-decoration:none;">Nihon Kotsu: Malware Knocks Out Taxi Dispatch and Reservation Systems at Japan's Largest Taxi Operator</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> On July 11, 2026, Nihon Kotsu — Japan's largest taxi and chauffeur operator ($1B revenue, 8,558 taxis) — suffered a malware infection via unauthorized external access, forcing emergency shutdowns of phone-based taxi dispatch, web reservation, hire car ordering, and multiple internal IT systems across six Japanese cities.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Approximately 18,228 employees and customers relying on Nihon Kotsu's taxi and chauffeur services in Tokyo, Yokohama, Saitama, and other cities; a "labor taxi" service for pregnant women in the Tokyo area was also disrupted.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> No customer-facing actions required at this time; Nihon Kotsu has engaged external cybersecurity experts and states there is currently no evidence of data exfiltration, though the investigation is ongoing.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1490 · Inhibit System Recovery<br>
+      <span style="color:#6b7280;">The malware infection forced Nihon Kotsu to proactively shut down and isolate all affected systems, preventing recovery of dispatch and reservation services for an extended period — a classic impact technique used to maximise operational disruption.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Nihon Kotsu's incident follows a pattern of increasingly targeted attacks on transportation infrastructure. The attack vector has not been publicly confirmed, but the company issued warnings to staff about suspicious emails and attachments, strongly suggesting an initial phishing component that led to the malware deployment.</p>
+        <p>The impact has been widespread: phone-based taxi dispatch systems (the primary way passengers summon taxis in Japan), web reservation services, hire car ordering, and several internal administrative platforms are all down. The "labor taxi" service for pregnant women — a specialized and time-sensitive transportation service — being disrupted underscores how attacks on civilian infrastructure can have direct human welfare implications.</p>
+        <p>As of July 14, the company reports no confirmed data breach, but the investigation is ongoing. The rapid network isolation and engagement of external forensics experts follows standard incident response protocol. The identity of the attackers and whether ransomware is involved has not been disclosed.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Nihon Kotsu runs the digital "air traffic control" for thousands of taxis across Japan's major cities. When malware hit their systems, it was like switching off the entire command centre — drivers and passengers lost the ability to communicate through the app and phone system simultaneously, reverting Japan's largest taxi fleet to manual, uncoordinated operations.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — malware infection, attack vector unconfirmed. Incident detected July 11, 2026; investigation ongoing as of July 14, 2026. No confirmed data exfiltration.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6 — HIGH: 1VPNS sanctions -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / US Treasury · Jul 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/us-sanctions-first-vpn-service-and.html" style="color:#111827;text-decoration:none;">US Treasury Sanctions First VPN Service (1VPNS) and Belarusian Cryptor Provider for Enabling Billions in Ransomware Damage</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> OFAC designated First VPN Service (1VPNS), its administrator Dmytro Rashevskyi, and Belarusian cryptor seller Yevgeniy Vladimirovich Silayev for providing the infrastructure and obfuscation tools that enabled ransomware groups to attack American organizations and critical infrastructure — the first VPN service ever sanctioned by the US Treasury.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> US businesses and critical infrastructure providers who were victims of ransomware attacks routed through 1VPNS; the sanctions freeze any US assets held by the designated parties and prohibit US persons from transacting with them.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Review threat intelligence feeds for indicators associated with 1VPNS infrastructure; ensure payment controls prohibit any transfers to sanctioned entities, and report any suspicious contact from these parties to OFAC.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1070 · Indicator Removal<br>
+      <span style="color:#6b7280;">1VPNS marketed a no-log, law-enforcement-resistant VPN specifically to ransomware actors, allowing them to erase operational footprints and make attribution of attacks against US organizations effectively impossible.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The US Treasury's action against 1VPNS marks a significant escalation in the use of financial sanctions as a cybersecurity enforcement tool. Since 2014, 1VPNS has operated on criminal forums explicitly advertising that it keeps no logs and refuses to cooperate with law enforcement — a direct pitch to cybercriminals. Rashevskyi operated under at least two false identities ("Maksim Sorin" and "Roman Chabanenko") to procure infrastructure while evading abuse complaints from ISPs.</p>
+        <p>Silayev's role is complementary: he sold cryptors — tools that wrap malware code in obfuscation layers to defeat antivirus detection. Ransomware affiliates purchased both services to make their attacks harder to detect during delivery and harder to attribute after execution. Treasury estimates the combination enabled billions of dollars in ransomware losses to US businesses and critical infrastructure.</p>
+        <p>This action follows a May 2026 European law enforcement takedown of 1VPNS infrastructure supported by the FBI's Boston Field Office, showing increasing cross-border coordination. However, the designation of infrastructure-enabling services rather than direct ransomware operators signals that OFAC is targeting the broader ransomware supply chain, not just headline groups.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of 1VPNS as a getaway car rental company that only accepts criminal customers and promises to shred the rental records. Silayev was the disguise shop — selling masks so ransomware couldn't be identified by security cameras. The Treasury just put both out of business and made it illegal for any American to work with them.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">OFAC designation July 13, 2026 — 1VPNS (First VPN Service), Dmytro Rashevskyi (administrator), Yevgeniy Vladimirovich Silayev (cryptor seller). Billions in estimated ransomware-enabled losses to US entities.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Server-Side Request Forgery (SSRF) ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Server-Side Request Forgery (SSRF) is an attack where an adversary tricks a web server or appliance into making HTTP requests on their behalf — to internal systems the attacker cannot reach directly from the internet. In today's SonicWall vulnerability (CVE-2026-15409), an unauthenticated attacker could make the SMA1000 appliance query internal IP addresses, cloud metadata endpoints, or backend services that are otherwise firewalled from the public internet. What makes SSRF especially dangerous is that the requests originate from a trusted internal source — the victim's own infrastructure — so they bypass network controls that would normally block an outsider.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: UEFI · Secure Boot · SSRF · ADFS · Bootkit · OFAC · Cryptor · Patch Tuesday ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">UEFI</strong> — Unified Extensible Firmware Interface; the modern replacement for BIOS that initialises hardware and hands control to the operating system bootloader at startup.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Secure Boot</strong> — A UEFI security standard that cryptographically verifies each boot component is signed by a trusted authority before allowing it to execute, preventing unauthorised code from loading before the OS.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SSRF</strong> — Server-Side Request Forgery; an attack class where an attacker tricks a server into making outbound HTTP requests to internal or external resources on the attacker's behalf.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ADFS</strong> — Active Directory Federation Services; Microsoft's single sign-on service that issues authentication tokens allowing users to log in to multiple applications with one set of corporate credentials.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Bootkit</strong> — A type of rootkit that infects the Master Boot Record or UEFI firmware, making it persistent across OS reinstalls and nearly invisible to standard security tools that only scan after the OS has loaded.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">OFAC</strong> — Office of Foreign Assets Control; the US Treasury bureau that administers and enforces economic and trade sanctions against targeted foreign countries, individuals, and entities.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Cryptor</strong> — A tool purchased by malware authors to obfuscate or encrypt their malicious code so that antivirus and endpoint security products fail to recognise it as harmful.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Patch Tuesday</strong> — Microsoft's monthly security update release cycle, occurring on the second Tuesday of each month, when the company publishes fixes for vulnerabilities across Windows, Office, and related products.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/cisa-adds-4-actively-exploited-adobe.html" style="color:#374151;text-decoration:none;">Adobe ColdFusion Path Traversal CVE-2026-48282 (CVSS 10.0) Added to CISA KEV — Patch Immediately</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/sharepoint-rce-cve-2026-45659-added-to.html" style="color:#374151;text-decoration:none;">CISA Warns of Active Exploitation of Joomla Extensions iCagenda and Balbooa Forms for RCE via File Upload</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Jul 15, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

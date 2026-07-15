@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 15, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 4 high · ~8 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-15.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1 — CRITICAL: Microsoft Patch Tuesday -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Jul 15, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/microsoft-patches-record-622-vulnerabilities-including-two-exploited-zero-days/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Microsoft Patches Record 569+ CVEs Including Two Zero-Days Exploited in SharePoint and AD FS</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Microsoft's largest-ever Patch Tuesday addressed up to 622 CVEs with two actively exploited zero-days: CVE-2026-56164 (SharePoint EoP, unauthenticated) and CVE-2026-56155 (AD FS EoP, admin-level access).</div>
+    <div style="margin-top:2px;">👤 All organisations running SharePoint Server 2016–Subscription Edition and Active Directory Federation Services are at immediate risk.</div>
+    <div style="margin-top:2px;">✅ Apply July 2026 Patch Tuesday updates now — CISA mandates federal agencies patch SharePoint by July 17 and AD FS by July 28.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1134 · Access Token Manipulation</div>
+</div>
+
+<!-- STORY 2 — CRITICAL: SonicWall -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 14, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-sma1000-flaws-exploited-in-zero-day-attacks-patch-now/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">SonicWall SMA1000 Zero-Days (CVSS 10.0 + 7.2) Actively Exploited — Patch or Disconnect by July 17</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Two SMA1000 zero-days confirmed in active attacks: CVE-2026-15409 (CVSS 10.0, unauthenticated SSRF) and CVE-2026-15410 (CVSS 7.2, post-auth OS command injection), both added to CISA KEV on July 14.</div>
+    <div style="margin-top:2px;">👤 Organisations using SonicWall SMA1000 VPN/remote access appliances at the network perimeter are directly exposed.</div>
+    <div style="margin-top:2px;">✅ Patch immediately; if compromised, re-image appliances, rotate all passwords and admin credentials, and reset TOTP tokens.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1133 · External Remote Services</div>
+</div>
+
+<!-- STORY 3 — HIGH: UEFI Secure Boot -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">ESET Research · Jul 14, 2026</span>
+  </div>
+  <a href="https://www.welivesecurity.com/en/eset-research/forgotten-uefi-shims-undermining-secure-boot/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">ESET: 11 Old Microsoft-Signed UEFI Shims Bypass Secure Boot, Enable Bootkit Deployment</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 ESET found 11 UEFI shim bootloaders (v0.9 and below) with valid Microsoft signatures that can bypass Secure Boot on any UEFI machine trusting the Microsoft UEFI CA 2011, enabling bootkits like BlackLotus.</div>
+    <div style="margin-top:2px;">👤 All UEFI-based systems (enterprise and consumer) that trust the Microsoft UEFI CA 2011 and have not applied the June 2026 Patch Tuesday DBX update are exposed.</div>
+    <div style="margin-top:2px;">✅ Apply Microsoft's June 9, 2026 Patch Tuesday update which adds vulnerable shims to the UEFI Forbidden Signature Database (DBX).</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Defense Evasion] T1542.003 · Pre-OS Boot: Bootkit</div>
+</div>
+
+<!-- STORY 4 — HIGH: Fake GitHub repos -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Arctic Wolf · Jul 14, 2026</span>
+  </div>
+  <a href="https://arcticwolf.com/resources/blog/fake-github-repositories-deliver-boryptgrab-lineage-infostealer/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">292 Fake GitHub Repos Impersonate Security Vendors and Crypto Services to Deploy BoryptGrab Infostealer</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A Russian-speaking actor published 292 deceptive GitHub repos since June 26 mimicking security tools, crypto wallets, and developer utilities to distribute BoryptGrab — which steals from 19 browsers and 32 crypto wallets with a new Chrome App-Bound Encryption bypass.</div>
+    <div style="margin-top:2px;">👤 Security professionals, developers, and cryptocurrency users searching GitHub for trusted tools are the primary targets.</div>
+    <div style="margin-top:2px;">✅ Verify GitHub repos through official vendor channels before downloading; treat any "secure download" redirect link as a major red flag.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Defense Evasion] T1036.005 · Masquerading: Match Legitimate Name or Location</div>
+</div>
+
+<!-- STORY 5 — HIGH: Nihon Kotsu -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 14, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/japans-largest-taxi-operator-shuts-systems-after-cyberattack/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Nihon Kotsu: Malware Attack Shuts Down Taxi Dispatch and Reservations at Japan's Largest Operator</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Japan's largest taxi operator ($1B revenue, 8,558 taxis) suffered a malware infection on July 11 that forced emergency shutdown of dispatch, web reservations, and internal systems across Tokyo, Yokohama, and Saitama.</div>
+    <div style="margin-top:2px;">👤 Nihon Kotsu's 18,228 employees and customers across six Japanese cities, including users of a dedicated taxi service for pregnant women.</div>
+    <div style="margin-top:2px;">✅ No customer action required; investigation ongoing with no confirmed data exfiltration as of July 14.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1490 · Inhibit System Recovery</div>
+</div>
+
+<!-- STORY 6 — HIGH: 1VPNS sanctions -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / US Treasury · Jul 13, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/us-sanctions-first-vpn-service-and.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">US Treasury Sanctions First VPN Service (1VPNS) and Cryptor Provider for Enabling Billions in Ransomware Attacks</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 OFAC designated 1VPNS (the first VPN service ever sanctioned), its administrator Dmytro Rashevskyi, and Belarusian cryptor seller Yevgeniy Silayev for providing ransomware groups with anonymising infrastructure and malware obfuscation tools since 2014.</div>
+    <div style="margin-top:2px;">👤 US businesses and critical infrastructure victimised by ransomware groups using 1VPNS infrastructure; the sanctions freeze US-held assets and prohibit US-person transactions.</div>
+    <div style="margin-top:2px;">✅ Ensure payment controls prohibit transfers to designated parties; review threat intel for indicators tied to 1VPNS infrastructure.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Defense Evasion] T1070 · Indicator Removal</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/cisa-adds-4-actively-exploited-adobe.html" style="color:#374151;text-decoration:none;">Adobe ColdFusion Path Traversal CVE-2026-48282 (CVSS 10.0) Added to CISA KEV</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/sharepoint-rce-cve-2026-45659-added-to.html" style="color:#374151;text-decoration:none;">CISA Warns of Joomla Extension Exploits (iCagenda, Balbooa Forms) for Remote Code Execution</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-15.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Jul 15, 2026</div>
+
+</body>
+</html>
