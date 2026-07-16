@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — July 16, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — July 16, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">10 stories · 2 critical · 4 high · 4 medium · ~10 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - Microsoft Patch Tuesday -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-july-2026-patch-tuesday-fixes-massive-570-flaws-3-zero-days/" style="color:#111827;text-decoration:none;">Microsoft Patch Tuesday July 2026: Record 570 Flaws Patched, Two Zero-Days Actively Exploited</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft issued its largest-ever security update — 570 CVEs patched in a single Patch Tuesday — including two zero-days under active attack: CVE-2026-56164 (SharePoint Server privilege escalation) and CVE-2026-56155 (Active Directory Federation Services privilege escalation), both confirmed exploited in the wild before today's patches.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Every organization running Microsoft SharePoint Server (2016, 2019, Subscription Edition), ADFS, or Windows broadly; 59 of the 570 CVEs are rated Critical.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply July 2026 Patch Tuesday updates immediately — prioritize CVE-2026-56155 (ADFS, CVSS 7.8) and CVE-2026-56164 (SharePoint) since attackers are already using them.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Both SharePoint and ADFS zero-days are being exploited by attackers who have an existing foothold in victim networks to elevate from standard-user to administrator-level access, enabling full domain control.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Microsoft's July 2026 Patch Tuesday is the biggest in the company's history, with 570 CVEs addressed — crushing the previous record set just last month. The dramatic spike is attributed in part to Microsoft's expanded deployment of AI-assisted vulnerability discovery tooling, which surfaced hundreds of internally discovered flaws. Of the 570 CVEs, 59 are rated Critical; 48 of those are remote code execution issues.</p>
+        <p>The two actively exploited zero-days are both elevation-of-privilege flaws. CVE-2026-56155 in ADFS (CVSS 7.8) allows an attacker to gain administrator privileges over the identity federation service — potentially enabling single sign-on token forgery across an enterprise. CVE-2026-56164 in SharePoint Server (CVSS 5.3) allows a lower-severity privilege escalation that still gives attackers elevated access to SharePoint data and configuration. Microsoft's Detection and Response Team (DART) credited discovery of CVE-2026-56155, indicating they caught active exploitation during incident response. A third zero-day, CVE-2026-50656 ("RoguePlanet") in Microsoft's Malware Protection Engine, was publicly disclosed but is not yet confirmed exploited in the wild.</p>
+        <p>The sheer volume of this release presents a real challenge for patch management teams. Security professionals should triage ruthlessly: the two exploited zero-days are immediate priorities, followed by the 48 Critical RCE flaws that could allow remote code execution without authentication.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Every second Tuesday of the month, Microsoft releases security fixes — this is called "Patch Tuesday." A "zero-day" means attackers found and exploited this vulnerability before Microsoft could release a fix. Today Microsoft patched a record 570 security holes, two of which were already being actively used by attackers to gain extra power inside corporate networks. Apply the updates as fast as you can.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-56155 (ADFS) · CVSS: 7.8/10 — High-severity EoP; CVE-2026-56164 (SharePoint) · CVSS: 5.3/10 — Medium-severity EoP; both confirmed exploited in the wild with no prior patch available.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - SonicWall SMA1000 Zero-Days -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-sma1000-flaws-exploited-in-zero-day-attacks-patch-now/" style="color:#111827;text-decoration:none;">SonicWall SMA1000 Zero-Days Chained in Active Attacks: CVE-2026-15409 (CVSS 10.0) + CVE-2026-15410</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> SonicWall confirmed two vulnerabilities in its SMA1000 enterprise remote-access appliances are being actively chained together in real attacks: CVE-2026-15409 (CVSS 10.0, unauthenticated SSRF) lets attackers tunnel to internal services, while CVE-2026-15410 (CVSS 7.2, post-auth code injection) then enables OS command execution.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises using SonicWall SMA6210, SMA7210, and SMA8200v appliances as VPN/remote-access gateways; federal agencies face a July 17 CISA deadline to patch.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Contact SonicWall Support immediately for hotfixes (v12.4.3-03453 or 12.5.0-02835); if patching is impossible, isolate the management console and restrict appliance internet exposure.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Threat actors exploit CVE-2026-15409's SSRF to pivot from the internet into the SMA1000's internally-accessible management console, then leverage CVE-2026-15410 to execute arbitrary OS commands — turning a VPN gateway into a network entry point.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Rapid7's Managed Detection and Response (MDR) team discovered these two vulnerabilities being exploited in tandem in customer environments before SonicWall had patches available — making them true zero-days. CVE-2026-15409 is a Server-Side Request Forgery (SSRF) vulnerability in SMA1000's Work Place web interface that allows an unauthenticated remote attacker to force the appliance to make HTTP requests to internal services that should not be reachable from the internet. Crucially, this includes the appliance's own management console.</p>
+        <p>With access to the management interface established via the SSRF tunnel, attackers then exploit CVE-2026-15410, a code injection flaw in the Appliance Management Console that allows execution of arbitrary operating system commands. Together, these bugs give an unauthenticated internet attacker the ability to run commands on a device positioned at the network perimeter — ideal for establishing persistent backdoors or pivoting into the broader enterprise network.</p>
+        <p>SonicWall appliances have been a consistent target for nation-state and criminal threat groups, who prize edge devices because they offer persistent access with minimal endpoint agent visibility. CISA added both CVEs to its Known Exploited Vulnerabilities catalog on July 14, with federal agencies given until July 17 to remediate.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A SonicWall SMA1000 is a "secure tunnel" device that lets employees log into company systems from home. Bug #1 (SSRF) tricks the tunnel device into thinking it's talking to an internal server — bypassing the "only employees can get here" protection. Bug #2 then lets attackers type commands as if they were the administrator. Chained together, an outsider can fully take over the VPN device without any credentials.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-15409 · CVSS: 10.0/10 — Critical unauthenticated SSRF in SMA1000 Work Place interface; CVE-2026-15410 · CVSS: 7.2/10 — Post-auth code injection enabling OS command execution on SMA6210, SMA7210, SMA8200v.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH - LegacyHive Windows Zero-Day -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/researcher-drops-new-windows-zero-day.html" style="color:#111827;text-decoration:none;">LegacyHive: Researcher Drops Unpatched Windows Privilege-Escalation PoC Hours After Patch Tuesday</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Security researcher Chaotic Eclipse (MSNightmare) released a proof-of-concept for "LegacyHive," an unpatched privilege-escalation vulnerability in the Windows User Profile Service (profsvc) that grants a standard user privileged read-write access to other users' Windows Registry hives on all currently supported Windows desktop and server versions.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All users of currently supported Windows desktop and server versions — the published PoC requires a second user's credentials, but the researcher states the full exploit does not.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> No patch exists yet — monitor Microsoft's advisories, apply principle of least privilege, restrict unnecessary local accounts, and watch for abnormal profsvc or registry activity.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1112 · Modify Registry<br>
+      <span style="color:#6b7280;">LegacyHive exploits a weakness in how profsvc loads user hive files to grant the attacker privileged write access to other users' Windows Registry hives — allowing persistent configuration changes, credential extraction, and further privilege escalation.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Roughly half an hour after Microsoft published its July 2026 Patch Tuesday disclosures, researcher Chaotic Eclipse (who goes by MSNightmare and is known for previous adversarial research against Microsoft) dropped details and a PoC for LegacyHive. The vulnerability targets the Windows User Profile Service (profsvc) and the way it loads "hive" files — segments of the Windows Registry that store a user's personal settings, application configuration, and environment variables.</p>
+        <p>By exploiting a flaw in how profsvc maps these hive files, an unprivileged attacker can gain privileged read-write access to the registry hives of other logged-in or previously-logged-in users. This is significant because registry hives can contain stored credentials, security settings, and persistence mechanisms for other software. The published PoC requires an additional user credential to function, but the researcher clarified publicly that their full private PoC does not — suggesting the real risk is higher than the published code demonstrates. The vulnerability affects all currently supported Windows versions.</p>
+        <p>No patch is available, and Microsoft has not yet published an advisory. The timing — dropped immediately after Patch Tuesday — is a deliberate pressure tactic used by some researchers to force vendors to expedite fixes by maximizing public exposure.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Windows stores each user's settings in a file called a "registry hive." The User Profile Service (profsvc) loads that file when you log in. LegacyHive tricks profsvc into loading files in the wrong order, letting a standard user peek into and change another user's settings file — which can contain passwords and other sensitive data. Because there's no fix yet, this is particularly dangerous on shared Windows computers.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned yet · No CVSS score — Vendor has not issued a patch or advisory; exploitation status: PoC public, wild exploitation not yet confirmed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - SAP NetWeaver ABAP -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/sap-patches-cvss-99-netweaver-abap-flaw.html" style="color:#111827;text-decoration:none;">SAP Patches CVSS 9.9 NetWeaver ABAP Memory Corruption Flaw That Risks Full System Compromise</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> SAP's July 2026 patch day addressed CVE-2026-44747 (CVSS 9.9), an out-of-bounds write vulnerability in NetWeaver Application Server ABAP (kernel versions 7.22–9.20) that allows a low-privileged authenticated attacker to corrupt memory and potentially achieve arbitrary code execution with complete compromise of confidentiality, integrity, and availability.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Large enterprises worldwide running SAP NetWeaver AS ABAP for ERP, finance, HR, and supply chain operations — one of the world's most widely deployed enterprise platforms.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply SAP Security Note 3747367 immediately; temporary workaround: disable ICF nodes with the specified property via transaction SICF in NetWeaver administration.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Lateral Movement] T1210 · Exploitation of Remote Services<br>
+      <span style="color:#6b7280;">CVE-2026-44747 enables an attacker holding even a low-privilege SAP account to send crafted ABAP requests that corrupt kernel memory — allowing code execution that crosses SAP trust boundaries and can compromise the entire ERP landscape from a single compromised credential.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>SAP's July 2026 Security Patch Day included 16 new security notes, led by CVE-2026-44747 — an out-of-bounds write flaw in NetWeaver AS ABAP that earned a near-maximum CVSS score of 9.9. The vulnerability exists due to logical errors in memory management within the ABAP kernel; crafted requests can cause the kernel to write data beyond the boundaries of an allocated memory buffer, corrupting adjacent structures in a predictable manner.</p>
+        <p>The practical impact is severe: SAP's own advisory notes that successful exploitation results in "complete compromise of confidentiality, integrity, and availability" with "changed scope" — meaning an attacker can pivot beyond the initial SAP system to other connected SAP components and integrated systems. Only a low-privileged authenticated attacker is required, which is a low bar in many enterprises where broad user access to SAP is standard practice. CVE-2026-44747 affects ABAP kernel versions 7.22 through 9.20, covering installations spanning more than a decade.</p>
+        <p>SAP ERP systems are prime targets for sophisticated threat actors because they hold financial records, HR data, and supply chain intelligence. Security teams should treat SAP Note 3747367 as an emergency patch, not a routine update cycle item.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SAP is software that large companies use to manage everything from payroll to factory operations. ABAP is the programming language that powers it. This bug means if you have even basic access to a company's SAP system, you can send a specially crafted message that corrupts the server's memory — potentially letting you read, change, or destroy any data in the entire SAP environment.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-44747 · CVSS: 9.9/10 — Critical out-of-bounds write in NetWeaver ABAP kernel 7.22–9.20; low-privilege attacker can achieve cross-boundary arbitrary code execution.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH - UNK_MassTraction Roundcube -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/suspected-china-aligned-hackers-exploit.html" style="color:#111827;text-decoration:none;">China-Aligned UNK_MassTraction Exploits Roundcube Webmail to Raid University Research Email</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> China-aligned threat cluster UNK_MassTraction has been systematically exploiting chained Roundcube vulnerabilities (CVE-2024-42009 XSS + CVE-2025-49113 server-side deserialization) since May 2026 to compromise university mail servers across the US and Canada, deploying webshells and VShell backdoors for persistent espionage access.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> US and Canadian universities — especially physics, astrophysics, particle physics, and engineering research departments with national security connections.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Roundcube to the latest version immediately; audit mail servers for SquareShell PHP webshell and VShell Go-based backdoor indicators; restrict Roundcube admin panel to internal IPs only.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1114.002 · Email Collection: Remote Email Collection<br>
+      <span style="color:#6b7280;">UNK_MassTraction chains a Roundcube XSS flaw (triggered by opening a crafted email) with a server-side deserialization bug to install webshells, granting persistent access to harvest research emails and attachments from compromised university mail servers.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>UNK_MassTraction is a China-aligned espionage cluster with a documented focus on harvesting scientific research with national security implications. Since at least May 2026, the group has been targeting university physics and engineering departments across the United States and Canada using a sophisticated two-stage attack chain against Roundcube webmail servers.</p>
+        <p>The attack begins with a spear-phishing email containing a specially crafted payload that exploits CVE-2024-42009, a cross-site scripting (XSS) flaw in Roundcube. When a target opens the email in a vulnerable Roundcube client, malicious JavaScript executes in their browser, harvesting credentials and session tokens. The second stage exploits CVE-2025-49113, a server-side deserialization vulnerability, to install either SquareShell (a PHP webshell) or VShell (a Go-based backdoor) directly on the mail server. This combination gives attackers both immediate credential access and durable server-side persistence that survives password resets.</p>
+        <p>The targeting pattern — astrophysics, particle physics, and engineering with national security connections — aligns with well-documented Chinese state espionage priorities, mirroring historical campaigns such as those attributed to APT41 and related clusters that target advanced research institutions.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Roundcube is open-source webmail software used by many universities. The first bug is triggered simply by opening a malicious email — no clicking links required — and runs attacker code in your browser. The second bug lets attackers install hidden "remote control" software on the mail server itself. Together they mean the university's email is fully compromised: attackers can silently read all emails without anyone knowing.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2024-42009 (Roundcube XSS) + CVE-2025-49113 (deserialization) — Nation-state espionage campaign active since May 2026; no CVSS for CVE-2025-49113 published at this time.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: UNK_MassTraction -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">UNK_MassTraction</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State Espionage Cluster · Attributed to: China (suspected)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> US and Canadian universities — physics, astrophysics, particle physics, and engineering research departments with national security connections.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Chaining webmail vulnerabilities (XSS + deserialization) to install webshells and Go-based backdoors (VShell) for persistent, covert access to academic email and research data; active since at least May 2026.</div>
+</div>
+
+<!-- STORY 6: HIGH - SharePoint RCE KEV -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/sharepoint-rce-cve-2026-45659-added-to.html" style="color:#111827;text-decoration:none;">SharePoint Deserialization RCE CVE-2026-45659 Added to CISA KEV — Being Exploited for Ransomware Delivery</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-45659 (CVSS 8.8), a SharePoint Server deserialization remote code execution flaw patched in May 2026, to its Known Exploited Vulnerabilities catalog after confirming active in-the-wild exploitation — attackers are using it for initial access followed by ransomware deployment.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched SharePoint Server 2016, 2019, or Subscription Edition — any authenticated user with Site Member permissions or above can exploit this flaw.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> If you haven't applied the May 2026 SharePoint patch, do so immediately; audit SharePoint servers for unusual authenticated activity and webshell presence; check for ransomware precursor activity in endpoint logs.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">After achieving remote code execution via CVE-2026-45659's deserialization flaw, threat actors are progressing through a full kill chain to deploy ransomware payloads — using SharePoint access as an initial foothold to encrypt data and extort organizations.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-45659 is a deserialization vulnerability in Microsoft SharePoint Server that allows any authenticated user with minimal permissions (Site Member or higher) to trigger remote code execution on the SharePoint server. Microsoft patched this flaw in May 2026 and originally assessed exploitation as "less likely" — a classification that proved optimistic, as CISA added it to KEV on July 1 following confirmed active exploitation.</p>
+        <p>The attack chain observed by defenders is particularly concerning: attackers are using SharePoint's broad enterprise footprint as an initial access point, exploiting CVE-2026-45659 to execute code on the server, then pivoting to deploy ransomware across the organization. SharePoint is deeply integrated into Microsoft 365 environments, meaning a compromised SharePoint server often provides attackers with a well-trusted network position from which lateral movement is straightforward. Many organizations haven't applied the May patch because internal testing and change management cycles slowed deployment — CISA's KEV addition is a signal that this must now be treated as an emergency.</p>
+        <p>This is the second SharePoint vulnerability to make news this week alongside Patch Tuesday's CVE-2026-56164 — organizations should audit their entire SharePoint patch status comprehensively rather than addressing each flaw individually.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SharePoint is Microsoft's popular document-sharing and collaboration platform used by millions of companies. This bug lets anyone with a basic company login send a specially crafted request that tricks SharePoint into executing attacker code. Once inside, criminals have been using this to launch ransomware attacks — encrypting company files and demanding payment to restore them.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-45659 · CVSS: 8.8/10 — SharePoint Server deserialization RCE; authenticated (low-privilege), network-accessible; actively exploited for ransomware delivery per CISA KEV.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Adversary-in-the-Middle (AiTM) Phishing ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    AiTM phishing works by routing victims through an attacker-controlled proxy server that sits invisibly between you and the real login page — when you type your password and even your one-time MFA code, the attacker's server captures both in real time and immediately replays them to the real service to log in on the attacker's behalf, stealing your authenticated session cookie. Unlike older phishing that merely collected passwords for later use, AiTM kits steal the live authenticated session token, meaning the attacker gains access as if they were already fully logged in — defeating SMS codes, authenticator apps, and push notifications. The Jalisco and OmegaLord phishing kits reported this week are purpose-built AiTM tools targeting Microsoft 365, using device-code flow hijacking and real-time session relay to compromise enterprise accounts even when all standard MFA controls are enabled.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: AiTM · EoP · Webshell · BEC · ABAP · VShell ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">AiTM</strong> — Adversary-in-the-Middle; a phishing relay technique where an attacker's server sits between victim and real login service, stealing live session tokens to defeat MFA in real time.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">EoP</strong> — Elevation of Privilege; a class of security vulnerability that allows a lower-privileged user or process to gain access rights beyond what was originally granted.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Webshell</strong> — A malicious script (often PHP or ASPX) uploaded to a compromised web server that gives attackers a persistent, browser-accessible remote command interface.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">BEC</strong> — Business Email Compromise; fraud in which attackers impersonate executives, vendors, or partners via email to trick employees into authorizing wire transfers or disclosing sensitive data.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ABAP</strong> — Advanced Business Application Programming; SAP's proprietary programming language used in the NetWeaver Application Server to implement custom enterprise resource planning business logic.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">VShell</strong> — A Go-language backdoor implant used by espionage actors for encrypted, persistent remote access to compromised mail and web servers, attributed to China-aligned UNK_MassTraction in current campaigns.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/new-phishing-kits-target-microsoft-365-accounts-evade-mfa/" style="color:#374151;text-decoration:none;">Jalisco &amp; OmegaLord Phishing Kits Target Microsoft 365 With Real-Time MFA Bypass</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/nearly-300-github-repos-pose-as-legit-software-to-push-malware/" style="color:#374151;text-decoration:none;">Nearly 300 Fake GitHub Repos Impersonating Legitimate Software to Push BoryptGrab Infostealer</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/cisa-adds-4-actively-exploited-adobe.html" style="color:#374151;text-decoration:none;">CISA Adds 4 More Flaws to KEV: Adobe ColdFusion (CVSS 10.0), Joomla Extensions, Langflow</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.bleepingcomputer.com/news/security/spanish-police-take-down-140-million-cyber-fraud-ring-arrest-four/" style="color:#374151;text-decoration:none;">Spanish Police Dismantle €140 Million BEC and Investment Fraud Ring, Arrest Four</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · July 16, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
