@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 17, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 3 high · ~8 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-17.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: SonicWall CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 15, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/two-sonicwall-sma-1000-zero-days.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">SonicWall SMA1000 Zero-Days Chained for Unauthenticated RCE — CISA Deadline Today</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 SonicWall disclosed two actively exploited zero-days (CVE-2026-15409, CVSS 10.0 SSRF; CVE-2026-15410, CVSS 7.2 code injection) that attackers are chaining for unauthenticated RCE on SMA1000 VPN gateways.</div>
+    <div style="margin-top:2px;">👤 Organizations running SonicWall SMA1000 models 6210, 7210, 8200v as VPN gateways, including U.S. federal agencies facing a CISA remediation deadline of today, July 17.</div>
+    <div style="margin-top:2px;">✅ Apply hotfix 12.4.3-03453 or 12.5.0-02835 now; if compromised, re-image the appliance and rotate all passwords and TOTP tokens.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1599 · Network Boundary Bridging</div>
+</div>
+
+<!-- STORY 2: AsyncAPI CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Chainguard · Jul 15, 2026</span>
+  </div>
+  <a href="https://www.chainguard.dev/unchained/asyncapi-supply-chain-compromise-npm-packages-backdoored-via-github-actions" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">AsyncAPI npm Packages Backdoored via GitHub Actions Exploit — 3M+ Weekly Downloads Exposed to Miasma Botnet</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers stole a privileged npm PAT via a misconfigured pull_request_target workflow and published backdoored versions of four @asyncapi packages containing an import-time Miasma botnet payload with credential theft and RAT capabilities.</div>
+    <div style="margin-top:2px;">👤 Developers and CI/CD pipelines that installed @asyncapi/specs, @asyncapi/generator, @asyncapi/generator-components, or @asyncapi/generator-helpers between 07:10–08:30 UTC on July 14, 2026.</div>
+    <div style="margin-top:2px;">✅ Treat any environment that installed affected versions as fully compromised — rotate all credentials (GitHub, npm, AWS, SSH, browser passwords) and re-image CI runners immediately.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.001 · Compromise Software Dependencies and Development Tools</div>
+</div>
+
+<!-- STORY 3: Microsoft Patch Tuesday HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Jul 14, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-july-2026-patch-tuesday-fixes-massive-570-flaws-3-zero-days/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Microsoft's Record Patch Tuesday Fixes 570+ Flaws Including Two Exploited Zero-Days — CISA Deadline Today for SharePoint</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Microsoft patched a record 570+ CVEs including two exploited zero-days: CVE-2026-56155 (ADFS EoP, CVSS 7.8) and CVE-2026-56164 (SharePoint EoP, CVSS 5.3), both in CISA's KEV catalog with deadlines this week.</div>
+    <div style="margin-top:2px;">👤 All organizations running Windows, Active Directory Federation Services, or internet-exposed SharePoint Server in enterprise environments.</div>
+    <div style="margin-top:2px;">✅ Apply July cumulative updates now, prioritizing CVE-2026-56164 (SharePoint, CISA deadline today) and CVE-2026-56155 (ADFS, deadline July 28); also prioritize CVE-2026-57092 (VMSwitch, CVSS 9.9).</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- STORY 4: Zoom HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 16, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/zoom-patches-critical-windows-flaw-that.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Zoom Patches CVSS 9.8 Account Takeover Bug — Unauthenticated Attackers Can Seize Any Windows Account (CVE-2026-53412)</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-53412, a CVSS 9.8 improper input validation flaw in Zoom Workplace for Windows, allows unauthenticated remote attackers to take over any Zoom account via network access with no credentials or user interaction required.</div>
+    <div style="margin-top:2px;">👤 Users running Zoom Workplace for Windows before v7.0.0, Zoom VDI Client for Windows before v7.0.10/6.6.15/6.5.18, or Meeting SDK for Windows before v7.0.0 — potentially hundreds of millions of users.</div>
+    <div style="margin-top:2px;">✅ Update Zoom for Windows to version 7.0.0 or later immediately; no exploitation in the wild reported yet, but the CVSS 9.8 with no-auth network access warrants urgent patching.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1212 · Exploitation for Credential Access</div>
+</div>
+
+<!-- STORY 5: Progress ShareFile HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Jul 14, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/progress-confirms-sharefile-zero-day-flaw-behind-storage-zone-shutdown/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Progress Confirms Zero-Day Path Traversal Behind Emergency ShareFile Shutdown — Patches Issued After Credible Threat Warning</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 High-severity path traversal zero-days (CVE-2026-2699, CVE-2026-2701) in ShareFile Storage Zone Controller 5.x/6.x prompted an emergency shutdown order July 10; patches (v5.12.5, v6.0.2) and service restoration followed July 14.</div>
+    <div style="margin-top:2px;">👤 Enterprises running self-hosted ShareFile Storage Zone Controllers v5.x or v6.x, typically in regulated industries like financial services and healthcare.</div>
+    <div style="margin-top:2px;">✅ Upgrade to Storage Zone Controller v5.12.5 or v6.0.2 immediately; no confirmed exploitation exists, but audit access logs dating back to early July given the pre-patch threat intelligence.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Discovery] T1083 · File and Directory Discovery</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/synopsys-finds-no-evidence-of-data-breach-following-bosch-hack-claims/" style="color:#374151;text-decoration:none;">D1R Ransomware Group Claims Synopsys Breach, Threatens Bosch Engineering Data Leak (Synopsys Denies)</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/teens-sentenced-for-transport-for-london-cyberattack/" style="color:#374151;text-decoration:none;">Two UK Men Sentenced for 2024 TfL Hack That Left 148 Systems Offline and Cost £29 Million</a>
+    <span style="color:#9ca3af;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">LOW</span>
+    <a href="https://www.securityweek.com/" style="color:#374151;text-decoration:none;">U.S. Charges Three Russian Nationals for Bulletproof Hosting Behind $62M in Ransomware Damages</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-17.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Jul 17, 2026</div>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Jul 17, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 17, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 3 high · 2 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: SonicWall CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/two-sonicwall-sma-1000-zero-days.html" style="color:#111827;text-decoration:none;">SonicWall SMA1000 Zero-Days Chained for Unauthenticated RCE — CISA Deadline Today</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> SonicWall disclosed two actively exploited zero-days — a CVSS 10.0 SSRF flaw (CVE-2026-15409) and a CVSS 7.2 code-injection bug (CVE-2026-15410) — that attackers are chaining to achieve unauthenticated remote code execution on SMA1000 VPN gateways.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running SonicWall SMA1000 series appliances (models 6210, 7210, 8200v) as their VPN or remote access gateway, including U.S. federal agencies facing a mandatory CISA remediation deadline of today, July 17.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply hotfix 12.4.3-03453 or 12.5.0-02835 immediately; if compromise is suspected, re-image or redeploy the appliance and rotate all administrator passwords and TOTP tokens.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1599 · Network Boundary Bridging<br>
+      <span style="color:#6b7280;">The SSRF flaw (CVE-2026-15409) forces the internet-facing SMA1000 to relay unauthenticated requests across the network boundary into internal segments, using the trusted gateway itself to bridge security zones before the code-injection stage (CVE-2026-15410) completes full administrative takeover.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">SonicWall's SMA1000 appliances serve as the front door for corporate VPN access, making them prime targets because compromising one grants a foothold inside the enterprise perimeter. Rapid7's MDR team discovered active exploitation in the wild dating back to late June, meaning attackers were abusing these flaws for weeks before patches were available.</p>
+        <p style="margin:0 0 10px 0;">The attack chain works in two stages: first, unauthenticated attackers send a crafted request to the Workplace interface that triggers the SSRF flaw, causing the appliance to reach out to attacker-controlled or internal infrastructure. Second, leveraging access established through the SSRF pivot, attackers invoke the management console code-injection vulnerability to execute arbitrary OS commands with administrative privileges — all without ever needing valid credentials.</p>
+        <p style="margin:0 0 10px 0;">CISA added both CVEs to its Known Exploited Vulnerabilities catalog. Organizations that have not patched should treat any SMA1000 appliance as potentially compromised and investigate logs for signs of exploitation dating back to late June 2026.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Your company's VPN appliance is like the locked front door to your office network. These bugs let attackers first trick the door into phoning home on their behalf (the SSRF flaw), then use that connection to issue commands as if they were the building manager. SonicWall has released a fix — applying it is like re-keying all the locks after discovering master keys were being copied.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-15409 · CVSS: 10.0/10 — A perfect score reflecting no authentication required, no user interaction, remote network access, and trivial attack complexity. &nbsp;|&nbsp; CVE-2026-15410 · CVSS: 7.2/10 — Requires admin authentication but is the second stage of the unauthenticated chain enabled by CVE-2026-15409.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: AsyncAPI CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Chainguard · Jul 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.chainguard.dev/unchained/asyncapi-supply-chain-compromise-npm-packages-backdoored-via-github-actions" style="color:#111827;text-decoration:none;">AsyncAPI npm Packages Backdoored via GitHub Actions Exploit — 3M+ Weekly Downloads Exposed to Miasma Botnet</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers exploited a misconfigured pull_request_target GitHub Actions workflow to steal a privileged npm publishing token, then released backdoored versions of four @asyncapi packages containing an import-time payload that deploys the multi-channel Miasma botnet with credential-theft and RAT capabilities.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any developer or CI/CD pipeline that installed @asyncapi/specs, @asyncapi/generator, @asyncapi/generator-components, or @asyncapi/generator-helpers between approximately 07:10 and 08:30 UTC on July 14, 2026 — the four packages collectively reach over 3 million weekly downloads.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> If any affected package versions were pulled during that 80-minute window, treat the environment as fully compromised and immediately rotate all credentials — GitHub tokens, npm tokens, AWS keys, SSH keys, browser-saved passwords — then re-image affected CI runners.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.001 · Compromise Software Dependencies and Development Tools<br>
+      <span style="color:#6b7280;">By injecting malicious import-time code into four legitimate npm packages and publishing them via the official registry using stolen credentials, attackers ensured every developer and build pipeline pulling the dependency automatically executed Miasma malware — a textbook software supply chain compromise that achieves massive reach through a single CI/CD choke point.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">The attack exploited a well-documented but widely present GitHub Actions misconfiguration: the pull_request_target event runs workflow code in the context of the base repository with access to its secrets, even when triggered by a fork's pull request. An attacker opened 37 crafted PRs to the AsyncAPI generator repository; one triggered the vulnerable workflow and exfiltrated the asyncapi-bot PAT with publish rights across the entire @asyncapi npm organization.</p>
+        <p style="margin:0 0 10px 0;">Unlike the more common postinstall hook attack that fires during npm install, this campaign's payload executes at module load time — any code that performs import or require of the affected packages silently deploys the Miasma botnet agent. Miasma is sophisticated: it establishes persistence via systemd user services, steals browser-saved passwords and cookies, SSH keys, cloud credentials (AWS, npm, GitHub tokens), and cryptocurrency wallets.</p>
+        <p style="margin:0 0 10px 0;">Most alarmingly, Miasma's C2 infrastructure spans multiple independent channels simultaneously — HTTP, Nostr relays, Ethereum smart contracts, and a libp2p peer-to-peer mesh — making it highly resistant to traditional takedown and network-based detection. The compromised packages were quickly removed from npm, but any environment that installed affected versions during the 80-minute window remains at risk until credentials are rotated and systems re-imaged.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Developers use pre-built code packages (like buying ingredients instead of growing your own food). This attack poisoned four popular packages so any developer who unknowingly grabbed the contaminated version would have malware silently installed on their computer or build server. The attacker found a misconfigured "door" in the project's automated build system that let them sign the packages with the project's own official stamp, making the malware look completely trustworthy.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Supply chain attack via GitHub Actions misconfiguration — severity reflects 3M+ weekly download exposure, import-time execution (no install step required to trigger payload), and sophisticated multi-channel Miasma botnet C2 with persistent implant and broad credential theft scope.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Microsoft Patch Tuesday HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Jul 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-july-2026-patch-tuesday-fixes-massive-570-flaws-3-zero-days/" style="color:#111827;text-decoration:none;">Microsoft's Record-Breaking Patch Tuesday Fixes 570+ Flaws Including Two Exploited Zero-Days — CISA Deadline Today for SharePoint</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's July 2026 Patch Tuesday patched a record 570+ CVEs including two actively exploited zero-days — CVE-2026-56155 (Active Directory Federation Services elevation of privilege, CVSS 7.8) and CVE-2026-56164 (SharePoint Server EoP, CVSS 5.3) — both already added to CISA's KEV catalog with federal remediation deadlines this week.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All organizations running Windows, Active Directory Federation Services, Microsoft SharePoint Server, and dozens of other Microsoft products in enterprise environments, with the greatest urgency on teams running on-premises ADFS or internet-exposed SharePoint.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply July cumulative updates immediately, prioritizing CVE-2026-56164 (SharePoint, CISA deadline today July 17) and CVE-2026-56155 (ADFS, CISA deadline July 28); also expedite CVE-2026-57092 (VMSwitch, CVSS 9.9 use-after-free) given its hypervisor-breakout potential.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Both exploited zero-days abuse improperly protected code paths in Microsoft identity and collaboration infrastructure — CVE-2026-56155 grants administrative control over ADFS, the enterprise authentication broker, while CVE-2026-56164 lets an unauthenticated network attacker elevate to elevated SharePoint roles with zero credentials and zero user interaction.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">The sheer scale of this Patch Tuesday — nearly tripling the previous record in a single release — reflects both the complexity of Microsoft's sprawling product surface and the accelerating pace at which vulnerabilities are being discovered. Fifty-nine of the patched bugs are rated Critical, with 48 enabling remote code execution across products spanning Windows, Office, Azure, and server infrastructure.</p>
+        <p style="margin:0 0 10px 0;">The most urgent items are the two actively exploited zero-days. CVE-2026-56155 affects ADFS, the authentication broker used by enterprises to federate identity across cloud and on-premises systems — gaining admin here means control over single sign-on for the entire organization. CVE-2026-56164's SharePoint EoP requires no authentication and no user interaction, making it trivial to exploit at scale against any internet-exposed SharePoint Server instance.</p>
+        <p style="margin:0 0 10px 0;">Also notable is CVE-2026-57092, a use-after-free bug in the Windows VMSwitch component rated 9.9/10 — while not yet exploited in the wild, it could allow an authenticated guest VM to break out of hypervisor isolation, a particularly dangerous class of vulnerability in shared cloud and datacenter environments.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Microsoft releases security updates on the second Tuesday of every month — called "Patch Tuesday." This month is the largest in history, fixing over 570 bugs at once. Two of them are already being actively used by real attackers right now, so IT teams need to apply these updates urgently. One attacked bug is in software that manages company logins (ADFS) — getting control of that is like an attacker getting the master key to every door in the building.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-56155 · CVSS: 7.8/10 — Exploited zero-day in ADFS; successful exploitation grants administrative privileges over the enterprise identity federation layer. &nbsp;|&nbsp; CVE-2026-56164 · CVSS: 5.3/10 — Despite moderate score, no-auth / no-interaction make this highly exploitable at scale; CISA deadline is today, Jul 17.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Zoom HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/zoom-patches-critical-windows-flaw-that.html" style="color:#111827;text-decoration:none;">Zoom Patches CVSS 9.8 Account Takeover Flaw — Unauthenticated Remote Attackers Can Seize Any Windows User's Account (CVE-2026-53412)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Zoom patched CVE-2026-53412, a CVSS 9.8 critical improper input validation vulnerability in Zoom Workplace for Windows that allows an unauthenticated attacker over the network to take over any Zoom account — no credentials, no victim interaction, no physical access required.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Users running Zoom Workplace for Windows before version 7.0.0, Zoom VDI Client for Windows before versions 7.0.10 / 6.6.15 / 6.5.18, and the Zoom Meeting SDK for Windows before 7.0.0 — potentially hundreds of millions of enterprise and personal Windows Zoom users.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Zoom for Windows to version 7.0.0 or later immediately; there are no known workarounds, but no exploitation in the wild has been reported yet, giving a brief window to patch before attackers develop a working exploit.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1212 · Exploitation for Credential Access<br>
+      <span style="color:#6b7280;">CVE-2026-53412 exploits improper input validation to seize control of an authenticated Zoom session over the network without knowing the victim's credentials — giving attackers effective account access that fits T1212, exploiting application vulnerabilities to obtain authenticated control of accounts without credential theft.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">A CVSS score of 9.8 places this vulnerability in the top tier of severity — only 0.2 points below a perfect 10. The improper input validation flaw allows attackers to craft malicious network packets that the Zoom Windows client processes without adequate safety checks, ultimately enabling the attacker to assume control of the target's authenticated session and account identity.</p>
+        <p style="margin:0 0 10px 0;">The practical impact of a successful exploit is significant: a hijacked Zoom account grants access to scheduled meetings and their passwords, stored recordings, shared files, chat history, and any third-party integrations connected to the account. In enterprise environments where Zoom integrates with calendar systems, document storage, and collaboration tools, successful exploitation provides considerable lateral movement and data access opportunities.</p>
+        <p style="margin:0 0 10px 0;">Notably, Zoom's own internal security team (Zoom Offensive Security) discovered and reported this vulnerability — and there are currently no reports of exploitation in the wild. The rapid response from discovery (July 14) to patch availability represents an example of effective internal security practice, giving users a window to patch before attackers develop weaponized exploits.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Zoom is the video-call app millions use for work and personal meetings. This bug is like discovering that someone with the right technical skill could walk into your Zoom account as if they were you — just by being on the same network, with no password required. Nobody has used this in a real attack yet, but Zoom has released a fix, so users should update as soon as possible.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-53412 · CVSS: 9.8/10 — Network-accessible, no authentication required, no user interaction needed, low attack complexity — nearly the worst possible combination of risk factors short of a perfect score.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Progress ShareFile HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Jul 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/progress-confirms-sharefile-zero-day-flaw-behind-storage-zone-shutdown/" style="color:#111827;text-decoration:none;">Progress Confirms Zero-Day Path Traversal Behind Emergency ShareFile Shutdown — Patches Issued After Credible Threat Warning</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Progress Software confirmed high-severity path traversal zero-days (CVE-2026-2699, CVE-2026-2701) in ShareFile Storage Zone Controller 5.x and 6.x prompted a July 10 emergency shutdown order to all on-premises customers, with patches (v5.12.5 and v6.0.2) released and service restored on July 14.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running self-hosted ShareFile Storage Zone Controller v5.x or v6.x — typically enterprises in regulated industries such as financial services and healthcare that manage ShareFile data on their own infrastructure rather than Progress's cloud.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to ShareFile Storage Zone Controller 5.12.5 or 6.0.2 immediately; no confirmed exploitation exists, but given the pre-patch threat intelligence, audit access logs and Windows service account activity dating back to early July.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Discovery] T1083 · File and Directory Discovery<br>
+      <span style="color:#6b7280;">The path traversal bugs (CVE-2026-2699, CVE-2026-2701) let an authenticated attacker traverse directory boundaries to enumerate the Storage Zone server's full filesystem layout and read arbitrary files beyond their authorized scope — applying T1083 File and Directory Discovery to silently map sensitive data stores ahead of exfiltration.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">Progress Software is perhaps best known for the catastrophic MOVEit exploitation campaign of 2023, making any zero-day in its file-transfer products a particularly sensitive matter. The decision to order all customers to immediately power off their Storage Zone Controller servers — before a patch was even available — signals how seriously Progress treated the threat intelligence received from a "credible external source."</p>
+        <p style="margin:0 0 10px 0;">The path traversal vulnerabilities allow an authenticated administrative user to read arbitrary files accessible to the Windows service account running the Storage Zone Controller. A second flaw enables writing attacker-controlled content to arbitrary directories and enumerating the filesystem — together, these could allow an attacker with initial access to silently map and stage exfiltration of the organization's entire ShareFile document library.</p>
+        <p style="margin:0 0 10px 0;">Crucially, Progress states it found no evidence of actual customer breaches. The pre-emptive shutdown order may have forestalled exploitation that was being prepared, representing a rare case where proactive threat intelligence prevented a major file-transfer platform compromise reminiscent of MOVEit.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> ShareFile is a secure file-sharing service that some companies run on their own servers. These bugs are like finding that someone with a basic office pass could bypass "Staff Only" doors and browse through confidential filing cabinets. Progress's response — telling all customers to unplug the server immediately — was like evacuating the building until a new security system was installed, and may have prevented a real break-in.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-2699 · CVE-2026-2701 · CVSS: High — Path traversal flaws enabling authenticated filesystem enumeration, arbitrary file reads, and attacker-controlled file writes in ShareFile Storage Zone Controller 5.x and 6.x; patched in versions 5.12.5 and 6.0.2.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: CI/CD Pipeline Compromise ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    CI/CD (Continuous Integration / Continuous Delivery) pipelines are automated systems that build, test, and publish software whenever developers push code changes — they hold secrets like signing keys, publishing tokens, and cloud credentials, making them a high-value target in supply chain attacks. A common attack vector is the "pwn request": a misconfigured workflow event (like GitHub's pull_request_target) runs attacker-supplied code from a fork with access to the base repository's secrets, allowing a single malicious pull request to silently steal credentials and backdoor published packages. Once an attacker controls a package in a popular registry like npm, every developer or automated build system that installs that dependency becomes a compromised host — multiplying a single pipeline breach across millions of downstream projects and developer workstations worldwide.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: npm · CI/CD · PAT · TOTP · RCE · BPH · CVSS ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">npm</strong> — Node Package Manager; the default package registry and installer for JavaScript and Node.js projects, hosting millions of open-source libraries downloaded billions of times per week and used in nearly every modern web application and CI/CD pipeline.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CI/CD</strong> — Continuous Integration / Continuous Delivery; automated pipelines that build, test, and deploy software whenever code is pushed, making them high-value targets because they routinely hold signing keys, publishing tokens, and cloud service credentials.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PAT</strong> — Personal Access Token; a long random string used to authenticate API calls to services like GitHub or npm in place of a username and password, often carrying broad write permissions including the ability to publish packages to public registries.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">TOTP</strong> — Time-based One-Time Password; a six-digit code generated every 30 seconds by an authenticator app using a shared secret key, providing a second authentication factor that must be reset if a device or account is compromised.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RCE</strong> — Remote Code Execution; the ability for an attacker to run arbitrary commands on a victim system from across a network without physical access — typically the most severe category of vulnerability because it grants the attacker complete control of the affected host.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">BPH</strong> — Bulletproof Hosting; web hosting infrastructure deliberately designed to ignore law enforcement takedown requests and abuse complaints, making it the preferred infrastructure for ransomware gangs, phishing operators, and malware distribution networks.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System; a 0–10 numeric scale rating the severity of security vulnerabilities based on factors including attack complexity, required privileges, user interaction needed, and impact on confidentiality, integrity, and availability — scores of 9.0–10.0 are rated Critical.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/synopsys-finds-no-evidence-of-data-breach-following-bosch-hack-claims/" style="color:#374151;text-decoration:none;">New D1R Ransomware Group Claims Synopsys Breach, Threatens to Leak Bosch Engineering Data (Synopsys Denies)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/teens-sentenced-for-transport-for-london-cyberattack/" style="color:#374151;text-decoration:none;">Two UK Men Sentenced for 2024 Transport for London Hack That Left 148 Systems Down and Cost £29 Million</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.securityweek.com/" style="color:#374151;text-decoration:none;">U.S. Charges Three Russian Nationals for Running Bulletproof Hosting Services That Enabled $62M in Ransomware Damages</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Jul 17, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
