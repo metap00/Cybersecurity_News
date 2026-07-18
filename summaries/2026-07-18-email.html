@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 18, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 3 critical · 3 high · ~11 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-18.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: GhostLock -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 18, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/15-year-old-ghostlock-flaw-enables-root.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">15-Year-Old GhostLock Flaw Enables Root and Container Escape on Most Linux Distros</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A 15-year-old use-after-free in the Linux kernel's rtmutex code (CVE-2026-43499) now has a public 97%-reliable PoC that grants root access in ~5 seconds and escapes containers.</div>
+    <div style="margin-top:2px;">👤 All Linux distros using kernels 2.6.39–7.0 since 2011, including Ubuntu LTS releases and shared cloud/Kubernetes environments.</div>
+    <div style="margin-top:2px;">✅ Update to a distribution-patched kernel or Linux 7.1 immediately; restrict local login access on shared systems.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- STORY 2: WordPress wp2shell -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 18, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">New wp2shell WordPress Core Flaw Lets Unauthenticated Attackers Run Code on 500M Websites</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Chained pre-auth RCE (CVE-2026-63030 + CVE-2026-60137) in WordPress core — no plugins required — lets any anonymous user execute code via REST API batch route confusion and SQL injection.</div>
+    <div style="margin-top:2px;">👤 All WordPress sites on 6.9.0–6.9.4 and 7.0.0–7.0.1 — estimated 500+ million websites worldwide.</div>
+    <div style="margin-top:2px;">✅ Update immediately to WordPress 7.0.2 or 6.9.5; check Dashboard → Updates now.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 3: Microsoft Patch Tuesday + LegacyHive -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / SecurityWeek · Jul 15–18, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/microsoft-patches-record-622-flaws.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Microsoft Patches Record 622 Flaws Including Two Actively Exploited Zero-Days; Unpatched LegacyHive PoC Dropped Hours Later</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 July Patch Tuesday fixed 622 CVEs including two exploited zero-days (ADFS CVE-2026-56155, SharePoint CVE-2026-56164); CISA added SharePoint CVSS 9.8 RCE (CVE-2026-58644) to KEV with July 19 deadline; same day researcher dropped unpatched LegacyHive Windows User Profile Service PoC.</div>
+    <div style="margin-top:2px;">👤 All organizations running on-premises SharePoint, ADFS, and any Windows environment — federal agencies face mandatory July 19 patch deadline for CVE-2026-58644.</div>
+    <div style="margin-top:2px;">✅ Apply July Patch Tuesday immediately; prioritize SharePoint and ADFS; monitor User Profile Service for LegacyHive abuse (no patch available yet).</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1548 · Abuse Elevation Control Mechanism</div>
+</div>
+
+<!-- STORY 4: SAP NetWeaver -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 15, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/sap-patches-cvss-99-netweaver-abap-flaw.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">SAP Patches CVSS 9.9 NetWeaver ABAP Flaw That Could Allow Data Exposure, Modification, or System Crash</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-44747 (CVSS 9.9) is an out-of-bounds write in SAP's ABAP kernel that lets any authenticated SAP user trigger memory corruption, potentially exposing or falsifying financial and HR records.</div>
+    <div style="margin-top:2px;">👤 Enterprises running SAP NetWeaver AS ABAP kernel lines 7.22–9.20 — large organizations in manufacturing, finance, and government.</div>
+    <div style="margin-top:2px;">✅ Apply the SAP security note during next maintenance window; temporary workaround: disable affected ICF nodes via transaction SICF.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1565.001 · Stored Data Manipulation</div>
+</div>
+
+<!-- STORY 5: Oracle EBS -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Jul 18, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-oracle-flaw-by-saturday/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA Orders Feds to Patch Actively Exploited Oracle E-Business Suite Takeover Flaw — Deadline Today</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-46817 (CVSS 9.8) allows unauthenticated attackers to take over Oracle EBS's Payments component via HTTP; CISA confirmed active exploitation and issued an unusually aggressive 3-day federal patch deadline ending today.</div>
+    <div style="margin-top:2px;">👤 Organizations running Oracle EBS 12.2.3–12.2.15 with internet-exposed Payments API; 1,000+ exposed instances tracked globally, majority in the US.</div>
+    <div style="margin-top:2px;">✅ Apply Oracle's May 2026 CPU patch immediately; restrict Payments API network access to trusted IPs only.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 6: Scattered Spider -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 16, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/two-scattered-spider-hackers-get-55.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Two Scattered Spider Hackers Sentenced to 5.5 Years Each for £29M Transport for London Cyberattack</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Owen Flowers (18) and Thalha Jubair (20) were sentenced to 5.5 years for the 2024 vishing and credential-theft attack on TfL that cost £29M and disabled 148 systems — only the second UK conviction under the most serious tier of computer crime law.</div>
+    <div style="margin-top:2px;">👤 Transport for London and its 27,000 employees; landmark ruling for social-engineering-based cybercrime prosecution in the UK.</div>
+    <div style="margin-top:2px;">✅ Audit IT help-desk authentication procedures, implement phishing-resistant hardware MFA, and run vishing simulation exercises across your organization.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1656 · Impersonation</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html" style="color:#374151;text-decoration:none;">OpenSSL HollowByte Flaw Could Freeze Server Memory with 11-Byte TLS Requests</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://therecord.media/genetic-testing-settlement-data-breach" style="color:#374151;text-decoration:none;">23andMe Pays $18M Multistate Settlement Over 2023 Genetic Data Breach Affecting 6.9M Customers</a>
+    <span style="color:#9ca3af;"> · The Record</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-18.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Jul 18, 2026</div>
+
+</body>
+</html>

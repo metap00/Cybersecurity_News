@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Jul 18, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 18, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 3 critical · 3 high · 2 medium · ~11 min read</div>
+</div>
+
+<!-- STORY 1: GhostLock CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/15-year-old-ghostlock-flaw-enables-root.html" style="color:#111827;text-decoration:none;">15-Year-Old GhostLock Flaw Enables Root and Container Escape on Most Linux Distros</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A 15-year-old use-after-free bug in the Linux kernel's real-time mutex code (CVE-2026-43499) now has a public, 97%-reliable proof-of-concept that gives any local user full root access in roughly five seconds and also escapes containers.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Every Linux distribution running kernels 2.6.39 (2011) through 7.0 — including Ubuntu LTS releases, Debian, RHEL, and multi-tenant cloud and Kubernetes environments.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update to a distribution-patched kernel or Linux 7.1 immediately; restrict local login access on shared systems; cloud providers must patch host kernels to protect tenant workloads.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [TA0004 - Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">The GhostLock use-after-free in the rtmutex priority-inheritance code is weaponized to overwrite adjacent kernel objects and gain ring-0 execution — the textbook exploitation-for-privilege-escalation pattern.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        GhostLock exploits a use-after-free condition in the Linux kernel's real-time mutex priority-inheritance subsystem, first introduced in kernel 2.6.39 in 2011. When multiple threads race to acquire and release priority-inherited locks under carefully timed conditions, a dangling pointer to a freed rtmutex object can be manipulated to overwrite adjacent kernel data structures. The exploit requires no elevated permissions — ordinary threading syscalls from any unprivileged process are sufficient. Nebula Security's VEGA team disclosed the bug on July 7 alongside a full technical write-up and open-source PoC code that achieves 97% reliability in testing. Google's kernelCTF program awarded a $92,337 bounty for the report.
+        <br><br>
+        The most alarming dimension is container escape: the same exploit, executed from inside a Docker or Kubernetes container, breaks through the isolation boundary to gain root on the underlying host — affecting every other tenant workload on that machine. Ubuntu 24.04, 22.04, and 20.04 LTS were still listed as partially unpatched as of the disclosure date. Enterprise Linux vendors have released patches, but rollout across heterogeneous fleets takes time, leaving a large attack surface for insiders, compromised CI/CD agents, or attackers who gain any foothold in a shared environment.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine the Linux kernel is the master key-control room of a building. GhostLock tricks the room into handing a master key to any random employee by exploiting a 15-year-old bookkeeping error in how shared locks are managed. Once you have that master key, you can open every door — including the walls separating different companies' suites in the same building (that's the container escape).
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-43499 · CVSS: 7.8/10 — High severity local privilege escalation; CVSS reflects local-only access requirement, but the public 97%-reliable PoC and container-escape capability elevate real-world risk to critical.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: WordPress wp2shell CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html" style="color:#111827;text-decoration:none;">New wp2shell WordPress Core Flaw Lets Unauthenticated Attackers Run Code on 500M Websites</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A chained pre-authentication RCE dubbed wp2shell (CVE-2026-63030 + CVE-2026-60137) was found in WordPress core — no plugins required — allowing any anonymous internet user to execute arbitrary code on any unpatched WordPress site via REST API batch route confusion combined with SQL injection.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All WordPress installations running versions 6.9.0–6.9.4 and 7.0.0–7.0.1, estimated at 500+ million websites including major news outlets, e-commerce platforms, and enterprise portals.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update immediately to WordPress 7.0.2 (or 6.9.5 for the 6.9 branch); verify your version at Dashboard → Updates; hosting providers should auto-push the update to all managed WordPress installations.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [TA0001 - Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">An unauthenticated HTTP request to the WordPress REST API batch endpoint exploits route confusion and SQL injection to achieve remote code execution, directly targeting the public web application interface with no credential requirement.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        The wp2shell chain combines two weaknesses: CVE-2026-63030, a route-confusion bug in the WordPress REST API's batch processing endpoint that misroutes requests to unintended internal handlers, and CVE-2026-60137, an SQL injection in the author__not_in parameter of WP_Query that can be triggered without authentication through the confused route. Chained together, an anonymous HTTP request can inject arbitrary SQL, ultimately reaching file-write primitives and OS-level command execution on the web server. The attack works on a fresh stock WordPress install — no plugins, no unusual configuration, no credentials needed.
+        <br><br>
+        Adam Kues of Assetnote / Searchlight Cyber discovered and responsibly disclosed the chain, allowing WordPress to ship patches (7.0.2 and 6.9.5) on July 17 before publishing technical details. A public exposure checker is available at wp2shell.com. Given that approximately half the world's websites run WordPress, and the batch REST API is enabled by default, the attack surface is enormous. Security teams should treat unpatched WordPress installs as actively compromised until updated.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> WordPress powers roughly half the world's websites. This flaw is like discovering a master skeleton key that lets anyone — without logging in — walk into any WordPress website's back room and take control of the server it runs on. The attacker just needs to send the right web request; no account, no plugin, nothing special required.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-60137 · CVSS: 9.1/10 — Critical severity SQL injection in WordPress core enabling unauthenticated RCE; chained with CVE-2026-63030 (CVSS 7.5, REST API route confusion).</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Microsoft Patch Tuesday + LegacyHive CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / SecurityWeek · Jul 15–18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/microsoft-patches-record-622-flaws.html" style="color:#111827;text-decoration:none;">Microsoft Patches Record 622 Flaws Including Two Actively Exploited Zero-Days; Researcher Drops Unpatched LegacyHive PoC Hours Later</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's July 2026 Patch Tuesday fixed a record 622 CVEs — including two actively exploited zero-days in ADFS (CVE-2026-56155) and SharePoint (CVE-2026-56164), a CVSS 9.8 SharePoint deserialization RCE (CVE-2026-58644) added to CISA's KEV catalog with a July 19 federal deadline — and hours later, researcher Nightmare Eclipse dropped "LegacyHive," a new unpatched Windows User Profile Service privilege-escalation PoC affecting all fully-patched Windows 10/11/Server.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All organizations running on-premises SharePoint Server (2016, 2019, Subscription Edition), Active Directory Federation Services, and essentially all Windows environments; federal agencies face mandatory patching of CVE-2026-58644 by July 19.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply July Patch Tuesday updates immediately, prioritizing SharePoint and ADFS; federal agencies must patch CVE-2026-58644 by July 19; monitor for Windows User Profile Service abuse (LegacyHive has no patch yet — restrict local user access as interim mitigation).</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [TA0004 - Privilege Escalation] T1548 · Abuse Elevation Control Mechanism<br>
+      <span style="color:#6b7280;">The LegacyHive exploit abuses the Windows User Profile Service's privilege elevation mechanism to load an administrator's registry hive under a standard user context, and the ADFS zero-day misuses the authentication server's own elevated token-issuance capabilities — both are textbook elevation control abuse.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        July 2026 Patch Tuesday is the largest Microsoft security release ever, patching 622 CVEs across Windows, Office, SharePoint, ADFS, Azure, and browser components — nearly triple the typical monthly volume. The two zero-days in active exploitation are CVE-2026-56155 (ADFS EoP, CVSS 7.8, credited to Microsoft's own DART incident response team — a sign that live attacks were observed) and CVE-2026-56164 (SharePoint EoP, CVSS 5.3, low attack complexity, unauthenticated remote exploitation). CISA separately added CVE-2026-58644 — a distinct SharePoint Server deserialization RCE with CVSS 9.8 — to its KEV catalog on July 17 with an unusually tight three-day remediation deadline, signaling escalated active exploitation.
+        <br><br>
+        Hours after the patches dropped, pseudonymous researcher Nightmare Eclipse published the "LegacyHive" PoC for a new, unpatched Windows User Profile Service bug. The flaw allows a standard user to load an administrator's registry hive (usrclass.dat) under their own registry root via a path-switching race, gaining read-write access to admin registry data. Unlike earlier Nightmare Eclipse drops, this PoC was released in stripped form to slow weaponization, but no Microsoft patch exists and all supported Windows versions are affected. Organizations should treat this as a gap in their July patching — even fully patched Windows systems remain exposed.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> "Patch Tuesday" is Microsoft's monthly security update, but this one broke all records — like a doctor delivering 622 prescriptions in one visit. Two of the patches are "urgent" because attackers are already using those exact holes in real attacks. To make it worse, the same day the patches came out, a security researcher published a new unplugged hole that even fully-patched Windows can't block yet.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-58644 · CVSS: 9.8/10 — Critical SharePoint Server deserialization enabling unauthenticated RCE; CISA-confirmed active exploitation with July 19 federal patch deadline.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: SAP NetWeaver HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/sap-patches-cvss-99-netweaver-abap-flaw.html" style="color:#111827;text-decoration:none;">SAP Patches CVSS 9.9 NetWeaver ABAP Flaw That Could Allow Data Exposure, Modification, or System Crash</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> SAP's July 2026 Patch Day addressed CVE-2026-44747 (CVSS 9.9), a near-maximum-severity out-of-bounds write in the NetWeaver Application Server ABAP kernel that allows an authenticated attacker to trigger memory corruption leading to unauthorized data access, data modification, or full system unavailability.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises running SAP NetWeaver AS ABAP kernel lines 7.22 through 9.20, primarily large organizations in manufacturing, finance, and government that depend on SAP ERP for payroll, financials, and supply chain operations.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply SAP Security Note for CVE-2026-44747 during the next maintenance window; as a temporary workaround, disable affected ICF nodes via transaction SICF; plan for downtime as this is a kernel-level patch.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [TA0040 - Impact] T1565.001 · Data Manipulation: Stored Data Manipulation<br>
+      <span style="color:#6b7280;">An attacker exploiting the memory corruption in SAP's ABAP kernel can overwrite SAP database records — financial transactions, payroll entries, or configuration data — directly in persistent storage, making this a stored data manipulation scenario with severe business integrity consequences.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-44747 is an out-of-bounds write in SAP's ABAP runtime kernel — the core execution engine for the world's most widely deployed ERP platform. An authenticated attacker (any SAP user with standard dialog login access) can send specially crafted ABAP function calls that exploit logical errors in the kernel's memory management to write past the end of allocated buffers. This corrupts adjacent kernel memory structures, potentially enabling arbitrary data reads (exposing credentials, financial records, HR data), arbitrary data writes (falsifying accounting entries or configurations), or denial of service. The flaw spans ABAP kernel lines 7.22 through 9.20, covering a broad range of SAP deployments.
+        <br><br>
+        The severity of CVE-2026-44747 is particularly alarming in enterprise context: SAP systems sit at the operational heart of thousands of Fortune 500 companies, processing payroll, financial transactions, and regulated supply-chain data. An attacker with any SAP user credential — obtained through phishing or credential stuffing — could escalate to data manipulation across the entire ERP landscape. SAP security firm Onapsis notes that a kernel-level fix requires planned downtime, but a temporary workaround (disabling specific ICF nodes via SICF) can reduce exposure while the patch window is scheduled.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SAP is the business software that runs finances and operations for thousands of the world's largest companies. This bug means that any SAP user — including low-level employees — can potentially corrupt or expose the company's financial records and payroll data by exploiting a flaw in how the software manages computer memory. Think of it as a cashier being able to reach into the bank vault just by pressing the wrong key combination.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-44747 · CVSS: 9.9/10 — Near-maximum severity out-of-bounds write in SAP ABAP kernel; impacts confidentiality, integrity, and availability across authenticated SAP sessions.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Oracle EBS HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Jul 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-oracle-flaw-by-saturday/" style="color:#111827;text-decoration:none;">CISA Orders Feds to Patch Actively Exploited Oracle E-Business Suite Takeover Flaw — Deadline Today</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA confirmed active exploitation of CVE-2026-46817 (CVSS 9.8), an unauthenticated privilege takeover in Oracle E-Business Suite's Payments module, and ordered all U.S. federal agencies to patch by today (July 18) — an unusually aggressive 3-day remediation window after the KEV addition on July 15.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Oracle E-Business Suite versions 12.2.3–12.2.15 with the Payments module network-exposed; Shadowserver tracks 1,000+ internet-facing Oracle EBS instances, over half in the United States.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Oracle's fix from the May 2026 Critical Patch Update immediately; restrict network access to the Oracle Payments API to trusted IP ranges; monitor for unauthenticated HTTP access attempts to payment API endpoints.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [TA0001 - Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers send unauthenticated HTTP requests to Oracle EBS's internet-exposed Payments API endpoint, exploiting the improper privilege management flaw to achieve a full component takeover of the payment-processing system without requiring any credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-46817 is an improper privilege management flaw in Oracle EBS's Payments component, where an unauthenticated HTTP request to the payments API endpoint can trigger a full component takeover — granting access to payment processing records, configurations, and connected financial systems. The vulnerability was patched in Oracle's May 2026 Critical Patch Update but went largely unnoticed until Defused reported targeted exploitation on June 27, initially as a single-source proof-of-concept. CISA's July 15 KEV addition with a three-day deadline is a strong signal that exploitation has since escalated beyond isolated PoC testing to broader active attacks.
+        <br><br>
+        The threat is particularly serious for government and financial organizations: Oracle EBS is widely used in federal agencies and large enterprises for payment processing, procurement, and financial management. With 1,000+ internet-exposed instances tracked by Shadowserver (half in the US), any organization that has not applied the May 2026 patch and left the Payments API publicly reachable should assume active targeting. The financial crime implications of a payment system takeover — including redirect of transactions, exposure of banking credentials, and fraud — are severe.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Oracle E-Business Suite is the financial and accounting software used by governments and large corporations worldwide. This vulnerability means anyone on the internet — no username or password needed — can send a special web request and take control of the payment-processing component. Imagine being able to redirect bank transfers without logging in. CISA was so alarmed they gave U.S. government agencies only 3 days to fix it.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-46817 · CVSS: 9.8/10 — Critical unauthenticated privilege takeover in Oracle EBS Payments; CISA-confirmed active exploitation with the most aggressive federal patch deadline of 2026 so far.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: Scattered Spider HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/two-scattered-spider-hackers-get-55.html" style="color:#111827;text-decoration:none;">Two Scattered Spider Hackers Sentenced to 5.5 Years Each for £29M Transport for London Cyberattack</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Owen Flowers (18) and Thalha Jubair (20), members of the Scattered Spider cybercrime collective, were sentenced to five years and six months each at Woolwich Crown Court for the 2024 vishing and credential-theft attack on Transport for London that cost £29 million and knocked 148 systems offline.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Transport for London and its 27,000 employees suffered data exposure and costly remediation; the verdict sets precedent for prosecuting social-engineering-based cybercrime under the most serious tier of UK computer law (Section 3ZA CMA).</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Organizations should audit IT help-desk authentication procedures, require phishing-resistant MFA hardware tokens, and run vishing simulation exercises — Scattered Spider's primary entry method is social engineering of help desks, not technical exploits.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [TA0001 - Initial Access] T1656 · Impersonation<br>
+      <span style="color:#6b7280;">Scattered Spider members impersonated TfL employees in vishing calls to the IT help desk, convincing support staff to reset 2FA on targeted accounts — demonstrating how identity-based impersonation bypasses even well-configured technical authentication controls entirely.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        The TfL attack began with Flowers and Jubair purchasing partial employee credentials from criminal forums, then launching a series of vishing calls to TfL's IT help desk. By impersonating employees who had "forgotten their password," they persuaded support staff — across multiple attempts — to reset multi-factor authentication on targeted employee accounts. Once inside, they moved laterally across 148 TfL systems, accessing databases containing employee and customer personal data. Although bus and train services continued uninterrupted, remediation costs climbed to £29 million ($39M USD) and all 27,000 employees were required to appear in person to reset passwords.
+        <br><br>
+        The sentencing is historically significant: this is only the second prosecution under Section 3ZA of the UK's Computer Misuse Act 1990, a provision reserved for the most serious cyber offenses with potential maximum sentences of life imprisonment. Both defendants received a 15% discount for guilty pleas entered in June. For defenders, the case is a stark reminder that Scattered Spider has never relied on zero-days or sophisticated malware — their entire operational model depends on social engineering, and help-desk authentication remains one of the most exploited gaps in enterprise security.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Scattered Spider is a loose gang of young English-speaking hackers who don't use complex malware — they just call IT helpdesks and pretend to be confused employees who forgot their passwords. Once they trick someone into resetting their 2-factor security code, they walk right in. They've done this to MGM Resorts, Caesars Entertainment, and dozens more. Now two of them are going to prison for 5.5 years for doing it to London's public transit system.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned — social engineering attack · The £29M remediation cost and 148 compromised systems make this one of the most costly vishing-based attacks in UK history.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Scattered Spider -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Scattered Spider</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal hacking collective · Also known as: 0ktapus, UNC3944, Muddled Libra, Starfraud</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Large corporations, telecoms, hospitality, financial services, and technology companies — primarily English-speaking Western organizations</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Social engineering and vishing of IT help desks, SIM swapping, MFA bypass, and living-off-the-land post-compromise; responsible for attacks on MGM Resorts ($100M+ operational impact), Caesars Entertainment, Twilio, Cloudflare, and Transport for London</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Container Escape ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Containers (like Docker or Kubernetes pods) isolate processes by using Linux kernel features — namespaces and cgroups — to make each container think it's alone on the machine, even though many share the same underlying host kernel. A container escape is when an attacker running code inside a container exploits a vulnerability — usually in the host kernel itself — to break through that isolation boundary and gain access to the underlying host operating system and all other containers on the same machine. The GhostLock flaw is a textbook container escape: because all containers share the same kernel, a kernel-level bug that gives root access inside one container simultaneously grants root access to the entire host and every other tenant workload running on it.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: EoP · Vishing · OOB Write · DoS · SSO ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">EoP</strong> — Elevation of Privilege; a vulnerability class where an attacker with limited access exploits a flaw to gain higher-level system rights, such as local administrator, SYSTEM, or domain admin.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Vishing</strong> — Voice phishing; a social-engineering attack where criminals impersonate trusted parties (IT support, banks, executives) by telephone to trick targets into revealing credentials or resetting security controls like MFA.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">OOB Write</strong> — Out-of-Bounds Write; a memory corruption flaw where software writes data past the end of an allocated buffer, potentially allowing an attacker to overwrite adjacent memory structures and gain code execution or privilege escalation.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">DoS</strong> — Denial of Service; an attack that makes a system, service, or network resource unavailable to legitimate users by overwhelming it with traffic or exploiting a flaw that causes a crash or excessive resource consumption.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">SSO</strong> — Single Sign-On; an authentication scheme that allows users to log in once and access multiple applications without re-entering credentials; Active Directory Federation Services (ADFS) is Microsoft's enterprise SSO platform, making ADFS zero-days particularly high-value for attackers targeting federated environments.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html" style="color:#374151;text-decoration:none;">OpenSSL HollowByte Flaw Could Freeze Server Memory with 11-Byte TLS Requests</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+    <div style="font-size:12px;color:#6b7280;margin-top:3px;">An unauthenticated attacker can exhaust a server's memory by sending an 11-byte malicious TLS payload that tricks OpenSSL into pre-allocating a massive buffer before any authentication occurs. Fixed in OpenSSL 4.0.1 / 3.6.3 / 3.5.7 / 3.4.6 / 3.0.21 (June 9) with no CVE or advisory issued — organizations must monitor changelogs to catch this "silent patch." 🎯 [TA0040 - Impact] T1499.004 · Application or System Exploitation</div>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://therecord.media/genetic-testing-settlement-data-breach" style="color:#374151;text-decoration:none;">23andMe Pays $18M in Multistate Settlement Over 2023 Genetic Data Breach Affecting 6.9M Customers</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Record</span>
+    <div style="font-size:12px;color:#6b7280;margin-top:3px;">A coalition of 43 attorneys general secured an $18M settlement from bankrupt 23andMe for failing to prevent a 2023 credential-stuffing attack that exposed genetic ancestry data for 6.9 million customers, some sold on dark-web forums. Settlement requires 23andMe to implement MFA, rate limiting, and a security advisory board. 🎯 [TA0001 - Initial Access] T1110.004 · Credential Stuffing</div>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Jul 18, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
