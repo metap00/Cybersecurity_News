@@ -1,14 +1,15 @@
 {
-  "til": ["Container Escape", "Server-Side Request Forgery (SSRF)", "Deserialization Attack", "DLL Sideloading", "Kernel Privilege Escalation", "BYOVD", "Race Condition"],
-  "glossary": ["EoP", "Vishing", "OOB Write", "DoS", "SSO", "Secure Boot", "SSRF", "ADFS", "Bootkit", "OFAC", "Cryptor", "Patch Tuesday", "Futex", "SAM", "Dead Drop C2", "Domain Fronting", "Deserialization", "Phantom Squatting", "CVE", "KEV", "OAuth", "UAF", "TOCTOU", "APT", "DLL Sideloading", "Zero-Day", "CISA", "Kernel", "IDE", "ShinyHunters", "Storm-2603", "RaaS", "BYOVD", "SD-WAN", "LPE", "Session Token", "RMM", "PoC", "BOD", "NetScaler", "Dwell Time", "Double Extortion", "Heap Buffer", "Memory Disclosure", "Command Injection", "KVM", "Hypervisor", "RAT", "npm", "CI/CD"],
+  "til": ["Server-Side Request Forgery (SSRF)", "Deserialization Attack", "DLL Sideloading", "Kernel Privilege Escalation", "BYOVD", "Race Condition", "Blockchain C2"],
+  "glossary": ["SSRF", "ADFS", "Bootkit", "OFAC", "Cryptor", "Patch Tuesday", "Futex", "SAM", "Dead Drop C2", "Domain Fronting", "Deserialization", "Phantom Squatting", "CVE", "KEV", "OAuth", "UAF", "TOCTOU", "APT", "DLL Sideloading", "Zero-Day", "CISA", "Kernel", "IDE", "ShinyHunters", "Storm-2603", "RaaS", "BYOVD", "SD-WAN", "LPE", "Session Token", "RMM", "PoC", "BOD", "NetScaler", "Dwell Time", "Double Extortion", "Heap Buffer", "Memory Disclosure", "Command Injection", "KVM", "Hypervisor", "RAT", "npm", "CI/CD", "wp2shell", "Blockchain C2", "Typosquatting", "SMA", "Inc Ransomware", "TetrisPhantom"],
   "week": {
-    "critical": 22,
-    "high": 29,
-    "medium": 21,
-    "techniques": ["T1068", "T1190", "T1548", "T1565.001", "T1656", "T1499.004", "T1110.004", "T1112", "T1210", "T1114.002", "T1213", "T1078", "T1539", "T1059.003", "T1611", "T1486", "T1195", "T1090", "T1059", "T1550", "T1566", "T1203", "T1505.003", "T1621", "T1204.002", "T1195.002", "T1602", "T1059.007", "T1528", "T1219", "T1134", "T1133", "T1542.003", "T1036.005", "T1490", "T1070", "T1071.001", "T1608.001", "T1599", "T1195.001", "T1212", "T1083"],
-    "actors": ["Scattered Spider", "ShinyHunters", "Cl0p", "UAT-8616", "Anubis", "Qilin", "JADEPUFFER", "Armored Likho", "UNK_MassTraction", "Helix", "Silver Fox", "FSB Center 16 (Berserk Bear)", "D1R"]
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "techniques": [],
+    "actors": []
   },
   "digests": [
+    {"date": "2026-07-19", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
     {"date": "2026-07-18", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
     {"date": "2026-07-17", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-07-16", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 4},

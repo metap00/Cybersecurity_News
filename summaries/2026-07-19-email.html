@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 19, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 3 critical · 3 high · ~11 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-19.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: SonicWall / Inc Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Dark Reading · Jul 14, 2026</span>
+  </div>
+  <a href="https://www.darkreading.com/vulnerabilities-threats/inc-ransomware-exploits-sonicwall-sma-zero-days" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Inc Ransomware Chains Two SonicWall SMA1000 Zero-Days (CVSS 10.0 + 7.2) for Root Network Access</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Inc ransomware actors are chaining CVE-2026-15409 (CVSS 10.0 SSRF) with CVE-2026-15410 (CVSS 7.2 code injection) in SonicWall SMA 1000 appliances to gain unauthenticated root-level control and stage ransomware deployments.</div>
+    <div style="margin-top:2px;">👤 Enterprises running SonicWall SMA6210, SMA7210, or SMA8200v without hotfix 12.4.3-03453 or 12.5.0-02835 are exposed and should treat affected appliances as potentially compromised.</div>
+    <div style="margin-top:2px;">✅ Apply the SonicWall hotfix immediately, rotate credentials that transited the appliances, and hunt for lateral movement or ransomware staging activity.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: WordPress wp2shell -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 17, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">WordPress wp2shell (CVE-2026-63030, CVSS 9.8): Unauthenticated RCE in Tens of Millions of Default Sites — Emergency Patch Released</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-63030 chains REST API route confusion with SQL injection to allow unauthenticated attackers to execute arbitrary PHP code on any default WordPress 6.9–7.0.1 installation with no plugins or special configuration required.</div>
+    <div style="margin-top:2px;">👤 Tens of millions of websites globally running WordPress 6.9 through 7.0.1 are affected; WordPress.org has activated forced automatic updates for vulnerable versions.</div>
+    <div style="margin-top:2px;">✅ Verify your WordPress version is 6.9.5 or 7.0.2 or later; sites with auto-updates disabled must update manually through the dashboard or wp-cli immediately.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 3: Abbott / ShinyHunters -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 18, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Abbott Laboratories Probes Two Simultaneous Breaches: ShinyHunters via Vishing + ShadowByt3$ via API Exploit</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 ShinyHunters used vishing calls in mid-June to obtain Entra SSO credentials and access Abbott's Cancer Diagnostics systems; a separate actor (ShadowByt3$) has been slowly exfiltrating data through Abbott's LabCentral customer portal since July 4, with data-release deadline extended to July 21.</div>
+    <div style="margin-top:2px;">👤 Patients and partners of Abbott's Cancer Diagnostics and Core Laboratory businesses may have diagnostic and customer data at risk; scope of both breaches remains unconfirmed.</div>
+    <div style="margin-top:2px;">✅ Healthcare organizations using Abbott services should monitor for suspicious communications and prepare for formal breach notifications; rotate any API tokens or shared credentials used with Abbott integrations.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1566.004 · Phishing: Vishing</div>
+</div>
+
+<!-- STORY 4: SharePoint CVE-2026-58644 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA · Jul 19, 2026</span>
+  </div>
+  <a href="https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-urges-sharepoint-hardening-after-new-exploitations" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA Deadline Arrives Today for SharePoint RCE CVE-2026-58644 (CVSS 9.8) Still Chained in Active Attacks</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-58644, a CVSS 9.8 deserialization RCE flaw in all supported on-premises SharePoint Server versions, reaches its CISA binding remediation deadline today as attackers continue chaining it with three additional SharePoint CVEs to steal IIS machine keys and establish persistent footholds.</div>
+    <div style="margin-top:2px;">👤 Federal civilian agencies risk non-compliance; private organizations running SharePoint Server 2016, 2019, or Subscription Edition on-premises are equally exposed to the active chained exploitation campaign.</div>
+    <div style="margin-top:2px;">✅ Apply the July 14 Microsoft cumulative update for SharePoint Server immediately; if impossible today, restrict network access and enable enhanced authentication logging on all SharePoint servers.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- STORY 5: ViteVenom -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 17, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/seven-malicious-vite-npm-packages-use.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">ViteVenom: 7 Malicious npm Packages Use 4-Tier Blockchain C2 Across Tron, Aptos, and BNB Chain to Deploy Developer RAT</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 SuccessKey planted seven malicious npm packages impersonating @vitejs/* namespace (published June 29–July 3) delivering a RAT controlled via immutable blockchain C2 that enables reverse shells, credential harvesting, file exfiltration, and backdoor injection — executing at import time to bypass install-time security tools.</div>
+    <div style="margin-top:2px;">👤 JavaScript and frontend developers using Vite-ecosystem packages installed in late June or early July may have compromised development environments and CI/CD pipelines.</div>
+    <div style="margin-top:2px;">✅ Audit npm dependencies for suspicious @vitejs-scoped packages from June–July 2026; remove flagged packages, rotate all credentials and API keys in your dev environment, and check CI/CD pipelines for backdoor injections.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.002 · Supply Chain: Compromise Software Dependencies</div>
+</div>
+
+<!-- STORY 6: GoSerpent -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Securelist / Kaspersky · Jul 17, 2026</span>
+  </div>
+  <a href="https://securelist.com/goserpent-backdoor-in-southeast-asia/120687/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">GoSerpent: Undiscovered Nation-State Backdoor Has Silently Harvested SE Asian Government Data Since 2021</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Kaspersky's GReAT disclosed GoSerpent, a previously unknown Go-based RAT active since 2021 targeting Southeast Asian police, biometric, criminal, and diplomatic databases — staging files locally for weeks before bulk-exfiltrating through network shares to minimize detection; new tooling deployed May 2026.</div>
+    <div style="margin-top:2px;">👤 Government ministries, police agencies, diplomatic missions, and national identity registries across Southeast Asia may have had sensitive data silently exfiltrated for years.</div>
+    <div style="margin-top:2px;">✅ Threat hunt for GoSerpent IoCs from Kaspersky's Securelist disclosure; audit network shares for unauthorized staging directories and review outbound bulk transfer logs.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Collection] T1074.001 · Data Staged: Local Data Staging</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/accenture-confirms-breach-after-hacker-offers-stolen-data-for-sale/" style="color:#374151;text-decoration:none;">Accenture Confirms Breach: 35GB Including Source Code, SSH Keys, and Azure PATs Stolen by "888"</a>
+    <span style="color:#9ca3af;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-july-2026-patch-tuesday-fixes-massive-570-flaws-3-zero-days/" style="color:#374151;text-decoration:none;">Microsoft July 2026 Patch Tuesday: Record 622 CVEs Including ADFS Zero-Day CVE-2026-56155 and BitLocker Bypass CVE-2026-50661</a>
+    <span style="color:#9ca3af;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <span style="color:#374151;">TfL Hackers Owen Flowers and Thalha Jubair Sentenced to 5.5 Years for 2024 Cyberattack Crippling 148 Systems</span>
+    <span style="color:#9ca3af;"> · Woolwich Crown Court</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-19.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards · Week in Review</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Jul 19, 2026</div>
+
+</body>
+</html>

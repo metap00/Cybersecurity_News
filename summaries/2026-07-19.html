@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Jul 19, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 19, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 3 critical · 3 high · 2 medium · ~11 min read</div>
+</div>
+
+<!-- STORY 1: SonicWall / Inc Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Dark Reading · Jul 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.darkreading.com/vulnerabilities-threats/inc-ransomware-exploits-sonicwall-sma-zero-days" style="color:#111827;text-decoration:none;">Inc Ransomware Chains Two SonicWall SMA1000 Zero-Days for Root-Level Network Access</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Inc ransomware actors are chaining two patched zero-days in SonicWall SMA 1000 Series remote-access appliances — a CVSS 10.0 unauthenticated SSRF (CVE-2026-15409) and a CVSS 7.2 post-auth code injection flaw (CVE-2026-15410) — to achieve root-level command execution and stage ransomware deployments across enterprise networks.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running SonicWall SMA6210, SMA7210, or SMA8200v appliances that have not applied hotfix 12.4.3-03453 or 12.5.0-02835 are exposed and should treat any internet-facing SMA 1000 as potentially compromised.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply SonicWall hotfix 12.4.3-03453 or 12.5.0-02835 immediately; rotate all credentials that may have transited these appliances; hunt for lateral movement indicators and ransomware staging activity in affected networks.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">CVE-2026-15409 exploits the SMA1000 Work Place portal from the open internet, giving Inc ransomware an unauthenticated foothold before chaining to CVE-2026-15410 for full root-level control of the VPN gateway.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">SonicWall's SMA 1000 Series appliances are internet-facing VPN and remote-access gateways used by enterprises to secure employee connections. Rapid7's Managed Detection &amp; Response team discovered Inc ransomware actors actively chaining two vulnerabilities to gain unauthenticated root access: CVE-2026-15409 (CVSS 10.0) is a server-side request forgery flaw in the SMA1000 Work Place web portal that lets an attacker force the appliance to make requests to arbitrary hosts, establishing initial code execution. CVE-2026-15410 (CVSS 7.2) is a code injection vulnerability in the Appliance Management Console that escalates from that toehold to full root-level OS command execution.</p>
+        <p style="margin:0 0 10px;">Once inside at root, Inc actors sweep victim networks for credentials, conduct lateral movement, and prepare ransomware payloads. CISA added both CVEs to its Known Exploited Vulnerabilities catalog on July 14. SonicWall has released hotfixes and urges immediate patching; organizations should also rotate any credentials that may have been in scope on compromised appliances.</p>
+        <p style="margin:0;">The chaining pattern here is notable: a CVSS 10.0 unauthenticated SSRF alone would not yield code execution, but combined with the authenticated code injection, attackers bypass the authentication requirement of the second bug by using SSRF to obtain enough internal context to satisfy it. This "vulnerability chaining" is increasingly common among sophisticated ransomware groups seeking guaranteed entry.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of SonicWall's SMA appliance as the corporate front door for remote workers. CVE-2026-15409 lets an attacker knock on that door and trick it into opening a side window (SSRF — it makes requests on the attacker's behalf). CVE-2026-15410 then lets the attacker climb through that window and take over the entire building's computer system as an administrator. Once they have that level of control, Inc ransomware locks all your company's files and demands a ransom payment.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-15409 · CVSS: 10.0/10 — A perfect score reflecting remote exploitation with no credentials, no user interaction, and direct impact on enterprise network perimeter infrastructure.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Inc Ransomware -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Inc Ransomware</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal · Ransomware-as-a-Service · Attributed to: Unknown (Eastern European suspected)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Healthcare organizations, education institutions, manufacturing, and critical infrastructure globally</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double extortion via inc-ransom.com leak site; living-off-the-land lateral movement to avoid detection; sophisticated pre-encryption credential sweeping; active exploitation of zero-days in internet-facing remote access appliances</div>
+</div>
+
+<!-- STORY 2: WordPress wp2shell -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 17, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html" style="color:#111827;text-decoration:none;">WordPress wp2shell (CVE-2026-63030): Unauthenticated RCE in Tens of Millions of Default Sites — Patch Now</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researchers disclosed CVE-2026-63030 ("wp2shell"), a critical pre-authentication remote code execution vulnerability in WordPress core 6.9–7.0.1 that chains REST API route confusion with SQL injection to let anonymous attackers execute arbitrary PHP code on any unpatched default installation.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any website running WordPress 6.9 through 7.0.1 — estimated at tens of millions of sites globally — is vulnerable, with no plugins or special configuration required for exploitation.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Verify your WordPress version is 6.9.5, 7.0.2, or later; WordPress.org forced automatic updates for affected versions, but sites with auto-updates disabled must update manually via the dashboard or wp-cli.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">wp2shell exploits WordPress's REST API batch endpoint — a public-facing web interface — requiring zero authentication to chain REST route confusion with SQL injection into full remote code execution on the underlying server.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">WordPress powers an estimated 40% of all websites on the internet, making wp2shell one of the most consequential core vulnerabilities in years. The flaw was introduced in WordPress 6.9 with an update to the REST API batch endpoint, which allows multiple API requests to be processed in a single call. A specific sequence of a malformed batch route combined with a SQL injection payload allows an unauthenticated attacker — no account, no plugins, default installation — to escalate from API access to arbitrary PHP code execution on the server. WordPress 6.8 and earlier contain only the SQL injection component (not the RCE chain) and received a separate lower-severity fix in 6.8.6.</p>
+        <p style="margin:0 0 10px;">WordPress released emergency updates (6.9.5 and 7.0.2) on July 17 and activated forced automatic updates across the platform — a rare step reserved for the most severe vulnerabilities. Managed hosting providers (WP Engine, Kinsta, WordPress.com) typically push these automatically, but self-hosted sites with auto-updates disabled must act manually. No public exploit code has been released yet, but given the trivial attack surface and the volume of affected sites, weaponization is expected imminently.</p>
+        <p style="margin:0;">The vulnerability's "pre-auth" nature is what makes it uniquely dangerous: there is no authentication bypass to chain, no credential to steal, no special endpoint to discover. Any WordPress site running a vulnerable version is exposed to every scanner on the internet.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> WordPress is software that powers millions of blogs, news sites, and online stores. This vulnerability means an attacker doesn't need a username or password — they can just send a specially crafted request to your WordPress site's built-in API and take over the entire server. Picture finding a hidden slot in a bank vault door that, if you insert the right oddly-shaped key anyone can make at home, opens the door without needing any account credentials.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-63030 · CVSS: 9.8/10 — Near-perfect score reflects unauthenticated network exploitation, low attack complexity, and critical impact on confidentiality, integrity, and availability of any default WordPress installation.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Abbott / ShinyHunters -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/" style="color:#111827;text-decoration:none;">Abbott Laboratories Hit by Two Simultaneous Breaches: ShinyHunters via Vishing, ShadowByt3$ via API Exploit</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Abbott Laboratories confirmed it is investigating two separate breaches: ShinyHunters claims to have compromised Cancer Diagnostics (Exact Sciences) systems via vishing attacks in mid-June that yielded Microsoft Entra SSO credentials, while a separate actor (ShadowByt3$) claims to have exfiltrated data through a vulnerability in Abbott's LabCentral customer portal API since July 4.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Patients, healthcare providers, and research partners of Abbott's Cancer Diagnostics and Core Laboratory businesses face potential exposure of diagnostic test results and customer records; Abbott has not yet quantified the scope of either breach.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Healthcare organizations using Abbott services should monitor for suspicious communications and await formal breach notifications; individuals should be alert to targeted phishing leveraging any personal data potentially stolen.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1566.004 · Phishing: Vishing<br>
+      <span style="color:#6b7280;">ShinyHunters used vishing calls impersonating IT staff to deceive Abbott employees into surrendering Microsoft Entra SSO credentials in mid-June, converting a phone call into a persistent foothold inside Abbott's internal systems.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">Abbott Laboratories — a Fortune 500 medical devices and diagnostics company — finds itself simultaneously dealing with two unrelated attackers. The first incident involves ShinyHunters, which placed Abbott on its dark-web extortion site claiming data theft from internal Exact Sciences Cancer Diagnostics systems. According to the group, they conducted vishing calls against several Abbott employees in mid-June, impersonating IT or vendor staff, and convinced employees to provide credentials that gave them access to a Microsoft Entra (formerly Azure Active Directory) SSO account. This SSO compromise cascaded into access to internal systems. ShinyHunters set an initial data-release deadline of July 18, which Abbott declined to meet; the group has now extended the deadline to July 21.</p>
+        <p style="margin:0 0 10px;">The second incident involves an entirely separate threat actor, ShadowByt3$, who claims to have discovered a "weak point" in Abbott's LabCentral customer portal. Beginning July 4, they slowly exfiltrated data by targeting API endpoints, deliberately pacing the theft to avoid triggering volume-based detection rules. Neither actor has publicly released any stolen data as of this writing, leaving the full scope unknown. Abbott confirmed the Exact Sciences incident and stated it is investigating the LabCentral claim.</p>
+        <p style="margin:0;">The convergence of two independent breaches on the same organization simultaneously is a sobering reminder that enterprises face threats from multiple actors at once, and that defending against one attack vector (technical exploits) while neglecting another (social engineering) leaves critical gaps.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Abbott is a company that runs diagnostic labs — they process cancer tests, blood work, and other medical analyses. Attackers called Abbott employees on the phone, pretended to be IT support, and tricked them into handing over passwords. This is called "vishing" (voice phishing). With those passwords, hackers got into Abbott's systems as if they were real employees. At the same time, completely different hackers found a technical bug in Abbott's customer web portal and quietly stole data through it. Abbott is now dealing with two separate robberies — neither group is connected to the other.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — social engineering attack vector; no technical vulnerability exploited in the ShinyHunters incident.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: ShinyHunters -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">ShinyHunters</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal · Financially Motivated Extortion Gang · Attributed to: International (French-speaking members identified)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Large enterprises across tech, healthcare, retail, and media globally; frequently pursues high-value SSO and identity platform credentials</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Mass data theft via vishing and SSO credential compromise; responsible for Ticketmaster (2024), 100+ organizations via Oracle PeopleSoft zero-day (2026); aggressive extortion timelines and dark-web leak site pressure tactics; escalating targeting of healthcare and diagnostics firms in 2026</div>
+</div>
+
+<!-- STORY 4: SharePoint CVE-2026-58644 / CISA Deadline -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA · Jul 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-urges-sharepoint-hardening-after-new-exploitations" style="color:#111827;text-decoration:none;">CISA Deadline Arrives Today: SharePoint Deserialization RCE CVE-2026-58644 (CVSS 9.8) Still Being Chained in Active Attacks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA's binding remediation deadline for CVE-2026-58644 — a CVSS 9.8 deserialization remote code execution flaw in all supported on-premises SharePoint Server versions — arrives today (July 19), as threat actors continue chaining it with three additional SharePoint CVEs (CVE-2026-32201, CVE-2026-45659, CVE-2026-56164) to steal IIS machine keys and establish persistent footholds.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Federal civilian agencies that haven't patched face CISA non-compliance; private organizations running SharePoint Server 2016, 2019, or Subscription Edition on-premises are equally exposed to the active exploitation chain.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's July 14 cumulative update for SharePoint Server immediately; if patching is not possible today, restrict network access to SharePoint servers, enable enhanced logging, and monitor for IIS machine key access or unusual authentication events.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Attackers chain CVE-2026-58644 (unauthenticated RCE) with CVE-2026-56164 (missing-auth privilege escalation) to steal IIS machine keys, granting cryptographic control over all SharePoint-issued tokens and enabling persistent, credential-free re-entry into the environment.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">Microsoft's record July 2026 Patch Tuesday (622 CVEs total) included a cluster of four actively exploited SharePoint vulnerabilities. The most critical is CVE-2026-58644 (CVSS 9.8): a deserialization of untrusted data flaw that lets an unauthenticated attacker send a crafted HTTP request to an on-premises SharePoint server and execute arbitrary code. CISA added it to the Known Exploited Vulnerabilities catalog July 17 with a binding deadline of today for federal civilian agencies. Despite Microsoft's surprising "Moderate" rating on CVE-2026-56164 (CVSS 5.3), researchers and vendors unanimously criticized the label — the actual exploitability is far higher when chained with other bugs.</p>
+        <p style="margin:0 0 10px;">The attack chain mirrors the 2025 ToolShell campaign where Chinese nation-state actors (Linen Typhoon, Violet Typhoon) and the ransomware group Storm-2603 exploited on-premises SharePoint at scale. In the current wave, attackers exploit CVE-2026-58644 for initial code execution, then use CVE-2026-56164 (missing authentication for SharePoint privilege functions) to steal the IIS machine keys. Possessing these cryptographic keys allows an adversary to forge authentication tokens, effectively owning the SharePoint environment indefinitely without needing any user credentials.</p>
+        <p style="margin:0;">Organizations still running on-premises SharePoint should treat any unpatched server as potentially compromised. The same July Patch Tuesday also patched CVE-2026-56155 (ADFS privilege escalation, actively exploited) and CVE-2026-50661 (BitLocker encryption bypass, publicly disclosed).</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SharePoint is Microsoft's corporate file-sharing and collaboration platform used by governments and companies worldwide. A "deserialization" vulnerability means the server gets tricked into treating attacker-controlled data as trusted instructions, then runs those instructions with administrator-level power. CISA required government agencies to fix this today — any agency that missed the deadline not only faces a security breach, but also regulatory consequences.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-58644 · CVSS: 9.8/10 — Unauthenticated network-reachable deserialization leading to arbitrary code execution on enterprise file-sharing infrastructure; Microsoft July 2026 Patch Tuesday update required.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: ViteVenom npm -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 17, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/seven-malicious-vite-npm-packages-use.html" style="color:#111827;text-decoration:none;">ViteVenom: Seven Malicious npm Packages Use Blockchain C2 Across Three Chains to Deploy a Stealthy RAT on Developer Machines</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Checkmarx researchers discovered ViteVenom, a supply chain attack campaign by threat actor SuccessKey that planted seven malicious npm packages impersonating the @vitejs/* namespace, using a four-tier blockchain-based command-and-control infrastructure spanning Tron, Aptos, and Binance Smart Chain to deliver a remote access trojan (RAT) capable of reverse shells, credential harvesting, file exfiltration, and persistent backdoor injection.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> JavaScript and frontend developers who work with the Vite build tooling ecosystem and may have installed any of the seven scoped packages published between June 29 and July 3, 2026 — particularly those who installed dependencies without verifying the exact package scope.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit all npm dependencies for suspicious @vitejs-scoped packages installed in late June or early July; remove any flagged packages, rotate credentials and API keys stored in your development environment, and verify your CI/CD pipeline has not been compromised.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.002 · Supply Chain: Compromise Software Dependencies<br>
+      <span style="color:#6b7280;">SuccessKey planted seven scoped npm packages impersonating the official @vitejs/* namespace, poisoning the developer supply chain so that any project installing a ViteVenom package silently installs a fully functional RAT on the developer's machine and build environment.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">ViteVenom is the second campaign from threat actor SuccessKey, expanding on ChainVeil — an earlier operation notable for introducing four-tier blockchain-based C2 infrastructure to npm supply chain attacks. Unlike traditional C2 servers that can be seized by law enforcement or blocked by network defenders, blockchain transactions are immutable and globally distributed. The malware reads attacker instructions embedded in on-chain data across Tron, Aptos, and Binance Smart Chain — making the C2 channel virtually impossible to take down.</p>
+        <p style="margin:0 0 10px;">The seven malicious packages use scoped package names mimicking the official @vitejs organization (e.g., @vitejs/plugin-something-extra) to appear legitimate at a glance. A critical evasion twist: the malicious code does not execute at npm install time but only at import time — when a developer requires the package in their code. This bypasses many endpoint and CI security tools that monitor post-install scripts. Once imported, the RAT connects to the blockchain C2 and can receive commands for: interactive reverse shell access, harvesting credentials stored in browsers and configuration files, exfiltrating source code and secrets, and injecting persistent backdoor code into the developer's project.</p>
+        <p style="margin:0;">Evidence of SuccessKey's blockchain wallet activity dates to February 27, 2026, suggesting months of infrastructure preparation before the packages were published June 29–July 3. This reflects a maturing attacker with patience and resources uncommon in typical supply chain campaigns.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Developers use npm (Node Package Manager) to download pre-built code tools that save time. Attackers created fake packages with names that look almost identical to real, trusted tools (like changing "official-tool" to "0fficial-tool"). When a developer accidentally installs one, a hidden program (RAT) silently runs in the background. The clever twist: this RAT gets its instructions from the blockchain — the same technology behind Bitcoin — instead of a normal server, which means defenders cannot simply shut down a server to stop it.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — supply chain attack via malicious npm packages; blockchain C2 makes traditional takedown approaches ineffective.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: GoSerpent -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Securelist / Kaspersky · Jul 17, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securelist.com/goserpent-backdoor-in-southeast-asia/120687/" style="color:#111827;text-decoration:none;">GoSerpent: Nation-State Backdoor Has Silently Harvested Police, Biometric, and Diplomatic Data Across Southeast Asia Since 2021</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Kaspersky's GReAT team disclosed GoSerpent, a previously undocumented Go-based backdoor active since at least 2021 that has been quietly stealing police complaint records, biometric databases, criminal case files, and diplomatic communications from Southeast Asian governments, with a second-stage evolution adding new proxy RAT tooling in May 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Government ministries, police agencies, diplomatic missions, and national identity registries across Southeast Asian nations whose networks may have been silently compromised for years without detection.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Threat hunt for GoSerpent indicators of compromise (IoCs) published in Kaspersky's Securelist report; audit network shares for unauthorized staging directories; review outbound transfer logs for anomalous bulk data movement, particularly through network share protocols.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1074.001 · Data Staged: Local Data Staging<br>
+      <span style="color:#6b7280;">GoSerpent quietly accumulates police, biometric, and diplomatic files locally on compromised hosts for weeks or months before executing a single bulk exfiltration through a network share, deliberately minimizing the number of outbound transfers to avoid triggering data loss prevention tools.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">GoSerpent is a sophisticated, long-dwell espionage implant written in Go — a language choice that eases cross-platform compilation and can complicate static signature analysis. Kaspersky's Global Research and Analysis Team (GReAT) uncovered the campaign in February 2026 and has now assessed it as active since at least 2021, making it a five-year intelligence-gathering operation. Targets include government databases with exceptional intelligence value: police complaint management systems, biometric identity databases (fingerprints and facial recognition data), criminal case files, hotel and tenant records linked to national identity registries, and diplomatic networks.</p>
+        <p style="margin:0 0 10px;">The malware's signature behavior is extreme patience. Rather than immediately exfiltrating files — which would trigger network anomaly detection — GoSerpent silently copies and stages sensitive data locally over extended periods. When the staged archive reaches a threshold, the actor performs a single bulk transfer through a network share, minimizing outbound events. In May 2026, the threat actor returned with evolved capabilities: a new Stowaway proxy RAT, updated exfiltration tooling, and a secondary data-staging layer that harvested the months of previously accumulated files in one operation.</p>
+        <p style="margin:0;">Kaspersky assesses a probable link to TetrisPhantom — a China-attributed APT disclosed in 2023 known for targeting military and government entities in East and Southeast Asia — based on overlapping victim profiles, technical code similarities, and operational methodology. The five-year dwell time, if confirmed, would represent one of the most patient intelligence operations disclosed in the region.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> GoSerpent is a digital spy that has been secretly hiding inside government computer systems in Southeast Asia for potentially five years. Instead of stealing data immediately and getting caught, it acts like a very patient burglar who memorizes the location of valuables over months, then takes everything in one quiet trip. Governments in the region may not have known this spy was present in their most sensitive databases — police records, fingerprint databases, diplomatic messages — the entire time.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — nation-state malware campaign; IoCs available in Kaspersky Securelist report for threat hunting.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: TetrisPhantom (probable) -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor (Probable Attribution)</div>
+  <div style="font-weight:bold;font-size:15px;">TetrisPhantom</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State · Cyber Espionage · Attributed to: China (probable — Kaspersky assessment)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government ministries, military agencies, police forces, diplomatic missions, and national identity infrastructure across Southeast and East Asia</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> First disclosed by Kaspersky in 2023; specializes in long-dwell intelligence gathering from high-value government databases; patient operational tempo prioritizing stealth over speed; now linked to GoSerpent campaign spanning at least 2021–2026 with a second-stage evolution detected May 2026</div>
+</div>
+
+<!-- STORY 7: Accenture breach -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/accenture-confirms-breach-after-hacker-offers-stolen-data-for-sale/" style="color:#111827;text-decoration:none;">Accenture Confirms Breach: Threat Actor "888" Lists 35GB of Source Code, SSH Keys, and Azure Access Tokens for Sale</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A threat actor known as "888" posted 35GB of data allegedly stolen from Accenture on a cybercrime forum, including source code, RSA and SSH private keys, Azure personal access tokens, Azure Storage access keys, and configuration files; Accenture subsequently confirmed the breach after initially denying awareness of any incident.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Accenture itself and potentially enterprise clients whose Azure integrations may be linked to the stolen access tokens and SSH keys, creating potential for pivot attacks into client cloud environments.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Rotate all Azure PATs, SSH keys, RSA keys, and service credentials associated with Accenture integrations; audit any cross-tenant Azure configurations or service accounts Accenture manages on behalf of your organization.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1552.004 · Unsecured Credentials: Private Keys<br>
+      <span style="color:#6b7280;">"888" harvested unrotated private SSH and RSA keys along with Azure personal access tokens from Accenture's Azure DevOps repositories, turning long-lived credentials into direct, persistent access to cloud infrastructure and potentially to Accenture client environments.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">Threat actor "888" — previously linked to alleged breaches at Decathlon, Credit Suisse, Shell, Heineken, and UNICEF — listed Accenture data on a cybercrime forum in early July 2026. Screenshots shared by the attacker purportedly show them cloning an Azure DevOps repository named "121123_AtriasTalentAcademy" under an accenture.com hostname. The 35GB cache allegedly contains source code, RSA private keys, SSH private keys, Azure personal access tokens (PATs), Azure Storage access keys, and configuration files. Accenture initially told media it was "not aware of a cyberattack," then confirmed the breach the following day, stating there was "no impact to Accenture operations" and that the incident had been remediated.</p>
+        <p style="margin:0;">The real concern extends beyond Accenture's internal systems: as a global IT services and consulting giant, Accenture manages cloud infrastructure and integrations for hundreds of major corporations. Stolen Azure PATs and SSH keys — if not immediately rotated — could provide attackers a lateral entry point into client environments. The "isolated matter" framing from Accenture has drawn skepticism from the security community given the nature of credentials involved.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Accenture is one of the world's largest IT consulting companies — they help other companies manage their computer systems. A hacker stole a large cache of digital "keys" (SSH keys, Azure tokens) that are used to access computer servers and cloud accounts, then tried to sell them online. The danger: some of these keys might unlock not just Accenture's own systems, but also the systems of Accenture's clients.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — credential theft via repository access; immediate key rotation is the critical remediation step.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 8: TfL Sentencing -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Various · Jul 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;">Transport for London Hackers Sentenced to 5.5 Years for 2024 Cyberattack That Crippled 148 Systems</summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Owen Flowers (18) and Thalha Jubair (20) were each sentenced to five and a half years in prison at Woolwich Crown Court on July 16, 2026 for the 2024 cyberattack on Transport for London that rendered 148 systems inoperable and forced all 27,000 TfL employees to reset their passwords in person.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> The sentencing establishes an important UK legal precedent for prosecuting attacks on public transport infrastructure, reinforcing that major disruptions to national services carry significant custodial sentences even for young offenders.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Organizations managing critical national infrastructure should use this case in board-level risk discussions — the TfL attack's 148-system outage and mandatory in-person password resets for 27,000 staff illustrate the severe operational impact of inadequate identity resilience.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1531 · Account Access Removal<br>
+      <span style="color:#6b7280;">The 2024 TfL attack disrupted or invalidated credentials for all 27,000 staff accounts — demonstrating how attackers can weaponize identity disruption to maximize operational impact, forcing manual in-person recovery that paralyzed the organization for days.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">The sentencing of Owen Flowers and Thalha Jubair marks a significant moment in UK cybercrime prosecution: 5.5-year prison terms for individuals who were teenagers at the time of the 2024 attack. The incident left 148 TfL systems inoperable and triggered an unprecedented response — all 27,000 employees were required to report to an office in person to have their passwords reset, an operational disruption that took days to resolve. The attack highlighted the catastrophic "blast radius" that credential compromise can achieve when an identity infrastructure is not adequately segmented and protected.</p>
+        <p style="margin:0;">From a security posture perspective, the TfL case is a textbook study in why organizations must plan for credential recovery at scale. Requiring 27,000 in-person resets means your identity recovery plan cannot rely on self-service portals (which may themselves be compromised) — physical verification becomes the last line of defense. Organizations operating critical infrastructure should pre-plan tiered recovery procedures, including how to restore identity services when digital channels are compromised.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Transport for London runs the Tube, buses, and other transit across the city. Hackers broke into their systems in 2024 and caused such severe damage that all 27,000 employees — from ticket inspectors to IT managers — had to physically go to an office to get their passwords reset, because the online systems couldn't be trusted. Two young men involved in this attack were sentenced to over five years in prison, showing that cyberattacks on public services carry serious real-world consequences.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — sentencing outcome for 2024 attack; reference for critical infrastructure identity resilience planning.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Blockchain C2 ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Blockchain C2 (Command-and-Control) is a technique where malware retrieves its instructions not from a traditional server — which defenders can seize or block — but from transactions permanently recorded on public blockchains like Bitcoin, Ethereum, Tron, or Binance Smart Chain. The attacker simply publishes a small piece of encoded text in a blockchain transaction, and the malware reads it on its schedule; since blockchain records are immutable and decentralized, no single authority can remove the instructions or take down the "server." ViteVenom's use of a four-tier blockchain C2 spanning three separate chains represents the most sophisticated implementation seen to date, making takedown by any law enforcement agency or hosting provider effectively impossible as long as those blockchains operate.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: wp2shell · Blockchain C2 · Typosquatting · SMA · Inc Ransomware · TetrisPhantom ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">wp2shell</strong> — The informal name for CVE-2026-63030, a critical pre-authentication remote code execution vulnerability chain in WordPress core 6.9–7.0.1 that exploits the REST API batch endpoint via route confusion and SQL injection.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Blockchain C2</strong> — A command-and-control technique where malware retrieves attacker instructions from immutable, decentralized blockchain transactions rather than a traditional server, making infrastructure takedowns by law enforcement or hosting providers nearly impossible.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Typosquatting</strong> — A technique of registering package names, domain names, or usernames that closely mimic legitimate ones (e.g., using a zero instead of the letter "o") to trick developers, users, or automated systems into using the malicious version instead of the real one.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SMA</strong> — Secure Mobile Access; SonicWall's line of enterprise remote-access appliances that function as a VPN and application delivery gateway, allowing employees to securely connect to corporate networks from outside the office.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Inc Ransomware</strong> — A ransomware-as-a-service criminal operation active since 2023 known for double extortion (encrypting data and threatening to publish it on inc-ransom.com), living-off-the-land lateral movement techniques, and aggressive exploitation of zero-days in internet-facing remote access appliances.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">TetrisPhantom</strong> — A China-attributed advanced persistent threat (APT) group first disclosed by Kaspersky in 2023, specializing in long-dwell cyber espionage against government, military, and diplomatic targets in Southeast and East Asia, now probably linked to the GoSerpent backdoor campaign.
+    </div>
+  </div>
+</details>
+
+<!-- WEEK IN REVIEW (Sunday) -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:12px;">📅 Week in Review — Jul 13–19, 2026</div>
+  <div style="display:flex;gap:10px;margin-bottom:12px;">
+    <div style="flex:1;text-align:center;padding:10px;background:#fef2f2;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#dc2626;">25</div>
+      <div style="font-size:11px;color:#6b7280;">Critical</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fff7ed;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ea580c;">32</div>
+      <div style="font-size:11px;color:#6b7280;">High</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fefce8;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ca8a04;">23</div>
+      <div style="font-size:11px;color:#6b7280;">Medium</div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:#374151;margin-bottom:6px;"><strong>Top ATT&CK techniques:</strong> T1190 · T1566 · T1195.002 · T1068 · T1078 · T1074.001 · T1486</div>
+  <div style="font-size:13px;color:#374151;margin-bottom:10px;"><strong>Threat actors active this week:</strong> Scattered Spider · ShinyHunters · Inc Ransomware · Cl0p · Qilin · Armored Likho · FSB Center 16 (Berserk Bear) · SuccessKey · TetrisPhantom</div>
+  <div style="font-size:13px;color:#374151;line-height:1.6;padding:10px;background:#f8fafc;border-radius:4px;">The week of July 13–19 delivered one of the most exploit-dense periods of 2026, with 25 critical incidents anchored by zero-days in SonicWall VPN gateways, WordPress core, Microsoft SharePoint, and ADFS — all actively exploited in the wild simultaneously. Identity infrastructure and remote-access appliances emerged as the week's defining attack surface, with ransomware groups (Inc, Qilin, Cl0p), nation-state actors (TetrisPhantom, FSB Center 16), and financially motivated gangs (ShinyHunters, SuccessKey) converging on credential stores, SSO systems, and authentication chokepoints to maximize enterprise reach.</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-july-2026-patch-tuesday-fixes-massive-570-flaws-3-zero-days/" style="color:#374151;text-decoration:none;">Microsoft July 2026 Patch Tuesday: Record 622 CVEs Including ADFS Zero-Day CVE-2026-56155 and BitLocker Bypass CVE-2026-50661</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.techtimes.com/articles/320796/20260717/goserpent-backdoor-looted-police-biometric-data-across-southeast-asia-five-years.htm" style="color:#374151;text-decoration:none;">GoSerpent Backdoor Looted Police and Biometric Data Across Southeast Asia for Five Years, New Tooling Deployed May 2026</a>
+    <span style="color:#9ca3af;font-size:11px;"> · TechTimes</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Jul 19, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
