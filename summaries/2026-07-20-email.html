@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 20, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 3 critical · 3 high · ~10 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-20.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL — CVE-2026-58644 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 16, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/cisa-adds-exploited-sharepoint-rce-zero.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA Adds Exploited SharePoint RCE Zero-Day CVE-2026-58644 to KEV — Federal Deadline Was Yesterday</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Critical deserialization RCE in SharePoint Server (CVSS 9.8) was actively exploited as a zero-day before the July 14 patch, with CISA setting a federal remediation deadline of July 19.</div>
+    <div style="margin-top:2px;">👤 All organizations running on-premises SharePoint Server 2016, 2019, or Subscription Edition without the July Patch Tuesday update.</div>
+    <div style="margin-top:2px;">✅ Apply the July 2026 Patch Tuesday update immediately; also patch CVE-2026-56164 and audit IIS logs for machine key access.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: CRITICAL — Conduent 62.2 Million -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">HIPAA Journal · Jul 15, 2026</span>
+  </div>
+  <a href="https://www.hipaajournal.com/conduent-business-solutions-data-breach/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Conduent Breach Hits 62.2 Million — Third-Largest US Healthcare Breach on Record</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 SafePay ransomware's attack on healthcare BPO Conduent (Oct 2024–Jan 2025) is now confirmed to have exposed 62.2 million individuals — roughly 1 in 5 Americans — making it the third-largest US healthcare breach ever.</div>
+    <div style="margin-top:2px;">👤 Patients across US states whose insurers use Conduent for claims processing, including 15M+ Texas residents.</div>
+    <div style="margin-top:2px;">✅ Watch for HIPAA breach notifications; freeze credit; report suspicious medical billing; check HHS Office for Civil Rights breach portal.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1486 · Data Encrypted for Impact · Threat Actor: SafePay Ransomware Group</div>
+</div>
+
+<!-- STORY 3: CRITICAL — LegacyHive -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 14, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/new-windows-legacyhive-zero-day-exploit-grants-hackers-admin-access/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">LegacyHive: Unpatched Windows Zero-Day PoC Grants Admin Access on All Fully Patched Systems</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Researcher Nightmare Eclipse released a working PoC exploit for an unpatched Windows User Profile Service privilege escalation affecting all supported Windows 10, 11, and Server versions — no patch exists.</div>
+    <div style="margin-top:2px;">👤 Every organization running Windows 10, 11, or Server 2016/2019/2022, even fully patched as of July 14.</div>
+    <div style="margin-top:2px;">✅ Monitor User Profile Service events (ID 1511/1515/1530); restrict local logon on sensitive servers; await Microsoft advisory and out-of-band patch.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- STORY 4: HIGH — Patch Tuesday Zero-Days -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 14, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-july-2026-patch-tuesday-fixes-massive-570-flaws-3-zero-days/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Microsoft Patch Tuesday: Two Actively Exploited Zero-Days in SharePoint and AD FS Among Record 622 CVEs</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-56164 (SharePoint unauthenticated EoP enabling IIS machine key theft) and CVE-2026-56155 (AD FS token-forging, found during active incident response) were both exploited before July 14 patches.</div>
+    <div style="margin-top:2px;">👤 Enterprises running on-premises SharePoint Server and Active Directory Federation Services, particularly those with federated SSO infrastructure.</div>
+    <div style="margin-top:2px;">✅ Apply Patch Tuesday updates; audit AD FS token logs for anomalous issuance; review SharePoint IIS logs for machine key extraction.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1134 · Access Token Manipulation</div>
+</div>
+
+<!-- STORY 5: HIGH — Accenture Breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 8, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/accenture-confirms-breach-after-hacker-offers-stolen-data-for-sale/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Accenture Confirms Breach After Hacker "888" Puts 35GB of Source Code and Cloud Keys Up for Sale</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Threat actor "888" exfiltrated 35GB from Accenture's Azure DevOps including source code, Azure PATs, SSH and RSA keys; data posted for sale on PwnForums with Accenture confirming the intrusion.</div>
+    <div style="margin-top:2px;">👤 Accenture's enterprise clients whose applications and infrastructure may have been accessible using the stolen credentials and keys.</div>
+    <div style="margin-top:2px;">✅ Accenture-managed service clients should immediately rotate all shared credentials and audit for unauthorized access from Accenture IP ranges.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1552.001 · Credentials in Files</div>
+</div>
+
+<!-- STORY 6: HIGH — NGINX CVE-2026-42533 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 15, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/critical-nginx-vulnerability-can-crash.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Critical NGINX Vulnerability CVE-2026-42533 Can Crash Workers and Enable Remote Code Execution</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Heap buffer overflow in nginx's map module (CVSS 9.0) reliably causes denial of service via crafted HTTP requests and may allow RCE — researchers say the overflow supplies its own ASLR bypass, making RCE more accessible than F5's advisory stated.</div>
+    <div style="margin-top:2px;">👤 All nginx installations below 1.30.4 (stable) or 1.31.3 (mainline), including NGINX Plus before 37.0.3.1 — affects ~34% of global web servers.</div>
+    <div style="margin-top:2px;">✅ Update nginx to 1.30.4 or 1.31.3 immediately; NGINX Plus users upgrade to 37.0.3.1.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1203 · Exploitation for Client Execution</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://sharkstriker.com/blog/july-2026-data-breaches/" style="color:#374151;text-decoration:none;">Colombia's Ecopetrol Reports Breach of 3,300 Accounts; Hackers Demand Ransom for Financial Records</a>
+    <span style="color:#9ca3af;"> · SharkStriker</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-july-2026-patch-tuesday-fixes-massive-570-flaws-3-zero-days/" style="color:#374151;text-decoration:none;">Microsoft July 2026 Patch Tuesday Sets All-Time Record: 622 CVEs, 59 Critical — AI Scanner Cited</a>
+    <span style="color:#9ca3af;"> · BleepingComputer</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-20.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Jul 20, 2026</div>
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Jul 20, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 20, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 3 critical · 3 high · 1 medium · ~10 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — CVE-2026-58644 SharePoint RCE Zero-Day -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/cisa-adds-exploited-sharepoint-rce-zero.html" style="color:#111827;text-decoration:none;">CISA Adds Exploited SharePoint RCE Zero-Day CVE-2026-58644 to KEV — Federal Deadline Was Yesterday</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft SharePoint Server contains a critical deserialization vulnerability (CVSS 9.8) that attackers weaponized as a zero-day before Patch Tuesday patches shipped on July 14, prompting CISA to add it to the Known Exploited Vulnerabilities catalog with a federal remediation deadline of July 19.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running on-premises SharePoint Server 2016, 2019, or Subscription Edition — including government agencies, law firms, healthcare, and enterprises that haven't applied the July 14 Patch Tuesday update.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the July 2026 Patch Tuesday update for SharePoint Server immediately; simultaneously patch CVE-2026-56164 as attackers are chaining both flaws to steal IIS machine keys and achieve persistent code execution.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers exploited this unauthenticated deserialization flaw as a zero-day to gain initial footholds on enterprise SharePoint deployments before Microsoft released patches on July 14, establishing persistence via IIS machine key theft.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-58644 is a deserialization of untrusted data flaw in SharePoint Server's request-processing pipeline. When SharePoint deserializes crafted HTTP request data, it can be tricked into executing attacker-controlled code without any authentication. Unlike typical privilege escalation bugs, this vulnerability grants immediate code execution as the SharePoint application pool account — a powerful position from which attackers escalate further.</p>
+        <p>Post-exploitation forensics revealed that threat actors are extracting IIS machine keys from compromised servers. These keys allow forging of encrypted ViewState tokens, enabling persistent access that survives patching — a technique previously associated with sophisticated state-linked actors targeting government SharePoint deployments. CISA's advisory explicitly warns of ongoing post-exploitation persistence before the patches ship.</p>
+        <p>The federal July 19 deadline has now passed. Private-sector organizations should treat this as a P0 emergency: unpatched SharePoint instances connected to the internet are actively being compromised. Organizations should also check IIS logs for anomalous machine key access dating back to early July when exploitation likely began.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SharePoint is Microsoft's intranet and document-sharing platform used by millions of companies. "Deserialization" is when software converts data from a compressed format back into usable objects — like unpacking a box. This bug means SharePoint unpacks a maliciously crafted "box" sent by a hacker, and in doing so accidentally runs the attacker's instructions. Critically, the hacker doesn't even need a password to send this box, making this an extremely dangerous flaw.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-58644 · CVSS: 9.8/10 — Maximum exploitability: unauthenticated remote code execution over the network with no user interaction required.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL — Conduent Breach 62.2 Million -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">HIPAA Journal · Jul 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.hipaajournal.com/conduent-business-solutions-data-breach/" style="color:#111827;text-decoration:none;">Conduent Breach Hits 62.2 Million — Third-Largest US Healthcare Breach on Record</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Business process outsourcer Conduent has disclosed to federal regulators that the SafePay ransomware attack it suffered between October 2024 and January 2025 exposed healthcare data on 62,224,658 individuals — roughly one in five Americans — making it the third-largest healthcare breach in US history.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Healthcare patients across multiple US states whose insurers use Conduent for claims and document processing, with Texas alone reporting over 15 million affected residents.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Watch for HIPAA breach notification letters from insurers; freeze credit to guard against medical identity theft; report suspicious medical billing claims to your insurer; individuals can check HIHS Office for Civil Rights breach portal for confirmation.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">SafePay ransomware operators encrypted Conduent's systems after exfiltrating terabytes of healthcare records, using both the stolen data and encryption keys as dual leverage instruments against a company that processes claims for millions of Americans.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Conduent is a New Jersey-based BPO that handles backend healthcare administration — insurance claims processing, document management, and payment workflows — for major insurers and state Medicaid programs. Its position as a third-party administrator means that a single breach touches patients at dozens of unrelated health plans simultaneously, a pattern regulators are increasingly scrutinizing under HIPAA business-associate rules.</p>
+        <p>The breach timeline (October 21, 2024 to January 13, 2025) represents nearly three months of undetected access — a dwell time that enabled SafePay to systematically map and exfiltrate records across multiple state programs. Texas's 15M-person exposure and subsequent state-level investigations suggest the final figure may still be underestimated. Conduent has already accrued over $41M in direct response costs.</p>
+        <p>The dramatic expansion from 25 million (February estimate) to 62 million (June filing) illustrates how breach discovery and reporting lags obscure true scale. Healthcare remains the single highest-value target for ransomware groups because patient records command higher prices on dark web markets than financial credentials, and HIPAA breach penalties create additional pressure to pay ransoms quickly.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Conduent is like a behind-the-scenes contractor that handles paperwork for health insurance companies — processing claims, storing patient documents, and managing payments. Because they work for many insurers at once, when hackers broke in, they got access to records from millions of people who had no idea Conduent even existed. This is called "supply chain risk" — your data can be stolen from a company you've never heard of because your insurer trusted them with it.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — ransomware incident · Impact scale: 62,224,658 individuals — approximately 1 in 5 Americans, ranking #3 all-time for US healthcare breaches.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD — SafePay -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">SafePay Ransomware Group</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal ransomware-as-a-service · Attributed to: Unknown (suspected Eastern European)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Business process outsourcers, healthcare contractors, financial services back-office providers, and government subcontractors — organizations that hold sensitive data on behalf of many downstream victims.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion combining data theft and encryption; targeting BPO and healthcare supply chain to maximize breach scope; claimed responsibility for Conduent attack that ultimately exposed 62 million healthcare records — the third-largest US healthcare breach ever recorded.</div>
+</div>
+
+<!-- STORY 3: CRITICAL — LegacyHive Unpatched Windows Zero-Day -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/new-windows-legacyhive-zero-day-exploit-grants-hackers-admin-access/" style="color:#111827;text-decoration:none;">LegacyHive: Unpatched Windows Zero-Day PoC Grants Admin Access on All Fully Patched Systems</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researcher Nightmare Eclipse released LegacyHive, a working proof-of-concept exploit for an unpatched privilege escalation vulnerability in the Windows User Profile Service that elevates any standard user to administrator on all supported versions of Windows 10, 11, and Server — including fully patched July 2026 systems.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Every organization running Windows 10, Windows 11, Windows Server 2016, 2019, or 2022 — no mitigation patch currently exists, and the publicly available PoC lowers the bar for exploitation significantly.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor Windows Event logs for anomalous User Profile Service activity (Event ID 1511, 1515, 1530); restrict local user logon access on sensitive systems; apply Microsoft advisory mitigations as they become available; watch for patch out-of-band.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">LegacyHive abuses Windows User Profile Service's arbitrary registry hive loading to allow a standard local user to mount an administrator's hive under their own registry root, gaining read/write access to privileged settings on fully patched systems.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>LegacyHive targets a fundamental design decision in how Windows manages user profile registry hives. When a user logs on, the User Profile Service (UProSvc) loads their registry hive — a database of settings and configuration — and mounts it under HKEY_CURRENT_USER. The vulnerability lies in insufficient validation of which hives the service is allowed to load, permitting a low-privileged user to redirect this mechanism toward an administrator's hive file.</p>
+        <p>The researcher, Nightmare Eclipse (also identified in some reports as Chaotic Eclipse), has a documented pattern of releasing Windows exploits after disputes with Microsoft over disclosure timelines. The publicly released PoC requires knowledge of another user's credentials as a workaround, but the researcher states an unrestricted version exists. Even the constrained PoC is dangerous in corporate environments where service account credentials are often accessible.</p>
+        <p>No CVE has been assigned, and no out-of-band patch is yet available. Microsoft has not publicly commented on timeline. Security teams should treat this as a local privilege escalation risk that could be chained with remote exploits — for example, an attacker who gains initial access via phishing can immediately escalate to admin using LegacyHive while waiting for a patch.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Every Windows user has a personal "registry hive" — a hidden database that stores their settings, like a personal filing cabinet in Windows. Normally, your filing cabinet is only accessible by you and administrators. LegacyHive tricks Windows into putting an administrator's cabinet inside yours, where you can now read and write it with your normal user powers. It's like convincing a building's mailroom to deliver a manager's locked safe to your desk by mistake.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · CVSS: pending — Unpatched local privilege escalation affecting Windows 10, 11, Server 2016/2019/2022 fully updated as of July 14, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH — CVE-2026-56164 + CVE-2026-56155 Patch Tuesday Zero-Days -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-july-2026-patch-tuesday-fixes-massive-570-flaws-3-zero-days/" style="color:#111827;text-decoration:none;">Microsoft July Patch Tuesday: Two Actively Exploited Zero-Days in SharePoint and AD FS Among Record 622 CVEs</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's July 2026 Patch Tuesday patched a record 622 vulnerabilities including two actively exploited zero-days: CVE-2026-56164 (SharePoint unauthenticated network EoP, allowing machine key theft) and CVE-2026-56155 (AD FS token-forging privilege escalation, discovered by Microsoft DART during an active incident response).</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running on-premises SharePoint Server and Active Directory Federation Services — the combination of both flaws gives attackers persistent, authenticated access across an enterprise's entire federated identity infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Patch Tuesday updates immediately for both products; audit AD FS token logs for anomalous token issuance; review SharePoint IIS logs for machine key access; treat both as P0 patches alongside CVE-2026-58644.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Privilege Escalation] T1134 · Access Token Manipulation<br>
+      <span style="color:#6b7280;">Attackers exploited the AD FS flaw to forge authentication tokens while chaining CVE-2026-56164 to steal IIS machine keys from SharePoint, enabling persistent elevated access that survives password resets across federated enterprise environments.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The pairing of CVE-2026-56164 and CVE-2026-56155 represents a particularly dangerous exploitation chain in enterprise Microsoft environments. CVE-2026-56164 allows an unauthenticated attacker to escalate privileges on SharePoint Server over the network — no credentials required — and in documented wild exploitation, attackers used this to extract IIS machine keys. These keys enable the attacker to forge encrypted ASP.NET ViewState objects, creating a persistence mechanism that continues to work even after patching.</p>
+        <p>CVE-2026-56155 was discovered by Microsoft's Detection and Response Team (DART) during an active intrusion, confirming real-world exploitation before the patch was available. The AD FS flaw allows forging of SAML authentication tokens — the credentials used across federated Single Sign-On systems. An attacker with forged tokens can authenticate to any service integrated with the organization's AD FS server without ever needing a valid user password.</p>
+        <p>The July Patch Tuesday itself is historically significant: 622 CVEs in a single month exceeds any previous record, a volume Microsoft attributes partly to a new AI-powered internal vulnerability scanner. The sheer volume creates triage challenges for defenders, making it more likely that critical fixes get delayed behind lower-priority patches.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> AD FS is like a master key card system for company software. Instead of logging into each app separately, employees use one login that works everywhere. CVE-2026-56155 lets attackers create fake master key cards that look completely legitimate, so they can walk into any company app. Meanwhile, the SharePoint bug (CVE-2026-56164) lets them steal the "signing key" used to validate those cards — so even after Microsoft patches it, the stolen key can keep forging valid access indefinitely.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-56164 · CVE-2026-56155 · CVSS: 8.8 / 8.5 — Both actively exploited prior to patching; discovered by Microsoft DART during active incident response.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH — Accenture 35GB Breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/accenture-confirms-breach-after-hacker-offers-stolen-data-for-sale/" style="color:#111827;text-decoration:none;">Accenture Confirms Breach After Hacker "888" Puts 35GB of Source Code and Cloud Keys Up for Sale</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Threat actor "888" exfiltrated approximately 35GB from Accenture's Azure DevOps environment and posted it for sale on PwnForums, offering source code repositories, Microsoft Azure Personal Access Tokens, SSH and RSA encryption keys, and configuration files — Accenture confirmed the intrusion and says it has been remediated.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Accenture's enterprise clients whose applications were managed or developed by Accenture may have had their internal source code and CI/CD credentials exposed, potentially enabling supply chain attacks against downstream organizations.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Organizations using Accenture for managed services should immediately rotate all shared credentials, review external access grants, and audit for any unauthorized access to their own environments originating from Accenture IP ranges.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Credential Access] T1552.001 · Credentials in Files<br>
+      <span style="color:#6b7280;">Threat actor "888" obtained source code repositories from Accenture's Azure DevOps environment containing Azure PATs, SSH keys, and RSA keys embedded in configuration files and code — a classic case of unsecured credentials in source repositories enabling lateral movement.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Accenture breach follows a well-established pattern where large technology consultancies become high-value targets precisely because of their breadth of client access. Azure DevOps repositories often serve as central hubs where developers store not just code but deployment scripts containing credentials, API keys, and access tokens that were "temporarily" hardcoded — and never cleaned up. A single repository clone can yield a cascading chain of access into client environments.</p>
+        <p>The threat actor "888" claimed the breach occurred in early July 2026 and demonstrated access by sharing a screenshot of an Azure DevOps repository named "121123_AtriasTalentAcademy" cloned from an Accenture-hosted endpoint. Accenture's statement that "there is no impact to Accenture operations and service delivery" conspicuously sidesteps whether client systems may have been accessible using the stolen credentials before they were rotated.</p>
+        <p>The exposed RSA and SSH keys represent the most immediately dangerous element: if any were in use for CI/CD pipeline authentication or production server access at client sites, they would give purchasers of the stolen data direct, authenticated access to those environments. Security researchers recommend that any organization with Accenture-managed infrastructure treat this as a potential key compromise event regardless of Accenture's assurances.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine Accenture as a company that builds software and systems for hundreds of other businesses. To build and maintain those systems, they store passwords and access keys alongside the code — like keeping your house key on a keychain with your name and address on it. When a hacker got into Accenture's code storage, they found all those keys. Now they (or whoever buys them) can potentially walk straight into the systems of every company Accenture built software for.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE · Supply chain breach — 35GB exfiltrated including Azure PATs, SSH keys, RSA keys, and source code from Azure DevOps repositories.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: HIGH — NGINX CVE-2026-42533 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/critical-nginx-vulnerability-can-crash.html" style="color:#111827;text-decoration:none;">Critical NGINX Vulnerability CVE-2026-42533 Can Crash Workers and Enable Remote Code Execution</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> F5 patched CVE-2026-42533, a critical heap buffer overflow in nginx's map module triggered by specially crafted HTTP requests; it reliably causes denial of service, and researchers argue it can enable remote code execution by supplying its own ASLR bypass — more dangerous than F5's initial advisory suggests.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All deployments of nginx stable prior to 1.30.4 and mainline prior to 1.31.3, including NGINX Plus before 37.0.3.1 — nginx powers approximately 34% of the world's web servers and is embedded in countless load balancers and CDN products.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update nginx to 1.30.4 (stable) or 1.31.3 (mainline) immediately; NGINX Plus users should upgrade to 37.0.3.1; verify your nginx config uses the map module with regex captures before assuming non-exposure, as many default configs do.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Execution] T1203 · Exploitation for Client Execution<br>
+      <span style="color:#6b7280;">Specially crafted HTTP requests exploit a heap buffer overflow in nginx's map-module two-pass string evaluation, enabling unauthenticated attackers to crash worker processes (DoS) or achieve code execution on servers where ASLR protections are absent or bypassable.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-42533 lives in nginx's scripting engine — the code that constructs response strings from configuration directives at request time. It only triggers under a specific but common configuration: a regex-based map directive whose output variable is then referenced in a string expression following a regex capture group. The vulnerability is a classic two-pass measurement bug: the first pass measures the required buffer size, allocates memory, and the second pass writes the data — except that a regex capture value can alter the needed size between passes, causing the second pass to write beyond the allocated heap buffer.</p>
+        <p>F5's advisory conditions remote code execution on ASLR being disabled or bypassable. However, independent researchers demonstrated on a default Ubuntu 24.04 build that the overflow itself — due to its controlled nature and reverse-order memory clobbering — can recover the memory addresses needed for a payload with a single unauthenticated GET request, effectively providing its own ASLR bypass. This makes the RCE scenario significantly more realistic than F5's initial language implied.</p>
+        <p>As of July 20, no public exploit code has appeared and the vulnerability is not on CISA's KEV. However, the presence of detailed technical write-ups means weaponization is likely within days to weeks. Organizations should treat this as a patch-now situation rather than a "monitor and patch soon" one — particularly for internet-facing nginx deployments handling untrusted HTTP input.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> nginx is the web server software that handles incoming visitors for roughly a third of all websites. Think of it as a traffic controller that reads instructions about how to respond to each visitor. CVE-2026-42533 means that if you send nginx a carefully crafted request, you can overflow a memory buffer — like overfilling a box until it spills into the next one — potentially letting you write your own instructions into the traffic controller's brain. The attacker needs no login; they just need to be able to reach the web server with an HTTP request.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-42533 · CVSS: 9.0/10 — Critical heap buffer overflow; DoS confirmed, RCE possible under conditions that researchers argue are more accessible than vendor guidance states.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 7: MEDIUM — Ecopetrol Colombia -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SharkStriker · Jul 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://sharkstriker.com/blog/july-2026-data-breaches/" style="color:#111827;text-decoration:none;">Colombia's Ecopetrol Reports Breach of 3,300 Accounts; Hackers Demand Ransom for Financial Records</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Colombia's state energy giant Ecopetrol reported July 19 that hackers gained unauthorized access to 3,300 employee and contractor accounts, exfiltrating financial records, customer data, and thousands of internal company files while demanding a ransom payment.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Ecopetrol employees, contractors, and customers across Colombia and potentially international partners of Latin America's largest oil company, which operates critical energy infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Incident is being investigated; companies with Ecopetrol business relationships should audit shared data and monitor for spear-phishing using the stolen information as lure material.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Exfiltration] T1041 · Exfiltration Over C2 Channel<br>
+      <span style="color:#6b7280;">Attackers maintained persistent access to Ecopetrol systems for an extended period before disclosure, systematically extracting financial records and customer data through an established command-and-control channel before issuing a ransom demand.</span>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Registry Hive Hijacking ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Every Windows user has a personal "registry hive" — a hidden binary database file that stores all of their settings, preferences, and application configurations, loaded into memory when they log in. Registry hive hijacking exploits flaws in how Windows loads these files, tricking the operating system into mounting one user's hive under another user's registry namespace — effectively letting a low-privileged user read and write the settings database of an administrator. This technique is particularly tricky to patch because it often abuses legitimate Windows design behaviors (like User Profile Service hive loading) rather than traditional memory corruption bugs, making the fix a delicate balance between security and breaking normal account-switching functionality.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: ASLR · IIS · EoP · CVSS · PAT · HIPAA · RCE ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ASLR</strong> — Address Space Layout Randomization: a memory security technique that places program code and data at random locations in RAM each time a process runs, making it harder for attackers to predict where to direct a memory-corruption exploit.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">IIS</strong> — Internet Information Services: Microsoft's web server software bundled with Windows Server that hosts web applications like SharePoint; IIS machine keys are cryptographic secrets it uses to sign and encrypt web tokens.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">EoP</strong> — Elevation of Privilege: a class of vulnerability where an attacker with limited access (e.g., standard user) exploits a flaw to gain higher permissions (e.g., administrator or SYSTEM) on the same machine or network.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System: the industry-standard 0–10 scale used to rate vulnerability severity, where 9.0–10.0 is Critical, 7.0–8.9 is High, 4.0–6.9 is Medium, and below 4.0 is Low.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PAT</strong> — Personal Access Token: a long-lived token used instead of a password to authenticate automated scripts and tools to services like Azure DevOps or GitHub; if leaked, it grants the same access as the user who created it.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">HIPAA</strong> — Health Insurance Portability and Accountability Act: U.S. federal law requiring organizations that handle protected health information to safeguard patient privacy and notify affected individuals within 60 days of discovering a data breach.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">RCE</strong> — Remote Code Execution: a vulnerability class that allows an attacker to run arbitrary commands on a target system over a network connection, typically without physical access or prior authentication.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-july-2026-patch-tuesday-fixes-massive-570-flaws-3-zero-days/" style="color:#374151;text-decoration:none;">Microsoft July 2026 Patch Tuesday Sets All-Time Record with 622 CVEs, 59 Critical — AI Vulnerability Scanner Cited</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://securityaffairs.com/195418/hacking/chaotic-eclipse-unveils-legacyhive-exploit-affecting-fully-patched-windows-systems.html" style="color:#374151;text-decoration:none;">Chaotic Eclipse vs. Microsoft: Serial Researcher Dispute Escalates as LegacyHive Exploit Drops Days After Patch Tuesday</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Security Affairs</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.paubox.com/blog/conduent-breach-hits-62m-ranking-third-largest-in-us-healthcare-history" style="color:#374151;text-decoration:none;">Conduent Breach Now Ranks Third-Largest US Healthcare Breach Ever — Missouri and Texas Investigations Active</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Paubox</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Jul 20, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
