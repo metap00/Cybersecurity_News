@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 21, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 4 high · ~15 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-21.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- CRITICAL 1: LegacyHive -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / BleepingComputer · Jul 21, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/nightmare-eclipse-drops-legacyhive-windows-zero-day/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">'LegacyHive' Windows Zero-Day Drops With No Patch — Grants Admin Access on All Supported Versions</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Researcher Nightmare Eclipse released a working PoC exploit abusing a race condition in the Windows User Profile Service to escalate to admin on all supported Windows versions — no patch exists.</div>
+    <div style="margin-top:2px;">👤 Every Windows 10, 11, and Server 2016/2019/2022 installation worldwide is affected, including fully-patched July 2026 systems.</div>
+    <div style="margin-top:2px;">✅ Enforce least-privilege policies, restrict local logon rights, and monitor User Profile Service registry load events while awaiting a Microsoft advisory.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- CRITICAL 2: WP2Shell -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 21, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">WP2Shell: WordPress Core Pre-Auth RCE (CVE-2026-60137 + CVE-2026-63030) Under Mass Exploitation</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Two chained WordPress core flaws — SQL injection plus REST API route confusion — allow unauthenticated remote code execution; 24+ public PoCs circulating and mass scanning underway.</div>
+    <div style="margin-top:2px;">👤 Tens of millions of WordPress sites running version 6.8 or later worldwide, including those without auto-updates enabled.</div>
+    <div style="margin-top:2px;">✅ Update to WordPress 7.0.2 (or backports 6.9.5/6.8.6) immediately and deploy WAF rules blocking REST batch endpoint exploitation patterns.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- CRITICAL 3: SharePoint CVE-2026-58644 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / CISA · Jul 20, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/cisa-adds-exploited-sharepoint-rce-zero.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA Adds Exploited SharePoint Zero-Day CVE-2026-58644 (CVSS 9.8) to KEV — Federal Deadline Passed</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A critical deserialization RCE in on-premises SharePoint Server was exploited as a zero-day before Microsoft's July 14 Patch Tuesday fix; CISA mandated federal patching by July 19 and exploitation is ongoing.</div>
+    <div style="margin-top:2px;">👤 Organizations running on-premises SharePoint Server (Subscription Edition, 2019, 2016) — especially government and defense contractors.</div>
+    <div style="margin-top:2px;">✅ Apply July 2026 Patch Tuesday immediately, rotate IIS machine keys, and hunt for post-exploitation indicators including new scheduled tasks and unusual outbound connections from SharePoint servers.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- HIGH 1: Abbott -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 21, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Abbott Laboratories Investigates Dual Breaches by ShinyHunters and ShadowByt3$ — Deadline Expires Today</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 ShinyHunters used vishing calls to compromise Abbott's SSO and access Exact Sciences cancer diagnostics systems; a separate actor breached the LabCentral portal via compromised credentials — ShinyHunters' data-release deadline is today.</div>
+    <div style="margin-top:2px;">👤 Abbott Laboratories employees and potentially patients and customers of its Cancer Diagnostics and laboratory diagnostics divisions.</div>
+    <div style="margin-top:2px;">✅ Enforce hardware-key MFA on all enterprise SSO accounts and conduct vishing-awareness training targeting staff with access to identity systems.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1566.004 · Spearphishing Voice (Vishing)</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://www.dataminr.com/resources/intel-brief/gentlemen-ransomware-claims-tkms-atlas-elektronik-breach/" style="color:#374151;text-decoration:none;">The Gentlemen Ransomware Claims TKMS Naval Defense Breach — 1TB+ of Submarine Schematics Stolen</a>
+    <span style="color:#9ca3af;"> · Dataminr</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://www.securityweek.com/in-other-news-iran-tracks-us-military-phones-crashstealer-macos-malware-cvd-blueprint/" style="color:#374151;text-decoration:none;">Iran Exploited SS7 Telecom Vulnerabilities to Track US Military Smartphones</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://www.securityweek.com/xsolis-data-breach-affects-1-4-million-individuals/" style="color:#374151;text-decoration:none;">Xsolis Healthcare Breach Exposes PHI of 1.4 Million Patients at Mayo Clinic, Humana and Others</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.macrumors.com/2026/07/15/crashstealer-mac-malware/" style="color:#374151;text-decoration:none;">CrashStealer macOS Malware Mimics Apple CrashReporter to Steal Credentials and Crypto</a>
+    <span style="color:#9ca3af;"> · MacRumors</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/lidl-discloses-online-shop-breach-after-service-provider-hack/" style="color:#374151;text-decoration:none;">Lidl Online Shop Breach via Third-Party IT Provider Hits Customers in Germany, Belgium, Netherlands</a>
+    <span style="color:#9ca3af;"> · BleepingComputer</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-21.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Jul 21, 2026</div>
+
+</body>
+</html>

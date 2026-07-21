@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Jul 21, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 21, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 4 high · 2 medium · ~15 min read</div>
+</div>
+
+<!-- STORY 1: LegacyHive Zero-Day (CRITICAL) -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / BleepingComputer · Jul 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/nightmare-eclipse-drops-legacyhive-windows-zero-day/" style="color:#111827;text-decoration:none;">'LegacyHive' Windows Zero-Day Drops With No Patch — Grants Admin Access on All Supported Versions</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Security researcher Nightmare Eclipse publicly released a working proof-of-concept exploit called LegacyHive that exploits an unpatched Windows User Profile Service vulnerability to escalate privileges to administrator on all supported Windows versions.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Every organization running Windows 10, Windows 11, or Windows Server 2016/2019/2022 — including systems fully patched as of July 2026 Patch Tuesday — is exposed with no vendor fix available.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Enforce least-privilege access policies, restrict local logon rights, deploy endpoint detection rules for anomalous User Profile Service registry activity, and monitor for out-of-band advisories from Microsoft.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">The LegacyHive PoC uses a carefully timed path-switching race condition to force the Windows User Profile Service to mount an administrator's registry hive under a standard user account, granting immediate system-level read/write access without requiring any credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The LegacyHive exploit targets the Windows User Profile Service (ProfSvc), a core Windows component responsible for loading each user's registry hive (NTUSER.DAT) and configuring their environment at logon. The attack abuses a race condition in how ProfSvc resolves file paths during a logon event: by rapidly switching a path reference at precisely the right moment, an attacker running as a standard low-privilege user can trick the service into mounting a high-privilege user's registry hive — including a local administrator's — under their own account context. Once mounted, the attacker gains full read/write access to the administrator's registry profile and can escalate to SYSTEM.</p>
+        <p>What makes LegacyHive uniquely alarming is that it works on fully patched systems as of July 14, 2026 Patch Tuesday, despite Microsoft having shipped a record-breaking 570+ CVE fixes that day. The vulnerability was not included in any of those patches. Nightmare Eclipse — a prolific researcher behind previous Windows zero-day disclosures including RoguePlanet, BlueHammer, and UnDefend — released the PoC publicly, although they reportedly stripped the most directly weaponizable components to limit immediate exploitation by low-skill attackers.</p>
+        <p>Microsoft has not yet assigned a CVE or published a security advisory. Organizations should treat this as an emergency configuration review: audit who holds local logon rights on sensitive systems, deploy EDR rules watching for anomalous ProfSvc registry load events, and prepare incident response runbooks for rapid patch deployment once Microsoft responds. Temporary mitigations include blocking interactive local logon for non-admin accounts on critical servers and monitoring Windows Event ID 1511 and 1514 for unexpected profile service activity.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A privilege escalation exploit is like finding a trick at a hotel to swap your regular room key for the master key. LegacyHive fools Windows into handing a normal user account the master key (the administrator's settings and permissions) by briefly confusing the part of Windows that sets up user environments at login — giving the attacker full control of the computer without needing to know any password.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Under active investigation — Microsoft has not yet published a security advisory or patch for LegacyHive; affected scope is every supported Windows version.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: WP2Shell WordPress RCE (CRITICAL) -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Help Net Security · Jul 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html" style="color:#111827;text-decoration:none;">WP2Shell: WordPress Core Pre-Auth RCE Chain (CVE-2026-60137 + CVE-2026-63030) Under Mass Exploitation</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Two chained WordPress core vulnerabilities — a SQL injection and a REST API route confusion flaw — allow any unauthenticated attacker to achieve remote code execution on WordPress sites, with 24+ public PoC exploits already in wide use just days after disclosure.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Tens of millions of WordPress websites running version 6.8 or later (SQL injection) or 6.9+ (full RCE chain), including any site that hasn't applied emergency patches or allowed automatic updates.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update WordPress immediately to 7.0.2 (or backport releases 6.9.5 / 6.8.6), enable auto-updates if not already on, and deploy a WAF rule blocking requests to the REST batch endpoint matching known WP2Shell patterns.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers target internet-exposed WordPress sites by sending crafted requests to the public REST API batch endpoint, chaining the SQL injection in CVE-2026-60137 with the route confusion in CVE-2026-63030 to write and then execute arbitrary code without any login credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The WP2Shell attack chain combines two distinct WordPress core flaws. CVE-2026-60137 is a SQL injection in the WP_Query class caused by improper sanitization of the <code>author__not_in</code> parameter, present since WordPress 6.8. CVE-2026-63030 is a REST API batch-route confusion vulnerability in WordPress 6.9+ where an unauthenticated request can reach code paths normally protected by authentication, particularly when a persistent object cache is not configured. When chained together, an attacker first uses the SQL injection to write a malicious payload into the WordPress database, then triggers execution through the REST batch endpoint — achieving full remote code execution with zero credentials required.</p>
+        <p>WordPress disclosed both vulnerabilities on July 17, 2026. Within hours, multiple proof-of-concept exploits appeared publicly, and by July 19, VulnCheck had verified more than two dozen unique PoCs actively targeting unpatched sites. Cloudflare, Patchstack, and other WAF providers deployed emergency protection rules. WordPress classified this as its highest-ever severity issue and activated forced automatic updates — but auto-update propagation has delays, and many site operators explicitly disable it, leaving substantial exposure. Mass scanning campaigns targeting the REST batch endpoint have been observed across the internet.</p>
+        <p>WordPress.org released fixes in version 7.0.2 with backports to 6.9.5 and 6.8.6. Site administrators should verify their installed version, check error logs for REST API batch endpoint abuse, rotate admin credentials on any site that may have been compromised, and audit for webshells or unauthorized admin accounts. Hosting providers should also scan customer sites en masse.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> WordPress powers roughly 40% of all websites. WP2Shell is like discovering two unlocked back doors into a store: the first door (SQL injection) lets anyone rearrange the store's stockroom database, and the second door (REST API confusion) lets anyone walk straight into the manager's office to take over. Together, with no key needed at all, an attacker can take complete control of the website — deleting content, stealing data, or installing hidden malware.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-60137 + CVE-2026-63030 · CVSS: ~9.8/10 — Both CVEs are pre-authentication, require no user interaction, and the chained attack achieves arbitrary remote code execution, meeting the criteria for the maximum exploitability rating.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: SharePoint CVE-2026-58644 (CRITICAL) -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / CISA · Jul 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/cisa-adds-exploited-sharepoint-rce-zero.html" style="color:#111827;text-decoration:none;">CISA Adds Exploited SharePoint Zero-Day CVE-2026-58644 to KEV — CVSS 9.8 Unauthenticated RCE</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft patched CVE-2026-58644, a critical deserialization RCE in SharePoint Server (CVSS 9.8), on July 14 Patch Tuesday — but later confirmed it was already being exploited as a zero-day in the wild before the fix shipped; CISA added it to KEV with a July 19 federal patch deadline.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running on-premises Microsoft SharePoint Server Subscription Edition, 2019, or 2016 — especially government agencies, defense contractors, and enterprises that have not yet applied July Patch Tuesday updates.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the July 2026 Patch Tuesday updates immediately; audit IIS machine keys and server logs for signs of compromise; search for unusual scheduled tasks, new local accounts, or registry persistence indicators that may signal post-exploitation activity.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Threat actors are targeting internet-facing SharePoint Server deployments by sending specially crafted requests that trigger the deserialization pipeline with attacker-controlled data, achieving unauthenticated remote code execution and then stealing IIS machine keys for further persistence.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-58644 is a deserialization of untrusted data vulnerability in Microsoft SharePoint Server. Deserialization flaws occur when an application converts incoming data back into executable objects without first verifying that the data is safe — an attacker can craft malicious serialized objects that, when processed, execute arbitrary commands with the privileges of the application. In SharePoint's case, this flaw is reachable without authentication, meaning no login credentials are required to trigger the exploit. The CVSS score of 9.8 reflects this near-worst-case combination of remote exploitability, no authentication requirement, and code execution outcome.</p>
+        <p>Microsoft patched the vulnerability on July 14, 2026, as part of its record July Patch Tuesday. However, Microsoft subsequently updated the advisory to confirm that CVE-2026-58644 was exploited in the wild before the patch was available — classifying it as a true zero-day. Observed post-exploitation activity includes theft of IIS machine keys (which can be used to forge authentication tokens and decrypt sensitive data), deployment of persistence mechanisms, and further deserialization-based malware staging. CISA added the vulnerability to its Known Exploited Vulnerabilities catalog and ordered all Federal Civilian Executive Branch agencies to apply the patch by July 19, 2026.</p>
+        <p>SharePoint Server is widely deployed in government, defense, and enterprise environments, making this an extremely high-value target. Organizations should immediately apply the patch, rotate IIS machine keys, and conduct a thorough hunt for indicators of compromise: unusual child processes spawned by w3wp.exe, new scheduled tasks or services, and outbound connections from the SharePoint server to unusual destinations. Cloud-based SharePoint Online deployments are not affected.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Deserialization is like a restaurant that automatically cooks and serves whatever "recipe card" a customer hands them without reading it first. CVE-2026-58644 lets an attacker hand SharePoint a recipe card containing malware instructions — and SharePoint blindly executes them, giving the attacker full control of the server. No login required: just sending the right malicious request over the internet is enough.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-58644 · CVSS: 9.8/10 — Unauthenticated network-exploitable remote code execution with no user interaction required; the highest exploitability tier in CVSS 3.1 scoring.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Abbott Laboratories Dual Breach (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Jul 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/abbott-laboratories-probes-two-cyber-incidents-amid-extortion-claims/" style="color:#111827;text-decoration:none;">Abbott Laboratories Investigates Two Simultaneous Breaches — ShinyHunters Deadline Expires Today</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Abbott Laboratories is investigating two concurrent cyberattacks: ShinyHunters breached its Exact Sciences Cancer Diagnostics division via a vishing attack on employees mid-June, compromising a Microsoft Entra SSO account, while a separate actor (ShadowByt3$) breached the LabCentral customer portal via compromised credentials — with ShinyHunters' data-release deadline expiring today.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Abbott employees, and potentially customers and patients served through its Cancer Diagnostics and core laboratory diagnostics businesses; the company says no operations have been affected but investigations are ongoing.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Abbott customers and business partners should be alert for targeted phishing; enterprises should enforce phishing-resistant MFA (hardware keys) on all SSO accounts and conduct vishing-awareness training for employees who handle access requests.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1566.004 · Spearphishing Voice (Vishing)<br>
+      <span style="color:#6b7280;">ShinyHunters placed targeted voice phishing calls to Abbott employees, impersonating IT personnel to manipulate them into revealing credentials, which compromised a Microsoft Entra SSO account and enabled lateral movement into the Exact Sciences internal network.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Abbott Laboratories faces simultaneous extortion pressure from two separate threat actors. The first — and more severe — incident involves ShinyHunters, who claimed they gained initial access through vishing calls targeting Abbott employees in mid-June 2026. By impersonating IT support staff, the attackers manipulated employees into providing credentials that compromised a Microsoft Entra single sign-on account. From that beachhead, ShinyHunters moved laterally into internal legacy Exact Sciences systems within Abbott's Cancer Diagnostics division — a unit that processes sensitive oncology data. ShinyHunters listed Abbott on their data leak site and threatened to publish stolen files after July 18; after Abbott did not negotiate, they extended the deadline to July 21, 2026 — today.</p>
+        <p>Separately, a threat actor calling themselves ShadowByt3$ claimed to have breached Abbott's LabCentral portal — an externally hosted third-party customer portal used by the core laboratory diagnostics business. According to ShadowByt3$, they gained access on July 4 using compromised customer credentials and slowly exfiltrated files over API endpoints for two weeks. Abbott states LabCentral contains only publicly available technical product documentation (manuals, specs) and no proprietary or sensitive customer data — downplaying this second incident as lower severity. Neither actor has publicly released stolen data as of this writing. The simultaneous breach by two independent actors targeting the same company suggests Abbott's identity infrastructure and vendor ecosystem both require urgent review.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Vishing (voice phishing) is when criminals call you on the phone pretending to be IT support or a bank, then trick you into giving up your password. ShinyHunters called Abbott employees directly and convinced them they were internal IT staff needing urgent access — once they had the login, they used it to walk into the company's internal systems like they belonged there.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: ShinyHunters -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">ShinyHunters</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Extortion Gang · No nation-state attribution</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Large enterprises across healthcare, finance, telecom, and retail — high-volume data holders where stolen records carry extortion or resale value</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Data theft and extortion via leak-site pressure; previous high-profile breaches include Ticketmaster, AT&amp;T, Santander Bank, and numerous others; increasingly using vishing and SSO compromise as initial access vectors</div>
+</div>
+
+<!-- STORY 5: TKMS Ransomware (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Dataminr / SecurityWeek · Jul 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.dataminr.com/resources/intel-brief/gentlemen-ransomware-claims-tkms-atlas-elektronik-breach/" style="color:#111827;text-decoration:none;">Ransomware Group 'The Gentlemen' Breaches TKMS Naval Defense Firm, Claims 1TB+ of Submarine Schematics</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The Gentlemen ransomware group claimed responsibility for breaching Thyssenkrupp Marine Systems (TKMS) and its subsidiary Atlas Elektronik, exfiltrating over 1TB of data that allegedly includes naval engineering documents, sonar system schematics, and mine-disposal technology blueprints.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> TKMS — a German defense manufacturer that builds submarines and surface vessels for NATO navies — and Atlas Elektronik, a specialist in sonar and combat systems; the breach is especially sensitive as TKMS is currently bidding on a $100 billion Canadian submarine contract.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Defense contractors should implement network segmentation separating engineering design systems from business networks, enforce strict access controls on sensitive technical documentation, and conduct immediate incident response reviews of any partner systems connected to TKMS infrastructure.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">The Gentlemen deployed ransomware across TKMS/Atlas Elektronik systems and simultaneously exfiltrated over 1TB of sensitive naval engineering and weapons systems data, using the threat of public release as additional leverage alongside encryption to maximize ransom pressure.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Thyssenkrupp Marine Systems (TKMS) and its subsidiary Atlas Elektronik — Germany's premier naval defense manufacturers, whose products include submarines and sonar/combat systems for NATO navies — fell victim to a ransomware attack by The Gentlemen on approximately June 25, 2026, with the breach discovered June 28. The group claimed to have exfiltrated more than 1TB of data, with sample screenshots allegedly showing technical documentation for sonar systems and mine-disposal technologies. TKMS confirmed a breach but stated it was "isolated to a North American subsidiary supporting U.S. military work" and that "no security-relevant or sensitive military data was compromised" — claims that independent forensics have not verified.</p>
+        <p>The timing is geopolitically significant: TKMS is actively competing for a $100 billion Canadian submarine acquisition contract. Whether the stolen technical data represents genuine classified military secrets or primarily unclassified engineering documents remains disputed, but the breach underscores the vulnerability of defense industrial base contractors. The Gentlemen is a financially motivated RaaS operation that has grown to become the second-most-active ransomware group by victim count in 2026, with 330–580 claimed victims across 70+ countries. Their targeting of TKMS during a major contract competition raises questions about potential intelligence interest beyond pure ransom motivation.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> TKMS builds submarines for NATO countries — these are some of the most sensitive military assets in the world. Ransomware groups like The Gentlemen break into company networks, steal data, and then lock all the computers; they threaten to publish the stolen data publicly unless paid. Even if no classified files were taken, attackers now potentially have detailed engineering blueprints for military hardware — information that could help adversaries understand how to detect or defeat NATO submarines.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: The Gentlemen -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">The Gentlemen</div>
+  <div style="opacity:.85;margin-top:4px;">Ransomware-as-a-Service (RaaS) Criminal Gang · No confirmed nation-state affiliation</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Broad targeting across all sectors in 70+ countries; defense contractors, critical infrastructure, and government-adjacent organizations are increasingly in scope</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion ransomware (encrypts + steals data); second-most-active ransomware group by victim count in 2026 with 330–580 claimed victims; rapidly scaled operations targeting high-value defense and industrial targets for maximum ransom leverage</div>
+</div>
+
+<!-- STORY 6: Iran SS7 Tracking (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / Slashdot · Jul 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/in-other-news-iran-tracks-us-military-phones-crashstealer-macos-malware-cvd-blueprint/" style="color:#111827;text-decoration:none;">Iran Exploited SS7 Telecom Vulnerabilities and Ad-Tech Metadata to Track US Military Smartphones</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Iranian intelligence actors abused well-known SS7 signaling vulnerabilities in the global cellular roaming infrastructure and commercial advertising technology metadata to locate and monitor US military personnel's smartphones during the Iran War build-up — exploiting decades-old telecoms architecture for real-time location intelligence.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> US military personnel and government officials operating commercial mobile phones in or near the Middle East; the technique is applicable to any individual whose phone number is known to an adversary with access to SS7 infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Military and high-value individuals should use DoD-approved secure communication devices, disable SS7-vulnerable network features, avoid commercial cellular in sensitive operational contexts, and use satellite or encrypted-over-WiFi communication alternatives where possible.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Collection] T1430 · Location Tracking<br>
+      <span style="color:#6b7280;">Iranian intelligence exploited SS7 protocol weaknesses — specifically the SendRoutingInfo and ProvideSubscriberInfo messages in the SS7 MAP layer — to query the global cellular signaling network for real-time GPS-resolution location data on US military personnel's phone numbers without the knowledge of their carriers.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>SS7 (Signaling System 7) is a 1975-era protocol suite that phone networks worldwide use to coordinate how calls and texts travel between carriers — it enables your phone to receive calls while roaming abroad. SS7 was designed for a small club of trusted national telecoms; it has no authentication between network nodes, meaning any carrier (or entity with illicit access to carrier switching equipment) can send queries to the global network. Iran reportedly exploited this architectural flaw by sending SS7 MAP-layer messages — specifically SendRoutingInfo and ProvideSubscriberInfo queries — that caused the global cellular network to return real-time location data for targeted US military phone numbers, accurate to cellular-tower resolution and sometimes GPS-level precision.</p>
+        <p>Additionally, Iranian actors leveraged commercial advertising technology: mobile apps constantly broadcast device identifiers (advertising IDs, IMEIs) and location signals to ad networks. By purchasing access to location data brokers or exploiting ad-network APIs, adversaries can track the movements of specific devices without touching any telecom infrastructure. The convergence of these two techniques — the legacy SS7 flaw and the commercial ad-tech ecosystem — provided Iranian intelligence with persistent, near-real-time location tracking of US military personnel. This methodology has been documented by telecoms security researchers for over a decade, but the Iran War context represents one of the most significant known applications of SS7 exploitation against military targets.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When your phone travels abroad, it announces itself to foreign phone networks so they can route your calls home. SS7 is the global "phone directory" system that makes this work — but it was built in 1975 when only a handful of phone companies existed and everyone trusted each other. Iran exploited the fact that SS7 has no security checks: just like anyone can look up an address in an old phone book, they could query the global system and get the real-time location of any US military phone number they knew.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Iran -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Iranian State-Sponsored Intelligence (MOIS/IRGC-IO)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State · Attributed to: Islamic Republic of Iran</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> US military and government personnel, regional adversaries (Israel, Gulf states), dissidents and journalists, Western defense and energy sectors</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Cyber espionage, destructive attacks (Shamoon, disk wiper malware), surveillance of diaspora and military targets, exploitation of telecom infrastructure (SS7), and increasingly sophisticated mobile device targeting; operates groups including APT33, APT34, and Charming Kitten</div>
+</div>
+
+<!-- STORY 7: Xsolis Healthcare Breach (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / TechTarget · Jul 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/xsolis-data-breach-affects-1-4-million-individuals/" style="color:#111827;text-decoration:none;">Xsolis Healthcare AI Breach Exposes 1.4 Million Patients' PHI Across Mayo Clinic, Humana and 6 Other Health Systems</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Tennessee-based healthcare AI platform Xsolis disclosed that attackers gained access via phishing on January 20, 2026, and spent 48 hours exfiltrating protected health information for 1,396,519 individuals served by eight major health systems including Mayo Clinic and Humana.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> 1.4 million patients whose PHI — including names, SSNs, dates of birth, health insurance information, and medical treatment records — was processed by Xsolis on behalf of its health system clients; patients are now receiving breach notification letters.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Affected individuals should freeze their credit, enroll in identity monitoring services, and watch for health insurance fraud (fraudulent claims filed using stolen insurance data); healthcare organizations should audit third-party AI vendor security postures immediately.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1566 · Phishing<br>
+      <span style="color:#6b7280;">Attackers gained access to Xsolis systems through a targeted phishing email on January 20, 2026, establishing a foothold that allowed them to browse and exfiltrate files containing patient PHI from multiple health system clients over a 48-hour window before detection and containment.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Xsolis provides AI-powered utilization management and revenue cycle solutions to hospitals, health systems, and payers — meaning it receives and processes real patient health data from its clients to optimize billing and resource allocation decisions. On January 20, 2026, attackers gained access through a phishing email and spent 48 hours exfiltrating files before Xsolis detected and contained the intrusion on January 22. The breach affected data for 1,396,519 individuals across eight health systems, with compromised information including names, dates of birth, addresses, Social Security numbers, health insurance information, and medical treatment records — among the most sensitive categories of personal data under HIPAA.</p>
+        <p>Xsolis did not disclose the breach until early June 2026 — more than four months after detection. Affected health systems including Mayo Clinic independently notified patients in April-July timeframes after learning of the incident. The HHS Office for Civil Rights added the incident to its formal breach tracker. The 4+ month delay between detection and notification raises HIPAA compliance questions, as the regulation generally requires notification within 60 days of discovery. This breach exemplifies the growing risk posed by third-party healthcare AI vendors: a single vendor compromise can expose patient data from dozens of client health systems simultaneously.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Xsolis is a software company that hospitals pay to help manage patient records and billing using AI. Because it handles data for many hospitals at once, a single breach of Xsolis exposes patients from all of those hospitals simultaneously — like a break-in at a storage facility that holds the medical files for eight different clinics. If you were a patient at Mayo Clinic or Humana in 2026, your personal health and financial data may now be in criminal hands.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: SS7 Signaling Attack ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    SS7 (Signaling System 7) is a 1975-era protocol suite that underpins global phone networks, enabling calls and texts to be routed between carriers worldwide — it was designed when only a small number of national telephone companies existed, and mutual trust was simply assumed with no authentication built in. Because any entity with access to the SS7 network (a rogue employee, a compromised carrier, or a nation-state intelligence service) can send unauthenticated queries to the global signaling infrastructure, they can retrieve real-time location data, intercept SMS messages (including two-factor authentication codes), and eavesdrop on calls for any phone number in the world. Iran's exploitation of SS7 to track US military phones is a real-world demonstration of why security researchers have warned about this flaw for over a decade — and why governments and sensitive organizations increasingly mandate satellite communications and end-to-end encrypted messaging apps that route around the vulnerable SS7 layer entirely.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: SS7 · Vishing · SSO · PHI · REST API · FCEB · Supply Chain Attack ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SS7</strong> — Signaling System 7; a 1975-era protocol suite that global phone networks use to route calls and texts between carriers, notorious for lacking authentication and enabling location tracking and call interception by anyone with network access.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Vishing</strong> — Voice phishing; a social engineering attack where criminals call targets by phone, impersonating IT support, executives, or financial institutions to trick them into revealing credentials or taking actions that compromise security.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SSO</strong> — Single Sign-On; an authentication technology that lets a user log in once to access many connected applications, widely used in enterprises via providers like Microsoft Entra (formerly Azure AD), Okta, or Google Workspace.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PHI</strong> — Protected Health Information; any individually identifiable health data regulated under US HIPAA law, including diagnoses, treatment records, health insurance details, and SSNs when linked to health context.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">REST API</strong> — Representational State Transfer Application Programming Interface; a standard approach for web applications to exchange data over HTTP, widely used by modern software and a frequent attack surface when endpoints lack proper authentication or input validation.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">FCEB</strong> — Federal Civilian Executive Branch; the US civilian government agencies (such as DHS, State, Education) subject to CISA's binding operational directives and Known Exploited Vulnerabilities patching mandates.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Supply Chain Attack</strong> — A cyberattack that targets a vendor, software provider, or third-party service partner as a pathway to reach and compromise the intended victim organization, exploiting trusted relationships rather than attacking the target directly.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.macrumors.com/2026/07/15/crashstealer-mac-malware/" style="color:#374151;text-decoration:none;">CrashStealer macOS Infostealer Mimics Apple's CrashReporter to Steal Credentials and Crypto</a>
+    <span style="color:#9ca3af;font-size:11px;"> · MacRumors / SecurityWeek</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/lidl-discloses-online-shop-breach-after-service-provider-hack/" style="color:#374151;text-decoration:none;">Lidl Discloses Online Shop Breach After Third-Party IT Provider Hack — Germany, Belgium, Netherlands Customers Affected</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Jul 21, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
