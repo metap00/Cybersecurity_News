@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 22, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 2 critical · 4 high · ~7 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-22.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL – JADEPUFFER / ENCFORGE -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Jul 21, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/jadepuffer-agentic-attacks-now-target-ai-model-data-with-ransomware/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">JADEPUFFER Deploys ENCFORGE Ransomware to Encrypt AI Model Infrastructure via Langflow RCE</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Agentic threat actor JADEPUFFER exploited CVE-2025-3248 (CVSS 9.8) in Langflow to deploy ENCFORGE, a Go ransomware targeting AI model weights, training datasets, and vector databases.</div>
+    <div style="margin-top:2px;">👤 Organizations running exposed Langflow instances (versions before 1.3.0) and AI research labs and ML training environments.</div>
+    <div style="margin-top:2px;">✅ Upgrade Langflow to 1.3.0+, restrict /api/v1/validate/code from public access, and audit AI servers for .encf file extensions.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1486 · Data Encrypted for Impact</div>
+</div>
+
+<!-- STORY 2: CRITICAL – Qilin / PAN-OS -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Jul 21, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/critical-globalprotect-vpn-bug-now-exploited-in-ransomware-attacks/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Qilin Ransomware Gang Actively Exploiting Palo Alto GlobalProtect Auth Bypass CVE-2026-0257</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Qilin affiliates exploit CVE-2026-0257 (CVSS 7.8) to gain unauthorized GlobalProtect VPN sessions, dump LSASS credentials, harvest Active Directory, and deploy ransomware—often within 24 hours of initial access.</div>
+    <div style="margin-top:2px;">👤 Organizations running unpatched PAN-OS GlobalProtect with authentication override cookies enabled across healthcare, finance, and critical infrastructure.</div>
+    <div style="margin-top:2px;">✅ Apply the PAN-OS patch released May 13 immediately; disable auth override cookies where not essential; monitor for LSASS dump and unusual admin-share access alerts.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1133 · External Remote Services</div>
+</div>
+
+<!-- STORY 3: HIGH – Hugging Face breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Jul 20, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Hugging Face Breached by Autonomous AI Agent Swarm; Cluster Credentials and Internal Datasets Exposed</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 An autonomous AI agent exploited two code-execution flaws in Hugging Face's dataset pipeline, executed 17,000+ actions over a weekend, and accessed internal datasets and cloud cluster service credentials—the first confirmed AI-agent breach of a major AI platform.</div>
+    <div style="margin-top:2px;">👤 Hugging Face's internal infrastructure and partner integrations using now-revoked service credentials; no public model tampering was found.</div>
+    <div style="margin-top:2px;">✅ Rotate all Hugging Face API tokens and OAuth app permissions immediately; audit service integrations authenticating to Hugging Face APIs.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1078 · Valid Accounts</div>
+</div>
+
+<!-- STORY 4: HIGH – HollowGraph -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Group-IB · Jul 21, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/07/hollowgraph-malware-hides-c2-and-stolen.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">HollowGraph Malware Hides C2 Commands in Microsoft 365 Calendar Events Dated 2050</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Group-IB researchers uncovered HollowGraph (attributed to the Cavern framework), a Windows espionage malware that hides attacker commands in Outlook Calendar invites dated May 13, 2050, using Microsoft's own Graph API so C2 traffic blends into legitimate M365 communications.</div>
+    <div style="margin-top:2px;">👤 At least 12 confirmed victims in Israel across a June 3–July 9, 2026 campaign window; targets appear to be organizations of interest to a state-aligned espionage actor.</div>
+    <div style="margin-top:2px;">✅ Audit M365 OAuth consent grants for unusual Graph API calendar permissions; monitor for calendar events created via Graph API, especially those scheduled far in the future.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Command and Control] T1102 · Web Service</div>
+</div>
+
+<!-- STORY 5: HIGH – ServiceNow -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Jul 20, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/critical-servicenow-code-execution-flaw-now-exploited-in-attacks/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">ServiceNow Pre-Auth RCE CVE-2026-6875 Actively Exploited via Novel Sandbox-Escape Routes</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Critical pre-auth RCE in ServiceNow AI Platform exploited just four days after the July 14 patch; attackers are using a different sandbox-escape route than the documented one, making partial mitigations (blocking only the known technique) completely ineffective.</div>
+    <div style="margin-top:2px;">👤 Organizations running self-hosted ServiceNow instances without the July 14 patch; ServiceNow-managed cloud customers were proactively patched.</div>
+    <div style="margin-top:2px;">✅ Apply the full ServiceNow July 14 security patch immediately—blocking only the documented exploit path is insufficient; escalate outside normal patching windows given active exploitation.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://www.techtimes.com/articles/321018/20260720/nginx-map-regex-rce-gets-public-scanner-patch-now-full-exploit-due-august.htm" style="color:#374151;text-decoration:none;">NGINX CVE-2026-42533 (CVSS 9.2): Public scanner released; full exploit write-up withheld until August 5 — patch nginx now</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/07/sleepergem-uses-three-malicious.html" style="color:#374151;text-decoration:none;">SleeperGem: Three malicious RubyGems published via hijacked dormant accounts target developer machines</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.rapid7.com/blog/post/etr-cve-2026-63030-wp2shell-a-critical-remote-code-execution-vulnerability-in-wordpress-core/" style="color:#374151;text-decoration:none;">WordPress wp2shell (CVE-2026-63030): Pre-auth RCE widely exploited; update to 7.0.2 or 6.9.5 now</a>
+    <span style="color:#9ca3af;"> · Rapid7</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">LOW</span>
+    <a href="https://www.securityweek.com/neo-emerges-from-stealth-with-100m-to-control-and-secure-enterprise-ai-software/" style="color:#374151;text-decoration:none;">Neo Emerges From Stealth With $100M to Control and Secure Enterprise AI Software Pipelines</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-07-22.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Jul 22, 2026</div>
+
+</body>
+</html>

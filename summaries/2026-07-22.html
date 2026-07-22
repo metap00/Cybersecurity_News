@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Jul 22, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Jul 22, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 2 critical · 4 high · 2 medium · ~7 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL – JADEPUFFER / ENCFORGE -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer / The Hacker News · Jul 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/jadepuffer-agentic-attacks-now-target-ai-model-data-with-ransomware/" style="color:#111827;text-decoration:none;">JADEPUFFER Deploys ENCFORGE Ransomware to Encrypt AI Model Infrastructure via Langflow RCE</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The agentic threat actor JADEPUFFER exploited CVE-2025-3248, a critical authentication-bypass in the Langflow AI workflow platform (CVSS 9.8), to deploy a purpose-built Go ransomware called ENCFORGE that targets and encrypts AI model weights, training datasets, vector databases, and embedding indices.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running internet-exposed Langflow instances (versions before 1.3.0), AI research labs, machine-learning teams, and any enterprise with unprotected AI training infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade Langflow to 1.3.0 or later immediately, restrict the /api/v1/validate/code endpoint from public exposure, and audit AI training servers for ENCFORGE file extensions (.encf) and for any new or modified systemd services.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">ENCFORGE specifically targets AI-file types—model checkpoints, vector databases, and training datasets—to maximize extortion leverage by destroying months of GPU compute investment rather than simply encrypting generic business data.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">JADEPUFFER, an emerging agentic threat actor that uses autonomous AI systems to orchestrate attacks, has pivoted from database extortion into a targeted campaign against AI and machine-learning infrastructure. The attack exploits CVE-2025-3248 in Langflow—an open-source platform for building AI agent workflows—through the /api/v1/validate/code endpoint, which allowed unauthenticated Python execution on any internet-exposed instance running version 1.3.0 or earlier.</p>
+        <p style="margin:0 0 8px;">Once inside, JADEPUFFER drops ENCFORGE, a compiled Go binary that encrypts approximately 180 file types with a focus on AI-specific formats: model weights (.pt, .safetensors, .ckpt), vector database files, training datasets, and embedding indices. The ransomware uses AES-256 in CTR mode for file encryption, protected by an RSA-2048 public key—a hybrid scheme that makes decryption without the attacker's private key computationally impossible.</p>
+        <p style="margin:0 0 8px;">The threat actor deliberately selects AI infrastructure for maximum extortion leverage: replacing a single large-language-model training run can cost $500,000 or more in compute alone, and organizations rarely maintain offline backups of model artifacts the way they do traditional data. ENCFORGE renders months of GPU expenditure worthless overnight. Sysdig, which first reported on JADEPUFFER's evolution into ransomware, assesses with high confidence that the actor previously focused on database extortion before targeting AI-specific files.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Langflow is a visual toolbox developers use to build AI-powered apps. A flaw let attackers send hidden commands to it without logging in, giving them full control of the server. JADEPUFFER—a hacker that itself uses AI to attack—then planted ENCFORGE ransomware, which scrambles the AI "brain files" (model weights and training data) that companies spend millions creating. Without a backup, the choice is stark: pay the ransom or permanently lose the AI system.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2025-3248 · CVSS: 9.8/10 — Critical missing-authentication flaw in Langflow's code-validation API endpoint; scored 9.8 due to zero privileges required, no user interaction, and full system-compromise potential via unauthenticated code execution.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: JADEPUFFER -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">JADEPUFFER</div>
+  <div style="opacity:.85;margin-top:4px;">Agentic AI Threat Actor · Attribution: Unknown (no confirmed nation-state sponsor)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> AI and machine-learning infrastructure — organizations running exposed Langflow instances, AI research labs, ML training environments, and companies with large unprotected model repositories.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Using autonomous AI agent systems to orchestrate multi-step attacks, deploying ENCFORGE ransomware targeting AI-specific file formats, and exploiting critical RCE flaws in AI development tooling to maximize extortion leverage against AI-dependent organizations.</div>
+</div>
+
+<!-- STORY 2: CRITICAL – Qilin / PAN-OS -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer / Security Affairs · Jul 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/critical-globalprotect-vpn-bug-now-exploited-in-ransomware-attacks/" style="color:#111827;text-decoration:none;">Qilin Ransomware Gang Actively Exploiting Palo Alto GlobalProtect Auth Bypass CVE-2026-0257</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Qilin ransomware affiliates are exploiting CVE-2026-0257—a CVSS 7.8 authentication bypass in Palo Alto Networks PAN-OS GlobalProtect—to gain unauthorized VPN sessions, then rapidly harvest LSASS and Active Directory credentials before deploying Qilin ransomware payloads for domain-wide encryption.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running Palo Alto PAN-OS GlobalProtect with authentication override cookies enabled and without the May 13 patch applied—including healthcare systems, financial institutions, and critical infrastructure operators globally.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the PAN-OS GlobalProtect patch released May 13, 2026 immediately; disable authentication override cookies where not essential; monitor for LSASS credential dumping and unusual administrative-share access as early compromise indicators.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">Qilin exploits the GlobalProtect VPN portal's authentication bypass to establish a legitimate-looking VPN session, treating the enterprise VPN gateway itself as the initial foothold into the target network rather than needing a phishing lure or other vector.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">Qilin (also known as Agenda ransomware), one of the most prolific double-extortion gangs of 2025–2026, has incorporated CVE-2026-0257 into its initial-access playbook. This vulnerability in Palo Alto Networks GlobalProtect allows unauthenticated attackers to establish VPN sessions when authentication override cookies are configured—a common setup on enterprise deployments that integrate with SAML identity providers.</p>
+        <p style="margin:0 0 8px;">Post-exploitation follows a systematic and rapid pattern: after gaining VPN access, affiliates dump credentials from LSASS memory and the Active Directory database, then use those credentials to propagate across administrative shares and deploy the password-protected Qilin payload. Several observed intrusions moved from initial VPN compromise to domain-wide encryption within 24 hours, leaving minimal time for defenders to detect and respond.</p>
+        <p style="margin:0 0 8px;">Palo Alto patched CVE-2026-0257 on May 13 and CISA added it to the Known Exploited Vulnerabilities catalog in early June. Despite more than six weeks since the patch, a significant portion of organizations with complex change-management processes remain unpatched. Qilin's adoption confirms the gang's strategic emphasis on enterprise VPN vulnerabilities as a reliable initial-access vector, having previously exploited Fortinet and Cisco VPN flaws.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> GlobalProtect is Palo Alto's VPN software that companies use to give remote employees secure access. A flaw lets attackers skip the password check entirely and connect as if they belong there. Once inside the VPN, the Qilin gang—criminal hackers who lock files for ransom—steal every password they can find, spread through the company's network, and encrypt everything. Think of it as finding a skeleton key that opens the front door of every building in a secured office park.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-0257 · CVSS: 7.8/10 — Authentication bypass in PAN-OS GlobalProtect portal and gateway; CVSS 7.8 reflects high impact with network-accessible exploitation, but requires authentication override cookie configuration to be enabled.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Qilin -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Qilin (Agenda)</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Ransomware Gang · Believed to operate from Russia (unconfirmed)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Healthcare, education, critical infrastructure, and enterprise organizations globally; claimed 1,358+ victims as of mid-2026 across North America, Europe, and Asia-Pacific.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Cross-platform ransomware written in Go and Rust, double-extortion (encrypt + steal data), exploiting enterprise VPN vulnerabilities for initial access, and rapid domain-wide encryption often completed within 24 hours of initial compromise.</div>
+</div>
+
+<!-- STORY 3: HIGH – Hugging Face breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Jul 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/" style="color:#111827;text-decoration:none;">Hugging Face Breached by Autonomous AI Agent Swarm; Internal Datasets and Cluster Credentials Exposed</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> An autonomous AI agent system exploited two code-execution flaws in Hugging Face's dataset processing pipeline—a remote-code dataset loader and a template injection in dataset configuration—executed more than 17,000 actions over a weekend, and accessed internal datasets and cloud cluster service credentials.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Hugging Face's internal infrastructure and potentially partner integrations relying on now-compromised service credentials; no evidence of tampering with public models, datasets, or Spaces was found.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Rotate all Hugging Face API tokens and OAuth app permissions immediately; audit any service integrations that authenticate to Hugging Face APIs; review dataset loaders in your ML pipelines for arbitrary code execution potential.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Privilege Escalation] T1078 · Valid Accounts<br>
+      <span style="color:#6b7280;">After the initial dataset-pipeline exploit, the AI agent used harvested cloud and Kubernetes cluster service-account tokens to move laterally through multiple internal environments, impersonating legitimate service identities rather than exploiting additional vulnerabilities.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">The breach of Hugging Face—the world's largest AI model repository with over one million models hosted—represents the first publicly confirmed case of a major AI platform being breached by an autonomous AI agent system. The attacker exploited two separate code-execution vulnerabilities in Hugging Face's dataset processing pipeline: a remote-code dataset loader that executes arbitrary Python upon data import, and a template injection in dataset configuration files.</p>
+        <p style="margin:0 0 8px;">From that initial foothold, the autonomous system escalated to node-level access within the Kubernetes clusters underlying Hugging Face's infrastructure. Over a single weekend, the AI agent executed more than 17,000 individual actions, harvesting cloud provider credentials and cluster service-account tokens before moving laterally into several internal environments. The sheer velocity of these actions meant investigators initially struggled to reconstruct the intrusion timeline, ultimately relying on an AI analysis tool to process the forensic data.</p>
+        <p style="margin:0 0 8px;">Hugging Face confirmed no tampering with public models, datasets, or Spaces, and its software supply chain was verified clean. The company blocked the exploited code-execution paths, rebuilt compromised nodes, and began revoking and rotating all affected credentials. However, the potential exposure of internal service credentials means partner or customer integrations depending on those tokens may have been silently compromised during the intrusion window.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Hugging Face is like a giant public library for AI models—millions of developers download AI "brains" from it. A hacker (that was itself an AI) found a way in through a rigged dataset file, then automated its own break-in at machine speed, running 17,000 steps over a weekend while humans were away. It grabbed access keys to internal systems before anyone noticed. This is notable as the first confirmed AI-on-AI hack of a major platform.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH – HollowGraph -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Group-IB · Jul 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/hollowgraph-malware-hides-c2-and-stolen.html" style="color:#111827;text-decoration:none;">HollowGraph Malware Hides C2 Commands and Stolen Data Inside Microsoft 365 Calendar Events Dated 2050</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Group-IB researchers uncovered HollowGraph, a Windows malware that uses the Microsoft Graph API through a compromised M365 account to tunnel all command-and-control communications through Outlook Calendar events scheduled for May 13, 2050—with DNS tunneling used to refresh authentication tokens.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using Microsoft 365, with at least 12 confirmed infected systems identified; the active campaign targets organizations in Israel for suspected espionage purposes, with activity observed between June 3 and July 9, 2026.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit Microsoft 365 OAuth app consent grants for unusual Graph API permissions, monitor for anomalous calendar event creation via the Graph API, and investigate calendar events scheduled far into the future (post-2040) as a potential compromise indicator.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Command and Control] T1102 · Web Service<br>
+      <span style="color:#6b7280;">HollowGraph routes its entire C2 channel through Microsoft's own Graph API infrastructure, embedding attacker commands and exfiltrated data in Outlook Calendar event attachments—blending perfectly into legitimate M365 traffic that most firewalls and DLP tools whitelist by default.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">HollowGraph is a Windows malware framework attributed with high confidence by Group-IB's Threat Intelligence team to the Cavern backdoor ecosystem—a sophisticated toolset associated with state-aligned espionage operations. Its defining characteristic is a command-and-control mechanism that bypasses nearly all conventional network detection: rather than calling out to attacker-owned servers, it communicates through a compromised Microsoft 365 account using the Microsoft Graph API.</p>
+        <p style="margin:0 0 8px;">Operator commands arrive as file attachments to Outlook Calendar invites set for May 13, 2050—a date far enough in the future to appear unremarkable in most calendar audit views. Exfiltrated data travels the same channel in reverse. To maintain persistent access even if the compromised M365 account's password changes, HollowGraph also uses DNS tunneling to an attacker-controlled domain to refresh the OAuth tokens needed to authenticate to Graph API.</p>
+        <p style="margin:0 0 8px;">Group-IB identified at least 12 infected systems with the earliest observed C2 communication on June 3, 2026 and the most recent on July 9. The campaign appears focused on Israeli organizations, consistent with a geopolitically motivated espionage operation. The technique is particularly insidious because Microsoft 365 traffic is rarely inspected at the content level—security teams watch for connections to known-bad IPs, but calendar event attachments traversing Microsoft's own servers rarely trigger alerts.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Traditional malware phones home to a hacker's secret server to get orders—and security tools have learned to watch for those suspicious calls. HollowGraph tricks this by hiding its messages inside Microsoft Outlook calendar invites set for the year 2050. Since the messages travel through Microsoft's own servers, they look completely legitimate. It's like a spy passing secret notes through the company's official meeting-scheduler—nobody thinks to check there.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH – ServiceNow CVE-2026-6875 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Jul 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/critical-servicenow-code-execution-flaw-now-exploited-in-attacks/" style="color:#111827;text-decoration:none;">ServiceNow Pre-Auth RCE CVE-2026-6875 Actively Exploited via Multiple Novel Sandbox-Escape Routes</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers began exploiting CVE-2026-6875—a critical pre-authentication remote code execution flaw in the ServiceNow AI Platform—just four days after a July 14 patch; more alarmingly, in-the-wild payloads are reaching the same code-execution primitive via a different sandbox-escape route than the one publicly documented, meaning partial mitigations are ineffective.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running self-hosted ServiceNow instances that have not yet applied the July 14 patch; ServiceNow-managed cloud instances were patched proactively, but on-premises deployments at most large enterprises require manual updates.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the full ServiceNow July 14 security patch immediately—blocking only the documented Searchlight Cyber exploit path is insufficient; any organization that took that shortcut remains fully exposed to the novel exploitation routes observed in the wild.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">CVE-2026-6875 targets ServiceNow's publicly accessible scripting API endpoint without requiring credentials, user interaction, or internal network position—a canonical T1190 exploitation that grants immediate code execution on enterprise ITSM infrastructure used by most Fortune 500 companies.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">CVE-2026-6875 is a sandbox escape vulnerability in ServiceNow's server-side scripting environment, affecting the AI Platform—a cloud or on-premises system used by most Fortune 500 companies to manage IT help tickets, HR workflows, and enterprise change management. ServiceNow patched the flaw on July 14 alongside Searchlight Cyber's disclosure of technical details and a proof-of-concept. Threat intelligence firm Defused confirmed in-the-wild exploitation by July 18—one of the fastest patch-to-exploitation intervals on record for a critical enterprise platform.</p>
+        <p style="margin:0 0 8px;">What elevates the severity beyond a typical critical RCE is the multi-path exploitation pattern observed: attackers are reaching the same unauthenticated code-execution primitive through a different sandbox-escape route than the one Searchlight Cyber documented. Organizations that attempted to block the published technique rather than apply the vendor patch are fully exposed to these alternative exploitation chains.</p>
+        <p style="margin:0 0 8px;">ServiceNow's managed cloud instances were patched first, but self-hosted deployments—common among regulated industries and large enterprises with strict change-management requirements—must apply patches manually. Given the speed of active exploitation and the breadth of enterprise deployment, security teams should treat this as an emergency patching priority regardless of existing maintenance windows.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> ServiceNow is the software millions of office workers use to submit IT help tickets or request new equipment. This critical flaw let anyone on the internet send a specially crafted web request and run commands on the company's ServiceNow server with no password required. Even worse, attackers found multiple ways to exploit it, so companies that tried a quick partial fix are still vulnerable—only the official patch actually closes the door.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-6875 · CVSS: Critical (exact score not yet published) — Pre-authentication sandbox escape enabling unauthenticated RCE on ServiceNow AI Platform; requires no credentials, no user interaction, and is reachable from any network with access to the ServiceNow instance.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: HIGH – NGINX CVE-2026-42533 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / TechTimes · Jul 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.techtimes.com/articles/321018/20260720/nginx-map-regex-rce-gets-public-scanner-patch-now-full-exploit-due-august.htm" style="color:#111827;text-decoration:none;">NGINX CVE-2026-42533 (CVSS 9.2): Public Scanner Released as Full Exploit Write-Up Held Until August 5</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A public network scanner for CVE-2026-42533—a CVSS 9.2 heap buffer overflow in nginx's PCRE regex processing engine affecting versions 0.9.6 through 1.30.3—was released on July 20; researchers demonstrated 10-out-of-10 reliable RCE in testing and are withholding the full technical write-up until August 5 to allow patching time.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running nginx versions before 1.30.4 (stable) or 1.31.3 (mainline) or NGINX Plus before version 37.0.3.1; nginx powers approximately 34% of global web server infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade nginx to 1.30.4 (stable) or 1.31.3 (mainline) or NGINX Plus to 37.0.3.1 now, before the August 5 public exploit release; the vulnerability has an 18-year history in the codebase and attackers will weaponize the write-up immediately upon publication.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">CVE-2026-42533 allows a remote unauthenticated attacker to trigger a heap buffer overflow via a maliciously crafted HTTP request containing a manipulated regex pattern, directly compromising nginx-fronted web services without any user interaction or prior foothold.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">CVE-2026-42533 is a heap buffer overflow in nginx's map module regex processing, rooted in a missing save-and-restore mechanism for PCRE capture state within nginx's two-pass script evaluation engine. The vulnerability enables attackers to trigger the overflow with attacker-controlled content and length, while also leaking heap pointers through an information disclosure that defeats ASLR (Address Space Layout Randomization). Researchers achieved 10-out-of-10 successful remote code executions on Ubuntu 24.04 with glibc 2.39 and ASLR fully enabled.</p>
+        <p style="margin:0 0 8px;">The flaw affects nginx versions all the way back to 0.9.6—an 18-year presence in the codebase. Patches were shipped July 15 in nginx 1.30.4 (stable), 1.31.3 (mainline), and NGINX Plus 37.0.3.1. As of July 20, no public exploit code exists, but researchers have released a scanner that identifies vulnerable nginx instances. The full technical write-up and exploit details are being withheld under coordinated disclosure until August 5.</p>
+        <p style="margin:0 0 8px;">The combination of nginx's ~34% web server market share, a reliable pre-authentication exploit, and an August 5 countdown clock creates significant urgency. Historical precedent shows that within hours of technical write-up publication, exploit scanners and automated attack tools emerge. Organizations have approximately two weeks to patch before the exploitation risk escalates sharply.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> nginx (pronounced "engine-x") is the software that handles web traffic for about 1 in 3 websites worldwide—from major news sites to online stores to APIs. Researchers found a flaw that lets an attacker send a specially crafted request to crash nginx and then run their own code on the server. No login needed. They've been keeping the detailed exploit instructions secret to give people time to patch—but that window closes August 5. If you run nginx, update it now.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-42533 · CVSS: 9.2/10 — Pre-auth heap buffer overflow in nginx PCRE regex processing enabling reliable RCE; rated 9.2 for network-accessible exploitation, no privileges required, and high impact across confidentiality, integrity, and availability.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 7: MEDIUM – SleeperGem -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Jul 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/07/sleepergem-uses-three-malicious.html" style="color:#111827;text-decoration:none;">SleeperGem: Three Malicious RubyGems Published via Hijacked Dormant Maintainer Accounts Target Developer Machines</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers took over legitimate but long-inactive RubyGems publisher accounts to inject malicious code into three real packages (git_credential_manager, Dendreo, fastlane-plugin-run_tests_firebase_testlab), which fetch secondary payloads, install a background daemon, and establish cron/systemd persistence on developer workstations while deliberately avoiding CI/CD environments.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Ruby developers who installed any of the three affected gems between July 18–20, 2026; the malware specifically targets developer machines (not build servers), making it dangerous for any team with access to production source code or cloud API keys.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Remove the malicious gem versions immediately (git_credential_manager 2.8.0–2.8.3, Dendreo 1.1.3–1.1.4, fastlane-plugin-run_tests_firebase_testlab 0.3.2), audit developer machines for unexpected daemons and cron jobs, and rotate any cloud credentials or SSH keys accessible from affected developer workstations.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1195 · Supply Chain Compromise<br>
+      <span style="color:#6b7280;">SleeperGem compromised legitimately dormant RubyGems publisher accounts—which carry the historical trust of years of prior legitimate releases—and injected malicious updates into real gem packages, using the trusted gem registry itself as the delivery mechanism to bypass developer security controls.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">SleeperGem exploits a simple but overlooked weakness in package ecosystem trust: dormant maintainer accounts. By taking over accounts belonging to real gem authors who stopped publishing six or seven years ago, attackers published malicious updates under legitimate package names without triggering RubyGems' risk signals for new publishers. The three targeted gems collectively have enough historical downloads to appear established and trustworthy to dependency scanners.</p>
+        <p style="margin:0 0 8px;">The malicious packages are engineered to specifically avoid CI/CD environments—they scan for environment variables associated with GitHub Actions, GitLab CI, CircleCI, and similar platforms before executing their payload. This means automated dependency security scans running in pipelines would likely miss the malware. On developer workstations, the malware installs a native background daemon and establishes persistence via cron jobs and systemd services, then fetches additional payloads from attacker-controlled servers.</p>
+        <p style="margin:0 0 8px;">Targeting developer machines rather than production servers reflects a sophisticated threat model: developers typically have far broader access than their own machines would suggest—SSH keys to servers, cloud CLI credentials, repository commit access, and more. A single compromised developer workstation can serve as a pivot point into production environments without requiring any additional exploitation.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Ruby gems are like apps for developers—small ready-made tools they add to their projects. Attackers broke into old, unused accounts from developers who published gems years ago and pushed poisoned updates. Because the accounts had good track records, nobody flagged them as suspicious. The malware then quietly installed itself on programmers' computers, specifically hiding from automated security checks. A programmer's computer is a gold mine: it often has passwords, server keys, and the ability to publish code to live websites.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 8: MEDIUM – WordPress wp2shell -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Rapid7 / The Hacker News · Jul 17, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.rapid7.com/blog/post/etr-cve-2026-63030-wp2shell-a-critical-remote-code-execution-vulnerability-in-wordpress-core/" style="color:#111827;text-decoration:none;">WordPress wp2shell (CVE-2026-63030 + CVE-2026-60137): Pre-Auth RCE Widely Exploited After PoC Goes Public Within Hours of Disclosure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Two chained WordPress Core flaws—CVE-2026-63030 (authorization gap in the REST API batch endpoint) and CVE-2026-60137—enable completely unauthenticated remote code execution on any unpatched WordPress 6.9.0–7.0.1 installation; public PoC appeared within hours of July 17 disclosure, with in-the-wild exploitation confirmed by July 18.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All WordPress sites running versions 6.9.0 through 7.0.1 without the July 15 automatic update applied; WordPress.org enabled forced automatic updates but many enterprise and large media deployments run WordPress with auto-updates disabled.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update WordPress to 7.0.2 or 6.9.5 immediately; verify the update completed if auto-updates are enabled; scan web server logs for POST requests to /wp-json/batch/v1 for signs of exploitation attempts.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">wp2shell targets WordPress's publicly accessible REST API batch endpoint (/wp-json/batch/v1) via an anonymous HTTP request, achieving unauthenticated server-side code execution on a default WordPress installation with no plugins, themes, or special configurations required.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">The wp2shell chain combines two WordPress Core vulnerabilities affecting the REST API batch endpoint introduced in WordPress 7.0. CVE-2026-63030 creates an improper authorization gap in how batch API requests are processed, while CVE-2026-60137 chains into it to escape WordPress's PHP execution sandbox and run arbitrary server commands. The name wp2shell reflects the attack's one-step nature: an HTTP request to a WordPress site yields an operating system shell.</p>
+        <p style="margin:0 0 8px;">Critically, no plugins, themes, or non-default configurations are required—a fresh WordPress installation out of the box is fully exploitable. WordPress.org released patches in versions 7.0.2 and 6.9.5 and enabled forced automatic updates for affected installations. However, many enterprise deployments, managed hosting environments, and large media companies operate WordPress with auto-updates disabled for production stability, leaving them exposed.</p>
+        <p style="margin:0 0 8px;">Given WordPress's estimated 40%+ share of the global web, the potential attack surface is vast. Attackers are actively scanning and compromising unpatched sites for cryptomining, SEO spam injection, credential phishing pages, and use as botnet nodes. WordPress sites that were recently compromised without explanation should be treated as potential wp2shell victims and forensically examined.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> WordPress runs about 40% of all websites on the internet—news sites, online stores, personal blogs, business websites. Researchers found two connected security flaws that, when used together, let anyone on the internet send a single web request and take complete control of the web server. No password, no login, no special software needed. Public attack tools appeared within hours of the announcement, so attackers everywhere are actively scanning for unpatched sites.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-63030 · CVSS: 9.8/10 — Critical pre-auth WordPress REST API authorization bypass enabling chained RCE; 9.8 reflects network-accessible exploitation with no authentication, no user interaction, and complete server compromise.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Agentic Cyberattack ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    An agentic cyberattack uses autonomous AI software—called an agent—that can plan, make decisions, and chain together complex actions without requiring a human operator at each step. Unlike traditional malware that follows fixed instructions, an AI agent can read its environment, adapt to unexpected obstacles, and work at machine speed across thousands of sequential actions. Today's attacks on Hugging Face (17,000 automated actions over a weekend) and the JADEPUFFER/ENCFORGE campaign are early real-world examples of AI systems being weaponized to hack other AI systems at a pace that human defenders struggle to match.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: Langflow · LSASS · Dead Drop Resolver · Sandbox Escape · Agentic AI ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Langflow</strong> — An open-source visual platform for building AI agent workflows; CVE-2025-3248 in versions before 1.3.0 allowed unauthenticated remote code execution through its code-validation API endpoint.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">LSASS</strong> — Local Security Authority Subsystem Service; the Windows process that enforces security policy and stores hashed user credentials in memory, making it a prime target for credential-theft attacks (like Qilin's post-VPN dump).
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Dead Drop Resolver</strong> — A command-and-control technique where attackers hide instructions inside legitimate online services (email, calendars, social media, cloud storage) rather than attacker-controlled servers, making network detection nearly impossible.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Sandbox Escape</strong> — A technique that breaks out of an isolated execution environment designed to contain untrusted code, allowing an attacker to affect the host operating system or broader network; exploited in both ServiceNow (CVE-2026-6875) and NGINX (CVE-2026-42533) today.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Agentic AI</strong> — An artificial intelligence system capable of autonomously planning and executing multi-step tasks toward a goal without requiring human direction at each step; increasingly weaponized by threat actors like JADEPUFFER, and seen in the Hugging Face breach.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.securityweek.com/neo-emerges-from-stealth-with-100m-to-control-and-secure-enterprise-ai-software/" style="color:#374151;text-decoration:none;">Neo Emerges From Stealth With $100M to Control and Secure Enterprise AI Software Pipelines</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Jul 22, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

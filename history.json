@@ -1,14 +1,15 @@
 {
-  "til": ["DLL Sideloading", "Kernel Privilege Escalation", "BYOVD", "Race Condition", "Blockchain C2", "Registry Hive Hijacking", "SS7 Signaling Attack"],
-  "glossary": ["OAuth", "UAF", "TOCTOU", "APT", "DLL Sideloading", "Zero-Day", "CISA", "Kernel", "IDE", "ShinyHunters", "Storm-2603", "RaaS", "BYOVD", "SD-WAN", "LPE", "Session Token", "RMM", "PoC", "BOD", "NetScaler", "Dwell Time", "Double Extortion", "Heap Buffer", "Memory Disclosure", "Command Injection", "KVM", "Hypervisor", "RAT", "npm", "CI/CD", "wp2shell", "Blockchain C2", "Typosquatting", "SMA", "Inc Ransomware", "TetrisPhantom", "ASLR", "IIS", "EoP", "CVSS", "PAT", "HIPAA", "RCE", "SS7", "Vishing", "SSO", "PHI", "REST API", "FCEB", "Supply Chain Attack"],
+  "til": ["Kernel Privilege Escalation", "BYOVD", "Race Condition", "Blockchain C2", "Registry Hive Hijacking", "SS7 Signaling Attack", "Agentic Cyberattack"],
+  "glossary": ["Zero-Day", "CISA", "Kernel", "IDE", "ShinyHunters", "Storm-2603", "RaaS", "BYOVD", "SD-WAN", "LPE", "Session Token", "RMM", "PoC", "BOD", "NetScaler", "Dwell Time", "Double Extortion", "Heap Buffer", "Memory Disclosure", "Command Injection", "KVM", "Hypervisor", "RAT", "npm", "CI/CD", "wp2shell", "Blockchain C2", "Typosquatting", "SMA", "Inc Ransomware", "TetrisPhantom", "ASLR", "IIS", "EoP", "CVSS", "PAT", "HIPAA", "RCE", "SS7", "Vishing", "SSO", "PHI", "REST API", "FCEB", "Supply Chain Attack", "Langflow", "LSASS", "Dead Drop Resolver", "Sandbox Escape", "Agentic AI"],
   "week": {
-    "critical": 6,
-    "high": 7,
-    "medium": 3,
-    "techniques": ["T1190", "T1486", "T1068", "T1134", "T1552", "T1203", "T1041", "T1566", "T1430", "T1195", "T1555"],
-    "actors": ["SafePay", "ShinyHunters", "The Gentlemen", "Iran"]
+    "critical": 8,
+    "high": 11,
+    "medium": 5,
+    "techniques": ["T1190", "T1486", "T1068", "T1134", "T1552", "T1203", "T1041", "T1566", "T1430", "T1195", "T1555", "T1133", "T1078", "T1102"],
+    "actors": ["SafePay", "ShinyHunters", "The Gentlemen", "Iran", "Qilin", "JADEPUFFER"]
   },
   "digests": [
+    {"date": "2026-07-22", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 2},
     {"date": "2026-07-21", "threat": "ELEVATED", "critical": 3, "high": 4, "medium": 2},
     {"date": "2026-07-20", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 1},
     {"date": "2026-07-19", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
