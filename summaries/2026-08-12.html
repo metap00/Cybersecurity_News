@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 12, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 12, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 3 critical · 3 high · 0 medium · ~12 min read</div>
+</div>
+
+<!-- STORY 1: Polish CHP Plant — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/hackers-breach-polish-power-plant.html" style="color:#111827;text-decoration:none;">Hackers Shut Down Steam Turbine at Polish Heating Plant via Private Cellular Network</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers scanned a private APN (cellular network), found a Wago PLC with SSH exposed, and used it to shut down a steam turbine and water treatment system at a Polish combined heat and power plant serving 50,000 residents.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> The CHP plant operator and approximately 50,000 residents it heats; the incident was part of a coordinated campaign that simultaneously struck 30 Polish renewable energy facilities and another CHP plant on the same day.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit all private APN connections for OT network exposure, disable SSH on any PLC reachable from a cellular interface, enforce strict network segmentation between IT and OT environments, and consult CISA's ICS security guidance immediately.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1599 · Network Boundary Bridging<br>
+      <span style="color:#6b7280;">Attackers pivoted from the private cellular APN network into the plant's OT segment by exploiting an SSH service on a Wago PLC, crossing the IT/OT boundary without traversing traditional IT infrastructure — the first known use of a private APN as an OT attack vector.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>This attack on a Polish combined heat and power (CHP) plant is a landmark event in ICS/OT security: investigators describe it as the first known case of attackers using a private APN as the entry point into an industrial operational technology environment. A private APN is a dedicated mobile data network — typically set up by industrial operators so equipment can be remotely monitored without routing traffic over the public internet. The security assumption was that a private APN was inherently isolated. Attackers disproved that assumption by systematically scanning the APN's IP address space, identifying a Wago programmable logic controller with an SSH service listening, and using that foothold to reach and manipulate the plant's operational systems.</p>
+        <p>Once inside, the attackers shut down a steam turbine and the process-water treatment system, disrupting the plant's cogeneration cycle. The incident occurred on the same day as coordinated attacks against 30 other Polish renewable energy facilities and a second CHP plant, suggesting a deliberate, multi-target campaign likely orchestrated by a well-resourced threat actor. Plant operators initially attributed the shutdown to contractor error before forensic analysis revealed the true cause. Recovery operations began while attackers were still active in the network, and thankfully customers lost neither heat nor electricity.</p>
+        <p>The security lesson is profound: any network-connected device in an OT environment — even one on a "private" cellular APN — must be treated as a potential attack surface. SSH services should never be enabled on PLCs facing any network without strict access controls, authentication, and logging.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A power plant in Poland was hacked through its private mobile phone network. The plant connected some of its industrial machines (called PLCs — programmable logic controllers) to a private cellular network for remote monitoring. The attackers found one of those machines had an open remote-access port (SSH) and used it to break in and shut down a key turbine. Think of it like a burglar discovering a secret back door into a building that the owners assumed nobody knew about — because it was on a "private" street.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Microsoft Patch Tuesday — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-august-2026-patch-tuesday-fixes-400-flaws-3-zero-days/" style="color:#111827;text-decoration:none;">Microsoft August 2026 Patch Tuesday: 400+ CVEs Fixed, WinSock Zero-Day CVE-2026-68820 Actively Exploited</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's August Patch Tuesday addresses 400+ CVEs including CVE-2026-68820, a use-after-free vulnerability in the Windows WinSock driver (afd.sys) that attackers are already exploiting in the wild to escalate privileges; two additional zero-days were publicly disclosed but not yet actively exploited.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows users on unpatched systems, with 42 Critical-rated vulnerabilities this cycle — 37 of them remote code execution flaws affecting Windows components, Remote Desktop, and Hyper-V.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply August Patch Tuesday updates immediately, prioritizing CVE-2026-68820; IT teams should use Windows Update, WSUS, or Microsoft Endpoint Manager and accelerate deployment for any public-facing Windows infrastructure.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">CVE-2026-68820 is a local privilege escalation in Windows' network socket driver; attackers exploit the use-after-free memory corruption flaw to elevate from a standard user account to SYSTEM-level privileges, enabling full system takeover after gaining initial access through other means.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Microsoft's August 2026 Patch Tuesday is one of the largest in company history, patching over 400 CVEs across Windows, Office, Azure, and other products. The critical zero-day is CVE-2026-68820 — a use-after-free vulnerability in afd.sys, the kernel-mode Windows Ancillary Function Driver that handles WinSock (Windows Sockets) networking. A use-after-free bug occurs when software continues to reference memory after it has been freed; an attacker can manipulate that freed memory region to redirect program execution, typically achieving arbitrary code execution at a higher privilege level.</p>
+        <p>CVE-2026-68820 is a local privilege escalation (LPE), meaning an attacker must already have limited access to the machine before exploiting it. This makes it a classic second-stage exploit: pair initial access (via phishing, a web exploit, or stolen credentials) with CVE-2026-68820 and an attacker achieves full SYSTEM-level control. Microsoft confirms active exploitation in the wild. Additionally, two other zero-days were publicly disclosed (potentially giving attackers a head-start before patches land): one in Remote Desktop and one affecting a Windows network protocol stack component. The 37 Critical RCE flaws this cycle are especially alarming — multiple affect Hyper-V (virtualization), meaning a successful exploit could escape a virtual machine and compromise the host server.</p>
+        <p>Other vendors with coordinated August patches include SAP (CVSS 10.0 vuln), Adobe, Cisco, and TP-Link (15 Omada flaws).</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Every second Tuesday of the month, Microsoft releases security fixes for Windows — this is called "Patch Tuesday." This month they fixed over 400 bugs, one of which (CVE-2026-68820) is already being used by real hackers. This bug is in the part of Windows that handles internet connections, and it lets someone who's already on your computer gain full administrator control. Think of it like a thief who got into your house finding a master key that unlocks every room and every safe.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-68820 · CVSS: 7.0/10 — High-severity local privilege escalation in Windows WinSock driver (afd.sys); a use-after-free memory corruption flaw enables a non-privileged local attacker to gain SYSTEM-level access, actively exploited in the wild.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Gunra Ransomware — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Record · Aug 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://therecord.media/ransomware-south-korea-fbi-gunra" style="color:#111827;text-decoration:none;">FBI and South Korea Issue Joint Advisory: North Korea's Gunra Ransomware Exploiting Fortinet Flaws to Target Critical Infrastructure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A joint advisory from CISA, FBI, NSA, Secret Service, and South Korean intelligence agencies warns that Gunra — a North Korea-linked ransomware-as-a-service group sharing infrastructure with Lazarus Group — is exploiting authentication bypass CVEs in Fortinet FortiOS and FortiProxy (CVE-2024-55591, CVE-2025-24472) to attack critical infrastructure globally.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Healthcare, financial services, government agencies, professional services, and other critical infrastructure organizations worldwide running unpatched Fortinet VPN and firewall appliances, many left unpatched since 2024–2025.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch Fortinet devices against CVE-2024-55591 and CVE-2025-24472 immediately; segment networks so edge devices cannot reach critical systems; enable MFA on all remote access; audit Fortinet admin account lists for unauthorized additions.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Gunra affiliates exploit publicly known authentication bypass vulnerabilities in Fortinet FortiOS/FortiProxy internet-facing appliances to gain administrative access and use them as network beachheads, then deploy ransomware laterally across victim environments.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Gunra ransomware group represents North Korea's most aggressive use of ransomware-as-a-service (RaaS) to generate revenue while conducting destructive attacks on critical infrastructure. Unlike traditional state-sponsored espionage, Gunra operates with a franchise model: a core North Korean team provides infrastructure and the ransomware binary, while criminal affiliates conduct attacks and share a cut of ransom proceeds — providing Pyongyang with both income and plausible deniability.</p>
+        <p>The joint advisory confirms Gunra's exploitation of two Fortinet authentication bypass vulnerabilities: CVE-2024-55591 (FortiOS, patched February 2024) and CVE-2025-24472 (FortiProxy, patched early 2025). These flaws were widely publicized and patched over a year ago — meaning organizations targeted by Gunra are running devices unpatched for 12–18 months. Once attackers gain administrative access through a Fortinet appliance, they move laterally across the network, deploy ransomware, and exfiltrate data for double extortion.</p>
+        <p>The advisory carries special weight: South Korean authorities separately noted that Gunra and the Lazarus Group — North Korea's elite state-sponsored hacking team — share malware samples, network infrastructure, and SSH key fingerprints. This suggests Gunra is not a standalone criminal gang but an extension of North Korea's cyber warfare apparatus, with ransomware funding further state-sponsored operations.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> North Korea doesn't just spy — they also run ransomware gangs to make money. "Gunra" is one such group. They're exploiting old, well-known security holes in Fortinet firewall products that organizations never bothered to patch. Once inside, they lock all your files and demand payment. The US and South Korea are warning everyone because Gunra is hitting hospitals, banks, and government agencies — and they share tools with North Korea's elite Lazarus hackers. If your organization uses Fortinet devices for internet security and they're not updated, that's an emergency.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2024-55591 · CVE-2025-24472 — Authentication bypass vulnerabilities in Fortinet FortiOS and FortiProxy; allow unauthenticated remote attackers to gain administrative privileges on internet-facing appliances.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Gunra -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Gunra</div>
+  <div style="opacity:.85;margin-top:4px;">Ransomware-as-a-Service · Attributed to: North Korea (DPRK)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Critical infrastructure, healthcare, financial services, government agencies, professional services — worldwide, with emphasis on US, South Korea, and allied nations</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Exploiting unpatched edge devices (Fortinet FortiOS, Schneider Electric), double extortion ransomware, sharing malware and network infrastructure with the Lazarus Group; ransomware proceeds fund DPRK state operations</div>
+</div>
+
+<!-- STORY 4: SAP CVSS 10.0 — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/sap-patches-critical-code-injection-memory-corruption-vulnerabilities/" style="color:#111827;text-decoration:none;">SAP August Patch Day: CVSS 10.0 Authentication Bypass CVE-2026-58231 in Commerce Cloud Demands Immediate Action</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> SAP released 31 security items on its August Patch Day including CVE-2026-58231 (CVSS 10.0) — a maximum-severity improper authorization vulnerability in SAP Commerce Cloud's Data Hub Adapter that allows unauthenticated remote attackers to completely bypass authentication and gain full system access.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running SAP Commerce Cloud with the Data Hub Adapter component — including thousands of major retailers, airlines, and financial institutions that use SAP's e-commerce platform to process customer orders and synchronize backend data.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply SAP Security Note #3771065 immediately; if immediate patching is not possible, restrict network access to the Data Hub Adapter at the firewall level and audit SAP Commerce Cloud access logs for any unauthorized API calls.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">CVE-2026-58231 allows a remote unauthenticated attacker to exploit insufficient authorization checks in SAP Commerce Cloud's web-facing Data Hub Adapter, bypassing all access controls to gain full administrative access to the application and its connected backend systems.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>A CVSS score of 10.0 is the maximum possible rating in the Common Vulnerability Scoring System. It means the flaw is remotely exploitable with no authentication required, no user interaction needed, low attack complexity, and grants complete control over confidentiality, integrity, and availability. CVE-2026-58231 in SAP Commerce Cloud's Data Hub Adapter earns that perfect-storm rating. The vulnerability stems from insufficient authorization checks combined with inadequate input validation in the Data Hub Adapter — a component that synchronizes data between SAP's e-commerce front-end and backend SAP systems.</p>
+        <p>An attacker who can reach the Data Hub Adapter's network endpoint can send crafted requests that bypass all authentication, potentially accessing and exfiltrating sensitive customer personal data, payment records, order histories, and internal SAP backend credentials. SAP Commerce Cloud powers e-commerce platforms for thousands of large enterprises globally. While SAP has not confirmed active exploitation, CVSS 10.0 vulnerabilities are typically weaponized within days of disclosure as threat actors reverse-engineer the patches to understand the vulnerability. The August patch day also included 4 other Critical notes and 7 High-priority issues, making this a heavy patching month for SAP administrators.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SAP is software that large companies use to run their online stores and manage data. This vulnerability is like leaving the front door to a bank vault completely unlocked — anyone who knows the address can walk in with no key and take everything. The score of 10/10 means it's about as dangerous as software vulnerabilities get. If your company uses SAP Commerce Cloud for e-commerce, your IT team needs to apply this patch today — not next week.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-58231 · CVSS: 10.0/10 — Maximum-severity improper authorization in SAP Commerce Cloud Data Hub Adapter; a remote unauthenticated attacker can bypass all authorization checks and gain full system access with zero prerequisites.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Sandworm UAC-0145 — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/sandworm-linked-uac-0145-uses-fake-job.html" style="color:#111827;text-decoration:none;">Russia's Sandworm Impersonates Recruiters to Push Trojanized WireGuard VPN (SopraVPN) at Ukrainian IT Workers</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CERT-UA disclosed that UAC-0145 — a subgroup of Russia's GRU Sandworm — has been conducting fake job interview campaigns since May 2026, tricking Ukrainian IT professionals into installing SopraVPN, a trojanized WireGuard VPN client that hides AES-encrypted attack commands inside VPN configuration files.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Ukrainian IT workers, system administrators, and DevOps engineers targeted via job-search platforms and Telegram; any organization employing a compromised victim is at risk of network penetration through the backdoor.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Verify recruiter identities independently before installing any software from a job contact; only install VPN clients from official, verified vendor sources; security teams should alert staff to this campaign and monitor endpoints for unexpected WireGuard installations.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1204 · User Execution<br>
+      <span style="color:#6b7280;">Victims are socially engineered through a multi-step fake hiring process to voluntarily download and install SopraVPN; once installed, AES-encrypted commands embedded in WireGuard configuration files are silently executed on the victim's machine — no technical exploit required, relying entirely on the victim's own action.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>This Sandworm campaign demonstrates that Russia's GRU, rather than always deploying sophisticated technical exploits, invests heavily in multi-step social engineering to achieve persistence inside Ukrainian networks. UAC-0145 operators research candidates on job platforms, build credibility over multiple interactions by posing as representatives of credible IT companies (including a firm called "ATLAS Business Group"), then invite victims to what appears to be a legitimate technical assessment. The final step instructs candidates to install "SopraVPN," presented as a company VPN required for the job.</p>
+        <p>SopraVPN is a trojanized WireGuard application — it functions as a normal VPN while hiding AES-128 encrypted attack commands within WireGuard configuration files. This is technically elegant: VPN configuration files are rarely inspected by endpoint detection and response (EDR) tools, allowing the malware's command channel to blend in with legitimate network traffic. CERT-UA has confirmed multiple infections at Ukrainian IT companies since May 2026, with the formal advisory issued August 9, 2026, following forensic analysis of compromised endpoints.</p>
+        <p>The campaign is consistent with Sandworm's recent evolution — combining ClickFix social engineering, trojanized tools, and decentralized infrastructure to target Ukrainian IT professionals who often have privileged access to critical systems and networks.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Russia's military hackers (Sandworm) are pretending to be tech recruiters to trick Ukrainian IT workers. They make the victim go through a fake job interview, then ask them to install "company VPN software." The VPN works normally — but it secretly receives instructions from the hackers hidden inside the VPN settings file. It's like being asked to use a "company phone" that turns out to be bugged. Ukrainian IT professionals should be very suspicious of any job offer requiring them to install unfamiliar software.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Sandworm -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Sandworm / UAC-0145</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-state APT · Attributed to: Russia (GRU Unit 74455)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Ukrainian government, military, and IT infrastructure; NATO member nations; global critical infrastructure including energy grids, water treatment, and telecommunications</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> BlackEnergy attacks on Ukraine's power grid (2015–2016), NotPetya destructive wiper (2017, ~$10B global damage), Industroyer/Crashoverride grid malware, Olympic Destroyer; now running sophisticated fake-recruiter social engineering campaigns (UAC-0145) using trojanized WireGuard VPN clients against Ukrainian IT workers</div>
+</div>
+
+<!-- STORY 6: DeadLock Ransomware — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/deadlock-ransomware-uses-polygon-smart.html" style="color:#111827;text-decoration:none;">DeadLock Ransomware Stores Command Infrastructure on Polygon Blockchain, Making Takedowns Effectively Impossible</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft Threat Intelligence published a detailed breakdown of DeadLock, a Rust-based ransomware group with 80+ victims that stores its C2 server configuration in Polygon smart contracts on the public blockchain — combined with the Session decentralized messaging network and Wasabi cloud storage — making its command infrastructure impossible to seize through traditional law-enforcement methods.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> 80+ organizations globally with over half in Europe; sectors include manufacturing, professional services, and technology; the blockchain-based infrastructure means disruption of operations requires stopping the attacker, not the infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Focus on preventive defenses rather than hoping for infrastructure takedowns: implement immutable offline backups, deploy behavioral ransomware detection, block known DeadLock indicators of compromise, and ensure rapid incident response plans are tested.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Command and Control] T1568 · Dynamic Resolution<br>
+      <span style="color:#6b7280;">DeadLock stores C2 server addresses in Polygon smart contracts, enabling dynamic updates to its command infrastructure without any server to seize; since blockchain data is immutable and globally distributed, defenders cannot disrupt the C2 "dead drop" through traditional takedown methods — only blocking access to Polygon entirely would work.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>DeadLock represents a significant evolution in ransomware infrastructure design. Traditional ransomware gangs rely on web servers or "bulletproof" hosting for their command-and-control (C2) communications — infrastructure that law enforcement can seize, disrupt, or poison with sinkhole operations. DeadLock's operators have engineered around this limitation by storing their C2 configuration in Polygon smart contracts. Polygon is an Ethereum-compatible public blockchain; like all blockchain data, these smart contract entries are permanent, globally replicated, and cannot be deleted or modified — even by Polygon itself.</p>
+        <p>The malware reads its current C2 server address from the blockchain (updating dynamically if the operators push new addresses), establishes encrypted command communications through the Session decentralized messaging network (which uses three-hop onion routing and requires no identifying information to create an account), and stores exfiltrated victim data in Wasabi cloud object storage. Microsoft's detailed technical analysis of the Rust-based encryptor reveals it is carefully engineered to avoid crashing victim systems — it deliberately skips certain system directories so the operating system remains functional enough for the victim to negotiate a ransom payment. Files are encrypted with AES-256. The group has claimed 80+ victims since mid-2025, with European organizations comprising the majority.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Most ransomware gangs run regular web servers that governments can shut down, cutting off the hackers' control. DeadLock is smarter — it hides its "home base" on a blockchain (the same technology that powers cryptocurrency). Since blockchains can't be deleted or taken offline by any single authority, even if police wanted to disrupt DeadLock's operations, there's no server to seize. It's like a criminal gang replacing their headquarters with a permanent message engraved in stone that nobody can erase. DeadLock has attacked 80+ organizations, mostly in Europe, encrypting their files and demanding payment.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Private APN Attack Vector ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A private APN (Access Point Name) is a dedicated mobile data network that enterprises set up so their industrial equipment can communicate over cellular networks without touching the public internet — the assumption being that "private" means "secure." Today's Polish power plant attack demonstrated this assumption is dangerously wrong: if a device on the private APN has an open service like SSH, an attacker who gains access to the APN's IP space (through a compromised SIM, a rogue device, or poor APN security controls) can reach and attack industrial equipment just as easily as if it were on the internet. The fix is to treat every device on a private APN as if it faces the internet: disable unnecessary services, enforce authentication, and segment OT devices from any network-reachable segment.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: APN · OT · PLC · Patch Tuesday · MSP · KEV · ZTP ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">APN</strong> — Access Point Name; a private cellular network gateway that enterprises configure to connect OT/IoT devices to mobile networks without routing traffic over the public internet, though improperly secured APNs can still be an attack entry point.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">OT</strong> — Operational Technology; hardware and software that monitors and controls physical processes in industrial environments (power plants, water treatment, manufacturing), as opposed to IT systems that process information.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PLC</strong> — Programmable Logic Controller; a ruggedized industrial computer used to automate machinery and processes in factories, power plants, and utilities; increasingly a target for cyber attacks as they become network-connected.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Patch Tuesday</strong> — Microsoft's practice of releasing security patches on the second Tuesday of each month; many other vendors (Adobe, SAP, Cisco) coordinate their own patch releases on the same day to simplify enterprise patch management cycles.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MSP</strong> — Managed Service Provider; a company that remotely manages a customer's IT infrastructure and end-user systems, typically using platforms like N-able N-central; MSP compromise is high-value for attackers because it provides access to all of an MSP's downstream customers simultaneously.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">KEV</strong> — Known Exploited Vulnerabilities; CISA's authoritative catalog of CVEs confirmed to be actively exploited in the wild; US federal agencies are required to patch KEV-listed vulnerabilities within specified timeframes, and all organizations should treat KEV additions as high-priority patch signals.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">ZTP</strong> — Zero-Touch Provisioning; a method for automatically configuring network devices (routers, switches, access points) without manual intervention, using pre-defined templates and cloud-based onboarding; the TP-Link Omada vulnerabilities this month targeted flaws in ZTP workflows that allowed device hijacking during the provisioning process.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/08/n-able-says-attackers-take-over-n.html" style="color:#374151;text-decoration:none;">N-able Issues Second Hotfix as Attackers Persist in Managed Networks via Cloudflare Tunnels After Incomplete First Patch</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html" style="color:#374151;text-decoration:none;">CISA Adds N-able N-central CVE-2026-18577 to Known Exploited Vulnerabilities Catalog</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.theregister.com/cyber-crime/2026/08/11/feds-warn-gunra-ransomware-is-exploiting-known-bugs-to-hit-critical-infrastructure/5286263" style="color:#374151;text-decoration:none;">Feds Warn Organizations Running Unpatched Fortinet Since 2024 Are Under Active Gunra Ransomware Attack</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Register</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 12, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
