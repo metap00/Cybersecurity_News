@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 13, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 13, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~6 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - Lazarus Group / Operation Dream Job -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/lazarus-hackers-exploited-windows-zero-day-to-target-defense-firms/" style="color:#111827;text-decoration:none;">Lazarus Group Deploys FudModule Rootkit via Windows Zero-Day in Operation Dream Job</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> North Korea's Lazarus Group exploited CVE-2026-68820, a zero-day use-after-free flaw in Windows AFD.sys, for at least five weeks to gain SYSTEM privileges and install the FudModule kernel rootkit on defense, aerospace, and aviation targets worldwide.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Defense contractors, aerospace firms, and aviation companies in Europe and India, lured via fake job-offer emails impersonating privacy-tech company Enveil and prompted to install a trojanized PDF viewer.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's August 2026 Patch Tuesday immediately — CVE-2026-68820 is now patched and has been added to CISA's Known Exploited Vulnerabilities catalog requiring federal agency action.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation / Defense Evasion] T1014 · Rootkit<br>
+      <span style="color:#6b7280;">After exploiting CVE-2026-68820 to reach SYSTEM level, Lazarus loaded FudModule — a kernel-mode rootkit that disables Windows security monitoring callbacks, effectively blinding EDR tools on the compromised defense-sector machines.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">Lazarus Group, controlled by North Korea's Reconnaissance General Bureau, has run Operation Dream Job since at least 2020 — posing as recruiters to lure engineers at high-value targets. In the latest wave, targets received convincing emails impersonating Enveil, a legitimate US privacy-technology company. Opening the attached PDF prompted installation of "SecurityPDF," a trojanized open-source PDF viewer that delivered the exploit payload over an encrypted channel using post-quantum key exchange algorithms.</p>
+        <p style="margin:0 0 10px 0;">The payload exploited CVE-2026-68820, a use-after-free vulnerability in afd.sys — the Windows kernel driver underlying all socket-based network communication. Triggering a race condition in this driver allowed a locally-authenticated process to corrupt kernel memory and escalate to SYSTEM. From there, FudModule was loaded directly into kernel memory. Rather than bypassing security tools, FudModule unmounts them: it corrupts the callbacks Windows security software registers to receive threat notifications, leaving EDR and AV products running but unable to see anything. Check Point Research discovered the exploit and found Lazarus had abused a Windows kernel driver vulnerability in four separate Patch Tuesday cycles this year.</p>
+        <p style="margin:0 0 10px 0;">Microsoft patched CVE-2026-68820 on August 11, 2026, and CISA immediately added it to the KEV catalog. Organizations in defense, aerospace, and aviation should assume this campaign may have targeted their workforce and review HR/IT communications for suspicious recruitment contacts since July 2026.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of Windows security tools (antivirus, EDR) as security cameras watching every room. FudModule doesn't sneak past the cameras — it sneaks into the security monitoring room and cuts the cable feeds, so the cameras keep running but record nothing. CVE-2026-68820 was the key to get into that room, and Microsoft has now changed the lock. If you work in defense or aerospace and received a surprising job offer via email recently, alert your IT team.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-68820 · CVSS: 7.0/10 — Local privilege escalation via use-after-free in afd.sys; severity elevated by active nation-state exploitation and kernel rootkit deployment.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Lazarus Group -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Lazarus Group</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: North Korea (Reconnaissance General Bureau / RGB)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Defense contractors, aerospace and aviation firms, financial institutions, cryptocurrency exchanges, and technology companies globally</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operation Dream Job (fake job-offer lures), FudModule kernel rootkit, the 2014 Sony Pictures hack, AppleJeus cryptocurrency-theft campaigns, and the 2025 Bybit exchange heist exceeding $1.4 billion</div>
+</div>
+
+<!-- STORY 2: CRITICAL - Microsoft August 2026 Patch Tuesday -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-august-2026-patch-tuesday-fixes-400-flaws-3-zero-days/" style="color:#111827;text-decoration:none;">Microsoft August 2026 Patch Tuesday: 421 CVEs Including Wormable Windows DNS Server RCE at CVSS 9.8</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's August 2026 Patch Tuesday addresses 421 vulnerabilities — 62 critical — including one actively exploited zero-day (CVE-2026-68820), a wormable stack-overflow RCE in Windows DNS Server (CVE-2026-62878, CVSS 9.8), and a second CVSS 9.8 unauthenticated RCE in the QUIC protocol (CVE-2026-62815).</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows users are affected by CVE-2026-68820; organizations running Windows DNS Server are at heightened risk from the wormable CVE-2026-62878; Azure SQL was also patched for a CVSS 10.0 flaw already mitigated by Microsoft server-side.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Deploy Windows Update or WSUS patches now, prioritizing CVE-2026-68820 (exploited), CVE-2026-62878 (wormable DNS RCE), and CVE-2026-62815 (QUIC RCE) — internet-facing DNS servers should be isolated or patched within hours, not days.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1210 · Exploitation of Remote Services<br>
+      <span style="color:#6b7280;">CVE-2026-62878 allows an unauthenticated attacker to send a specially crafted DNS packet to a Windows Server, achieve remote code execution, and then propagate automatically to adjacent DNS servers — the self-replicating wormable nature makes every internet-facing Windows DNS instance a potential zero-click entry point.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">August 2026's Patch Tuesday is one of Microsoft's largest ever releases by volume, spanning Windows core components, Exchange Server, Azure services, and modern networking protocols. Three zero-days anchor the release: CVE-2026-68820 (already exploited by Lazarus Group, detailed separately); CVE-2026-62878 (publicly disclosed, not yet exploited in the wild); and CVE-2026-62815 (publicly disclosed QUIC RCE). The latter two receiving public disclosure before a patch existed makes weaponization significantly easier.</p>
+        <p style="margin:0 0 10px 0;">CVE-2026-62878 is the most structurally dangerous non-exploited flaw: a stack-based buffer overflow (CWE-121) in Windows DNS Server triggered by a malformed network packet. Because DNS is a core internet protocol, any Windows Server configured as a DNS server and reachable from the internet is exposed — no credentials, no user interaction, no phishing. The "wormable" label comes from the ability of malware to autonomously repeat the exploit against neighboring DNS servers it discovers during lateral movement. Security researchers are comparing the risk profile to MS17-010 (EternalBlue), which powered the 2017 WannaCry pandemic. CISA strongly recommended DNS server patches as the single highest-priority item in this cycle.</p>
+        <p style="margin:0 0 10px 0;">Azure SQL's CVSS 10.0 vulnerability (improper authentication) has already been fully mitigated by Microsoft at the service layer — no customer action required. CVE-2026-62815 in QUIC scores 9.8 and enables unauthenticated RCE but requires the target to have QUIC traffic enabled, narrowing the exposed population somewhat.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> DNS is the internet's phone book — it translates "example.com" into the IP address your browser needs. Organizations run DNS servers constantly. A wormable bug means malware exploiting it can automatically jump from your DNS server to the next reachable one, like a viral cold spreading through an office without anyone coughing near each other. This month's DNS bug (CVE-2026-62878) works that way — one unpatched server could silently spread the attack across your whole network.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-62878 · CVSS: 9.8/10 — Wormable stack buffer overflow in Windows DNS Server, unauthenticated, no user interaction; CVE-2026-62815 · CVSS: 9.8/10 — Unauthenticated RCE in Microsoft QUIC; CVE-2026-68820 · CVSS: 7.0/10 — Actively exploited LPE.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH - Check Point SmartConsole Zero-Day -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/check-point-patches-smartconsole-zero-day-exploited-in-attacks/" style="color:#111827;text-decoration:none;">Check Point SmartConsole Zero-Day CVE-2026-16232 (CVSS 9.1) Gives Unauthenticated Attackers Full Firewall Admin Access</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Check Point patched CVE-2026-16232 (CVSS 9.1), an authentication bypass in SmartConsole that lets unauthenticated network-reachable attackers steal a valid application login token and authenticate to a Security Management Server with full administrator privileges — allowing them to rewrite firewall rules and security policies silently.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Check Point Security Management Server or Multi-Domain Security Management (MDS) whose management interface is exposed to the internet without IP-based access restrictions — a default configuration in many deployments.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Check Point's Jumbo Hotfix (released July 22, 2026), immediately restrict SmartConsole access to a trusted IP allowlist, and audit security policy change logs for unauthorized modifications since July 2026.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1550 · Use Alternate Authentication Material<br>
+      <span style="color:#6b7280;">Attackers exploit a flaw in the SmartConsole login flow to harvest a legitimate application token without any valid credentials, then replay that token to gain full administrator access to the security management server — entirely bypassing password controls to gain dominion over the organization's firewall policy.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">SmartConsole is the unified management application used by Check Point administrators to author firewall rules, configure VPN policies, and monitor network security across the entire Check Point estate. CVE-2026-16232 breaks the authentication handshake itself: an attacker with network access to the management server can interact with the SmartConsole login process in a way that yields a valid application token — without providing a username or password. Using that token grants the attacker the same level of access as a fully authenticated system administrator.</p>
+        <p style="margin:0 0 10px 0;">Rapid7's technical analysis confirmed that the default Trusted Clients configuration — which does not restrict which external IP addresses can initiate a SmartConsole connection — is what enabled exploitation in the confirmed incidents. Attackers who gained administrator access could open specific firewall ports, disable threat-prevention blades, alter VPN access controls, or create persistent backdoor administrator accounts. Check Point confirmed exploitation at "a small number of customers" whose management environments were directly internet-exposed. The Jumbo Hotfix released July 22 remediates CVE-2026-16232 along with two related flaws (CVE-2026-62144 and CVE-2026-62145).</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SmartConsole is the master control panel for your firewall — it decides what network traffic is allowed in or out of your organization. This bug is like a broken key-cutting machine at a locksmith: attackers fed it a blank piece of metal and walked out with a working master key. Once they have that key, they can silently open firewall "doors" to let attackers in, and close the "doors" that send alerts — all while looking like a legitimate administrator.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-16232 · CVSS: 9.1/10 — Unauthenticated authentication bypass requiring only network reachability; confirmed exploited in the wild at the time of disclosure on July 22, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - Gunra Ransomware Joint Advisory -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / Bleeping Computer · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/us-warns-of-gunra-ransomware-attacks-against-government-critical-infrastructure/" style="color:#111827;text-decoration:none;">CISA, FBI and South Korea Issue Joint Advisory on Gunra RaaS Stealing Tens of Terabytes from Microsoft 365</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA, the FBI, and South Korea's National Police Agency issued a joint advisory (AA26-222A) warning that Gunra — a RaaS operation built on leaked Conti source code — is using a custom utility to silently exfiltrate tens of terabytes of data from victims' Microsoft OneDrive and SharePoint environments before deploying ransomware and demanding tens of millions of dollars.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Healthcare, financial services, government, manufacturing, transportation, utilities, and retail organizations worldwide; initial access typically via Fortinet VPN vulnerabilities CVE-2024-55591 and CVE-2025-24472.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch Fortinet vulnerabilities immediately, enable MFA across Microsoft 365, monitor OneDrive and SharePoint audit logs for abnormal bulk-download activity, and review CISA advisory AA26-222A for full indicator-of-compromise and detection rules.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Exfiltration] T1537 · Transfer Data to Cloud Account<br>
+      <span style="color:#6b7280;">Gunra affiliates deploy a purpose-built main.exe utility that authenticates to victims' own Microsoft 365 tenants and bulk-copies OneDrive and SharePoint content directly to attacker-controlled cloud storage — with one victim losing data measured in tens of terabytes before the ransomware payload was even triggered.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">Gunra emerged in April 2025 as a RaaS operation built on leaked Conti source code — the same criminal software that powered one of 2021's most prolific ransomware groups. By early 2026, Gunra launched a structured affiliate program advertised on dark-web forums, under the alias "Golden Community," allowing other criminals to rent the tooling in exchange for a revenue share. This expansion dramatically increased victim counts across six continents.</p>
+        <p style="margin:0 0 10px 0;">What distinguishes Gunra is its sophisticated pre-encryption data exfiltration pipeline targeting Microsoft cloud services. After gaining initial access via Fortinet VPN authentication-bypass vulnerabilities (CVE-2024-55591, CVSS 9.8), affiliates spend days or weeks mapping the environment and then deploy main.exe — a custom tool that silently authenticates to the victim's Microsoft 365 tenant using harvested credentials and downloads entire OneDrive and SharePoint repositories to attacker-controlled cloud storage. This data theft happens before any encryption, ensuring the threat actor retains leverage even if the victim restores systems from backup. The FBI observed one victim losing data measured in tens of terabytes in a single incident; ransom demands have exceeded $50 million USD. The advisory includes SNORT rules, YARA signatures, and full IOC lists.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Most people think of ransomware as locking your files like a digital padlock — pay to get the key. Gunra does that, but first it copies all your important documents to the attackers' servers, like a thief photocopying your files before locking the filing cabinet. Even if you have a backup and unlock your systems yourself, they still threaten to post your private data online unless you pay. This is called "double extortion," and Gunra's focus on Microsoft 365 cloud files means even organizations with good local backups may have their data stolen.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2024-55591 · CVSS: 9.8/10 — Critical Fortinet FortiOS authentication bypass used for initial access; Gunra ransom demands have exceeded $50 million USD in individual cases. CISA advisory: AA26-222A.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH - LiteLLM Supply Chain Attack -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/malicious-litellm-releases-tied-to.html" style="color:#111827;text-decoration:none;">LiteLLM AI Library Supply Chain Attack (via Trivy) Exposed 2,500+ Organizations and 430,000 CI/CD Pipelines to Credential Theft</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Threat actor group TeamPCP compromised the Trivy open-source vulnerability scanner to steal LiteLLM's PyPI publishing credentials, then pushed two malicious LiteLLM releases (1.82.7 and 1.82.8) that harvested environment variables, AWS credentials, Kubernetes configs, and installed persistent backdoors on any system that installed them.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> More than 2,500 organizations and 430,000 CI/CD pipelines that downloaded LiteLLM versions 1.82.7 or 1.82.8 during the six-hour attack window on March 24, 2026 — predominantly AI and ML development teams building LLM-powered applications.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Treat any system where these LiteLLM versions were installed as fully compromised: rotate all AWS credentials, Kubernetes service account tokens, and environment variables; search for the systemd backdoor installed by the malware; and upgrade to a verified clean LiteLLM release.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.002 · Compromise Software Supply Chain<br>
+      <span style="color:#6b7280;">TeamPCP poisoned Trivy — a security scanner embedded in LiteLLM's own CI/CD pipeline — to exfiltrate LiteLLM's PyPI signing tokens, then injected credential-harvesting malware into officially signed LiteLLM releases, turning a trusted AI developer tool into a delivery vector for credential theft across thousands of enterprise ML environments.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">LiteLLM is one of the most widely used open-source Python libraries for building applications that call large language model APIs — the glue layer that lets developers unify access to OpenAI, Anthropic, Google, and other providers. Its ubiquity in AI startup and enterprise ML pipelines made it a high-value supply chain target. The attack, attributed to TeamPCP, was a cascading compromise: attackers first breached Trivy (Aqua Security's popular open-source container and code vulnerability scanner), then used that access as a pivot to reach LiteLLM.</p>
+        <p style="margin:0 0 10px 0;">Because LiteLLM's CI/CD pipeline automatically installed Trivy as part of its build and security scanning process, the compromised Trivy version was granted legitimate read access to the runner environment. TeamPCP used this access to silently exfiltrate LiteLLM's PyPI publishing tokens — the cryptographic credentials used to sign and push official package releases. Armed with those tokens, they published two malicious versions (1.82.7 and 1.82.8) that appeared to be legitimate LiteLLM releases. The three-stage payload immediately began harvesting environment variables (containing API keys, secrets), local configuration files (.kube/config, .aws/credentials), and attempted lateral movement across connected Kubernetes clusters. A Python .pth startup hook ensured the malicious code executed the moment the Python interpreter initialized — regardless of whether LiteLLM was ever explicitly imported. A persistent systemd backdoor ensured continued access even after the malicious packages were identified and removed from PyPI.</p>
+        <p style="margin:0 0 10px 0;">ReversingLabs, Kaspersky, and GitGuardian have all published detailed technical analyses. Organizations should treat the entire six-hour window on March 24, 2026 as a full compromise event for any affected systems.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A supply chain attack is like poisoning the ink at a pen factory — every pen shipped afterward carries the contamination, even though each pen looks perfectly normal. Here, attackers compromised a security tool (Trivy) used by the LiteLLM development team, then used that foothold to inject malware into the official LiteLLM software package. Anyone who ran <code>pip install litellm</code> during those six hours got the malware too, and it immediately started stealing passwords, API keys, and cloud credentials silently in the background.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">LiteLLM versions 1.82.7 and 1.82.8 · Attack window: Mar 24, 2026, 10:39–16:00 UTC · 2,500+ organizations, 430,000 CI/CD pipelines potentially exposed; systemd backdoor installed for persistence.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Wormable Vulnerability ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A wormable vulnerability is a security flaw that allows malware to spread automatically from machine to machine across a network — no clicks, no downloads, no human involvement whatsoever — by exploiting the same bug on each new host it reaches. The most notorious wormable vulnerability in recent history was EternalBlue (MS17-010), an NSA exploit leaked in 2017 that powered the WannaCry and NotPetya outbreaks, paralysing hospitals, banks, and logistics companies worldwide within hours. This week's CVE-2026-62878 in Windows DNS Server (CVSS 9.8) carries the same terrifying label: a single unpatched internet-facing DNS server could become a self-replicating beachhead that propagates the attack across an entire enterprise automatically, making it the single highest-priority patch in today's Patch Tuesday release.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: LPE · RaaS · FudModule · AFD.sys · NFC Relay · QUIC · TeamPCP ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">LPE</strong> — Local Privilege Escalation: an attack technique where an already-authenticated but low-privileged user exploits a vulnerability to gain administrator- or SYSTEM-level control over a machine without authorization.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RaaS</strong> — Ransomware-as-a-Service: a criminal business model where ransomware developers lease their malware toolkit and infrastructure to affiliate attackers, who conduct attacks independently and split ransom proceeds with the developers.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">FudModule</strong> — Lazarus Group's advanced kernel-mode rootkit that disables endpoint security software by directly manipulating Windows kernel data structures, leaving EDR and antivirus tools running but unable to detect or report malicious activity.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">AFD.sys</strong> — The Windows Ancillary Function Driver for WinSock, a kernel-mode driver that provides socket-based networking to all Windows applications; CVE-2026-68820 exploits a use-after-free bug in this component to escalate privileges to SYSTEM level.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">NFC Relay</strong> — A fraud technique that captures Near-Field Communication signals from a victim's contactless payment card and wirelessly retransmits them to a remote device in real time, making a fraudster's phone appear to payment terminals as if it were the physical card.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">QUIC</strong> — Quick UDP Internet Connections, a modern transport protocol developed by Google that combines TLS encryption with faster connection setup than TCP; CVE-2026-62815 is a CVSS 9.8 unauthenticated RCE flaw in Microsoft's implementation of QUIC.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">TeamPCP</strong> — The threat actor group responsible for the cascading supply chain attack that compromised the Trivy vulnerability scanner to steal LiteLLM's PyPI signing tokens, then distributed credential-stealing malware to AI developers via official-looking PyPI releases.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/deadlock-ransomware-uses-blockchain-to-resist-infrastructure-takedown/" style="color:#374151;text-decoration:none;">DeadLock Ransomware Stores C2 Config on Polygon Blockchain to Resist Law-Enforcement Takedowns — 80+ Victims</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.infosecurity-magazine.com/news/windrelay-nfc-relay-spynote-rat/" style="color:#374151;text-decoration:none;">WindRelay Android NFC Malware + SpyNote RAT Enables Complete Bank Card Cloning in 13 Minutes via Live Phone Call</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Infosecurity Magazine</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 13, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

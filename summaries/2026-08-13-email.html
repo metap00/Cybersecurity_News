@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 13, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · ~6 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-13.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL - Lazarus Group -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 12, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/lazarus-hackers-exploited-windows-zero-day-to-target-defense-firms/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Lazarus Group Deploys FudModule Rootkit via Windows Zero-Day in Operation Dream Job</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 North Korea's Lazarus Group exploited CVE-2026-68820 (Windows AFD.sys use-after-free) for five+ weeks to install the FudModule kernel rootkit on defense, aerospace, and aviation targets in Europe and India.</div>
+    <div style="margin-top:2px;">👤 Defense contractors and aerospace/aviation firms lured via fake Enveil recruitment emails installing a trojanized PDF viewer.</div>
+    <div style="margin-top:2px;">✅ Apply Microsoft's August 2026 Patch Tuesday immediately — CVE-2026-68820 is now patched and on the CISA KEV list.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation / Defense Evasion] T1014 · Rootkit</div>
+</div>
+
+<!-- STORY 2: CRITICAL - Microsoft Patch Tuesday -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 12, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-august-2026-patch-tuesday-fixes-400-flaws-3-zero-days/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Microsoft August 2026 Patch Tuesday: 421 CVEs Including Wormable Windows DNS Server RCE at CVSS 9.8</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Microsoft's largest Patch Tuesday yet fixes 421 CVEs including one exploited zero-day, a wormable DNS RCE (CVE-2026-62878, CVSS 9.8), and a second CVSS 9.8 unauthenticated RCE in QUIC (CVE-2026-62815).</div>
+    <div style="margin-top:2px;">👤 All Windows users need the exploited-zero-day patch; every organization running Windows DNS Server is at critical risk from the wormable CVE-2026-62878.</div>
+    <div style="margin-top:2px;">✅ Patch now via Windows Update — prioritize CVE-2026-62878 for any internet-facing DNS servers, treating it as an emergency update.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1210 · Exploitation of Remote Services</div>
+</div>
+
+<!-- STORY 3: HIGH - Check Point SmartConsole -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 12, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/check-point-patches-smartconsole-zero-day-exploited-in-attacks/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Check Point SmartConsole Zero-Day CVE-2026-16232 (CVSS 9.1) Grants Unauthenticated Attackers Full Firewall Admin Access</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 An auth-bypass in Check Point SmartConsole lets attackers harvest a valid login token without credentials and authenticate as a full administrator to Security Management Servers, rewriting firewall rules silently.</div>
+    <div style="margin-top:2px;">👤 Organizations running Check Point Security Management Server or MDS with the management interface exposed to the internet without IP restrictions.</div>
+    <div style="margin-top:2px;">✅ Apply the Jumbo Hotfix released July 22, restrict SmartConsole to trusted IP ranges, and audit all policy changes since July 2026.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Defense Evasion] T1550 · Use Alternate Authentication Material</div>
+</div>
+
+<!-- STORY 4: HIGH - Gunra Ransomware -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / Bleeping Computer · Aug 12, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/us-warns-of-gunra-ransomware-attacks-against-government-critical-infrastructure/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA, FBI and South Korea Issue Joint Advisory on Gunra RaaS Stealing Tens of Terabytes from Microsoft 365</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Gunra ransomware affiliates use a custom tool to bulk-copy OneDrive and SharePoint data to attacker cloud storage before encrypting systems; one victim lost tens of terabytes; ransom demands exceed $50M.</div>
+    <div style="margin-top:2px;">👤 Healthcare, financial services, government, manufacturing, transportation, utilities, and retail worldwide; initial access via Fortinet VPN CVE-2024-55591 (CVSS 9.8).</div>
+    <div style="margin-top:2px;">✅ Patch Fortinet immediately, enable MFA on Microsoft 365, and monitor OneDrive/SharePoint audit logs for bulk-download anomalies; see CISA advisory AA26-222A for IOCs.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Exfiltration] T1537 · Transfer Data to Cloud Account</div>
+</div>
+
+<!-- STORY 5: HIGH - LiteLLM Supply Chain -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 13, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/malicious-litellm-releases-tied-to.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">LiteLLM AI Library Supply Chain Attack Exposed 2,500+ Organizations and 430,000 CI/CD Pipelines to Credential Theft</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 TeamPCP compromised the Trivy scanner to steal LiteLLM's PyPI tokens, then pushed malicious versions 1.82.7 and 1.82.8 that stole AWS credentials, Kubernetes configs, and installed a persistent systemd backdoor.</div>
+    <div style="margin-top:2px;">👤 AI and ML development teams that ran <code>pip install litellm</code> during the six-hour window on March 24, 2026 — over 2,500 organizations and 430,000 CI/CD pipelines potentially compromised.</div>
+    <div style="margin-top:2px;">✅ Rotate all AWS credentials and Kubernetes tokens on affected systems, hunt for the systemd backdoor, and upgrade to a verified clean LiteLLM version immediately.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.002 · Compromise Software Supply Chain</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/deadlock-ransomware-uses-blockchain-to-resist-infrastructure-takedown/" style="color:#374151;text-decoration:none;">DeadLock Ransomware Stores C2 Config on Polygon Blockchain to Resist Takedowns — 80+ Victims</a>
+    <span style="color:#9ca3af;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.infosecurity-magazine.com/news/windrelay-nfc-relay-spynote-rat/" style="color:#374151;text-decoration:none;">WindRelay NFC Malware + SpyNote RAT Enables 13-Minute Bank Card Cloning via Live Phone Call</a>
+    <span style="color:#9ca3af;"> · Infosecurity Magazine</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-13.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Aug 13, 2026</div>
+
+</body>
+</html>
