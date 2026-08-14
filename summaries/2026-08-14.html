@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 14, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 14, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 2 critical · 3 high · 1 medium · ~9 min read</div>
+</div>
+
+<!-- STORY 1: CVE-2026-68820 / Lazarus Operation Dream Job — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Check Point Research · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://research.checkpoint.com/2026/shattering-the-dream-when-a-job-offer-becomes-a-zero-day-attack/" style="color:#111827;text-decoration:none;">Lazarus Group Exploited Windows Zero-Day (CVE-2026-68820) for Five Weeks via Fake LinkedIn Job Offers, Deployed FudModule v3.1 Rootkit</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> North Korea's Lazarus Group exploited a Windows AFD.sys kernel zero-day (CVE-2026-68820) in Operation Dream Job for at least five weeks before Microsoft patched it on August 11, using fake LinkedIn recruitment offers to target defense, aerospace, and aviation firms in France, Germany, Brazil, and India.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Defense and aerospace companies in Europe and India, plus any unpatched Windows system running the vulnerable AFD.sys kernel driver across all supported Windows versions.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's August 2026 Patch Tuesday updates immediately (KB5121003 for Windows 11, KB5120249 for Windows 10/Server), audit endpoint logs for FudModule indicators, and treat all unsolicited LinkedIn recruitment messages from unknown contacts with extreme caution.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1562.001 · Impair Defenses: Disable or Modify Tools<br>
+      <span style="color:#6b7280;">FudModule v3.1 surgically kills 94 security-monitoring channels, disables Windows minifilter drivers, terminates the NT Kernel Logger, and resets Smart App Control—rendering standard EDR tools blind before any data is accessed or exfiltrated.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">North Korea's Lazarus Group has once again raised the technical bar for state-sponsored cyber espionage. In this latest wave of Operation Dream Job, threat actors posed as recruiters on LinkedIn and sent fraudulent job offers to employees at defense, aerospace, and aviation firms across Europe and India. Victims who engaged with the malicious documents triggered a download chain that deployed an exploit for CVE-2026-68820—a use-after-free race condition in Windows' AFD.sys kernel driver—to escalate privileges from a low-privileged user to full SYSTEM. Check Point Research discovered the campaign and reported the vulnerability to Microsoft on July 28; compiled FudModule rootkit artifacts carry timestamps dating to July 7, confirming Lazarus weaponized this zero-day for at least five weeks before the patch arrived on Patch Tuesday.</p>
+        <p style="margin:0 0 10px 0;">What makes this campaign exceptional is the deployment of FudModule v3.1, Lazarus' continuously refined kernel-mode rootkit. Once SYSTEM privileges are achieved, FudModule directly manipulates kernel data structures to surgically disable security products—killing 94 monitoring channels, disabling minifilter file-system drivers that antivirus tools depend on, terminating the NT Kernel Logger, and in a new addition, resetting Windows Smart App Control's policy state. The campaign also used post-quantum key exchange algorithms to encrypt C2 communications, anticipating future decryption by intelligence agencies. After blinding security tools, the campaign delivers a backdoor providing operators long-term persistent access for intelligence collection and exfiltration.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine receiving a convincing LinkedIn message from a "top defense firm recruiter." You open an attached document—which secretly exploits a hidden trapdoor deep in Windows (the AFD.sys driver) to gain full admin control without any visible sign. It then drops a rootkit—software buried so deep in the operating system that it switches off your antivirus and logging tools before you ever know something is wrong. Lazarus used this technique to stay inside defense firms undetected for over a month.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-68820 · CVSS: 7.0/10 — Local privilege escalation via use-after-free in AFD.sys; risk elevated significantly by active nation-state exploitation, FudModule rootkit delivery, and post-quantum C2 encryption.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Lazarus Group -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Lazarus Group</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: North Korea (DPRK)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Defense contractors, aerospace and aviation firms, financial institutions, cryptocurrency exchanges, and critical infrastructure globally.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operation Dream Job (fake LinkedIn job lures), FudModule kernel rootkit (now v3.1 with post-quantum C2), cryptocurrency heists totaling billions of dollars, and some of the most technically sophisticated zero-day exploit chains attributed to any nation-state actor.</div>
+</div>
+
+<!-- STORY 2: VMware vCenter CVE-2026-59310 — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Dark Reading · Aug 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.darkreading.com/vulnerabilities-threats/global-threat-campaign-critical-vmware-vcenter-flaw" style="color:#111827;text-decoration:none;">APT Campaign Exploits VMware vCenter CVE-2026-59310 (CVSS 9.8) Globally — 361 Victims in 47 Countries Within 11 Days of Disclosure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A suspected APT group is mass-exploiting CVE-2026-59310, a critical directory-traversal flaw in VMware vCenter (CVSS 9.8), to execute arbitrary code and plant persistent malicious cron jobs that maintain reverse SSH tunnels to attacker-controlled infrastructure across 47 countries.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched VMware vCenter Server globally, with the highest concentration in Germany, the US, Turkey, Iran, and France—which together account for 51% of the 361 confirmed victim IP addresses.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Broadcom advisory VMSA-2026-0006 immediately (there are no workarounds), audit vCenter hosts for unauthorized cron entries in /var/spool/cron/crontabs/ and unexpected outbound SSH connections, and isolate affected systems for forensic review.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Persistence] T1053.003 · Scheduled Task/Job: Cron<br>
+      <span style="color:#6b7280;">Attackers exploit the directory traversal to write a malicious cron job that fires outbound SSH tunnels to C2 infrastructure on a regular schedule—ensuring persistent re-access to vCenter even if the initial exploit vector is later patched or blocked.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">The VMware vCenter exploitation campaign represents one of the most rapid and geographically expansive mass-exploitation events of 2026. Broadcom published advisory VMSA-2026-0006 on July 29, disclosing CVE-2026-59310—a directory-traversal vulnerability in vCenter's Syslog Server that allows unauthenticated network-adjacent attackers to read and write arbitrary files on the underlying host, enabling full remote code execution. Exploitation began by August 3, just five days after public disclosure. Threat researchers at QUIRSO identified 361 unique victim IP addresses across 47 countries; 343 of those 361 (95%) had been compromised by August 5, indicating a highly automated, pre-staged attack operation launched almost immediately after the patch dropped.</p>
+        <p style="margin:0 0 10px 0;">The attack chain is consistent across victims: path-traversal activity matching CVE-2026-59310's exploitation pattern, followed by the deployment of a malicious cron job using reverse_ssh—an open-source tool that establishes persistent outbound SSH connections to attacker infrastructure, bypassing inbound firewall rules that would block direct access. Because vCenter is the management plane for entire virtualized environments, a full compromise grants the attacker the ability to control every guest VM, intercept traffic, deploy additional backdoors, or cause mass disruption across a data center. Broadcom explicitly states there are no workarounds for CVE-2026-59310; patching is the only mitigation path.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> vCenter is the master control panel for a company's virtual computers. CVE-2026-59310 is a "directory traversal" bug—like a mislabeled door that lets anyone walk from the public lobby directly into the server room. Once inside, attackers plant a scheduled job (a cron job) that regularly calls home to their server through an encrypted tunnel, maintaining a persistent back door even after the building's front door is locked again. With access to vCenter, they control not just one server but every virtual machine in the entire data center.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-59310 · CVSS: 9.8/10 — Remote, unauthenticated code execution in VMware vCenter Syslog Server; no workaround available. Broadcom advisory VMSA-2026-0006. Companion auth-bypass CVE-2026-59309 also disclosed simultaneously.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: CVE-2026-62878 Wormable DNS RCE — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/" style="color:#111827;text-decoration:none;">August Patch Tuesday: Microsoft Patches Wormable Windows DNS RCE (CVE-2026-62878, CVSS 9.8) — No Authentication or User Interaction Required</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's August 11 Patch Tuesday addressed CVE-2026-62878, a wormable stack-based buffer overflow in Windows DNS Server (CVSS 9.8) that allows unauthenticated remote attackers to execute arbitrary code by sending a single specially crafted DNS packet—with no user interaction required and potential for self-propagation.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows environments running DNS Server, especially organizations with internet-exposed DNS infrastructure handling authoritative or recursive queries.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's August 2026 cumulative updates immediately (KB5121003 for Windows 11, KB5120249 for Windows 10/Server); consider temporarily restricting external DNS access on internet-facing servers until patched, and monitor DNS server logs for anomalous inbound traffic.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Lateral Movement] T1570 · Lateral Tool Transfer<br>
+      <span style="color:#6b7280;">The wormable nature of CVE-2026-62878 means a successful exploit can automatically replicate the attack payload to other DNS servers reachable from the compromised host, spreading through enterprise environments in a chain reaction without any additional operator involvement.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">CVE-2026-62878 joins a short and alarming list of wormable Windows vulnerabilities with direct historical parallels to EternalBlue (MS17-010), the NSA-developed exploit weaponized in WannaCry. The flaw is a stack-based buffer overflow in the Windows DNS Server process: when a specially crafted DNS packet arrives, it overflows a fixed-size stack buffer, overwriting adjacent memory including return addresses, enabling the attacker to redirect execution flow to arbitrary shellcode. Because DNS servers accept packets from any network-connected client by design, no authentication is required and the attack complexity is rated "low"—any attacker who can reach port 53 on a Windows DNS server can attempt exploitation.</p>
+        <p style="margin:0 0 10px 0;">The "wormable" designation is the critical escalator. Once a DNS server is compromised, the malware can query the server's forwarding configuration to identify other DNS servers it communicates with, then send the same malformed packet to those servers—a chain reaction that can cascade across enterprise networks and across internet DNS infrastructure without further attacker involvement. Microsoft has not confirmed active exploitation as of August 14, but the attack complexity rating, the existence of public proof-of-concept code for similar DNS overflows, and the high visibility of the August Patch Tuesday suggest weaponized exploits may emerge rapidly.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Your computer uses DNS servers as an internet phone book to translate website names into addresses. This bug lets an attacker send a single carefully-crafted "fake question" to a Windows DNS server that crashes it and lets the attacker take control. The "wormable" part means the infected server can then automatically send the same fake question to other DNS servers it knows about—spreading like a digital epidemic, from server to server, without the attacker having to do anything else.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-62878 · CVSS: 9.8/10 — Wormable, unauthenticated stack-based buffer overflow in Windows DNS Server; no active exploitation confirmed at publication but rated highest priority for immediate patching alongside CVE-2026-68820.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Trezor/ShipMonk breach — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/trezor-discloses-data-breach-affecting-nearly-14-000-customers/" style="color:#111827;text-decoration:none;">Trezor Discloses Breach of 13,689 Customers After Shipping Partner ShipMonk Hacked via Metabase SQL Injection Zero-Day</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Hardware wallet maker Trezor disclosed on August 13 that 13,689 customers' personal data was exposed after attackers breached shipping partner ShipMonk by exploiting a critical SQL injection zero-day in the Metabase analytics platform—the same campaign also hit laptop maker Framework and form builder Tally.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Trezor customers who placed orders between May 10 and August 8, 2026 in the US, UK, Sweden, Colombia, Brazil, Italy, and Portugal—11,742 with full PII exposure (name, email, phone, shipping address) and 1,947 with partial exposure (name, city, email).</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Affected Trezor customers should be on high alert for targeted phishing calls or texts referencing their hardware wallet purchase; wallet security and private keys are entirely unaffected, but never share your seed phrase with anyone claiming to be Trezor support.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1074 · Data Staged<br>
+      <span style="color:#6b7280;">After gaining admin access to ShipMonk's Metabase instance via SQL injection zero-day, attackers systematically staged and extracted the order records of 13,689 Trezor customers—consolidating names, phone numbers, and home addresses for targeted social engineering or dark-web sale.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">The Trezor/ShipMonk breach is a vivid illustration of supply-chain risk via third-party analytics. Attackers exploited a critical SQL injection zero-day in Metabase—a popular open-source business intelligence platform—to gain administrator access to ShipMonk's instance. ShipMonk is a third-party logistics (3PL) provider that handles order fulfillment and shipping for Trezor and other technology companies; its Metabase deployment had read access to recent customer order records. The same Metabase campaign simultaneously compromised Framework (laptop manufacturer) and Tally (online form builder), indicating a coordinated, opportunistic attack targeting businesses sharing the same vulnerable analytics infrastructure.</p>
+        <p style="margin:0 0 10px 0;">For Trezor customers, the critical point is that the breach is entirely limited to order-level shipping data—no wallet firmware, private keys, seed phrases, or cryptocurrency was affected. Trezor's own infrastructure was never touched. However, the exposed data (home addresses, phone numbers, email addresses, and the fact that someone owns a Trezor) is exactly the profile needed for targeted "vishing" attacks: convincing phone calls from attackers claiming to be Trezor support, warning of a "compromised device" and asking the victim to read out their seed phrase. Only orders from the 90 days before August 8 were at risk, as older data had been purged under Trezor's data-minimization policy.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Trezor makes a USB-like device that stores cryptocurrency keys offline. They hired ShipMonk to ship orders. ShipMonk used an analytics tool (Metabase) that had a critical bug, which attackers used to steal customer shipping records. Your crypto is completely safe—think of it like a breach at a courier company: your valuables are fine, but someone now knows your name, phone number, and home address, and may call you pretending to be Trezor asking for your secret recovery phrase. Never give that to anyone.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned (Metabase zero-day) · CVSS: Not yet scored — Critical SQL injection in third-party analytics platform; 13,689 Trezor customers' PII exposed across orders from May–August 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: CEVA Logistics cyberattack — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">TechCrunch · Aug 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://techcrunch.com/2026/08/10/a-data-breach-at-shipping-giant-ceva-logistics-is-rippling-across-banks-retailers-steam-gamers-and-beyond/" style="color:#111827;text-decoration:none;">CEVA Logistics Cyberattack Halts 8 European Warehouses, Exposes Customer Data for Steam, Bol, De Bijenkorf, Ace &amp; Tate, and Ajax</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A cyberattack struck eight CEVA Logistics warehouses across Europe on July 29–August 1, halting all warehouse operations and exposing customer order data—names, addresses, phone numbers, emails, and purchase histories—for major clients spanning retail, gaming, banking, and sports sectors.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Customers of Dutch e-commerce giant Bol, luxury department store De Bijenkorf, eyewear brand Ace &amp; Tate, Amsterdam football club Ajax, and Steam's European hardware business whose personal order data was stored in the affected CEVA facilities.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Customers of affected brands who received a notification should watch for phishing emails or calls referencing their order history, consider placing fraud alerts with credit bureaus, and monitor financial accounts for unauthorized activity.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1489 · Service Stop<br>
+      <span style="color:#6b7280;">The attack halted warehouse management systems across eight European facilities, demonstrating how disabling logistics IT services translates directly into physical operational disruption—goods couldn't be picked, packed, or shipped, causing cascading delays across multiple retail and gaming supply chains.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">The CEVA Logistics incident is a textbook example of how a single cyberattack on a logistics provider ripples across dozens of unrelated organizations simultaneously. CEVA, one of Europe's largest contract logistics operators, handles warehousing and fulfillment for a broad portfolio of retail, gaming, and banking clients. When attackers breached the company's warehouse management systems on July 29, eight European facilities went dark: order picking halted, shipments stopped, and customers of Bol, De Bijenkorf, Ace &amp; Tate, Ajax, and Steam's hardware arm began receiving notices of unexpected delivery delays.</p>
+        <p style="margin:0 0 10px 0;">Beyond operational disruption, CEVA confirmed that customer data—names, addresses, phone numbers, email addresses, and order records—was compromised in the incident. While no ransomware group has publicly claimed responsibility as of August 14, the dual-impact nature of the attack (operational shutdown combined with data exfiltration) is consistent with modern ransomware-adjacent extortion tactics. The breadth of affected brands—spanning retail, luxury, banking, sports, and gaming—illustrates why logistics providers have become prime high-value targets: one successful breach simultaneously impacts dozens of downstream customer bases.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> CEVA Logistics is a massive warehouse company that stores and ships products on behalf of big brands like online stores and sports clubs. Hackers broke into their computer systems, which stopped their warehouses from knowing what to ship or where to send it—like hacking the inventory system at a supermarket distribution center so nothing can leave. At the same time, the attackers also stole customer records, meaning the breach hurt people twice: their orders are delayed, and their personal data is now in the wrong hands.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Attribution: Unknown — Operational disruption across 8 European warehouses (July 29–August 1, 2026); customer PII for Bol, De Bijenkorf, Ace &amp; Tate, Ajax FC, and Steam hardware customers exposed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Use-After-Free Vulnerability ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A Use-After-Free (UAF) is a memory corruption flaw where a program frees a block of memory—returning it to the OS—but then continues to access that same memory region, creating a window where an attacker can fill it with malicious data before the second access occurs. In CVE-2026-68820, Lazarus Group exploited a UAF race condition in Windows' AFD.sys kernel driver: by triggering two competing threads to free and reallocate the same memory at precisely the right moment, their exploit planted attacker-controlled data that the driver then treated as legitimate kernel structures, escalating their privileges all the way to SYSTEM level. UAF bugs are especially dangerous in kernel-mode drivers because successful exploitation operates beneath all security software—granting the attacker the deepest level of OS control, above antivirus, EDR, and logging tools, making detection and clean removal nearly impossible without a full system reinstall.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: UAF · Stack Buffer Overflow · Operation Dream Job · Minifilter Driver · reverse_ssh · VMSA · Metabase ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">UAF (Use-After-Free)</strong> — A memory corruption vulnerability where a program accesses memory after freeing it; attackers exploit the gap by filling the freed region with malicious data, redirecting the program's execution to attacker-controlled code.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Stack Buffer Overflow</strong> — A memory corruption bug where data written to a fixed-size buffer on the program stack exceeds its allocated bounds, overwriting adjacent memory including return addresses and potentially allowing an attacker to control program execution—the root cause of wormable DNS flaw CVE-2026-62878.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Operation Dream Job</strong> — A long-running North Korean (Lazarus Group) cyber-espionage campaign that uses fake LinkedIn job offers targeting defense, aerospace, and technology professionals to deliver malware and zero-day exploits.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Minifilter Driver</strong> — A lightweight Windows kernel driver that intercepts file system operations in real time; endpoint security products rely on minifilter drivers to scan files on access, and FudModule v3.1 specifically disables them to blind antivirus tools.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">reverse_ssh</strong> — An open-source tool that creates persistent outbound SSH tunnels from a compromised host to attacker-controlled infrastructure, maintaining remote access while bypassing inbound firewall rules—deployed by attackers in the VMware vCenter exploitation campaign.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">VMSA</strong> — VMware Security Advisory; Broadcom's numbered disclosure format for vulnerabilities in VMware products (e.g., VMSA-2026-0006 covers the critical CVE-2026-59310 directory-traversal flaw in vCenter).
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Metabase</strong> — An open-source business intelligence and data analytics platform used for dashboards and reporting; a critical SQL injection zero-day in Metabase was exploited to gain admin access to ShipMonk's customer data, ultimately exposing 13,689 Trezor customers.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/fortinet-patches-authentication-flaws-in-fortiweb-and-fortimanager/" style="color:#374151;text-decoration:none;">Fortinet Patches Critical Auth Bypass in FortiWeb (CVE-2026-26035) and FortiManager (CVE-2026-70468, CVSS 8.1) — No Active Exploitation Reported</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 14, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
