@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 15, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 15, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~5 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — Lazarus Group / CVE-2026-68820 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/microsoft-patches-398-flaws-including.html" style="color:#111827;text-decoration:none;">North Korea's Lazarus Group Weaponizes Windows WinSock Zero-Day (CVE-2026-68820) in Defense Sector Attacks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Lazarus Group exploited a use-after-free zero-day in the Windows Ancillary Function Driver for WinSock (afd.sys) to escalate privileges to SYSTEM and deploy the FudModule rootkit and ForestTiger backdoor against defense-sector targets.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Aerospace and aviation organizations in Europe and India are primary targets, though any unpatched Windows machine is vulnerable to local privilege escalation.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's August 2026 Patch Tuesday updates immediately; CISA requires federal agencies to patch by August 25 under BOD 22-01.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Lazarus triggered a race condition in afd.sys to gain SYSTEM-level privileges, then used that kernel access to install the FudModule rootkit — a technique directly tied to this group's Operation Dream Job infrastructure.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-68820 resides in afd.sys, the kernel-mode driver that underpins the Windows Sockets API for every network-connected Windows application. By triggering a use-after-free race condition in this driver, a locally authenticated attacker — one with any valid user account — can gain SYSTEM privileges, the highest level of access on a Windows machine, allowing arbitrary kernel code execution.</p>
+        <p>Check Point Research attributed active exploitation to North Korea's Lazarus Group, active since at least early July 2026 under the banner of Operation Dream Job. Once SYSTEM access was achieved, operators deployed two tools: FudModule, a sophisticated kernel rootkit designed to disable security products at the driver level, and ForestTiger, a custom backdoor providing persistent remote access. Confirmed targets include aerospace and aviation companies in Europe and India, consistent with Lazarus's documented interest in defense-sector intellectual property and weapons development.</p>
+        <p>Microsoft patched CVE-2026-68820 on August 11, 2026 (Patch Tuesday), and CISA added it to the Known Exploited Vulnerabilities catalog that same day, citing mandatory remediation for all federal civilian agencies by August 25.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Your computer has a special piece of code called afd.sys that manages all internet connections. Hackers from North Korea found a bug in it that lets them take over your entire computer by tricking it into running their code at the highest permission level — like stealing the master key to every room in a building. Once inside at this level, they installed hidden software called a "rootkit" that the operating system itself can't easily detect or remove.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-68820 · CVSS: 7.8/10 (Local) — A locally exploitable use-after-free race condition in the WinSock kernel driver granting SYSTEM-level privilege escalation.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Lazarus Group -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Lazarus Group</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: North Korea (DPRK / Reconnaissance General Bureau)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Defense contractors, aerospace &amp; aviation firms, financial institutions, cryptocurrency exchanges, and government entities globally.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operation Dream Job (fake job lure campaigns), FudModule kernel rootkit, the 2014 Sony Pictures breach, the 2016 Bangladesh Bank heist, and billions stolen in cryptocurrency to fund DPRK weapons programs.</div>
+</div>
+
+<!-- STORY 2: CRITICAL — VMware vCenter CVE-2026-59310 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/critical-vmware-vcenter-vulnerability-in-attackers-crosshairs/" style="color:#111827;text-decoration:none;">APT Campaign Exploits VMware vCenter Flaw (CVE-2026-59310, CVSS 9.8) in Global Attack — 361 Victims Across 47 Countries</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> An unknown APT actor is mass-exploiting CVE-2026-59310, a CVSS 9.8 directory traversal bug in VMware vCenter's Syslog server, deploying reverse SSH cron jobs to maintain persistent access on compromised hypervisor management systems across 47 countries.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched VMware vCenter 8.0, 9.0, or 9.1 with the management interface exposed to the internet — a common enterprise configuration.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch immediately to vCenter 9.1.0.0300, 9.0.2.0100, or 8.0 U3k/U2f; no workaround exists; verify no unauthorized cron jobs are present on affected systems.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers sent crafted HTTP requests to exploit the directory traversal flaw in vCenter's internet-facing Syslog service, achieving unauthenticated RCE, then established persistence via a malicious cron job calling reverse_ssh — a pattern indicating deliberate long-term access rather than opportunistic scanning.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>VMware vCenter's Syslog service contains a critical directory traversal vulnerability (CVE-2026-59310) that allows a remote, unauthenticated attacker to escape the application's root directory and execute arbitrary code — scored 9.8 on the CVSS scale. Broadcom disclosed and patched the flaw on July 29, 2026, but exploitation began within five days, on August 3.</p>
+        <p>QUIRSO GmbH researchers tracking the campaign identified 361 victim IP addresses across 47 countries, with approximately 95% of eventual victims compromised within the first 48 hours of active exploitation — pointing to automated scanning and exploitation tooling. The attacker's post-compromise playbook is consistent: a malicious cron job deploys reverse_ssh, an open-source tunneling tool, to maintain a persistent backdoor connection to attacker-controlled infrastructure. Germany, the US, Turkey, Iran, and France account for half of all victims. The geographic breadth and operational patience of the campaign strongly suggest APT-level actors, though attribution remains unconfirmed.</p>
+        <p>vCenter manages entire virtualized data centers; control of a vCenter server grants an attacker the ability to snapshot, clone, suspend, or destroy any virtual machine in the environment — making this among the highest-impact enterprise vulnerabilities of 2026.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> VMware vCenter is software IT teams use to manage dozens or hundreds of virtual machines from one dashboard — like a control tower for a whole data center. The flaw lets attackers send a specially crafted request that tricks the server into reading files it shouldn't, ultimately letting them run any command they want. Once inside, they installed a hidden tunnel that automatically reconnects to the attacker's server, so they can issue commands even if the network connection temporarily drops.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-59310 · CVSS: 9.8/10 — Unauthenticated directory traversal in the vCenter Syslog service allowing arbitrary remote code execution; no workaround available.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH — SAP Commerce Cloud CVE-2026-58231 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/max-severity-sap-commerce-cloud-flaw-now-targeted-in-attacks/" style="color:#111827;text-decoration:none;">Max-Severity SAP Commerce Cloud Flaw (CVE-2026-58231, CVSS 10.0) Now Targeted in Active Attacks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers began targeting CVE-2026-58231 in SAP Commerce Cloud's Data Hub Adapter — a CVSS 10.0 improper authorization flaw that lets unauthenticated remote attackers execute arbitrary code by abusing a default authentication client — within three days of SAP's August patch release.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises running unpatched SAP Commerce Cloud, including major retailers, B2B e-commerce operators, and companies managing supply-chain integrations through SAP.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply SAP's August 2026 Security Notes immediately; as a temporary workaround, configure an IP Filter Set to restrict access to the vulnerable Data Hub Adapter endpoint.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1078.001 · Valid Accounts: Default Accounts<br>
+      <span style="color:#6b7280;">Attackers abuse SAP Commerce Cloud's built-in default authentication client in the Data Hub Adapter — an account that bypasses normal authorization checks — to submit crafted payloads and achieve unauthenticated remote code execution without any prior credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-58231 is an improper authorization vulnerability in the Data Hub Adapter extension of SAP Commerce Cloud. The root cause is a default authentication client shipped with the platform that lacks input validation and sufficient authorization controls. Any unauthenticated attacker with network access to the Data Hub Adapter endpoint can abuse this default credential to submit specially crafted payloads, resulting in remote code execution on the Commerce Cloud server.</p>
+        <p>SAP patched the issue in its August 2026 Security Patch Day, but threat intelligence firm Defused detected active exploitation attempts against honeypots within just three days — before any public proof-of-concept exploit was published. This pattern, exploitation ahead of known PoC availability, suggests attackers are performing patch-diffing: reverse-engineering the security fix to deduce the exact vulnerability and write exploits independently. SAP Commerce Cloud underpins large retail and B2B e-commerce environments, meaning successful exploitation could enable data theft, order manipulation, or use of the server as a pivot into broader SAP landscapes.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SAP Commerce Cloud powers the online stores of many large retailers. This bug is like a building having a master keycard that was programmed into the security system at the factory but never disabled — attackers figured out that default keycard exists and are using it to walk right in and run commands on the server without a real username or password. Patching removes that default keycard entirely.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-58231 · CVSS: 10.0/10 — Improper authorization via a default authentication client in the Data Hub Adapter enables unauthenticated remote code execution.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH — Metabase CVE-2026-72898 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA · Aug 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" style="color:#111827;text-decoration:none;">Metabase SQL Injection (CVE-2026-72898, CVSS 10.0) Added to CISA KEV — Exploited Before Patch Shipped</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-72898 — a CVSS 10.0 SQL injection in Metabase's unauthenticated password-reset endpoint that grants full administrator access — to the Known Exploited Vulnerabilities catalog after confirming real-world exploitation that preceded the vendor's patch.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Metabase analytics and business intelligence dashboards, which are widely deployed across data-driven enterprises for financial, operational, and customer reporting.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Metabase immediately; federal agencies were required to patch by August 14 under BOD 22-01; review admin access logs for unauthorized sessions.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1212 · Exploitation for Credential Access<br>
+      <span style="color:#6b7280;">Attackers inject malicious SQL into Metabase's unauthenticated password-reset endpoint, bypassing authentication entirely and minting a full administrator session — harvesting privileged credential access to all connected datasets and underlying databases without ever needing a valid login.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-72898 is a SQL injection vulnerability in the unauthenticated password-reset workflow of Metabase, a popular open-source business intelligence platform. By injecting specially crafted SQL into the password-reset endpoint — accessible with no prior credentials — an attacker can bypass authentication logic entirely and obtain a full administrator session token.</p>
+        <p>With administrator access, an attacker can query any database connected to Metabase, exfiltrate dashboards and their underlying data, modify or delete reports, and potentially pivot to the underlying database servers through Metabase's query execution features. CISA's addition to the KEV catalog — with the federal deadline already passed on August 14 — confirms the vulnerability was actively exploited in the wild before the patch became available, underscoring the urgency for any organization running Metabase to update immediately and audit recent administrator access logs for suspicious sessions.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Metabase is a tool companies use to build charts and dashboards from their business data. Its "forgot password" page had a hidden flaw: instead of a normal email address, attackers could type special database commands that Metabase blindly ran, and those commands made the system hand over an admin account. It's like a bank's "forgot PIN" kiosk secretly printing out the vault combination if you type a magic phrase instead of your account number.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-72898 · CVSS: 10.0/10 — SQL injection in an unauthenticated endpoint grants full administrator access to all connected databases and dashboards.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH — GeoServer Zero-Day -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/unpatched-geoserver-zero-day-targeted.html" style="color:#111827;text-decoration:none;">Unpatched GeoServer SQL Injection Zero-Day Under Active Exploitation — RCE Possible on H2 Database Deployments</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Within hours of a researcher publicly disclosing an unauthenticated SQL injection zero-day in GeoServer's jsonArrayContains function, hundreds of active exploitation attempts were recorded scanning the internet for vulnerable instances; the flaw remains unpatched and can lead to remote code execution on H2 database backends.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Government mapping agencies, environmental monitoring organizations, utilities, and any enterprise running internet-exposed GeoServer instances — particularly those using H2 (Java-embedded) database backends.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Remove GeoServer from public internet exposure immediately until a patch is available; monitor database and application logs for anomalous query activity consistent with SQL injection.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1505 · Server Software Component<br>
+      <span style="color:#6b7280;">Attackers are exploiting the SQL injection in GeoServer's jsonArrayContains function to execute arbitrary SQL commands through a trusted server-side component — and on H2 database deployments, this translates directly to operating system command execution via H2's INIT script mechanism.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>A researcher publicly disclosed a previously unknown SQL injection vulnerability in GeoServer's jsonArrayContains function on August 12, 2026, via X. The flaw allows unauthenticated attackers to inject malicious SQL into OGC (Open Geospatial Consortium) filter requests processed by GeoServer. Field Effect researchers recorded hundreds of exploitation attempts scanning for vulnerable instances within hours of the initial disclosure.</p>
+        <p>On GeoServer deployments using H2 — a lightweight Java-embedded database engine — the SQL injection can be escalated to full remote code execution via H2's INIT script feature, which allows arbitrary Java code to run as part of database initialization. No CVE identifier has been assigned and no patch has been released, leaving all GeoServer administrators in a race to remove public exposure before attackers develop reliable RCE exploit chains for the most common configurations.</p>
+        <p>GeoServer is widely deployed in critical sectors: government geographic information systems, flood-mapping portals, utility infrastructure mapping, and environmental monitoring platforms. Compromise in these environments could enable manipulation of critical geographic data or lateral movement into broader government and utility networks.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> GeoServer is software that helps organizations share maps and geographic data online — like the backend powering an interactive government flood map or utility grid viewer. The bug is in a function that processes search queries: instead of just answering "does this list contain X?", an attacker can slip in malicious database commands that the server runs without question. On certain configurations, those commands can go further and let the attacker run any program on the server — turning a map server into a remote-controlled computer.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned yet · CVSS: Pending — Unauthenticated SQL injection with demonstrated RCE potential on H2 database deployments; no patch available as of Aug 15.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Directory Traversal Attack ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A directory traversal attack — also called a path traversal attack — tricks a web server into reading files outside its intended directory by inserting sequences like <code>../</code> (meaning "go up one folder") into file path parameters. Servers are supposed to confine file access to a specific root directory, but if the application doesn't sanitize these sequences, an attacker can navigate up and across the filesystem to read sensitive files like passwords, configuration files, or source code. In the case of CVE-2026-59310 in VMware vCenter, the technique was chained into remote code execution: once the attacker could traverse into the right location, they could write and execute a malicious script, turning a read-only information leak into full server compromise.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: GeoServer · Directory Traversal · Honeypot · ForestTiger · Data Hub Adapter ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">GeoServer</strong> — An open-source Java server used by government agencies and enterprises to share geospatial data and interactive maps over standard OGC protocols such as WMS and WFS.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Directory Traversal</strong> — An attack technique that uses relative path sequences (e.g., <code>../../</code>) in a file-path parameter to escape an application's root directory and access restricted files on the underlying filesystem.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Honeypot</strong> — A decoy system intentionally left exposed on the internet to attract and observe attackers, allowing security researchers to study real-world exploitation techniques and detect zero-day attacks in the wild.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ForestTiger</strong> — A custom backdoor malware attributed to North Korea's Lazarus Group, used alongside the FudModule rootkit in Operation Dream Job campaigns to maintain persistent remote access on compromised defense-sector networks.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Data Hub Adapter</strong> — An extension of SAP Commerce Cloud that handles data synchronization between Commerce Cloud and external SAP systems; CVE-2026-58231 resides in this component due to a default authentication client lacking proper input validation.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://qz.com/data-breach-victim-notices-2026-record-ai-attacks-081426" style="color:#374151;text-decoration:none;">Data Breach Notices Surpass 471 Million in H1 2026 — Canvas Education Platform Alone Accounts for 275 Million Victims</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Quartz</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" style="color:#374151;text-decoration:none;">Cisco ASA/FTD SSL VPN Denial-of-Service Flaw (CVE-2026-20349) Added to CISA KEV — Unauthenticated Remote Restart Possible</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 15, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 15, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · ~5 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-15.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL — Lazarus / CVE-2026-68820 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 12, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/microsoft-patches-398-flaws-including.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">North Korea's Lazarus Group Weaponizes Windows WinSock Zero-Day (CVE-2026-68820) in Defense Sector Attacks</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Lazarus Group exploited a use-after-free in Windows afd.sys (WinSock kernel driver) to gain SYSTEM privileges and deploy the FudModule rootkit and ForestTiger backdoor against aerospace/aviation targets.</div>
+    <div style="margin-top:2px;">👤 Aerospace and aviation organizations in Europe and India are confirmed targets; all unpatched Windows systems are vulnerable to local privilege escalation.</div>
+    <div style="margin-top:2px;">✅ Apply Microsoft's August 2026 Patch Tuesday updates immediately; CISA mandates federal agency remediation by August 25.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- STORY 2: CRITICAL — VMware vCenter CVE-2026-59310 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 14, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/critical-vmware-vcenter-vulnerability-in-attackers-crosshairs/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">APT Campaign Exploits VMware vCenter Flaw (CVE-2026-59310, CVSS 9.8) — 361 Victims Across 47 Countries</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 An unknown APT actor is mass-exploiting a CVSS 9.8 directory traversal bug in VMware vCenter's Syslog service, deploying reverse SSH cron jobs for persistent access — 95% of identified victims were compromised within 48 hours of active exploitation starting.</div>
+    <div style="margin-top:2px;">👤 Organizations with internet-exposed vCenter 8.0, 9.0, or 9.1 — a common enterprise data center configuration — across Germany, the US, Turkey, Iran, and France most heavily affected.</div>
+    <div style="margin-top:2px;">✅ Patch immediately to vCenter 9.1.0.0300, 9.0.2.0100, or 8.0 U3k/U2f; no workaround exists; audit systems for unauthorized cron jobs.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 3: HIGH — SAP Commerce Cloud CVE-2026-58231 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 14, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/max-severity-sap-commerce-cloud-flaw-now-targeted-in-attacks/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Max-Severity SAP Commerce Cloud Flaw (CVE-2026-58231, CVSS 10.0) Now Targeted in Active Attacks</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers are exploiting CVE-2026-58231 — an improper authorization flaw in SAP Commerce Cloud's Data Hub Adapter that abuses a default authentication client for unauthenticated RCE — within days of SAP's patch release and before any public PoC.</div>
+    <div style="margin-top:2px;">👤 Enterprises running unpatched SAP Commerce Cloud, including major retailers and B2B operators managing supply-chain integrations.</div>
+    <div style="margin-top:2px;">✅ Apply SAP's August 2026 Security Notes now; restrict access to the Data Hub Adapter endpoint via IP Filter Set as a temporary workaround.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1078.001 · Valid Accounts: Default Accounts</div>
+</div>
+
+<!-- STORY 4: HIGH — Metabase CVE-2026-72898 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA · Aug 11, 2026</span>
+  </div>
+  <a href="https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Metabase SQL Injection (CVE-2026-72898, CVSS 10.0) Added to CISA KEV — Exploited Before Patch Shipped</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CISA confirmed active exploitation of CVE-2026-72898, a SQL injection in Metabase's unauthenticated password-reset endpoint that grants full administrator access to all connected databases, prior to the vendor releasing a fix.</div>
+    <div style="margin-top:2px;">👤 Organizations running Metabase analytics and business intelligence platforms for financial, operational, or customer reporting.</div>
+    <div style="margin-top:2px;">✅ Update Metabase immediately; audit administrator access logs for unauthorized sessions created before the patch was applied.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1212 · Exploitation for Credential Access</div>
+</div>
+
+<!-- STORY 5: HIGH — GeoServer Zero-Day -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 13, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/unpatched-geoserver-zero-day-targeted.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Unpatched GeoServer SQL Injection Zero-Day Under Active Exploitation — RCE Possible on H2 Database Deployments</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Hundreds of exploitation attempts against a newly disclosed unauthenticated SQL injection zero-day in GeoServer's jsonArrayContains function were recorded within hours of disclosure; no patch exists and the flaw can escalate to RCE via H2's INIT script mechanism.</div>
+    <div style="margin-top:2px;">👤 Government GIS agencies, environmental monitoring organizations, utilities, and enterprises running internet-exposed GeoServer instances with H2 database backends.</div>
+    <div style="margin-top:2px;">✅ Take GeoServer offline or behind a firewall immediately until a patch is available; monitor database logs for anomalous SQL injection patterns.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1505 · Server Software Component</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://qz.com/data-breach-victim-notices-2026-record-ai-attacks-081426" style="color:#374151;text-decoration:none;">Data Breach Notices Surpass 471 Million in H1 2026 — Canvas Platform Alone Accounts for 275 Million Victims</a>
+    <span style="color:#9ca3af;"> · Quartz</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" style="color:#374151;text-decoration:none;">Cisco ASA/FTD SSL VPN DoS Flaw (CVE-2026-20349) Added to CISA KEV</a>
+    <span style="color:#9ca3af;"> · CISA</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-15.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Aug 15, 2026</div>
+
+</body>
+</html>
