@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 16, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 16, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">12 stories · 3 critical · 3 high · 3 medium · ~12 min read</div>
+</div>
+
+<!-- STORY 1: SAP Commerce Cloud CVE-2026-58231 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/sap-commerce-cloud-flaw-could-let.html" style="color:#111827;text-decoration:none;">SAP Commerce Cloud CVE-2026-58231 (CVSS 10.0) Exploited in the Wild Three Days After Patch</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers began exploiting CVE-2026-58231, a CVSS 10.0 unauthenticated remote code execution flaw in SAP Commerce Cloud's Data Hub Adapter extension, just three days after SAP released patches on its August Security Patch Day.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises running SAP Commerce Cloud COM_CLOUD 2211 or COM_CLOUD 2211-JDK21 for e-commerce and B2B commerce operations—including retail, manufacturing, and financial services firms—are at immediate risk of server takeover.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to SAP Commerce Cloud 2211.55 or 2211-jdk21.17 immediately; as a short-term measure, configure an IP Filter Set to restrict access to the vulnerable Data Hub Adapter endpoint.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Unauthenticated attackers are directly abusing the exposed Data Hub Adapter HTTP endpoint to inject crafted input and trigger remote code execution on internet-facing SAP Commerce instances—no credentials or prior foothold required.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The vulnerability resides in SAP Commerce Cloud's Data Hub Adapter, a component that bridges the Commerce Cloud platform with SAP's Data Hub integration layer. An improper authorization weakness allows any unauthenticated external attacker to abuse a default authentication client and submit specially crafted HTTP requests to functions that lack input validation, resulting in arbitrary code execution on the underlying server.</p>
+        <p>What makes this particularly alarming is the timeline: SAP released the patch on August 12 as part of its monthly Security Patch Day, and threat intelligence firm Defused detected active exploitation attempts against honeypots by August 15—just 72 hours later. There is no known public proof-of-concept exploit, suggesting threat actors reverse-engineered the patch to develop their own. CISA is expected to add this to the KEV catalog given confirmed exploitation.</p>
+        <p>SAP Commerce Cloud powers e-commerce and complex B2B order management for hundreds of large enterprises. A successful exploit gives an attacker full server-level code execution, from which they can pivot laterally, steal customer data, payment information, and enterprise configuration secrets, or deploy ransomware.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SAP Commerce Cloud is the software that runs the online stores and order systems for many large companies. This vulnerability is like leaving the employee entrance to a store unlocked with no security guard—any random person can walk in, go behind the counter, and do whatever they want. The "patch" is the fix that locks the door, but attackers are already trying the handle within three days of the lock being announced.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-58231 · CVSS: 10.0/10 — Maximum severity score reflects that the flaw is remotely exploitable, requires no authentication, no user interaction, and yields complete system compromise.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Microsoft Patch Tuesday August 2026 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/" style="color:#111827;text-decoration:none;">Microsoft August 2026 Patch Tuesday: 421 CVEs, One Exploited Zero-Day (CVE-2026-68820), and Wormable DNS RCE</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's August Patch Tuesday addressed 421 vulnerabilities including CVE-2026-68820, a use-after-free zero-day in the Windows Ancillary Function Driver (afd.sys) being actively exploited to elevate privileges, plus CVE-2026-62878, a wormable CVSS 9.8 remote code execution flaw in Windows DNS Server requiring no authentication or user interaction.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All organizations running unpatched Windows systems are at risk—CVE-2026-68820 is being actively weaponized in post-compromise privilege escalation chains, and CVE-2026-62878 puts any internet-facing Windows DNS Server at risk of worm-speed lateral exploitation.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply August 2026 Patch Tuesday updates immediately, prioritizing CVE-2026-68820 (afd.sys) and CVE-2026-62878 (DNS Server); organizations unable to patch DNS Server immediately should restrict external access to port 53 at the perimeter.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">CVE-2026-68820 is being used in the wild in the post-exploitation phase—attackers who have already landed on a Windows machine trigger the afd.sys use-after-free to gain SYSTEM-level privileges, a critical stepping stone to lateral movement and ransomware deployment.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>August's Patch Tuesday is one of the largest of 2026, covering 421 CVEs across Windows, Office, Azure, and Edge—including 62 rated Critical. The most urgent is CVE-2026-68820, a use-after-free vulnerability in afd.sys, the kernel-mode driver that underpins the Windows Sockets API. Because afd.sys runs at the kernel level, triggering the flaw from a low-privilege process yields SYSTEM rights, making this a high-value component of modern exploitation chains.</p>
+        <p>CVE-2026-62878, the Windows DNS Server flaw, is rated CVSS 9.8 and carries the "wormable" designation—meaning a single exploit payload could propagate machine to machine across networks that share a DNS server without any administrator interaction. Stack-based buffer overflows in DNS services have historically been weaponized within weeks of disclosure; organizations with internet-facing Windows DNS should treat this as near-critical even without in-the-wild exploitation yet confirmed.</p>
+        <p>CISA added CVE-2026-68820 to the Known Exploited Vulnerabilities catalog on August 11, 2026, imposing a mandatory remediation deadline on Federal Civilian Executive Branch agencies. The three other disclosed-but-not-yet-exploited zero-days (CVE-2026-62817, CVE-2026-62820, CVE-2026-65789) affect Windows DNS Server and Microsoft QUIC and should be treated as time-sensitive.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of afd.sys as the traffic cop inside Windows that manages network connections. This bug lets an attacker trick that traffic cop into promoting them from a regular driver to the head of the police department—gaining full control of the computer. "Wormable" means a different bug (CVE-2026-62878) could spread itself automatically from one computer to the next, like a cold spreading through an office without anyone sneezing directly at you.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-68820 · CVSS: 7.8/10 — High severity for a local privilege escalation; elevated urgency due to active exploitation in the wild confirmed by CISA and Microsoft.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Clop Windchill/FlexPLM -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/clop-ransomware-targets-windchill-flexplm-in-data-theft-attacks/" style="color:#111827;text-decoration:none;">Clop Ransomware Exploits CVE-2026-12569 in Mass Windchill and FlexPLM Campaign, Claims Shell and 50 More Companies</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The Clop extortion group exploited CVE-2026-12569, a critical remote code execution vulnerability in PTC's Windchill and FlexPLM product lifecycle management platforms, deploying JSP webshells to steal data from approximately 50 companies including Shell, Philips, and GE, with Shell's exposure alone reaching 89 GB of proprietary engineering and project data.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Manufacturing, energy, aerospace, and pharmaceutical enterprises using PTC Windchill or FlexPLM for product design and engineering data management are at risk of IP theft including engineering drawings, facility data, project roadmaps, and testing reports.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply PTC's patch for CVE-2026-12569 immediately, audit web server logs for JSP webshell indicators of compromise, review outbound data transfers from PLM servers since June 2026, and notify legal and compliance teams if sensitive engineering data may have been accessed.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Persistence] T1505.003 · Server Software Component: Web Shell<br>
+      <span style="color:#6b7280;">Clop exploited the CVE to plant JSP webshells on compromised Windchill and FlexPLM application servers, giving them persistent, stealthy command execution that survived reboots and allowed them to conduct long-dwell data exfiltration across dozens of victims.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Clop has repeated its now-signature playbook: identify a critical vulnerability in widely-deployed enterprise software, exploit it at scale before most organizations can patch, and then extort dozens of victims simultaneously. Past campaigns targeted MOVEit Transfer, GoAnywhere MFT, and Cleo—this time it is PTC's Windchill and FlexPLM, product lifecycle management platforms used by manufacturers to manage sensitive product engineering data.</p>
+        <p>CVE-2026-12569 is an improper input validation flaw that allows unauthenticated remote code execution. Clop operators deployed JSP webshells after exploitation, enabling persistent access to exfiltrate terabytes of proprietary data. Shell confirmed it is investigating a "potential incident" after Clop posted 89 GB of allegedly stolen data on its extortion site, including engineering drawings, facility photographs, project roadmaps, and testing reports that could have significant competitive and regulatory implications.</p>
+        <p>This campaign follows Clop's well-documented pattern of simultaneous mass exploitation, typically targeting victims that share a common software dependency. The group does not typically deploy encrypting ransomware—instead it threatens to publish stolen data unless a ransom is paid, a model that sidesteps the operational disruption that triggers faster incident response.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> PLM software is like a company's secret filing cabinet for product designs—it stores the blueprints, test results, and project plans that represent years of research. Clop found a master key that opens these cabinets for dozens of companies at once, copied everything, and is now demanding money to not publish what they took. Shell hasn't confirmed what was stolen yet, but 89 gigabytes is roughly 89,000 megabytes—about 50 million pages of documents.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-12569 · CVSS: 9.8/10 — Critical; unauthenticated remote code execution on internet-facing PLM servers with no user interaction required.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Clop -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Clop (Cl0p)</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Extortion Group · Attributed to: Russia-linked</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Large enterprises in manufacturing, energy, healthcare, financial services, and logistics—any sector running centralized file-transfer or data-management platforms used by many companies simultaneously.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Mass exploitation of zero-days and N-days in enterprise software (MOVEit, GoAnywhere, Cleo, now Windchill/FlexPLM) to hit dozens of victims at once; theft-based extortion without ransomware encryption; operating a dark-web leak site to pressure victims.</div>
+</div>
+
+<!-- STORY 4: HoneyMyte CoolClient Rootkit -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/mustang-panda-adds-signed-windows.html" style="color:#111827;text-decoration:none;">Mustang Panda (HoneyMyte) Upgrades CoolClient Backdoor With Signed Windows Kernel-Mode Rootkit</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Kaspersky's GReAT team discovered that the Chinese APT HoneyMyte (Mustang Panda / Bronze President) has equipped its CoolClient backdoor with a signed Windows kernel-mode driver rootkit that hides the malware from security tools at the OS's most privileged layer, with victims confirmed in Myanmar, Mongolia, Pakistan, and Russia including government entities.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Government entities, ministries, and diplomatic missions in Southeast Asia, Central Asia, and South Asia are primary targets; the Pakistan and Russia incidents suggest the group is expanding its traditional geographic focus.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Hunt for the signed driver IOCs published by Kaspersky (Securelist), review Windows driver signing certificates for anomalies, and deploy EDR solutions with kernel-level visibility; organizations in targeted regions should treat any prior PlugX detection as a potential CoolClient re-entry vector.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1014 · Rootkit<br>
+      <span style="color:#6b7280;">HoneyMyte's signed kernel-mode driver takes IOCTL commands from CoolClient's user-mode component to selectively hide files, processes, and network connections from security tools—operating below the visibility layer of most EDR products and making detection and eviction dramatically harder.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CoolClient first appeared in 2022 and has been exclusively attributed to HoneyMyte, a China-nexus APT that Kaspersky and other researchers track alongside the more widely known Mustang Panda attribution. The group has long favored PlugX as a first-stage implant; CoolClient typically follows as a secondary, persistent backdoor that supports keylogging, clipboard theft, credential harvesting, file management, and plugin-based capability extension.</p>
+        <p>The newly discovered kernel-mode rootkit is the significant escalation. By obtaining a legitimately signed Windows driver certificate—a process that has become harder since Microsoft tightened cross-signing requirements, but remains achievable through expired certificates or compromised signing keys—HoneyMyte can load code at the kernel layer. At that level, the driver can intercept OS calls and hide its presence from user-mode security tools, including most commercially deployed endpoint detection and response solutions.</p>
+        <p>The Russia victimology is notable. HoneyMyte has historically targeted governments in Southeast Asia and South Asia aligned with China's geopolitical interests, but targeting of Russian entities may reflect intelligence collection around Sino-Russian diplomatic or military dynamics. The presence of prior PlugX infections in all confirmed CoolClient cases reinforces that this actor uses a staged compromise model.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Antivirus and security software sit "on top of" the Windows operating system, watching what programs do. A kernel rootkit goes underneath those security tools—into the very foundation of Windows—where it can tell the OS to hide certain files and processes. It's like a master illusionist who tricks every security camera in the building into not recording them. The "signed" part means Windows trusts the driver because it has a valid certificate, like a fake but convincing official badge.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: HoneyMyte / Mustang Panda -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">HoneyMyte / Mustang Panda</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: China (PRC)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government ministries, diplomatic missions, militaries, and NGOs across Southeast Asia, South Asia, Central Asia, and Eastern Europe—particularly those of interest to PRC foreign policy objectives.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Long-dwell espionage campaigns; PlugX and CoolClient implant family; DLL sideloading for initial execution; now adding signed kernel rootkits for deep stealth; patience and precision over broad targeting.</div>
+</div>
+
+<!-- STORY 5: INC Ransomware SonicWall -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/inc-ransomware-emerges-as-dominant.html" style="color:#111827;text-decoration:none;">INC Ransomware Chains SonicWall SMA 1000 Zero-Days CVE-2026-15409 + CVE-2026-15410 for Root VPN Takeover</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> INC Ransomware (tracked as UTA0533) has been chaining two SonicWall SMA 1000 zero-days—CVE-2026-15409 (CVSS 10.0 unauthenticated WebSocket tunnel bypass) and CVE-2026-15410 (path traversal privilege escalation to root)—to seize full control of VPN gateways, with exploitation beginning June 22 before public disclosure and 893+ total victims now listed.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using unpatched SonicWall SMA 1000 appliances as VPN gateways—including US, Australian, UAE, Colombian, and Swiss government agencies and private sector organizations—face complete network perimeter compromise.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply SonicWall patches released mid-July 2026 immediately; if patching is delayed, isolate SMA 1000 appliances from the internet and audit for unauthorized wsproxy connections, unfamiliar admin accounts, and lateral movement indicators since June 2026.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Command and Control] T1572 · Protocol Tunneling<br>
+      <span style="color:#6b7280;">CVE-2026-15409 lets an unauthenticated external attacker open an unauthorized WebSocket (wsproxy) tunnel to internal-only services on the SMA 1000 device—effectively tunneling a malicious control channel through the VPN gateway itself, bypassing network segmentation before escalating to root via CVE-2026-15410.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The two-CVE chain transforms a single unauthenticated HTTP request into full root control of a VPN gateway. CVE-2026-15409 abuses the /wsproxy endpoint, which is supposed to only be reachable from localhost, by circumventing its access restriction. This grants the attacker a WebSocket tunnel into services that should never be externally reachable. CVE-2026-15410, a path traversal in the remove_hotfix workflow of the ctrl-service, then allows the attacker to escalate from a low-privilege service account to root.</p>
+        <p>Once root on the VPN appliance, INC actors can intercept all VPN credentials in transit, capture network traffic for any connected session, deploy persistent malware, and pivot freely into the protected internal network. Resecurity's analysis shows that exploitation began at least June 22—weeks before SonicWall published the CVEs—meaning hundreds of organizations were silently compromised while considering their VPN appliances fully operational and secure.</p>
+        <p>INC Ransomware has listed 893 total victims on its leak site as of mid-August, including a significant acceleration since the start of August 2026. The group targets professional services, healthcare, manufacturing, and government, with recent victims spanning six continents.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A VPN gateway is the secure front door to a company's internal network—employees use it to connect remotely. This attack is like finding a hidden service entrance to that front door that was accidentally left unlocked (CVE-2026-15409), slipping inside, and then finding a maintenance loophole that upgrades your access from janitor to building owner (CVE-2026-15410). The attacker can then watch everyone who uses the front door, intercept their keys, and walk anywhere in the building.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-15409 · CVSS: 10.0/10 — Maximum severity; pre-authentication, network-accessible, no user interaction, full system compromise when chained with CVE-2026-15410.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: RingCentral ShinyHunters -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/ringcentral-data-breach-exposed-info-of-16-million-accounts/" style="color:#111827;text-decoration:none;">ShinyHunters Leaks 280 GB of RingCentral Data After Ransom Refusal, 1.6 Million Accounts Exposed</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The ShinyHunters extortion group published a 280 GB compressed archive on their dark web leak site after RingCentral declined to pay ransom; the original breach in July 2026 yielded 623 GB of data covering 1.6 million user accounts.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> 1.6 million RingCentral business communication platform users whose account data—potentially including names, emails, phone numbers, and internal communications metadata—has now been publicly leaked on a criminal forum.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> RingCentral users should reset passwords, enable multi-factor authentication, monitor for phishing and business email compromise attempts using their leaked contact data, and watch for fraudulent calls impersonating colleagues from the compromised account details.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Collection] T1560 · Archive Collected Data<br>
+      <span style="color:#6b7280;">ShinyHunters compressed 623 GB of stolen RingCentral data into a 280 GB archive before publishing it—a standard operational step that reduces transfer time, complicates forensic recovery of the original file structure, and is a consistent hallmark of this group's data-leak extortion workflow.</span>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 7: GhostJacking AI Prompt Injection -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/threatsday-ghostjacking-ai-attacks.html" style="color:#111827;text-decoration:none;">GhostJacking: DEF CON Demo Shows AI Coding Agents Hijacked via Malicious Security Log Entries</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Tenet Security researchers demonstrated "GhostJacking" at DEF CON 2026—a prompt injection attack that plants attacker-controlled instructions inside Cloudflare firewall logs, Datadog alerts, and Sentry error reports, which AI coding agents then read as trusted context and execute, achieving a 90% success rate for credential theft, DNS hijacking, and backdoor creation.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Developer teams using AI coding agents (Cursor, GitHub Copilot, Claude Code, or similar) in environments that expose security logs to those agents—estimated to include over half of Fortune 500 companies running AI-assisted development pipelines.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Restrict AI coding agents' access to raw log data from external sources; apply input sanitization and context boundaries to agent tool integrations; treat agent-consumed log data with the same scrutiny as user-supplied input and never grant agents write access to cloud configuration without a human confirmation step.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1036 · Masquerading<br>
+      <span style="color:#6b7280;">GhostJacking works because attacker instructions are embedded inside what appear to be legitimate security log entries—the malicious commands masquerade as routine firewall blocks or error messages, and the AI agent treats them as trusted system output rather than adversarial input.</span>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 8: Zbtlink Router Backdoor -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/chinese-made-zbtlink-routers-ship-with.html" style="color:#111827;text-decoration:none;">Factory-Shipped ENDLESSDOORS Backdoor Found in 20+ Chinese Zbtlink Router Models, 100,000 Devices at Risk</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> VulnCheck disclosed CVE-2026-66747 (CVSS 9.3), a factory-installed backdoor dubbed ENDLESSDOORS in more than 20 Zbtlink and Wiflyer router models that automatically starts on boot and beacons to Chinese command-and-control infrastructure every 35 seconds, enabling unauthenticated remote root shells on affected devices.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> An estimated 100,000+ Zbtlink and Wiflyer routers deployed in homes, small offices, and small businesses worldwide—devices sold on Amazon and Alibaba—are persistently beaconing to attacker-controlled infrastructure with no user interaction or configuration mistake required.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Replace affected Zbtlink and Wiflyer routers immediately (no firmware patch can be fully trusted given the supply-chain nature of the backdoor); identify affected model numbers in VulnCheck's advisory and check network egress for beaconing to suspicious Chinese IP ranges.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Persistence] T1542.002 · Pre-OS Boot: Component Firmware<br>
+      <span style="color:#6b7280;">ENDLESSDOORS is embedded in the router's factory firmware image—a persistence mechanism that survives factory resets and firmware updates from the vendor, operating at the component firmware level before any user-space security controls can load.</span>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 9: EtherHiding ClickFix -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cynet · Aug 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cynet.com/blog/clickfix-reloaded-from-mass-hijackloader-infections-to-stealth-etherhiding-rats/" style="color:#111827;text-decoration:none;">ClickFix Evolves: EtherHiding Technique Uses Polygon Blockchain to Rotate C2 Infrastructure Stealthily</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Cynet researchers identified an active ClickFix malware campaign that has adopted "EtherHiding"—retrieving its command-and-control server address from the Polygon blockchain rather than hardcoded domains, making the malware's C2 infrastructure nearly impossible to block via traditional domain or IP blacklisting.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> End users who encounter fake browser update pages, CAPTCHA verification dialogs, or error prompts that instruct them to copy and paste a PowerShell command—a social engineering vector that bypasses most browser security controls.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Train users never to copy-paste commands from websites into terminals or Run dialogs; deploy application control policies blocking unexpected PowerShell execution; consider DNS filtering to block known Polygon/Ethereum node query patterns used for EtherHiding C2 resolution.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Command and Control] T1102.001 · Web Service: Dead Drop Resolver<br>
+      <span style="color:#6b7280;">EtherHiding uses the Polygon blockchain as a dead drop resolver: the malware queries a public Ethereum node to read a smart contract value that contains the current C2 server URL, allowing attackers to update their infrastructure by simply writing a new value to the blockchain rather than changing hardcoded domains.</span>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Prompt Injection in AI Agents ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Prompt injection is an attack where malicious instructions are hidden inside content that an AI model processes as data—such as a webpage, a document, or a log file—causing the AI to execute the attacker's commands instead of its intended task. Unlike traditional code injection, prompt injection exploits the AI's language understanding: the model cannot reliably distinguish between its operator's instructions and adversarial text that appears in the data it's reading. The GhostJacking technique demonstrated this at DEF CON by embedding attacker commands inside firewall logs and monitoring alerts, tricking AI coding agents into stealing cloud credentials and creating backdoors while believing they were doing legitimate work.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: PLM · EtherHiding · ClickFix · Rootkit · WebSocket · APT · Prompt Injection ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PLM</strong> — Product Lifecycle Management; enterprise software that stores and manages product engineering data—blueprints, test results, project timelines—across design and manufacturing cycles; Windchill and FlexPLM are leading PLM platforms targeted by Clop this week.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">EtherHiding</strong> — A command-and-control obfuscation technique where malware retrieves its C2 server address by querying the Ethereum or Polygon blockchain, making the infrastructure resistant to domain takedowns and IP blacklisting since blockchain data is immutable and globally distributed.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ClickFix</strong> — A social engineering malware delivery technique that presents users with a fake CAPTCHA, error dialog, or browser update prompt, then instructs them to copy-paste a malicious command into their terminal or Run dialog, bypassing traditional download-based malware defenses.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Rootkit</strong> — Malware that operates at the operating system's kernel level—the most privileged execution layer—allowing it to hide files, processes, and network connections from security tools that run at higher, less-privileged layers; kernel rootkits are among the hardest-to-detect and hardest-to-remove malware categories.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">WebSocket</strong> — A network protocol providing full-duplex communication over a single persistent TCP connection; used legitimately for real-time web apps, and abused in the SonicWall CVE-2026-15409 attack to tunnel unauthorized connections through the wsproxy endpoint to internal-only services.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">APT</strong> — Advanced Persistent Threat; a sophisticated, long-duration intrusion campaign—typically nation-state sponsored—characterized by stealthy techniques, specific intelligence objectives, custom malware, and the operational patience to maintain access in victim networks for months or years.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Prompt Injection</strong> — An attack class where malicious instructions are embedded in data processed by an AI language model, causing the model to treat attacker-supplied text as legitimate commands; analogous to SQL injection but targeting the AI's instruction-following behavior rather than a database query parser.
+    </div>
+  </div>
+</details>
+
+<!-- WEEK IN REVIEW (Sunday) -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:12px;">📅 Week in Review — Aug 10–16, 2026</div>
+  <div style="display:flex;gap:10px;margin-bottom:12px;">
+    <div style="flex:1;text-align:center;padding:10px;background:#fef2f2;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#dc2626;">22</div>
+      <div style="font-size:11px;color:#6b7280;">Critical</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fff7ed;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ea580c;">29</div>
+      <div style="font-size:11px;color:#6b7280;">High</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fefce8;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ca8a04;">15</div>
+      <div style="font-size:11px;color:#6b7280;">Medium</div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:#374151;margin-bottom:6px;"><strong>ATT&amp;CK this week:</strong> T1190 · T1068 · T1505.003 · T1014 · T1572 · T1560 · T1036 · T1542.002 · T1102.001</div>
+  <div style="font-size:13px;color:#374151;margin-bottom:10px;"><strong>Threat actors:</strong> Clop · HoneyMyte (Mustang Panda) · INC Ransomware · ShinyHunters · Sandworm · Lazarus Group · Qilin · SafePay</div>
+  <div style="font-size:13px;color:#374151;line-height:1.6;padding:10px;background:#f8fafc;border-radius:4px;">The week of August 10–16, 2026 was defined by mass exploitation at industrial scale: Clop's Windchill/FlexPLM campaign hit 50+ companies simultaneously, INC Ransomware chained SonicWall zero-days for root VPN access six weeks before disclosure, and Microsoft's 421-CVE Patch Tuesday included an actively weaponized kernel zero-day. Nation-state actors sharpened their tradecraft in parallel, with HoneyMyte adding a signed Windows kernel rootkit to its CoolClient backdoor, underscoring a week where both criminal and state-sponsored adversaries advanced their capabilities faster than most defenders could respond.</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html" style="color:#374151;text-decoration:none;">JetBrains TeamCity CVE-2026-63077 (CVSS 9.8) Added to CISA KEV After Active Exploitation</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" style="color:#374151;text-decoration:none;">CISA Adds CVE-2026-20349, CVE-2026-68820, CVE-2026-72898 to KEV Catalog</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://qz.com/data-breach-victim-notices-2026-record-ai-attacks-081426" style="color:#374151;text-decoration:none;">Novo Nordisk AI/ML Ecosystem Data Leaked by Fulcrumsec After June Breach</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Quartz</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://helpnetsecurity.com/2026/08/11/industrial-ransomware-attacks-q2-2026/" style="color:#374151;text-decoration:none;">Industrial Ransomware Attacks Up 12% in Q2 2026, Dragos Counts 1,140 Incidents</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Help Net Security</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html" style="color:#374151;text-decoration:none;">N-able N-central CVE-2026-18577 Auth Bypass Added to CISA KEV After Customer Compromises</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.pkware.com/blog/2026-data-breaches" style="color:#374151;text-decoration:none;">Ransom Cartel Creator Maksim Silnikau Sentenced to 16 Years After Attacking 18+ Companies</a>
+    <span style="color:#9ca3af;font-size:11px;"> · PKWARE</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 16, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

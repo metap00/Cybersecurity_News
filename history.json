@@ -1,14 +1,15 @@
 {
-  "til": ["SS7 Signaling Attack", "Agentic Cyberattack", "Frontier AI Containment", "Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability", "Directory Traversal Attack"],
-  "glossary": ["ASLR", "IIS", "EoP", "CVSS", "PAT", "HIPAA", "RCE", "SS7", "Vishing", "SSO", "PHI", "REST API", "FCEB", "Supply Chain Attack", "Langflow", "LSASS", "Dead Drop Resolver", "Sandbox Escape", "Agentic AI", "ExploitGym", "SNMP", "Deserialization", "Clop", "CWE", "APN", "OT", "PLC", "Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh", "VMSA", "Metabase", "GeoServer", "Directory Traversal", "Honeypot", "ForestTiger", "Data Hub Adapter"],
+  "til": ["Prompt Injection in AI Agents", "SS7 Signaling Attack", "Agentic Cyberattack", "Frontier AI Containment", "Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability"],
+  "glossary": ["PLM", "EtherHiding", "ClickFix", "Rootkit", "WebSocket", "APT", "Prompt Injection", "ASLR", "IIS", "EoP", "CVSS", "PAT", "HIPAA", "RCE", "SS7", "Vishing", "SSO", "PHI", "REST API", "FCEB", "Supply Chain Attack", "Langflow", "LSASS", "Dead Drop Resolver", "Sandbox Escape", "Agentic AI", "ExploitGym", "SNMP", "Deserialization", "Clop", "CWE", "APN", "OT", "PLC", "Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh"],
   "week": {
-    "critical": 19,
-    "high": 26,
-    "medium": 12,
-    "techniques": ["T1190", "T1486", "T1068", "T1134", "T1552", "T1203", "T1041", "T1566", "T1430", "T1195", "T1555", "T1133", "T1078", "T1102", "T1611", "T1213", "T1059", "T1599", "T1204", "T1568", "T1014", "T1210", "T1550", "T1537", "T1195.002", "T1562.001", "T1053.003", "T1570", "T1074", "T1489", "T1556", "T1078.001", "T1212", "T1505", "T1499"],
-    "actors": ["SafePay", "ShinyHunters", "The Gentlemen", "Iran", "Qilin", "JADEPUFFER", "Anubis", "Clop", "Gunra", "Sandworm", "Lazarus Group", "TeamPCP"]
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "techniques": [],
+    "actors": []
   },
   "digests": [
+    {"date": "2026-08-16", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 3},
     {"date": "2026-08-15", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-08-14", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1},
     {"date": "2026-08-13", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
