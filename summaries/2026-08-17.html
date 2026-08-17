@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 17, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 17, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 3 critical · 2 high · 1 medium · ~10 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - Lazarus CVE-2026-68820 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html" style="color:#111827;text-decoration:none;">Lazarus Group Exploits Windows WinSock Zero-Day (CVE-2026-68820) in Operation Dream Job, Deploys FudModule Rootkit</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> North Korea's Lazarus Group silently exploited a previously unknown use-after-free race condition in Windows afd.sys (the WinSock kernel driver) for at least five weeks before Microsoft patched it on August 12, deploying the FudModule rootkit at kernel level and killing 94 security-monitoring channels on victim machines.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Defense contractors, aerospace firms, and aviation companies in Europe and India that received fake job recruitment emails—Operation Dream Job lures—from Lazarus operatives posing as recruiters.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's August 2026 Patch Tuesday update immediately (KB5121003 for Windows 11 / KB5120249 for Windows 10) and treat CISA's August 25 deadline for federal agencies as a universal priority.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Lazarus raced two competing kernel threads to a freed memory region in afd.sys, gaining a kernel read/write primitive that elevated their implant from standard user access to full SYSTEM-level control in a single exploit step.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-68820 lives in afd.sys — the Ancillary Function Driver for WinSock — which is the kernel component that underpins Windows Sockets, handling network operations for virtually every Windows application. The flaw is a use-after-free triggered by a race condition: when two threads simultaneously access socket state at the exact moment memory is freed, an attacker who wins the race can corrupt that freed region and gain a kernel-level read/write primitive — effectively yielding god-mode access over the entire machine.</p>
+        <p>Lazarus delivered their exploit through Operation Dream Job, a long-running campaign that sends convincing fake recruitment emails and LinkedIn messages to defense and aerospace employees. Opening a malicious attachment or application grants initial user-level access; the CVE-2026-68820 exploit then escalates that access to SYSTEM in milliseconds. From there, the group loaded FudModule — their kernel-mode rootkit — which terminated 94 security-monitoring channels, disabling EDRs, antivirus products, and logging systems before defenders could detect the intrusion.</p>
+        <p>Check Point Research confirmed Lazarus attribution. CISA has added CVE-2026-68820 to its Known Exploited Vulnerabilities catalog with a mandatory federal remediation deadline of August 25, 2026. The threat remains active against any unpatched Windows system.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of a "use-after-free" bug like using a hotel room key that was supposed to be deactivated after checkout. Lazarus hackers found a way to use Windows's networking code's "key" after it was meant to be discarded — and because they could do it at precisely the right millisecond (the "race condition"), they tricked Windows into granting them master-administrator power over the entire computer. They combined this with fake job offer emails to get their first foothold, then used the bug to take full control.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-68820 · CVSS: 7.8/10 — Use-after-free race condition in Windows afd.sys; allows local code execution escalation to SYSTEM; actively exploited in the wild by Lazarus Group since at least early July 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: Lazarus Group -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Lazarus Group</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: North Korea (DPRK Reconnaissance General Bureau)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Defense contractors, aerospace, aviation, financial institutions, cryptocurrency exchanges, critical infrastructure globally</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operation Dream Job (fake recruitment lures), FudModule kernel rootkit, WannaCry ransomware, billion-dollar cryptocurrency heists to fund DPRK sanctions-evasion programs</div>
+</div>
+
+<!-- STORY 2: CRITICAL - TheHatman Azure Breach -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CyberSecurityNews · Aug 17, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/azure-credential-theft-campaign/" style="color:#111827;text-decoration:none;">"TheHatman" Azure Credential Theft Campaign Exposes 3M+ Records from McDonald's, Vodafone, TCS, and Six Other Fortune 500 Firms</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A threat actor operating as "TheHatman" is flooding dark web forums with internal employee directory records from at least nine Fortune 500-level companies, claiming to have extracted them directly from victim organizations' Microsoft Azure and Entra ID tenants using compromised credentials.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> McDonald's (1.7M+ records exposed), Tata Consultancy Services (~800K), Vodafone (~425K), HCL Technologies (~250K), InterContinental Hotels Group (~185K), Kyndryl, Gap Inc., Hexaware Technologies, and Wyndham Hotels — across IT services, hospitality, telecoms, retail, and logistics.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately audit OAuth app permissions in your Azure/Entra tenant, enforce phishing-resistant MFA (hardware keys or passkeys) for all admin accounts, rotate all privileged credentials, and hunt for access from unfamiliar geographic locations or unrecognized service principals.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1528 · Steal Application Access Token<br>
+      <span style="color:#6b7280;">TheHatman leveraged compromised Azure credentials — likely harvested via infostealer malware or phishing — to authenticate with valid access tokens and bulk-extract internal employee directory data directly from corporate Entra ID tenants.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>TheHatman has published listings on underground forums for internal employee directory exports from nine major global corporations, with McDonald's topping the count at over 1.7 million exposed records. Hudson Rock researchers who reviewed sample datasets rated the data as highly credible: corporate email domains, department structures, job titles, and field formats all match standard Azure Active Directory (Entra ID) extraction output exactly.</p>
+        <p>The attacker claims credentials were the only entry point — "compromised credentials" used to authenticate normally to each organization's Entra tenant. The most likely attack paths include infostealer malware on employee devices silently harvesting OAuth session tokens (which bypass MFA re-prompts once issued), phishing campaigns targeting administrative-level accounts, or misconfigured third-party API integrations with overly broad read permissions whose service principal tokens were stolen.</p>
+        <p>Even "just" directory data carries real danger: names, roles, department hierarchies, and work emails are the raw material for highly targeted spearphishing, business email compromise, and social engineering attacks against these organizations' employees and customers. With 3M+ records now potentially circulating, affected companies face months of downstream phishing risk.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine if someone stole your company's entire internal phone book — everyone's name, job title, team, and work email address. That's what TheHatman did by breaking into Microsoft's cloud identity system using stolen login credentials. With that information, criminals can send extremely convincing fake emails that appear to come from your CEO or your IT helpdesk, tricking employees into handing over passwords or approving fraudulent payments.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — credential-based attack exploiting already-compromised accounts rather than a software vulnerability; estimated 3M+ employee records exposed across nine organizations.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: CRITICAL - Wormable DNS RCE CVE-2026-62878 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Security Affairs · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityaffairs.com/197048/security/microsoft-patch-tuesday-for-august-2026-fixed-a-zero-day-and-wormable-rce.html" style="color:#111827;text-decoration:none;">August 2026 Patch Tuesday: Microsoft Patches Wormable Windows DNS RCE (CVE-2026-62878, CVSS 9.8) Among 421 Vulnerabilities</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's August 2026 Patch Tuesday addresses 421 CVEs including CVE-2026-62878, a Critical stack-based buffer overflow in Windows DNS Server (CVSS 9.8) that allows unauthenticated remote attackers to execute code with elevated privileges and is classified as potentially wormable — capable of self-spreading between vulnerable DNS servers with no user interaction.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running Windows Server as a DNS server, especially those with DNS infrastructure exposed to the internet or reachable from internally compromised networks; three additional Critical DNS RCEs (CVE-2026-62817, CVE-2026-62820, CVE-2026-65789) were also patched.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply KB5121003 (Windows 11) or KB5120249 (Windows 10/Server) immediately; prioritize all Windows DNS servers; place DNS management interfaces behind firewall rules restricting access to known management hosts only.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">CVE-2026-62878 allows an unauthenticated attacker who can reach a Windows DNS server over the network to overflow a stack buffer and execute arbitrary code — exploiting the DNS service itself as a public-facing entry point that requires no credentials and is reachable from any networked host.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-62878 is described by Zero Day Initiative's Dustin Childs as "a good ol' fashioned stack-based buffer overflow" in Windows DNS Server. When a specially crafted DNS query arrives, it overflows a fixed-size stack buffer, overwriting the return address with attacker-controlled data and enabling arbitrary code execution. No authentication is required — anyone who can send a DNS query to the affected server can trigger the bug.</p>
+        <p>The wormable classification is what makes this particularly dangerous. Wormable vulnerabilities can be weaponized into self-propagating malware that compromises one DNS server, then automatically uses that server to attack others — similar to how WannaCry spread across networks in 2017. DNS servers are often trusted, high-privilege infrastructure on internal networks, making them prime pivot points for lateral movement once compromised.</p>
+        <p>At CVSS 9.8, this is the top patching priority in August's release for most organizations. The update also addresses three related Critical DNS RCEs: CVE-2026-62817 (CVSS 8.8), CVE-2026-62820 (CVSS 8.1), and CVE-2026-65789 (CVSS 8.1). An unauthenticated SharePoint RCE chain was also patched in this release.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> DNS is the internet's phone book — it translates website names like "google.com" into the numbers computers use to find each other. A "stack buffer overflow" is like writing a note so long it spills off the notepad and onto your keyboard, accidentally pressing buttons you didn't intend. In this case, an attacker can send an oversized fake "question" to a Windows DNS server, and the spillover lets them take over the server completely — then do the same to other DNS servers automatically, spreading like a virus.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-62878 · CVSS: 9.8/10 — Unauthenticated stack-based buffer overflow in Windows DNS Server; no user interaction required; potentially wormable; not yet observed exploited in the wild but rated Critical for immediate patching.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - Cisco FMC CVE-2026-20316 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CyberPress / CISA · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cyberpress.org/cisa-warns-cisco-fmc-zero-day/" style="color:#111827;text-decoration:none;">CISA Warns: Cisco Secure FMC Zero-Day (CVE-2026-20316) Exploited via Hard-coded Static Credentials</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Cisco disclosed and patched CVE-2026-20316, a static hard-coded credential in the Cisco Secure Firewall Management Center (FMC) web interface that allows any unauthenticated attacker who knows the fixed username and password to remotely log in — regardless of the organization's own credentials — and the flaw is being actively exploited in the wild.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All organizations running Cisco Secure FMC software on-premises; cloud-delivered FMC, Firewall Device Manager, Cisco ASA, Cisco FTD, and Security Cloud Control are NOT affected.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Cisco's available hotfix immediately; review FMC audit logs for unauthorized authentication events; restrict FMC management interface access to trusted management hosts via firewall rules as an interim measure.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1078.001 · Valid Accounts: Default Accounts<br>
+      <span style="color:#6b7280;">CVE-2026-20316 is a textbook default-account exploitation: the hard-coded FMC credential gives any attacker who discovers it authenticated access to the management console, exactly as this technique describes — exploiting baked-in credentials that cannot be changed by end users.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Cisco's Secure Firewall Management Center is the centralized console security teams use to configure, monitor, and tune Cisco firewall deployments — controlling security policy for an entire network. CVE-2026-20316 exposes a hard-coded username and password embedded in the FMC software that was apparently left over from development or testing. Once that credential was discovered (likely through reverse engineering the firmware or web application), attackers gained a universal key: the same username and password works on every unpatched FMC installation worldwide.</p>
+        <p>Although the base CVSS score is 5.3 (Medium), Cisco correctly escalated to High severity because static credential access to a firewall management console can be chained with other FMC vulnerabilities to achieve full administrative takeover — changing firewall rules, disabling security policies, or pivoting laterally into managed network segments. CISA added the flaw to its Known Exploited Vulnerabilities catalog on July 29 with a federal deadline of August 1; the fact that it remains widely unremediated weeks later reflects the ongoing risk.</p>
+        <p>This vulnerability is a reminder of why hard-coding any credentials into production software is a critical security anti-pattern recognized by OWASP (CWE-798) and why regular firmware audits are essential for network security appliances.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine if every car model from a particular manufacturer had the same hidden master key that could unlock any car of that model — and someone published that key online. That's exactly what happened with Cisco's firewall management software: a secret login built into the code worked for every installation worldwide, giving attackers a universal key to control network security systems — even without knowing the organization's own passwords.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-20316 · CVSS: 5.3/10 (Cisco severity: High) — Hard-coded static credential in Cisco Secure FMC web interface allows unauthenticated remote login; actively exploited; added to CISA KEV July 29, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH - Evooo1Bot Linux Botnet -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/new-evooo1bot-linux-botnet-turns-routers-into-traffic-relay-nodes/" style="color:#111827;text-decoration:none;">Evooo1Bot: New Mirai-Based Linux Botnet Hijacks Routers as SOCKS5 Relay Nodes, Conducts Credential Theft and DDoS</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Fortinet's FortiGuard Labs discovered Evooo1Bot, a sophisticated new Mirai-derived Linux botnet active since July 2026 that compromises internet-facing routers and gateway devices, installing a SOCKS5 relay module to anonymize attacker traffic while simultaneously performing SSH brute-forcing, credential theft, and DDoS attacks.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations and home users with vulnerable internet-facing devices from Alcatel, NETGEAR, Tenda, Mitsubishi Electric, Telesquare, and D-Link; networks using these devices may unknowingly relay attacker C2 traffic.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply all available firmware updates to affected router models, disable remote management access if not operationally required, change all default SSH credentials to strong unique passwords, and monitor network traffic for unusual outbound SOCKS5 connections.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Command and Control] T1090.002 · Proxy: External Proxy<br>
+      <span style="color:#6b7280;">Evooo1Bot's primary purpose after compromise is to install a SOCKS5 relay on victim routers, routing attacker C2 traffic through innocent devices — making attacks untraceable to real attacker infrastructure while implicating victims' IP addresses in downstream malicious activity.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Evooo1Bot represents a meaningful evolutionary leap beyond basic Mirai clones. Named after the hardcoded string "evooo1" found in every binary, the botnet combines Mirai's classic IoT brute-force spreading mechanism with sophisticated new modules: multi-layered string encryption for evasion detection, encrypted C2 communications, an SSH brute-force scanner to spread to new devices, a SOCKS5 relay installer, and a network credential sniffer that captures authentication data from passing traffic.</p>
+        <p>The SOCKS5 proxy capability is the most strategically dangerous feature: once a router is infected, it becomes an anonymous traffic relay for the botnet operators. Attackers can route their own operations — including attacks against banks, government agencies, or other targets — through victim routers, making the attacks appear to originate from innocent residential or corporate IP addresses. If investigators trace the traffic, it leads to the victim, not the attacker.</p>
+        <p>With its modular architecture, Evooo1Bot can receive new exploit modules from its C2 infrastructure to target additional device vulnerabilities as they are discovered, making the threat persistent even after initial device patching efforts begin.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of your home router as a mail sorting center for all your internet traffic. Evooo1Bot secretly installs a side door in that sorting center and uses it to route the attackers' suspicious packages through your building — so if anyone investigates, it looks like the suspicious packages came from you, not them. Meanwhile, the same malware is also reading all the mail it can intercept and trying to break into neighboring "mail centers" using stolen keys.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE — exploits multiple known vulnerabilities in gateway devices; active since July 2026; targets Alcatel, NETGEAR, Tenda, Mitsubishi Electric, Telesquare, and D-Link hardware.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Hard-coded Credentials ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Hard-coded credentials are usernames and passwords that developers embed directly into software source code or firmware — often as a shortcut during testing or for built-in administrative access — instead of requiring them to be set by the end user during installation. Unlike normal accounts, these credentials are identical across every copy of that software worldwide and cannot be changed by customers, meaning a single discovery exposes every deployment simultaneously. The Cisco FMC zero-day (CVE-2026-20316) is a textbook example: once attackers found the static username and password baked into the software, they had a universal master key to every unpatched FMC installation on Earth — demonstrating exactly why embedding any credential directly into production code is recognized as a critical security anti-pattern (OWASP CWE-798).
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: SOCKS5 · Entra ID · InfoStealer · C2 · MITRE ATT&CK ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SOCKS5</strong> — a network proxy protocol that routes internet traffic through an intermediary server; used legitimately by VPNs and privacy tools, but abused by botnets like Evooo1Bot to anonymize attacker traffic by routing it through compromised victim devices.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Entra ID</strong> — Microsoft's cloud-based identity and access management platform (formerly Azure Active Directory) that controls authentication and authorization for Azure services and corporate applications; the target of the TheHatman breach campaign.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">InfoStealer</strong> — a category of malware designed to silently harvest credentials, session cookies, browser-saved passwords, and OAuth tokens from infected machines — often the first step in credential-based attacks like the Azure campaign.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">C2 (Command and Control)</strong> — the server infrastructure attackers use to remotely issue commands to infected devices, receive stolen data from malware, and coordinate botnet activity; concealing C2 traffic is a core function of botnets like Evooo1Bot.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">MITRE ATT&CK</strong> — a publicly maintained knowledge base of adversary tactics, techniques, and procedures (TTPs) observed in real-world attacks; used throughout this digest to classify how each threat operates and to help defenders prioritize detection coverage.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.techrepublic.com/article/news-black-hat-ai4-2026-ai-security-takeaways/" style="color:#374151;text-decoration:none;">Black Hat 2026: AI Agents Escape Sandboxes and Frameworks Riddled with Old Vulnerabilities</a>
+    <span style="color:#9ca3af;font-size:11px;"> · TechRepublic</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 17, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

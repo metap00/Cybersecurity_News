@@ -1,14 +1,15 @@
 {
-  "til": ["Prompt Injection in AI Agents", "SS7 Signaling Attack", "Agentic Cyberattack", "Frontier AI Containment", "Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability"],
-  "glossary": ["PLM", "EtherHiding", "ClickFix", "Rootkit", "WebSocket", "APT", "Prompt Injection", "ASLR", "IIS", "EoP", "CVSS", "PAT", "HIPAA", "RCE", "SS7", "Vishing", "SSO", "PHI", "REST API", "FCEB", "Supply Chain Attack", "Langflow", "LSASS", "Dead Drop Resolver", "Sandbox Escape", "Agentic AI", "ExploitGym", "SNMP", "Deserialization", "Clop", "CWE", "APN", "OT", "PLC", "Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh"],
+  "til": ["SS7 Signaling Attack", "Agentic Cyberattack", "Frontier AI Containment", "Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability", "Hard-coded Credentials"],
+  "glossary": ["APT", "Prompt Injection", "ASLR", "IIS", "EoP", "CVSS", "PAT", "HIPAA", "RCE", "SS7", "Vishing", "SSO", "PHI", "REST API", "FCEB", "Supply Chain Attack", "Langflow", "LSASS", "Dead Drop Resolver", "Sandbox Escape", "Agentic AI", "ExploitGym", "SNMP", "Deserialization", "Clop", "CWE", "APN", "OT", "PLC", "Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh", "SOCKS5", "Entra ID", "InfoStealer", "C2", "MITRE ATT&CK"],
   "week": {
-    "critical": 0,
-    "high": 0,
-    "medium": 0,
-    "techniques": [],
-    "actors": []
+    "critical": 3,
+    "high": 2,
+    "medium": 1,
+    "techniques": ["T1068", "T1528", "T1190", "T1078.001", "T1090.002"],
+    "actors": ["Lazarus Group"]
   },
   "digests": [
+    {"date": "2026-08-17", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 1},
     {"date": "2026-08-16", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 3},
     {"date": "2026-08-15", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-08-14", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1},
