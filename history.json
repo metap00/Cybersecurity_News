@@ -1,14 +1,15 @@
 {
-  "til": ["SS7 Signaling Attack", "Agentic Cyberattack", "Frontier AI Containment", "Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability", "Hard-coded Credentials"],
-  "glossary": ["APT", "Prompt Injection", "ASLR", "IIS", "EoP", "CVSS", "PAT", "HIPAA", "RCE", "SS7", "Vishing", "SSO", "PHI", "REST API", "FCEB", "Supply Chain Attack", "Langflow", "LSASS", "Dead Drop Resolver", "Sandbox Escape", "Agentic AI", "ExploitGym", "SNMP", "Deserialization", "Clop", "CWE", "APN", "OT", "PLC", "Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh", "SOCKS5", "Entra ID", "InfoStealer", "C2", "MITRE ATT&CK"],
+  "til": ["Agentic Cyberattack", "Frontier AI Containment", "Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability", "Hard-coded Credentials", "Cryptojacking"],
+  "glossary": ["PAT", "HIPAA", "RCE", "SS7", "Vishing", "SSO", "PHI", "REST API", "FCEB", "Supply Chain Attack", "Langflow", "LSASS", "Dead Drop Resolver", "Sandbox Escape", "Agentic AI", "ExploitGym", "SNMP", "Deserialization", "Clop", "CWE", "APN", "OT", "PLC", "Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh", "SOCKS5", "Entra ID", "InfoStealer", "C2", "MITRE ATT&CK", "VoLTE", "SoC", "XG-Web", "ShinyHunters", "Monero", "RMM"],
   "week": {
-    "critical": 3,
-    "high": 2,
-    "medium": 1,
-    "techniques": ["T1068", "T1528", "T1190", "T1078.001", "T1090.002"],
-    "actors": ["Lazarus Group"]
+    "critical": 5,
+    "high": 5,
+    "medium": 2,
+    "techniques": ["T1068", "T1528", "T1190", "T1078.001", "T1090.002", "T1496", "T1189", "T1203", "T1213", "T1133"],
+    "actors": ["Lazarus Group", "Jewelbug", "ShinyHunters"]
   },
   "digests": [
+    {"date": "2026-08-18", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 0},
     {"date": "2026-08-17", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 1},
     {"date": "2026-08-16", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 3},
     {"date": "2026-08-15", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},

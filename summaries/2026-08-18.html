@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — August 18, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — August 18, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 4 high · ~9 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — Apple macOS Screen Sharing zero-day -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 17, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/apple-macos-screen-sharing-flaw.html" style="color:#111827;text-decoration:none;">Apple macOS Screen Sharing Zero-Day (CVE-2026-65400) Exploited to Deploy Monero Miners on Internet-Exposed Macs</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A critical authentication bypass in macOS Screen Sharing (CVSS 9.8) is being actively exploited on internet-exposed Macs, giving attackers unauthenticated root access used to silently install Monero cryptocurrency miners.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any Mac running macOS Tahoe, Sequoia, or Sonoma with Screen Sharing enabled (port 5900) accessible from the public internet, including personal and corporate machines.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the emergency updates (macOS Tahoe 26.6.1, Sequoia 15.7.9, Sonoma 14.8.9) immediately and disable Screen Sharing if it is not required, or restrict port 5900 to trusted IP ranges via firewall.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1496 · Resource Hijacking<br>
+      <span style="color:#6b7280;">After exploiting the Screen Sharing authentication bypass to gain root, attackers deploy hidden Monero mining software that commandeers the Mac's CPU for cryptocurrency generation, causing visible performance degradation on every compromised machine.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">macOS Screen Sharing exposes a VNC-compatible remote desktop service on port 5900. CVE-2026-65400 is an authentication logic flaw that allows a remote attacker to complete the Screen Sharing handshake and obtain a root-privileged session without supplying valid credentials. Apple patched the vulnerability in emergency updates released earlier this month, but honeypot telemetry collected by the Netherlands NCSC confirmed widespread opportunistic exploitation was already underway against internet-connected Macs with port 5900 exposed.</p>
+        <p style="margin:0 0 10px;">Once inside, threat actors install a Monero (XMR) cryptocurrency miner disguised under inconspicuous filenames such as <code>mdnshelper</code> or <code>logind</code>, registering it as a LaunchAgent or LaunchDaemon for persistence across reboots. Monero is the cryptocurrency of choice for criminal miners because its ring-signature protocol makes transactions untraceable even to blockchain analysis firms — a stark contrast to Bitcoin, where coin flows can be followed.</p>
+        <p style="margin:0 0 10px;">After patching, system administrators should audit LaunchAgents (<code>~/Library/LaunchAgents</code>) and LaunchDaemons (<code>/Library/LaunchDaemons</code>) for unexpected entries, check CPU utilization with Activity Monitor, and review firewall logs for any historical connections on port 5900 from external IP addresses.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Screen Sharing lets someone else remotely see and control your Mac. This bug meant attackers could just walk straight through the front door — no password needed — if your Mac was online with that feature turned on. Once inside with full control, they quietly installed software that uses your Mac's processor to mine a privacy-focused cryptocurrency called Monero, earning money for the hacker while your computer runs hot and slow.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-65400 · CVSS: 9.8/10 — Unauthenticated RCE via network-accessible Screen Sharing service enabling immediate root-level compromise with no user interaction required.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL — Jewelbug APT -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/china-linked-jewelbug-uses-xg-web-for.html" style="color:#111827;text-decoration:none;">China-Linked Jewelbug APT Hijacks 15 Government Ministries, Steals 580K Session Cookies via XG-Web Browser Framework</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The China-linked Jewelbug threat actor used its proprietary XG-Web browser exploitation framework to compromise government webmail portals across 15 ministries, stealing over 580,000 session cookies, thousands of credentials, and 2,300 email bodies — while simultaneously running cryptocurrency fraud from the same infrastructure.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Government ministries and military organizations across the Middle East, Southeast Asia, and South Asia, with roughly 4,300 victim IP addresses recorded in attacker logs.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Government organizations should audit browser extensions for unauthorized entries, enforce hardware-backed MFA for all webmail access, monitor for unexpected JavaScript on institutional login pages, and review session logs for cookie theft indicators.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1189 · Drive-by Compromise<br>
+      <span style="color:#6b7280;">Jewelbug compromised government webmail portals to silently inject the XG-Web JavaScript implant, which captures session cookies the moment ministry staff log in — turning the trusted institutional email portal into an invisible credential harvesting station.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">Jewelbug is a China-based threat actor assessed by researchers to operate as a hack-for-hire syndicate: conducting intelligence collection against government and military targets while simultaneously running a for-profit cryptocurrency fraud operation — both from a single command-and-control panel called XG-Web. Researchers documented over 1.1 million implant check-in events, 580,000 stolen browser cookies, thousands of captured credentials, and 2,300 exfiltrated email bodies across approximately 4,300 victim IP addresses.</p>
+        <p style="margin:0 0 10px;">The attack chain begins with a watering hole compromise of government webmail portals. When ministry staff log in to their institutional email, the XG-Web JavaScript implant silently exfiltrates authentication cookies in real time, granting the attacker persistent web-session access without needing the user's password. Victims are also presented with a fake Adobe Flash update prompt; if clicked, it installs the <em>Antino</em> backdoor and sideloads a malicious PDF Viewer browser extension, establishing deeper host-level persistence.</p>
+        <p style="margin:0 0 10px;">What distinguishes Jewelbug is its dual-purpose infrastructure. The same XG-Web panel used for espionage also drives cryptocurrency fraud campaigns targeting investors in the same regions. This suggests either a state-affiliated group supplementing its budget through crime, or a commercial group selling espionage services to a state client while keeping fraud revenues for itself. Researchers noted tooling overlaps with previously tracked Chinese APT clusters but treat Jewelbug as a distinct intrusion set.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When you log in to a website, your browser stores a small file called a "session cookie" that keeps you logged in without re-entering your password. Jewelbug secretly stole those cookies from government employees the moment they checked their work email — meaning the hackers could then open those same government email accounts as if they were the legitimate user, reading classified correspondence without ever knowing the employee's password. On the side, they used identical tools to steal from cryptocurrency investors.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Jewelbug -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Jewelbug</div>
+  <div style="opacity:.85;margin-top:4px;">Hack-for-hire syndicate · Attributed to: China</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government ministries and military organizations in the Middle East, Southeast Asia, and South Asia; cryptocurrency investors in the same regions</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> XG-Web browser-hijacking framework for session cookie theft; parallel espionage and cryptocurrency fraud operations from shared C2 infrastructure; Antino backdoor and malicious PDF Viewer browser extension</div>
+</div>
+
+<!-- STORY 3: HIGH — Unisoc VoLTE -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 17, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/unisoc-volte-video-call-exploit-chain.html" style="color:#111827;text-decoration:none;">Unisoc VoLTE Exploit Chain Grants Full Android Kernel Access via Video Call — No Vendor Patch Available</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> SSD Secure Disclosure published a two-stage exploit chain that achieves full Android kernel access through an incoming VoLTE video call on devices using Unisoc T606, T612, and T7250 chipsets, exploiting a shared physical memory boundary between the modem and application processors with no vendor patch available.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Android users with Unisoc-chipset devices — primarily low-cost handsets sold in Asia and Africa — who answer video calls from unknown callers; attackers need control of a rogue 4G base station.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Avoid answering video calls from unknown numbers; check your device's chipset (Settings → About Phone) and contact your manufacturer; no software patch is available from Unisoc, which has not responded to researchers after months of outreach.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1203 · Exploitation for Client Execution<br>
+      <span style="color:#6b7280;">A malformed VoLTE SIP packet delivered via a rogue 4G base station triggers modem-side code execution, which then crosses the Unisoc SoC's shared memory boundary to hijack the Android application processor kernel — achieving full device compromise through the act of answering a single video call.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">This disclosure is the second stage of a research chain that began in March 2026, when SSD Secure Disclosure demonstrated remote code execution in Unisoc modem firmware via a malformed SIP video call. The new vulnerability (CWE-1189) exploits the fact that Unisoc SoC designs place the modem processor and the application processor (which runs Android) in a shared physical memory space with no hardware-enforced isolation boundary — meaning code running in the modem processor context can directly read and write Android kernel memory.</p>
+        <p style="margin:0 0 10px;">The complete attack chain: (1) attacker deploys a rogue 4G base station; (2) victim's Unisoc device camps on the attacker's cell; (3) victim answers an incoming video call; (4) malformed SIP packets trigger stage-one modem RCE; (5) modem-side shellcode exploits the shared memory boundary to escalate to Android kernel. End result: full OS compromise with no user interaction beyond answering the call.</p>
+        <p style="margin:0 0 10px;">SSD contacted Unisoc through multiple channels — email and LinkedIn — over several months without receiving any response. There is no patch, no workaround at the OS level, and no timeline for one. OEM device manufacturers using these chipsets would need to push emergency firmware updates. The affected chipsets appear in devices from multiple brands across Africa and Asia.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Inside your smartphone is a chip that handles cellular calls and a separate chip that runs your apps and operating system. On certain budget Android phones, these two chips share the same memory without a wall between them — like having your front door key and your home safe key on the same ring. This exploit poisons an incoming video call to break into the phone-call chip, then steps directly into your phone's brain because there's no wall stopping it. No fix exists, and the chipmaker hasn't even acknowledged the problem.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CWE-1189 · Estimated CVSS: 9.0/10 — Remote kernel compromise via malformed VoLTE SIP packet delivered from rogue 4G cellular infrastructure; no authentication or user consent required beyond answering an incoming video call.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH — RingCentral / ShinyHunters -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/1-6-million-likely-impacted-by-ringcentral-data-breach/" style="color:#111827;text-decoration:none;">ShinyHunters Publishes 1.6 Million RingCentral Customer Records After Extortion Demand Refused</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Cybercriminal group ShinyHunters socially engineered RingCentral employees to steal 623 GB of customer data in July 2026; after RingCentral refused to pay, ShinyHunters published the full archive, exposing 1.6 million accounts' names, phone numbers, email addresses, and physical addresses.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Approximately 1.6 million customers of RingCentral, a cloud communications platform serving over 600,000 businesses globally; exposed contact details make victims prime targets for follow-on vishing and SIM-swapping attacks.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Check your email at HaveIBeenPwned.com; be highly skeptical of any calls claiming to be from RingCentral support; contact your carrier to add a SIM-lock PIN; and consider call-screening apps to filter unsolicited calls using your now-exposed phone number.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1213 · Data from Information Repositories<br>
+      <span style="color:#6b7280;">ShinyHunters used socially-engineered employee credentials to access RingCentral's internal customer database repositories, enabling the bulk exfiltration of 623 GB of contact records in a single authenticated session that blended into normal administrative activity.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">In July 2026, ShinyHunters targeted RingCentral — a cloud communications platform providing calling, messaging, and contact center services to over 600,000 businesses — using a social engineering campaign that deceived company employees into surrendering access credentials. The group then used those legitimate credentials to download customer records, which they added to their Tor-hosted leak site on July 27, 2026 with a payment deadline of July 30. RingCentral did not pay.</p>
+        <p style="margin:0 0 10px;">On August 3, ShinyHunters published the full 280 GB compressed archive. Have I Been Pwned independently parsed the data and identified approximately 1.6 million unique email accounts, each paired with a name, phone number, and physical address — a complete contact profile ideal for targeted vishing campaigns. ShinyHunters specifically noted that the phone numbers could be used to impersonate RingCentral technical support in calls designed to capture MFA codes.</p>
+        <p style="margin:0 0 10px;">This breach illustrates the limits of perimeter security: no technical vulnerability in RingCentral's product was exploited. The attack succeeded entirely through human deception, giving attackers authenticated access that internal monitoring systems logged as legitimate administrator activity. The data is now permanently indexed by multiple breach intelligence services.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> RingCentral is like a telephone company in the cloud — many businesses use it for their office phone systems. Hackers tricked RingCentral employees with convincing fake scenarios to hand over their login credentials, downloaded a list of 1.6 million customers' contact details, and then — when the company refused to pay — posted all of it online for anyone to download. Now criminals can call you claiming to be RingCentral tech support, and they already know your name, email, and phone number, making the deception much more convincing.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: ShinyHunters -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">ShinyHunters</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal extortion group · Attributed to: International (members in multiple countries)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Major technology, telecommunications, and consumer-facing companies; any organization holding large databases of customer contact information or financial records</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> "Pay or leak" extortion campaigns; large-scale social engineering for initial access; operating a prolific dark-web data leak site; past victims include AT&T, Ticketmaster, Santander Bank, and Snowflake customers</div>
+</div>
+
+<!-- STORY 5: HIGH — N-able N-central CVE-2026-18577 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 3, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html" style="color:#111827;text-decoration:none;">N-able N-central CVE-2026-18577 Auth Bypass Actively Exploited to Compromise Managed Service Provider Clients</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are actively exploiting CVE-2026-18577 (CVSS 8.2), an authentication bypass in N-able N-central RMM software, to gain unauthenticated admin access and pivot through MSPs' Take Control feature into all their managed client endpoints simultaneously.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Managed service providers running on-premise N-central before version 2026.3.1.7, and all of their downstream business clients whose endpoints are managed through the platform.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply N-central hotfix 2026.3.1.7 immediately (hosted deployments are already patched); audit Take Control session logs for unauthorized remote access; hunt for Cloudflare Tunnel (cloudflared) processes on managed endpoints, which attackers use for persistent backdoor access.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Lateral Movement] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">By bypassing N-central's authentication layer without credentials, attackers gained access to the RMM's Take Control console — an external remote service — and used it to reach every managed client endpoint across the MSP's entire customer portfolio simultaneously, without touching any individual client network perimeter.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">CVE-2026-18577 is an authentication bypass in N-able N-central, a widely deployed Remote Monitoring and Management (RMM) platform used by MSPs to remotely manage thousands of client endpoints from a single console. The vulnerability stems from an incomplete fix applied to CVE-2026-18556 and allows a remote unauthenticated attacker to bypass all authentication controls and obtain a full administrative session.</p>
+        <p style="margin:0 0 10px;">After gaining admin access, threat actors leveraged N-central's native Take Control feature — designed for legitimate remote support sessions — to pivot to every endpoint managed by the compromised MSP. Forensic investigators observed attackers deploying <em>cloudflared</em> (Cloudflare Tunnel) as a persistence mechanism: the tool establishes an encrypted outbound connection to Cloudflare's CDN infrastructure over port 443, bypassing conventional firewall blocking and surviving even after the N-central vulnerability was patched.</p>
+        <p style="margin:0 0 10px;">CISA added CVE-2026-18577 to the Known Exploited Vulnerabilities catalog on August 3 and mandated patching for Federal Civilian Executive Branch agencies. N-able released hotfix 2026.3.1.7 for on-premise deployments; cloud-hosted N-central was updated automatically. MSPs should treat any N-central server exposed to the internet as potentially compromised and conduct thorough incident response before trusting the platform to manage client endpoints again.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Managed Service Providers are IT companies that look after computer networks for many other businesses — hospitals, law firms, small businesses — using special software like N-central that lets them remotely access and fix any client computer. This vulnerability is like hacking a locksmith who holds master keys to hundreds of buildings: break into the locksmith's system, and you instantly have the ability to unlock every one of their clients' front doors. Attackers also left a hidden back door using a legitimate Cloudflare tool, so they could return quietly even after the main vulnerability was fixed.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-18577 · CVSS: 8.2/10 — Unauthenticated authentication bypass granting administrative control of N-central server and remote access to all managed client endpoints.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Cryptojacking ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Cryptojacking is the unauthorized use of someone else's computing resources to mine cryptocurrency — essentially theft of electricity and CPU cycles rather than data. Unlike ransomware, cryptojacking is designed to go undetected for as long as possible, because the more time the miner runs on victim hardware, the more currency the attacker earns, making stealth more profitable than speed. The macOS Screen Sharing exploit disclosed today demonstrates a modern cryptojacking attack: exploit a remote vulnerability to gain root access, then deploy a hidden Monero miner that earns untraceable revenue while the victim notices only a sluggish machine.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: VoLTE · SoC · XG-Web · ShinyHunters · Monero · RMM ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">VoLTE</strong> — Voice over LTE; technology that carries phone calls (including video) over 4G/5G data networks rather than older circuit-switched voice channels; exploited in the Unisoc attack via malformed SIP video-call packets.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SoC</strong> — System on a Chip; a single integrated circuit combining CPU, GPU, modem, and other components on one die; the Unisoc SoC's shared physical memory between modem and application processors enabled the kernel privilege escalation.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">XG-Web</strong> — Jewelbug's proprietary browser-centric remote-access and information-stealing framework; it turns a victim's browser into a full remote-control channel by injecting JavaScript into compromised web portals to steal session cookies and credentials in real time.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ShinyHunters</strong> — A prolific international cybercriminal group specializing in large-scale data theft and "pay or leak" extortion; responsible for breaches at AT&T, Ticketmaster, Santander, and now RingCentral, typically gaining initial access through social engineering.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Monero</strong> — A privacy-focused cryptocurrency (ticker: XMR) whose ring-signature cryptography makes all transactions untraceable by design, making it the preferred currency for cryptojacking operations and ransomware payments where anonymity is essential.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">RMM</strong> — Remote Monitoring and Management; software platforms used by managed service providers to remotely monitor, patch, and control client computers at scale; tools like N-able N-central, when compromised, grant attackers simultaneous access to hundreds of downstream organizations.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://securityaffairs.com/197048/security/microsoft-patch-tuesday-for-august-2026-fixed-a-zero-day-and-wormable-rce.html" style="color:#374151;text-decoration:none;">CVE-2026-62878: Wormable Windows DNS Server RCE (CVSS 9.8) Patched — Experts Urge Priority Deployment on Domain Controllers</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Security Affairs</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.cnbc.com/2026/08/14/data-breaches-surge-2026-ai-cyberattacks.html" style="color:#374151;text-decoration:none;">Data Breaches Surged in 2026 as AI-Enabled Attacks Hit 25% of All Incidents, IBM Reports</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CNBC</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · August 18, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

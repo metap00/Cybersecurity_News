@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — August 18, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 4 high · ~9 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-18.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL — Apple macOS Screen Sharing -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 17, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/apple-macos-screen-sharing-flaw.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Apple macOS Screen Sharing Zero-Day (CVE-2026-65400) Exploited to Deploy Monero Miners on Internet-Exposed Macs</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A critical authentication bypass in macOS Screen Sharing (CVSS 9.8) is actively exploited to gain unauthenticated root access, with attackers deploying hidden Monero cryptocurrency miners on internet-exposed Macs.</div>
+    <div style="margin-top:2px;">👤 Any Mac with Screen Sharing enabled and port 5900 reachable from the internet running unpatched macOS Tahoe, Sequoia, or Sonoma.</div>
+    <div style="margin-top:2px;">✅ Apply emergency updates (macOS Tahoe 26.6.1 / Sequoia 15.7.9 / Sonoma 14.8.9) immediately and disable Screen Sharing or firewall port 5900 if remote access is not required.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1496 · Resource Hijacking</div>
+</div>
+
+<!-- STORY 2: CRITICAL — Jewelbug APT -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 15, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/china-linked-jewelbug-uses-xg-web-for.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">China-Linked Jewelbug APT Hijacks 15 Government Ministries, Steals 580K Session Cookies via XG-Web</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 China-linked Jewelbug compromised 15 government ministry webmail portals using its XG-Web browser-hijacking framework, stealing 580,000+ session cookies, thousands of credentials, and 2,300 emails — while running parallel cryptocurrency fraud from the same infrastructure.</div>
+    <div style="margin-top:2px;">👤 Government ministries and military organizations in the Middle East, Southeast Asia, and South Asia; roughly 4,300 victim IP addresses confirmed in attacker logs.</div>
+    <div style="margin-top:2px;">✅ Audit browser extensions, enforce hardware-backed MFA for all webmail access, and monitor for unexpected JavaScript injections on institutional login pages.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1189 · Drive-by Compromise · Jewelbug (China)</div>
+</div>
+
+<!-- STORY 3: HIGH — Unisoc VoLTE -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 17, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/unisoc-volte-video-call-exploit-chain.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Unisoc VoLTE Exploit Chain Grants Full Android Kernel Access via Video Call — No Vendor Patch</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 SSD Secure Disclosure published a two-stage exploit chain that achieves full Android kernel compromise through an incoming VoLTE video call on Unisoc T606/T612/T7250 chipsets by crossing the shared memory boundary between modem and application processors.</div>
+    <div style="margin-top:2px;">👤 Users of low-cost Android devices with Unisoc chipsets sold in Asia and Africa; attackers need to control a rogue 4G base station.</div>
+    <div style="margin-top:2px;">✅ Decline video calls from unknown numbers; verify your chipset with your device manufacturer; no patch is available — Unisoc has not responded to disclosure.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1203 · Exploitation for Client Execution</div>
+</div>
+
+<!-- STORY 4: HIGH — RingCentral / ShinyHunters -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 14, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/1-6-million-likely-impacted-by-ringcentral-data-breach/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">ShinyHunters Publishes 1.6 Million RingCentral Records After Extortion Demand Refused</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 ShinyHunters used social engineering to steal 623 GB of RingCentral customer data; after extortion was refused, the group published 1.6 million records containing names, phone numbers, email addresses, and physical addresses on their dark-web leak site.</div>
+    <div style="margin-top:2px;">👤 1.6 million RingCentral customers across 600,000+ businesses; exposed contact data makes victims prime targets for vishing and SIM-swapping attacks.</div>
+    <div style="margin-top:2px;">✅ Check HaveIBeenPwned.com; add a SIM-lock PIN via your mobile carrier; be skeptical of any call claiming to be RingCentral technical support. · ShinyHunters (Criminal)</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Collection] T1213 · Data from Information Repositories</div>
+</div>
+
+<!-- STORY 5: HIGH — N-able N-central -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 3, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">N-able N-central CVE-2026-18577 Auth Bypass Actively Exploited to Reach MSP Client Endpoints</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers exploited CVE-2026-18577 (CVSS 8.2) in N-able N-central to gain unauthenticated admin access, then used the platform's Take Control feature to reach all managed client endpoints simultaneously; Cloudflare Tunnel deployed for persistent backdoor access.</div>
+    <div style="margin-top:2px;">👤 MSPs running on-premise N-central before version 2026.3.1.7 and all of their managed business clients.</div>
+    <div style="margin-top:2px;">✅ Apply hotfix 2026.3.1.7 immediately; audit Take Control session logs; hunt for cloudflared processes on managed endpoints.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Lateral Movement] T1133 · External Remote Services</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://securityaffairs.com/197048/security/microsoft-patch-tuesday-for-august-2026-fixed-a-zero-day-and-wormable-rce.html" style="color:#374151;text-decoration:none;">CVE-2026-62878: Wormable Windows DNS RCE (CVSS 9.8) Patched — Prioritize Domain Controllers</a>
+    <span style="color:#9ca3af;"> · Security Affairs</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">LOW</span>
+    <a href="https://www.cnbc.com/2026/08/14/data-breaches-surge-2026-ai-cyberattacks.html" style="color:#374151;text-decoration:none;">AI-Enabled Attacks Now Account for 25% of Breaches in 2026, IBM Reports</a>
+    <span style="color:#9ca3af;"> · CNBC</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-18.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · August 18, 2026</div>
+
+</body>
+</html>
