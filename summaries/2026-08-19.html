@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 19, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 19, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 4 high · 2 medium · ~14 min read</div>
+</div>
+
+<!-- STORY 1: TheHatman Azure breach — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Aug 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.helpnetsecurity.com/2026/08/18/azure-data-leak-fortune-500-companies/" style="color:#111827;text-decoration:none;">Hacker "TheHatman" Claims Millions of Records Stolen from Azure Tenants at McDonald's, Vodafone, and Fortune 500 Companies</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A threat actor using the handle "TheHatman" posted millions of employee records allegedly exfiltrated from Azure corporate tenants — including 1.7 million from McDonald's, 800,000 from TCS, and 425,000 from Vodafone — on cybercrime forums, claiming access via password spraying and MFA fatigue.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Employees at McDonald's, Vodafone, TCS, Kyndryl, HCL, and other Fortune 500 companies whose Azure environments were targeted are at risk of phishing and identity theft.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Organizations should audit Azure sign-in logs for anomalous authentication activity, enforce phishing-resistant MFA (FIDO2 hardware keys rather than push-notification approval), and apply conditional access policies to block password spraying patterns.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1110.003 · Brute Force: Password Spraying<br>
+      <span style="color:#6b7280;">TheHatman systematically tested commonly-used and previously-leaked passwords across Azure corporate tenants to compromise accounts, then used MFA push-bombing to bypass authentication — a textbook password-spraying campaign enhanced with social engineering to defeat MFA controls.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>TheHatman, an unidentified threat actor who surfaced in August 2026, has been systematically posting large employee record sets allegedly exfiltrated from the Azure Entra ID directories of major corporations. The dumped data includes employee names, IDs, job titles, and contact information — the kind of structured directory export consistent with full Active Directory access rather than scraping from a public API. McDonald's tops the alleged victim list at 1.7 million records, followed by TCS at roughly 800,000 and Vodafone at approximately 425,000.</p>
+        <p>The claimed attack method combines two proven techniques: password spraying (testing a small set of commonly-used or previously-breached passwords against a large number of accounts to avoid lockout thresholds) and MFA fatigue, also called push bombing. In MFA fatigue, the attacker continuously sends authentication push requests to enrolled devices until an overwhelmed or inattentive user taps "Approve." Together, these techniques bypass even organizations that have deployed MFA — the spray defeats the password requirement, and the fatigue defeats the second factor.</p>
+        <p>TCS filed a statement with the Bombay Stock Exchange on August 10 after receiving threat intelligence alerts, saying it had found "no credible evidence" of a breach of its own systems and suggesting the data appeared more than four years old. This raises the possibility that some claimed victims had data stolen from a third-party HR or identity management platform with Azure integrations, rather than directly from their own tenants. Investigations are ongoing across multiple companies.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Your company's employee directory — everyone's name, work email, and job title — lives in a cloud system called Azure Active Directory. Hackers can automatically try thousands of common passwords against this system (password spraying) without triggering lockouts. When the system then sends a "Did you just sign in?" notification to employees' phones, the attacker spams that notification repeatedly until someone, exhausted or distracted, accidentally taps "Yes." The hacker then downloads the entire employee list and sells it on criminal forums.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned — attack leverages credential abuse techniques against legitimate authentication infrastructure rather than exploiting a software vulnerability.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: TheHatman -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">TheHatman</div>
+  <div style="opacity:.85;margin-top:4px;">Unclassified / Financially motivated · Attribution: Unknown</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Large enterprise Azure Entra ID tenants across Fortune 500 companies, particularly in technology, telecom, and consumer goods sectors</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Password spraying combined with MFA push-bombing to compromise corporate Azure directories; emerged August 2026 posting stolen employee records on cybercrime forums</div>
+</div>
+
+<!-- STORY 2: SAP Commerce Cloud — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Aug 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/max-severity-sap-commerce-cloud-flaw-now-targeted-in-attacks/" style="color:#111827;text-decoration:none;">Max Severity SAP Commerce Cloud RCE Flaw (CVE-2026-58231, CVSS 10.0) Now Targeted in Attacks Three Days After Patch</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers began actively exploiting CVE-2026-58231 — a CVSS 10.0 unauthenticated remote code execution flaw in SAP Commerce Cloud — just three days after SAP released its patch on August 11, with exploitation detected via honeypots despite no public proof-of-concept being available.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running unpatched SAP Commerce Cloud faces complete server compromise, including potential theft of customer PII, payment data, and internal credentials.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply SAP's security note immediately, rebuild and redeploy the updated Commerce Cloud version; as a temporary measure, configure an IP Filter Set in SAP Commerce Cloud to restrict access to the vulnerable endpoint.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers send specially crafted unauthenticated requests to SAP Commerce Cloud's vulnerable endpoint to achieve remote code execution, targeting internet-exposed storefronts without needing valid credentials — exploiting the public-facing e-commerce platform directly.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-58231 is a maximum-severity (CVSS 10.0) unauthenticated remote code execution vulnerability in SAP Commerce Cloud, the e-commerce platform used by many large retailers and manufacturers. The flaw exists in a default authentication client endpoint that performs insufficient input validation: an attacker who sends a specially crafted HTTP request can execute arbitrary code on the server without any credentials, achieving immediate full system compromise.</p>
+        <p>SAP released its patch on August 11, 2026. Threat intelligence provider Defused detected exploitation attempts in its global honeypot network just three days later on August 14, despite no public proof-of-concept exploit having been published. This speed-to-exploitation pattern — weaponizing a patch within days without a public PoC — suggests sophisticated, financially motivated actors with the capability to independently reverse-engineer patches to derive working exploits.</p>
+        <p>SAP Commerce Cloud powers the digital storefronts of significant enterprise brands. Successful exploitation grants arbitrary code execution within the Commerce Cloud container environment, opening pathways to lateral movement into connected ERP systems, exfiltration of customer PII and payment processing data, and persistent backdoor implantation. Organizations that cannot immediately patch should apply the IP Filter Set workaround to restrict vulnerable endpoint access to trusted IP ranges only.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SAP Commerce Cloud is the software powering many large brands' online stores. This bug lets a hacker visit a specific web address on an unpatched store, send a crafted message, and immediately take over the entire server — no username or password needed. It's as if the store's back door had no lock at all. What's especially alarming: attackers found and exploited this unlocked door within three days of the manufacturer telling people it existed, before most organizations had time to install the fix.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-58231 · CVSS: 10.0/10 — Maximum severity; unauthenticated network-exploitable RCE requiring no user interaction.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: VMware vCenter — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 17, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" style="color:#111827;text-decoration:none;">Suspected China-Nexus Actor Exploits VMware vCenter CVE-2026-59310 Across 47 Countries, Deploys Babuk-Derived Ransomware</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A suspected China-nexus APT exploited CVE-2026-59310, a CVSS 9.8 directory-traversal RCE in VMware vCenter, compromising 361 servers across 47 countries within nine days of Broadcom's emergency patch, then deployed a reverse SSH backdoor and Babuk-derived ransomware.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched VMware vCenter Server instances globally — particularly in Europe and Asia-Pacific — risk complete virtualized infrastructure takeover and ransomware encryption.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Broadcom's emergency patch for CVE-2026-59310 (released July 29, 2026) immediately, audit vCenter access logs for directory traversal patterns, and isolate any ESXi hosts showing signs of compromise.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Lateral Movement] T1210 · Exploitation of Remote Services<br>
+      <span style="color:#6b7280;">The China-nexus APT exploits vCenter's directory-traversal flaw to gain root execution on the hypervisor management layer, then pivots laterally across every virtual machine in the environment — using the vCenter management plane as a stepping stone to deploy ransomware across entire virtualized infrastructures.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-59310 is a directory-traversal vulnerability in VMware vCenter Server (CVSS 9.8) allowing unauthenticated attackers to read arbitrary files and, via chained exploitation, execute arbitrary code on the vCenter management server. Broadcom released an emergency fix on July 29, 2026, but the scale of exploitation has been striking: German incident response firm QUIRSO GmbH tracked 151 new victim IPs on August 4, 343 by August 5, and 361 across 47 countries by August 7 — all within nine days of the patch.</p>
+        <p>QUIRSO assessed with moderate confidence that the campaign is operated by a Chinese-speaking threat actor, based on TTPs and working hours consistent with the UTC+8 timezone. The attack chain is methodical: exploit CVE-2026-59310 for initial access, deploy a reverse SSH binary to establish persistent covert access, and then, in at least one confirmed incident, deploy a Babuk-derived ransomware variant to encrypt victim environments.</p>
+        <p>Babuk is a ransomware family whose complete source code was leaked in 2021, making it freely available to any threat actor seeking a ready-made encryptor. Its use alongside an espionage-capable backdoor suggests this actor may be conducting dual-purpose campaigns — extracting intelligence while also positioning for disruptive ransomware deployment as a secondary objective or as cover for data theft.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> VMware vCenter is the control room for data centers that run hundreds of virtual computers. If a hacker gets into vCenter, they can control every virtual machine in the building simultaneously. This bug worked like a hotel key flaw: by putting "../" in front of a file path (like navigating up folders on a computer), attackers could trick vCenter into giving them root-level access. They then installed a hidden back door for ongoing access and deployed ransomware that locked up victims' data — all within a week of the fix being published.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-59310 · CVSS: 9.8/10 — Critical severity, unauthenticated network-exploitable RCE requiring no user interaction.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: MLflow SSRF — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/attackers-exploit-mlflow-ssrf-flaw-to.html" style="color:#111827;text-decoration:none;">Attackers Exploit MLflow SSRF Flaw (CVE-2026-64849, CVSS 9.3) to Steal Cloud Credentials and Secrets Within Hours of Disclosure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Active exploitation of CVE-2026-64849, an unauthenticated SSRF vulnerability in MLflow's webhook test endpoint (CVSS 9.3), began within hours of its August 17 disclosure, with attackers redirecting server requests to internal cloud metadata APIs to harvest IAM tokens and deployment secrets.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running internet-exposed MLflow instances below version 3.15.0 — particularly ML/AI teams on AWS, Azure, or GCP — face cloud credential theft that could give attackers broad access to their entire cloud environment.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade MLflow to version 3.15.0 immediately, restrict network access to MLflow deployments so they are not internet-exposed, and rotate any cloud IAM credentials that may have been accessible from compromised instances.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1552.005 · Unsecured Credentials: Cloud Instance Metadata API<br>
+      <span style="color:#6b7280;">Attackers redirect MLflow webhook test requests to the cloud instance metadata service (169.254.169.254) via HTTP redirect, bypassing URL validation to extract IAM credentials and secrets from the cloud environment's metadata endpoint — a classic SSRF path to cloud credential theft.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>MLflow is an open-source platform used by data science teams to track ML experiments, manage model versions, and orchestrate pipelines. CVE-2026-64849 is an unauthenticated SSRF flaw in the webhook test endpoint (/api/2.0/mlflow/webhooks/{id}/test). When MLflow tests a webhook, it makes an HTTP request to the registered URL — and critically, follows any HTTP redirects returned by that URL without restriction on the redirect destination.</p>
+        <p>The root cause is a TOCTOU (Time-of-Check Time-of-Use) flaw: MLflow validates the webhook URL at registration time to ensure it resolves to a public IP, but during the actual test request, it blindly follows redirects to private addresses. An attacker registers a webhook pointing to a server they control, then configures that server to redirect requests to the AWS/GCP/Azure metadata service at 169.254.169.254. The metadata service responds with the instance's IAM credentials — which typically carry broad cloud-wide permissions.</p>
+        <p>WatchTowr Intel's global honeypot network detected active exploitation scanning within hours of the CVE's publication on August 17. With a trivially-exploitable attack path requiring no authentication, CVE-2026-64849 represents an acute threat to any organization running internet-accessible MLflow infrastructure as part of their AI/ML operations — a rapidly growing segment of enterprise deployments.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> MLflow is a popular tool that helps AI teams organize their experiments. This bug lets a hacker tell MLflow "test this link," but they set up that link to secretly redirect MLflow's server to look up cloud master keys stored at a special internal address (169.254.169.254) that only the cloud server itself is supposed to access. It's like asking a messenger to deliver a package to address A, which then quietly sends them to the bank vault — the messenger brings back the vault key. Using those cloud credentials, the attacker can then access or delete data across the victim's entire cloud account.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-64849 · CVSS: 9.3/10 — Critical severity, unauthenticated network-exploitable SSRF enabling cloud credential theft.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: GitLab — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Aug 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.helpnetsecurity.com/2026/08/18/gitlab-critical-code-injection-flaw-cve-2026-19478/" style="color:#111827;text-decoration:none;">GitLab Emergency Patch: Critical GraphQL Flaw CVE-2026-19478 (CVSS 9.4) Lets Unauthenticated Attackers Delete Public Projects</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> GitLab issued emergency patches for CVE-2026-19478 (CVSS 9.4), a code injection flaw in the GraphQL API layer that allows unauthenticated attackers to modify or permanently delete any public project and its associated user data — the third major GraphQL vulnerability GitLab has patched in 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Self-managed GitLab CE/EE instances running versions 18.2 through 19.2.3 are vulnerable; GitLab.com and GitLab Dedicated are already patched and require no customer action.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update immediately to GitLab 18.11.11, 19.0.8, 19.1.6, or 19.2.4 — there is no workaround, patching is the only remediation for this vulnerability.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1485 · Data Destruction<br>
+      <span style="color:#6b7280;">Unauthenticated attackers abuse GitLab's GraphQL API to craft directives that bypass authorization and trigger permanent deletion of public project repositories, issues, and CI/CD pipeline definitions — directly targeting data availability and integrity of development infrastructure.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-19478 is a code injection vulnerability in GitLab's GraphQL API layer. A specially crafted GraphQL directive triggers unintended server-side code execution that bypasses GitLab's authorization checks, allowing unauthenticated access to modify or permanently delete public projects, repositories, issues, and user data. The impact extends beyond individual repositories: CI/CD pipeline definitions, automation templates, and infrastructure-as-code modules stored in affected projects could all be wiped.</p>
+        <p>This is the third significant GraphQL-layer security vulnerability GitLab has disclosed in 2026, suggesting systemic difficulty applying authorization controls consistently across a complex, deeply interconnected API schema. Public GitLab projects are particularly attractive targets because they often serve as the canonical source for open-source libraries, CI/CD templates, and infrastructure modules consumed by thousands of downstream developers and automated build systems.</p>
+        <p>As of August 18, no exploitation in the wild has been confirmed, but the clear technical description in the advisory and GitLab's broad adoption make proof-of-concept development highly feasible. Emergency patching should be treated as a same-day requirement for all self-managed installations, with particular urgency for instances hosting public open-source projects that serve a downstream supply chain.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> GitLab is a website where developers store and manage code, similar to a version-controlled shared drive. This bug lets any stranger on the internet send a special message to GitLab that wipes out an entire project's code and history — no account needed. For developers, losing a repository can mean losing months of work. For open-source projects used by millions, it could break software all over the world that depends on that code being available.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-19478 · CVSS: 9.4/10 — Critical severity, unauthenticated code injection leading to unrestricted data destruction.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: DeadLock ransomware — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/deadlock-ransomware-uses-polygon-smart.html" style="color:#111827;text-decoration:none;">DeadLock Ransomware Uses Polygon Smart Contracts to Make Extortion Infrastructure Resistant to Takedown</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft Security published analysis of DeadLock ransomware, which stores its C2 server URLs in Polygon blockchain smart contracts and routes victim communications through the Session encrypted messaging network — making its infrastructure immune to traditional domain seizure and sinkholing.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Over 80 victims have been listed — primarily European organizations in IT, mining, transportation, manufacturing, and hospitality — targeted by DeadLock operators and affiliates of the Lynx and INC ransomware ecosystems.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Block outbound connections to known Polygon RPC endpoints where not required, monitor for Session network traffic, ensure offline backups are maintained, and review endpoint detection for the Rust-based encryptor IOCs published in Microsoft's advisory.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Command and Control] T1102 · Web Service<br>
+      <span style="color:#6b7280;">DeadLock retrieves its C2 server URLs from Polygon blockchain smart contracts via public RPC calls — leveraging the immutable, censorship-resistant nature of a public blockchain as a dead-drop resolver, making traditional C2 takedown operations ineffective against this infrastructure model.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>DeadLock is a Rust-based ransomware operation that has made a deliberate architectural choice to build its extortion infrastructure on decentralized technologies specifically to resist law enforcement disruption. Rather than hosting its command-and-control addresses on conventional servers or dark-web .onion domains (both of which can be seized or sinkholed), DeadLock stores C2 URLs as data within smart contracts on the Polygon blockchain. Any infected machine retrieves this data by making a public eth_call RPC request — no wallet, no special access, no domain to seize.</p>
+        <p>Victim communications are routed through Session, an onion-routed decentralized messaging network, eliminating the need for centralized chat servers. Stolen data is hosted on Wasabi cloud storage. Together, these three layers — blockchain-backed infrastructure discovery, onion-routed communications, and decentralized file hosting — create a recovery ecosystem that can survive takedowns of individual components without losing the ability to extort victims.</p>
+        <p>Microsoft observed DeadLock being deployed by affiliates of the established Lynx and INC ransomware ecosystems, suggesting DeadLock functions as a ransomware-as-a-service (RaaS) platform available to experienced operators who want more resilient infrastructure. With 80+ European victims across diverse industry sectors, the operation is growing. This blockchain-backed C2 model, if adopted more broadly, could significantly complicate law enforcement's ability to disrupt ransomware operations through the infrastructure takedowns that have historically been effective (e.g., LockBit, Hive).</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Traditional ransomware operations have a weakness: their "command center" (a website or server that controls the malware) can be seized by police, like raiding a criminal headquarters. DeadLock solved this by hiding its command center address inside a public blockchain — a permanent, uncensorable record that no government can seize. It's like writing your criminal organization's phone number on a public monument that no one can erase. Law enforcement can arrest individuals, but the infrastructure itself remains operational.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — threat actor TTPs and novel infrastructure architecture, not a single software vulnerability.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: DeadLock -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">DeadLock</div>
+  <div style="opacity:.85;margin-top:4px;">Ransomware-as-a-Service / Financially motivated · Attribution: Unknown</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> European enterprises across IT, mining, transportation, manufacturing, and hospitality sectors; operated by affiliates of the Lynx and INC ransomware ecosystems</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Rust-based encryptor with blockchain-backed C2 infrastructure (Polygon smart contracts), Session-routed victim communications, and Wasabi-hosted data leaks; first observed July 2025, 80+ victims listed by mid-2026</div>
+</div>
+
+<!-- STORY 7: AI Mind Viruses — MEDIUM -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/ai-mind-viruses-can-spread-between.html" style="color:#111827;text-decoration:none;">AI "Mind Viruses" Can Spread Between Agents Through Persistent Prompt Files, Anthropic/EPFL Research Finds</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researchers from Anthropic and Switzerland's EPFL demonstrated that self-propagating malicious payloads can spread from AI agent to AI agent by embedding instructions in editable system-prompt files that agentic harnesses use to carry state between sessions — tested in a six-agent coding collaboration and a paired-agent chain.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Developers and organizations deploying multi-agent AI systems with persistent, writable context files could face unauthorized agent behavior propagation, though no exploitation in the wild has been observed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Add explicit adversarial instruction warnings to agent system prompts; use read-only or cryptographically signed system-prompt files where possible; the researchers found a single-paragraph warning reduced propagation to near zero in testing.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1059 · Command and Scripting Interpreter<br>
+      <span style="color:#6b7280;">The self-propagating payload exploits an AI agent's ability to execute instructions from its context — embedding malicious directives into the persistent prompt files that the agent reads at startup, effectively using the agent's own scripting/instruction execution capability as the propagation vector.</span>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 8: UTSA Cyberattack — MEDIUM -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">KSAT · Aug 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.ksat.com/news/local/2026/08/18/utsa-takes-some-services-offline-after-attempted-cybersecurity-breach/" style="color:#111827;text-decoration:none;">UTSA Takes Phones and Portals Offline After Cyberattack Days Before Fall Semester, 40,000 Students Affected</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The University of Texas at San Antonio detected unauthorized access to its technology systems over the weekend and was forced to take phones, campus portals, and network services offline just days before the fall semester begins, affecting six campuses.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Approximately 40,000 UTSA students and faculty face disruption to academic systems, registration portals, financial aid platforms, and campus communications at a critical enrollment period.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> UTSA has not disclosed the attack vector or whether data was exfiltrated; students should monitor financial aid accounts for unauthorized changes and be alert to phishing emails that may use UTSA credentials.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1489 · Service Stop<br>
+      <span style="color:#6b7280;">The UTSA attack forced university IT to shut down phones, portals, and network services to contain the breach — a service-stop impact timed to maximize disruption during the critical pre-semester enrollment period when student access to systems is most essential.</span>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: MFA Fatigue ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    MFA fatigue (also called push bombing) is an attack where criminals repeatedly send multi-factor authentication approval requests to a victim's phone until the person — overwhelmed, confused, or simply not paying attention — accidentally taps "Approve." Unlike traditional phishing, no fake website is involved: the attacker simply hammers the legitimate authentication system with dozens or hundreds of real push notifications. Today's Azure breach by "TheHatman" combined password spraying (to get the correct password) with MFA fatigue (to bypass the second factor), defeating an organization's entire multi-factor authentication protection without exploiting any software vulnerability. The defense is straightforward: replace push-notification MFA with phishing-resistant alternatives like FIDO2 hardware security keys or passkeys, which require physical interaction and cannot be beaten by push flooding.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: SSRF · GraphQL · APT · TOCTOU · Babuk · Password Spraying ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SSRF</strong> — Server-Side Request Forgery: a vulnerability where an attacker tricks a server into making HTTP requests to internal services on their behalf, bypassing network restrictions and firewall rules that protect internal infrastructure.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">GraphQL</strong> — A flexible API query language and runtime developed by Meta that lets clients specify exactly the data they need; it is increasingly targeted by attackers when authorization controls are applied inconsistently across deeply nested query resolvers.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">APT</strong> — Advanced Persistent Threat: a highly skilled, well-resourced threat actor — often nation-state-sponsored — that conducts long-term, stealthy intrusion campaigns against specific high-value targets rather than opportunistic mass attacks.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">TOCTOU</strong> — Time-of-Check to Time-of-Use: a race condition vulnerability where a security validation check is bypassed by changing the conditions being checked between the moment they are verified and the moment the validated action is actually executed.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Babuk</strong> — A ransomware family whose complete source code was leaked publicly in 2021, enabling any threat actor to build custom variants; widely used as the basis for new ransomware strains, including the payload deployed in the VMware vCenter campaign today.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Password Spraying</strong> — An attack technique that tries a small set of commonly-used or previously-breached passwords against a very large number of user accounts simultaneously, deliberately staying below per-account lockout thresholds to avoid triggering account protection mechanisms.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.dexpose.io/krybit-ransomware-targets-singapores-prohealth-medical-group/" style="color:#374151;text-decoration:none;">Krybit Ransomware Targets Singapore's ProHealth Medical Group, Claims 114 GB of Healthcare Data Stolen</a>
+    <span style="color:#9ca3af;font-size:11px;"> · DeXpose</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.securityweek.com/" style="color:#374151;text-decoration:none;">New Evooo1Bot Linux Botnet Flagged by Researchers — Mirai-Derived Malware Targeting Internet-Exposed Devices</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 19, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
