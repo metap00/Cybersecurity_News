@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 20, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · ~10 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-20.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL — Lazarus CVE-2026-68820 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 12, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Lazarus Group Exploits Windows AFD.sys Zero-Day to Gain SYSTEM Access and Deploy Backdoor</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Lazarus exploited CVE-2026-68820, a use-after-free in Windows' AFD.sys kernel driver, for five weeks undetected — deploying the "Troy" backdoor and FudModule rootkit against defense and aerospace targets across France, Germany, Brazil, and India.</div>
+    <div style="margin-top:2px;">👤 Defense/aerospace professionals targeted via fake Operation Dream Job recruitment; CISA mandates federal agency patching by August 25.</div>
+    <div style="margin-top:2px;">✅ Apply August 2026 Patch Tuesday immediately; scrutinize all unsolicited job offers on professional networks.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- STORY 2: CRITICAL — VMware vCenter -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 17, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">China-Nexus APT Exploits VMware vCenter Zero-Day, Deploys Babuk Ransomware Across 47 Countries</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A China-linked actor weaponized CVE-2026-59310 (CVSS 9.8) five days after Broadcom's July 29 patch, achieving unauthenticated root access on vCenter Servers and compromising 361 IPs across 47 countries via Babuk ransomware deployment — possibly a smokescreen over deeper espionage.</div>
+    <div style="margin-top:2px;">👤 Organizations in Germany, the US, Turkey, Iran, France, and 42 more countries running unpatched VMware vCenter are affected.</div>
+    <div style="margin-top:2px;">✅ Patch vCenter immediately; audit VCSA cron jobs for unauthorized entries; treat any ESXi encryption as a multi-stage intrusion.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 3: HIGH — Medusa Ransomware -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Aug 19, 2026</span>
+  </div>
+  <a href="https://www.helpnetsecurity.com/2026/08/19/medusa-ransomware-cisa-warning/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA and FBI Warn: Medusa Ransomware Has Hit 500+ Critical Infrastructure Organizations</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Updated CISA/FBI/HHS advisory warns Medusa affiliates have breached 500+ organizations since 2021, exploiting newly announced vulnerabilities within 24 hours of disclosure using a double-extortion model with 48-hour payment countdowns.</div>
+    <div style="margin-top:2px;">👤 Healthcare, defense, manufacturing, government, IT, and financial sectors are primary targets.</div>
+    <div style="margin-top:2px;">✅ Patch internet-facing systems immediately on release; segment networks; report incidents to FBI IC3 — do not pay ransoms.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1486 · Data Encrypted for Impact</div>
+</div>
+
+<!-- STORY 4: HIGH — CoSnitch -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Varonis / The Hacker News · Aug 18, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/microsoft-copilot-personal-flaws-could.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CoSnitch: Three Chained Copilot Flaws Enable Silent One-Click Data Theft from Connected Apps</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Three chained flaws in Microsoft Copilot Personal (CVE-2026-24301, "CoSnitch") allow a single malicious link click to automatically exfiltrate data from connected email, calendar, and cloud storage to an attacker server — discovered via "meta-hacking" the AI itself; patched August 18.</div>
+    <div style="margin-top:2px;">👤 Microsoft Copilot Personal users with connected third-party app integrations; no in-the-wild exploitation confirmed prior to patch.</div>
+    <div style="margin-top:2px;">✅ Update Copilot to the August 18 patch; audit and revoke unnecessary app permissions connected to your Copilot account.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Collection] T1213 · Data from Information Repositories</div>
+</div>
+
+<!-- STORY 5: HIGH — Heights Finance -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 18, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/heights-finance-data-breach-impacts-at-least-1-2-million-individuals/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Heights Finance Breach Exposes SSNs and Financial Data of 1.2 Million Customers</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers accessed a third-party cloud platform on May 7 and exfiltrated names, addresses, phone numbers, SSNs, and financial details of 1.2M+ Heights Finance borrowers; company's own loan systems were unaffected.</div>
+    <div style="margin-top:2px;">👤 1.2+ million Heights Finance customers, predominantly consumer loan borrowers.</div>
+    <div style="margin-top:2px;">✅ Accept the 24-month credit monitoring offer, place a credit freeze with all three bureaus, and watch for targeted phishing using stolen personal details.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Exfiltration] T1530 · Data from Cloud Storage Object</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/" style="color:#374151;text-decoration:none;">August 2026 Patch Tuesday: Microsoft Fixes 421 CVEs Including Critical QUIC &amp; TFTP RCEs</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" style="color:#374151;text-decoration:none;">CISA Issues Joint Advisory on Gunra Ransomware (Conti-Derived RaaS) Targeting Critical Infrastructure</a>
+    <span style="color:#9ca3af;"> · CISA</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-20.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Aug 20, 2026</div>
+
+</body>
+</html>

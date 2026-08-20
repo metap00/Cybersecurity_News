@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 20, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 20, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~10 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — Lazarus CVE-2026-68820 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html" style="color:#111827;text-decoration:none;">Lazarus Group Exploits Windows AFD.sys Zero-Day to Gain SYSTEM Access and Deploy Backdoor</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> North Korea's Lazarus Group exploited CVE-2026-68820, a use-after-free privilege escalation flaw in Windows' AFD.sys kernel driver, for five weeks before Microsoft patched it in August 2026 Patch Tuesday, using the zero-day to deploy a new "Troy" backdoor and the FudModule kernel-mode rootkit.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Defense and aerospace professionals in France, Germany, Brazil, and India were targeted via fake job offers as part of Operation Dream Job; CISA has mandated federal agencies patch CVE-2026-68820 by August 25, 2026.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the August 2026 Patch Tuesday update immediately, prioritize CVE-2026-68820 on all Windows systems, and scrutinize unsolicited job outreach on professional networks for social engineering attempts.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Lazarus triggered a race condition in the AFD.sys kernel driver to escalate from standard user privileges to SYSTEM, giving FudModule unrestricted kernel-mode access to hide its activity from security monitoring tools.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Check Point Research discovered that Lazarus Group — the prolific North Korean state-sponsored hacking collective — had been silently exploiting a zero-day vulnerability in <em>AFD.sys</em>, the Windows kernel driver underpinning the Winsock network API, since early July 2026. By triggering a use-after-free race condition in the driver, attackers could elevate their privileges from an ordinary user account to SYSTEM level, the highest possible on a Windows machine.</p>
+        <p>Once SYSTEM privileges were obtained, Lazarus deployed two novel tools: a previously undocumented backdoor named "Troy," which communicated through hijacked legitimate servers to blend into normal traffic, and a fresh version of FudModule, their sophisticated kernel-mode rootkit designed to blind endpoint detection and response (EDR) products by tampering with Windows security telemetry at the driver level. Targets were lured in through Operation Dream Job — elaborately crafted fake recruitment campaigns sent via LinkedIn and email, offering dream positions at defense contractors.</p>
+        <p>The attackers maintained access across defence and aerospace firms in France, Germany, Brazil, and India for approximately five weeks before the vulnerability was patched on August 12. CISA added CVE-2026-68820 to its Known Exploited Vulnerabilities (KEV) catalog and set an August 25 federal remediation deadline.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your computer's core operating system as a locked building — normally no one can access the master control room. This bug is like a hidden flaw in the lock mechanism: by jiggling the handle in a very precise way (the "race condition"), Lazarus hackers could slip inside and become the building's all-powerful administrator, then install invisible cameras (the rootkit) that security guards couldn't see.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-68820 · CVSS: 7.8/10 — A high-severity local privilege escalation where an authenticated attacker with low-privilege access can gain SYSTEM rights, making it critical to patch even without remote exploitability.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: Lazarus Group -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Lazarus Group</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: North Korea (DPRK) / RGB</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Defense, aerospace, cryptocurrency exchanges, financial institutions, and media organizations globally — particularly in the US, South Korea, Europe, and increasingly South America and South Asia.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operation Dream Job (fake recruitment campaigns), FudModule kernel rootkit, the Sony Pictures hack, WannaCry ransomware, billion-dollar cryptocurrency heists, and persistent long-dwell espionage campaigns against defense contractors.</div>
+</div>
+
+<!-- STORY 2: CRITICAL — VMware vCenter CVE-2026-59310 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 17, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" style="color:#111827;text-decoration:none;">China-Nexus APT Exploits VMware vCenter Zero-Day, Deploys Babuk Ransomware Across 47 Countries</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A suspected China-linked threat actor began exploiting CVE-2026-59310, a CVSS 9.8 directory-traversal flaw in VMware vCenter, just five days after Broadcom released a patch on July 29, compromising 361 unique victim IPs across 47 countries and deploying Babuk-derived ransomware on ESXi hypervisors.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched VMware vCenter Server in Germany, the US, Turkey, Iran, France, and 42 other countries were compromised; researchers believe ransomware deployment may have been a smokescreen concealing deeper espionage activity.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Broadcom's July 29 vCenter patch immediately, audit vCenter Server Appliance (VCSA) cron jobs for unauthorized entries, and treat any post-patch ESXi encryption as a possible multi-stage intrusion warranting full forensic review.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">The actor weaponized the directory-traversal vulnerability in internet-exposed vCenter Servers to achieve unauthenticated root-level code execution, bypassing all authentication controls to establish the persistent "linuxFile" backdoor via cron job.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-59310 is a critical directory-traversal flaw in VMware vCenter Server that allows an unauthenticated attacker to read and write arbitrary files on the server, ultimately achieving remote code execution at root level. Broadcom released a patch on July 29, 2026 — but within five days, a suspected Chinese-speaking threat actor (assessed with moderate confidence by German incident response firm QUIRSO based on UTC+08:00 operational timing) began mass-exploiting the vulnerability against internet-facing vCenter deployments.</p>
+        <p>The attackers established persistent access by implanting a backdoor named "linuxFile" via cron jobs on compromised vCenter Server Appliances (VCSA), then deployed a Babuk-derived ransomware locker to encrypt ESXi virtual machine files. Security researchers assess the ransomware deployment may have functioned as a smokescreen — encrypting ESXi log files to destroy forensic evidence and distract defenders from the deeper backdoor access. The campaign hit 361 unique victim IPs across 47 countries, with Germany (55), the US (41), Turkey (38), Iran (26), and France (25) among the hardest hit.</p>
+        <p>This incident reflects an accelerating trend: the average patch-to-exploitation window for enterprise virtualization platforms now measures in days, not weeks. Organizations that delay patching VMware infrastructure face near-certain exploitation by well-resourced state actors.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> VMware vCenter is like the master control panel for an entire data center's worth of virtual computers. This vulnerability was like a secret back door in that control panel that let attackers walk in without a key. Once inside, they set up a hidden alarm clock (the cron job backdoor) to let them back in later, then scrambled all the virtual machines' files like a burglar who also shredded the security camera footage on the way out.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-59310 · CVSS: 9.8/10 — Maximum-severity rating reflects unauthenticated remote code execution against a network perimeter management system, placing every virtual machine in a compromised vCenter's inventory at risk.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH — Medusa Ransomware -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Aug 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.helpnetsecurity.com/2026/08/19/medusa-ransomware-cisa-warning/" style="color:#111827;text-decoration:none;">CISA and FBI Warn: Medusa Ransomware Has Hit 500+ Critical Infrastructure Organizations</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA, the FBI, and HHS released an updated joint advisory on August 19 warning that Medusa ransomware affiliates have now breached over 500 critical infrastructure organizations since 2021, exploiting newly published vulnerabilities within 24 hours of disclosure.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Healthcare, defense, manufacturing, government services, IT, and financial services organizations are primary targets, with secondary impact across education, insurance, and legal sectors worldwide.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch internet-facing systems immediately upon release, segment networks to limit lateral movement, block untrusted traffic to remote access services, and report incidents to the FBI IC3 rather than paying ransoms.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">Medusa affiliates encrypt victim systems while simultaneously exfiltrating data to a dark web leak site, creating overlapping ransom pressure: victims face both operational disruption and a 48-hour countdown clock before stolen files are published.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Medusa ransomware operation, active since 2021, has dramatically accelerated its pace in 2026 by adopting a lightning-fast vulnerability exploitation window: Medusa affiliates now weaponize newly announced exploits for VPN appliances, edge security devices, and identity platforms within 24 hours of public disclosure. This leaves organizations almost no time to patch before attackers gain initial foothold.</p>
+        <p>Medusa's double-extortion model applies compounding pressure: after encrypting a victim's files, the group publishes a ransom note giving victims 48 hours to make contact. If the victim doesn't pay, their stolen data goes live on a Medusa leak site with a countdown timer. Victims can pay $10,000 in cryptocurrency to buy an additional day — a calculated psychological lever. The agencies stress that paying ransoms does not guarantee data deletion and funds further criminal operations.</p>
+        <p>The updated advisory (building on the March 2025 original) draws on FBI investigations through April 2026 and reflects the group's continued expansion into healthcare — a sector where operational disruption can have life-threatening consequences. The advisory provides detailed indicators of compromise and YARA rules for detection.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Medusa is a criminal hacking gang that breaks into organizations, copies all their sensitive files, then scrambles them so they can't be opened. They then send a digital ransom note: "Pay us or everyone online will see your stolen files." The 48-hour timer is designed to create panic — like a kidnapper saying "call the police and something bad happens." Security agencies urge never paying because it proves the tactic works and funds more attacks.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: Medusa -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Medusa Ransomware</div>
+  <div style="opacity:.85;margin-top:4px;">Financially Motivated Criminal Group · Attribution: Unknown (Eastern Europe suspected)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Critical infrastructure sectors globally — healthcare, financial services, government, manufacturing, IT, education, legal, and insurance organizations across the Americas, Europe, and Asia-Pacific.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion ransomware-as-a-service model, sub-24-hour exploit weaponization, 48-hour payment countdown timers, and a Tor-based dark web leak site that publicly names and shames non-paying victims with downloadable stolen data.</div>
+</div>
+
+<!-- STORY 4: HIGH — CoSnitch / Microsoft Copilot -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Varonis / The Hacker News · Aug 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/microsoft-copilot-personal-flaws-could.html" style="color:#111827;text-decoration:none;">CoSnitch: Three Chained Copilot Flaws Enable Silent One-Click Data Theft from Connected Apps</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Varonis Threat Labs discovered and responsibly disclosed three chained vulnerabilities in Microsoft Copilot Personal (collectively dubbed "CoSnitch," tracked as CVE-2026-24301) that allow a single malicious link click to trigger silent automatic data exfiltration from a victim's connected email, calendar, and cloud storage accounts to an attacker-controlled server; Microsoft shipped a fix on August 18, 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Users of Microsoft Copilot Personal with connected third-party app integrations are at risk if they interact with any attacker-crafted links before the August 18 patch; no evidence of in-the-wild exploitation was found prior to disclosure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Ensure Microsoft Copilot Personal is updated to the August 18 patch, review which third-party apps are connected to your Copilot account and revoke unnecessary permissions, and treat unsolicited Copilot-related links with the same caution as email phishing links.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1213 · Data from Information Repositories<br>
+      <span style="color:#6b7280;">The CoSnitch exploit chain abused Copilot's own URL-fetching capability — designed for legitimate data lookup — to silently query connected email, calendar, and cloud storage repositories and tunnel the extracted content to an external attacker-controlled server, disguising the theft as routine AI traffic.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The "CoSnitch" vulnerability chain in Microsoft Copilot Personal combines three distinct weaknesses: (1) an undocumented URL parameter that triggers automatic prompt execution on page load, bypassing the need for any user input beyond clicking a link; (2) standard Copilot query logic that, once invoked, can silently pull data from all connected third-party apps (email, calendar, OneDrive, etc.); and (3) Copilot's built-in URL-fetching feature, which the attacker-crafted prompt weaponizes to exfiltrate the collected data to an external server disguised as routine Copilot API traffic.</p>
+        <p>What makes CoSnitch particularly notable is its discovery method — Varonis researcher Lior Adar employed what they term "meta-hacking": iteratively asking Copilot to explain why the attack was infeasible, then using Copilot's own increasingly detailed refutations to map its internal architecture. Copilot's transparent self-explanation ultimately revealed the exact undocumented parameter needed to make the attack work.</p>
+        <p>Microsoft patched all three underlying weaknesses on August 18, 2026 and confirmed no in-the-wild exploitation occurred prior to Varonis's responsible disclosure. However, the incident highlights structural risks inherent in AI assistants that combine broad data access with flexible natural-language execution — a pattern that will recur as AI integration deepens.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Microsoft Copilot is an AI assistant connected to your email, files, and calendar. Imagine if someone could send you a magic link that, the moment you clicked it, made your AI assistant secretly email them copies of all your recent messages and documents — without showing you anything unusual happened. That's what CoSnitch did. The researcher found the bug by essentially tricking Copilot into explaining its own security flaws step by step, like a lock that describes how to pick itself.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-24301 · CVSS: not publicly disclosed — The vulnerability chain requires only a link click with no further user interaction to achieve full data exfiltration across all Copilot-connected services.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH — Heights Finance breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/heights-finance-data-breach-impacts-at-least-1-2-million-individuals/" style="color:#111827;text-decoration:none;">Heights Finance Breach Exposes SSNs and Financial Data of 1.2 Million Customers</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Consumer lender Heights Finance Holdings disclosed that attackers gained unauthorized access to a third-party cloud platform storing customer data on May 7, 2026, exfiltrating names, addresses, phone numbers, Social Security numbers, and financial details belonging to over 1.2 million individuals before the platform was secured.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> More than 1.2 million Heights Finance customers — primarily borrowers of consumer loans — had their personal and financial information stolen; no loan management systems or core company infrastructure were compromised in the incident.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Heights Finance customers should accept the offered 24-month free credit monitoring, place a fraud alert or credit freeze with all three major bureaus, monitor financial statements closely, and be alert for targeted phishing attempts using stolen personal details.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Exfiltration] T1530 · Data from Cloud Storage Object<br>
+      <span style="color:#6b7280;">The threat actor accessed a third-party cloud-based data storage platform holding Heights Finance customer records and exfiltrated the contents, demonstrating how compromising a vendor's cloud environment can expose customer PII at scale without ever touching the primary organization's own systems.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>On May 7, 2026, Heights Finance Holdings — a consumer lending company — detected unauthorized access to a third-party cloud-based platform it used to store customer data. The attacker accessed a repository containing highly sensitive personally identifiable information (PII): full names, physical addresses, phone numbers, Social Security numbers, and financial account details for over 1.2 million borrowers. The company's own loan management systems and internal networks were not affected — the breach was entirely contained to the external vendor's cloud environment.</p>
+        <p>Heights Finance's dark web monitoring has not found evidence of the stolen data being sold or published as of the disclosure date. However, the combination of SSNs and financial details creates a rich dataset for identity theft, account takeover fraud, and targeted social engineering attacks. The company is offering 24 months of complimentary credit monitoring and identity protection services to all affected individuals.</p>
+        <p>No ransomware group or threat actor has claimed responsibility for the attack, and Heights Finance has not publicly identified the compromised third-party vendor. The incident reinforces a persistent security truth: organizations are only as secure as their vendors' weakest control.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Heights Finance didn't get hacked directly — instead, a company they hired to store customer files got hacked. Think of it like a storage unit company that keeps copies of your personal documents getting broken into. The thieves got SSNs (Social Security numbers), which are like a master key to someone's financial identity — with those, criminals can open fraudulent credit cards, take out loans, or file fake tax returns in your name.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Kernel-Mode Rootkit ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A kernel-mode rootkit operates at Ring 0 — the innermost, most privileged layer of the operating system — where it can intercept and manipulate the raw data the OS reports to all other software. Because the kernel controls what security tools can "see," a rootkit at this level can hide malicious processes, files, and network connections from antivirus, EDR, and SIEM products that run at the unprivileged user level (Ring 3). Patching kernel vulnerabilities like CVE-2026-68820 is therefore especially urgent: once an attacker installs a kernel-mode rootkit like Lazarus Group's FudModule, the system can no longer be trusted to accurately report its own state — a complete reinstall may be the only way to ensure clean remediation.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: Meta-hacking · Prompt Injection · Double Extortion · ESXi · CVSS · PoC ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Meta-hacking</strong> — Attacking an AI system by exploiting its own reasoning process and self-explanations rather than targeting underlying code; the CoSnitch researcher used Copilot's explanations of why an attack was impossible to discover the exact mechanism to make it possible.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Prompt Injection</strong> — An attack against AI/LLM systems where malicious instructions are embedded in data the model processes, causing it to override its original instructions and perform attacker-controlled actions instead.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Double Extortion</strong> — A ransomware tactic that combines file encryption with data theft, threatening to publicly publish the stolen data if the ransom isn't paid, giving attackers leverage even against victims with functional backups.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ESXi</strong> — VMware's bare-metal hypervisor (Type 1) that runs directly on server hardware without a host OS, allowing multiple virtual machines to share physical resources; its position as infrastructure backbone makes it a high-value ransomware target.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System; a standardized 0–10 numerical framework (9.0–10.0 = Critical, 7.0–8.9 = High, 4.0–6.9 = Medium, 0.1–3.9 = Low) used industry-wide to communicate the severity of software vulnerabilities.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">PoC</strong> — Proof of Concept; working exploit code that demonstrates a vulnerability is real and exploitable in practice; public PoC release dramatically accelerates the patch-to-exploitation window, as seen with CVE-2026-59310 being exploited within five days of the Broadcom patch.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/" style="color:#374151;text-decoration:none;">August 2026 Patch Tuesday: Microsoft Fixes 421 CVEs Including Critical QUIC &amp; TFTP RCEs (CVSS 9.8)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" style="color:#374151;text-decoration:none;">CISA Issues Joint Advisory on Gunra Ransomware (Conti-Derived RaaS) Targeting Critical Infrastructure</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 20, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
