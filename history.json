@@ -1,14 +1,15 @@
 {
-  "til": ["Kernel-Mode Rootkit", "Frontier AI Containment", "Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability", "Hard-coded Credentials", "Cryptojacking"],
-  "glossary": ["Meta-hacking", "Prompt Injection", "Double Extortion", "ESXi", "CVSS", "PoC", "PHI", "REST API", "FCEB", "Supply Chain Attack", "Langflow", "LSASS", "Dead Drop Resolver", "Sandbox Escape", "Agentic AI", "ExploitGym", "SNMP", "Deserialization", "Clop", "CWE", "APN", "OT", "PLC", "Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh", "SOCKS5", "Entra ID", "InfoStealer", "C2", "MITRE ATT&CK", "VoLTE", "SoC", "XG-Web", "ShinyHunters", "Monero", "RMM"],
+  "til": ["Frontier AI Containment", "Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability", "Hard-coded Credentials", "Cryptojacking", "DNS Rebinding Attack"],
+  "glossary": ["PHI", "REST API", "FCEB", "Supply Chain Attack", "Langflow", "LSASS", "Dead Drop Resolver", "Sandbox Escape", "Agentic AI", "ExploitGym", "SNMP", "Deserialization", "Clop", "CWE", "APN", "OT", "PLC", "Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh", "SOCKS5", "Entra ID", "InfoStealer", "C2", "MITRE ATT&CK", "VoLTE", "SoC", "XG-Web", "ShinyHunters", "Monero", "RMM", "DNS Rebinding", "Crates.io", "EtherHiding", "DPRK", "cargo", "RCE"],
   "week": {
-    "critical": 9,
-    "high": 12,
-    "medium": 6,
-    "techniques": ["T1068", "T1190", "T1486", "T1213", "T1530", "T1528", "T1078.001", "T1090.002", "T1496", "T1189", "T1203", "T1133", "T1110", "T1210", "T1552", "T1485", "T1102", "T1059", "T1489"],
+    "critical": 10,
+    "high": 16,
+    "medium": 8,
+    "techniques": ["T1068", "T1190", "T1486", "T1213", "T1530", "T1528", "T1078.001", "T1090.002", "T1496", "T1189", "T1203", "T1133", "T1110", "T1210", "T1552", "T1485", "T1102", "T1059", "T1489", "T1195.001", "T1556", "T1059.004", "T1021", "T1574"],
     "actors": ["Lazarus Group", "Medusa Ransomware", "Jewelbug", "ShinyHunters", "TheHatman", "DeadLock"]
   },
   "digests": [
+    {"date": "2026-08-21", "threat": "ELEVATED", "critical": 1, "high": 4, "medium": 2},
     {"date": "2026-08-20", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-08-19", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 2},
     {"date": "2026-08-18", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 0},

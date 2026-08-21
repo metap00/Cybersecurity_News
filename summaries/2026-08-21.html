@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 21, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Friday, Aug 21, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 1 critical · 4 high · 2 medium · ~10 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - Rust Supply Chain Attack -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html" style="color:#111827;text-decoration:none;">DPRK-Linked Rust Supply Chain Attack Poisons arrayref Crate Used in 245 Million Downloads</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Malicious versions of three popular Rust crates — arrayref, internment, and append-only-vec — were published to crates.io on August 20, embedding build-time malware via a typosquatted dependency (proc-macro1) with infrastructure overlapping prior DPRK supply chain campaigns.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any developer or CI/CD pipeline that ran <code>cargo build</code> while the malicious crates were live (a roughly 90-minute window), potentially exposing cloud credentials, SSH keys, and browser tokens to North Korean-linked actors.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit your Rust dependency tree for proc-macro1, pin to the last clean versions (arrayref 0.3.9), rotate any secrets on systems that built during the window, and review build logs for unexpected outbound connections on August 20.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Supply Chain] T1195.001 · Compromise Software Dependencies<br>
+      <span style="color:#6b7280;">Attackers compromised the arrayref maintainer's crates.io credentials and injected a build-time dropper via a typosquatted proc-macro1 dependency — executing malware at cargo build time without any explicit code call.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>On August 20, 2026, a sophisticated threat actor gained unauthorized access to the crates.io account of Andrew Gallant (known as BurntSushi, creator of ripgrep) and published three malicious crate versions: arrayref@0.3.10, internment@0.8.7, and append-only-vec@0.1.9. Each release silently added a new dependency on a typosquatted package called <code>proc-macro1</code> — not the legitimate <code>proc-macro2</code> used across the ecosystem. The build script of proc-macro1 downloaded and executed a remote binary payload at compile time.</p>
+        <p>Because the malicious code lives in the <em>build script</em> rather than the library code itself, simply running <code>cargo build</code> on any project resolving the poisoned version was sufficient to trigger the payload — no functions needed to be called, no runtime execution required. The arrayref crate has 245 million all-time downloads and 403 crates depend on it, creating an enormous potential blast radius during the ~90-minute window before crates.io removed the malicious versions.</p>
+        <p>Wiz researchers identified significant infrastructure overlap with prior DPRK (North Korean) supply chain campaigns targeting the developer ecosystem, including the Mastra npm attack and axios poisoning. The payload behaves as an infostealer targeting developer credentials, SSH keys, cloud provider tokens (AWS, Azure, GCP), and browser-stored authentication data — a classic first-stage enabling lateral movement or re-infection of downstream targets.</p>
+        <p>The Rust Security Response Team confirmed the attack and stated the maintainer is likely a victim of credential theft rather than a willing participant. Crates.io implemented additional verification controls for the affected packages and removed all malicious versions.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of crates.io like an app store for Rust code. A developer's account was hacked, and the attacker uploaded a poisoned version of an extremely popular library. Any time another developer's computer downloaded and compiled this library — even as part of a completely unrelated project — malware silently ran in the background, stealing passwords and cloud keys. The attacker had roughly 90 minutes before it was caught and removed, but that window was long enough for thousands of CI/CD pipelines to be affected.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · CVSS: N/A — Supply chain account compromise; no traditional CVE applicable as the attack vector was credential theft and package poisoning rather than a software flaw.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: Lazarus Group -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Lazarus Group (DPRK)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: North Korea (DPRK)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Software developers, cryptocurrency exchanges, defense contractors, financial institutions, and tech supply chains globally — especially in the US, South Korea, Europe, and Japan.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operation Dream Job (fake recruiter spear phishing), supply chain poisoning of npm/PyPI/Rust packages, cryptocurrency theft totaling billions of dollars, and deploying sophisticated kernel-mode rootkits like FudModule via zero-day exploits.</div>
+</div>
+
+<!-- STORY 2: HIGH - CISA KEV Multi-Flaw -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / The Hacker News · Aug 18–21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/critical-macos-sharepoint-vcenter-and.html" style="color:#111827;text-decoration:none;">CISA Adds macOS, SharePoint, vCenter &amp; IKE Flaws to KEV — FCEB Agencies Must Patch by Today</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added four actively exploited vulnerabilities to its Known Exploited Vulnerabilities catalog — a macOS Screen Sharing authentication bypass (CVE-2026-65400, CVSS 9.8), a SharePoint Server authentication bypass (CVE-2026-55040, CVSS 9.1), and flaws in VMware vCenter and Microsoft IKE — with FCEB agency patching deadlines of August 21.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running macOS with Screen Sharing enabled, enterprises using on-premises SharePoint Server (2016, 2019, Subscription Edition), VMware vCenter administrators, and networks using Microsoft IKE/L2TP VPN protocols — SharePoint Online (Microsoft 365) is unaffected.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Apple's latest macOS security updates immediately, patch SharePoint Server to the latest cumulative update, update VMware vCenter, and restrict Screen Sharing and remote services to trusted network segments only.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1556 · Modify Authentication Process<br>
+      <span style="color:#6b7280;">Attackers are exploiting authentication logic weaknesses in macOS Screen Sharing and SharePoint Server to bypass security controls and gain unauthorized access without valid credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-65400 is an improper authentication vulnerability in macOS Screen Sharing that allows a network-adjacent attacker to authenticate without valid credentials (CVSS 9.8). The Dutch National Cyber Security Centre confirmed active exploitation less than two weeks after Apple shipped the patch — a remarkably short weaponization window that underscores the urgency. Any macOS system with Screen Sharing enabled and reachable from the network is at risk.</p>
+        <p>CVE-2026-55040 is a SharePoint Server authentication bypass (CVSS 9.1) that allows an unauthenticated remote attacker to circumvent security feature checks at the network level. SharePoint Server houses sensitive documents, internal wikis, and collaboration content for countless enterprise and government organizations. SharePoint Online (Microsoft 365 cloud) is not affected — only on-premises deployments running Server 2016, 2019, or Subscription Edition.</p>
+        <p>The VMware vCenter and Microsoft IKE additions round out a quad of critical enterprise vulnerabilities all under simultaneous active exploitation. The concentration of KEV additions targeting authentication bypass — across Apple, Microsoft, and VMware platforms — suggests threat actors are systematically targeting authentication weaknesses as an initial access vector across diverse enterprise environments. FCEB agencies were required to remediate by today (August 21) under BOD 22-01.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> CISA's "Known Exploited Vulnerabilities" list is essentially a danger registry — if your software appears on it, active hackers are using that exact flaw to break into real systems right now. These four additions mean attackers can bypass login screens on Macs, corporate SharePoint file servers, VMware server management consoles, and VPN gateways — all without knowing the password. Federal agencies must patch by today; everyone else should treat these as urgent.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-65400 · CVSS: 9.8/10 — macOS Screen Sharing auth bypass with confirmed active exploitation; CVE-2026-55040 · CVSS: 9.1/10 — SharePoint Server auth bypass allowing unauthenticated remote access.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH - Zimbra CVE-2026-73570 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/attackers-exploit-zimbra-snmp-flaw-for.html" style="color:#111827;text-decoration:none;">Zimbra SNMP Flaw CVE-2026-73570 Actively Exploited for Unauthenticated RCE on 12,100+ Exposed Servers</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A critical OS command injection vulnerability in Zimbra Collaboration Suite's SNMP notification handler is being actively exploited, allowing unauthenticated remote attackers to execute arbitrary shell commands on affected servers.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Zimbra Collaboration versions prior to 10.1.20 with SNMP trap notifications enabled — Shadowserver tracks over 12,100 such servers exposed to the internet, concentrated in Europe (4,382) and Asia (4,492).</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to Zimbra 10.1.20 immediately (patch was available July 20); if patching is delayed, disable the snmp_notify parameter in Zimbra's admin console and stop the swatchdog service as a temporary mitigation.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1059.004 · Command and Scripting Interpreter: Unix Shell<br>
+      <span style="color:#6b7280;">The SNMP notification path passes unsanitized input directly to a shell command, letting unauthenticated remote attackers inject and execute arbitrary Unix shell commands as the zimbra service account.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-73570 is an OS command injection flaw in how Zimbra processes SNMP trap notifications. When the snmp_notify parameter is enabled and the swatchdog service is running, Zimbra passes the notification content to a shell command without sanitizing it — a textbook injection vulnerability. CERT Polska issued Alert 145/2026 on August 17, confirming that unauthenticated remote attackers are actively exploiting this to run arbitrary commands as the zimbra system user.</p>
+        <p>The patch (Zimbra 10.1.20) was released on July 20 — over a month before active exploitation was confirmed — meaning organizations that didn't patch during that window are now exposed to weaponized attacks. Zimba powers email, calendar, and collaboration for hundreds of thousands of organizations globally, many in healthcare, education, and government where full mailbox access represents a severe data breach risk.</p>
+        <p>Successful exploitation gives attackers shell-level access to the server, enabling email exfiltration, credential harvesting from local configuration files, and pivoting into the internal network. With over 12,100 Zimbra servers still reachable from the internet, this is a high-value, wide-surface target for threat actors conducting opportunistic or targeted campaigns.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Zimbra is like a self-hosted version of Gmail or Outlook that organizations run on their own servers. This vulnerability means an attacker can send a specially crafted monitoring message to a Zimbra server — no password required, no user clicks — and that message silently runs commands on the server with full access to all email. Over 12,000 of these servers are directly reachable from the internet right now, despite a patch being available for over a month.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-73570 · CVSS: 8.9/10 — Unauthenticated OS command injection in Zimbra SNMP notifications; patch (v10.1.20) available since July 20, active exploitation confirmed August 17.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - N-able N-central -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html" style="color:#111827;text-decoration:none;">CISA Flags N-able N-central Auth Bypass CVE-2026-18577 After Attackers Pivot to Managed Endpoints</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-18577 — an authentication bypass in N-able N-central representing an incomplete fix of CVE-2026-18556 — to the KEV catalog after Huntress observed attackers exploiting it to gain full administrative access and pivot through N-central's built-in Take Control remote access to reach managed endpoints.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Managed service providers and their downstream clients using N-able N-central prior to version 2026.3 HF1 — a high-value target since a single compromised MSP platform grants attacker access to the networks of every organization that MSP manages.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update N-central to version 2026.3 HF1 immediately, review Take Control session logs for anomalous activity, and temporarily restrict external access to the N-central management console until patched.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Lateral Movement] T1021 · Remote Services<br>
+      <span style="color:#6b7280;">After bypassing N-central's authentication, attackers abused the platform's legitimate Take Control remote desktop feature to move laterally to every managed endpoint — turning the MSP's own tooling against its clients.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-18577 is an incomplete patch for CVE-2026-18556, both carrying a CVSS score of 8.2. The vulnerability allows unauthenticated remote attackers to bypass N-central's authentication and seize full administrative control of the platform. From there, attackers invoke the built-in Take Control feature — the same legitimate remote desktop capability MSPs use to support clients — to gain interactive shell access to any managed endpoint across the MSP's entire customer base.</p>
+        <p>Huntress researchers observed post-exploitation behavior including reconnaissance against domain controllers, process enumeration, and lateral movement across client networks. While the activity was not yet widespread at the time of reporting, the attack pattern mirrors the 2023 Kaseya VSA incident, where exploitation of a single MSP platform enabled simultaneous ransomware deployment across hundreds of downstream businesses.</p>
+        <p>The MSP supply chain remains one of the most attractive targets in cybersecurity: compromising one platform multiplies the attacker's reach exponentially. N-central is used by thousands of MSPs globally, and any unpatched instance is now a potential pivot point into the networks of all their clients, making the risk far greater than a simple single-organization breach.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> N-able N-central is software that IT support companies use to remotely manage and access their clients' computers — think of it as a master key for multiple businesses. If an attacker breaks into N-central, they instantly gain the ability to access every computer belonging to every client that IT company supports, without needing separate passwords for each. This is why MSP software is such a high-priority target: one breach, unlimited reach.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-18577 · CVSS: 8.2/10 — N-able N-central authentication bypass enabling admin takeover and lateral movement to all managed endpoints; fixed in version 2026.3 HF1.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: DNS Rebinding Attack ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    DNS Rebinding is a browser-security attack that exploits the trust your browser places in domain names: an attacker first serves a legitimate webpage from their domain, then rapidly changes that domain's DNS record to point to an internal IP address — like your home router or a developer's local server — so follow-up requests from your browser reach internal resources instead of the internet. This bypasses the "same-origin policy" that normally prevents websites from talking to each other or accessing your local network. The Ray AI framework vulnerability (CVE-2025-62593) uses exactly this technique, allowing any malicious website you visit to silently execute code on your local Ray machine-learning cluster simply by getting your browser to make a follow-up DNS request after the DNS record has been swapped.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: DNS Rebinding · Crates.io · EtherHiding · DPRK · cargo · RCE ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">DNS Rebinding</strong> — A browser attack that tricks a victim's browser into contacting internal network resources by rapidly swapping a domain's DNS record from a public IP to a private IP address.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Crates.io</strong> — The official package registry for the Rust programming language, where developers publish and download open-source Rust libraries called "crates" — analogous to npm for JavaScript or PyPI for Python.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">EtherHiding</strong> — A malware command-and-control technique that stores C2 instructions inside Ethereum or Polygon blockchain transactions, making infrastructure nearly impossible to take down since blockchain data cannot be removed via abuse reports.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">DPRK</strong> — Democratic People's Republic of Korea (North Korea); in cybersecurity contexts, refers to state-sponsored threat actors — including Lazarus Group — that conduct espionage, cryptocurrency theft, and supply chain attacks on behalf of the North Korean regime.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">cargo</strong> — Rust's official build system and package manager; used to compile code and automatically download, resolve, and manage library dependencies from crates.io, making it the execution point for build-script supply chain attacks.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">RCE</strong> — Remote Code Execution; a class of vulnerability that allows an attacker to run arbitrary commands or code on a target system across a network, without requiring physical access or prior authentication in the most severe cases.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/08/cisa-flags-actively-exploited-ray-flaw.html" style="color:#374151;text-decoration:none;">CISA Flags Ray AI Framework CVE-2025-62593 for Active Exploitation — DNS Rebinding Enables Browser-Based RCE on ML Clusters</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+    <div style="font-size:11px;color:#6d28d9;margin-top:2px;">🎯 [Initial Access] T1189 · Drive-by Compromise — CVSS 9.4</div>
+  </div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/08/threatsday-ghostjacking-ai-attacks.html" style="color:#374151;text-decoration:none;">GhostJacking Attack Poisons Observability Logs to Hijack AI Coding Agents — 90% Success Rate at DEF CON Demo</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+    <div style="font-size:11px;color:#6d28d9;margin-top:2px;">🎯 [Defense Evasion] T1574 · Hijack Execution Flow</div>
+  </div>
+
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://gbhackers.com/clickfix-campaign-uses-etherhiding/" style="color:#374151;text-decoration:none;">EtherHiding ClickFix Campaign Hides Malware C2 in Polygon Blockchain to Evade Takedowns</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GBHackers</span>
+    <div style="font-size:11px;color:#6d28d9;margin-top:2px;">🎯 [Command and Control] T1102 · Web Service</div>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Friday, Aug 21, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
