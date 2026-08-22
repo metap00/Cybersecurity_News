@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 22, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 4 high · ~8 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-22.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: ShieldBreak - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 22, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/shieldbreak-zero-day-poc-claims.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">ShieldBreak Zero-Day PoC Claims Microsoft Defender Patch Bypass With SYSTEM Access</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Researcher Nightmare Eclipse released a public PoC for CVE-2026-69414, bypassing Microsoft's August Patch Tuesday fix and escalating any local user to SYSTEM with 100% reliability on Windows 11 25H2 and Server 2025 — no patch yet available.</div>
+    <div style="margin-top:2px;">👤 All Windows 11 25H2 and Windows Server 2025 systems running Microsoft Defender.</div>
+    <div style="margin-top:2px;">✅ Monitor for privilege escalation activity; apply Microsoft's forthcoming patch immediately when released.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1548 · Abuse Elevation Control Mechanism</div>
+</div>
+
+<!-- STORY 2: Rust Supply Chain - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 20, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Rust Supply Chain Attack Puts Build-Time Infostealer in Crates with 245 Million Downloads</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers compromised the BurntSushi crates.io account and poisoned arrayref, internment, and append-only-vec with a malicious build script executing infostealer malware during cargo build; Wiz identified significant DPRK tradecraft overlap.</div>
+    <div style="margin-top:2px;">👤 Developers and CI pipelines that ran cargo build on arrayref-dependent projects between 07:15–09:25 UTC on Aug 20.</div>
+    <div style="margin-top:2px;">✅ Audit cargo.lock for poisoned versions; treat affected build machines as compromised; rotate all credentials.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.002 · Compromise Software Supply Chain</div>
+</div>
+
+<!-- STORY 3: Manic Android - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 20, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/manic-android-malware-exfiltrates-data.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Manic Android Malware Exfiltrates Data From Offline Phones via Nearby Infected Devices</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A sophisticated Android banking trojan targeting 169+ banking, crypto, and 2FA apps across Europe uses transparent keypad overlays to capture PINs and can relay stolen data through nearby infected devices even when offline.</div>
+    <div style="margin-top:2px;">👤 Android users in Ukraine, Russia, Poland, Germany, Czech Republic, Slovakia, and the UK using financial or authenticator apps.</div>
+    <div style="margin-top:2px;">✅ Review Accessibility Service permissions on your device; use biometric authentication; report unauthorized transactions immediately.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Collection] T1417 · Input Capture</div>
+</div>
+
+<!-- STORY 4: MLflow SSRF - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 20, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/attackers-exploit-mlflow-ssrf-flaw-to.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Attackers Exploit MLflow SSRF Flaw to Steal Cloud Credentials and Secrets</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CISA added CVE-2026-64849 (CVSS 9.3) to its KEV catalog after attackers began stealing cloud IAM credentials via a DNS-rebinding SSRF bypass in MLflow's webhook delivery within hours of the CVE's public assignment on Aug 17.</div>
+    <div style="margin-top:2px;">👤 AI/ML teams running MLflow prior to version 3.15.0 in cloud environments, especially unauthenticated public-facing instances.</div>
+    <div style="margin-top:2px;">✅ Upgrade to MLflow 3.15.0 immediately; restrict access behind authentication; rotate potentially exposed cloud credentials.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1552.005 · Cloud Instance Metadata API</div>
+</div>
+
+<!-- STORY 5: Zimbra SNMP RCE - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 20, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/attackers-exploit-zimbra-snmp-flaw-for.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Attackers Exploit Zimbra SNMP Flaw for Unauthenticated Remote Code Execution</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CERT Polska confirmed active exploitation of CVE-2026-73570 (CVSS 8.9), an OS command injection in Zimbra's SNMP monitoring path that lets unauthenticated attackers execute arbitrary commands as the zimbra service account.</div>
+    <div style="margin-top:2px;">👤 Zimbra Collaboration deployments with the zimbra-snmp package installed on versions prior to 10.1.20.</div>
+    <div style="margin-top:2px;">✅ Upgrade to Zimbra 10.1.20; if delayed, disable the zimbra-snmp package or stop swatchdog; review recent zimbra-user file activity.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Persistence] T1505 · Server Software Component</div>
+</div>
+
+<!-- STORY 6: Head Mare / PhantomCore - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 21, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/head-mare-exploits-trueconf-flaws-to.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA: Head Mare Exploits TrueConf Server Flaws to Replace Installers with PhantomCore Backdoor</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CISA issued an urgent patching advisory after the Head Mare hacktivist group exploited two critical TrueConf Server flaws to replace legitimate client installers with trojanized versions delivering the PhantomCore and PhantomGraph backdoors to unsuspecting users.</div>
+    <div style="margin-top:2px;">👤 Organizations using unpatched TrueConf Server, primarily Russian critical infrastructure sectors targeted by Head Mare.</div>
+    <div style="margin-top:2px;">✅ Apply TrueConf Server patches from June 18, 2026; verify installer signatures; scan for PhantomCore IoCs on machines that downloaded TrueConf after July 2026.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Resource Development] T1584.004 · Compromise Infrastructure: Server</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/password-spraying-attacks-surge-155x-as-hackers-exploit-mfa-gaps/" style="color:#374151;text-decoration:none;">Password Spraying Attacks Surge 155x as Hackers Exploit MFA Gaps</a>
+    <span style="color:#9ca3af;"> · BleepingComputer</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-22.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Aug 22, 2026</div>
+
+</body>
+</html>

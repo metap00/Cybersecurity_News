@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 22, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 22, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 4 high · 1 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: ShieldBreak - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 22, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/shieldbreak-zero-day-poc-claims.html" style="color:#111827;text-decoration:none;">ShieldBreak Zero-Day PoC Claims Microsoft Defender Patch Bypass With SYSTEM Access</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researcher Nightmare Eclipse released a public PoC for ShieldBreak (CVE-2026-69414), a Windows Defender zero-day that bypasses Microsoft's earlier RoguePlanet patch and escalates any local user to SYSTEM with a 100% success rate on Windows 11 25H2 and Server 2025 — with no patch yet available.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows 11 25H2 and Windows Server 2025 systems running Microsoft Defender, particularly those that applied the August Patch Tuesday update believing the prior RoguePlanet flaw was fully closed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor endpoints for unexpected privilege escalation events, restrict local user permissions where possible, and apply Microsoft's forthcoming ShieldBreak patch the moment it ships.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1548 · Abuse Elevation Control Mechanism<br>
+      <span style="color:#6b7280;">ShieldBreak exploits a race condition in Defender's Malware Protection Engine kernel driver to convert any local user session into SYSTEM-level access, turning the security product's own elevation pathway against the system it is meant to protect.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>ShieldBreak is a bypass of CVE-2026-50656 ("RoguePlanet"), a Defender flaw Microsoft patched on Patch Tuesday (August 11). Nightmare Eclipse — a researcher who has publicly clashed with Microsoft over its bug bounty practices — released a fully weaponized PoC without prior notice, arguing Microsoft's fix addressed the symptom without closing the root cause. The new exploit converts what Microsoft thought was a closed race condition into a deterministic, 100%-reliable local privilege escalation on fully patched Windows 11 25H2.</p>
+        <p>The PoC targets the Windows Malware Protection Engine (MpEngine), which runs at kernel privilege. By triggering a subtle timing window in how the driver handles an internal object reference, an unprivileged local process can acquire a dangling handle and redirect execution to a SYSTEM-context callback. Because this path is inside Defender itself, many endpoint protection products do not instrument it as an attack surface.</p>
+        <p>Microsoft confirmed it is tracking the new variant as CVE-2026-69414 and is working on a patch. Until that patch ships, any low-privileged attacker — or malware that has already gained user-level foothold — can trivially escalate to full SYSTEM on the latest Windows builds. The public PoC dramatically lowers the bar for exploitation.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine Microsoft's antivirus acts like a security guard with a master key to every room. ShieldBreak tricks the guard into handing over that master key — not by breaking in, but by exploiting a flaw in the guard's own routine. Once an attacker holds it, they have full control over the entire Windows system, not just the parts a normal user can touch. What makes this especially unusual: the very software meant to protect you is the attack surface.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-69414 · CVSS: Pending (Critical confirmed by Microsoft) — Local privilege escalation to SYSTEM via race condition in Microsoft Defender's Malware Protection Engine, bypassing the RoguePlanet (CVE-2026-50656) patch.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Rust Supply Chain - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html" style="color:#111827;text-decoration:none;">Rust Supply Chain Attack Puts Build-Time Infostealer in Crates with 245 Million Downloads</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers compromised the crates.io maintainer account of prominent Rust developer BurntSushi and published malicious versions of arrayref, internment, and append-only-vec containing a hidden proc-macro build script that silently downloaded and executed infostealer malware during <code>cargo build</code> — with Wiz researchers noting significant overlap with DPRK supply chain campaign tradecraft.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Developers and CI/CD pipelines that ran <code>cargo build</code> on projects depending on arrayref (245M downloads, found in ~35% of Rust environments) between 07:15–09:25 UTC on August 20, 2026.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit <code>cargo.lock</code> files for arrayref 0.3.10, internment 0.8.7, or append-only-vec 0.1.9; treat any build machine that compiled these versions as potentially compromised; rotate all credentials, tokens, and SSH keys stored on affected systems.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.002 · Compromise Software Supply Chain<br>
+      <span style="color:#6b7280;">By injecting a malicious proc-macro build script through legitimate crates.io package releases from a trusted, compromised maintainer account, attackers achieved silent code execution on developer machines at compile time — weaponizing the software supply chain rather than the running application.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The attack targeted Andrew Gallant (BurntSushi), creator of ripgrep and one of the Rust ecosystem's most trusted maintainers. His crates.io credentials were likely phished or his machine was compromised; the Rust Security team explicitly cleared him of intent in their official advisory. The malicious releases silently added proc-macro1 (note the "1," typosquatting the legitimate proc-macro crate) as a dependency, whose build.rs script fetched and executed a remote binary payload during compilation.</p>
+        <p>The technique is particularly dangerous: Rust's cargo build system executes build scripts automatically before any developer code runs. Any developer or CI pipeline that compiled a project depending on arrayref — used in 35%+ of all Rust environments — during the 86-minute exposure window ran the attacker's code silently. Wiz's analysis found the methodology closely mirrors known DPRK supply chain tactics, including the use of a build-time dropper and credential-harvesting payload, though no specific group has been officially attributed.</p>
+        <p>All three malicious versions were removed within 86–107 minutes. The Rust Project published a formal incident report. Cargo's lockfile mechanism means teams can retroactively determine exposure by checking their cargo.lock for the specific poisoned version pins.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Picture a trusted chef's recipe book. You follow it without question because you know the author. Now imagine someone secretly added a step that says "while you're chopping vegetables, also hand your house keys to a stranger." The attacker didn't trick you directly — they poisoned the recipe. In software, this is a supply chain attack: instead of hacking your app, they poisoned a tool your app uses while being built. You ran the attack yourself just by following the recipe.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · CVSS: N/A (account compromise + build-time dropper) — Malicious build-time code execution via compromised crates.io maintainer account publishing backdoored Rust crates; DPRK tradecraft overlap identified by Wiz.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Manic Android - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/manic-android-malware-exfiltrates-data.html" style="color:#111827;text-decoration:none;">Manic Android Malware Exfiltrates Data From Offline Phones via Nearby Infected Devices</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> ThreatFabric disclosed Manic, an Android banking trojan active since February 2026 that targets 169+ banking, crypto, and 2FA apps across Europe using transparent keypad overlays, and can relay stolen data through nearby infected devices even when the victim's phone is offline or network-monitored.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Android users in Ukraine, Russia, Poland, Germany, Czech Republic, Slovakia, and the UK using banking, crypto wallet, payment, or authenticator apps included in Manic's 169-app target list.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Review which apps hold Android Accessibility Service permissions on your device, enable biometric authentication over PIN-only where available, and immediately report any unauthorized financial transactions to your institution.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1417 · Input Capture<br>
+      <span style="color:#6b7280;">Manic deploys transparent overlays on numeric keypads of legitimate banking and crypto applications, silently recording every tap to capture PINs and credentials while the real app continues functioning normally — a mobile-native input capture technique that circumvents standard Android permission warnings.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Manic blends banking malware, spyware, and remote access capabilities into a single Android package. When a targeted app is opened, Manic draws an invisible layer over the numeric keypad and uses Android's Accessibility Service to replay captured taps into the real app — the user sees normal behavior while every PIN and password is silently logged. A July 2026 update introduced in-memory DEX loading and stronger anti-analysis protections, dramatically complicating reverse engineering efforts.</p>
+        <p>The malware's most novel capability is peer-to-peer exfiltration: if a victim's phone loses internet connectivity or is being monitored for unusual outbound traffic, Manic can relay stolen data through nearby Android devices also running the Manic payload. This mesh-based fallback makes traditional network blocking an incomplete defense.</p>
+        <p>Infrastructure analysis indicates operators primarily target Ukrainian users, with secondary campaigns spanning Russia, Poland, and western Europe focusing on fintech and crypto platforms. Distribution appears to rely on social engineering and third-party APK sources outside official app stores.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Manic works like an invisible sheet of glass placed over an ATM touchpad — completely see-through, but every button you press is recorded underneath it. Even worse, if someone "cuts the phone line," Manic can secretly pass your stolen PIN to a nearby infected phone using wireless signals, which then relays it to the attackers. Your data never has to travel directly to them, making it very hard to detect or block.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE · Banking trojan — Multi-capability Android malware combining overlay-based credential theft, Accessibility-based device control, and proximity peer-to-peer exfiltration; active since February 2026 with ongoing development.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: MLflow SSRF - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/attackers-exploit-mlflow-ssrf-flaw-to.html" style="color:#111827;text-decoration:none;">Attackers Exploit MLflow SSRF Flaw to Steal Cloud Credentials and Secrets</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-64849 — a critical DNS-rebinding SSRF bypass in MLflow's webhook delivery (CVSS 9.3) — to its Known Exploited Vulnerabilities catalog after attackers began reaching cloud metadata services and stealing IAM credentials within hours of the CVE's public assignment on August 17.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> AI and ML teams running MLflow versions prior to 3.15.0 in cloud environments, especially instances accessible without authentication or exposed to the public internet.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade MLflow to 3.15.0 immediately, place MLflow behind authentication if not already done, review cloud IAM logs for anomalous metadata endpoint access (169.254.169.254), and rotate any cloud credentials that may have been exposed.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1552.005 · Cloud Instance Metadata API<br>
+      <span style="color:#6b7280;">The MLflow SSRF bypass lets unauthenticated attackers redirect internal webhook HTTP requests to cloud metadata endpoints (e.g., 169.254.169.254), extracting short-lived IAM role credentials that grant persistent lateral movement across cloud infrastructure without a conventional login.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>MLflow is an open-source AI platform backed by the Linux Foundation with over 30 million monthly downloads, widely used to track ML experiments, manage models, and coordinate LLM pipelines. CVE-2026-64849 is a DNS-rebinding SSRF bypass in MLflow's outbound webhook system: an attacker supplies a crafted domain that initially resolves to a legitimate IP for the DNS check, then rebinds to 169.254.169.254 (the cloud instance metadata address) for the actual HTTP request — a technique that sidesteps naive SSRF blocklists that only check the destination IP at request time.</p>
+        <p>This allows retrieval of AWS IMDS tokens, Azure IMDS credentials, or GCP service account tokens without authentication. These tokens often carry broad IAM role permissions, giving attackers access to S3 buckets, databases, secrets managers, and compute resources. The two-day window between CVE disclosure (August 17) and CISA KEV listing (August 19) is unusually short, reflecting how aggressively the flaw was weaponized in the wild.</p>
+        <p>MLflow is particularly attractive because AI infrastructure frequently runs with relaxed security postures: unauthenticated instances, broad IAM roles for notebook access, and direct internet exposure are common. A single SSRF exploitation can pivot to full cloud account compromise.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> MLflow is a tool that AI developers use to track and manage their experiments, like a lab notebook for machine learning. This flaw tricks MLflow into acting as a proxy — instead of calling the external website it's supposed to, attackers make it call an internal phone line that answers "here are the keys to this cloud account." The attacker never had direct access, but MLflow handed over the keys on their behalf.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-64849 · CVSS: 9.3/10 — Critical DNS-rebinding SSRF bypass in MLflow webhook delivery enabling unauthenticated cloud credential theft via instance metadata endpoints; added to CISA KEV Aug 19, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Zimbra SNMP RCE - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/attackers-exploit-zimbra-snmp-flaw-for.html" style="color:#111827;text-decoration:none;">Attackers Exploit Zimbra SNMP Flaw for Unauthenticated Remote Code Execution</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CERT Polska issued Alert 145/2026 confirming active exploitation of CVE-2026-73570, an OS command injection in Zimbra Collaboration Suite's SNMP monitoring path that allows unauthenticated remote attackers to run arbitrary commands as the zimbra system account by sending a specially crafted SMTP message.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Zimbra Collaboration with the zimbra-snmp package installed and the swatchdog service enabled — a configuration that is on by default for SNMP-enabled deployments — on versions prior to 10.1.20.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade Zimbra to version 10.1.20 immediately; if patching is delayed, disable the zimbra-snmp package or stop the swatchdog service; inspect all files created by the zimbra user in the last 30 days for indicators of compromise.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Persistence] T1505 · Server Software Component<br>
+      <span style="color:#6b7280;">Attackers weaponize Zimbra's built-in SNMP monitoring subsystem (swatchdog) as an unexpected execution vector, injecting OS commands through malformed SNMP trap notifications to achieve persistent code execution under the zimbra account outside the main mail service process.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-73570 is an OS command injection in Zimbra's swatchdog monitoring service, which processes SNMP trap notifications. The service fails to sanitize untrusted input before passing it to shell commands, allowing an attacker to craft malicious SMTP messages that trigger SNMP trap notifications containing embedded OS commands. No authentication is required at any point in the attack chain.</p>
+        <p>The zimbra account typically holds read access to the entire mail spool — potentially millions of emails, contacts, and calendar entries — along with TLS certificates, LDAP credentials, and database connection strings in many enterprise deployments. Initial access via this vector is therefore a likely gateway to full infrastructure compromise. Zimbra patched the issue in version 10.1.20 on July 20, 2026; CERT Polska's warning came nearly a month later, confirming that many organizations had not yet applied the fix.</p>
+        <p>Organizations that have not installed the optional zimbra-snmp package are not affected even on older Zimbra versions, providing a simple mitigation path for those who cannot patch immediately.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Zimbra is popular business email software — think corporate Gmail. This flaw is in Zimbra's built-in "health monitor," a background program that watches for server problems. Attackers found they could slide a fake health alert into its inbox that actually hides a command saying "run this code for us." Because the health monitor runs with elevated system access to do its job, the attacker inherits those same privileges and can read all emails on the server.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-73570 · CVSS: 8.9/10 — OS command injection in Zimbra's SNMP swatchdog service enabling unauthenticated remote code execution as the zimbra service account; patched in version 10.1.20, July 20, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: Head Mare / PhantomCore - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/head-mare-exploits-trueconf-flaws-to.html" style="color:#111827;text-decoration:none;">CISA: Head Mare Exploits TrueConf Server Flaws to Replace Installers with PhantomCore Backdoor</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA urgently warned organizations to patch two TrueConf Server vulnerabilities (KLCERT-26-057 and KLCERT-26-058) after the Head Mare hacktivist group exploited them to replace legitimate client installers on compromised servers with trojanized versions silently delivering the PhantomCore and PhantomGraph backdoors to every user who downloaded the software.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using unpatched TrueConf Server, primarily Russian entities in energy, transportation, IT, instrumentation, and electronics sectors targeted by Head Mare's ongoing geopolitically motivated campaign.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply TrueConf Server patches from June 18, 2026 immediately; verify the cryptographic signature of any client installers served from your server; scan workstations that downloaded TrueConf software after July 2026 for PhantomCore indicators of compromise.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Resource Development] T1584.004 · Compromise Infrastructure: Server<br>
+      <span style="color:#6b7280;">Head Mare compromised publicly accessible TrueConf servers and substituted the official client installer with a malicious trojanized version, transforming the vendor's own software distribution infrastructure into a malware delivery pipeline against its end users.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Head Mare exploited two critical TrueConf Server flaws tracked by Kaspersky as KLCERT-26-057 and KLCERT-26-058, which allowed arbitrary code execution with SYSTEM privileges. Once inside the server, attackers replaced the TrueConf client download package with a trojanized version. When employees ran what appeared to be the official conferencing client, they silently installed PhantomCore — Head Mare's custom Remote Access Tool (RAT) — giving attackers persistent access and credential-harvesting capabilities. A more capable variant, PhantomGraph, was also distributed in some deployments.</p>
+        <p>PhantomCore supports file exfiltration, screenshot capture, keylogging, and encrypted C2 communications. The only visible indicator of compromise was the absence of a valid digital signature on the malicious installer — a check many organizations skip for internal software distribution servers. Kaspersky published technical analysis on August 7; CISA added the TrueConf vulnerabilities to its KEV catalog shortly after, with an urgent patching mandate for federal agencies.</p>
+        <p>Head Mare's campaign reflects an escalation in hacktivist-aligned threat actor capabilities: moving from website defacement to sophisticated long-term access operations against Russian critical infrastructure. Vendor patches have been available since June 18, 2026 — organizations running unpatched TrueConf Server have had over two months of exposure.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> TrueConf is video conferencing software, like a corporate version of Zoom. This attack is like breaking into the app store an IT department uses to deploy software, then swapping the real Zoom installer for a fake one that looks identical but also secretly installs spy software. Every employee who "updates" their video conferencing app actually invites attackers onto their computer — and they'll never notice anything is wrong.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">KLCERT-26-057 / KLCERT-26-058 · CVSS: Critical — Remote code execution in TrueConf Server enabling server compromise and delivery of PhantomCore/PhantomGraph backdoors via trojanized client installers; patched June 18, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Head Mare -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Head Mare</div>
+  <div style="opacity:.85;margin-top:4px;">Hacktivist Group · Attributed to: Pro-Ukrainian alignment</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Russian and Belarusian organizations across critical infrastructure — energy, transportation, IT, instrumentation, and electronics manufacturing sectors</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Escalating from traditional hacktivist website defacement to sophisticated persistent access operations; developing custom backdoors (PhantomCore, PhantomGraph); exploiting unpatched enterprise server software to compromise software distribution infrastructure and deliver malware to end users at scale</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Build-Time Code Execution ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Most developers know that running untrusted software is risky, but fewer realize that simply <em>compiling</em> code can silently execute arbitrary commands on their machine. In Rust, build scripts (<code>build.rs</code> files) and procedural macros run automatically when you type <code>cargo build</code> — before any compiled program ships to production. Today's crates.io supply chain attack exploited exactly this: a hidden proc-macro1 build script inside the malicious arrayref release fetched and executed an infostealer payload at compile time, meaning every developer and CI pipeline that ran a build during the 86-minute exposure window was silently compromised without ever running the attacker's code directly. This is why many security-conscious organizations now run builds in sandboxed environments with no outbound network access and verify cargo.lock checksums before building.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: SSRF · ROPC · PoC · proc-macro · MFA · CVSS ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SSRF</strong> — Server-Side Request Forgery: an attack where a server is tricked into making HTTP requests to unintended internal or cloud-metadata destinations on an attacker's behalf, bypassing network access controls that would normally block the attacker directly.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ROPC</strong> — Resource Owner Password Credentials: a legacy OAuth 2.0 grant type that accepts a username and password directly, bypassing MFA and SSO flows; widely abused in password spraying attacks because it leaves no MFA challenge in the login flow.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PoC</strong> — Proof of Concept: a working demonstration of a vulnerability or attack technique that proves it is exploitable in practice, typically published by researchers after a patch is available — but sometimes, as with ShieldBreak, before one exists.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">proc-macro</strong> — Procedural Macro: a Rust language feature that generates or transforms code at compile time; when a malicious package masquerades as a legitimate proc-macro, its code runs automatically on the developer's machine during <code>cargo build</code> — no separate execution step required.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MFA</strong> — Multi-Factor Authentication: a login security method requiring a second verification step — such as a one-time code, push notification, or hardware key — in addition to a password, making stolen credentials less useful to attackers even when ROPC-style bypasses do not apply.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System: a standardized 0–10 numeric scale rating vulnerability severity, where 0–3.9 is Low, 4.0–6.9 Medium, 7.0–8.9 High, and 9.0–10.0 Critical; scores above 9 indicate flaws that are trivially exploitable with catastrophic impact.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/password-spraying-attacks-surge-155x-as-hackers-exploit-mfa-gaps/" style="color:#374151;text-decoration:none;">Password Spraying Attacks Surge 155x as Hackers Exploit MFA Gaps</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 22, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
