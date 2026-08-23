@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 23, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 23, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 2 critical · 5 high · 2 medium · ~18 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - CVE-2026-68820 Windows afd.sys / Lazarus Group -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 22, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/microsoft-patches-398-flaws-including.html" style="color:#111827;text-decoration:none;">Lazarus Group Exploits Windows Zero-Day CVE-2026-68820 — CISA Mandates Patch by August 25</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> North Korea's Lazarus Group is actively exploiting a use-after-free vulnerability in the Windows Ancillary Function Driver (afd.sys) to escalate privileges to SYSTEM, deploying a kernel-mode rootkit as part of the Operation Dream Job campaign.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All unpatched Windows systems — particularly organizations in defense, aerospace, finance, and software development that Lazarus Group routinely targets through fake job offer lures.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's August 2026 Patch Tuesday update immediately; CISA has set a mandatory federal patch deadline of August 25, 2026 — two days away.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Lazarus Group exploits this UAF flaw in Windows' afd.sys kernel driver to escalate from user-level access to SYSTEM privileges, bypassing OS access controls as the next step after initial compromise in the Operation Dream Job intrusion chain.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">CVE-2026-68820 is a use-after-free (UAF) bug in afd.sys — the kernel-mode Windows Sockets API driver that underpins every networked application on the platform. Check Point researchers identified Lazarus Group weaponizing this flaw as a privilege escalation step in their Operation Dream Job campaign, which lures software developers with fake job interview materials (malicious code challenges or documents) before pivoting to malware deployment.</p>
+        <p style="margin:0 0 10px 0;">Once the attackers obtain initial access through the social engineering lure, CVE-2026-68820 elevates execution from user-level privileges all the way to SYSTEM — the highest privilege on a Windows machine. From there, Lazarus loads a kernel-mode rootkit (a successor to their FudModule tooling) that survives reboots, hides processes from task managers, and evades standard endpoint detection. CISA added this CVE to its Known Exploited Vulnerabilities catalog with a federal patch deadline of August 25.</p>
+        <p style="margin:0 0 10px 0;">The urgency is unusually high even for an elevation-of-privilege vulnerability: Lazarus Group is one of the most prolific and dangerous nation-state actors on the planet, responsible for the $1.5B Bybit cryptocurrency theft, WannaCry ransomware, and years of targeted attacks on defense contractors. Organizations receiving unsolicited "dream job" outreach on LinkedIn or through recruiters should treat any accompanying documents or code repositories as potentially malicious.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your computer has a "ring system" where the most trusted, all-powerful code runs in the "kernel" (the innermost ring). Most apps run in outer rings with limited power. This bug lets malicious software in an outer ring trick the kernel into granting inner-ring access — like a regular employee exploiting a badge system glitch to get the master key to the entire building. North Korean hackers are using this right now, getting initial access through fake job offers on LinkedIn, then using this kernel bug to take complete control of the victim's computer.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-68820 · CVSS: 7.8/10 — Local privilege escalation via use-after-free in afd.sys; rated High but treated as Critical-urgency due to confirmed nation-state exploitation and CISA KEV deadline.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Lazarus Group -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Lazarus Group (Hidden Cobra / ZINC)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: North Korea (DPRK)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Cryptocurrency exchanges, defense contractors, software developers, aerospace companies, financial institutions, and supply chains — with recent Operation Dream Job campaigns specifically targeting engineers via fake job lures.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> $1.5B+ in stolen cryptocurrency, WannaCry ransomware, FudModule kernel rootkit, BYOVD (Bring Your Own Vulnerable Driver) attacks, and multi-stage intrusion chains that begin with social engineering and end with persistent kernel-level access.</div>
+</div>
+
+<!-- STORY 2: CRITICAL - VMware vCenter CVE-2026-59310 / Babuk Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 22, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" style="color:#111827;text-decoration:none;">China-Nexus Actors Exploit VMware vCenter CVE-2026-59310 (CVSS 9.8) to Deploy Babuk Ransomware Across 47 Countries</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A suspected Chinese state-linked threat actor exploited a critical directory traversal vulnerability in VMware vCenter Server just five days after patching, gaining root-level code execution and deploying Babuk-derived ransomware against ESXi hypervisors across 361 confirmed victim organizations in 47 countries.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched VMware vCenter Server (patched July 29, 2026 by Broadcom) — the attacks have hit targets in Germany, the US, Turkey, Iran, France, and 42 other countries spanning IT, healthcare, government, and critical infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Broadcom's July 29, 2026 vCenter patch immediately; audit ESXi environments for the "linuxFile" backdoor in cron jobs, unexpected new file extensions on VMDK files, and anomalous syslog receiver activity.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">After gaining root access via the vCenter directory traversal exploit, the China-nexus actor deploys a Babuk-derived encryptor directly against ESXi hypervisors, targeting large VMDK files and rendering virtual machines unbootable across victim organizations as both a ransomware payload and potential cover for espionage activity.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">CVE-2026-59310 is a directory traversal vulnerability in VMware vCenter Server's syslog receiver component — a function that processes log data from ESXi hosts. A malicious actor with network access can send a crafted syslog message that causes vCenter to read from or write to arbitrary filesystem paths, ultimately enabling root-level code execution on the vCenter Server Appliance (VCSA). Broadcom patched the flaw on July 29, but exploitation began just five days later.</p>
+        <p style="margin:0 0 10px 0;">German incident responders at QUIRSO, analyzing multiple victim environments, assessed with moderate confidence that the campaign is operated by a Chinese-speaking actor based on operational timing patterns (UTC+08:00 working hours) and victim sector selection. The attack chain installs a backdoor called "linuxFile" via cron job for persistence, then deploys a Babuk-derived ESXi ransomware encryptor that targets large VMDK files — partially encrypting the first 512 MB, which is sufficient to make virtual machines unbootable while reducing encryption time across a fleet of VMs.</p>
+        <p style="margin:0 0 10px 0;">Analysts note the ransomware deployment may be a secondary objective or deliberate misdirection: the same persistent root access on vCenter provides full visibility into every virtual machine in the environment, making it ideal for espionage. With 361 victims across 47 countries already confirmed, this is one of the most rapidly propagating vCenter exploitation campaigns on record.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> VMware vCenter is the "control room" for organizations that run many virtual computers (VMs) on shared hardware. This bug lets hackers walk in through a mislabeled emergency exit in vCenter's log-receiving system — no password required. Once inside the control room, they can simultaneously lock every virtual computer in the building with ransomware, like a jailer locking all cells at once. Over 360 organizations across 47 countries have already been hit.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-59310 · CVSS: 9.8/10 — Critical directory traversal enabling unauthenticated root RCE on VMware vCenter VCSA; actively exploited since August 3, 2026 to deploy Babuk ransomware against ESXi.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH - GitLab CVE-2026-19478 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/gitlab-cve-2026-19478-comes-under.html" style="color:#111827;text-decoration:none;">GitLab Critical GraphQL Flaw CVE-2026-19478 Under Active Exploitation Hours After Emergency Patch</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A critical unauthenticated code injection flaw in GitLab's GraphQL API (CVE-2026-19478, CVSS 9.4) allows attackers to modify or delete any public project and user data without credentials — and WatchTowr's honeypots detected exploitation attempts within hours of the August 17 emergency patch.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations self-hosting GitLab Community Edition or Enterprise Edition running versions before 19.2.4, 19.1.6, 19.0.8, or 18.11.11 — attackers can destroy source code, CI/CD pipelines, and secrets with no authentication required.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update GitLab to versions 19.2.4, 19.1.6, 19.0.8, or 18.11.11 immediately; if unpatched, restrict unauthenticated access to the /api/graphql endpoint and hunt web logs for requests containing '@gl_introduced'.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Threat actors exploit GitLab's internet-facing GraphQL endpoint without authentication, injecting directives to bypass authorization checks and modify or destroy public projects — potentially wiping CI/CD pipelines, exfiltrating secrets, and destroying forensic evidence of earlier intrusions.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">GitLab's GraphQL API — the interface through which developers, CI/CD pipelines, and integrations communicate with the platform — contained a code injection flaw triggered by a specially crafted GraphQL directive that bypassed all authorization checks. This was GitLab's third GraphQL security fix of 2026, suggesting systematic problems in how the platform handles GraphQL directive processing. GitLab issued the emergency patch on August 17, outside its normal twice-monthly release cycle.</p>
+        <p style="margin:0 0 10px 0;">The business impact is severe for self-hosted instances: GitLab stores source code repositories, CI/CD configuration (including secrets and deployment keys), issue trackers, merge request histories, and HackerOne-style vulnerability disclosures. An attacker exploiting CVE-2026-19478 without any account or credentials can modify or destroy public projects — potentially wiping a company's entire software development history, corrupting automated deployment pipelines, or silently exfiltrating intellectual property before triggering deletion to destroy forensic evidence.</p>
+        <p style="margin:0 0 10px 0;">Security researcher hiimguardian, who discovered the bug through GitLab's HackerOne program, noted the flaw could be reproduced "within minutes of reading the advisory." WatchTowr's honeypot network confirmed exploitation attempts materialized within hours of public disclosure — the race to patch was essentially lost before it began for organizations that weren't monitoring their patch cadence.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> GitLab is like a secure vault storing a company's software blueprints. GraphQL is the "ask the vault anything" messaging system developers use. This bug is like a magic phrase that bypasses the vault's receptionist — anyone off the street can walk up, say the phrase, and shred all the blueprints or read them. Hackers reverse-engineered the magic phrase within hours of the patch being published, meaning unpatched GitLab servers are actively under attack right now.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-19478 · CVSS: 9.4/10 — Critical unauthenticated code injection via GraphQL directive in GitLab CE/EE; in-the-wild exploitation confirmed by WatchTowr honeypots.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - Zimbra CVE-2026-73570 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityOnline · Aug 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityonline.info/zimbra-cve-2026-73570/" style="color:#111827;text-decoration:none;">Zimbra Unauthenticated RCE Flaw CVE-2026-73570 Actively Exploited via SNMP Command Injection</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CERT Polska confirmed active in-the-wild exploitation of CVE-2026-73570, an unauthenticated OS command injection flaw in Zimbra Collaboration Suite's optional zimbra-snmp package (CVSS 8.9), allowing attackers to run arbitrary shell commands as the zimbra user with no credentials.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Zimbra Collaboration Suite versions before 10.1.20 with the zimbra-snmp package installed and SNMP notifications enabled — primarily government agencies, healthcare organizations, and enterprises using Zimbra for email.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to Zimbra 10.1.20 (patched July 20, 2026) or immediately disable the zimbra-snmp package; hunt for newly created web shells and unexpected script files in Zimbra application directories.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1059.004 · Command and Scripting Interpreter: Unix Shell<br>
+      <span style="color:#6b7280;">Attackers inject arbitrary OS shell commands through Zimbra's SNMP notification handler — a component that runs as the zimbra user — executing without any authentication to deploy web shells, exfiltrate email archives, or establish persistence on the compromised mail server.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">CVE-2026-73570 exploits a flaw in Zimbra's SNMP notification handler — the component that sends network management alerts to monitoring systems. The vulnerability allows an unauthenticated attacker to inject arbitrary OS commands into a SNMP trap message, which are then executed as the "zimbra" OS user. No authentication is required, and the attack complexity is low, making it accessible to a wide range of threat actors.</p>
+        <p style="margin:0 0 10px 0;">With zimbra-user-level access, attackers can read all email data stored on the server, deploy web shells to the Zimbra web root for persistent browser-based command execution, modify application configuration files, extract LDAP credentials stored in Zimbra's configuration, and pivot to other systems within the corporate network. Zimbra mail servers are particularly high-value targets because they hold years of internal communications, sensitive business negotiations, and credentials sent via email.</p>
+        <p style="margin:0 0 10px 0;">Zimbra released the fix (version 10.1.20) on July 20, but the flaw was only reported as being actively exploited by CERT Polska on August 17 — a one-month gap during which unpatched servers were at risk. The timing suggests threat actors had access to the vulnerability details (or conducted independent discovery) ahead of widespread public awareness.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Zimbra is an email system used by thousands of organizations. SNMP is a background monitoring tool — like a health sensor for network equipment — that usually operates quietly in the background. This bug means the health sensor has a broken input validation system: an attacker can slide a malicious "message" into the sensor that causes the email server to blindly execute commands for them. No login needed. Poland's national cybersecurity team confirmed attackers are walking through this door right now.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-73570 · CVSS: 8.9/10 — Unauthenticated OS command injection via SNMP handler in Zimbra Collaboration Suite; actively exploited per CERT Polska advisory (August 17, 2026).</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH - Azure Credential Theft / TheHatman -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CyberSecurityNews · Aug 22, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/azure-credential-theft-campaign/" style="color:#111827;text-decoration:none;">TheHatman Azure Credential Theft Campaign Hits McDonald's, Vodafone, TCS, and 6+ Fortune 500 Enterprises</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A criminal threat actor known as "TheHatman" used stolen Azure/Entra ID credentials — likely harvested via infostealer malware — to exfiltrate millions of employee records from at least nine major enterprises including McDonald's (1.7M records), TCS (800K), Vodafone (425K), and Kyndryl, selling the data on underground forums.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any enterprise using Microsoft Azure with compromised credentials or insufficient MFA enforcement on administrative and service accounts — the campaign has already claimed victims across IT services, hospitality, telecommunications, retail, and logistics sectors.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately audit Azure Entra ID sign-in logs for anomalous access, enforce MFA on all accounts without exception, rotate any credentials exposed to infostealer risk, and review third-party app permissions for excessive read access across Azure tenants.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1078.004 · Valid Accounts: Cloud Accounts<br>
+      <span style="color:#6b7280;">TheHatman abuses legitimate Azure/Entra ID credentials — almost certainly stolen via infostealer malware harvesting session tokens and passwords from employee devices — to authenticate as authorized users and exfiltrate millions of enterprise records directly from corporate cloud tenants without triggering volume-based anomaly alerts.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">TheHatman's campaign exploits one of the most persistent weaknesses in enterprise cloud security: credential reuse and infostealer infections on employee endpoints. By compromising employee credentials — likely through RedLine, Lumma, or similar infostealer malware that silently records passwords and session tokens from infected devices — TheHatman can authenticate to Azure/Entra ID as a legitimate user, bypassing network perimeter defenses entirely because the access looks like authorized activity.</p>
+        <p style="margin:0 0 10px 0;">The attack's breadth is notable: TheHatman flooded underground forums with listings for at least nine Fortune 500-level enterprises over the course of a single week. The data includes employee directories with names, email addresses, phone numbers, and organizational hierarchies — valuable for targeted spear phishing and business email compromise (BEC) campaigns downstream. TCS disputed the breach claim, stating the information "appears to be more than four years old," but the campaign illustrates the systemic risk of stale, MFA-exempt cloud credentials across large enterprise environments.</p>
+        <p style="margin:0 0 10px 0;">With organizations continuing to expand Azure environments with numerous service accounts, external partner integrations, and contractor access, any single compromised credential with excessive read permissions can expose the entire tenant's user directory. Security teams should treat infostealer infections on employee devices as potential Azure credential compromises and respond accordingly.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Azure is Microsoft's cloud computing system, and Entra ID is the digital keycard system companies use to control who can access what. TheHatman stole employee keycards — probably using malware that secretly records passwords as employees type them — and used them to access corporate cloud systems as if they were authorized staff. The attacker didn't need to hack anything technical; they just used stolen keys that still worked, the same way a thief who finds your lost keycard could enter your building.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: TheHatman -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">TheHatman</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Threat Actor · Attribution: Unknown (underground forum seller)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Fortune 500 and large enterprises across IT services, hospitality, telecommunications, retail, and logistics — any organization with Azure/Entra ID deployments that may have credential hygiene weaknesses.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Mass-scale Azure/Entra ID credential abuse campaigns, systematic exfiltration and underground-forum sale of enterprise employee directories, and flooding criminal markets with bulk enterprise data from multiple Fortune 500 victims in rapid succession.</div>
+</div>
+
+<!-- STORY 6: HIGH - isolated-vm sandbox escape -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/isolated-vm-flaw-lets-sandboxed.html" style="color:#111827;text-decoration:none;">Critical Type Confusion in isolated-vm Allows Sandboxed JavaScript to Escape to Host — AI Agent Platforms at Risk</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researchers at Endor Labs discovered a critical type confusion vulnerability (GHSA-864f-rcv7-6rh4) in the isolated-vm npm library that allows JavaScript code running inside a V8 Isolate sandbox to corrupt host process memory and achieve full host-level code execution, breaking the sandbox security guarantee entirely.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any application using isolated-vm to execute untrusted JavaScript — particularly AI agent platforms and automation tools such as n8n, Activepieces, and Mastra AI, which collectively see nearly 1 million npm downloads per week.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately update isolated-vm to version 6.2.0 or 7.0.1; treat any system that ran untrusted code using the vulnerable package as potentially compromised and investigate host-level activity logs.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1059.007 · Command and Scripting Interpreter: JavaScript<br>
+      <span style="color:#6b7280;">The type confusion flaw allows attacker-controlled JavaScript running inside the isolated-vm sandbox to corrupt host memory and escalate to arbitrary code execution on the host process — turning a sandbox designed to safely execute untrusted JS into a direct code execution vector against the hosting server.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">isolated-vm is an npm library with nearly 1 million weekly downloads used to safely execute untrusted JavaScript inside a V8 Isolate — Google's JavaScript engine used in Chrome and Node.js — providing a hard boundary between untrusted guest code and the host application. The vulnerability (GHSA-864f-rcv7-6rh4) lies in ExternalCopy's handling of the transferList option: when JavaScript objects are transferred across the sandbox boundary, incorrect type assumptions allow attacker-controlled code inside the sandbox to write arbitrary data to host process memory, a classic type confusion exploitation path.</p>
+        <p style="margin:0 0 10px 0;">Endor Labs researchers demonstrated a full exploit chain: starting from a controlled-address crash, they escalated to complete control-flow hijacking in the host Node.js process — a guest-to-host sandbox escape with no pre-existing privileges needed inside or outside the sandbox. The vulnerability is especially alarming for AI agent platforms that routinely execute model-generated or user-provided code inside supposed "safe" sandboxes: a prompt injection attack that causes an LLM to generate malicious JavaScript could now result in complete server compromise, not just sandbox-level damage.</p>
+        <p style="margin:0 0 10px 0;">Patches are available in versions 6.2.0 and 7.0.1. Given the widespread use of isolated-vm in the AI automation ecosystem, organizations should treat this as a high-priority update and audit any systems that have executed untrusted code using the affected versions for signs of host-level compromise.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> isolated-vm is like a sealed "clean room" inside a server where untrusted code (like plugins, user scripts, or AI-generated code) can run safely, completely isolated from the real system. This bug is like a defect in the clean room's airlock: a specially crafted object handed through the airlock can cause the room to malfunction, blow the seal, and give the untrusted code access to everything outside. For AI coding assistants and automation platforms, this means a cleverly worded prompt could trick an AI into generating code that breaks out of the sandbox and takes over the server.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">GHSA-864f-rcv7-6rh4 (CVE pending) · CVSS: Critical — Type confusion in V8 ExternalCopy transferList handler enabling full guest-to-host sandbox escape; patched in isolated-vm 6.2.0 and 7.0.1.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 7: HIGH - DentaQuest 23M breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 22, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/dentaquest-data-breach-potentially-impacts-over-23-million-people/" style="color:#111827;text-decoration:none;">DentaQuest Data Breach Toll Surpasses 23 Million as Health Records, SSNs of Children Exposed by ShinyHunters</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> DentaQuest confirmed that ShinyHunters exfiltrated 234 GB of patient data during a May 17–20, 2026 intrusion, leaking names, Social Security numbers, Medicaid/Medicare IDs, dates of birth, health diagnoses, and dental/vision treatment records; the breach toll has now surpassed 23 million people.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> An estimated 23+ million Americans — disproportionately Medicaid and Children's Health Insurance Program (CHIP) enrollees, with 1.7 million unique SSNs confirmed in the dataset, the majority belonging to minors.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> If you or your children received DentaQuest dental or vision benefits, monitor credit reports, place a fraud alert or credit freeze for any minors, and watch for breach notification letters containing identity protection service offers.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Exfiltration] T1567 · Exfiltration Over Web Service<br>
+      <span style="color:#6b7280;">ShinyHunters exfiltrated 234 GB of patient health records from DentaQuest's environment and subsequently staged the data on their dark-web leak site after failed ransom negotiations — using web-based channels to transfer the data out and to distribute it as leverage, a classic double-extortion playbook.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px 0;">DentaQuest — one of the largest dental and vision benefits administrators in the US, serving millions of Medicaid and CHIP enrollees — discovered unauthorized access to its network between May 17–20, 2026. ShinyHunters claimed responsibility, stating it exfiltrated 234 GB of data and attempted to negotiate a ransom before publishing the archive on their dark-web leak site when negotiations failed. The company began mailing breach notification letters to approximately 15 million people in July; the total affected count has since grown beyond 23 million as investigations continued.</p>
+        <p style="margin:0 0 10px 0;">The exposed data is extraordinarily sensitive even by breach standards: names, Social Security numbers, Medicaid and Medicare identification numbers, dates of birth, home addresses, provider names, diagnoses, treatment history, and billing details. One researcher who analyzed the dataset found 1.7 million unique Social Security numbers — the majority belonging to children. Children are high-value identity theft targets because their clean credit histories can be exploited for years, often not discovered until the child applies for their first job or loan as a young adult.</p>
+        <p style="margin:0 0 10px 0;">This breach is the second major ShinyHunters health-sector attack in recent weeks, following the RingCentral breach. Health data sells at a premium on criminal markets because it enables both identity fraud and medical fraud (billing Medicare or insurance under a stolen member ID). Affected individuals should consider placing credit freezes for any minor children on all three major bureaus (Equifax, Experian, TransUnion) as a precaution.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> DentaQuest manages dental insurance for millions of Americans, many of them children on Medicaid. Hackers broke in and quietly copied 234 GB of records — imagine 234,000 novels' worth of data — including Social Security numbers mostly belonging to kids. Children are particularly attractive targets for identity theft because their clean credit record can be exploited for decades before anyone notices; a thief can open credit cards or take out loans in a child's name and it may go undetected until the child turns 18.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: ShinyHunters -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">ShinyHunters</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Extortion Group · Attribution: Multinational (several members arrested 2024–2025)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Cloud-hosted databases, healthcare organizations, SaaS platforms, financial services — any organization storing large volumes of PII in cloud environments with accessible APIs or third-party integrations.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Snowflake credential-stuffing campaign (2024), AT&T, Ticketmaster, and Santander breaches, double-extortion model (steal first, demand ransom, then publish), and 2026 campaigns against DentaQuest and RingCentral exposing tens of millions of records.</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Type Confusion Vulnerability ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A type confusion vulnerability occurs when a program is given data of one type but incorrectly treats it as a different type — for example, processing a JavaScript object as if it were a raw memory buffer — causing the program to make incorrect assumptions about memory size or layout and allowing an attacker to read or write arbitrary memory. Type confusion is a root cause of some of the most dangerous classes of exploits in browsers, JavaScript engines, and sandboxes because the programmer's intent and the runtime's behavior silently diverge. The isolated-vm sandbox escape disclosed this week is a textbook example: by crafting an object that the VM's transferList handler misidentified during cross-boundary copying, researchers were able to corrupt host memory and achieve full code execution outside the sandbox.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: GraphQL · BPO · EDR · APT ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">GraphQL</strong> — A query language and runtime for APIs that lets clients request exactly the data they need from a server, replacing traditional REST endpoints; when misconfigured, its powerful query capabilities can be exploited by unauthenticated callers to access or modify data they should not.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">BPO</strong> — Business Process Outsourcing; a third-party vendor contracted to handle specific business functions (customer support, HR, data entry) on behalf of another company, whose access to the client's systems makes them an attractive indirect supply-chain attack vector, as seen in the Adobe breach via an Indian BPO firm.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">EDR</strong> — Endpoint Detection and Response; security software deployed on individual devices that continuously monitors for suspicious behavior, logs telemetry, and can automatically quarantine threats — and which Akira ransomware bypassed this week by rebooting systems into Windows Safe Mode, where most third-party security software does not load.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">APT</strong> — Advanced Persistent Threat; a sophisticated, typically nation-state-sponsored group that conducts prolonged, targeted cyber operations against specific organizations for espionage, sabotage, or financial gain — the term "advanced" refers to the quality of tradecraft, not necessarily novel malware, and examples include Lazarus Group (North Korea) active in today's digest.
+    </div>
+  </div>
+</details>
+
+<!-- WEEK IN REVIEW (Sunday) -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:12px;">📅 Week in Review — Aug 17–23, 2026</div>
+  <div style="display:flex;gap:10px;margin-bottom:12px;">
+    <div style="flex:1;text-align:center;padding:10px;background:#fef2f2;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#dc2626;">14</div>
+      <div style="font-size:11px;color:#6b7280;">Critical</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fff7ed;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ea580c;">25</div>
+      <div style="font-size:11px;color:#6b7280;">High</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fefce8;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ca8a04;">11</div>
+      <div style="font-size:11px;color:#6b7280;">Medium</div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:#374151;margin-bottom:6px;"><strong>Key ATT&CK techniques:</strong> T1068 · T1190 · T1486 · T1528 · T1078.001 · T1059 · T1574 · T1562.001 · T1567 · T1078.004</div>
+  <div style="font-size:13px;color:#374151;margin-bottom:10px;"><strong>Threat actors active:</strong> Lazarus Group · ShinyHunters · TheHatman · Medusa Ransomware · Head Mare · DeadLock · Jewelbug</div>
+  <div style="font-size:13px;color:#374151;line-height:1.6;padding:10px;background:#f8fafc;border-radius:4px;">The week of August 17–23 was defined by two dominant themes: rapid exploitation of newly patched enterprise vulnerabilities (GitLab, VMware vCenter, Zimbra, SAP, Windows kernel) with threat actors weaponizing flaws within days or hours of disclosure, and coordinated data theft operations by ShinyHunters and TheHatman targeting tens of millions of health and enterprise records. Nation-state actors — particularly North Korea's Lazarus Group and a suspected China-nexus APT — drove the highest-severity incidents, while criminal groups monetized credential theft at industrial scale through Azure cloud environments. Organizations should prioritize August Patch Tuesday updates and cloud identity hygiene as the week's clearest defensive lessons.</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.huntress.com/blog/akira-hits-safe-mode-ransomware-rebooting-around-edr" style="color:#374151;text-decoration:none;">Akira Ransomware Reboots Windows Into Safe Mode to Disable EDR, Then Exfiltrates Data — Even When Encryption Fails</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Huntress</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/08/sap-commerce-cloud-cve-2026-58231.html" style="color:#374151;text-decoration:none;">SAP Commerce Cloud CVE-2026-58231 (CVSS 10.0) Actively Exploited Three Days After Patch — Unauthenticated RCE via Data Hub Adapter</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 23, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

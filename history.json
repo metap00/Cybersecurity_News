@@ -1,14 +1,15 @@
 {
-  "til": ["Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability", "Hard-coded Credentials", "Cryptojacking", "DNS Rebinding Attack", "Build-Time Code Execution"],
-  "glossary": ["Dead Drop Resolver", "Sandbox Escape", "Agentic AI", "ExploitGym", "SNMP", "Deserialization", "Clop", "CWE", "APN", "OT", "PLC", "Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh", "SOCKS5", "Entra ID", "InfoStealer", "C2", "MITRE ATT&CK", "VoLTE", "SoC", "XG-Web", "ShinyHunters", "Monero", "RMM", "DNS Rebinding", "Crates.io", "EtherHiding", "DPRK", "cargo", "RCE", "SSRF", "ROPC", "PoC", "proc-macro", "MFA", "CVSS"],
+  "til": ["Type Confusion Vulnerability", "Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability", "Hard-coded Credentials", "Cryptojacking", "DNS Rebinding Attack"],
+  "glossary": ["GraphQL", "BPO", "EDR", "APT", "Dead Drop Resolver", "Sandbox Escape", "Agentic AI", "ExploitGym", "SNMP", "Deserialization", "Clop", "CWE", "APN", "OT", "PLC", "Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh", "SOCKS5", "Entra ID", "InfoStealer", "C2", "MITRE ATT&CK", "VoLTE", "SoC", "XG-Web", "ShinyHunters", "Monero", "RMM", "DNS Rebinding", "Crates.io", "EtherHiding", "DPRK", "cargo", "RCE", "SSRF"],
   "week": {
-    "critical": 12,
-    "high": 20,
-    "medium": 9,
-    "techniques": ["T1068", "T1190", "T1486", "T1213", "T1530", "T1528", "T1078.001", "T1090.002", "T1496", "T1189", "T1203", "T1133", "T1110", "T1210", "T1552", "T1485", "T1102", "T1059", "T1489", "T1195.001", "T1556", "T1059.004", "T1021", "T1574", "T1548", "T1195.002", "T1417", "T1552.005", "T1505", "T1584.004"],
-    "actors": ["Lazarus Group", "Medusa Ransomware", "Jewelbug", "ShinyHunters", "TheHatman", "DeadLock", "Head Mare"]
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "techniques": [],
+    "actors": []
   },
   "digests": [
+    {"date": "2026-08-23", "threat": "ELEVATED", "critical": 2, "high": 5, "medium": 2},
     {"date": "2026-08-22", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 1},
     {"date": "2026-08-21", "threat": "ELEVATED", "critical": 1, "high": 4, "medium": 2},
     {"date": "2026-08-20", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
