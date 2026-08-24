@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 24, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 24, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 4 high · 2 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - VMware vCenter CVE-2026-59310 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" style="color:#111827;text-decoration:none;">China-Nexus APT Exploits VMware vCenter Flaw CVE-2026-59310, Deploys Babuk Ransomware on 361 Servers</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A suspected Chinese-nexus APT is actively exploiting CVE-2026-59310, a CVSS 9.8 directory-traversal flaw in VMware vCenter enabling unauthenticated remote code execution, compromising 361 servers across 47 countries within 48 hours of the patch release.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running unpatched VMware vCenter Server — widely used for managing virtual machine infrastructure in enterprises and data centers globally.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Broadcom's patch (released July 29, 2026) immediately; audit vCenter logs for cron job creation, unexpected SSO accounts, or ESXi access from unusual sources.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers exploit this unauthenticated directory-traversal bug through vCenter's HTTPS management interface to execute arbitrary code without credentials, achieving an immediate foothold inside the victim's virtualization layer.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>German incident response firm QUIRSO assessed with moderate confidence that the exploitation campaign is operated by a Chinese-speaking threat actor — possibly linked to a known nation-state group — based on Chinese-language artifacts in attacker scripts, reuse of techniques published in Chinese security research, and activity patterns consistent with UTC+8 working hours. Crucially, the victimology deliberately excludes mainland China, a signature pattern of state-directed operations.</p>
+        <p>The attack chain is fully automated and devastating: unauthenticated directory traversal triggers code execution via cron job, which stages a payload, creates rogue SSO accounts for persistence, pivots to ESXi hypervisors, and ultimately deploys Babuk-derived ransomware. In at least one incident, a persistent reverse-SSH backdoor was implanted before ransomware detonation, suggesting dual goals of espionage and financial disruption. The 48-hour window from patch release to mass exploitation underscores that threat actors are patch-diffing vendor fixes immediately.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of VMware vCenter as the master control panel for hundreds of virtual machines in a company's data center. This vulnerability is like discovering the master panel's web login page has a hidden backdoor — attackers can walk in without a password, add their own admin accounts, and then scramble every virtual machine's hard drive with ransomware.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-59310 · CVSS: 9.8/10 — Rated near-maximum severity because exploitation requires no authentication, no user interaction, and grants complete control of virtualization infrastructure.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - Rust arrayref Supply Chain (DPRK/Lazarus) -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Wiz · Aug 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html" style="color:#111827;text-decoration:none;">DPRK-Linked Rust Supply Chain Attack: Malicious arrayref Crate with 245 Million Downloads Runs Code at Build Time</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> North Korean hackers compromised a maintainer account for the popular Rust crate arrayref, publishing malicious versions of three packages (arrayref 0.3.10, internment 0.8.7, append-only-vec 0.1.9) that silently execute a remote payload during cargo build via a typosquatted proc-macro1 dependency.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Rust developers whose projects depend on arrayref, which appears in 35% of all Rust environments and has 245 million all-time downloads — any developer who compiled an affected project between Aug 20 and the crate removals (86–107 minutes later) may have executed the payload.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit your Cargo.lock for arrayref ≤0.3.9, internment ≤0.8.6, or append-only-vec ≤0.1.8; treat any machine that built affected versions as potentially compromised and rotate credentials; update to clean releases.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.001 · Supply Chain Compromise: Compromise Software Dependencies and Development Tools<br>
+      <span style="color:#6b7280;">Attackers poisoned the arrayref dependency chain so that any developer running cargo build automatically downloads and executes a malicious binary — the malware enters through the development pipeline, not a user-facing application.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The attack is a textbook supply-chain compromise with a clever twist: instead of injecting code into arrayref's source directly, the attackers added a dependency on proc-macro1 — a name one character different from the legitimate proc-macro2 crate (35 million downloads). The malicious proc-macro1's build.rs script downloads and executes a remote binary whenever a Rust project compiles. Because build scripts run during the ordinary cargo build step, no user action beyond compiling the project is needed.</p>
+        <p>Wiz's attribution to North Korean hackers is based on significant infrastructure and tooling overlaps with prior DPRK campaigns targeting developer ecosystems. The Rust Security Response Team confirmed the arrayref maintainer's credentials were likely compromised, not that the maintainer was complicit. Malicious releases were removed within 86–107 minutes, but any developer who compiled during that window should assume compromise. The DPRK's targeting of software developer supply chains — from npm to PyPI and now crates.io — represents a systematic strategy to compromise the machines of engineers at high-value organizations.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When you bake a cake from a recipe book (your code), you often buy pre-made ingredients from a store (open-source packages). This attack is like a poisoned bag of flour on the store shelf — the moment you open it and mix it in, a toxin is released. The "toxin" here is malicious code that runs the instant a developer compiles their program, before the finished application is ever shipped to users.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned yet (supply-chain compromise, not a software vulnerability) — severity is critical due to DPRK attribution, build-time execution, and the scale of the affected ecosystem.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: Lazarus Group -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Lazarus Group</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: North Korea (DPRK)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Defense and aerospace firms, cryptocurrency exchanges, financial institutions, software developer supply chains globally</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operation Dream Job (fake job lures), FudModule kernel rootkit, WannaCry ransomware, cryptocurrency theft exceeding $3B, and systematic targeting of developer toolchains (npm, PyPI, crates.io)</div>
+</div>
+
+<!-- STORY 3: HIGH - SAP Commerce Cloud CVE-2026-58231 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/critical-sap-commerce-cloud-vulnerability-exploited-3-days-after-disclosure/" style="color:#111827;text-decoration:none;">Critical SAP Commerce Cloud Flaw CVE-2026-58231 (CVSS 10.0) Actively Exploited Three Days After Patch Release</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CVE-2026-58231, a maximum-severity (CVSS 10.0) code injection flaw in SAP Commerce Cloud's Data Hub Adapter, is being actively exploited after threat actors reverse-engineered SAP's August 11 patch within days, enabling unauthenticated arbitrary code execution on enterprise e-commerce platforms.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running SAP Commerce Cloud with the Data Hub Adapter component — a platform used by thousands of retailers and enterprises worldwide for e-commerce and ERP integration.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply SAP's August 2026 Patch Day update immediately; if patching is delayed, restrict network access to the Data Hub Adapter endpoint via firewall rules; audit logs for unauthorized access.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">The flaw's default authentication client bypass allows unauthenticated attackers to reach the Data Hub Adapter's validation-deficient endpoints and inject arbitrary code directly into SAP's enterprise e-commerce backend.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>SAP Commerce Cloud is the enterprise engine behind the online storefronts and ERP integrations of many of the world's largest retailers. CVE-2026-58231 allows an unauthenticated attacker to abuse a default authentication client to submit specially crafted input to the Data Hub Adapter, bypassing authorization checks entirely. Successful exploitation grants arbitrary code execution with high impact on confidentiality, integrity, and availability.</p>
+        <p>The speed of exploitation — three days — without a public proof-of-concept indicates sophisticated threat actors performing immediate patch diffing. KEVIntel confirmed two exploitation attempts on August 14 from a U.S.-based IP, and honeypot telemetry from Defused Cyber recorded similar activity. The absence of a public PoC suggests the window for patching before widespread mass exploitation may be narrowing quickly.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SAP Commerce Cloud is the sophisticated software that runs large companies' online stores and connects them to their back-office systems. This bug is like discovering the service entrance to a department store has a broken lock — and worse, it's the type of lock that lets you into the stockroom, the cash office, and the entire inventory system all at once.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-58231 · CVSS: 10.0/10 — Maximum severity; unauthenticated remote code execution with full impact on confidentiality, integrity, and availability of enterprise e-commerce infrastructure.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - Zimbra CVE-2026-73570 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / SecurityWeek · Aug 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/hackers-target-zimbra-servers-in-active-exploitation-campaign/" style="color:#111827;text-decoration:none;">CISA Patch Deadline Today: Zimbra CVE-2026-73570 SNMP Command Injection Exploited in the Wild (CVSS 8.9)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CVE-2026-73570, a pre-authentication SNMP command injection flaw in Zimbra Collaboration Suite enabling unauthenticated RCE as the zimbra user, is actively exploited — CISA added it to the KEV catalog on August 21 with a federal remediation deadline of today, August 24.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Zimbra Collaboration 10.1.19 or earlier with the optional zimbra-snmp package installed and SNMP notifications enabled — commonly deployed at universities, governments, and organizations in Europe and Asia.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update to Zimbra 10.1.20 immediately (patch released July 20); if update is not yet possible, disable or uninstall the zimbra-snmp package and block SNMP notification traffic; FCEB agencies must comply by today.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">The SNMP notification processing path in Zimbra mail servers fails to sanitize special characters, enabling unauthenticated attackers over the network to inject operating system commands executed as the zimbra service account — a direct path into corporate email infrastructure.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Zimbra Collaboration is an open-source email and groupware platform used by millions of organizations worldwide, particularly popular in government agencies, educational institutions, and European enterprises. CVE-2026-73570 exists when the optional zimbra-snmp monitoring package is installed: SNMP trap notifications, which carry system alert data, are not sanitized before being passed to system commands. An unauthenticated attacker who can send SNMP traps to the server gains code execution as the zimbra user.</p>
+        <p>CERT Polska first reported exploitation on August 17, and CISA's KEV listing on August 21 signals confirmed real-world use. The timing is particularly urgent for U.S. federal agencies, which face today's mandatory remediation deadline. Organizations should note that even if zimbra-snmp is installed but SNMP notifications are not configured, the attack surface is present and should be remediated through the update or package removal.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SNMP is a protocol that lets network devices send status alerts to a central monitoring system — think of it as the mail server's way of texting IT "I have a problem." This vulnerability is like if the mail server blindly executed any instructions it received labeled as a status update, letting anyone on the network send it disguised commands instead of legitimate alerts.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-73570 · CVSS: 8.9/10 — High severity pre-authentication RCE; elevated urgency due to active exploitation, CISA KEV listing, and federal remediation deadline of August 24, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH - Lazarus CVE-2026-68820 Windows AFD.sys -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Check Point · Aug 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html" style="color:#111827;text-decoration:none;">Lazarus Group Exploited Windows AFD.sys Zero-Day CVE-2026-68820 for 5 Weeks in Operation Dream Job, Deploying FudModule Rootkit</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> North Korea's Lazarus Group exploited CVE-2026-68820 (CVSS 7.0), a use-after-free in Windows' AFD.sys kernel driver, as an unpatched zero-day for over five weeks in Operation Dream Job — luring defense and aerospace employees with fake job offers, then escalating to SYSTEM and deploying the FudModule rootkit and a new backdoor called Troy.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Defense and aerospace companies, particularly in France, Germany, Brazil, and India; employees who received suspicious job-offer documents or links from unknown contacts on professional platforms.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's August 2026 Patch Tuesday updates; train employees to verify job recruiters through official company channels; monitor for FudModule IOCs published by Check Point Research.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Lazarus triggered the use-after-free race condition in AFD.sys to escalate from a standard Windows user account to SYSTEM privileges, enabling them to install the FudModule kernel-mode rootkit — which operates at a level that can blind most security tools.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Operation Dream Job is one of Lazarus Group's most durable campaigns — running since 2020, it uses highly convincing fake recruitment messages on LinkedIn, Signal, and WhatsApp to deliver malicious documents to engineers at defense contractors and government agencies. Once a target opens the lure, the CVE-2026-68820 exploit elevates attacker access from user to SYSTEM level via a race condition in AFD.sys, the Windows kernel driver supporting socket operations.</p>
+        <p>At SYSTEM level, Lazarus deploys FudModule — a sophisticated kernel-mode rootkit that manipulates Windows internals to disable security monitoring, bypass EDR solutions, and hide malicious processes. The newly documented backdoor Troy supports 17 remote commands including interactive shell, process injection, and file upload/download, giving the attacker full persistent control. The five-week zero-day exploitation window before Microsoft's patch underscores the sustained and patient nature of DPRK cyberoperations.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A kernel driver is software that runs in the most privileged part of the operating system — think of it as the engine room of Windows. This bug is like finding a way to slip into the engine room and then rewire the ship's security cameras so they show the attacker an empty corridor instead of their actual presence. North Korean spies used fake job offers as the front door.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-68820 · CVSS: 7.0/10 — High severity elevation of privilege; real-world impact is far greater because it enables kernel-level rootkit deployment by a sophisticated nation-state actor.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: HIGH - ShieldBreak CVE-2026-69414 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Aug 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/shieldbreak-zero-day-poc-claims.html" style="color:#111827;text-decoration:none;">Researcher Drops 'ShieldBreak' Microsoft Defender Zero-Day CVE-2026-69414 — Working PoC Grants SYSTEM on All Modern Windows Versions</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Security researcher "Nightmare Eclipse" published a working proof-of-concept exploit for ShieldBreak (CVE-2026-69414), an unpatched Microsoft Defender local privilege escalation zero-day that abuses a race condition in the Cloud Filter API during Defender's cloud-hydration scans to gain SYSTEM privileges on fully patched Windows systems.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All users of Windows 10, Windows 11, and Windows Server with Microsoft Defender enabled — effectively every standard Windows installation, as Defender ships enabled by default.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor Microsoft's Security Update Guide for an emergency patch; limit local access on sensitive systems; watch for unusual SYSTEM-level process creation following Defender activity; consider compensating controls such as application allow-listing.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation / Defense Evasion] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">ShieldBreak exploits a race condition in Defender's cloud file hydration process — swapping file contents mid-scan via cfapi — to trick the security tool into executing attacker-controlled code at SYSTEM level, weaponizing the defender itself as the privilege escalation vector.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>ShieldBreak is the ninth publicly released Windows zero-day from Nightmare Eclipse, who has established a pattern of publishing working exploits after Microsoft either disputes severity or delays patching. CVE-2026-69414 bypasses the patch for RoguePlanet (CVE-2026-50656), a prior Defender privilege escalation flaw patched in July — the ShieldBreak technique hooks a user-mode callback to modify file contents during Defender's cloud-hydration scan via the Cloud Filter API (cfapi), essentially making the security scanner unwittingly process attacker-controlled data at SYSTEM privileges.</p>
+        <p>The PoC was tested with a reported 100% success rate on the latest Windows 11 25H2, Windows 11 Canary channel, and Windows Server 2025. Microsoft confirmed awareness and is working on a patch, but no timeline has been given. The public PoC availability significantly lowers the bar for exploitation — any local attacker with limited user access can now achieve full SYSTEM control on default Windows installations.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your home alarm system also controls the front door lock. ShieldBreak is a technique where an intruder already inside your house tricks the alarm system into unlocking the master key cabinet while it's doing its routine check — using the security system itself to escalate their access. Microsoft Defender is the alarm system, and in this case it's inadvertently handing the attacker administrator keys.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-69414 · CVSS: Not yet assigned — local privilege escalation to SYSTEM on all modern Windows versions; public PoC released; no patch available as of Aug 24, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 7: MEDIUM - DeadLock Ransomware Blockchain -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Microsoft Security Blog · Aug 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/deadlock-ransomware-uses-polygon-smart.html" style="color:#111827;text-decoration:none;">DeadLock Ransomware Stores C2 Config on Polygon Blockchain to Make Infrastructure Seizure Near-Impossible</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft has detailed DeadLock ransomware's novel infrastructure: the group stores C2 proxy server addresses and victim-facing leak site links inside Polygon blockchain smart contracts, allowing them to freely rotate servers without updating victims' decryption applications — making law-enforcement infrastructure seizure largely ineffective.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations globally — DeadLock has claimed 96 victims, concentrated in Italy, Spain, Poland, Turkey, and the U.S., primarily targeting mid-market businesses.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor for DeadLock IOCs from the Microsoft Security Blog; implement egress filtering to block Polygon RPC endpoints (polygon-rpc.com); detect Session messenger network traffic as an anomaly indicator on corporate networks.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Command and Control] T1102 · Web Service<br>
+      <span style="color:#6b7280;">DeadLock queries Polygon blockchain smart contracts as a dead drop resolver to retrieve its current C2 proxy addresses — using the immutable, censorship-resistant blockchain as a communication channel that cannot be seized or sinkholed by defenders.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>DeadLock (first observed July 2025, 96 victims claimed) is a double-extortion ransomware operation that employs Rust-based encryption and Polygon smart contracts for resilient infrastructure. When DeadLock drops its HTML ransom note, it instructs victims to download the Session decentralized messenger app. Internally, that application queries a Polygon smart contract to find the current chat-proxy address — a URL the attacker can update at any time by submitting a blockchain transaction. Traditional law-enforcement takedowns work by seizing C2 servers; here, the "address book" is on a public blockchain no single party controls.</p>
+        <p>This approach builds on earlier techniques like EtherHiding (which stored malicious scripts on BNB Chain) and represents a maturing sophistication in ransomware C2 architecture. Defenders can attempt to block Polygon JSON-RPC endpoints at the perimeter, but the blockchain's decentralized nature means multiple fallback RPC providers exist. The use of Session — an end-to-end encrypted, metadata-minimizing messenger — for victim communications further reduces attribution risk for the operators.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Normally, police can shut down a criminal's phone line (the C2 server) to cut communications. DeadLock is using a public notice board (the blockchain) that no one owns, to publish their phone number. Even if authorities remove the number from one copy of the board, it exists on thousands of other copies worldwide — making the "phone line" effectively uncensorable.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 8: MEDIUM - Anubis Ransomware Coca-Cola Fairlife -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Aug 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/anubis-ransomware-claims-coca-cola-fairlife-attack-threatens-data-leak/" style="color:#111827;text-decoration:none;">Anubis Ransomware Claims Coca-Cola Fairlife Attack — 1TB Stolen, U.S. Dairy Production Suspended</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Anubis ransomware (a RaaS operation rebranded from Spinx, active since late 2024) has claimed responsibility for a July ransomware attack on Coca-Cola's Fairlife dairy subsidiary that suspended U.S. production operations and resulted in 1TB of allegedly stolen corporate data now threatened for public release.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Coca-Cola's Fairlife division and its supply chain partners; incident highlights the vulnerability of food and beverage operational technology environments to ransomware.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Food and beverage organizations should segment OT/IT networks, maintain tested offline backups of production systems, and ensure their business continuity plans account for production suspension scenarios.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">Anubis encrypted Fairlife's production systems — including OT-adjacent infrastructure — while simultaneously exfiltrating 1TB of data, using the combination of operational disruption and data leak threat as leverage in a double-extortion scheme against a high-profile consumer brand.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Anubis emerged in late 2024 as a rebrand of the Spinx ransomware operation and operates as a ransomware-as-a-service (RaaS), meaning the core developers lease the ransomware toolkit to affiliates who conduct the actual attacks in exchange for a revenue share. The Fairlife attack, disclosed by Coca-Cola on July 16, forced the company to activate business continuity plans and suspend U.S. dairy production — a significant operational impact for a consumer brand where production downtime has direct supply chain consequences.</p>
+        <p>Anubis listed Coca-Cola and Fairlife on its dark web leak site on July 20, claiming to have locked servers and exfiltrated 1TB of confidential data, giving the company one week to pay before public disclosure. The incident underscores the food and beverage sector's growing OT exposure: production systems connected to IT networks create attack paths where a ransomware intrusion can halt physical manufacturing.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> RaaS (Ransomware-as-a-Service) works like a criminal franchise: one group writes the malware and manages infrastructure, then rents it to other criminals who pick targets and do the actual hacking, splitting the ransom money. It's why ransomware attacks are so common — you don't need to be a skilled programmer to carry one out, just a paying customer of a criminal service.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Build-Time Code Execution ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Build-time code execution is when malicious code runs not when you <em>launch</em> an application, but when you <em>compile</em> one — the moment a developer's machine translates source code into a runnable program. Package ecosystems like Rust's cargo, Python's pip, and Node's npm allow dependency packages to run scripts during the build process to compile native extensions or configure the environment, a legitimate feature attackers exploit by hiding a malicious payload inside a build script. The result: simply adding a dependency to your project can compromise your entire development machine, steal secrets, and plant backdoors in software before it ever ships to users — with no suspicious runtime behavior visible to end-users or security scanners.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: Smart Contract · Polygon · Double Extortion · Babuk · Troy ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Smart Contract</strong> — self-executing code stored permanently on a blockchain that runs automatically when predefined conditions are met, used by DeadLock ransomware to store C2 server addresses in an immutable, uncensorable location.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Polygon</strong> — an Ethereum-compatible blockchain network with low transaction fees, chosen by DeadLock ransomware to host smart contracts that store C2 proxy addresses, making their infrastructure resistant to seizure or takedown.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Double Extortion</strong> — a ransomware tactic where attackers both encrypt victim files AND exfiltrate data beforehand, threatening to publicly leak the stolen data if ransom is not paid — giving them leverage even if victims restore from backups.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Babuk</strong> — a ransomware family whose source code leaked in 2021 and has since been adapted by dozens of threat actors; the China-nexus group exploiting VMware CVE-2026-59310 deployed a Babuk-derived variant against compromised ESXi servers.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Troy</strong> — a newly documented Lazarus Group backdoor supporting 17 remote commands including interactive shell, process injection, file transfer, and code injection into running processes, deployed alongside the FudModule rootkit in Operation Dream Job intrusions.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://securityaffairs.com/194237/data-breach/tata-electronics-confirms-data-breach-after-630gb-leak-claim-targets-apple-and-tesla.html" style="color:#374151;text-decoration:none;">World Leaks Publishes 630GB Tata Electronics Breach Data Including Alleged Apple and Tesla Design Files</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Security Affairs</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 24, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

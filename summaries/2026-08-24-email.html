@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 24, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 4 high · ~8 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-24.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL - VMware vCenter -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 24, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">China-Nexus APT Exploits VMware vCenter CVE-2026-59310 (CVSS 9.8), Compromises 361 Servers in 47 Countries</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A suspected Chinese-nexus APT is actively exploiting a critical directory-traversal RCE in VMware vCenter, compromising 361 servers in 47 countries within 48 hours of patching.</div>
+    <div style="margin-top:2px;">👤 Any organization running unpatched VMware vCenter globally is at risk of complete virtualization infrastructure compromise and Babuk ransomware deployment.</div>
+    <div style="margin-top:2px;">✅ Apply Broadcom's patch (released July 29, 2026) immediately and audit vCenter logs for rogue SSO accounts or unexpected cron jobs.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: CRITICAL - Rust Supply Chain -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Wiz · Aug 24, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">DPRK-Linked Supply Chain Attack Poisons Rust's arrayref (245M Downloads) with Build-Time Malware</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 North Korean hackers compromised a Rust crate maintainer's account and published malicious versions of arrayref, internment, and append-only-vec that execute a remote payload during cargo build.</div>
+    <div style="margin-top:2px;">👤 Rust developers in 35% of all Rust environments who compiled projects depending on arrayref between Aug 20 and removal (86–107 minutes) may have had their machines compromised.</div>
+    <div style="margin-top:2px;">✅ Audit Cargo.lock for affected crate versions (arrayref ≤0.3.9), rotate credentials on any machine that built affected projects, and update to clean crate releases.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.001 · Supply Chain Compromise: Software Dependencies</div>
+</div>
+
+<!-- STORY 3: HIGH - SAP Commerce Cloud -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 24, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/critical-sap-commerce-cloud-vulnerability-exploited-3-days-after-disclosure/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">SAP Commerce Cloud CVE-2026-58231 (CVSS 10.0) Actively Exploited Three Days After Patch</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A maximum-severity unauthenticated RCE in SAP Commerce Cloud's Data Hub Adapter is being actively exploited after threat actors reverse-engineered the August 11 patch within days.</div>
+    <div style="margin-top:2px;">👤 Organizations running SAP Commerce Cloud with the Data Hub Adapter enabled — widely used by large retailers for e-commerce and ERP integration.</div>
+    <div style="margin-top:2px;">✅ Apply SAP's August 2026 Patch Day update immediately; restrict network access to Data Hub Adapter endpoints if patching is delayed.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 4: HIGH - Zimbra -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / SecurityWeek · Aug 24, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/hackers-target-zimbra-servers-in-active-exploitation-campaign/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA Patch Deadline Today: Zimbra CVE-2026-73570 SNMP RCE (CVSS 8.9) Exploited in the Wild</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A pre-authentication SNMP command injection flaw in Zimbra mail servers enabling unauthenticated RCE is actively exploited; CISA's mandatory federal remediation deadline is today.</div>
+    <div style="margin-top:2px;">👤 Organizations running Zimbra Collaboration 10.1.19 or earlier with the zimbra-snmp package installed — common in government and educational environments.</div>
+    <div style="margin-top:2px;">✅ Update to Zimbra 10.1.20 or disable/remove the zimbra-snmp package immediately; FCEB agencies must comply today.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 5: HIGH - Lazarus Windows -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 24, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Lazarus Group Exploited Windows AFD.sys Zero-Day CVE-2026-68820 for 5 Weeks, Deploying FudModule Rootkit via Fake Job Offers</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 North Korea's Lazarus Group exploited a Windows kernel driver use-after-free as a zero-day for over five weeks in Operation Dream Job, escalating to SYSTEM to install the FudModule rootkit and new Troy backdoor.</div>
+    <div style="margin-top:2px;">👤 Defense and aerospace companies in France, Germany, Brazil, and India; employees targeted via convincing fake recruitment offers on professional platforms.</div>
+    <div style="margin-top:2px;">✅ Apply Microsoft's August 2026 Patch Tuesday updates and train staff to verify recruiters through official company channels before opening documents.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- STORY 6: HIGH - ShieldBreak -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Aug 24, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/shieldbreak-zero-day-poc-claims.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">'ShieldBreak' CVE-2026-69414: Working PoC for Unpatched Microsoft Defender Zero-Day Grants SYSTEM on All Modern Windows Versions</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Researcher Nightmare Eclipse released a public PoC for an unpatched Microsoft Defender LPE zero-day that achieves SYSTEM via a Cloud Filter API race condition during cloud-hydration scans — 100% success rate on Windows 10/11 and Server.</div>
+    <div style="margin-top:2px;">👤 All users of Windows 10, 11, and Windows Server with Defender enabled — effectively every standard Windows installation by default.</div>
+    <div style="margin-top:2px;">✅ Monitor Microsoft's Security Update Guide for an emergency patch; apply application allow-listing as a compensating control; limit local user access on sensitive systems.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/08/deadlock-ransomware-uses-polygon-smart.html" style="color:#374151;text-decoration:none;">DeadLock Ransomware Hides C2 in Polygon Blockchain Smart Contracts to Resist Takedowns</a>
+    <span style="color:#9ca3af;"> · Microsoft Security Blog</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/anubis-ransomware-claims-coca-cola-fairlife-attack-threatens-data-leak/" style="color:#374151;text-decoration:none;">Anubis Ransomware Claims Coca-Cola Fairlife Attack — 1TB Stolen, U.S. Production Suspended</a>
+    <span style="color:#9ca3af;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://securityaffairs.com/194237/data-breach/tata-electronics-confirms-data-breach-after-630gb-leak-claim-targets-apple-and-tesla.html" style="color:#374151;text-decoration:none;">World Leaks Publishes 630GB Tata Electronics Data Including Alleged Apple and Tesla Files</a>
+    <span style="color:#9ca3af;"> · Security Affairs</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-24.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Aug 24, 2026</div>
+
+</body>
+</html>
