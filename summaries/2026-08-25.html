@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 25, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 25, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">5 stories · 2 critical · 2 high · 1 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: ShieldBreak CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Aug 25, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldbreak-zero-day-grants-system-privileges/" style="color:#111827;text-decoration:none;">ShieldBreak (CVE-2026-69414): Unpatched Microsoft Defender Zero-Day Grants SYSTEM Access on Fully Updated Windows</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researcher "Nightmare Eclipse" publicly released a working proof-of-concept exploit — ShieldBreak — that bypasses Microsoft's July patch for the RoguePlanet (CVE-2026-50656) Defender flaw and achieves SYSTEM-level privileges on fully patched Windows 10, 11, and Server 2025 systems; Microsoft has acknowledged the bug as CVE-2026-69414 but has not yet issued a patch.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any Windows 10, Windows 11, or Windows Server 2025 system running Microsoft Defender (essentially every unmanaged consumer and enterprise Windows machine worldwide) is currently vulnerable with no vendor fix available.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Defender Engine and platform updates as soon as Microsoft releases them, restrict local logon access on sensitive systems, monitor for unusual SYSTEM-level process spawning from Defender-related paths, and follow CISA BOD 26-04 remediation guidance.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">ShieldBreak exploits a race condition in the Microsoft Malware Protection Engine's handling of Cloud Filter API (CFAPI) callbacks during cloud-file hydration, tricking Defender's privileged process into executing attacker-controlled code as NT AUTHORITY\SYSTEM.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>ShieldBreak is a patch bypass, meaning it defeats a security fix that Microsoft believed closed a previous vulnerability. The earlier flaw, RoguePlanet (CVE-2026-50656), was patched in July 2026 after the same researcher demonstrated that Defender's Malware Protection Engine could be manipulated via its boot-time remediation driver. Microsoft's fix was incomplete, and ShieldBreak exploits the residual attack surface in how Defender processes files during "cloud-file hydration" — the moment Windows downloads a file from OneDrive or another cloud storage provider on-demand. By abusing the Cloud Filter API user-mode callback at exactly the right moment, a low-privilege attacker can inject attacker-controlled content into the file stream that Defender reads at SYSTEM level, turning the read into code execution.</p>
+        <p>The exploit was released without prior notice to Microsoft, part of an ongoing dispute Nightmare Eclipse has with the company over its bug bounty program and disclosure timelines. CVSS 7.8 understates the practical risk: because Microsoft Defender runs on virtually every Windows installation and the exploit reportedly works reliably on Windows 11 25H2 and Windows Server 2025, every unpatched machine is at risk from any authenticated local user, including unprivileged guest accounts. CISA Binding Operational Directive 26-04 requires federal agencies to mitigate within 14 days of a KEV listing; a listing is expected imminently.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of Microsoft Defender as a security guard that has a master key to inspect every file on your computer. ShieldBreak tricks the guard into unlocking the master-key room and then hands that master key to an attacker who was standing right there — someone who only had access to the lobby. Once they have the master key (SYSTEM privileges), they can do anything on the machine. The problem is that the security company (Microsoft) hasn't yet built a new lock, so the vulnerability remains open.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-69414 · CVSS: 7.8/10 — High score reflects reliable local privilege escalation on all major Windows versions with no patch and a public PoC; rated "Exploitation More Likely" by Microsoft.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Lazarus Group / Troy Backdoor CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html" style="color:#111827;text-decoration:none;">Lazarus Group Exploited Windows AFD.sys Zero-Day (CVE-2026-68820) for Two Months to Deploy Troy Backdoor — CISA Deadline: Today</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> North Korea's Lazarus Group exploited CVE-2026-68820, a use-after-free flaw in the Windows Ancillary Function Driver (afd.sys), for roughly two months before Microsoft patched it on August 11 Patch Tuesday, using it to escalate to SYSTEM and deploy a new modular backdoor called Troy against defense and aerospace firms across France, Germany, Brazil, and India.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Defense contractors, aerospace companies, and government-adjacent organizations globally are primary targets; today (August 25) is the CISA KEV patch deadline for all U.S. federal civilian executive branch agencies.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's August 2026 Patch Tuesday updates immediately, hunt for Troy DLL indicators of compromise (17-command C2 implant supporting file ops, shell access, and in-memory DLL injection), and treat unsolicited recruiter outreach — especially PDF attachments — as a social engineering vector.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1566.001 · Phishing: Spearphishing Attachment<br>
+      <span style="color:#6b7280;">Lazarus sends fake LinkedIn and email recruiter messages with malicious PDF lures or trojanized PDF viewers that silently install the Troy DLL backdoor, maintaining the Operation Dream Job social engineering playbook to penetrate defense-sector targets.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-68820 is a use-after-free (UAF) bug in afd.sys, the Windows kernel driver that handles Winsock API calls for network communication. By triggering a race condition, Lazarus was able to free a kernel memory object while a reference to it remained, then reclaim that memory with attacker-controlled content — causing subsequent kernel code to operate on adversarial data and ultimately grant SYSTEM privileges. Check Point Research discovered the active exploitation in late July 2026, though Lazarus had been weaponizing the bug since at least early June — a gap of roughly 10 weeks of undetected exploitation.</p>
+        <p>The Troy backdoor, installed after privilege escalation, is a single DLL implant supporting 17 operator commands: file read/write/delete, shell execution, process termination, in-memory DLL injection, and configuration updates. Unlike earlier Lazarus tools, Troy communicates through HTTPS and uses domain-fronting to blend its C2 traffic with legitimate cloud services. The campaign is the latest iteration of Operation Dream Job, in which Lazarus impersonates defense-industry recruiters to lure engineers into running malware disguised as assessment tools or PDF viewers.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a kernel driver as a trusted employee who has keys to every room in a building. A use-after-free bug is like giving that employee a key that was already cancelled — when they use it, the lock behaves unpredictably. Lazarus found a way to make that unpredictability work in their favor: they got the cancelled key to open the CEO's office (SYSTEM level). From there, they planted Troy — a hidden remote-control program — so they could come and go whenever they wanted, completely unnoticed.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-68820 · CVSS: 7.0/10 — Elevated score reflects active nation-state exploitation for roughly 10 weeks before patch availability and confirmed deployment of a custom persistent backdoor against critical-sector targets.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: Lazarus Group -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Lazarus Group (APT38 / Hidden Cobra)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: North Korea (DPRK) — RGB Bureau 121</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Defense contractors, aerospace firms, financial institutions, cryptocurrency exchanges, and foreign governments — campaigns span Europe, North America, Asia, and South America</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operation Dream Job recruiter-lure campaigns, WannaCry ransomware, the 2014 Sony Pictures breach, billion-dollar cryptocurrency heists, and a long history of kernel-level zero-day exploitation in Windows components</div>
+</div>
+
+<!-- STORY 3: Zimbra CVE-2026-73570 HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybersecurity News · Aug 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/zimbra-collaboration-suite-vulnerability-exploited/" style="color:#111827;text-decoration:none;">Zimbra CVE-2026-73570 (CVSS 8.9): Unauthenticated RCE Actively Exploited in the Wild — CISA Patch Deadline Was Yesterday</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are actively exploiting CVE-2026-73570, a pre-authentication command injection flaw in Zimbra Collaboration Suite's SNMP notification processing (swatchdog service), to achieve remote code execution as the 'zimbra' OS user on vulnerable mail servers — CERT Polska issued an alert on August 17, CISA added it to KEV on August 21, and the patch deadline for U.S. federal agencies was August 24.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Zimbra Collaboration before version 10.1.20 with the zimbra-snmp package installed and SNMP notifications enabled are directly at risk; swatchdog is enabled by default, widening the attack surface significantly.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade immediately to Zimbra 10.1.20 or later; if patching is not immediately possible, disable the swatchdog service and SNMP notifications as a temporary mitigaton, and check mail server logs for unexpected outbound connections or new cron jobs.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers send specially crafted SNMP trap messages to Zimbra's publicly reachable swatchdog service, injecting OS commands through unescaped input in the notification handler — no credentials, VPN access, or user interaction required.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-73570 is an OS command injection vulnerability in the way Zimbra's SNMP notification daemon (swatchdog) processes incoming SNMP trap messages. When the server receives a trap, it passes certain fields from the message — without proper sanitization — into a shell command. An attacker can embed shell metacharacters in a specially crafted SNMP message, causing the server to execute arbitrary commands as the 'zimbra' user, which has write access to mail data, configuration, and commonly used privilege escalation paths on Linux systems.</p>
+        <p>The technical barrier is low: exploitation requires only network access to the Zimbra server's SNMP port (UDP 162 or TCP) and knowledge of the malformed message format, both of which are publicly documented in proof-of-concept writeups. Since swatchdog is enabled by default in standard Zimbra installations that include the zimbra-snmp package, the vulnerability affects a large portion of the Zimbra install base. CERT Polska observed in-the-wild exploitation primarily targeting government and academic mail servers in Eastern Europe, and broader opportunistic scanning has since been confirmed globally.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Zimbra is an email server used by thousands of companies and governments. SNMP is a protocol used to monitor network equipment — think of it as the server listening for status updates from other devices. CVE-2026-73570 is like a mail slot that's supposed to accept only specific-shaped letters: attackers discovered they can stuff a piece of paper with a hidden command written on it, and the mail sorter inside blindly executes the command. Because the mail slot is open by default and faces the internet, anyone can exploit it without a password.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-73570 · CVSS: 8.9/10 — High score driven by unauthenticated, pre-auth RCE via a default-enabled service on a widely deployed enterprise email platform; CISA KEV listed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: AWS Access Keys HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Infosecurity Magazine · Aug 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.infosecurity-magazine.com/news/researchers-thousands-eaked-aws/" style="color:#111827;text-decoration:none;">9,300 Publicly Leaked AWS Access Keys Remain Active — Including 242 with Full AdministratorAccess</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Truffle Security researchers scanned public repositories, Hugging Face datasets, Docker images, package registries, and CI logs, finding 64,024 unique AWS key pairs — 9,300 of which are still active and authenticating, with 242 linked to IAM users holding full AdministratorAccess and 526 being AWS root keys belonging to identified companies.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations whose developers committed AWS credentials to public git history, open-source datasets, or container images without later rotating those keys are directly exposed; attackers with these keys can exfiltrate data, deploy infrastructure, or pivot to connected services at will.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit your AWS accounts with tools like truffleHog or git-secrets, immediately rotate any key that has ever appeared in a public repository, enable AWS IAM Access Analyzer, and enforce secrets scanning as a pre-commit hook and in CI/CD pipelines.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Credential Access] T1552.001 · Unsecured Credentials: Credentials in Files<br>
+      <span style="color:#6b7280;">AWS key pairs hard-coded or accidentally committed to public git repositories and container images represent exactly this ATT&CK technique: credentials left in plaintext files and accessible to any attacker performing automated repository scanning.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Truffle Security's longitudinal analysis covering four years of public data sources found that developers habitually commit AWS key pairs directly to git repositories during development and frequently forget to remove or rotate them before pushing publicly. The study's most alarming finding is that 88% of identified complete key pairs remain active — indicating that organizations either don't monitor their git history for leaked secrets or don't prioritize rotation when leaks are discovered. Git history is permanent unless explicitly rewritten: even if a developer removes a file containing credentials in a later commit, the secret remains accessible in older commits.</p>
+        <p>The 526 root keys represent the highest-risk category: AWS root credentials bypass IAM permission boundaries and cannot be restricted by any policy. An attacker with a root key has unconditional control over the entire AWS account, including the ability to create backdoor IAM users, disable CloudTrail logging, and delete all resources. Truffle Security has notified all organizations it could identify and is not publishing the key material, but attackers continuously scan the same public sources using their own automated tooling, meaning any exposed key should be treated as already compromised.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> An AWS access key is like the master password for your entire cloud account — it can be used to spin up servers, read your databases, and run up enormous bills. When a developer accidentally uploads code to GitHub with the key included (the way you might include a sticky note with your PIN in a photo), the key becomes public. Even if they delete the sticky note, GitHub remembers the old version. Researchers found 9,300 of these "sticky notes" are still valid and unrevoked — meaning anyone who finds them can walk straight into those cloud accounts.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE · N/A — This is a credential hygiene / secrets management issue rather than a software vulnerability; severity is driven by the scale of exposure and the presence of root-level and AdminAccess keys among active credentials.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: SynkLoader/WordlistLoader MEDIUM -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/wordlistloader-delivers-amatera-via.html" style="color:#111827;text-decoration:none;">Two New Malware Loaders: SynkLoader Phishes Windows Passwords via Fake Teams Lock Screen, WordlistLoader Drops Stealer via ClickFix</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Security researchers disclosed two new malware loader families: SynkLoader — a modular Python/PowerShell/C#/C++ implant spread via Microsoft Teams phishing that presents a fake Windows lock screen to harvest credentials — and WordlistLoader, which uses ClickFix fake-CAPTCHA pages to dupe users into running PowerShell commands that download and execute the Amatera information stealer; both are assessed as likely tied to ransomware initial-access brokers.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Microsoft Teams users who receive unsolicited external messages directing them to install software, and web users encountering fake CAPTCHA pages (often injected into compromised websites), are the primary targets.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Block external Microsoft Teams message requests from unknown organizations in tenant settings, educate users to never run commands copied from web pages, deploy endpoint protection with behavioral detection for in-memory-only payloads, and treat any Teams prompt to install software as suspicious.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Execution] T1204.002 · User Execution: Malicious File<br>
+      <span style="color:#6b7280;">Both campaigns rely on social engineering to make victims voluntarily execute malware: SynkLoader masquerades as a legitimate Microsoft Teams update MSI, while WordlistLoader's ClickFix pages trick users into running a PowerShell command they believe completes a CAPTCHA challenge.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>SynkLoader arrives via Microsoft Teams external messages that direct targets to install a fake "PowerShell Cleaner" MSI hosted on legitimate Microsoft Azure infrastructure, lending the download apparent trustworthiness. Once installed, the multi-stage loader deploys its components purely in memory (fileless execution), making it harder for traditional file-scanning antivirus to detect. Its primary payload is a fake Windows lock screen that intercepts the victim's next login attempt and exfiltrates the plaintext password to the attacker's command-and-control server. Expel assesses with low-to-medium confidence that SynkLoader is operated by or for ransomware groups.</p>
+        <p>WordlistLoader takes its name from an unusual obfuscation technique: the shellcode payload is encoded as a sequence of plain English dictionary words, each word representing one byte of shellcode. This makes the payload appear superficially harmless in static analysis. It is distributed through ClickFix (also called FakeCaptcha) pages — compromised or attacker-controlled websites that display a fake CAPTCHA verification prompt, then instruct users to press Win+R and paste a PowerShell command into the Run dialog to "prove they're human." That command downloads and executes WordlistLoader, which decodes the wordlist payload and delivers Amatera stealer to harvest browser credentials, cookies, and cryptocurrency wallets.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A "loader" is malware whose only job is to secretly install other, more dangerous malware. SynkLoader arrives pretending to be a Teams app update — like a delivery person in a legitimate-looking uniform. WordlistLoader is delivered through fake "prove you're human" puzzle pages that instruct you to type a command into Windows — but that command is really a key that opens your front door to attackers. Neither trick requires any technical hacking; they rely entirely on fooling the human.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · N/A — Malware campaign exploiting social engineering rather than software vulnerabilities; severity reflects ransomware-nexus and use of legitimate cloud infrastructure for delivery.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Side-Channel Attacks ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A side-channel attack doesn't break the lock on a safe — it watches how long the combination takes to turn and infers the numbers from the timing. In computing, Spectre-class side-channel attacks exploit the fact that modern CPUs speculatively execute instructions ahead of time for speed: an attacker can measure tiny differences in memory access times to reconstruct data (like a JWT) from an adjacent process that the CPU temporarily loaded and then "undid." The attack requires no software vulnerability in the target — only shared hardware — which is why isolating processes at the OS level isn't enough; true mitigation requires hardware-level countermeasures like Memory Protection Keys and in-process isolation.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: JWT · ClickFix · APT · EoP · PoC ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">JWT</strong> — JSON Web Token; a compact, URL-safe string used to represent authentication claims between parties, commonly issued by login servers and passed in HTTP headers to prove identity to APIs and web services.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ClickFix</strong> — A social engineering technique (also called FakeCaptcha) where a malicious webpage presents a fake CAPTCHA or browser error and instructs the victim to manually run a PowerShell or terminal command, which silently installs malware.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">APT</strong> — Advanced Persistent Threat; a category of highly skilled, well-resourced threat actor (usually nation-state-sponsored) that conducts prolonged, stealthy intrusion campaigns against specific, high-value targets rather than opportunistic mass attacks.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">EoP</strong> — Elevation of Privilege; a class of vulnerability that allows a user or process with limited permissions to gain higher-level access (often SYSTEM or root), frequently chained with an initial access exploit for full system compromise.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">PoC</strong> — Proof of Concept; a working demonstration — often code — that confirms a vulnerability is exploitable, published by researchers to pressure vendors to patch or to validate bug reports; a public PoC dramatically lowers the bar for attackers.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://www.securityweek.com/cisa-urges-immediate-patching-of-exploited-progress-loadmaster-vulnerability/" style="color:#374151;text-decoration:none;">CISA: Progress LoadMaster CVE-2026-8037 (CVSS 9.6) Actively Exploited — 792 Attack Attempts from 65 IPs Across 18 Countries</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/08/cloudflare-workers-spectre-attack-leaks.html" style="color:#374151;text-decoration:none;">Cloudflare Workers Spectre Attack Leaks JWTs from Co-Located Workers at 12 Bits/Second — 360× Faster Than Prior Demo; Cloudflare Says Mitigated</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 25, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

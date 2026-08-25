@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 25, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">5 stories · 2 critical · 2 high · 1 medium · ~8 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-25.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: ShieldBreak CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Aug 25, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldbreak-zero-day-grants-system-privileges/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">ShieldBreak (CVE-2026-69414): Unpatched Microsoft Defender Zero-Day Grants SYSTEM Access on Fully Updated Windows</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Researcher "Nightmare Eclipse" published a working PoC that bypasses Microsoft's July Defender patch and achieves SYSTEM on fully updated Windows 10, 11, and Server 2025 — no Microsoft patch exists yet.</div>
+    <div style="margin-top:2px;">👤 Every Windows system running Microsoft Defender (virtually all Windows machines worldwide) is currently vulnerable.</div>
+    <div style="margin-top:2px;">✅ Apply Defender updates the moment Microsoft releases a fix, restrict local logon on sensitive systems, and monitor for anomalous SYSTEM-level process spawning from Defender paths.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- STORY 2: Lazarus/Troy CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 12, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Lazarus Group Exploited Windows AFD.sys Zero-Day (CVE-2026-68820) for Two Months to Deploy Troy Backdoor — CISA Deadline: Today</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 North Korea's Lazarus Group exploited a Windows kernel use-after-free for ~10 weeks before Microsoft's Aug 11 patch, deploying the Troy DLL backdoor against defense/aerospace firms in France, Germany, Brazil, and India.</div>
+    <div style="margin-top:2px;">👤 Defense contractors, aerospace companies, and government-adjacent organizations globally; U.S. federal agencies face a CISA KEV patch deadline of August 25 (today).</div>
+    <div style="margin-top:2px;">✅ Apply Microsoft's August 2026 Patch Tuesday updates immediately, hunt for Troy IOCs (17-command C2 DLL), and treat unsolicited recruiter PDF attachments as a red flag.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1566.001 · Phishing: Spearphishing Attachment</div>
+</div>
+
+<!-- STORY 3: Zimbra HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybersecurity News · Aug 24, 2026</span>
+  </div>
+  <a href="https://cybersecuritynews.com/zimbra-collaboration-suite-vulnerability-exploited/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Zimbra CVE-2026-73570 (CVSS 8.9): Unauthenticated RCE Actively Exploited — CISA Patch Deadline Was Yesterday</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers exploit Zimbra's SNMP notification handler to inject OS commands without authentication, achieving RCE as the 'zimbra' user on any vulnerable mail server with SNMP enabled.</div>
+    <div style="margin-top:2px;">👤 Zimbra Collaboration installations before 10.1.20 with zimbra-snmp installed; swatchdog is default-enabled, broadening exposure to most standard Zimbra deployments.</div>
+    <div style="margin-top:2px;">✅ Upgrade to Zimbra 10.1.20 immediately; as a temporary measure disable swatchdog and SNMP notifications, and review logs for unexpected outbound connections.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 4: AWS Keys HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Infosecurity Magazine · Aug 21, 2026</span>
+  </div>
+  <a href="https://www.infosecurity-magazine.com/news/researchers-thousands-eaked-aws/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">9,300 Publicly Leaked AWS Access Keys Remain Active — Including 242 with Full AdministratorAccess</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Truffle Security found 64,024 unique AWS key pairs across public repos, Docker images, and CI logs — 9,300 still authenticate today, including 526 root keys and 242 with full AdministratorAccess belonging to identified companies.</div>
+    <div style="margin-top:2px;">👤 Any organization whose developers ever committed AWS keys to a public repository, dataset, or container image without subsequent rotation is potentially exposed.</div>
+    <div style="margin-top:2px;">✅ Run truffleHog or AWS IAM Access Analyzer audits, rotate all keys found in any public location, and enforce secrets scanning pre-commit hooks and in CI/CD.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1552.001 · Unsecured Credentials: Credentials in Files</div>
+</div>
+
+<!-- STORY 5: SynkLoader/WordlistLoader MEDIUM -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 21, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/wordlistloader-delivers-amatera-via.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Two New Loaders: SynkLoader Phishes Passwords via Fake Teams Lock Screen, WordlistLoader Drops Stealer via ClickFix</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 SynkLoader spreads via Microsoft Teams external messages disguised as a software update, then harvests Windows passwords through a fake lock screen; WordlistLoader uses ClickFix fake-CAPTCHA pages to drop Amatera stealer.</div>
+    <div style="margin-top:2px;">👤 Microsoft Teams users targeted by external phishing messages, and web users landing on compromised sites with fake CAPTCHA prompts.</div>
+    <div style="margin-top:2px;">✅ Block Teams external message requests from unknown orgs, educate users never to run commands from web pages, and deploy behavioral endpoint protection for fileless/in-memory payloads.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1204.002 · User Execution: Malicious File</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://www.securityweek.com/cisa-urges-immediate-patching-of-exploited-progress-loadmaster-vulnerability/" style="color:#374151;text-decoration:none;">Progress LoadMaster CVE-2026-8037 (CVSS 9.6): CISA Confirms Active Exploitation, 792 Attempts from 65 IPs</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/08/cloudflare-workers-spectre-attack-leaks.html" style="color:#374151;text-decoration:none;">Cloudflare Workers Spectre Leaks JWTs at 12 Bits/Sec — 360× Faster Than Prior Attack; Cloudflare Says Mitigated</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-25.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Aug 25, 2026</div>
+
+</body>
+</html>
