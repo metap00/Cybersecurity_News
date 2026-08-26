@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 26, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 1 critical · 3 high · ~7 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-26.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: Gunra Ransomware — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 26, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/gunra-ransomware-exploits-fortinet-and.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Gunra Ransomware Exploits Fortinet FortiOS &amp; FortiProxy Auth-Bypass Flaws to Breach Critical Networks</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CISA and South Korean agencies issued a joint advisory: Gunra RaaS is actively exploiting Fortinet auth-bypass CVEs to gain super-admin access and deploy double-extortion ransomware.</div>
+    <div style="margin-top:2px;">👤 Healthcare, financial services, government, and nonprofits globally running unpatched Fortinet FortiOS or FortiProxy.</div>
+    <div style="margin-top:2px;">✅ Patch CVE-2024-55591 and CVE-2025-24472 immediately; enforce MFA on all VPN and management interfaces.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: Keycloak CVE-2026-18963 — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 25, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/critical-keycloak-password-reset-flaw.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Critical Keycloak Flaw (CVE-2026-18963, CVSS 9.1) Lets Unauthenticated Attackers Take Over Any Account</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A logic flaw in Keycloak's password reset flow lets unauthenticated attackers bypass email verification and take over any account — including admin accounts — by manipulating the authentication session state.</div>
+    <div style="margin-top:2px;">👤 All organizations using Keycloak SSO before version 26.7.2; three public Python PoC exploits already exist.</div>
+    <div style="margin-top:2px;">✅ Upgrade to Keycloak 26.7.2+ now; interim workaround: disable Forgot Password under Realm settings → Login.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1556 · Modify Authentication Process</div>
+</div>
+
+<!-- STORY 3: SynkLoader — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 25, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/new-synkloader-malware-pushed-in-microsoft-teams-phishing-campaign/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">New SynkLoader Malware Spread via Microsoft Teams IT-Helpdesk Phishing — Steals Passwords with Fake Lock Screen</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers impersonate IT helpdesk via Teams, deliver a malicious MSI hosted on Azure, and deploy a four-module malware that captures Windows passwords, enables remote desktop control, and routes attacker traffic through infected machines.</div>
+    <div style="margin-top:2px;">👤 Enterprise employees using Microsoft Teams who may install software on IT request; linked to ransomware access brokers.</div>
+    <div style="margin-top:2px;">✅ Train staff to verify IT requests via separate channel before installing anything; enforce application allowlisting.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1566 · Phishing</div>
+</div>
+
+<!-- STORY 4: Apollo Global — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 24, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/personal-information-exposed-in-apollo-global-data-breach/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Apollo Global Management ($1T AUM) Discloses Vishing Breach — SSNs, Home Addresses, Dates of Birth Exposed</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Cybercrime group BlackFile used IT-helpdesk vishing calls to trick Apollo employees into granting cloud platform access July 6–10, exposing personal information including Social Security numbers.</div>
+    <div style="margin-top:2px;">👤 Apollo employees and potentially investors whose names, SSNs, DOBs, addresses, and contact information were on compromised platforms.</div>
+    <div style="margin-top:2px;">✅ If notified, enroll in Apollo's identity protection offer; place a credit freeze at all three bureaus; watch for targeted phishing using your exposed data.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1598 · Phishing for Information (Vishing)</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.esecurityplanet.com/weekly-roundup/critical-patches-ai-driven-attacks-and-data-theft-define-the-week-in-august-2026/" style="color:#374151;text-decoration:none;">9,300+ Active AWS Access Keys Exposed in Public Repos Since 2022 Remain Valid</a>
+    <span style="color:#9ca3af;"> · eSecurity Planet</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-august-2026/" style="color:#374151;text-decoration:none;">China-Nexus APT Exploits Newly Patched VMware vCenter Flaw Within Days for Babuk Ransomware Deployment</a>
+    <span style="color:#9ca3af;"> · CrowdStrike</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-26.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Aug 26, 2026</div>
+
+</body>
+</html>

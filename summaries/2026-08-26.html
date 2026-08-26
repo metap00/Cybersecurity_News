@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 26, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 26, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 1 critical · 3 high · 2 medium · ~7 min read</div>
+</div>
+
+<!-- STORY 1: Gunra Ransomware — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 26, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/gunra-ransomware-exploits-fortinet-and.html" style="color:#111827;text-decoration:none;">Gunra Ransomware Exploits Fortinet FortiOS &amp; FortiProxy Auth-Bypass Flaws to Breach Critical Networks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA and South Korean intelligence agencies issued a joint advisory warning that the Gunra ransomware gang is actively exploiting two critical authentication-bypass flaws in Fortinet FortiOS and FortiProxy to gain super-admin access and deploy ransomware.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Healthcare, financial services, government agencies, and professional/nonprofit organizations globally — anywhere running unpatched Fortinet FortiOS or FortiProxy products.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately patch CVE-2024-55591 and CVE-2025-24472 on all Fortinet devices, enforce MFA on all VPN and management interfaces, and hunt for unusual super-admin activity on FortiGate appliances.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Gunra actors exploit authentication-bypass CVEs in internet-facing Fortinet appliances to assume super-admin privileges — turning the organization's own firewall into the entry point for full network compromise.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">Gunra is a Ransomware-as-a-Service (RaaS) operation that emerged in April 2025, built on leaked Conti ransomware source code. It evolved rapidly into a polished affiliate program offering an unusually generous 80% revenue split to members, attracting experienced operators from other criminal groups. By 2026, Gunra shifted focus to high-value sectors where operational disruption creates maximum pressure to pay: healthcare, financial services, and government agencies.</p>
+        <p style="margin:0 0 10px;">The current attack wave exploits two Fortinet authentication-bypass flaws — CVE-2024-55591 in FortiOS and CVE-2025-24472 in FortiProxy — that allow remote, unauthenticated attackers to assume super-administrator privileges on vulnerable network appliances without supplying valid credentials. With super-admin access on the perimeter firewall, attackers tunnel into the internal network, move laterally, exfiltrate sensitive data, and then deploy encryption. The double-extortion model means victims who fail to pay within 5–7 days face both locked systems and publication of stolen data on a dark web leak site.</p>
+        <p style="margin:0 0 10px;">The joint US/South Korea advisory (CISA AA26-222A) includes detailed indicators of compromise and urges organizations to treat these Fortinet CVEs as patch-immediately priorities. Both vulnerabilities have been publicly known for over a year, meaning any organization still running unpatched Fortinet devices has had ample opportunity to remediate — yet attacks continue at scale, indicating widespread unpatched exposure remains.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of Fortinet firewalls as the locked front door of a corporate network. These two vulnerabilities are like master keys that let criminals walk straight in without knowing the real password. Once inside, Gunra acts like a burglar who first copies all your files (to use as blackmail later) and then changes all the locks so you can't access anything — demanding payment twice: once to restore your files, and once to stop them from publishing your secrets online.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2024-55591 · CVSS: 9.8/10 &amp; CVE-2025-24472 · CVSS: 9.6/10 — authentication-bypass flaws enabling remote, unauthenticated super-admin access on Fortinet FortiOS and FortiProxy network appliances.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Gunra -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Gunra</div>
+  <div style="opacity:.85;margin-top:4px;">Ransomware-as-a-Service (Criminal) · Attribution: Unknown (Conti-derived)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Healthcare, financial services, government agencies, nonprofits — Americas, Europe, MENA, and APAC regions</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion ransomware built on Conti source code, exploiting Fortinet auth-bypass flaws, 5–7 day ransom deadlines, 80% affiliate revenue split to recruit operators from rival groups</div>
+</div>
+
+<!-- STORY 2: Keycloak CVE-2026-18963 — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 25, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/critical-keycloak-password-reset-flaw.html" style="color:#111827;text-decoration:none;">Critical Keycloak Flaw (CVE-2026-18963, CVSS 9.1) Lets Unauthenticated Attackers Take Over Any Account via Password Reset Bypass</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A critical CVSS 9.1 vulnerability in Keycloak's reset-credentials flow allows unauthenticated attackers to bypass email verification and forcibly reset any user's password — including admin accounts — by manipulating the authentication session state.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Every organization using Keycloak as an SSO or identity provider before version 26.7.2, including those using Red Hat's 26.6.6 and 26.4.15 builds — with three public Python PoC exploits already in circulation.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to Keycloak 26.7.2+ immediately; if patching is not immediately possible, disable "Forgot password" under Realm settings → Login → Forgot password → Off.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Credential Access] T1556 · Modify Authentication Process<br>
+      <span style="color:#6b7280;">Attackers exploit CVE-2026-18963 to manipulate Keycloak's internal authentication state machine, bypassing the email verification step and jumping directly to the password-reset phase to take over arbitrary user accounts.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">Keycloak is one of the world's most widely deployed open-source identity platforms, used by thousands of organizations as the central authentication hub for dozens of internal applications simultaneously. A logic flaw in the keycloak-services component — how it validates the internal state of an authentication session during the reset-credentials flow — allows any unauthenticated attacker on the internet to permanently take over any user account without any interaction from the victim.</p>
+        <p style="margin:0 0 10px;">The attack works by sending a specially crafted HTTP request to Keycloak's reset endpoint that moves the internal session state directly to the "set new password" phase, skipping the email verification step entirely. The attacker then sets their own chosen password on the target account. Because Keycloak's role as an SSO provider means one compromised admin account cascades into access to every downstream application the realm protects, the effective blast radius is far larger than a single credential breach.</p>
+        <p style="margin:0 0 10px;">The patch arrived on August 19 with Keycloak 26.7.2, but as of August 25, three proof-of-concept exploits written in Python are publicly available, dramatically lowering the skill threshold for exploitation. Organizations should treat this as a weekend-emergency patch — the combination of high severity, public PoC, and the strategic value of identity providers makes this a prime target for automated scanning and opportunistic compromise.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of Keycloak as the master keyring for an office building — one system that controls entry to many rooms. This bug is like finding that the "I forgot my key" reception desk process can be tricked: instead of waiting for email confirmation that you really own the lock, you can skip straight to getting a new key cut for any door in the building. Since Keycloak often controls access to many applications at once, an attacker who takes over one admin account can unlock every door simultaneously.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-18963 · CVSS: 9.1/10 — unauthenticated password reset bypass in Keycloak's reset-credentials flow; three public Python PoC exploits exist; patch available since Aug 19 in Keycloak 26.7.2.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: SynkLoader — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 25, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/new-synkloader-malware-pushed-in-microsoft-teams-phishing-campaign/" style="color:#111827;text-decoration:none;">New SynkLoader Malware Spread via Microsoft Teams IT-Helpdesk Phishing — Steals Passwords with Fake Lock Screen</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A newly discovered modular malware family called SynkLoader is being distributed through Microsoft Teams phishing messages where attackers impersonate IT helpdesk staff, delivering a fake "PowerShell Cleaner" tool that captures Windows passwords and opens remote access backdoors.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprise employees using Microsoft Teams, particularly in organizations where workers may accept unsolicited software installations from apparent internal IT staff.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Train employees to verify IT requests through a separate channel before installing software; enforce application allowlisting to block unauthorized MSI installs; monitor for unexpected Python/PowerShell process chains.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1566 · Phishing<br>
+      <span style="color:#6b7280;">SynkLoader campaigns use Microsoft Teams as a spearphishing vector, exploiting the trusted enterprise context of the platform to convince targets to voluntarily install a malicious MSI hosted on Microsoft Azure infrastructure.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">SynkLoader is a newly discovered modular malware framework first compiled around July 28, 2026, making it fresh enough to evade most signature-based detection tools. Researchers have linked it to ransomware threat groups, suggesting it functions as an initial-access broker toolkit: gaining footholds that are later sold or passed to ransomware gangs for full network encryption operations.</p>
+        <p style="margin:0 0 10px;">Attacks begin when an employee receives a Microsoft Teams message from someone impersonating their company's IT helpdesk — often citing a connectivity issue or required cleanup. The victim is directed to download a malicious MSI file labeled "PowerShell Cleaner" hosted on Microsoft Azure, a trusted domain that bypasses many web-filtering rules. Once installed, SynkLoader deploys four key components: PhishLocker (a pixel-perfect fake Windows lock screen that captures the user's actual login password when they "unlock" their computer), TrafficRedirector (a SOCKS5 reverse proxy that routes the attacker's traffic through the infected machine), Interactive Shell (remote PowerShell command execution), and StreamMaster (full desktop streaming with keyboard and mouse control).</p>
+        <p style="margin:0 0 10px;">The malware's modular design, combined with heavy use of in-memory execution to avoid writing detectable files to disk, makes SynkLoader particularly difficult to detect with traditional antivirus tools. The abuse of Microsoft Teams as a phishing channel — rather than email — is a growing trend because many organizations have relaxed security training around internal collaboration tools compared to external email.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a stranger calls your desk pretending to be your IT department and says they need you to install a tool to fix your computer. SynkLoader is the digital version of that scam — attackers contact you through Teams (which feels more trustworthy than a random email), get you to install a fake tool, and then secretly watch everything you type. When you lock your computer and type your password to unlock it, they record that password too — and they have full remote control of your machine for ransomware gangs to use later.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · First compiled July 28, 2026 — SynkLoader's four-module architecture (credential theft, remote access, network proxy, desktop streaming) positions it as a full-featured initial-access tool linked to ransomware operations.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Apollo Global Data Breach — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/personal-information-exposed-in-apollo-global-data-breach/" style="color:#111827;text-decoration:none;">Apollo Global Management ($1T AUM) Discloses Vishing Breach — SSNs, Home Addresses, Dates of Birth Exposed</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Apollo Global Management disclosed that cybercrime group BlackFile (UNC6671) used IT-helpdesk vishing calls to socially engineer employees into granting cloud platform access between July 6–10, 2026, exposing personal information including Social Security numbers.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Apollo employees and potentially investors or counterparties whose personal data — names, SSNs, dates of birth, home addresses, and contact information — was stored on the compromised cloud platforms.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> If you receive an Apollo breach notification, immediately enroll in the offered identity protection and credit monitoring; place a credit freeze at all three bureaus; be vigilant for targeted phishing using your exposed personal details.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1598 · Phishing for Information<br>
+      <span style="color:#6b7280;">BlackFile used vishing — voice phishing calls impersonating IT helpdesk staff — to collect credentials and persuade Apollo employees to grant unauthorized cloud platform access, bypassing all technical security controls through human manipulation.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">Apollo Global Management, one of the world's largest private equity firms with approximately $1.05 trillion in assets under management, disclosed a social engineering breach in which cybercrime group BlackFile (also tracked by Mandiant as UNC6671) used vishing — voice phishing over phone calls — to impersonate Apollo's IT helpdesk and trick employees into granting cloud platform access. The unauthorized access window spanned July 6–10, 2026, but the breach wasn't publicly disclosed until August 24, leaving a 7-week gap in which affected individuals had no opportunity to protect themselves proactively.</p>
+        <p style="margin:0 0 10px;">BlackFile has emerged in 2026 as one of the most active social engineering threat groups, using a playbook reminiscent of Scattered Spider: calling targets late at night or during busy periods when vigilance is lower, using real employee names sourced from LinkedIn, and building convincing pretexts around urgent IT issues. The group targets organizations in North America, Australia, and the UK. The specific data exposed — names, dates of birth, Social Security numbers, home addresses, and contact information — represents a highly valuable identity theft package on criminal markets.</p>
+        <p style="margin:0 0 10px;">Apollo stated it found no evidence the data was used for fraud or posted publicly, but this assessment has limits: underground markets for fresh identity data may not surface in public monitoring tools, and the 7-week delay means any such monitoring would have started well after the exposure window closed. This breach is a reminder that even trillion-dollar financial firms with sophisticated technical security can be compromised through a phone call if employee social engineering awareness isn't continuously maintained.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Instead of breaking through computer firewalls or exploiting software bugs, BlackFile criminals simply called Apollo employees on the phone, pretended to be the IT department, and talked them into handing over access. This kind of attack — called vishing (voice phishing) — doesn't require any technical hacking skill, just a convincing script and confidence. Organizations often have strong technical defenses but forget that their biggest vulnerability is a well-trained con artist on the other end of a phone call.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — social engineering via vishing · SSNs, DOBs, home addresses, and contact info for Apollo employees exposed · 7-week disclosure delay · Identity protection and credit monitoring offered to victims.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: BlackFile -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">BlackFile (UNC6671)</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Cybercrime Group · Emerged Early 2026 · Attribution: Unknown</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Enterprise organizations in North America, Australia, and the United Kingdom — financial services, technology, and professional services firms</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> IT-helpdesk vishing attacks using LinkedIn-sourced employee names, calling during low-vigilance hours, cloud platform access compromise — similar tradecraft to Scattered Spider</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Authentication State Machine Abuse ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Modern authentication systems work as "state machines" — step-by-step sequences (enter email → prove identity via email link → set new password) where each step is supposed to require the previous one to have completed correctly. When developers fail to strictly validate that a session has actually passed through each required prior state, attackers can craft requests that jump the machine directly to a privileged final step like "set new password," completely bypassing the identity verification that gives the step its meaning — exactly what CVE-2026-18963 in Keycloak allows today. This class of flaw is especially dangerous in identity providers that act as SSO hubs, because compromising one account in the provider can cascade into access to every single application the system protects.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: Vishing · Keycloak · FortiOS · MFA Bypass · SSO ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Vishing</strong> — Voice phishing; social engineering attacks conducted over phone calls where criminals impersonate trusted entities (IT helpdesk, banks, government) to trick victims into revealing credentials or granting system access.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Keycloak</strong> — An open-source identity and access management server maintained by Red Hat that provides single sign-on, user federation, and centralized authentication for applications; widely deployed as an enterprise SSO hub.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">FortiOS</strong> — Fortinet's proprietary operating system running on FortiGate firewalls and related network security appliances; authentication flaws in FortiOS are high-value targets because these devices control network perimeter access.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MFA Bypass</strong> — A technique that circumvents multi-factor authentication protections, either by attacking the authentication flow itself (session state manipulation), stealing post-login session tokens, or socially engineering the victim into approving a fraudulent MFA prompt.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">SSO</strong> — Single Sign-On; an authentication scheme that lets users log in once to a central identity provider and automatically gain access to multiple connected applications, meaning the identity provider itself becomes a critical security chokepoint.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.esecurityplanet.com/weekly-roundup/critical-patches-ai-driven-attacks-and-data-theft-define-the-week-in-august-2026/" style="color:#374151;text-decoration:none;">9,300+ Active AWS Access Keys Exposed in Public Repos Since 2022 — Researchers Warn Many Are Still Valid</a>
+    <span style="color:#9ca3af;font-size:11px;"> · eSecurity Planet</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-august-2026/" style="color:#374151;text-decoration:none;">China-Nexus APT Exploits Newly Patched VMware vCenter Flaw Within Days to Deploy Babuk-Derived Ransomware</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CrowdStrike</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 26, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
