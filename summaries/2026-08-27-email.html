@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 27, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">5 stories · 2 critical · 2 high · ~6 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-27.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL - Oracle CVE-2026-21962 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 26, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/actively-exploited-oracle-weblogic-flaw.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Oracle Proxy Flaw CVE-2026-21962 (CVSS 10) Powers UNC5174 Attacks on 100+ Governments</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 China-linked UNC5174 weaponized a CVSS 10 Oracle WebLogic Proxy Plugin flaw to deliver the SNOWLIGHT dropper against government and commercial targets in over 100 countries; CISA's federal remediation deadline was today.</div>
+    <div style="margin-top:2px;">👤 Organizations running unpatched Oracle HTTP Server / WebLogic Proxy Plugin pre-January 2026 CPU; federal agencies under mandatory BOD 26-04 compliance.</div>
+    <div style="margin-top:2px;">✅ Apply Oracle January 2026 Critical Patch Update immediately; block external WebLogic admin ports; hunt for SNOWLIGHT and VShell IOCs.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: CRITICAL - Progress LoadMaster CVE-2026-8037 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 27, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/cisa-urges-immediate-patching-of-exploited-progress-loadmaster-vulnerability/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Progress LoadMaster CVE-2026-8037 (CVSS 9.6): 792+ Exploit Attempts, CISA Demands Immediate Patching</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Over 792 documented attacks target an unauthenticated OS command injection flaw in Progress Kemp LoadMaster appliances reachable via the /accessv2 API endpoint, capable of delivering root-level command execution.</div>
+    <div style="margin-top:2px;">👤 Organizations using LoadMaster GA ≤7.2.63.1 or LTSF ≤7.2.54.17 with API access enabled — common in enterprise and government network perimeters.</div>
+    <div style="margin-top:2px;">✅ Upgrade LoadMaster firmware to the latest release; disable the API if unused; review appliance logs for exploitation since June 29 PoC release.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1059 · Command and Scripting Interpreter</div>
+</div>
+
+<!-- STORY 3: HIGH - Gitea CVE-2026-60004 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Aug 26, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/critical-gitea-rce-actively-exploited.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Critical Gitea RCE CVE-2026-60004 (CVSS 9.8) Exploited in Wild — Persistent Git Hook Drops Malicious Payload</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers exploit Gitea's diffpatch API to plant malicious Git hooks on servers running versions 1.17–1.27.0, executing shell commands as the Gitea service account; confirmed real-world attacks deployed crypto-miner-like droppers.</div>
+    <div style="margin-top:2px;">👤 Self-hosted Gitea instances on versions 1.17–1.27.0, with heightened risk when open registration is enabled (allowing unauthenticated exploitation by any visitor).</div>
+    <div style="margin-top:2px;">✅ Upgrade to Gitea 1.27.1 immediately; disable open registration; audit all repository hooks for unauthorized scripts; CISA KEV added Aug 25, federal deadline Aug 28.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Persistence] T1505 · Server Software Component</div>
+</div>
+
+<!-- STORY 4: HIGH - WordPress MiniOrange SAML -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / Patchstack · Aug 26, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/wordpress-websites-targeted-via-miniorange-plugin-vulnerabilities/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Two CVSS 9.8 Auth Bypasses in WordPress miniOrange SAML Plugin Exploited Before Paid Tiers Were Alerted</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Two independent authentication bypass flaws (CVE-2026-61979: algorithm confusion; CVE-2026-15981: OpenSSL −1 treated as success) let unauthenticated attackers forge SAML responses and log in as any WordPress user, including admins; exploited in wild.</div>
+    <div style="margin-top:2px;">👤 All WordPress sites using miniOrange SAML 2.0 SSO plugin — 10,000+ free-edition installs and unknown paid/enterprise deployments — affected across all seven plugin editions.</div>
+    <div style="margin-top:2px;">✅ Update miniOrange SAML SSO plugin to latest patched version; audit WordPress admin accounts for unauthorized additions; rotate admin credentials on affected sites.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1078 · Valid Accounts</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" style="color:#374151;text-decoration:none;">Six-Agency Joint Advisory on Gunra Ransomware (Conti-Derived RaaS) Targeting Healthcare &amp; Critical Infrastructure</a>
+    <span style="color:#9ca3af;"> · CISA</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://senserva.com/exploited-this-week.html" style="color:#374151;text-decoration:none;">CISA KEV: CVE-2026-72898 (Metabase) and CVE-2026-20349 (Cisco Secure Firewall) Added This Week</a>
+    <span style="color:#9ca3af;"> · CISA</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-08-27.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Aug 27, 2026</div>
+
+</body>
+</html>

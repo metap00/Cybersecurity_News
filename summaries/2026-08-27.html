@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 27, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 27, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">5 stories · 2 critical · 2 high · 1 medium · ~6 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - Oracle CVE-2026-21962 / UNC5174 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / TechTimes · Aug 26, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/actively-exploited-oracle-weblogic-flaw.html" style="color:#111827;text-decoration:none;">Oracle Proxy Flaw (CVE-2026-21962) Fuels China-Linked UNC5174 Attacks on 100+ Governments</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> China-linked threat actor UNC5174 chained CVE-2026-21962 — a CVSS 10.0, unauthenticated RCE flaw in Oracle HTTP Server's WebLogic Proxy Plugin — with 10 other exploits to deliver the SNOWLIGHT dropper against government and commercial infrastructure across more than 100 countries.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running Oracle HTTP Server or WebLogic Proxy Plugin prior to Oracle's January 2026 Critical Patch Update, with federal civilian agencies under CISA's mandatory remediation deadline of today, August 27.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Oracle's January 2026 CPU patches immediately, block external access to WebLogic administrative ports, and search for SNOWLIGHT indicators of compromise including the VShell RAT and GoCobaltStrike implants.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">UNC5174 assembled a PoC-based exploit chain targeting Oracle's unauthenticated HTTP proxy endpoint to gain initial footholds in government networks before deploying custom malware families for long-term espionage.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-21962 is a path-traversal and header-manipulation flaw in the Oracle HTTP Server and WebLogic Server Proxy Plugin that allows an unauthenticated attacker to bypass proxy access controls and reach back-end WebLogic Server instances directly. Oracle patched it as part of the January 2026 Critical Patch Update, but the vulnerability had already been exploited since late January, within days of a public proof-of-concept being released on GitHub.</p>
+        <p>Chinese-linked UNC5174 (also tracked as Uteus and assessed as a contractor for China's Ministry of State Security) incorporated CVE-2026-21962 into an 11-exploit chain alongside GoCobaltStrike — a cracked Chinese fork of the popular red-teaming framework — the SNOWLIGHT C-based Linux dropper/loader, VShell RAT, and additional tunneling tooling. The campaign's reconnaissance phase mapped national infrastructure across Taiwan, Colombia, Brazil, Indonesia, Nigeria, the Philippines, and over 90 other nations before deploying implants for persistent espionage access to steal intellectual property, strategic plans, and confidential communications.</p>
+        <p>CISA added CVE-2026-21962 to its Known Exploited Vulnerabilities catalog on August 24 and gave federal civilian executive branch agencies until today, August 27, to complete remediation under Binding Operational Directive 26-04.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine Oracle WebLogic as a heavily guarded building, and the HTTP Proxy Plugin as a side entrance that should be locked. CVE-2026-21962 is a hidden key that anyone can copy — because no password or credentials are required — letting attackers walk right into the building's most sensitive areas and leave spyware behind. China's UNC5174 used this key (along with 10 other keys) to break into government offices across 100+ countries and quietly steal information.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-21962 · CVSS: 10.0/10 — Maximum severity; unauthenticated, network-exploitable, with no user interaction required, enabling full compromise of back-end WebLogic instances.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: UNC5174 -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">UNC5174 (Uteus)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-state contractor · Attributed to: China (Ministry of State Security)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government agencies, telecommunications, defense contractors, critical infrastructure, and research institutions globally — with strong focus on Taiwan, Southeast Asia, and Western allies.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Rapid weaponization of public PoC exploits, 11-vulnerability exploit chains, custom SNOWLIGHT dropper and VShell RAT, cracked GoCobaltStrike C2, and initial access brokerage for China's intelligence apparatus.</div>
+</div>
+
+<!-- STORY 2: CRITICAL - Progress LoadMaster CVE-2026-8037 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / The Hacker News · Aug 27, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/cisa-urges-immediate-patching-of-exploited-progress-loadmaster-vulnerability/" style="color:#111827;text-decoration:none;">Progress LoadMaster Hit With 792+ Exploit Attempts: CISA Flags CVE-2026-8037 RCE as Actively Exploited</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers have launched over 792 documented exploitation attempts against CVE-2026-8037, a CVSS 9.6 unauthenticated OS command injection flaw in Progress Kemp LoadMaster load balancer appliances, reachable through the /accessv2 API endpoint without any credentials.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using LoadMaster GA version 7.2.63.1 or older, and LoadMaster LTSF version 7.2.54.17 or older, particularly those with the management API enabled and exposed to the internet.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade LoadMaster to the latest firmware immediately, disable the API if it is not actively required, and review appliance logs for evidence of compromise since June 29 when the first PoC was released.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1059 · Command and Scripting Interpreter<br>
+      <span style="color:#6b7280;">The vulnerability exploits unsanitized user input passed to the escape_quotes() function in LoadMaster's API, allowing attackers to inject shell commands that execute directly on the underlying appliance operating system as a privileged user.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-8037 is an OS command injection vulnerability in Progress Kemp LoadMaster, a widely-deployed application delivery controller (load balancer) used to route and optimize traffic across enterprise environments. The flaw exists because the escape_quotes() function in affected versions fails to properly sanitize user-supplied input, additionally allocating an uninitialized heap buffer without a null terminator — creating out-of-bounds reads from neighboring freed memory that attackers can exploit to spray command injection content into adjacent memory regions accessible via the /accessv2 API endpoint.</p>
+        <p>The vulnerability was originally disclosed on June 4, 2026. A functional proof-of-concept exploit was published on June 29, triggering an immediate surge in exploitation attempts — with eSentire reporting 792+ documented attempts from dozens of IP addresses across multiple countries within days of the PoC's release. CISA added CVE-2026-8037 to its Known Exploited Vulnerabilities catalog and invoked Binding Operational Directive 26-04 to mandate federal remediation within three days.</p>
+        <p>LoadMaster appliances are often deployed at network perimeters handling sensitive internal traffic routing, making successful exploitation particularly dangerous — an attacker who gains root command execution on a load balancer can intercept, modify, or redirect traffic across the entire infrastructure it serves.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A load balancer is like a traffic cop standing between the internet and your company's servers, directing cars (web requests) to the right lanes. CVE-2026-8037 means an attacker can walk up to that traffic cop, hand them a note that looks like a valid request but contains secret instructions, and the cop executes those instructions — giving the attacker full control of the traffic cop's post with no badge or password required.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-8037 · CVSS: 9.6/10 — Critical; unauthenticated remote code execution via API input, no user interaction required, full appliance compromise possible.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH - Gitea CVE-2026-60004 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security / The Hacker News · Aug 26, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/critical-gitea-rce-actively-exploited.html" style="color:#111827;text-decoration:none;">Critical Gitea RCE (CVE-2026-60004) Actively Exploited in Wild — Crypto-Miner Dropper Deployed via Malicious Git Hooks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are actively exploiting CVE-2026-60004, a CVSS 9.8 code injection flaw in Gitea 1.17–1.27.0, by sending malicious patches to the diffpatch API to plant persistent Git hooks that execute arbitrary shell commands as the Gitea service account — with at least one confirmed attack dropping a crypto-miner-like payload.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations self-hosting Gitea instances on versions 1.17 through 1.27.0, especially those with open registration enabled, which allows unauthenticated exploitation by any visitor who creates a free account.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to Gitea 1.27.1 immediately, disable open registration on public-facing instances, and audit repositories for unexpected hooks or CI/CD configuration changes.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Persistence] T1505 · Server Software Component<br>
+      <span style="color:#6b7280;">Attackers exploit the diffpatch API to implant a persistent, executable Git server-side hook — a server software component — ensuring malicious commands run automatically on the Gitea host every time repository operations trigger the hook, providing durable code execution without re-exploiting the vulnerability.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-60004 is a code injection vulnerability in Gitea, a popular self-hosted Git service used by development teams worldwide. The flaw allows any user with repository write access — or even an unauthenticated user on instances with open registration — to send a specially crafted patch to the /diffpatch API endpoint. If the patch contains a malicious payload, Gitea plants an executable Git hook (a server-side script that triggers on repository events) with the privileges of the Gitea operating system account, effectively giving the attacker persistent, recurring code execution on the server.</p>
+        <p>In the most dangerous real-world exploitation scenario observed, an attacker first registered on the public Gitea instance, created a repository, then sent the malicious patch. The implanted hook wrote a proof-of-RCE back into a Git branch, downloaded a universal shell-loader, and ultimately installed a crypto-miner-like dropper — demonstrating that the vulnerability enables both resource theft and a foothold for more sophisticated follow-on attacks. CISA added CVE-2026-60004 to its Known Exploited Vulnerabilities catalog on August 25, instructing federal agencies to remediate by August 28.</p>
+        <p>Gitea version 1.27.1, released in late July, fully patches the vulnerability. The danger window spanned approximately one month between the patch and CISA's KEV listing, during which exploitation was already occurring in the wild. Organizations hosting internal Gitea for CI/CD pipelines face elevated risk because a compromised Gitea server can cascade into supply chain compromise of every project it hosts.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Gitea is like a digital library where developers check out and return code. A "Git hook" is like a librarian's automated reminder — a script that runs whenever someone returns a book. CVE-2026-60004 lets an attacker secretly replace one of those reminders with their own script that runs malicious code every time anyone uses the library — and because the librarian has keys to everything, the attacker can go anywhere.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-60004 · CVSS: 9.8/10 — Critical; low privilege needed for exploitation, no user interaction required; effectively unauthenticated on open-registration instances.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - WordPress MiniOrange SAML -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / Patchstack · Aug 26, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/wordpress-websites-targeted-via-miniorange-plugin-vulnerabilities/" style="color:#111827;text-decoration:none;">Two CVSS 9.8 Auth Bypasses in WordPress miniOrange SAML Plugin Exploited Before Paid Editions Were Alerted</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Two independent CVSS 9.8 authentication bypass flaws — CVE-2026-61979 (algorithm confusion: the plugin trusts the attacker's declared signature algorithm) and CVE-2026-15981 (signature validation treats an OpenSSL error code of −1 as success) — allowed unauthenticated attackers to forge SAML responses and log in as any WordPress user including administrators; both flaws were exploited in the wild before six paid editions were publicly disclosed as affected.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> WordPress sites running the miniOrange SAML 2.0 SSO plugin across the free edition (10,000+ installs) and all paid and enterprise editions, though only the free edition received a public vendor advisory.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update the miniOrange SAML 2.0 SSO plugin to the latest patched release, audit WordPress admin user lists for unauthorized accounts, rotate admin credentials, and review recent admin-level activity logs.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion / Credential Access] T1078 · Valid Accounts<br>
+      <span style="color:#6b7280;">Attackers exploit these flaws to forge cryptographically-signed SAML authentication tokens that WordPress's SSO layer accepts as legitimate, granting the attacker an authenticated session as any chosen user — including administrators — without ever possessing real credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The miniOrange SAML 2.0 SSO plugin enables WordPress sites to use enterprise identity providers for single sign-on. CVE-2026-61979 exploits an algorithm confusion weakness: the plugin trusts the incoming SAML response to declare which cryptographic algorithm was used to sign it. An attacker sets the algorithm to HMAC-SHA1, which causes the plugin to use the identity provider's public RSA key as the HMAC secret — a key the attacker already knows, since it's public — allowing them to forge a perfectly "valid" signature on a SAML assertion claiming to be any user.</p>
+        <p>CVE-2026-15981 is a separate but equally severe bug: the plugin's signature verification code treats an OpenSSL return value of −1 (which signals an error) as equivalent to 1 (signature verified). An attacker can therefore submit a SAML response with a completely malformed or absent signature, and the plugin marks it as verified. Both vulnerabilities are independently exploitable and were confirmed exploited in the wild — notably before the vendor's advisory covered the six paid plugin editions, leaving customers of paid tiers without a public warning even after fixes were privately issued.</p>
+        <p>The disclosure gap between the free edition's public patch and the paid editions' notice is a reminder that commercial security plugins can have a hidden patch-communication problem: paying customers may be the last to know their product is vulnerable.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SAML is like a signed hall pass that your company's ID system issues so you can enter different applications without logging in each time. CVE-2026-61979 means the hall pass checker accepts passes signed with the wrong pen — a pen the attacker already owns — while CVE-2026-15981 means the checker approves passes even when the signature box is left blank. Either way, an attacker walks into your WordPress site as the principal.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-61979 / CVE-2026-15981 · CVSS: 9.8/10 — Critical; unauthenticated exploitation, no user interaction required, full admin account takeover possible on all affected plugin editions.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Algorithm Confusion Attack ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    An algorithm confusion attack (also called a key confusion or algorithm substitution attack) tricks a cryptographic verification system into using the wrong algorithm — often by letting the attacker choose which one gets applied — so that a key the attacker already knows becomes sufficient to forge a valid signature. In today's miniOrange story, the plugin trusted the attacker's SAML message to declare "use HMAC-SHA1," which caused it to treat the identity provider's <em>public</em> RSA key as the HMAC secret, turning a publicly-known value into a forging key. The root fix is for signature-verifying code to enforce a strict, pre-configured allow-list of acceptable algorithms and never accept algorithm declarations from the data being verified.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: SAML · RCE · CVSS · Git Hook · PoC · SNOWLIGHT ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SAML</strong> — Security Assertion Markup Language; an XML-based open standard that lets an identity provider (like Okta or Azure AD) vouch for a user's identity to a service provider (like a web app), enabling single sign-on without sharing passwords.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RCE</strong> — Remote Code Execution; a class of vulnerability that allows an attacker to run arbitrary commands or programs on a victim's system from a different machine, typically the most severe outcome of a software flaw.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System; a standardized 0–10 scoring framework that quantifies the severity of a software vulnerability based on factors like exploitability, required privileges, and potential impact; scores above 9.0 are considered "Critical."
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Git Hook</strong> — A server-side or client-side script that Git automatically executes before or after events like commits, pushes, or merges; legitimate hooks automate tasks like running tests, but maliciously planted hooks give attackers persistent code execution on the server.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PoC</strong> — Proof of Concept; a working demonstration of a vulnerability or exploit, typically published by security researchers to confirm a flaw is real; PoC release often triggers immediate exploitation attempts from opportunistic attackers.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">SNOWLIGHT</strong> — A lightweight, C-based Linux dropper and loader malware developed and used by China-linked UNC5174; it establishes initial persistence, fingerprints the victim environment, and downloads and executes additional malware payloads such as VShell RAT.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" style="color:#374151;text-decoration:none;">Six-Agency Joint Advisory Warns of Gunra Ransomware Targeting Healthcare, Finance &amp; Critical Infrastructure</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://socprime.com/blog/cve-2026-60004-critical-gitea-rce-exploited-to-deploy-miner-like-payloads/" style="color:#374151;text-decoration:none;">CISA Adds CVE-2026-72898 Metabase Flaw and CVE-2026-20349 Cisco Secure Firewall Bug to KEV Catalog</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA / SOC Prime</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 27, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
