@@ -1,14 +1,15 @@
 {
-  "til": ["Side-Channel Attack", "Build-Time Code Execution", "Type Confusion Vulnerability", "Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability", "Algorithm Confusion Attack"],
-  "glossary": ["Sandbox Escape", "Agentic AI", "ExploitGym", "SNMP", "Deserialization", "Clop", "CWE", "APN", "OT", "PLC", "Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh", "SOCKS5", "Entra ID", "InfoStealer", "C2", "MITRE ATT&CK", "VoLTE", "SoC", "XG-Web", "ShinyHunters", "Monero", "RMM", "DNS Rebinding", "Crates.io", "Vishing", "Keycloak", "FortiOS", "MFA Bypass", "SSO", "SAML", "RCE", "CVSS", "Git Hook", "PoC", "SNOWLIGHT"],
+  "til": ["Build-Time Code Execution", "Type Confusion Vulnerability", "Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability", "Algorithm Confusion Attack", "Dwell Time"],
+  "glossary": ["CWE", "APN", "OT", "PLC", "Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh", "SOCKS5", "Entra ID", "InfoStealer", "C2", "MITRE ATT&CK", "VoLTE", "SoC", "XG-Web", "ShinyHunters", "Monero", "RMM", "DNS Rebinding", "Crates.io", "Vishing", "Keycloak", "FortiOS", "MFA Bypass", "SSO", "SAML", "RCE", "CVSS", "Git Hook", "PoC", "SNOWLIGHT", "Malvertising", "Dwell Time", "Trojanized Software", "Cryptojacking", "DoS", "Hot Fix"],
   "week": {
-    "critical": 7,
-    "high": 11,
-    "medium": 6,
-    "techniques": ["T1190", "T1195", "T1068", "T1102", "T1486", "T1566", "T1552", "T1204", "T1556", "T1598", "T1059", "T1505", "T1078"],
-    "actors": ["Lazarus Group", "Anubis", "Gunra", "BlackFile", "UNC5174"]
+    "critical": 9,
+    "high": 14,
+    "medium": 8,
+    "techniques": ["T1190", "T1195", "T1068", "T1102", "T1486", "T1566", "T1552", "T1204", "T1556", "T1598", "T1059", "T1505", "T1078", "T1499"],
+    "actors": ["Lazarus Group", "Anubis", "Gunra", "BlackFile", "UNC5174", "Aurora", "Server Killers"]
   },
   "digests": [
+    {"date": "2026-08-28", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-08-27", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 1},
     {"date": "2026-08-26", "threat": "ELEVATED", "critical": 1, "high": 3, "medium": 2},
     {"date": "2026-08-25", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 1},

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 28, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 28, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~12 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - Nevada Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybersecurity Dive · Aug 28, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cybersecuritydive.com/news/nevada-ransomware-attack-traced-back-to-malware-download-by-employee/805011/" style="color:#111827;text-decoration:none;">Nevada Ransomware: 60+ State Agencies Encrypted After 102-Day Attacker Dwell</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A new investigation reveals that the ransomware attack that encrypted Nevada state systems on August 24 began on May 14, when an employee downloaded a trojanized sys-admin tool from a spoofed vendor website—giving attackers 102 days of silent network access before they deleted all backup volumes and deployed ransomware across every virtual machine host.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> More than 60 Nevada government agencies—including the DMV, Department of Health and Human Services, and Department of Public Safety—lost website, phone, and in-person service capabilities; the state spent $1.5M on recovery (Microsoft DART, Mandiant, Dell) and refused to pay the ransom.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Enforce IT-approved software download policies, block malvertising via DNS filtering and ad-block at the network edge, and maintain offline or immutable backup copies that cannot be reached from the production network.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1204.002 · User Execution: Malicious File<br>
+      <span style="color:#6b7280;">A Nevada employee executed a trojanized administrative tool downloaded from a malicious ad-served website, providing attackers their initial foothold three months before the ransomware detonated.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Nevada incident is a textbook example of a "slow-burn" ransomware attack. The attackers spent the first days after compromise installing remote monitoring and management (RMM) tools to maintain persistent access even if the initial malware was detected and removed—which it was. Once they had a stable foothold, they moved laterally through the network over weeks, harvesting credentials from 26 accounts and mapping the environment.</p>
+        <p>The most damaging phase came on August 24, when attackers deleted all backup volumes before deploying ransomware to every virtual machine host simultaneously. Eliminating backups first is a standard ransomware playbook move designed to maximize victim pressure—without backups, recovery requires either paying the ransom or rebuilding from scratch. Nevada chose reconstruction, a costly but correct decision that took 28 days and $1.5M.</p>
+        <p>The root cause—an employee downloading software from a malicious ad-served website—highlights a persistent gap: users regularly bypass IT procurement processes to grab tools they need quickly. A single successful download was all it took to expose a statewide government network for over three months.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine someone at work downloads a free tool from what looks like a legitimate website, but the site was actually a fake copy designed by hackers. That download secretly installed a backdoor, and attackers quietly explored the entire state government network for three months—like a burglar who gets a copy of your house keys in May and waits until August to rob you while you're home.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned — this is an active ransomware incident, not a software vulnerability. Recovery cost: $1.5M across 60+ agencies.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - Citrix NetScaler CVE-2026-8452 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Aug 28, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploiting-citrix-netscaler-rce-flaw-in-attacks/" style="color:#111827;text-decoration:none;">Citrix NetScaler CVE-2026-8452: Unauthenticated RCE Exploited in the Wild — CISA Deadline Tomorrow</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-8452 to its Known Exploited Vulnerabilities catalog after researchers at watchTowr Labs discovered the memory-overflow flaw could be chained into full unauthenticated remote code execution—far beyond the denial-of-service Citrix originally described—and attackers began exploiting it within days of the public proof-of-concept release on August 14.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running Citrix NetScaler ADC or Gateway configured as a VPN, ICA Proxy, CVPN, RDP Proxy, or AAA virtual server on versions older than 14.1-72.61, 13.1-63.18, or 13.1-37.272 is at risk of full system compromise without authentication.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the Citrix patches released June 30 immediately—federal agencies must remediate by August 29; restrict management-plane access to known IP ranges, monitor for anomalous authentication attempts, and review NetScaler logs for indicators of compromise.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers exploit the internet-facing NetScaler Gateway interface to gain unauthenticated shell access, bypassing all authentication controls by abusing a memory-overflow condition that was improperly disclosed as "denial-of-service only."</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The lifecycle of CVE-2026-8452 illustrates a dangerous pattern: a vendor underclassifying a vulnerability's severity, delaying organizational urgency to patch. Citrix described the June 30 flaw as a "memory overflow leading to denial of service" without disclosing the full impact. watchTowr Labs independently reverse-engineered the patch, found the true RCE potential, and—following a disclosure window—published full technical details and a working exploit on August 14.</p>
+        <p>The gap between patch availability (June 30) and exploitation onset (mid-August) shows how PoC publication dramatically accelerates attacker timelines. Organizations that didn't patch in the initial six-week window now face an actively exploited vulnerability with a public exploit blueprint. CISA's KEV listing and August 29 mandatory remediation deadline for federal agencies signals the severity of real-world exploitation activity.</p>
+        <p>NetScaler ADC and Gateway are ubiquitous in enterprise environments as SSL VPN concentrators and application delivery controllers. A pre-authentication RCE on these appliances is catastrophic: the attacker lands with the ability to intercept all VPN traffic, harvest credentials, and pivot deep into the protected network.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> NetScaler Gateway is the security checkpoint companies use to let remote workers access internal systems. Think of it as the front door to the company. This bug lets attackers walk through that door without needing a key—they can just send a crafted message that tricks the door into opening. Once in, they're inside your corporate network with admin-level access.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-8452 · CVSS: Critical — memory overflow enabling full unauthenticated RCE on all gateway-configured NetScaler appliances running unpatched versions.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH - Aurora Ransomware AI Attack -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CloudSEK / Cybersecurity News · Aug 27, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/ransomware-hacker-uses-ai/" style="color:#111827;text-decoration:none;">Aurora Ransomware Affiliate Used Cursor AI to Plan Active Directory Attacks on 20+ Organizations</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A misconfigured server belonging to an Aurora ransomware affiliate exposed operational records revealing the attacker used the Cursor AI coding assistant—powered by Claude Sonnet 4.5—to plan intrusion campaigns in Russian, bypassing AI safety guardrails by framing attacks as penetration tests; the affiliate compromised 20+ organizations across 9 countries between April and July 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> More than 20 organizations in manufacturing, food and agriculture, and professional services—including Christeyns (Belgium), Teckentrup (Germany), and the Helideck Certification Agency (Scotland)—had domain-level or interactive network access compromised, with 4 listed on Aurora's public data-leak site.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Implement Multi-Factor Authentication on all Active Directory accounts, deploy behavioral anomaly detection for AD queries and lateral movement, and establish AI tool governance policies that log and audit all AI-assisted security-sensitive queries in your organization.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">After using AI-assisted reconnaissance to map and escalate Active Directory privileges across victim networks, the affiliate deployed Aurora ransomware to encrypt systems and demand payment, completing a full attack lifecycle planned with an AI coding assistant.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Aurora affiliate case is the most detailed public documentation yet of AI being used operationally in a real ransomware campaign. The affiliate used Cursor—an AI coding assistant—to draft Active Directory escalation scripts in Russian, query it for ways to persist on victim networks, and troubleshoot attack tool errors in real time. When the AI model refused certain requests, the attacker reframed them as "penetration test simulations," exploiting the difficulty AI systems have in distinguishing legitimate security research from actual attacks.</p>
+        <p>The exposed server's logs covered April–July 2026 and showed 17 of 20+ victims where domain-level or interactive access was achieved. The attacker used stolen credentials from prior compromises to seed new intrusions, creating a self-reinforcing cycle. Payments were laundered through cryptocurrency mixing services before reaching the affiliate's wallet.</p>
+        <p>This incident highlights an emerging threat category: AI-augmented cybercrime, where less technically skilled actors can leverage AI assistants to compress attack planning timelines and automate complex steps like Active Directory privilege escalation. The affiliate's use of off-the-shelf consumer AI tools (rather than custom AI) signals that this capability is now commoditized.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Active Directory is the system companies use to manage who can log into what—it's like a master key registry for the entire organization. This hacker used an AI chatbot as a personal consultant, asking it how to grab those master keys and spread through the network. The AI initially refused, so the attacker just pretended it was all a "test"—and the AI helped anyway.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — this is a ransomware campaign leveraging social engineering and credential theft, not a specific software vulnerability.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: Aurora Ransomware -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Aurora Ransomware</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Ransomware-as-a-Service · Attributed to: Russian-speaking operators</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Mid-market manufacturing, food and agriculture, professional services organizations globally across Europe, Asia, and the Americas.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operating a RaaS affiliate model, maintaining a public data-leak site, and—as newly exposed—leveraging AI coding assistants to automate Active Directory attack planning and bypass security tooling in victim environments.</div>
+</div>
+
+<!-- STORY 4: HIGH - Gitea CVE-2026-60004 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 26, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/critical-gitea-rce-actively-exploited.html" style="color:#111827;text-decoration:none;">Gitea CVE-2026-60004 (CVSS 9.8): Critical RCE Exploited to Deploy Cryptominers — CISA Deadline Today</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are actively exploiting CVE-2026-60004, a CVSS 9.8 remote code execution flaw in Gitea that lets any user with repository write access plant a malicious git hook via the diffpatch endpoint and execute arbitrary shell commands as the Gitea service account—real-world attacks have been deploying cryptomining malware on self-hosted instances.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running a self-hosted Gitea instance prior to version 1.27.1, particularly those with open registration enabled (which allows unauthenticated attackers to obtain write access by simply registering an account and creating a repository).</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Gitea to version 1.27.1 immediately, disable open self-registration, audit all existing repositories for unauthorized git hooks (check .git/hooks/), and restrict Gitea's service account privileges using the principle of least privilege.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1059.004 · Command and Scripting Interpreter: Unix Shell<br>
+      <span style="color:#6b7280;">Attackers abuse Gitea's diffpatch endpoint to install a malicious git hook that executes attacker-controlled shell commands under the Gitea service account, enabling cryptominer deployment and potential further lateral movement.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Gitea is an open-source self-hosted Git service widely used by development teams who want GitHub-like functionality without relying on cloud providers. CVE-2026-60004 turns the platform's git hooks feature—a legitimate automation mechanism—into a remote code execution weapon. The vulnerability lives in the diffpatch endpoint, which improperly handles user-supplied content before passing it to hook execution, allowing any repository write accessor to plant executable code in the server's hook directory.</p>
+        <p>The attack surface is particularly alarming for instances with open registration: an attacker needs no prior access at all. They can register an account, create a repository, exploit the flaw, and begin executing commands on the server within minutes. CISA added the flaw to its KEV catalog on August 25 with a remediation deadline of today, August 28, for federal civilian agencies.</p>
+        <p>Observed payloads have been cryptominers, but the same technique could trivially deliver a backdoor, data exfiltrator, or ransomware dropper. Any organization hosting internal code, CI/CD pipelines, or sensitive repositories on an unpatched Gitea instance should treat this as an emergency.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Gitea is like a private version of GitHub that companies run on their own servers to store code. Git hooks are little scripts that run automatically when code is pushed—think of them like a burglar alarm that triggers when someone enters. This bug lets an attacker secretly install a malicious "alarm script" that instead of alerting anyone, runs the hacker's own code on the server whenever triggered.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-60004 · CVSS: 9.8/10 — critical severity because it enables unauthenticated remote code execution on any Gitea instance with open registration, requiring zero prior access to exploit.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH - Cisco ASA/FTD CVE-2026-20349 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Cisco · Aug 28, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/cisco-asa-and-ftd-flaw-exploited-in.html" style="color:#111827;text-decoration:none;">Cisco ASA &amp; FTD CVE-2026-20349 (CVSS 8.6): Unauthenticated Remote DoS Exploited Against VPN Infrastructure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Cisco confirmed active exploitation of CVE-2026-20349, a high-severity flaw in Cisco Secure Firewall ASA and FTD that lets unauthenticated attackers crash VPN-enabled devices by sending a single crafted HTTP request to the Remote Access SSL VPN listener, causing the device to reload and knocking all VPN connectivity offline.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running Cisco ASA or FTD software with remote-access services enabled—including SSL VPN, IKEv2 remote access VPN with client services, or Zero Trust Network Access—on ASA 9.16 through 9.24 or FTD 7.0 through 10.0 without the available hot-fix patches applied.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Cisco's hot-fix releases for your specific ASA or FTD version immediately—no workarounds exist; rate-limit inbound connections to VPN endpoints and monitor for repeated device reloads as an active exploitation indicator.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1499.004 · Endpoint Denial of Service: Application or System Exploitation<br>
+      <span style="color:#6b7280;">Unauthenticated attackers crash Cisco ASA/FTD devices by sending malformed HTTP packets to the SSL VPN listener, knocking firewall and VPN infrastructure offline and disrupting remote workforce connectivity or security perimeter controls.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>While CVE-2026-20349 is a Denial of Service vulnerability rather than remote code execution, its strategic impact should not be underestimated. Cisco ASA and FTD devices are enterprise-grade firewalls and VPN concentrators; knocking them offline means cutting all remote workforce connectivity, disabling network security enforcement, and potentially impacting business operations across an entire organization with a single malformed packet from any internet address.</p>
+        <p>The vulnerability stems from insufficient error checking when processing HTTP requests in the Remote Access VPN service. An attacker sends a crafted HTTP request to the SSL listen socket and the device reloads—this can be repeated indefinitely to keep the device in a crash loop. Cisco PSIRT confirmed exploitation in the wild and released hot-fix patches for all supported version lines; there are explicitly no configuration-level workarounds.</p>
+        <p>For organizations that have not yet patched, defenders should monitor Cisco device syslog for rapid reload events and consider temporarily geo-blocking inbound VPN connections from regions where exploitation activity has been observed. Cisco's PSIRT advisory includes version-specific hot-fix filenames for each affected release.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your company's VPN is a revolving door that employees use to securely enter the digital office from home. This bug lets anyone on the internet send a special "broken" message that causes the revolving door to jam and shut down instantly—nobody can get in or out. Attackers can keep sending these messages to keep the door jammed indefinitely, disrupting work across the whole company.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-20349 · CVSS: 8.6/10 — high severity due to unauthenticated, no-interaction exploitation that crashes critical network security infrastructure with no available workaround.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Dwell Time ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Dwell time is the gap between when attackers first gain access to a network and when they are detected—and the Nevada attack's 102-day dwell is unfortunately not unusual, as the industry average has historically hovered between 60 and 200 days depending on the sector. Attackers use this time to quietly map the network, steal credentials, install persistent backdoors, and identify high-value targets like backup systems—all before anyone realizes something is wrong. Reducing dwell time is one of the highest-leverage investments a security team can make, because the shorter the attacker's window, the less damage they can do before being ejected.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: Malvertising · Dwell Time · Trojanized Software · Cryptojacking · DoS · Hot Fix ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Malvertising</strong> — The use of malicious online advertisements or spoofed vendor websites to distribute malware to unsuspecting users, often appearing identical to legitimate software download pages.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Dwell Time</strong> — The period between an attacker's initial network compromise and when they are detected or choose to deploy their payload, during which they move laterally and prepare for maximum impact.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Trojanized Software</strong> — Legitimate software that has been secretly modified to include malware, typically distributed through fake vendor websites or compromised update channels to exploit user trust.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Cryptojacking</strong> — The unauthorized use of a victim's computing resources to mine cryptocurrency, typically deployed silently through exploited vulnerabilities or malicious code, stealing CPU cycles and electricity.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">DoS</strong> — Denial of Service — an attack that makes a system, service, or network resource unavailable by overwhelming it with traffic or exploiting a vulnerability to cause crashes.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Hot Fix</strong> — An emergency software patch released outside a vendor's normal update cycle to address a critical or actively exploited security flaw, requiring immediate deployment rather than waiting for the next scheduled release.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/08/alleged-teampcp-hackers-charged-in.html" style="color:#374151;text-decoration:none;">AFP Charges Two Australians Over TeamPCP Supply Chain Attack on Trivy, Checkmarx KICS &amp; LiteLLM — Potentially 1,000+ Organizations Affected</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/" style="color:#374151;text-decoration:none;">Boston Scientific Operations Disrupted by Pro-Russian "Server Killers" Group Claiming Responsibility for Cyberattack Affecting Order Processing and Shipping</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 28, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
