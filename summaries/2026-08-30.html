@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Aug 30, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Aug 30, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - Citrix NetScaler CVE-2026-8452 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Aug 27, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.helpnetsecurity.com/2026/08/27/netscaler-adc-gateway-cve-2026-8452/" style="color:#111827;text-decoration:none;">Citrix NetScaler CVE-2026-8452 Actively Exploited After CISA Deadline Passed</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are actively exploiting a pre-authentication heap overflow in Citrix NetScaler ADC and Gateway (CVE-2026-8452), dropping web shells named "x.php" and "z.php" on compromised appliances — the federal remediation deadline set by CISA passed on August 29.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running Citrix NetScaler ADC or Gateway, particularly federal agencies that missed the mandatory August 29 KEV remediation deadline.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch immediately to NetScaler 14.1-73.32+ or 13.1-63.21+, then scan appliances for "x.php" and "z.php" web shells and audit logs for suspicious discovery commands like "id" and "echo".</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">Adversaries are exploiting Citrix NetScaler — which acts as an external remote-access and single-sign-on gateway — to gain unauthenticated entry into internal enterprise networks before any credentials are required.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-8452 is a pre-authentication heap memory overflow vulnerability in Citrix NetScaler ADC and Gateway, specifically in the code responsible for parsing SAML single sign-on messages on the appliance's AAA (Authentication, Authorization, and Accounting) service. Citrix initially disclosed the flaw in June 2026, characterizing it as enabling only denial-of-service attacks. However, researchers at watchTowr demonstrated in August that successful exploitation actually achieves remote code execution as root — a dramatically more severe outcome that significantly changes the risk calculus for unpatched organizations.</p>
+        <p>CISA added the vulnerability to its Known Exploited Vulnerabilities (KEV) catalog on August 26 and mandated remediation by August 29 for all federal civilian agencies. With that deadline now passed, threat actors are confirmed to be dropping web shells — small backdoor scripts named "x.php" and "z.php" — onto compromised appliances, then running discovery commands to map internal networks for lateral movement. The pre-authentication nature of this flaw means no login credentials are needed, making exposure essentially automatic for any Internet-facing unpatched appliance.</p>
+        <p>Organizations that have not yet patched face immediate risk of full network compromise. The recommended builds are NetScaler 14.1-73.32 and later, or 13.1-63.21 and later (with corresponding FIPS and NDcPP variants). Beyond patching, defenders should immediately audit web application directories on NetScaler appliances for unexpected PHP files and review authentication logs for anomalous pre-auth requests to AAA endpoints.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Citrix NetScaler is like a heavily-trafficked digital security guard booth that sits in front of corporate networks, managing who can log in remotely. This vulnerability is a flaw in how that booth reads special login messages — an attacker can send a crafted message before even having a username or password, causing the booth to malfunction and granting them full admin control of the device. Federal agencies were told to fix this by yesterday; any that missed that deadline now have an open door into their networks.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-8452 · CVSS: 8.8/10 — High-severity pre-authentication heap overflow; exploitation requires no credentials and can result in root-level remote code execution on NetScaler ADC and Gateway appliances.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - Iran Critical Infrastructure -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Aug 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/iran-linked-hackers-shut-down-uk-power-plant-for-four-days/" style="color:#111827;text-decoration:none;">Iran-Linked Hackers Disable UK Power Plant for Four Days, Concurrently Hit Water Systems Across 12 US States</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Iranian state-sponsored hackers simultaneously disabled a British power plant for four days and disrupted wastewater treatment operations across 12 US states, causing flooding and water pressure loss — the FBI has confirmed Iranian attribution for both campaigns.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> UK energy sector operators, and residents and municipalities across 12 US states (including Minnesota, Michigan, Georgia, South Dakota, and New Jersey) who depend on water treatment infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Critical infrastructure operators must immediately implement OT/ICS network segmentation, enforce air-gap boundaries between IT and OT environments, and apply CISA ICS security advisories for water and energy sector environments.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1489 · Service Stop<br>
+      <span style="color:#6b7280;">Adversaries stopped industrial control system processes on both the UK power plant and US wastewater treatment facilities, causing physical service outages directly affecting public safety and community infrastructure.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>In an unprecedented coordinated operation aligned with escalating geopolitical tensions, Iranian state-sponsored hackers simultaneously targeted critical infrastructure on two continents. A British power plant — not publicly named for security reasons — was disabled for four days after its industrial control systems were compromised. While the plant was small and did not impact the wider UK power grid, the attack marks the first confirmed cyberattack to physically disable energy generation infrastructure in the United Kingdom, prompting emergency warnings to power companies and critical facility operators across the country.</p>
+        <p>Concurrently, dozens of wastewater treatment plants across 12 US states experienced operational disruptions attributed to the same or affiliated Iranian threat actors. The first reports emerged from Minnesota, with similar breaches confirmed in Michigan, Georgia, South Dakota, and New Jersey. The attacks caused real physical consequences including localized flooding and loss of water pressure. The FBI has publicly attributed both campaigns to malicious Iranian cyber actors, consistent with the broader strategic context of the 2026 Middle East conflict.</p>
+        <p>The operational significance of these attacks extends beyond their immediate physical impact. By demonstrating the ability and willingness to stop physical processes across multiple countries simultaneously, the threat actors have signaled that critical infrastructure disruption is now an active tool of Iranian statecraft. The coordinated timing strongly suggests centralized planning rather than opportunistic attacks, raising the possibility of further escalation against Western infrastructure.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Industrial control systems (ICS) are the computers that physically control machines — turbines, pumps, valves — in power plants and water facilities. Unlike stealing data, hacking these causes real-world physical damage. Iranian-linked hackers found ways into the control systems of both a UK power plant and water treatment plants across a dozen US states, shutting them down for days. Water stopped flowing in some communities; a power generator went offline. This is what cybersecurity experts call an "impact on physical processes" attack — and it's among the most serious types that exist.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH - Nevada Ransomware -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">StateScoop · Aug 29, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://statescoop.com/nevada-state-employee-installed-malware-laced-sys-admin-tool-spurring-ransomware-attack/" style="color:#111827;text-decoration:none;">Nevada Ransomware Attack Traced to Employee Who Downloaded SEO-Poisoned Malware Tool in May</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> An investigation report reveals the Nevada state government ransomware attack — which struck August 24 and disabled 60 agencies — originated when an employee downloaded a malware-laced sysadmin tool from a fake website boosted to the top of search results through paid ads; the backdoor lurked undetected from May 14 to June 26.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Nevada state government and residents relying on DMV, Department of Health and Human Services, and Department of Public Safety services, with $1.5M in incident response costs and a 28-day recovery period.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Enforce application allowlisting, block software downloads from non-approved sources, deploy EDR on all state endpoints, and train employees to verify download sources through official vendor websites rather than search engine results.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Resource Development] T1608.005 · Stage Capabilities: SEO Poisoning<br>
+      <span style="color:#6b7280;">Adversaries used paid search advertisements to promote a malicious, trojanized sysadmin tool download page, making it appear as the top search result and deceiving a state employee into executing the malware-laced installer.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>A newly released investigation report has identified the root cause of the devastating Nevada state ransomware attack that struck August 24 and knocked out 60 state agencies. On May 14, 2026, a state employee searched for a system administration tool and clicked on what appeared to be the official download link at the top of search results. The attackers had paid for search advertisements to boost a spoofed website — a technique known as SEO poisoning — making their malicious download page indistinguishable from the legitimate result. The downloaded file installed a hidden backdoor alongside the legitimate tool.</p>
+        <p>The backdoor remained active and undetected for six weeks, from May 14 until June 26, when Symantec Endpoint Protection finally quarantined it. However, the attackers apparently retained a foothold or re-entered before deploying ransomware across the state's network on August 24. The attack affected Nevada's most critical agencies: Health and Human Services, Motor Vehicles, and Public Safety. Recovery required 14 external vendors including Microsoft's Disaster and Recovery Team and 50 state employees working 4,212 overtime hours, at a total cost exceeding $1.5 million. Crucially, the state refused to pay the ransom and ultimately recovered 90% of impacted data over 28 days.</p>
+        <p>This incident is a textbook illustration of how a single employee's inadvertent action — made while trying to do their job — can cascade into a statewide crisis. The six-week dwell time between infection and quarantine is particularly alarming; it suggests the EDR tools in place were initially unable to identify the backdoor's behavior as malicious, allowing the threat actor ample time to map the network and prepare the August 24 ransomware deployment.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine someone at work Googles a tool they need and clicks the top result. But attackers paid for ads to push a fake look-alike website to the top. The employee downloads what looks like a legitimate tool — it even works normally — but it secretly installs a backdoor. Two months later, the attackers use that backdoor to plant ransomware and lock up the entire state government's systems. That's exactly what happened in Nevada. The lesson: always download software from official vendor sites, never from search results, even if they look right.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - BlueDelta HOOKEDGE -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 28, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/apt28-linked-hookedge-backdoor-targets.html" style="color:#111827;text-decoration:none;">APT28 (BlueDelta) Deploys HOOKEDGE Backdoor Against European Defense and Diplomatic Organizations</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Russia's GRU-linked APT28 (tracked as BlueDelta) deployed a new HOOKEDGE batch backdoor against European government, defense, and diplomatic targets in Romania, Spain, and Türkiye — routing C2 communications through webhook.site and headless Microsoft Edge to disguise espionage traffic as legitimate web activity.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> European government agencies, defense ministries, and diplomatic missions, particularly in Romania, Spain, and Türkiye.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Block headless browser execution via policy, restrict outbound HTTPS to webhook.site and similar services, detect scheduled tasks launching Edge in hidden windows, and disable macro execution in Office documents from external sources.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Command and Control] T1071.001 · Application Layer Protocol: Web Protocols<br>
+      <span style="color:#6b7280;">BlueDelta routes HOOKEDGE C2 communications through HTTPS requests to webhook.site using a headless Edge browser instance, making malicious data exfiltration and command retrieval traffic indistinguishable from normal enterprise web browsing.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Recorded Future's Insikt Group has documented a sophisticated espionage campaign by BlueDelta — the designation for Russia's GRU-operated APT28 group — using a previously undocumented backdoor called HOOKEDGE. The campaign targeted government, defense, and diplomatic organizations in Romania, Spain, and Türkiye through macro-enabled Microsoft Word documents. Once opened, the documents install HOOKEDGE, which then uses a clever evasion technique: it launches Microsoft Edge in headless (invisible) mode to communicate with webhook.site, a legitimate developer debugging service used by millions of companies daily.</p>
+        <p>This "living-off-the-land" network approach makes detection extremely difficult. Network defenders cannot simply block HTTPS traffic to webhook.site without disrupting legitimate developer workflows. The HOOKEDGE malware retrieves commands from and exfiltrates data to attacker-controlled webhook endpoints, with all traffic looking identical to normal browser activity. Attribution is based on significant code and tradecraft overlap with HEADLACE, a modular Windows backdoor previously documented in APT28 attacks targeting diplomats since April 2023.</p>
+        <p>Defenders should implement detection for scheduled tasks that launch Microsoft Edge with headless flags, anomalous POST requests to webhook.site from endpoints not used by developers, and Office document macros originating from external email. The campaign's focus on NATO-adjacent European governments (Romania, Spain, Türkiye are all NATO members) is consistent with APT28's long-running strategic intelligence collection mission.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a spy who communicates with their handler by posting coded messages to a massive public bulletin board that millions of developers use every day — instead of sending suspicious encrypted messages. APT28 routes its stolen data and commands through webhook.site, a tool developers legitimately use for testing. To a network security system, this looks completely normal. That's why "living-off-the-land" techniques are among the hardest attacks to detect — the attacker's traffic blends perfectly with legitimate daily activity.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: BlueDelta -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">BlueDelta (APT28 / Fancy Bear)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-state · Attributed to: Russia (GRU — Main Intelligence Directorate)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> NATO governments, European diplomatic missions, defense organizations, election infrastructure, and Western critical sector entities</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> The 2016 DNC hack and Macron campaign breach, credential theft via spearphishing, destructive Sandworm-adjacent operations, and HEADLACE/HOOKEDGE espionage backdoors targeting European governments</div>
+</div>
+
+<!-- STORY 5: HIGH - Nimbus Manticore -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 26, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/nimbus-manticore-expands-toolset-with.html" style="color:#111827;text-decoration:none;">Nimbus Manticore (IRGC-Linked) Expands Toolset With TWOSTROKE-Like Backdoor and SSH Tunneler</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researchers uncovered previously undocumented malware — a TWOSTROKE-like backdoor and SSH tunneler — associated with Nimbus Manticore, an IRGC-affiliated Iranian APT, confirming the group is actively expanding its toolset during the 2026 Middle East conflict and ranks among the most active Iranian threat actors of the year.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Defense, aerospace, telecommunications, and software sectors, primarily in Western countries and the Middle East, consistent with IRGC strategic intelligence priorities.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Block Nimbus Manticore indicators of compromise (IOCs), monitor for MiniFast C2 patterns (structured HTTP with JSON and Chrome User-Agent strings), restrict SSH tunneling from corporate endpoints, and apply zero-trust remote access policies.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Resource Development] T1583.001 · Acquire Infrastructure: Domains<br>
+      <span style="color:#6b7280;">Nimbus Manticore registered new command-and-control domains to support its expanded TWOSTROKE-like backdoor and SSH tunneler toolset, actively staging infrastructure for ongoing campaigns against Western and Middle Eastern targets.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Security researchers (Group-IB) have identified previously undocumented malware and command-and-control infrastructure belonging to Nimbus Manticore (also tracked as UNC1549), an Iranian threat actor affiliated with the Islamic Revolutionary Guard Corps (IRGC). The new toolset includes a TWOSTROKE-like batch backdoor and an SSH tunneler, significantly expanding the group's existing MiniFast malware toolkit. The discovery is particularly concerning because it indicates active operational planning — these tools and infrastructure are being staged for new campaigns, not just analyzed as historical artifacts.</p>
+        <p>Nimbus Manticore has been remarkably active in 2026, ramping operations in parallel with the wider Middle East conflict beginning with Operation Epic Fury on February 28, 2026. The group has adopted AI-assisted malware development — MiniFast's C2 code shows structural patterns consistent with LLM-generated code — and sophisticated delivery mechanisms including AppDomain Hijacking, scheduled task abuse, and SEO poisoning. The new SSH tunneler suggests an expanded focus on persistent, covert network access beyond the group's traditional malware implants.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of the IRGC's hackers like a large, well-funded organization with multiple specialized teams. Researchers just found a new set of tools and communication servers that one of those teams (Nimbus Manticore) is setting up — equipment that hasn't been used in public attacks yet. Discovering this infrastructure before it's deployed gives defenders a head start: they can block those servers and watch for activity patterns before the attacks begin. It's like finding the enemy's supply depot before the battle starts.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: Nimbus Manticore -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Nimbus Manticore (UNC1549)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-state · Attributed to: Iran (IRGC — Islamic Revolutionary Guard Corps)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Defense, aerospace, telecommunications, and software organizations in the Middle East and Western countries aligned with IRGC intelligence priorities</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> AI-assisted malware development (MiniFast), SEO poisoning delivery, trojanized software (Zoom installers), AppDomain hijacking, and wartime cyber operations during the 2026 Middle East conflict</div>
+</div>
+
+<!-- WEEK IN REVIEW (Sunday) -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:12px;">📅 Week in Review</div>
+  <div style="display:flex;gap:10px;margin-bottom:12px;">
+    <div style="flex:1;text-align:center;padding:10px;background:#fef2f2;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#dc2626;">13</div>
+      <div style="font-size:11px;color:#6b7280;">Critical</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fff7ed;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ea580c;">21</div>
+      <div style="font-size:11px;color:#6b7280;">High</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fefce8;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ca8a04;">11</div>
+      <div style="font-size:11px;color:#6b7280;">Medium</div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:#374151;margin-bottom:6px;"><strong>ATT&amp;CK this week:</strong> T1190 · T1195 · T1068 · T1102 · T1486 · T1566 · T1552 · T1204 · T1556 · T1598 · T1059 · T1505 · T1078 · T1499 · T1195.001 · T1133 · T1489 · T1608.005 · T1071.001 · T1583.001</div>
+  <div style="font-size:13px;color:#374151;margin-bottom:10px;"><strong>Threat actors:</strong> Lazarus Group · Anubis · Gunra · BlackFile · UNC5174 · Aurora · Server Killers · BlueDelta · Nimbus Manticore</div>
+  <div style="font-size:13px;color:#374151;line-height:1.6;padding:10px;background:#f8fafc;border-radius:4px;">This week saw 13 critical-severity incidents including nation-state attacks on UK and US critical infrastructure by Iranian actors, active zero-day exploitation of Citrix NetScaler appliances across federal networks, and the Nevada state government ransomware attack originating from a single employee's SEO-poisoned malware download. Sophisticated APT groups — APT28 (BlueDelta), Nimbus Manticore, and Lazarus Group — dominated the threat landscape with living-off-the-land C2 techniques, AI-assisted malware development, and continued exploitation of supply chain and initial access vectors against Western governments and critical infrastructure.</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: SEO Poisoning ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    SEO poisoning is a technique where attackers create malicious websites and use paid search advertising — or traditional search engine optimization tricks — to make them appear at the top of results for popular software names. When an unsuspecting user searches for a legitimate tool (like a sysadmin utility or a developer SDK) and clicks the boosted malicious link, they download a trojanized version that installs malware alongside the real software so it goes unnoticed. This is exactly how the Nevada state government ransomware attack began: an employee searching for a sys admin tool clicked a paid ad pointing to a fake download page, installing a backdoor that lurked undetected for six weeks before ransomware was deployed.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: APT · ICS · OT · Webshell · GRU · IRGC ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">APT</strong> — Advanced Persistent Threat; a highly skilled, typically state-sponsored hacking group that maintains long-term, stealthy access to targeted networks for espionage or disruption.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ICS</strong> — Industrial Control System; the computer hardware and software used to monitor and control physical industrial processes such as electricity generation, water treatment, and manufacturing.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">OT</strong> — Operational Technology; hardware and software that detects or causes changes by directly monitoring and controlling physical industrial devices and processes, distinct from traditional IT systems.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Webshell</strong> — A malicious script (commonly PHP, ASP, or JSP) uploaded to a compromised web server that gives attackers persistent remote access and control via a web browser, bypassing traditional defenses.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">GRU</strong> — Russia's Main Intelligence Directorate (Glavnoye Razvedyvatelnoye Upravleniye); the foreign military intelligence agency responsible for APT28 (BlueDelta), APT44 (Sandworm), and some of the most destructive cyberattacks in history.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">IRGC</strong> — Islamic Revolutionary Guard Corps; Iran's elite military force that oversees several state-sponsored hacking groups — including Nimbus Manticore — conducting espionage, sabotage, and disruptive cyber operations against Western and Middle Eastern targets.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/" style="color:#374151;text-decoration:none;">DOJ Disrupts QScan and QTRouter Chinese Hacking Platforms Targeting Critical Infrastructure</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://securityaffairs.com/" style="color:#374151;text-decoration:none;">Critical Cosmos EVM Shared Module Flaw Exploited to Drain Funds From Six Blockchains (Aug 20–25)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Security Affairs</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Aug 30, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

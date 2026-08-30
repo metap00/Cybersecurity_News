@@ -1,14 +1,15 @@
 {
-  "til": ["Type Confusion Vulnerability", "Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability", "Algorithm Confusion Attack", "Dwell Time", "Supply Chain Poisoning"],
-  "glossary": ["Patch Tuesday", "MSP", "KEV", "ZTP", "LPE", "RaaS", "FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh", "SOCKS5", "Entra ID", "InfoStealer", "C2", "MITRE ATT&CK", "VoLTE", "SoC", "XG-Web", "ShinyHunters", "Monero", "RMM", "DNS Rebinding", "Crates.io", "Vishing", "Keycloak", "FortiOS", "MFA Bypass", "SSO", "SAML", "RCE", "CVSS", "Git Hook", "PoC", "SNOWLIGHT", "Malvertising", "Dwell Time", "Trojanized Software", "Cryptojacking", "DoS", "Hot Fix", "MAG", "Heap Overflow", "AAA Service", "IPv6"],
+  "til": ["Private APN Attack Vector", "Wormable Vulnerability", "Use-After-Free Vulnerability", "Algorithm Confusion Attack", "Dwell Time", "Supply Chain Poisoning", "SEO Poisoning"],
+  "glossary": ["FudModule", "AFD.sys", "NFC Relay", "QUIC", "TeamPCP", "UAF", "Stack Buffer Overflow", "Operation Dream Job", "Minifilter Driver", "reverse_ssh", "SOCKS5", "Entra ID", "InfoStealer", "C2", "MITRE ATT&CK", "VoLTE", "SoC", "XG-Web", "ShinyHunters", "Monero", "RMM", "DNS Rebinding", "Crates.io", "Vishing", "Keycloak", "FortiOS", "MFA Bypass", "SSO", "SAML", "RCE", "CVSS", "Git Hook", "PoC", "SNOWLIGHT", "Malvertising", "Dwell Time", "Trojanized Software", "Cryptojacking", "DoS", "Hot Fix", "MAG", "Heap Overflow", "AAA Service", "IPv6", "APT", "ICS", "OT", "Webshell", "GRU", "IRGC"],
   "week": {
-    "critical": 11,
-    "high": 18,
-    "medium": 9,
-    "techniques": ["T1190", "T1195", "T1068", "T1102", "T1486", "T1566", "T1552", "T1204", "T1556", "T1598", "T1059", "T1505", "T1078", "T1499", "T1195.001"],
-    "actors": ["Lazarus Group", "Anubis", "Gunra", "BlackFile", "UNC5174", "Aurora", "Server Killers"]
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "techniques": [],
+    "actors": []
   },
   "digests": [
+    {"date": "2026-08-30", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-08-29", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 1},
     {"date": "2026-08-28", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-08-27", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 1},
