@@ -1,6 +1,6 @@
 {
-  "til": ["Wormable Vulnerability", "Use-After-Free Vulnerability", "Algorithm Confusion Attack", "Dwell Time", "Supply Chain Poisoning", "SEO Poisoning", "Integer Underflow"],
-  "glossary": ["Minifilter Driver", "reverse_ssh", "SOCKS5", "Entra ID", "InfoStealer", "C2", "MITRE ATT&CK", "VoLTE", "SoC", "XG-Web", "ShinyHunters", "Monero", "RMM", "DNS Rebinding", "Crates.io", "Vishing", "Keycloak", "FortiOS", "MFA Bypass", "SSO", "SAML", "RCE", "CVSS", "Git Hook", "PoC", "SNOWLIGHT", "Malvertising", "Dwell Time", "Trojanized Software", "Cryptojacking", "DoS", "Hot Fix", "MAG", "Heap Overflow", "AAA Service", "IPv6", "APT", "ICS", "OT", "Webshell", "GRU", "IRGC", "EVM", "KEV", "GraphQL", "RaaS", "Double Extortion", "SNMP", "Directory Traversal", "HMAC"],
+  "til": ["Use-After-Free Vulnerability", "Algorithm Confusion Attack", "Dwell Time", "Supply Chain Poisoning", "SEO Poisoning", "Integer Underflow", "Shadow Stack"],
+  "glossary": ["InfoStealer", "C2", "MITRE ATT&CK", "VoLTE", "SoC", "XG-Web", "ShinyHunters", "Monero", "RMM", "DNS Rebinding", "Crates.io", "Vishing", "Keycloak", "FortiOS", "MFA Bypass", "SSO", "SAML", "RCE", "CVSS", "Git Hook", "PoC", "SNOWLIGHT", "Malvertising", "Dwell Time", "Trojanized Software", "Cryptojacking", "DoS", "Hot Fix", "MAG", "Heap Overflow", "AAA Service", "IPv6", "APT", "ICS", "OT", "Webshell", "GRU", "IRGC", "EVM", "KEV", "GraphQL", "RaaS", "Double Extortion", "SNMP", "Directory Traversal", "HMAC", "Shadow Stack", "ROP", "CFI", "CET"],
   "week": {
     "critical": 2,
     "high": 2,
@@ -9,6 +9,7 @@
     "actors": ["Rhysida"]
   },
   "digests": [
+    {"date": "2026-09-01", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-08-31", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 5},
     {"date": "2026-08-30", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-08-29", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 1},
