@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 2, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 2 critical · 2 high · ~7 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-09-02.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1 - CRITICAL: McKesson / ShinyHunters -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Malwarebytes / SC Media · Sep 1, 2026</span>
+  </div>
+  <a href="https://www.malwarebytes.com/blog/news/2026/08/mckesson-confirms-cyber-incident-after-shinyhunters-claims-patient-data-theft" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">ShinyHunters Claims Theft of 284 Million Patient Records from Healthcare Giant McKesson</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 ShinyHunters claims to have stolen 284 million patient records from McKesson after vishing attacks compromised Okta SSO credentials, enabling access to Salesforce and Snowflake environments and exfiltrating ~1 TB of data between August 21–25.</div>
+    <div style="margin-top:2px;">👤 McKesson patients whose SSNs, medical records, medications, and insurance details may have been exfiltrated; a $55 million ransom demand has been issued.</div>
+    <div style="margin-top:2px;">✅ Patients should monitor credit and healthcare accounts; enterprises must enforce phishing-resistant FIDO2 MFA and restrict SSO access to trusted network segments.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1566.004 · Phishing: Spearphishing Voice</div>
+</div>
+
+<!-- STORY 2 - CRITICAL: CVE-2026-82329 JFrog Artifactory -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Sep 2, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/09/attackers-exploit-critical-jfrog.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Attackers Exploit Critical JFrog Artifactory Auth Bypass to Seize Admin Access Days After Disclosure</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Threat actors are actively exploiting CVE-2026-82329 (CVSS 9.8), an authentication bypass in JFrog Artifactory patched five days ago, allowing unauthenticated attackers to generate admin tokens and seize full control of self-managed deployments.</div>
+    <div style="margin-top:2px;">👤 Organizations running internet-exposed self-managed JFrog Artifactory instances—widely used for enterprise software supply chain artifact management.</div>
+    <div style="margin-top:2px;">✅ Patch Artifactory immediately; audit all admin accounts and API tokens for unauthorized additions; restrict network access to the management interface if patching must be delayed.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 3 - HIGH: Aurora Ransomware + Cursor AI -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Aug 31, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/08/aurora-ransomware-operators-use-cursor.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Aurora Ransomware Syndicate Weaponizes Cursor AI Agent to Breach 20+ Organizations Across 9 Countries</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Aurora ransomware operators used Cursor AI agent to automate post-compromise reconnaissance and certificate attacks against 20+ organizations in nine countries (April–July 2026), while deploying custom ESXi encryptors to maximize ransom impact.</div>
+    <div style="margin-top:2px;">👤 Enterprises across North America, Europe, and Asia-Pacific in multiple sectors, with 10+ confirmed victims fully scoped by the AI-assisted attacker before ransomware deployment.</div>
+    <div style="margin-top:2px;">✅ Deploy behavioral detection for unusual scanning patterns; isolate ESXi management networks; maintain offline hypervisor snapshots for recovery.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Resource Development] T1588.002 · Obtain Capabilities: Tool</div>
+</div>
+
+<!-- STORY 4 - HIGH: WatchGuard Fireware OS -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Sep 1, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/over-115-000-watchguard-firewalls-vulnerable-to-ongoing-rce-attacks/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Critical RCE Flaws in WatchGuard Fireware OS iked Expose 115,000+ Firewalls to Unauthenticated Attacks</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 WatchGuard patched three critical RCE flaws (CVE-2026-19313/15/18, CVSS 9.3) in its Fireware OS IKEv2 daemon, exploitable by unauthenticated attackers sending crafted packets to internet-exposed VPN ports.</div>
+    <div style="margin-top:2px;">👤 Organizations running WatchGuard Firebox gateway appliances, with 115,000+ devices estimated to be internet-exposed; T15/T35 owners need branch 12.5.20 specifically.</div>
+    <div style="margin-top:2px;">✅ Update Fireware to 2026.2.2, 12.12.2, or 12.5.20 immediately; if delayed, restrict UDP 500/4500 to trusted IPs or disable IKEv2 VPN services.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1133 · External Remote Services</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html" style="color:#374151;text-decoration:none;">Lazarus Group Exploited CVE-2026-68820 Windows AFD.sys Zero-Day Since July to Deploy FudModule Rootkit Against Defense Firms</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.scworld.com/brief/mckesson-discloses-data-breach-after-shinyhunters-claims-theft-of-284-million-records" style="color:#374151;text-decoration:none;">Data I/O Discloses Breach Traced to Third-Party Firewall Vulnerability; All Operations Restored</a>
+    <span style="color:#9ca3af;"> · SC Media</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-09-02.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Sep 2, 2026</div>
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Sep 2, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 2, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 2 critical · 2 high · 2 medium · ~7 min read</div>
+</div>
+
+<!-- STORY 1 - CRITICAL: McKesson / ShinyHunters -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Malwarebytes / SC Media · Sep 1, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.malwarebytes.com/blog/news/2026/08/mckesson-confirms-cyber-incident-after-shinyhunters-claims-patient-data-theft" style="color:#111827;text-decoration:none;">ShinyHunters Claims Theft of 284 Million Patient Records from Healthcare Giant McKesson</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The ShinyHunters extortion group claims to have stolen 284 million patient data records from McKesson—one of the world's largest healthcare distributors—after vishing attacks compromised employee Okta SSO credentials, enabling silent access to Salesforce and Snowflake environments between August 21–25, 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> McKesson patients whose names, Social Security numbers, dates of birth, medical record numbers, medications, allergy data, and insurance details may be among the approximately 1 TB of data exfiltrated, with a $55 million ransom demand now outstanding.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patients should monitor credit reports and healthcare accounts for unauthorized activity; enterprises using Okta SSO must enforce phishing-resistant FIDO2 MFA and restrict SSO access to trusted network segments.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1566.004 · Phishing: Spearphishing Voice<br>
+      <span style="color:#6b7280;">Attackers used vishing calls to deceive McKesson employees into surrendering Okta SSO credentials, demonstrating that voice-based social engineering can bypass even sophisticated technical controls when employees lack verbal phishing awareness training.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>McKesson distributes pharmaceuticals to approximately one-third of North America's healthcare supply chain, making it one of the most sensitive custodians of patient data in the country. The attack began with a vishing campaign: threat actors telephoned McKesson employees posing as IT support or authorized personnel, tricking them into providing Okta single sign-on credentials. With valid SSO tokens, the attackers moved laterally into McKesson's Salesforce CRM and Snowflake data warehouse environments, exfiltrating roughly 1 TB of patient data over a four-day window ending August 25.</p>
+        <p>ShinyHunters clarified that the 284 million figure represents individual data rows rather than unique individuals, but even a fraction of that count would rank this among the largest healthcare data breaches in U.S. history. The Snowflake ecosystem has been repeatedly targeted in 2024–2026 because many enterprises store dense PII there with inadequate session-level controls and over-permissive service accounts. This attack mirrors ShinyHunters' 2024 playbook against Ticketmaster, Santander, and AT&T: vishing → SSO takeover → cloud data exfiltration.</p>
+        <p>McKesson faces potential HIPAA penalties in the hundreds of millions of dollars regardless of ransom payment. The breach also illustrates a growing trend: attackers bypass technical controls entirely by targeting the human layer, then use those legitimate credentials to move through cloud environments that logging tools may not flag as anomalous.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your company uses one master key (called single sign-on or SSO) that opens dozens of cloud applications. A criminal calls an employee on the phone, pretends to be IT support, and tricks them into handing over that master key. Now the criminal can open all the doors—in this case, databases packed with patients' medical histories, Social Security numbers, and prescription information. This is why security awareness training that teaches employees to be deeply skeptical of unexpected calls asking for credentials is as important as any firewall.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — social engineering attack · CVSS: N/A — The breach leveraged human-layer credential theft rather than a software vulnerability, underscoring that technical defenses alone cannot protect organizations without parallel investment in employee awareness and phishing-resistant MFA.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: ShinyHunters -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">ShinyHunters</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Extortion Group · No nation-state attribution</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Corporations across all industries with large customer or patient databases — financial services, healthcare, telecom, and retail, with a focus on cloud-hosted Snowflake environments</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Mass data theft (Ticketmaster 560M records, Santander, AT&T Snowflake campaigns), vishing-based SSO credential harvesting, double extortion threatening public data sale, and demanding multi-million dollar ransoms</div>
+</div>
+
+<!-- STORY 2 - CRITICAL: CVE-2026-82329 JFrog Artifactory -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / SecurityWeek · Sep 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/09/attackers-exploit-critical-jfrog.html" style="color:#111827;text-decoration:none;">Attackers Exploit Critical JFrog Artifactory Auth Bypass to Seize Admin Access Days After Disclosure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Threat actors are actively exploiting CVE-2026-82329, a CVSS 9.8 authentication bypass in JFrog Artifactory patched just five days ago (August 28), enabling unauthenticated remote attackers to generate full administrative API tokens and seize control of vulnerable self-managed deployments running default configurations.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running self-managed JFrog Artifactory instances exposed to the internet — a platform widely used in enterprise software supply chains to store and distribute code packages, compiled binaries, and container images.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch JFrog Artifactory immediately to the latest available version; audit all admin accounts and API tokens for unauthorized additions; restrict network access to the Artifactory management interface to internal IPs if patching must be delayed.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers are targeting internet-exposed Artifactory instances with unauthenticated requests that exploit the authentication bypass to create admin tokens, granting immediate control of software supply chain infrastructure without any credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>JFrog Artifactory is the dominant enterprise platform for managing software artifacts—compiled binaries, container images, npm packages, Maven JARs, and Python wheels—making it a high-value target for supply chain attackers. CVE-2026-82329 allows any unauthenticated attacker with network access to bypass authentication entirely and generate new administrative API tokens under default Artifactory configurations, requiring no credentials, privileges, or user interaction to exploit.</p>
+        <p>Active exploitation began within days of the August 28 patch release, accelerated by the publication of technical analysis and proof-of-concept code by independent researchers. An attacker with admin access to Artifactory can inject malicious packages into build pipelines, alter approved artifacts with backdoored versions, exfiltrate proprietary source code or secrets stored in the repository, and pivot deeper into developer infrastructure. The downstream blast radius of a compromised Artifactory instance can extend to every product built against it.</p>
+        <p>CISA had not formally added CVE-2026-82329 to its Known Exploited Vulnerabilities catalog as of press time, but confirmed exploitation warrants treating it as a KEV-equivalent emergency. Organizations that cannot immediately patch should block internet access to the Artifactory instance as a temporary mitigation.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Artifactory is like a warehouse where software companies store all the building blocks of their products—code libraries, pre-compiled programs, and container "boxes" that apps run inside. This vulnerability means an attacker could walk into that warehouse without any ID, hand themselves the master key, and then silently swap legitimate packages with poisoned ones. Any product built using those tainted packages would carry the attacker's malicious code, potentially reaching thousands of customers downstream.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-82329 · CVSS: 9.8/10 — Maximum exploitability: network-accessible, no authentication required, no privileges needed, no user interaction, complete confidentiality/integrity/availability impact on the Artifactory instance and its downstream build pipeline.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3 - HIGH: Aurora Ransomware + Cursor AI -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Infosecurity Magazine · Aug 31, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/08/aurora-ransomware-operators-use-cursor.html" style="color:#111827;text-decoration:none;">Aurora Ransomware Syndicate Weaponizes Cursor AI Agent to Breach 20+ Organizations Across 9 Countries</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researchers at CloudSEK and Gambit Security discovered Aurora ransomware operators using Cursor AI agent to automate post-compromise reconnaissance, execute certificate attacks, and plan network intrusions against 20+ organizations across nine countries between April and July 2026, while also deploying custom ESXi encryptors to maximize virtual machine encryption impact.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises across North America, Europe, and Asia-Pacific spanning multiple sectors, with at least 10 confirmed victims whose environments were fully analyzed by the AI-assisted threat actor before ransomware deployment.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Enable behavioral detection for unusual post-compromise scanning patterns; audit ESXi management network access controls and maintain offline hypervisor snapshots; monitor corporate networks for unauthorized AI tool usage.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Resource Development] T1588.002 · Obtain Capabilities: Tool<br>
+      <span style="color:#6b7280;">Aurora operators acquired and weaponized Cursor AI, a legitimate commercial coding assistant, as an offensive capability to automate environment discovery and attack planning—demonstrating how AI tools can lower the skill barrier for sophisticated post-compromise operations and accelerate the attacker's kill chain.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Aurora ransomware group's abuse of Cursor AI marks a documented evolution in how criminal threat actors augment their capabilities. Researchers discovered an exposed open directory containing months of Aurora operator activity logs, revealing that the group used Cursor Agent—a commercially available AI coding assistant—to conduct post-compromise reconnaissance tasks including environment scanning, VPN client installation, and certificate-based attacks. Operators communicated with the AI in Russian and explicitly configured it to exclude CIS countries from targeting.</p>
+        <p>The deployment of custom ESXi encryptors compounds the threat: ransomware groups shift to hypervisor-level encryption because a single encrypted ESXi host can simultaneously lock dozens of virtual machines, maximizing business disruption and ransom leverage. Gambit Security observed Aurora deploying both Windows and Linux/ESXi encryptors, indicating a mature RaaS operation with multiple payload variants tailored to different target environments.</p>
+        <p>The broader implication is the democratization of sophisticated attack tradecraft. Tasks previously requiring experienced operators—systematic network enumeration, protocol-level attacks, targeted reconnaissance—can now be delegated to an AI agent by less-skilled affiliates, compressing the time between initial access and full deployment of ransomware.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of Cursor AI as a smart coding assistant that can also run programs and explore computer systems. Aurora's attackers gained an initial foothold in victim networks and then had this AI assistant do the time-consuming reconnaissance work—scanning systems, finding weaknesses, and planning the attack—while the human operators supervised from a distance. It is like hiring a very fast digital assistant to case a building before a heist, dramatically cutting the time from break-in to full compromise.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — Threat actor TTP evolution · Research published by CloudSEK and Gambit Security, Aug 31, 2026. Activity window: April–July 2026 across 20+ victim organizations in 9 countries.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Aurora -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Aurora (Aur0ra) Ransomware</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal RaaS Operation · Likely Russian-speaking (CIS exclusion in targeting)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Enterprises globally (excluding CIS countries) across manufacturing, healthcare, professional services, and technology sectors in North America, Europe, and Asia-Pacific</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Windows and ESXi/Linux encryptors, AI-assisted post-compromise operations, double extortion, active campaigns documented across 9 countries with 20+ confirmed victims in April–July 2026</div>
+</div>
+
+<!-- STORY 4 - HIGH: WatchGuard Fireware OS iked RCE -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / SecurityWeek · Sep 1, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/over-115-000-watchguard-firewalls-vulnerable-to-ongoing-rce-attacks/" style="color:#111827;text-decoration:none;">Critical RCE Flaws in WatchGuard Fireware OS iked Expose 115,000+ Firewalls to Unauthenticated Attacks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> WatchGuard patched three critical RCE vulnerabilities (all CVSS 9.3) in its Fireware OS IKEv2 daemon—a heap buffer overflow (CVE-2026-19313), stack-based buffer overflow (CVE-2026-19318), and type confusion bug (CVE-2026-19315)—exploitable by sending specially crafted network packets to achieve unauthenticated remote code execution on Firebox gateway appliances.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using WatchGuard Firebox firewall and VPN appliances, with an estimated 115,000+ devices internet-exposed and unpatched, including T15 and T35 models requiring the dedicated 12.5.20 branch update.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately update WatchGuard Fireware to version 2026.2.2, 12.12.2, or 12.5.20; if patching must be delayed, restrict IKEv2 access (UDP ports 500 and 4500) to trusted IP ranges or temporarily disable IKEv2 VPN services.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">The three vulnerabilities reside in WatchGuard's IKEv2 daemon—the component negotiating VPN tunnels from external networks—turning the firewall's own perimeter-defense service into an unauthenticated remote code execution attack surface reachable from the open internet.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>All three vulnerabilities reside in the iked process, which handles Internet Key Exchange protocol negotiations for Firebox IPsec VPN connections. Because iked listens on internet-facing UDP ports 500 and 4500, these bugs are reachable without any authentication or prior network access. The heap buffer overflow (CVE-2026-19313), stack-based buffer overflow (CVE-2026-19318), and type confusion bug (CVE-2026-19315) can each be triggered by sending specially crafted IKEv2 packets, granting the attacker arbitrary code execution with the privileges of the iked process.</p>
+        <p>WatchGuard released patches on August 27, 2026, covering three Fireware OS branches, and states it has not observed exploitation in the wild as of publication. However, the severity and internet exposure of these vulnerabilities demand emergency patching: network security appliances are disproportionately attractive targets because compromising a perimeter firewall grants persistent access to the network edge, often with the ability to intercept VPN traffic. This is WatchGuard's third critical IKEv2 RCE patch in ten months, raising concerns about systemic memory-safety issues in the iked codebase.</p>
+        <p>T15 and T35 model owners should note that their devices receive fixes specifically through the legacy 12.5.20 branch and should verify they are running the correct update for their hardware generation.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Your company's firewall is supposed to be the guard at the door. WatchGuard firewalls use a protocol called IKEv2 to negotiate secure VPN connections with remote employees. These three vulnerabilities mean an attacker can send a malformed message to that VPN door-guard, causing it to crash and execute the attacker's code—effectively handing them control of the device that was supposed to protect you. Because this attack requires only sending a specially crafted packet over the internet, no inside access is needed whatsoever.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-19313 · CVE-2026-19315 · CVE-2026-19318 · CVSS: 9.3/10 — Unauthenticated RCE via memory corruption and type confusion in the Fireware OS IKEv2 daemon, exploitable from any internet-accessible network position against default-configured Firebox appliances.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: IKEv2 Protocol ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    IKEv2 (Internet Key Exchange version 2) is the cryptographic handshake protocol that establishes secure VPN tunnels by negotiating shared encryption keys and mutually authenticating both endpoints before any data travels across the tunnel. It runs on UDP ports 500 and 4500, sits at the very perimeter of corporate networks, and must parse complex binary packet structures sent by any device on the internet—making memory-safety bugs in its implementation particularly dangerous, since any internet-connected attacker can reach it with no prior authentication. WatchGuard's three critical flaws this week are a reminder that the code protecting your network is itself an attack surface: a single parser bug in an externally reachable service can hand an attacker full control of the device standing between the internet and your internal systems.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: JFrog Artifactory · ESXi Encryptor · Okta · IKEv2 · Type Confusion ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">JFrog Artifactory</strong> — A binary repository manager used by development teams to store, version, and distribute software artifacts (compiled binaries, container images, packages) across the build and deployment pipeline.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ESXi Encryptor</strong> — Ransomware specifically designed to encrypt VMware ESXi hypervisor servers, enabling attackers to simultaneously lock every virtual machine hosted on a physical host with a single payload deployment.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Okta</strong> — A cloud-based identity and access management provider offering single sign-on (SSO) and multi-factor authentication; compromising Okta credentials can grant access to every application an organization has federated through it.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">IKEv2</strong> — Internet Key Exchange version 2; a protocol that negotiates cryptographic parameters to establish IPsec VPN tunnels, running on internet-exposed UDP ports 500 and 4500.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Type Confusion</strong> — A memory-safety vulnerability where a program incorrectly interprets data as a different type than intended, allowing attackers to corrupt memory and redirect code execution by manipulating how the program processes that data.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html" style="color:#374151;text-decoration:none;">Lazarus Group Exploited CVE-2026-68820 Windows AFD.sys Zero-Day Since July to Deploy FudModule Rootkit Against Defense and Aerospace Firms</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.scworld.com/brief/mckesson-discloses-data-breach-after-shinyhunters-claims-theft-of-284-million-records" style="color:#374151;text-decoration:none;">Data I/O Discloses Breach Traced to Third-Party Commercial Firewall Vulnerability; All Global Operations Now Restored</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SC Media</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Sep 2, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

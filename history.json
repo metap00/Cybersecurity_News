@@ -1,14 +1,15 @@
 {
-  "til": ["Use-After-Free Vulnerability", "Algorithm Confusion Attack", "Dwell Time", "Supply Chain Poisoning", "SEO Poisoning", "Integer Underflow", "Shadow Stack"],
-  "glossary": ["InfoStealer", "C2", "MITRE ATT&CK", "VoLTE", "SoC", "XG-Web", "ShinyHunters", "Monero", "RMM", "DNS Rebinding", "Crates.io", "Vishing", "Keycloak", "FortiOS", "MFA Bypass", "SSO", "SAML", "RCE", "CVSS", "Git Hook", "PoC", "SNOWLIGHT", "Malvertising", "Dwell Time", "Trojanized Software", "Cryptojacking", "DoS", "Hot Fix", "MAG", "Heap Overflow", "AAA Service", "IPv6", "APT", "ICS", "OT", "Webshell", "GRU", "IRGC", "EVM", "KEV", "GraphQL", "RaaS", "Double Extortion", "SNMP", "Directory Traversal", "HMAC", "Shadow Stack", "ROP", "CFI", "CET"],
+  "til": ["Algorithm Confusion Attack", "Dwell Time", "Supply Chain Poisoning", "SEO Poisoning", "Integer Underflow", "Shadow Stack", "IKEv2 Protocol"],
+  "glossary": ["XG-Web", "ShinyHunters", "Monero", "RMM", "DNS Rebinding", "Crates.io", "Vishing", "Keycloak", "FortiOS", "MFA Bypass", "SSO", "SAML", "RCE", "CVSS", "Git Hook", "PoC", "SNOWLIGHT", "Malvertising", "Dwell Time", "Trojanized Software", "Cryptojacking", "DoS", "Hot Fix", "MAG", "Heap Overflow", "AAA Service", "IPv6", "APT", "ICS", "OT", "Webshell", "GRU", "IRGC", "EVM", "KEV", "GraphQL", "RaaS", "Double Extortion", "SNMP", "Directory Traversal", "HMAC", "Shadow Stack", "ROP", "CFI", "CET", "JFrog Artifactory", "ESXi Encryptor", "Okta", "IKEv2", "Type Confusion"],
   "week": {
-    "critical": 2,
-    "high": 2,
-    "medium": 5,
-    "techniques": ["T1486", "T1053.005", "T1190", "T1657", "T1078", "T1102", "T1505.003"],
-    "actors": ["Rhysida"]
+    "critical": 4,
+    "high": 4,
+    "medium": 7,
+    "techniques": ["T1486", "T1053.005", "T1190", "T1657", "T1078", "T1102", "T1505.003", "T1566.004", "T1588.002", "T1133"],
+    "actors": ["Rhysida", "ShinyHunters", "Aurora"]
   },
   "digests": [
+    {"date": "2026-09-02", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 2},
     {"date": "2026-09-01", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-08-31", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 5},
     {"date": "2026-08-30", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
