@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 4, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · ~8 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-09-04.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: SonicWall (CRITICAL) -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Sep 1, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/sonicwall-warns-of-two-sma1000-zero-days-exploited-in-attacks/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">SonicWall Warns of Two SMA 1000 Zero-Days Exploited in the Wild — Chained for Unauthenticated RCE</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Two zero-days (CVE-2026-83548 CVSS 10.0 SSRF + CVE-2026-83549 OS command injection) are being actively chained by attackers for unauthenticated RCE on SonicWall SMA 1000 enterprise VPN appliances.</div>
+    <div style="margin-top:2px;">👤 Organizations running SMA 1000 models 6210, 7210, 8200v on firmware ≤12.4.3-03453 or ≤12.5.0-02835.</div>
+    <div style="margin-top:2px;">✅ Upgrade to firmware 12.4.3-03526/12.5.0-02952 immediately; restrict AMC access to trusted IPs only.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: JFrog Artifactory (CRITICAL) -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Sep 2, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/critical-jfrog-artifactory-vulnerability-reportedly-exploited-in-the-wild/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Attackers Forge Admin Tokens in JFrog Artifactory via CVE-2026-82329 — CISA Deadline Tomorrow</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-82329 (CVSS 9.8) authentication bypass allows unauthenticated attackers to mint administrative tokens and enumerate all users, credentials, and federated relationships in JFrog Artifactory build repositories.</div>
+    <div style="margin-top:2px;">👤 Self-managed JFrog Artifactory versions 7.111.4–7.161.19 — a tool used by development teams worldwide to store software packages and build artifacts.</div>
+    <div style="margin-top:2px;">✅ Update to patched versions by Sep 5 (CISA federal deadline); audit admin token activity and revoke unauthorized tokens created after Aug 28.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1528 · Steal Application Access Token</div>
+</div>
+
+<!-- STORY 3: Langflow (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Sep 3, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/hackers-start-exploiting-critical-langflow-vulnerability/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Hackers Exploit Langflow RCE Flaw to Harvest OpenAI and AWS Cloud Credentials at Scale</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-0768 (CVSS 9.8) unauthenticated RCE in Langflow's component editor is being mass-exploited from 20+ IPs in 6+ countries to steal OpenAI API keys, AWS credentials, and SSH keys from AI workflow servers.</div>
+    <div style="margin-top:2px;">👤 Organizations running public-facing Langflow ≤1.4.2 — including AI startups and teams building visual AI agent pipelines.</div>
+    <div style="margin-top:2px;">✅ Upgrade to Langflow 1.4.3; take instances off the public internet; immediately rotate all API keys and cloud credentials on affected hosts.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1552.001 · Unsecured Credentials: Credentials In Files</div>
+</div>
+
+<!-- STORY 4: GitSpawn (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Sep 2, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/09/malicious-git-configs-can-make-claude.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">GitSpawn: Malicious .git Config Files Execute Attacker Code When AI Coding Agents Open a Repo</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A vulnerability class (GitSpawn) in AI coding agents allows malicious repositories to execute arbitrary shell commands via the git core.fsmonitor hook the instant an AI agent opens the project — no click or prompt required.</div>
+    <div style="margin-top:2px;">👤 Developers using Claude Code (77M+ monthly downloads), Cursor, Codex, Grok Build, Goose, Qwen Code, and Hermes Agent; Claude Code and Cursor patched, others still vulnerable.</div>
+    <div style="margin-top:2px;">✅ Update Claude Code and Cursor now; run <code>git config --global core.fsmonitor false</code>; avoid opening repos from untrusted sources with AI agents.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1059.004 · Command and Scripting Interpreter: Unix Shell</div>
+</div>
+
+<!-- STORY 5: Microsoft Exchange (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Sep 2, 2026</span>
+  </div>
+  <a href="https://www.helpnetsecurity.com/2026/09/02/microsoft-exchange-cve-2026-62911-critical-authentication-bypass-flaw/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">22,000 Microsoft Exchange Servers Still Exposed to Auth Bypass CVE-2026-62911 as Exploit Code Goes Public</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Nearly 22,000 Exchange servers remain unpatched against CVE-2026-62911 (critical capture-replay auth bypass enabling full mailbox takeover for all users), and public exploit code is now available.</div>
+    <div style="margin-top:2px;">👤 Microsoft Exchange Server 2016, 2019, and SE without the August 11, 2026 patch; US (6,200) and Germany (5,100) have the most exposed servers.</div>
+    <div style="margin-top:2px;">✅ Apply the August 2026 Patch Tuesday update immediately; review auth logs for anomalous privilege escalation; treat any unpatched internet-facing server as potentially compromised.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1550.001 · Use Alternate Authentication Material: Application Access Token</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/critical-elementor-pro-flaw-exploited-to-take-over-wordpress-sites/" style="color:#374151;text-decoration:none;">Elementor Pro CVE-2026-32475 (CVSS 9.0) Exploited to Drop Webshells on WordPress Sites — 200K Attempts Blocked</a>
+    <span style="color:#9ca3af;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/" style="color:#374151;text-decoration:none;">Sangoma Switchvox CVE-2026-9586 Unauthenticated SQL Injection Actively Exploited for Remote Code Execution</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-09-04.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Sep 4, 2026</div>
+
+</body>
+</html>

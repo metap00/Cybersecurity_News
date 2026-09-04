@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Sep 4, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 4, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: SonicWall (CRITICAL) -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Sep 1, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/sonicwall-warns-of-two-sma1000-zero-days-exploited-in-attacks/" style="color:#111827;text-decoration:none;">SonicWall Warns of Two SMA 1000 Zero-Days Exploited in the Wild — Chained for Unauthenticated RCE</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> SonicWall disclosed two zero-day vulnerabilities in its SMA 1000 enterprise VPN appliances — a pre-auth SSRF (CVE-2026-83548, CVSS 10.0) and an OS command injection (CVE-2026-83549) — that attackers are actively chaining together to gain full remote control of devices without any credentials.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running SonicWall SMA 1000 series models 6210, 7210, and 8200v on firmware versions 12.4.3-03453/12.5.0-02835 or earlier — the enterprise VPN gateways used by large companies to provide secure remote access.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately upgrade to firmware 12.4.3-03526 or 12.5.0-02952; if patching is delayed, restrict the Appliance Management Console (AMC) to trusted IP ranges only and review VPN access logs for unauthorized activity since September 1.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers exploit CVE-2026-83548's SSRF to route traffic through the internet-facing Workplace interface into the protected management console, then trigger CVE-2026-83549's command injection — bypassing network perimeter controls entirely without needing valid credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        The attack chain works in two steps. CVE-2026-83548 abuses a server-side request forgery flaw in the SMA 1000's Workplace interface — the portal employees use to log in remotely. By crafting a specially formatted HTTP request, an unauthenticated attacker tricks Workplace into forwarding internal requests to the Appliance Management Console (AMC), which should only be reachable from trusted internal networks.
+        <div style="margin-top:8px;">Once the SSRF acts as a proxy into the AMC, CVE-2026-83549 takes over: an OS command injection bug in the AMC that normally requires an authenticated administrator. By piggybacking through the SSRF, the attacker bypasses that authentication entirely. The combined effect is unauthenticated remote code execution on hardware sitting at the edge of corporate networks — a perfect beachhead for lateral movement deeper into the organization.</div>
+        <div style="margin-top:8px;">SonicWall products have a history of nation-state targeting; previous zero-days in the SMA line were linked to sophisticated campaigns. Enterprises should treat any unpatched device as potentially compromised and check for unauthorized configuration changes or new VPN accounts created since early September.</div>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your company's front-door security guard (the VPN appliance) can be convinced to deliver a package to the manager's office on your behalf — without you needing a visitor badge. That's the SSRF bug. The package contains an instruction that tricks the manager into running a program the attacker chose. Together, these two flaws let anyone on the internet give commands to the security hardware guarding your entire network.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-83548 · CVSS: 10.0/10 — Maximum severity; unauthenticated network exploitation, no user interaction required &nbsp;|&nbsp; CVE-2026-83549 · CVSS: 8.4/10 — Elevated to critical when chained with CVE-2026-83548</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: JFrog Artifactory (CRITICAL) -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Sep 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/critical-jfrog-artifactory-vulnerability-reportedly-exploited-in-the-wild/" style="color:#111827;text-decoration:none;">Attackers Forge Admin Tokens in JFrog Artifactory via CVE-2026-82329 — CISA Deadline Tomorrow</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A critical authentication bypass in JFrog Artifactory (CVE-2026-82329, CVSS 9.8) is being actively exploited by unauthenticated attackers to generate administrative access tokens and enumerate users, credentials, and federated access relationships across build infrastructure.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running self-managed JFrog Artifactory versions 7.111.4 through 7.161.19 — a build artifact repository used by development teams worldwide to store software packages, container images, and compiled binaries.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update immediately to patched versions (7.111.21, 7.117.28, 7.125.20, 7.133.29, 7.146.38, or 7.161.20); the CISA remediation deadline for federal agencies is September 5 (tomorrow) — treat this as urgent in all environments and audit admin token activity for unauthorized tokens created after August 28.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1528 · Steal Application Access Token<br>
+      <span style="color:#6b7280;">The authentication bypass lets attackers mint their own administrative tokens within Artifactory — equivalent to forging an all-access credential for the software build pipeline — enabling them to read stored secrets, inject malicious packages, or pivot into federated downstream systems via trusted access relationships.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        JFrog Artifactory is the backbone of many organizations' software supply chains — it stores the libraries, container images, and compiled packages that development teams pull as dependencies. CVE-2026-82329 is classified as CWE-287 (Improper Authentication), meaning the system fails to properly verify identity before granting access. Under default configurations, any attacker with network access to an exposed instance can obtain a fully privileged administrative token.
+        <div style="margin-top:8px;">Exposure management firm watchTowr detected active exploitation starting September 1 — just four days after JFrog released patches on August 28. Attackers used the forged admin tokens to enumerate users and groups, harvest stored credentials, and map federated trust relationships: the kind of reconnaissance that precedes a software supply chain attack where malicious code is injected into packages that developers unknowingly consume downstream.</div>
+        <div style="margin-top:8px;">CISA added this to its Known Exploited Vulnerabilities (KEV) catalog on September 2 with a federal remediation deadline of September 5 — an unusually tight window reflecting the severity of supply chain risk. JFrog Cloud environments are already protected; only self-managed deployments require immediate action.</div>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Artifactory is like the parts warehouse where software developers pick up the building blocks for their applications. This vulnerability lets anyone walk in and grab a master key — then use it to see everything in storage, replace legitimate parts with tampered ones, or sneak into connected warehouses. Because compromised build tools can lead to compromised software shipped to end users, a single breach here can multiply into thousands of victims.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-82329 · CVSS: 9.8/10 — Critical; unauthenticated network access, no privileges or user interaction required, full administrative takeover of build infrastructure</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Langflow (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Sep 3, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/hackers-start-exploiting-critical-langflow-vulnerability/" style="color:#111827;text-decoration:none;">Hackers Exploit Langflow RCE Flaw to Harvest OpenAI and AWS Cloud Credentials at Scale</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are mass-exploiting CVE-2026-0768 (CVSS 9.8), a critical unauthenticated remote code execution flaw in Langflow's custom component editor, to execute code as root on AI workflow servers and steal environment variables containing OpenAI API keys and AWS access credentials.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations and developers running public-facing Langflow instances on any version up to 1.4.2 — including AI startups and development teams using Langflow to build and host visual AI pipelines and agent workflows.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to Langflow 1.4.3 immediately; take all public-facing Langflow instances behind a firewall or VPN; immediately rotate any OpenAI API keys, AWS access keys, and SSH keys stored as environment variables on affected hosts.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1552.001 · Unsecured Credentials: Credentials In Files<br>
+      <span style="color:#6b7280;">After gaining root code execution via the unauthenticated RCE, attackers immediately read the process's environment variables — where Langflow installations commonly store OpenAI API tokens and cloud provider credentials — enabling lateral movement into AI infrastructure and cloud accounts at the victim's expense.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        Langflow is an open-source tool that lets developers build AI pipelines visually by connecting large language models, APIs, and data sources. CVE-2026-0768 lives in the custom component editor's validate endpoint — a feature meant to allow users to define Python code for custom components. Because user-supplied code is not sanitized before execution, any HTTP request to the validate endpoint runs arbitrary Python as root without authentication.
+        <div style="margin-top:8px;">VulnCheck honeypots in the UK logged 360 exploitation attempts from 20+ source IPs across 6+ countries, with traffic primarily originating from Russia. The observed attack pattern is consistent with credential harvesting at scale: commands enumerate environment variables, list SSH keys, and probe cloud metadata endpoints. Stolen API keys can be monetized by running compute-heavy LLM tasks at the victim's expense or by selling access to underground markets.</div>
+        <div style="margin-top:8px;">The vulnerability was disclosed as a zero-day in January 2026 and patches were available, making this a case of unpatched public exposure rather than a novel attack. Any Langflow instance reachable from the internet that has not been updated should be considered fully compromised, with all credentials rotated immediately.</div>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of Langflow as a control panel for AI systems. This bug lets a stranger type any command into the control panel without needing a password — because the panel doesn't ask for one. The stranger's goal is to grab the keys to your cloud accounts (OpenAI, AWS) stored in the same room, like finding someone's car key on their desk while the office door is wide open.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-0768 · CVSS: 9.8/10 — Critical; unauthenticated code execution as root, no user interaction, mass exploitation active from multiple countries since Aug 29, 2026</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: GitSpawn (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Sep 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/09/malicious-git-configs-can-make-claude.html" style="color:#111827;text-decoration:none;">GitSpawn: Malicious .git Config Files Execute Attacker Code When AI Coding Agents Open a Repo</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researchers at Manifold Security disclosed GitSpawn, a vulnerability class in which a booby-trapped repository's .git/config file can silently execute arbitrary commands on a developer's machine the moment an AI coding agent opens the project — requiring no prompt, click, or interaction, via abuse of git's core.fsmonitor hook mechanism.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Developers using AI coding agents — confirmed vulnerable are Claude Code (77M+ monthly npm downloads), Cursor, Codex, Grok Build, Goose, Qwen Code, and Hermes Agent; patches shipped for Claude Code and Cursor, while Grok Build, Qwen Code, and Hermes Agent remained unpatched as of September 1.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Claude Code and Cursor to their latest versions; avoid opening repos from untrusted sources with AI agents; run <code style="background:#f3f4f6;padding:1px 4px;border-radius:2px;">git config --global core.fsmonitor false</code> as a defense-in-depth measure until all tools are patched.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1059.004 · Command and Scripting Interpreter: Unix Shell<br>
+      <span style="color:#6b7280;">A malicious repo plants an attacker-controlled shell command in core.fsmonitor inside .git/config; when an AI coding agent runs routine background git operations on the project, git reads this value and executes the embedded command with the developer's full OS privileges — completely outside the agent's sandbox.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        Git has a filesystem monitoring feature (fsmonitor) that allows an external program to watch for file changes and speed up git operations. The program to run is specified by the core.fsmonitor key in .git/config — and crucially, this file is local to each repository, not a global setting. A repository author can embed any command they choose in this field.
+        <div style="margin-top:8px;">AI coding agents like Claude Code, Cursor, and Codex routinely run background git commands (git status, git log, git diff) the moment they open a project to understand its structure. These calls trigger git to read .git/config and — in affected versions — execute whatever command is listed under core.fsmonitor. The command runs with the developer's own credentials outside any sandbox the AI maintains. Because developers implicitly trust their AI tools, this attack requires no social engineering beyond sharing or publishing a malicious repository.</div>
+        <div style="margin-top:8px;">The practical attack vector is significant: a malicious repo distributed via a GitHub link, a package dependency, or a pull request targeting a developer's own project could silently exfiltrate credentials, install persistence, or pivot into production systems that developers routinely have access to. Manifold Security confirmed during retesting on September 1 that Grok Build, Qwen Code, and a second code path in Claude Code were still executing repository-supplied commands.</div>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When you open a project folder with an AI coding assistant, it immediately starts poking around — running background commands to understand your code. This bug lets a malicious project folder include a hidden instruction that those background commands automatically trigger. The trap fires before you type a single word, runs with your own computer's permissions, and can silently steal your passwords or install software — just from opening the wrong repository.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Microsoft Exchange (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Sep 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.helpnetsecurity.com/2026/09/02/microsoft-exchange-cve-2026-62911-critical-authentication-bypass-flaw/" style="color:#111827;text-decoration:none;">22,000 Microsoft Exchange Servers Still Exposed to Auth Bypass CVE-2026-62911 as Exploit Code Goes Public</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Nearly 22,000 Microsoft Exchange servers worldwide remain unpatched against CVE-2026-62911, a critical capture-replay authentication bypass that allows privilege escalation and full takeover of all hosted mailboxes — and working exploit code is now publicly available online.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Microsoft Exchange Server 2016, 2019, or Subscription Edition (SE) that have not applied the August 11, 2026 Patch Tuesday update; the US (6,200 servers) and Germany (5,100 servers) have the highest exposure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's August 2026 Patch Tuesday update immediately; review Exchange logs for unusual authentication patterns or privilege escalation events; assume any internet-facing unpatched server may already be compromised and perform a full credential audit.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1550.001 · Use Alternate Authentication Material: Application Access Token<br>
+      <span style="color:#6b7280;">The capture-replay technique intercepts a legitimate Exchange authentication token in transit and replays it in a modified context to elevate session privileges — exploiting Exchange's trust in previously issued authentication material to gain administrative control over all hosted mailboxes without knowing any user's password.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-62911 was discovered by Orange Tsai of DEVCORE Research Team — the same researcher behind several other high-impact Exchange vulnerabilities — in collaboration with Trend Micro's Zero Day Initiative. The flaw is "authentication bypass by capture-replay": the attacker intercepts a legitimate authentication exchange and resubmits the captured credential material in a way Exchange incorrectly accepts as authorized, resulting in privilege escalation to administrator.
+        <div style="margin-top:8px;">The practical consequence is severe: successful exploitation grants the ability to read, send, delete, and forward emails on behalf of any Exchange user, including executives and legal counsel. This makes it a premier tool for business email compromise campaigns, corporate espionage, and litigation-related exfiltration. The Netherlands NCSC-NL confirmed public exploit code now exists, lowering the bar dramatically from nation-state-level attackers to opportunistic criminal groups.</div>
+        <div style="margin-top:8px;">With 22,000 servers still internet-facing 24 days after the patch was released, the exposure window remains dangerously wide. Organizations running older Exchange versions on-premises are disproportionately represented — often small businesses, local government entities, and schools without dedicated security teams who are slowest to apply patches.</div>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of an authentication token as a festival wristband proving you paid for entry. A capture-replay attack is like photocopying someone's wristband and wearing the copy to sneak backstage. Exchange accepted modified copies of wristbands under certain conditions — allowing an attacker to claim administrator status without knowing anyone's password. With public exploit code available, even low-skill attackers can now attempt this attack against the tens of thousands of unpatched servers still online.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-62911 · CVSS: Critical — Authentication bypass via capture-replay; grants full mailbox control over all Exchange users; public exploit code confirmed available</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Server-Side Request Forgery (SSRF) ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Server-Side Request Forgery (SSRF) is a vulnerability where an attacker tricks a web server into making HTTP requests to locations the attacker specifies — often internal services that are hidden behind firewalls and normally unreachable from the outside internet. Because the request originates from the trusted server itself rather than from an outside IP, internal systems like management consoles, cloud metadata APIs, and internal databases accept it without suspicion. Today's SonicWall attack demonstrates this perfectly: the SSRF in the public-facing Workplace portal acted as an unauthorized proxy, routing attacker traffic through the VPN appliance into the management console that would normally reject any external connection.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: SSRF · OS Command Injection · Capture-Replay Attack · SQL Injection · AI Coding Agent · Build Pipeline · VoIP ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SSRF</strong> — Server-Side Request Forgery; a flaw where an attacker tricks a server into making HTTP requests to unintended internal or external destinations on their behalf, bypassing firewall protections.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">OS Command Injection</strong> — An attack where unsanitized user input is passed directly to a system shell, allowing an attacker to execute arbitrary operating system commands on the host server.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Capture-Replay Attack</strong> — An authentication bypass technique where a valid credential or session token is intercepted in transit and resubmitted in a modified context to gain unauthorized elevated access.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SQL Injection</strong> — An attack that inserts malicious SQL code into input fields or query parameters, tricking a database into returning sensitive data or executing unintended administrative operations.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">AI Coding Agent</strong> — An AI-powered tool such as Claude Code, Cursor, or Codex that autonomously reads, edits, and executes code on a developer's machine, often running background system commands without explicit user confirmation for each action.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Build Pipeline</strong> — The automated sequence of steps — compilation, testing, packaging, and deployment — that transforms source code into a shippable software artifact; tools like JFrog Artifactory store the dependencies and outputs of this process.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">VoIP</strong> — Voice over Internet Protocol; technology that converts voice calls into digital data packets transmitted over the internet, used in enterprise communications platforms like Sangoma Switchvox.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/critical-elementor-pro-flaw-exploited-to-take-over-wordpress-sites/" style="color:#374151;text-decoration:none;">Elementor Pro CVE-2026-32475 (CVSS 9.0) Exploited to Drop Webshells on WordPress Sites — 200K Attempts Blocked</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/" style="color:#374151;text-decoration:none;">Sangoma Switchvox CVE-2026-9586 Unauthenticated SQL Injection Actively Exploited for Remote Code Execution</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Sep 4, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
