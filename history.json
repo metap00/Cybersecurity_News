@@ -1,14 +1,15 @@
 {
-  "til": ["Server-Side Request Forgery (SSRF)", "Supply Chain Poisoning", "SEO Poisoning", "Integer Underflow", "Shadow Stack", "IKEv2 Protocol", "Canary Token"],
-  "glossary": ["SAML", "RCE", "CVSS", "Git Hook", "PoC", "SNOWLIGHT", "Malvertising", "Dwell Time", "Trojanized Software", "Cryptojacking", "DoS", "Hot Fix", "MAG", "Heap Overflow", "AAA Service", "IPv6", "APT", "ICS", "OT", "Webshell", "GRU", "IRGC", "EVM", "KEV", "GraphQL", "RaaS", "Double Extortion", "SNMP", "Directory Traversal", "HMAC", "Shadow Stack", "ROP", "CFI", "CET", "JFrog Artifactory", "ESXi Encryptor", "Okta", "IKEv2", "Type Confusion", "Canary Token", "Honeypot", "TTPs", "OSINT", "SSRF", "OS Command Injection", "Capture-Replay Attack", "SQL Injection", "AI Coding Agent", "Build Pipeline", "VoIP"],
+  "til": ["Supply Chain Poisoning", "SEO Poisoning", "Integer Underflow", "Shadow Stack", "IKEv2 Protocol", "Canary Token", "Exploit Chaining"],
+  "glossary": ["SNOWLIGHT", "Malvertising", "Dwell Time", "Trojanized Software", "Cryptojacking", "DoS", "Hot Fix", "MAG", "Heap Overflow", "AAA Service", "IPv6", "APT", "ICS", "OT", "Webshell", "GRU", "IRGC", "EVM", "KEV", "GraphQL", "RaaS", "Double Extortion", "SNMP", "Directory Traversal", "HMAC", "Shadow Stack", "ROP", "CFI", "CET", "JFrog Artifactory", "ESXi Encryptor", "Okta", "IKEv2", "Type Confusion", "Canary Token", "Honeypot", "TTPs", "OSINT", "SSRF", "OS Command Injection", "Capture-Replay Attack", "SQL Injection", "AI Coding Agent", "Build Pipeline", "VoIP", "GDPR", "iACL", "PBX", "EoP", "NX-OS"],
   "week": {
-    "critical": 6,
-    "high": 7,
-    "medium": 9,
-    "techniques": ["T1486", "T1053.005", "T1190", "T1657", "T1078", "T1102", "T1505.003", "T1566.004", "T1588.002", "T1133", "T1528", "T1552.001", "T1059.004", "T1550.001"],
-    "actors": ["Rhysida", "ShinyHunters", "Aurora"]
+    "critical": 8,
+    "high": 10,
+    "medium": 11,
+    "techniques": ["T1486", "T1053.005", "T1190", "T1657", "T1078", "T1102", "T1505.003", "T1566.004", "T1588.002", "T1133", "T1528", "T1552.001", "T1059.004", "T1550.001", "T1213", "T1195.002", "T1068"],
+    "actors": ["Rhysida", "ShinyHunters", "Aurora", "Qilin"]
   },
   "digests": [
+    {"date": "2026-09-05", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-09-04", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-09-03", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-09-02", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 2},

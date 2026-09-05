@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Sep 5, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 5, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 3 high · 2 medium · 1 low · ~10 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - SonicWall SMA1000 Zero-Days -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Sep 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-actively-exploited-sma1000-zero-day-flaws/" style="color:#111827;text-decoration:none;">SonicWall SMA1000 Zero-Days CVE-2026-83548/83549 Chained for Unauthenticated RCE — Actively Exploited</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> SonicWall disclosed two actively exploited zero-days in its SMA1000 remote access appliances — a CVSS 10.0 SSRF flaw (CVE-2026-83548) and an OS Command Injection flaw (CVE-2026-83549) — that can be chained to achieve unauthenticated root-level code execution; CISA added both to the KEV catalog.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization using SonicWall SMA 1000 Series appliances as a remote access gateway, which are common in enterprise and government environments worldwide.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply SonicWall's firmware patch immediately; as an interim measure, implement an infrastructure ACL (iACL) to deny all TCP traffic to ports 43210 and 43211 on affected appliances — SonicWall also released a Live Protect shield as a temporary mitigation.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers are actively exploiting this vulnerability chain to gain unauthorized initial access to corporate networks through the SMA1000 perimeter appliance — the very device designed to protect the network edge.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The SonicWall SMA1000 is a widely deployed enterprise remote access appliance that sits on the perimeter of corporate networks, functioning as a secure "front door" for remote workers. CVE-2026-83548 is a pre-authentication Server-Side Request Forgery (SSRF) flaw in the appliance's Workplace interface — the part employees use to log in remotely. With a perfect CVSS score of 10.0, it requires no credentials, no user interaction, and can be reached from the internet.</p>
+        <p>The SSRF flaw lets an attacker trick the SMA1000 into making HTTP requests on the attacker's behalf to internal services — including the Appliance Management Console (AMC), which is supposed to be protected from external access. CVE-2026-83549 lives in the AMC: an OS Command Injection flaw that normally requires an authenticated administrator to exploit. By routing requests through the SSRF, an unauthenticated attacker can exploit CVE-2026-83549 without having admin credentials, achieving full OS command execution with root privileges.</p>
+        <p>SonicWall disclosed these flaws September 1-2 and confirmed they are already being exploited in the wild. CISA's KEV designation means U.S. federal agencies face a mandatory patch deadline. SonicWall recommends upgrading NX-OS firmware as the permanent fix, with iACL rules blocking ports 43210 and 43211 as a bridge mitigation.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your company's front door has a hidden mail slot (the SSRF flaw) that lets strangers slip notes directly into the building manager's office — bypassing the locked lobby. In the manager's office is a magic typewriter (the OS Command Injection flaw) that executes whatever it receives. An attacker can slide a note through the slot telling the typewriter to open a backdoor into the entire building — all without ever having a key or a name badge.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-83548 · CVSS: 10.0/10 — A perfect score indicating zero authentication required, network-accessible attack vector, no user interaction needed, and full system compromise potential on a critical perimeter device.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - Qilin / LISI Group -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybernews · Sep 4, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybernews.com/security/qilin-lisi-group-ransomware-breach/" style="color:#111827;text-decoration:none;">Russia-Linked Qilin Ransomware Claims Breach of LISI Group, Supplier to Airbus and Boeing</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The Russia-linked Qilin ransomware group claimed to have breached LISI Group, a €1.8 billion French industrial manufacturer that produces precision components for Airbus, Boeing, Safran, Stellantis, and Volkswagen, posting stolen financial and corporate data on its dark web leak site.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> LISI Group and its aerospace and automotive customers — including Airbus and Boeing — whose proprietary engineering specifications, supply chain logistics, and corporate data may be exposed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Aerospace and defense organizations should audit files received from LISI for integrity, monitor for abnormal outbound data transfers in supplier-linked network segments, and review third-party access controls; LISI has confirmed the "cyber incident."</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">Qilin leveraged ransomware and data exfiltration against a critical node in the global aerospace supply chain, using the threat of public data release to extort LISI Group — a double-extortion tactic amplified by the national-security sensitivity of the stolen aerospace data.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>LISI Group is one of the aerospace industry's critical Tier 1 suppliers, manufacturing fasteners, structural assemblies, and precision components for commercial and military aircraft. A breach of LISI's systems doesn't just affect the company — it can expose the specifications, tolerances, and manufacturing data of aircraft components used by Airbus and Boeing, potentially giving adversaries insight into structural weaknesses or supply chain vulnerabilities.</p>
+        <p>Qilin has confirmed the attack by publishing stolen data on its dark web leak site, a classic double-extortion move designed to maximize pressure on the victim: pay or see sensitive corporate and potentially classified aerospace data released publicly. LISI confirmed a "cyber incident" as of September 4, and investigation is ongoing. The extent of engineering data involved is not yet fully disclosed.</p>
+        <p>The Qilin group has been escalating in sophistication throughout 2026, adding hypervisor-targeting capabilities to its toolset. Aerospace supply chain targets are particularly attractive because many smaller precision manufacturers have less mature cybersecurity postures than the prime contractors they serve.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of the aerospace industry like a complex recipe where Boeing and Airbus are the head chefs but they rely on hundreds of specialized ingredient suppliers. LISI Group is like the company that supplies the exact screws and bolts that hold an aircraft together. If hackers steal LISI's technical blueprints, they don't just know what LISI makes — they know the precise specifications Boeing and Airbus designed around, which is sensitive data. The ransomware group is now holding this recipe book hostage.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: Qilin -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Qilin (a.k.a. Agenda)</div>
+  <div style="opacity:.85;margin-top:4px;">Ransomware-as-a-Service (RaaS) group · Attributed to: Russia (suspected)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Healthcare, manufacturing, aerospace/defense, education, and critical infrastructure across North America, Europe, and Asia-Pacific</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion tactics (steal then encrypt), Go-based and Rust-based ransomware, VMware ESXi hypervisor targeting, and recently escalating attacks against industrial supply chain companies</div>
+</div>
+
+<!-- STORY 3: HIGH - Thomson Reuters C-Track Breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Sep 4, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/09/thomson-reuters-court-software-breach.html" style="color:#111827;text-decoration:none;">Thomson Reuters C-Track Breach Exposes SSNs and Sealed Court Records Across 12 US States</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Thomson Reuters disclosed that attackers silently accessed its C-Track court case management platform from March 1 through June 29, 2026, exfiltrating records from courts in 12 US states, the US Virgin Islands, and Canada — including Social Security numbers, medical information, driver's license numbers, and sealed court documents.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Individuals with court records in the affected states — including criminal defendants, litigants, victims in sealed cases, and anyone whose PII appears in court filings — with Thomson Reuters not yet disclosing the total number of affected individuals.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Enroll in Thomson Reuters' free 12-month Experian IdentityWorks credit monitoring using the posted enrollment code; check if your state court system is among the 12 affected; be alert for targeted phishing using court-related pretexts.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Collection] T1213 · Data from Information Repositories<br>
+      <span style="color:#6b7280;">The attacker maintained persistent access to C-Track's centralized court record repositories for nearly four months, silently harvesting bulk PII and sealed legal documents without triggering detection — a textbook long-dwell-time data collection operation.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>C-Track is Thomson Reuters' software platform used by state courts to manage the entire lifecycle of legal cases — from filing and scheduling to sentencing and appeals. Because it's used across multiple jurisdictions, a single breach can expose an enormous volume of sensitive records. Unauthorized access ran for nearly four months before Thomson Reuters discovered it on June 30, 2026, meaning attackers had extensive time to exfiltrate data at their leisure.</p>
+        <p>The type of data exposed is particularly damaging: sealed court documents are sealed precisely because their disclosure could endanger witnesses, identify crime victims, or undermine ongoing law enforcement operations. Social Security numbers combined with court-context information create powerful identity theft opportunities and are valuable for fraud, blackmail, or targeted social engineering.</p>
+        <p>The breach spans 12 US states, the US Virgin Islands, and Canada — suggesting C-Track is deployed broadly enough that a single platform compromise creates a multi-jurisdictional disaster. Thomson Reuters has not disclosed the total number of affected individuals, though class action lawsuits were filed within days of the disclosure.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Court case management software is like a digital filing cabinet for everything that happens in a courthouse — who was arrested, what charges were filed, testimony transcripts, and sometimes sealed records that are kept private to protect victims or ongoing investigations. If someone breaks into this filing cabinet and copies everything quietly for four months, they walk away with some of the most sensitive information that exists about real people's lives — criminal histories, medical conditions, Social Security numbers — all in one place.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - JFrog Artifactory CVE-2026-82329 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / SecurityWeek · Sep 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog" style="color:#111827;text-decoration:none;">JFrog Artifactory Authentication Bypass CVE-2026-82329 Under Active Exploitation Days After Disclosure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CVE-2026-82329, an improper authentication vulnerability in JFrog Artifactory — the industry-standard software artifact repository used in most enterprise CI/CD pipelines — began being actively exploited within days of its public disclosure and has been added to CISA's Known Exploited Vulnerabilities catalog.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running JFrog Artifactory as part of their software build and delivery pipeline — a compromised Artifactory instance can allow attackers to inject malicious packages into software products that are then distributed to customers downstream.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply JFrog's patch for CVE-2026-82329 immediately; audit Artifactory access logs for anomalous activity since the vulnerability's public disclosure; review build artifact integrity for any packages built after the disclosure date.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1195.002 · Compromise Software Supply Chain<br>
+      <span style="color:#6b7280;">By bypassing Artifactory's authentication, attackers can upload tampered dependencies or poisoned build artifacts that downstream developer workstations and automated CI/CD systems will fetch and execute, turning the vulnerability into a software supply chain injection point.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>JFrog Artifactory is the de facto standard for storing and distributing software build artifacts — the compiled code, libraries, and packages that developers use to build applications. Most large enterprises route all their internal and external software packages through Artifactory to control what software enters their build systems. A vulnerability that bypasses Artifactory's authentication is therefore a supply chain attack vector of the highest order.</p>
+        <p>CVE-2026-82329 exploits improper authentication logic that allows a remote attacker to access Artifactory repositories without valid credentials. With access, an attacker can read proprietary internal packages, exfiltrate source code artifacts, or — most dangerously — upload malicious versions of packages that look identical to legitimate ones. When developers or CI/CD pipelines automatically pull dependencies, they could pull attacker-controlled malicious code instead.</p>
+        <p>The speed of exploitation (within days of disclosure) is consistent with organized threat actors who monitor public CVE feeds and immediately scan for vulnerable internet-exposed instances. CISA's KEV addition means federal agencies have a mandatory remediation deadline.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Artifactory is like the warehouse where a factory stores all its parts before assembly. If someone sneaks into the warehouse and swaps a real part for a fake one that looks identical, every product built with that fake part will be defective — or in the software world, malicious. This vulnerability is the equivalent of a warehouse security guard stepping away, letting strangers in to swap parts, while every automated assembly line keeps pulling from the compromised stock.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-82329 · CVSS: Not published — The rapid CISA KEV addition and confirmed exploitation indicate high severity despite delayed scoring.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH - ShieldBreak CVE-2026-69414 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Sep 4, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.helpnetsecurity.com/2026/09/04/september-2026-patch-tuesday-forecast/" style="color:#111827;text-decoration:none;">"ShieldBreak" CVE-2026-69414: Unpatched Windows Elevation-of-Privilege Flaw Tops September Patch Tuesday Watch List</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft disclosed CVE-2026-69414 — dubbed "ShieldBreak" — an elevation of privilege vulnerability in Windows that grants SYSTEM-level access to a low-privileged local attacker; Microsoft is still working on a fix, with September 8's Patch Tuesday as the earliest possible delivery date.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All organizations running current Windows versions are at risk — especially those where users share machines or where attackers may have achieved initial access through another vector, as ShieldBreak is the perfect privilege escalation step for a full system takeover.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor for Microsoft's September 8 Patch Tuesday and prioritize the ShieldBreak patch immediately upon release; in the meantime, enforce least privilege policies to limit what damage an attacker who gains local code execution can do.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">ShieldBreak gives a low-privileged attacker who has already landed on a Windows machine the means to escalate to SYSTEM, the final step in converting limited initial access into complete host ownership before lateral movement.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Elevation of Privilege (EoP) vulnerabilities are the backbone of multi-stage attacks. After gaining initial foothold via phishing, a vulnerable service, or stolen credentials, attackers almost always need to escalate privileges to fully control a system. ShieldBreak fills this role perfectly: a low-privileged user or restricted process running on a Windows machine can exploit this flaw to gain SYSTEM privileges — the highest possible level of access on a Windows host.</p>
+        <p>The fact that Microsoft disclosed this vulnerability without an accompanying patch is unusual and concerning. It suggests the fix is complex or that the vulnerability was disclosed responsibly but the patch is still undergoing validation. The gap between disclosure and patch availability is the most dangerous window — defenders know about the vulnerability and attackers now have a target, but there's nothing to apply.</p>
+        <p>ShieldBreak is most dangerous when combined with a remote code execution vulnerability, such as one of the many actively exploited flaws in this week's digest. An RCE flaw gets an attacker in the door at low privilege; ShieldBreak kicks the door fully open. September 8 Patch Tuesday cannot come fast enough.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of Windows like a building with different floors and key-card access levels. A regular employee can only access the ground floor. SYSTEM is the master key that opens everything — the server room, the security office, the CEO's vault. ShieldBreak is a flaw in the elevator that lets anyone, even a visitor badge holder, punch a secret code and ride straight to the top floor. No patch exists yet, so security teams can only hope attackers don't discover how to exploit it before September 8.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-69414 · CVSS: Pending — Microsoft has not yet assigned a final CVSS score as the patch is still in development; the EoP classification indicates at minimum a HIGH severity rating.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Exploit Chaining ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Exploit chaining (also called vulnerability chaining) is the practice of combining two or more separate security flaws in sequence to achieve an impact neither vulnerability could produce alone — the classic example being a low-severity information disclosure bug chained with a code execution bug to produce a full system compromise. Today's SonicWall story is a perfect illustration: CVE-2026-83548 (SSRF, alone useless for code execution) is chained with CVE-2026-83549 (OS Command Injection, alone requiring authentication) to produce unauthenticated remote code execution with root privileges. Defenders must therefore score vulnerabilities not just in isolation but as potential links in an attack chain, and patch even "low severity" flaws promptly if they could serve as enablers for more dangerous ones.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: GDPR · iACL · PBX · EoP · NX-OS ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">GDPR</strong> — General Data Protection Regulation; the European Union's comprehensive privacy law requiring organizations to protect personal data and imposing fines of up to 4% of global annual revenue for violations, applicable to any organization handling EU residents' data regardless of where the organization is based.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">iACL</strong> — Infrastructure Access Control List; a Cisco network filter deployed at the edge of an organization's network to block unwanted traffic before it can reach the management and control-plane interfaces of core routers and switches, reducing the attack surface of critical network infrastructure.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PBX</strong> — Private Branch Exchange; an enterprise telephone switching system that manages internal calls between extensions and connects the organization to the public telephone network, often now deployed as software (softswitch) or hosted in the cloud rather than as physical hardware.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">EoP</strong> — Elevation of Privilege; a vulnerability class that allows an attacker operating at a lower permission level to exploit a flaw and gain higher-level rights, such as moving from a standard user account to administrator or SYSTEM — a critical step in most multi-stage attacks.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">NX-OS</strong> — Cisco's purpose-built operating system for Nexus series data center switches, designed for high-throughput, low-latency fabric environments and featuring modular architecture that allows hot-swappable updates without rebooting the entire switch.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog" style="color:#374151;text-decoration:none;">Sangoma Switchvox CVE-2026-9586 (CVSS 9.3) SQL Injection Under Ongoing Active Exploitation — CISA KEV</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://therecord.media/" style="color:#374151;text-decoration:none;">G7 Nations Issue Joint Advisory Urging Organizations to Begin Quantum-Safe Cryptography Transitions; US and UK Coordinate Scam Center Takedowns</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Record</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://cybernews.com/" style="color:#374151;text-decoration:none;">Sality Botnet Dismantled After 20 Years — Up to One Million Devices at Peak; Takedown Coordinated Across Law Enforcement Agencies</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Cybernews</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Sep 5, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

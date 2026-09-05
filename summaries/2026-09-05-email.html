@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 5, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 3 high · ~10 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-09-05.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL - SonicWall -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Sep 2, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-actively-exploited-sma1000-zero-day-flaws/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">SonicWall SMA1000 Zero-Days CVE-2026-83548/83549 Chained for Unauthenticated RCE — Actively Exploited</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 SonicWall disclosed two actively exploited zero-days in SMA1000 appliances — a CVSS 10.0 SSRF flaw and an OS Command Injection flaw — that chain together for unauthenticated root-level remote code execution; both added to CISA KEV.</div>
+    <div style="margin-top:2px;">👤 Any organization using SonicWall SMA 1000 Series remote access appliances, common in enterprise and government environments worldwide.</div>
+    <div style="margin-top:2px;">✅ Apply SonicWall's firmware patch immediately; as an interim step, deploy an iACL to block TCP ports 43210 and 43211 on affected devices.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: CRITICAL - Qilin/LISI Group -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybernews · Sep 4, 2026</span>
+  </div>
+  <a href="https://cybernews.com/security/qilin-lisi-group-ransomware-breach/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Russia-Linked Qilin Ransomware Claims Breach of LISI Group, Supplier to Airbus and Boeing</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Qilin ransomware posted stolen data from LISI Group, a €1.8B French industrial manufacturer supplying precision components to Airbus, Boeing, Safran, and Stellantis; LISI confirmed the "cyber incident."</div>
+    <div style="margin-top:2px;">👤 LISI Group and its aerospace and automotive customers whose proprietary engineering specifications and supply chain data may be exposed.</div>
+    <div style="margin-top:2px;">✅ Aerospace security teams should audit files received from LISI, monitor supplier-linked network segments for anomalous data transfers, and review third-party access controls.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1486 · Data Encrypted for Impact</div>
+</div>
+
+<!-- STORY 3: HIGH - Thomson Reuters -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Sep 4, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/09/thomson-reuters-court-software-breach.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Thomson Reuters C-Track Breach Exposes SSNs and Sealed Court Records Across 12 US States</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers accessed Thomson Reuters' C-Track court case management system from March through June 2026, stealing SSNs, medical records, driver's license numbers, and sealed court documents from 12+ US states and Canada.</div>
+    <div style="margin-top:2px;">👤 Anyone with court records in the affected jurisdictions, including criminal defendants, litigants, and victims in sealed cases.</div>
+    <div style="margin-top:2px;">✅ Enroll in Thomson Reuters' free 12-month Experian credit monitoring; watch for court-themed phishing attempts targeting breach victims.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Collection] T1213 · Data from Information Repositories</div>
+</div>
+
+<!-- STORY 4: HIGH - JFrog Artifactory -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA · Sep 2, 2026</span>
+  </div>
+  <a href="https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">JFrog Artifactory Authentication Bypass CVE-2026-82329 Under Active Exploitation Days After Disclosure</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-82329, an improper authentication bypass in JFrog Artifactory, is being actively exploited within days of disclosure; CISA added it to the KEV catalog, threatening software supply chain integrity for any organization using Artifactory in their CI/CD pipeline.</div>
+    <div style="margin-top:2px;">👤 Organizations using JFrog Artifactory in their build pipelines — a compromised instance can allow malicious artifact injection affecting all downstream software consumers.</div>
+    <div style="margin-top:2px;">✅ Apply JFrog's patch immediately and audit Artifactory access logs for unauthorized access since the disclosure date.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.002 · Compromise Software Supply Chain</div>
+</div>
+
+<!-- STORY 5: HIGH - ShieldBreak -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Sep 4, 2026</span>
+  </div>
+  <a href="https://www.helpnetsecurity.com/2026/09/04/september-2026-patch-tuesday-forecast/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">"ShieldBreak" CVE-2026-69414: Unpatched Windows Elevation-of-Privilege Flaw Tops September Patch Tuesday Watch List</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Microsoft disclosed CVE-2026-69414 ("ShieldBreak"), a Windows elevation of privilege flaw granting SYSTEM-level access, with no patch available yet — fix expected in September 8's Patch Tuesday.</div>
+    <div style="margin-top:2px;">👤 All Windows users and organizations; the flaw is especially dangerous as a second stage after any initial code execution vulnerability, enabling full host takeover.</div>
+    <div style="margin-top:2px;">✅ Watch for Microsoft's September 8 Patch Tuesday and apply the fix immediately upon release; enforce least-privilege policies now as an interim control.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog" style="color:#374151;text-decoration:none;">Sangoma Switchvox CVE-2026-9586 SQL Injection (CVSS 9.3) Under Ongoing Exploitation — CISA KEV</a>
+    <span style="color:#9ca3af;"> · CISA</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://therecord.media/" style="color:#374151;text-decoration:none;">G7 Nations Issue Joint Quantum-Safe Cryptography Advisory; US-UK Scam Center Takedowns Announced</a>
+    <span style="color:#9ca3af;"> · The Record</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">LOW</span>
+    <a href="https://cybernews.com/" style="color:#374151;text-decoration:none;">Sality Botnet — Up to One Million Devices at Peak — Dismantled After 20 Years of Operation</a>
+    <span style="color:#9ca3af;"> · Cybernews</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-09-05.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Sep 5, 2026</div>
+
+</body>
+</html>
