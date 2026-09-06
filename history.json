@@ -1,14 +1,12 @@
 {
-  "til": ["Supply Chain Poisoning", "SEO Poisoning", "Integer Underflow", "Shadow Stack", "IKEv2 Protocol", "Canary Token", "Exploit Chaining"],
-  "glossary": ["SNOWLIGHT", "Malvertising", "Dwell Time", "Trojanized Software", "Cryptojacking", "DoS", "Hot Fix", "MAG", "Heap Overflow", "AAA Service", "IPv6", "APT", "ICS", "OT", "Webshell", "GRU", "IRGC", "EVM", "KEV", "GraphQL", "RaaS", "Double Extortion", "SNMP", "Directory Traversal", "HMAC", "Shadow Stack", "ROP", "CFI", "CET", "JFrog Artifactory", "ESXi Encryptor", "Okta", "IKEv2", "Type Confusion", "Canary Token", "Honeypot", "TTPs", "OSINT", "SSRF", "OS Command Injection", "Capture-Replay Attack", "SQL Injection", "AI Coding Agent", "Build Pipeline", "VoIP", "GDPR", "iACL", "PBX", "EoP", "NX-OS"],
+  "til": ["SEO Poisoning", "Integer Underflow", "Shadow Stack", "IKEv2 Protocol", "Canary Token", "Exploit Chaining", "Living off the Land"],
+  "glossary": ["Cryptojacking", "DoS", "Hot Fix", "MAG", "Heap Overflow", "AAA Service", "IPv6", "APT", "ICS", "OT", "Webshell", "GRU", "IRGC", "EVM", "KEV", "GraphQL", "RaaS", "Double Extortion", "SNMP", "Directory Traversal", "HMAC", "Shadow Stack", "ROP", "CFI", "CET", "JFrog Artifactory", "ESXi Encryptor", "Okta", "IKEv2", "Type Confusion", "Canary Token", "Honeypot", "TTPs", "OSINT", "SSRF", "OS Command Injection", "Capture-Replay Attack", "SQL Injection", "AI Coding Agent", "Build Pipeline", "VoIP", "GDPR", "iACL", "PBX", "EoP", "NX-OS", "LotL", "BEC", "TOCTOU", "DNS Sinkhole"],
   "week": {
-    "critical": 8,
-    "high": 10,
-    "medium": 11,
-    "techniques": ["T1486", "T1053.005", "T1190", "T1657", "T1078", "T1102", "T1505.003", "T1566.004", "T1588.002", "T1133", "T1528", "T1552.001", "T1059.004", "T1550.001", "T1213", "T1195.002", "T1068"],
-    "actors": ["Rhysida", "ShinyHunters", "Aurora", "Qilin"]
+    "critical": 0, "high": 0, "medium": 0,
+    "techniques": [], "actors": []
   },
   "digests": [
+    {"date": "2026-09-06", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-09-05", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-09-04", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-09-03", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},

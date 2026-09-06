@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Sep 6, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#16a34a;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🟢 QUIET</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 6, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">0 stories · feed outage today · ~2 min read</div>
+</div>
+
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);font-size:13px;color:#374151;line-height:1.6;">
+  All 10 monitored RSS feeds were unreachable today due to a network proxy restriction. No articles from the last 24 hours could be collected. The Week in Review below summarizes this week's cumulative activity (Mon Sep 1 – Sun Sep 6, 2026).
+</div>
+
+<!-- WEEK IN REVIEW (Sunday) -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:12px;">📅 Week in Review</div>
+  <div style="display:flex;gap:10px;margin-bottom:12px;">
+    <div style="flex:1;text-align:center;padding:10px;background:#fef2f2;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#dc2626;">8</div>
+      <div style="font-size:11px;color:#6b7280;">Critical</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fff7ed;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ea580c;">10</div>
+      <div style="font-size:11px;color:#6b7280;">High</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fefce8;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ca8a04;">11</div>
+      <div style="font-size:11px;color:#6b7280;">Medium</div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:#374151;margin-bottom:6px;"><strong>ATT&amp;CK this week:</strong> T1486 · T1053.005 · T1190 · T1657 · T1078 · T1102 · T1505.003 · T1566.004 · T1588.002 · T1133 · T1528 · T1552.001 · T1059.004 · T1550.001 · T1213 · T1195.002 · T1068</div>
+  <div style="font-size:13px;color:#374151;margin-bottom:10px;"><strong>Threat actors:</strong> Rhysida · ShinyHunters · Aurora · Qilin</div>
+  <div style="font-size:13px;color:#374151;line-height:1.6;padding:10px;background:#f8fafc;border-radius:4px;">This week delivered a heavy threat landscape with 8 critical and 10 high-severity incidents, dominated by the ransomware groups Rhysida and Qilin alongside data-exfiltration operations by ShinyHunters and Aurora targeting organizations across multiple sectors. With 17 distinct ATT&amp;CK techniques observed in active campaigns, defenders should immediately prioritize patching internet-facing applications (T1190), auditing scheduled tasks for persistence (T1053.005), and reviewing credential stores for compromise.</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Living off the Land (LotL) ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    "Living off the Land" is an attack strategy where adversaries exclusively use tools already built into the target operating system — things like PowerShell, WMI, certutil, or native scripting engines — rather than dropping custom malware that could be caught by antivirus. Because these legitimate tools are used by system administrators every day, malicious commands blend into normal activity and are far harder to flag with signature-based detection. Security teams counter LotL attacks by establishing behavioral baselines for tool usage and alerting on anomalies, such as certutil downloading remote files or PowerShell spawning from an unexpected parent process.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: LotL · BEC · TOCTOU · DNS Sinkhole ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">LotL</strong> — Living off the Land; using built-in OS tools such as PowerShell, WMI, or certutil for malicious purposes to evade signature-based detection.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">BEC</strong> — Business Email Compromise; a social-engineering scam where attackers impersonate executives or trusted partners to trick employees into fraudulent wire transfers or sensitive data disclosures.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">TOCTOU</strong> — Time-of-Check Time-of-Use; a race-condition vulnerability where the state of a resource changes between the moment it is verified and the moment it is actually accessed or used.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">DNS Sinkhole</strong> — A DNS server configured to return false responses for known-malicious domains, redirecting botnet traffic away from attacker infrastructure to a controlled, monitored endpoint.
+    </div>
+  </div>
+</details>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Sep 6, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
