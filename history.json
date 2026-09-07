@@ -1,11 +1,12 @@
 {
-  "til": ["SEO Poisoning", "Integer Underflow", "Shadow Stack", "IKEv2 Protocol", "Canary Token", "Exploit Chaining", "Living off the Land"],
-  "glossary": ["Cryptojacking", "DoS", "Hot Fix", "MAG", "Heap Overflow", "AAA Service", "IPv6", "APT", "ICS", "OT", "Webshell", "GRU", "IRGC", "EVM", "KEV", "GraphQL", "RaaS", "Double Extortion", "SNMP", "Directory Traversal", "HMAC", "Shadow Stack", "ROP", "CFI", "CET", "JFrog Artifactory", "ESXi Encryptor", "Okta", "IKEv2", "Type Confusion", "Canary Token", "Honeypot", "TTPs", "OSINT", "SSRF", "OS Command Injection", "Capture-Replay Attack", "SQL Injection", "AI Coding Agent", "Build Pipeline", "VoIP", "GDPR", "iACL", "PBX", "EoP", "NX-OS", "LotL", "BEC", "TOCTOU", "DNS Sinkhole"],
+  "til": ["Integer Underflow", "Shadow Stack", "IKEv2 Protocol", "Canary Token", "Exploit Chaining", "Living off the Land", "BGP Hijacking"],
+  "glossary": ["Hot Fix", "MAG", "Heap Overflow", "AAA Service", "IPv6", "APT", "ICS", "OT", "Webshell", "GRU", "IRGC", "EVM", "KEV", "GraphQL", "RaaS", "Double Extortion", "SNMP", "Directory Traversal", "HMAC", "Shadow Stack", "ROP", "CFI", "CET", "JFrog Artifactory", "ESXi Encryptor", "Okta", "IKEv2", "Type Confusion", "Canary Token", "Honeypot", "TTPs", "OSINT", "SSRF", "OS Command Injection", "Capture-Replay Attack", "SQL Injection", "AI Coding Agent", "Build Pipeline", "VoIP", "GDPR", "iACL", "PBX", "EoP", "NX-OS", "LotL", "BEC", "TOCTOU", "DNS Sinkhole", "BGP", "AS", "RPKI"],
   "week": {
     "critical": 0, "high": 0, "medium": 0,
     "techniques": [], "actors": []
   },
   "digests": [
+    {"date": "2026-09-07", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-09-06", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-09-05", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-09-04", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
