@@ -1,11 +1,12 @@
 {
-  "til": ["Exploit Chaining", "Living off the Land", "BGP Hijacking", "Memory-Safe Languages", "Certificate Transparency", "Typosquatting", "Supply Chain Attack"],
-  "glossary": ["RaaS", "Double Extortion", "SNMP", "Directory Traversal", "HMAC", "Shadow Stack", "ROP", "CFI", "CET", "JFrog Artifactory", "ESXi Encryptor", "Okta", "IKEv2", "Type Confusion", "Canary Token", "Honeypot", "TTPs", "OSINT", "SSRF", "OS Command Injection", "Capture-Replay Attack", "SQL Injection", "AI Coding Agent", "Build Pipeline", "VoIP", "GDPR", "iACL", "PBX", "EoP", "NX-OS", "LotL", "BEC", "TOCTOU", "DNS Sinkhole", "BGP", "AS", "RPKI", "SBOM", "Zero Trust", "Shift Left", "FIDO2", "EDR", "C2", "DGA", "IOC", "WAF", "APT", "Lateral Movement", "Patch Tuesday", "Red Team"],
+  "til": ["Living off the Land", "BGP Hijacking", "Memory-Safe Languages", "Certificate Transparency", "Typosquatting", "Supply Chain Attack", "Threat Modeling"],
+  "glossary": ["HMAC", "Shadow Stack", "ROP", "CFI", "CET", "JFrog Artifactory", "ESXi Encryptor", "Okta", "IKEv2", "Type Confusion", "Canary Token", "Honeypot", "TTPs", "OSINT", "SSRF", "OS Command Injection", "Capture-Replay Attack", "SQL Injection", "AI Coding Agent", "Build Pipeline", "VoIP", "GDPR", "iACL", "PBX", "EoP", "NX-OS", "LotL", "BEC", "TOCTOU", "DNS Sinkhole", "BGP", "AS", "RPKI", "SBOM", "Zero Trust", "Shift Left", "FIDO2", "EDR", "C2", "DGA", "IOC", "WAF", "APT", "Lateral Movement", "Patch Tuesday", "Red Team", "MITRE ATT&CK", "CVE", "CVSS", "Kill Chain"],
   "week": {
     "critical": 0, "high": 0, "medium": 0,
     "techniques": [], "actors": []
   },
   "digests": [
+    {"date": "2026-09-12", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-09-11", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-09-10", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-09-09", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
