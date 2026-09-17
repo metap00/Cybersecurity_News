@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Sep 17, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 17, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 2 critical · 4 high · 0 medium · ~9 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — Cisco Email Gateway Zero-Day -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Sep 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/new-cisco-secure-email-zero-day-exploited-to-execute-commands-as-root/" style="color:#111827;text-decoration:none;">Cisco Patches Secure Email Gateway Zero-Day Enabling Unauthenticated Root RCE (CVE-2026-76461)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Cisco patched a critical zero-day (CVE-2026-76461, CVSS 9.8) in its Secure Email Gateway that allows an unauthenticated attacker to execute arbitrary OS commands as root by sending a specially crafted email.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Cisco AsyncOS versions 15.5, 16.0, or 16.5 on physical or virtual Secure Email Gateway appliances — including enterprises and government agencies that rely on Cisco email security.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade AsyncOS to a patched version immediately — there are no workarounds, CISA added CVE-2026-76461 to its KEV catalog, and the federal remediation deadline is today, September 17.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers send specially crafted emails that exploit the parsing engine itself — the very gateway meant to block threats — granting unauthenticated root access as an initial foothold into the protected network.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>This vulnerability is alarming precisely because it subverts a security appliance. The Cisco Secure Email Gateway sits at the network perimeter, tasked with inspecting and filtering inbound emails for malware and phishing. CVE-2026-76461 exploits a flaw in that very inspection logic — insufficient validation in the email parsing engine — meaning attackers can weaponize the tool designed to protect organizations against them.</p>
+        <p>With a CVSS score of 9.8 and no authentication required, exploitation is trivial: send a crafted email, receive a root shell on the gateway. Root access on a network security appliance is about as severe as it gets — the attacker can intercept or modify all inbound email, pivot deeper into the corporate network, exfiltrate credentials, or install persistent backdoors. CISA's three-day mandatory remediation deadline for federal agencies signals that active exploitation is widespread and systematic.</p>
+        <p>Cisco's advisory notes active exploitation in the wild and offers no workarounds — organizations must upgrade. Given the gateway's trusted position, defenders should also treat existing gateway appliances as potentially compromised and audit for indicators even after patching.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of your email security gateway like a security guard at the building entrance — its job is to check every package for danger before letting it in. This bug means a malicious sender can hand the guard a package that secretly gives the attacker the keys to the entire building. What's worse, the attacker doesn't need any credentials or inside access to do it — just send the right email.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-76461 · CVSS: 9.8/10 — Rated Critical; network-exploitable with no authentication, no user interaction, and full OS command execution as root on the affected appliance.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL — VMware vCenter Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Tech-Insider · Sep 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://tech-insider.org/cisa-vmware-vcenter-ransomware-gangs-kev-deadline-2026/" style="color:#111827;text-decoration:none;">CISA Confirms Ransomware Gangs Now Actively Exploiting Critical VMware vCenter RCE (CVE-2026-59310)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA confirmed that ransomware gangs have joined an ongoing espionage campaign exploiting CVE-2026-59310 (CVSS 9.8), an unauthenticated RCE flaw in VMware vCenter Server's Syslog component patched by Broadcom in July but still unpatched across hundreds of organizations.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises running internet-exposed VMware vCenter Server instances without the July 29, 2026 Broadcom patch — threat intelligence firms have identified 361+ compromised IPs across 47 countries.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Broadcom's July 2026 vCenter patch immediately, restrict vCenter management interfaces from internet exposure, and audit for indicators including reverse SSH tunnels, unauthorized accounts, or unusual VM snapshot activity.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">Ransomware operators exploit the vCenter RCE to gain administrative control over entire virtual infrastructure, then deploy encryption payloads across all hosted VMs simultaneously — maximizing damage and ransom leverage.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>VMware vCenter is the nerve center of modern virtualized enterprise environments — the single pane of glass through which administrators manage every virtual machine, networking configuration, and storage resource in a datacenter. Compromising vCenter is effectively compromising everything it manages. CVE-2026-59310 enables an unauthenticated attacker with network access to achieve remote code execution through the Syslog service, a maintenance component that is often left exposed.</p>
+        <p>The escalation from espionage to ransomware is a predictable but dangerous evolution. What began as a nation-state campaign establishing covert persistence has now been replicated by financially-motivated ransomware groups who purchased or reproduced the exploit. With a CVSS score of 9.8 and over 361 confirmed compromised targets, this vulnerability has crossed the threshold from targeted attack to mass exploitation. A ransomware actor with vCenter access can halt an organization's entire virtual infrastructure within minutes.</p>
+        <p>CISA's confirmation that ransomware actors are active elevates urgency beyond typical patch timelines. Organizations should treat any unpatched internet-exposed vCenter as compromised until proven otherwise, conducting full forensic review in addition to patching.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine VMware vCenter as the master control room for a company's entire computer infrastructure. Most businesses run hundreds of "virtual" computers inside physical servers — vCenter is what manages them all. This bug lets attackers walk into that control room without a key, and now criminal ransomware gangs are using it to lock up everything at once and demand payment to restore access.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-59310 · CVSS: 9.8/10 — Unauthenticated remote code execution via network-accessible Syslog service; patch available since July 29, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH — Google Pixel Modem Zero-Day -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">9to5Google · Sep 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://9to5google.com/2026/09/16/google-pixel-targeted-zero-day-modem-attack/" style="color:#111827;text-decoration:none;">Google Pixel Modem Zero-Day (CVE-2026-58704) Exploited in Targeted Surveillance Attacks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Google's September 2026 Pixel bulletin patches 110 vulnerabilities including CVE-2026-58704, an actively exploited zero-day in the Modem subcomponent that allows privilege escalation with adjacent network access — the "limited, targeted" language signals commercial spyware or state-sponsored use.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Google Pixel device users — particularly journalists, activists, government officials, and other high-value surveillance targets consistent with the historical pattern of modem-level spyware attacks.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Install the September 2026 Pixel security update immediately (patch level 2026-09-05); high-risk individuals should also consider rebooting devices to disrupt any in-memory implants.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Attackers with adjacent network access exploit improper authorization logic in the Pixel modem firmware to escalate from low-privileged access to full system control, enabling persistent implant installation below the Android OS layer.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Google's use of "limited, targeted" to describe CVE-2026-58704 exploitation has been the company's consistent signal for commercial surveillance software — the same framing it applied to Pegasus-like spyware on earlier Pixel zero-days. A modem-level vulnerability is particularly severe because the modem processor operates independently of the Android OS, meaning security tools running at the OS level cannot detect or remediate an implant installed there.</p>
+        <p>The September Pixel bulletin's scope — 110 vulnerabilities including 12 RCE and 89 privilege-escalation issues — reflects the sheer size of the attack surface in modern smartphone firmware. The modem handles all cellular communications including voice, SMS, and data, giving a successful attacker passive interception capability in addition to code execution. CVSS 8.0 reflects the adjacent-network requirement, but for a targeted surveillance actor this is a manageable prerequisite, especially against mobile devices that frequently connect to public or semi-trusted networks.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Your phone has two separate computers inside it — the main processor running Android apps, and a modem chip that handles phone calls and mobile data. This bug is in the modem chip. It's like finding a secret back door in a building that bypasses all the main security — even if you lock the front door perfectly, the back door is still open. Worse, security software on your phone can't easily see inside the modem to check for intruders.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-58704 · CVSS: 8.0/10 — Privilege escalation via improper authorization in the Pixel modem subcomponent; requires adjacent network access and basic device privileges.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH — BambooToken MQTT Malware -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Sep 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/bambootoken-malware-controls-windows-and-linux-systems-via-mqtt/" style="color:#111827;text-decoration:none;">BambooToken: China-Aligned MQTT Malware Framework Targeting Legal, Financial, and Dev Sectors</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Lumen Black Lotus Labs disclosed BambooToken, a previously undocumented malware framework active since 2023 that uses the MQTT protocol for stealthy command-and-control — compromising servers across Asia and South America with capabilities including keylogging, clipboard theft, audio recording, and webcam capture.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations in legal, financial services, software development, and mobile app hosting sectors — particularly those in Asia and South America — where indicators suggest a China-aligned threat actor has been collecting intelligence since at least February 2023.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor network traffic for unusual MQTT connections (ports 1883/8883), hunt for Tendyron OnKey DLL sideloading artifacts in endpoint telemetry, and review servers for unauthorized audio/video recording processes.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Command and Control] T1071 · Application Layer Protocol<br>
+      <span style="color:#6b7280;">BambooToken routes all C2 traffic through MQTT — an IoT messaging protocol rarely inspected by enterprise security tools — allowing it to masquerade as legitimate industrial or smart-device traffic and evade detection for years on targeted networks.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>BambooToken represents a sophisticated evasion strategy: by choosing MQTT as its communications protocol, the malware authors identified a blind spot in most enterprise security stacks. MQTT was designed for IoT devices like industrial sensors and smart building systems — it's lightweight, efficient, and travels on ports that many firewalls and intrusion detection systems do not scrutinize. An enterprise with MQTT-enabled devices (common in manufacturing, building automation, or lab environments) would have no reliable way to distinguish BambooToken's malicious traffic from legitimate device telemetry.</p>
+        <p>The malware's DLL sideloading vector through Tendyron OnKey software — a Chinese-made USB security key product widely used in financial sector authentication — is particularly significant. It suggests the threat actor has deep knowledge of the target environment's tooling, pointing to either prior reconnaissance or insider knowledge. The combination of keylogging, clipboard monitoring, audio recording, webcam capture, and screenshot capabilities creates a comprehensive espionage platform suited for stealing proprietary business information, legal strategy, or financial data.</p>
+        <p>Black Lotus Labs found the malware on VirusTotal in early 2026 despite it being active since 2023 — a three-year detection gap that underscores how effectively the MQTT channel evaded traditional detection. The China alignment assessment is based on tooling and targeting patterns rather than definitive attribution.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> MQTT is like a quiet walkie-talkie channel that factories use to communicate with sensors on machines. Security teams watch the main roads (web traffic, email) very carefully, but often ignore these quiet back channels. BambooToken is malware that speaks exclusively on the walkie-talkie channel — turning on your microphone, logging your passwords, and sending everything back to its operators while hiding in the noise of normal factory chatter.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH — Acronis cPanel LPE -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Sep 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.helpnetsecurity.com/2026/09/16/acronis-backup-plugin-vulnerability-exploited-cve-2026-87886/" style="color:#111827;text-decoration:none;">Acronis cPanel Backup Plugin Flaw (CVE-2026-87886) Actively Exploited for Linux Root Privilege Escalation</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Acronis disclosed that CVE-2026-87886 (CVSS 7.8), a local privilege escalation vulnerability in its backup plugin for cPanel &amp; WHM caused by insecure file permissions, is being actively exploited in targeted attacks against Linux web hosting servers.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Web hosting providers, managed service providers, and website owners running Acronis Backup plugin for cPanel &amp; WHM (Linux) before build 1.9.3.1021 — particularly shared hosting environments where multi-tenant isolation is critical.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update to Acronis Backup plugin version 1.9.3 HF3 (build 1.9.3.1021 or later) immediately; no signs of active exploitation on Plesk deployments but patching is still recommended.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Authenticated attackers exploit insecure file permissions in the Acronis cPanel plugin to escalate from a low-privilege hosting account to root on the underlying Linux server, enabling access to all hosted sites and customer data on the same server.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>This vulnerability is particularly dangerous in shared hosting environments where multiple customers share the same physical Linux server. Normally, a hosting customer can only access their own files — a sandboxed portion of the server — because Linux permission systems enforce strict boundaries. CVE-2026-87886 breaks this isolation: an attacker with any valid cPanel account can exploit insecure file permissions in the Acronis backup plugin to escalate to root, instantly gaining access to every other customer's data on the server.</p>
+        <p>The hosting ecosystem is an attractive target because compromising one server can yield hundreds or thousands of websites' data simultaneously. Attack chains often begin with purchasing a cheap shared hosting account specifically to exploit privilege escalation vulnerabilities, then pivoting across all co-hosted sites. Backup plugins are especially high-risk because they require elevated permissions by design and often run as privileged system daemons.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a shared hosting server like an apartment building where each tenant has their own locked unit. The Acronis backup plugin is like a building-wide janitor's pass that opens every unit for backups. This bug means any tenant who finds a copy of that pass — even a low-level one — can use it to open every other apartment in the building. Suddenly one attacker with a basic account can read all the other tenants' private files.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-87886 · CVSS: 7.8/10 — Local privilege escalation via insecure file permissions; requires authenticated low-privileged access; no user interaction needed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Heap Buffer Overflow ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A heap buffer overflow is a memory corruption vulnerability where a program writes more data into a heap-allocated memory block than that block can hold, causing adjacent memory to be overwritten. Attackers deliberately craft inputs that trigger this overwrite — potentially corrupting pointers, function addresses, or security metadata in ways that redirect the program's execution to attacker-controlled code. Today's CVE-2026-85880 (Windows ALPC) and CVE-2026-58704 (Pixel modem) both exploit heap memory corruption flaws to achieve privilege escalation, illustrating how a low-level memory management mistake can cascade into full system compromise.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: RCE · KEV · LPE · MQTT · cPanel ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RCE</strong> — Remote Code Execution: an attack class where an adversary runs arbitrary code on a target system from a remote location by exploiting a vulnerability, without needing physical access or prior authentication.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">KEV</strong> — Known Exploited Vulnerabilities: CISA's authoritative public catalog of CVEs confirmed as actively exploited in the wild; U.S. federal agencies are legally required to remediate KEV entries within mandated timeframes (typically 3–14 days).
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">LPE</strong> — Local Privilege Escalation: an attack technique that allows a user or process already on a system with limited permissions to gain elevated rights — often administrator or root — by exploiting a vulnerability in the OS or an installed application.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MQTT</strong> — Message Queuing Telemetry Transport: a lightweight publish/subscribe messaging protocol originally designed for IoT and low-bandwidth sensor devices; increasingly abused by malware as a stealthy C2 channel because security tools rarely deep-inspect MQTT traffic.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">cPanel</strong> — A widely-used web-based control panel for web hosting management that allows administrators to configure domains, email, databases, and server applications; its plugins frequently run with elevated system privileges, making them attractive targets for privilege escalation attacks.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://www.securityweek.com/chrome-153-patches-seventh-zero-day-of-2026/" style="color:#374151;text-decoration:none;">Chrome 153 Patches Seventh Zero-Day of 2026 (CVE-2026-87491) — Exploited V8 Out-of-Bounds Write</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Sep 17, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
