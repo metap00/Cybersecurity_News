@@ -1,12 +1,13 @@
 {
-  "til": ["Passkey", "Shadow IT", "Canary Token", "Heap Buffer Overflow", "DNS Cache Poisoning", "Side-Channel Attack", "Typosquatting"],
-  "glossary": ["BEC", "TOCTOU", "DNS Sinkhole", "BGP", "AS", "RPKI", "SBOM", "Zero Trust", "Shift Left", "FIDO2", "EDR", "C2", "DGA", "IOC", "WAF", "APT", "Lateral Movement", "Patch Tuesday", "Red Team", "MITRE ATT&CK", "CVE", "CVSS", "Kill Chain", "Fuzzer", "SAST", "Passkey", "DMARC", "MFA", "OPSEC", "PKI", "Botnet", "RaaS", "SOAR", "XDR", "Threat Hunting", "Honeypot", "Tripwire", "RCE", "KEV", "LPE", "MQTT", "cPanel", "RSS", "OPML", "TTP", "OSINT", "SSRF", "AiTM", "ZTNA", "DAST"],
+  "til": ["Shadow IT", "Canary Token", "Heap Buffer Overflow", "DNS Cache Poisoning", "Side-Channel Attack", "Typosquatting", "Living off the Land"],
+  "glossary": ["BGP", "AS", "RPKI", "SBOM", "Zero Trust", "Shift Left", "FIDO2", "EDR", "C2", "DGA", "IOC", "WAF", "APT", "Lateral Movement", "Patch Tuesday", "Red Team", "MITRE ATT&CK", "CVE", "CVSS", "Kill Chain", "Fuzzer", "SAST", "Passkey", "DMARC", "MFA", "OPSEC", "PKI", "Botnet", "RaaS", "SOAR", "XDR", "Threat Hunting", "Honeypot", "Tripwire", "RCE", "KEV", "LPE", "MQTT", "cPanel", "RSS", "OPML", "TTP", "OSINT", "SSRF", "AiTM", "ZTNA", "DAST", "SIEM", "IAB", "LotL"],
   "week": {
     "critical": 0, "high": 0, "medium": 0,
     "techniques": [],
     "actors": []
   },
   "digests": [
+    {"date": "2026-09-21", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-09-20", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-09-19", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-09-18", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
