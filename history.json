@@ -1,12 +1,13 @@
 {
-  "til": ["Side-Channel Attack", "Typosquatting", "Living off the Land", "Memory-Safe Languages", "Certificate Transparency", "Network Segmentation", "Egress Filtering"],
-  "glossary": ["C2", "DGA", "IOC", "WAF", "APT", "Lateral Movement", "Patch Tuesday", "Red Team", "MITRE ATT&CK", "CVE", "CVSS", "Kill Chain", "Fuzzer", "SAST", "Passkey", "DMARC", "MFA", "OPSEC", "PKI", "Botnet", "RaaS", "SOAR", "XDR", "Threat Hunting", "Honeypot", "Tripwire", "RCE", "KEV", "LPE", "MQTT", "cPanel", "RSS", "OPML", "TTP", "OSINT", "SSRF", "AiTM", "ZTNA", "DAST", "SIEM", "IAB", "LotL", "Supply Chain Attack", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy"],
+  "til": ["Typosquatting", "Living off the Land", "Memory-Safe Languages", "Certificate Transparency", "Network Segmentation", "Egress Filtering", "JWT Algorithm Confusion Attacks"],
+  "glossary": ["Patch Tuesday", "Red Team", "MITRE ATT&CK", "CVE", "CVSS", "Kill Chain", "Fuzzer", "SAST", "Passkey", "DMARC", "MFA", "OPSEC", "PKI", "Botnet", "RaaS", "SOAR", "XDR", "Threat Hunting", "Honeypot", "Tripwire", "RCE", "KEV", "LPE", "MQTT", "cPanel", "RSS", "OPML", "TTP", "OSINT", "SSRF", "AiTM", "ZTNA", "DAST", "SIEM", "IAB", "LotL", "Supply Chain Attack", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC"],
   "week": {
-    "critical": 0, "high": 0, "medium": 0,
-    "techniques": [],
+    "critical": 2, "high": 3, "medium": 1,
+    "techniques": ["T1190", "T1134.001", "T1505.003", "T1212", "T1021.004", "T1068"],
     "actors": []
   },
   "digests": [
+    {"date": "2026-09-26", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1},
     {"date": "2026-09-25", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-09-24", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-09-23", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},

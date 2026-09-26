@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 26, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 2 critical · 3 high · ~5 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-09-26.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: WordPress CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / WordPress.org · Sep 25, 2026</span>
+  </div>
+  <a href="https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-one-known-exploited-vulnerability-catalog" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">WordPress Core CVE-2026-87902: Unauthenticated Path Traversal Actively Exploited Within Hours of Patch</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CISA added this CVSS 9.2 flaw to KEV on Sept 25 after active exploitation began within 5 hours of the Sept 22 patch release — affects all WordPress versions from 4.7.0 through 7.1.1.</div>
+    <div style="margin-top:2px;">👤 Tens of millions of WordPress sites globally; no authentication required to trigger the path traversal and potential RCE.</div>
+    <div style="margin-top:2px;">✅ Update to WordPress 7.1.2 immediately and verify the update completed in your hosting control panel.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: WSO2 CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / The Hacker News · Sep 24, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/09/wso2-and-adobe-commerce-flaws-exploited.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">⚡ URGENT: WSO2 CVE-2026-5430 JWT Forgery Exploited Since Sept 13 — Federal Patch Deadline Is Tomorrow</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVSS 9.8 JWT authentication bypass in WSO2 API products; attackers have been forging JWT tokens to impersonate authorized users since September 13, with CISA adding to KEV on Sept 24.</div>
+    <div style="margin-top:2px;">👤 Organizations running WSO2 API Control Plane, API Manager, Traffic Manager, or Universal Gateway.</div>
+    <div style="margin-top:2px;">✅ Emergency patch now — federal deadline is September 27 (tomorrow); check logs back to Sept 13 for anomalous JWT authentication attempts.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Defense Evasion] T1134.001 · Access Token Manipulation: Token Impersonation/Theft</div>
+</div>
+
+<!-- STORY 3: SharePoint HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA · Sep 25, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/09/sharepoint-flaw-initially-listed-as.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Microsoft SharePoint CVE-2026-65660: Code Injection Confirmed RCE — CISA KEV, Federal Deadline Sept 28</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVSS 8.8 SharePoint code injection, initially mislabeled "spoofing" by Microsoft in August, confirmed as actively exploited RCE and added to CISA KEV on September 25.</div>
+    <div style="margin-top:2px;">👤 On-premises SharePoint Server 2016, 2019, and Subscription Edition users who deprioritized the August patch.</div>
+    <div style="margin-top:2px;">✅ Apply August 2026 cumulative update immediately (patches available 6 weeks — this misclassification may have caused delay).</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Persistence] T1505.003 · Server Software Component: Web Shell</div>
+</div>
+
+<!-- STORY 4: Roundcube HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Canadian Cyber Centre · Sep 21, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/09/roundcube-pre-auth-sql-injection-flaw.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Roundcube CVE-2026-48842: Pre-Auth SQL Injection Actively Exploited — Database Compromise Without Login</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVSS 8.1 pre-authentication SQL injection in Roundcube's virtuser_query plugin; Canada's Cyber Centre confirmed active exploitation targeting government and academic mail servers.</div>
+    <div style="margin-top:2px;">👤 Roundcube Webmail deployments below version 1.6.16 or 1.7.1 — common in European government and ISP infrastructure.</div>
+    <div style="margin-top:2px;">✅ Upgrade to Roundcube 1.6.19 or 1.7.4 (released Sept 6); disable virtuser_query plugin if not in use.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1212 · Exploitation for Credential Access</div>
+</div>
+
+<!-- STORY 5: MikroTik HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA · Sep 25, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/09/mikrotrick-chain-let-attackers-take.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">"MikroTrick" CVE-2026-67279: Full Admin Takeover of MikroTik Routers With No Password — CISA KEV</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 SSH rekey timing flaw chains with CVE-2026-86060 to grant unauthenticated full admin control of RouterOS — attacker can modify routing, install backdoors, and intercept traffic.</div>
+    <div style="margin-top:2px;">👤 Organizations using MikroTik routers (RouterOS before 6.49.21, 7.23.4, or 7.24.2) — widely deployed at ISPs and SMBs.</div>
+    <div style="margin-top:2px;">✅ Update RouterOS immediately; restrict SSH access to trusted management IPs only; review router config files for unauthorized changes.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Lateral Movement] T1021.004 · Remote Services: SSH</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#dc2626;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">CRITICAL</span>
+    <a href="https://www.securityweek.com/microsoft-patches-record-974-vulnerabilities-including-two-exploited-zero-days/" style="color:#374151;text-decoration:none;">Microsoft Sept 2026 Patch Tuesday: Record 974 CVEs, Wormable DNS RCE CVE-2026-69730 (CVSS 9.8)</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://securityonline.info/patch-tuesday-zero-day-september-2026/" style="color:#374151;text-decoration:none;">14-Year Linux Kernel AF_ALG Root LPE + Sudo Bypass Disclosed</a>
+    <span style="color:#9ca3af;"> · SecurityOnline</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-09-26.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Sep 26, 2026</div>
+
+</body>
+</html>

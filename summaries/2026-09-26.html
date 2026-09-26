@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Sep 26, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 26, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 2 critical · 3 high · 1 medium · ~5 min read</div>
+</div>
+
+<!-- STORY 1: WordPress CVE-2026-87902 CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / WordPress.org · Sep 25, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-one-known-exploited-vulnerability-catalog" style="color:#111827;text-decoration:none;">WordPress Core CVE-2026-87902: Unauthenticated Path Traversal Actively Exploited Within Hours of Patch</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-87902 (CVSS 9.2), an unauthenticated path traversal vulnerability in WordPress Core, to its Known Exploited Vulnerabilities catalog on September 25 after threat actors began actively probing and exploiting unpatched sites within five hours of the patch release on September 22.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Every WordPress website running versions 4.7.0 through 7.1.1 — nearly a decade of releases — representing tens of millions of sites globally, with no authentication required to trigger the flaw.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update to WordPress 7.1.2 immediately; verify in your hosting control panel that auto-updates completed, as attackers began mass scanning within hours of the public patch release.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">The flaw in WordPress's page-template resolver lets any unauthenticated attacker include arbitrary PHP files outside the theme directory, providing direct server-side code execution on unpatched WordPress installations without any account on the target site.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-87902 resides in WordPress Core's <code>get_page_template()</code> function. A specially crafted frontend HTTP request manipulates the template resolution path, causing WordPress to traverse outside its intended theme directories and include a readable PHP file elsewhere on the server — before any authentication check occurs. There is no barrier between an anonymous internet user and server-side code execution on vulnerable deployments.
+        <br><br>
+        The "conditional RCE" label means full remote code execution requires additional conditions: a readable PHP file must be accessible in the traversal path, and specific theme structure elements must be present. However, researchers found these conditions are commonly met in default hosting environments, making the theoretical restriction largely academic in real-world attacks. Patchstack observed active exploitation scanning within five hours of the September 22 public patch disclosure, and CISA's KEV addition on September 25 confirms in-the-wild exploitation is ongoing.
+        <br><br>
+        Security researcher Robert Ressl privately reported the bug via HackerOne on July 20, 2026. The two-month responsible disclosure period explains the patch timeline — but the near-instant weaponization after release underscores that unpatched sites are actively being compromised right now. Every version back to WordPress 4.7.0 is affected.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a library where anyone can request a book just by knowing a shortcut path — no library card needed. This WordPress bug lets attackers give the server a special URL that tricks it into running a PHP script that was never meant to be publicly accessible. Because WordPress powers roughly 40% of all websites, even a vulnerability requiring certain conditions affects millions of sites simultaneously.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-87902 · CVSS: 9.2/10 — Near-maximum severity reflecting unauthenticated access, a decade-wide version range (4.7.0–7.1.1), and immediate in-the-wild exploitation.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: WSO2 CVE-2026-5430 CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / The Hacker News · Sep 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/09/wso2-and-adobe-commerce-flaws-exploited.html" style="color:#111827;text-decoration:none;">⚡ URGENT: WSO2 CVE-2026-5430 JWT Forgery Exploited Since Sept 13 — Federal Patch Deadline Is Tomorrow</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-5430 (CVSS 9.8) — a critical JWT authentication bypass in WSO2 API management products — to its KEV catalog on September 24; forged JWT tokens targeting the flaw have been captured in honeypots since at least September 13, meaning active exploitation has been ongoing for 13+ days.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running WSO2 API Control Plane, API Manager, Traffic Manager, or Universal Gateway — enterprise API infrastructure products widely deployed by corporations and government agencies to manage backend API access.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply WSO2 patches immediately — the federal civilian deadline is September 27 (tomorrow); all organizations should treat this as an emergency patch given two weeks of confirmed in-the-wild exploitation and the gateway-level access this flaw provides.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion / Privilege Escalation] T1134.001 · Access Token Manipulation: Token Impersonation/Theft<br>
+      <span style="color:#6b7280;">Attackers craft forged JWT tokens using algorithms WSO2 incorrectly accepts, impersonating legitimate authorized users to bypass authentication entirely and gain unauthorized access to API management interfaces and all connected backends.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-5430 is a JWT algorithm confusion vulnerability. WSO2's authentication mechanism validates JSON Web Tokens used to authorize API requests, but it incorrectly accepts tokens signed with cryptographic algorithms that administrators never configured or sanctioned. An attacker exploits this by crafting a JWT signed with an unsupported algorithm (such as <code>none</code> or a weak symmetric key) that the WSO2 system validates as legitimate because it trusts the algorithm declared in the token's own header rather than enforcing what the admin configured.
+        <br><br>
+        Once a forged token passes validation, the attacker effectively impersonates any authorized user — including administrators — and can access all API endpoints, modify gateway configurations, and pivot to connected backend databases and microservices. WSO2 API products are frequently internet-exposed by design (they are API gateways), making this vulnerability directly reachable without any prior network access. The 13-day exploitation window means any WSO2 deployment with unusual JWT authentication attempts in logs since September 13 should be treated as potentially compromised.
+        <br><br>
+        The September 27 federal deadline is already causing emergency patch cycles in government environments. For the private sector, the urgency is equal — an API management platform compromise gives attackers a pivot point into every backend system the gateway protects.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of a JWT as a digitally-signed concert pass. The signing is supposed to use a specific method both sides agreed on in advance. This bug lets attackers create a fake pass using a different signing method the system shouldn't trust — but mistakenly does. It's like a venue accepting a hand-drawn ticket when they were supposed to only accept printed holographic ones; the doorman is checking whether the ticket looks signed rather than whether it's signed correctly.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-5430 · CVSS: 9.8/10 — Critical; unauthenticated remote exploitation of widely-deployed enterprise API infrastructure with 13+ days of confirmed in-the-wild exploitation and a federal deadline of September 27.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: SharePoint CVE-2026-65660 HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / The Hacker News · Sep 25, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/09/sharepoint-flaw-initially-listed-as.html" style="color:#111827;text-decoration:none;">Microsoft SharePoint CVE-2026-65660: Code Injection Confirmed as RCE After Six Weeks of Vendor Misclassification</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CVE-2026-65660 (CVSS 8.8) in Microsoft SharePoint Server, initially labeled a "spoofing" vulnerability when patched on August 11, was confirmed as actively exploited remote code execution and added to CISA's KEV catalog on September 25 with a September 28 federal remediation deadline.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched SharePoint Server 2016, 2019, or Subscription Edition on-premises — enterprise collaboration infrastructure common in government agencies and large corporations that may have deprioritized the "spoofing" patch.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the August 2026 SharePoint cumulative update immediately (SE 16.0.19725.20522 / 2019 16.0.10417.20198 / 2016 16.0.5565.1001); patches have been available six weeks and there is no excuse for remaining unpatched given confirmed RCE exploitation.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Persistence] T1505.003 · Server Software Component: Web Shell<br>
+      <span style="color:#6b7280;">Code injection into SharePoint Server enables server-side code execution that attackers are leveraging to install persistent web shells inside enterprise SharePoint farms, maintaining access even after credential rotation.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        The reclassification of CVE-2026-65660 from "spoofing" to confirmed RCE highlights a persistent risk in patch prioritization: organizations that rely solely on vendor-assigned vulnerability types can be caught off-guard when a bug turns out to be more severe. This vulnerability allows an authenticated attacker with Member or higher SharePoint privileges to inject code that executes on the server, escalating access from document editor to server-level control.
+        <br><br>
+        The six-week gap between patch availability and KEV listing is exactly why security teams that deprioritized a "spoofing" fix are now in an emergency situation. The CVSS 8.8 score reflects that authentication is required, but in enterprise environments SharePoint access is often granted broadly to employees — making any compromised employee credential sufficient for exploitation. Active exploitation typically involves installing a web shell that persists independently of SharePoint user accounts, allowing attackers to maintain access to the server even if compromised accounts are disabled.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SharePoint is Microsoft's document and collaboration platform used by many large organizations. This bug lets someone with a regular SharePoint account inject malicious code that runs on the server itself — affecting the entire organization, not just their own files. The tricky part is that Microsoft initially called it a less-severe "spoofing" issue, so many IT teams didn't rush to patch it, and now attackers are actively exploiting it.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-65660 · CVSS: 8.8/10 — Authenticated code injection confirmed as RCE, actively exploited, patches available since Aug 11 but deprioritized due to initial misclassification as "spoofing."</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Roundcube CVE-2026-48842 HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Canadian Centre for Cyber Security · Sep 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/09/roundcube-pre-auth-sql-injection-flaw.html" style="color:#111827;text-decoration:none;">Roundcube Webmail CVE-2026-48842: Pre-Authentication SQL Injection Actively Exploited — Database Compromise Without Login</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Canada's Cyber Centre updated advisory AV26-503 confirming active exploitation of CVE-2026-48842 (CVSS 8.1), a pre-authentication SQL injection flaw in Roundcube's virtuser_query plugin that lets unauthenticated attackers compromise the underlying database's confidentiality, integrity, and availability.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations and ISPs hosting Roundcube Webmail on versions before 1.6.16 or 1.7.1, including government mail servers and academic institutions that widely deploy this open-source webmail platform in Europe and internationally.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to Roundcube 1.6.19 or 1.7.4 (released September 6, 2026) immediately; if the virtuser_query plugin is not in active use, disable it as an additional mitigation until patching is complete.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1212 · Exploitation for Credential Access<br>
+      <span style="color:#6b7280;">The pre-authentication SQL injection targets Roundcube's login flow database lookup, enabling attackers to extract user credentials and email account mappings from the database before any login challenge is presented.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-48842 exploits a subtle flaw in Roundcube's optional virtuser_query plugin. When a user enters their email address to log in, this plugin performs a database lookup to map the address to the correct mailbox account. A backslash escape bypass in the plugin's input processing allows attackers to inject arbitrary SQL into this pre-authentication query, gaining read and write access to the Roundcube database without ever presenting a valid password.
+        <br><br>
+        Successful exploitation gives attackers access to user credentials, email routing mappings, and potentially cached authentication tokens stored in the database. Roundcube is particularly popular in European government mail systems, academic institutions, and ISP-hosted email — making it historically attractive to espionage-focused actors. APT28 has previously been attributed to Roundcube exploitation campaigns targeting government email infrastructure in Ukraine and Eastern Europe, and while no specific attribution is confirmed for this current wave, the target profile matches established state-sponsored targeting patterns.
+        <br><br>
+        Roundcube addressed the original vulnerability in May 2026 (versions 1.6.16 and 1.7.1), then released updated security patches on September 6, 2026 (1.6.19 and 1.7.4). Any deployment still running pre-1.6.16 versions has been exposed for over four months.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SQL injection is like talking to a librarian who follows instructions too literally: if you say "find books by Author: Smith; also delete everything," they might do both. Roundcube has a step where it looks up your email address in a database before asking for your password — this bug lets attackers slip extra database commands into that lookup step, potentially stealing everyone's credentials before the system ever checks if the attacker belongs there.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-48842 · CVSS: 8.1/10 — Unauthenticated database compromise in widely-deployed government and academic webmail; active exploitation confirmed by national cyber agency advisory AV26-503.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: MikroTik MikroTrick HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / The Hacker News · Sep 25, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/09/mikrotrick-chain-let-attackers-take.html" style="color:#111827;text-decoration:none;">"MikroTrick" Chain (CVE-2026-67279 + CVE-2026-86060): Full Admin Takeover of MikroTik Routers With No Password Required</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-67279 to its KEV catalog on September 25; when chained with CVE-2026-86060 in the "MikroTrick" exploit sequence, unauthenticated attackers gain full administrative control of MikroTik RouterOS by triggering an SSH session rekey during the authentication phase, causing the server to skip identity verification entirely.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations and ISPs running MikroTik RouterOS prior to versions 6.49.21, 7.23.4 (Long-term), or 7.24.2 (Stable) — MikroTik devices are widely deployed as edge routers, CPE equipment, and ISP infrastructure especially across Eastern Europe, Latin America, and SMB networks globally.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update RouterOS immediately to 6.49.21, 7.23.4, or 7.24.2; disable or restrict SSH access from untrusted networks; audit support files and router configuration for unauthorized changes that may indicate prior compromise.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Lateral Movement] T1021.004 · Remote Services: SSH<br>
+      <span style="color:#6b7280;">The MikroTrick chain exploits RouterOS's SSH state machine to skip the authentication phase entirely after a client-initiated key renegotiation, granting attackers unauthenticated command execution and the ability to alter network routing and intercept traffic.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        The MikroTrick chain exploits a flaw in RouterOS's SSH state machine. Normal SSH authentication follows: key exchange → user authentication → session. CVE-2026-67279 abuses the rekey mechanism: when a client requests a key renegotiation (rekey) during the authentication phase, vulnerable RouterOS incorrectly advances to the session phase once the rekey completes — bypassing identity verification entirely. This gives an unauthenticated attacker an active SSH session with command execution capability.
+        <br><br>
+        CVE-2026-86060 escalates this to full administrative access, allowing attackers to create, overwrite, and reconstruct files in RouterOS's managed file namespace — including support files containing configuration and diagnostic data. In practice, attackers can modify routing tables, create persistent backdoor accounts, redirect traffic through attacker-controlled nodes for interception, and enlist the device in DDoS botnets. MikroTik routers have historically been compromised at scale to build botnets like Meris, which was responsible for some of the largest DDoS attacks on record.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a bank vault requiring two steps: first show your ID, then use your key. This bug is a distraction trick — if you ask the vault to change its lock mid-process, it gets confused and lets you in without ever checking your ID. MikroTik routers handle internet traffic for many businesses and ISPs; a compromised router can silently redirect or copy all their customers' traffic to attackers.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-67279 + CVE-2026-86060 · CVSS: 6.9 (chain impact: critical) — SSH authentication bypass on widely-deployed network infrastructure; active exploitation, CISA KEV added Sep 25, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: MEDIUM Roundup -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Multiple Sources · Sep 25, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;">September 25 Patch Roundup: 14-Year Linux Kernel Root LPE, Sudo Bypass, and Critical WordPress Plugin CVEs</summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researchers disclosed a 14-year-old privilege escalation vulnerability in the Linux kernel's AF_ALG cryptographic interface (allows unprivileged local attackers to gain root), a time-based Sudo authorization bypass, and critical-severity flaws in WordPress plugins including Visual Composer (CVE-2026-12227, CVSS 9.8) and Apache BuildStream (CVE-2026-82331, CVSS 9.8).</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Linux server administrators across virtually all distributions (AF_ALG flaw), any organization using Sudo for privilege management, and WordPress site owners running affected plugin versions.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Linux kernel updates from your distribution vendor, update Sudo to the latest available version, and audit WordPress plugin inventory — especially Visual Composer Website Builder and WooCommerce OTP — updating to patched versions immediately.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">The Linux AF_ALG and Sudo flaws both target local privilege escalation pathways that allow an attacker who has gained any low-privileged shell access to escalate to root, completing post-exploitation kill chains after initial access via other vectors.</span>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: JWT Algorithm Confusion Attacks ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A JSON Web Token (JWT) is a digitally signed credential passed between a client and server to prove identity — it contains claims like "this user is an admin" and a cryptographic signature that proves those claims haven't been tampered with. The signature is created using a specific algorithm (such as RS256 or HS256) that both the issuing server and the validating server agree on ahead of time. An algorithm confusion attack occurs when an attacker switches the algorithm declared in the token's own header to something weak or trivially-forgeable — like "none," which means no signature at all — and a poorly-implemented server trusts that self-declared algorithm rather than enforcing the one it was configured to expect, allowing the attacker to forge tokens and impersonate any user, including administrators, without knowing any secret keys.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: JWT · SQLi · EoP · ALPC ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">JWT</strong> — JSON Web Token; a compact, URL-safe standard for securely representing signed claims between parties, widely used for API authentication and session management.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SQLi</strong> — SQL Injection; an attack where malicious SQL statements are embedded in user-supplied input, manipulating the backend database query to exfiltrate or modify data.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">EoP</strong> — Elevation of Privilege; a vulnerability class where an attacker gains higher system permissions than originally granted, often escalating from a regular user to administrator or SYSTEM level.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">ALPC</strong> — Advanced Local Procedure Call; a Windows kernel mechanism for high-speed inter-process communication that has historically been a target for privilege escalation exploits.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#dc2626;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">CRITICAL</span>
+    <a href="https://www.securityweek.com/microsoft-patches-record-974-vulnerabilities-including-two-exploited-zero-days/" style="color:#374151;text-decoration:none;">Microsoft September 2026 Patch Tuesday: Record 974 CVEs — Wormable DNS RCE CVE-2026-69730 (CVSS 9.8) and Zero-Day Windows ALPC Heap Overflow CVE-2026-85880</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-september-2026-patch-tuesday-fixes-966-flaws-2-zero-days/" style="color:#374151;text-decoration:none;">CVE-2026-81963: Windows Update Stack Link Following — First Exploited Zero-Day in This Component</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/wso2-vulnerability-exploited/amp/" style="color:#374151;text-decoration:none;">Seven CVEs in F5, Check Point, Zyxel, and Arista VeloCloud Network Appliances Confirmed Actively Exploited</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CybersecurityNews</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Sep 26, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
