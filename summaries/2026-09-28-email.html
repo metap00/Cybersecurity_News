@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 28, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">4 stories · 1 critical · 2 high · ~7 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-09-28.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- CRITICAL: Citrix NetScaler RCE Zero-Days -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / watchTowr · Sep 27, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Two Unpatched Citrix NetScaler RCE Zero-Days Under Active Global Exploitation</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 watchTowr disclosed CVE-2026-88771 and CVE-2026-88772 (both CVSS 9.5) — two RCE zero-days in Citrix NetScaler ADC and Gateway actively exploited before patches were available; Citrix patched on September 27.</div>
+    <div style="margin-top:2px;">👤 Any organization running Citrix NetScaler ADC or Gateway on a vulnerable build — CVE-2026-88771 requires no special configuration, CVE-2026-88772 targets the default VPN setup.</div>
+    <div style="margin-top:2px;">✅ Patch immediately to build 14.1-73.37 or 13.1-64.23 per Citrix bulletin CTX697096; both CVEs are on CISA's KEV catalog with mandatory federal deadlines.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- HIGH: Renfe/Adif Spain Breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Local ES / Rankiteo · Sep 27, 2026</span>
+  </div>
+  <a href="https://www.rustourismnews.com/2026/09/27/renfe-says-passenger-names-and-emails-exposed-after-cyberattack/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Spain's Renfe Rail Network Hit by Cyberattack; 500 GB of Passenger Data Stolen via Adif Infrastructure</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers compromised Adif's servers, pivoted to interconnected Renfe systems, and exfiltrated 500 GB of passenger data including names and email addresses.</div>
+    <div style="margin-top:2px;">👤 Renfe customers — Spain's national rail carrier serving millions of passengers; no payment or ID data was confirmed stolen.</div>
+    <div style="margin-top:2px;">✅ Watch for phishing emails referencing travel details; Renfe and Adif systems are restored and train services were unaffected throughout.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Lateral Movement] T1021 · Remote Services</div>
+</div>
+
+<!-- HIGH: SalesBleed -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / The Register · Sep 24, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/salesbleed-flaws-in-salesforce-agentforce-enabled-zero-click-data-exfiltration/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">SalesBleed: Three Salesforce Agentforce AI Flaws Enabled Zero-Click CRM Data Theft and Anonymous Slack Phishing</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Zenity Labs disclosed three vulnerabilities (SalesBleed) in Salesforce Agentforce: two allowed zero-click CRM data exfiltration via prompt injection in Web-to-Lead forms; one let attackers send anonymous phishing messages via Slack using a hijacked AI agent identity.</div>
+    <div style="margin-top:2px;">👤 Organizations using Salesforce Agentforce with Web-to-Lead or Slack integrations; Salesforce patched all three after June 2026 responsible disclosure.</div>
+    <div style="margin-top:2px;">✅ Update to the latest Agentforce build; audit Web-to-Lead pipelines for anomalous agent behaviors and treat AI-sent Slack messages with the same phishing caution as external emails.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1059 · Command and Scripting Interpreter (via AI prompt injection)</div>
+</div>
+
+<!-- MEDIUM: CISA Bulletin Sunset -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / AiCybr · Sep 28, 2026</span>
+  </div>
+  <a href="https://aicybr.com/blog/cisa-weekly-vulnerability-bulletin-ends-september-28-2026" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA Ends Weekly Vulnerability Bulletin Today, Pivots to Risk-Based KEV Model Under BOD 26-04</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CISA's weekly Vulnerability Bulletin published its final edition today; the agency is moving to a risk-based patching model mandated by Binding Operational Directive 26-04, directing defenders to the KEV Catalog, CISA advisories, and CVE.org instead.</div>
+    <div style="margin-top:2px;">👤 Security teams, vulnerability management programs, and federal civilian agencies that used the weekly bulletin as a patching checklist.</div>
+    <div style="margin-top:2px;">✅ Switch to CISA's KEV Catalog as the primary patching signal; supplement with NVD/CVE.org and adopt risk-based scoring that weights active exploitation over raw CVSS values.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Resource Development] T1588 · Obtain Capabilities</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">LOW</span>
+    <a href="https://support.citrix.com/external/article/CTX697096" style="color:#374151;text-decoration:none;">Citrix Bulletin CTX697096: Eight Total NetScaler CVEs Patched in Emergency Sep 27 Release</a>
+    <span style="color:#9ca3af;"> · Citrix</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">LOW</span>
+    <a href="https://www.securityweek.com/" style="color:#374151;text-decoration:none;">US and China Establish AI Security Incident Communication Channel</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-09-28.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Sep 28, 2026</div>
+
+</body>
+</html>
