@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 29, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 2 critical · 2 high · ~5 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-09-29.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: Citrix NetScaler Zero-Days (CRITICAL) -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Rapid7 / Help Net Security · Sep 28, 2026</span>
+  </div>
+  <a href="https://www.rapid7.com/blog/post/etr-zero-day-exploitation-of-citrix-netscaler-adc-and-gateway-cve-2026-88771-and-cve-2026-88772/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Citrix NetScaler RCE Zero-Days CVE-2026-88771 &amp; CVE-2026-88772 Exploited Globally for Weeks</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Two critical zero-days (CVSS 9.5) in Citrix NetScaler ADC/Gateway have been actively exploited since early September to plant persistent webshells on compromised appliances—attackers had nearly a month of unpatched access before disclosure.</div>
+    <div style="margin-top:2px;">👤 Any enterprise, government agency, or healthcare/finance organization running unpatched NetScaler ADC or Gateway appliances faces active backdoor implantation risk.</div>
+    <div style="margin-top:2px;">✅ Patch immediately to 14.1-73.37+ or 13.1-64.23+; treat any unpatched system as compromised; scan for webshells; check CISA KEV.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Persistence] T1505.003 · Server Software Component: Web Shell</div>
+</div>
+
+<!-- STORY 2: Bitget Crypto Breach (CRITICAL) -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Fortune / Bloomberg · Sep 25, 2026</span>
+  </div>
+  <a href="https://fortune.com/2026/09/25/north-korea-bitget-387-million-crypto-attack/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">North Korea Accused of $387.5M Bitget Crypto Exchange Breach — Largest Crypto Hack of 2026</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers (attributed to North Korea's Lazarus Group) exploited a backend approval-system flaw to authorize fraudulent withdrawals of $387.5M across seven blockchain networks; no private keys were stolen—logic was subverted.</div>
+    <div style="margin-top:2px;">👤 Bitget users on ETH, XRP, Arbitrum, Avalanche, and Optimism networks; withdrawals suspended; $83M in XRP already moved beyond freeze controls.</div>
+    <div style="margin-top:2px;">✅ Monitor accounts; crypto platforms should audit internal wallet-approval logic for business-logic flaws; use hardware/cold wallets for personal holdings.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1657 · Financial Theft — Lazarus Group (DPRK)</div>
+</div>
+
+<!-- STORY 3: ShieldCrash (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Sep 11, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldcrash-zero-day-grants-system-access/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">'ShieldCrash' Zero-Day Bypasses September Defender Patch, Claims SYSTEM-Level Access on All Supported Windows</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Researcher Nightmare Eclipse dropped a PoC exploit claiming SYSTEM-level privilege escalation via a Defender Malware Protection Engine flaw on fully patched Windows 10/11/Server; third bypass in a 2026 exploit chain.</div>
+    <div style="margin-top:2px;">👤 All Windows users with Defender enabled (virtually all managed and personal Windows devices); no CVE or CVSS score assigned yet by Microsoft.</div>
+    <div style="margin-top:2px;">✅ Keep Windows Update and Defender automatic updates enabled; monitor MSRC for out-of-band patch; independent analysis suggests public PoC may be incomplete but underlying flaw appears real.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- STORY 4: ShinyHunters WAF Bypass (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Sep 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/shinyhunters-uses-waf-bypass-trick-in-oracle-peoplesoft-attacks/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">ShinyHunters Weaponizes URL-Encoding WAF Bypass to Resume Oracle PeopleSoft CVE-2026-35273 Exploitation</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 ShinyHunters (which breached 100+ orgs via Oracle PeopleSoft CVE-2026-35273, CVSS 9.8) is using URL percent-encoding to bypass WAF mitigations and resume exploitation against organizations that applied firewall rules but skipped Oracle's patch.</div>
+    <div style="margin-top:2px;">👤 Universities, government agencies, and enterprises on PeopleSoft 8.61/8.62 relying solely on WAF rules for CVE-2026-35273 mitigation are fully re-exposed to unauthenticated RCE.</div>
+    <div style="margin-top:2px;">✅ Apply Oracle's June 2026 patch immediately—WAF rules alone are insufficient; audit logs for percent-encoded HTTP anomalies; assume compromise if patched after late May 2026.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Defense Evasion] T1027 · Obfuscated Files or Information — ShinyHunters</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.wireshark.org/news/" style="color:#374151;text-decoration:none;">Wireshark Patches 19 Security Vulnerabilities in Network Analyzer Update</a>
+    <span style="color:#9ca3af;"> · Wireshark.org</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/" style="color:#374151;text-decoration:none;">New Windows Botnet 'x47.c' Drains Victim AI API Credits Using Stolen Keys</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-09-29.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Sep 29, 2026</div>
+
+</body>
+</html>
