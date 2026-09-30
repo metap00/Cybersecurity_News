@@ -1,12 +1,13 @@
 {
-  "til": ["Memory-Safe Languages", "Certificate Transparency", "Network Segmentation", "Egress Filtering", "JWT Algorithm Confusion Attacks", "Webshell Persistence"],
-  "glossary": ["Fuzzer", "SAST", "Passkey", "DMARC", "MFA", "OPSEC", "PKI", "Botnet", "RaaS", "SOAR", "XDR", "Threat Hunting", "Honeypot", "Tripwire", "RCE", "KEV", "LPE", "MQTT", "cPanel", "RSS", "OPML", "TTP", "OSINT", "SSRF", "AiTM", "ZTNA", "DAST", "SIEM", "IAB", "LotL", "Supply Chain Attack", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell"],
+  "til": ["Memory-Safe Languages", "Certificate Transparency", "Network Segmentation", "Egress Filtering", "JWT Algorithm Confusion Attacks", "Webshell Persistence", "Hypervisor Security"],
+  "glossary": ["OPSEC", "PKI", "Botnet", "RaaS", "SOAR", "XDR", "Threat Hunting", "Honeypot", "Tripwire", "RCE", "KEV", "LPE", "MQTT", "cPanel", "RSS", "OPML", "TTP", "OSINT", "SSRF", "AiTM", "ZTNA", "DAST", "SIEM", "IAB", "LotL", "Supply Chain Attack", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid"],
   "week": {
-    "critical": 3, "high": 4, "medium": 3,
-    "techniques": ["T1190", "T1021", "T1059", "T1588", "T1505.003", "T1657", "T1068", "T1027"],
-    "actors": ["Lazarus Group", "ShinyHunters"]
+    "critical": 6, "high": 7, "medium": 4,
+    "techniques": ["T1190", "T1021", "T1059", "T1588", "T1505.003", "T1657", "T1068", "T1027", "T1203", "T1133", "T1565.002", "T1486", "T1548.001", "T1528", "T1210"],
+    "actors": ["Lazarus Group", "ShinyHunters", "INC Ransomware"]
   },
   "digests": [
+    {"date": "2026-09-30", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 1},
     {"date": "2026-09-29", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 2},
     {"date": "2026-09-28", "threat": "ELEVATED", "critical": 1, "high": 2, "medium": 1},
     {"date": "2026-09-27", "threat": "ELEVATED", "critical": 1, "high": 2, "medium": 1},
