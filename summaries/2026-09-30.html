@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Sep 30, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Sep 30, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 3 critical · 3 high · 1 medium · ~11 min read</div>
+</div>
+
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Register · Sep 29, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.theregister.com/security/2026/09/29/apple-patches-coregraphics-zero-day-already-exploited-in-targeted-attacks/5299721" style="color:#111827;text-decoration:none;">Apple Patches CoreGraphics Zero-Day CVE-2026-86950 Already Exploited in Targeted Attacks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Apple released emergency iOS/iPadOS 26.7.1 and macOS patches for CVE-2026-86950, an out-of-bounds write in the CoreGraphics framework actively exploited as a zero-day in highly targeted, spyware-style attacks against specific individuals.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All users on iPhone 11 or newer, modern iPads, and Macs who have not yet applied the emergency update — with confirmed exploitation focused on high-value individual targets rather than broad mass campaigns.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update immediately to iOS/iPadOS 26.7.1 via Settings → General → Software Update; Mac users update to macOS Tahoe 26.7.1 or Sequoia 15.8.1; treat any unpatched device used by executives, journalists, or activists as potentially at risk.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1203 · Exploitation for Client Execution<br>
+      <span style="color:#6b7280;">Attackers exploited CVE-2026-86950 by delivering a specially crafted document or image to targeted devices; when Apple's CoreGraphics framework processed the malicious file, the out-of-bounds write triggered arbitrary code execution without additional user interaction, achieving silent device compromise.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">&#9654; Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Apple's CoreGraphics framework handles all 2D rendering across iOS and macOS — images, PDFs, fonts, and web content — making it one of the most universally reachable attack surfaces on any Apple device, since virtually every document and image passes through it. An out-of-bounds write (OOB-Write) in CoreGraphics means the renderer writes data beyond its allocated memory buffer when processing a specially malformed file, allowing an attacker to corrupt adjacent memory regions and redirect program execution to attacker-controlled code. The zero-day was credited to Meta Product Security, suggesting it may have been discovered during proactive internal security research.</p>
+        <p>Apple's advisory phrasing — "may have been exploited against specific individuals" — is a well-established signal for commercial mobile spyware or nation-state tooling, as opposed to opportunistic mass exploitation. Spyware vendors purchase or develop zero-days specifically to compromise journalists, dissidents, executives, diplomats, and government officials. A full exploit chain would typically use CVE-2026-86950 for initial code execution, then chain additional exploits to escape the iOS sandbox and achieve persistent access — enabling silent surveillance of calls, messages, location, and camera.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Your iPhone has a special part of its brain that draws pictures and handles PDFs called CoreGraphics. Hackers found a bug in it — if you opened a booby-trapped image or document, the bug would let them secretly take over your phone without you knowing. Apple just released an emergency fix. Update now.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-86950 · CVSS: Not yet published — zero-day with confirmed in-the-wild targeted exploitation; functionally CRITICAL given active spyware-linked campaign.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / CISA · Sep 30, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/09/cisa-says-attackers-are-exploiting-two.html" style="color:#111827;text-decoration:none;">CISA: Attackers Actively Exploiting Two Critical Citrix NetScaler Zero-Days — FCEB Deadline Is Today</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA confirmed global active exploitation of CVE-2026-88771 (CVSS 9.5, unauthenticated remote command execution) and CVE-2026-88772 (CVSS 9.5, memory buffer RCE or DoS) in Citrix NetScaler ADC and Gateway; Citrix patched both on September 27 with today marking the FCEB remediation deadline.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running unpatched Citrix NetScaler ADC or NetScaler Gateway — these products are perimeter network devices used by enterprises, government agencies, and financial institutions worldwide for remote-access VPN and application delivery.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Citrix's September 27 patches immediately; check for indicators of compromise (unauthorized webshells, new admin accounts, unusual network tunnels) before patching; if breach is suspected, preserve forensic evidence first as CISA specifically advises.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">Threat actors exploited authentication-bypass flaws in Citrix NetScaler Gateway to gain unauthenticated RCE on the edge device without any credentials, then deployed webshells and credential-harvesting malware to compromise all sessions passing through the compromised gateway.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">&#9654; Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Citrix NetScaler is one of the most widely deployed enterprise gateway products globally, sitting at the network perimeter of thousands of corporate and government environments as the entry point for VPN sessions, remote access, and application load balancing. CVE-2026-88771 is an improper input validation flaw that allows an unauthenticated remote attacker to execute arbitrary OS-level commands on the appliance. CVE-2026-88772 is a companion improper memory buffer restriction vulnerability enabling remote code execution or denial-of-service. Both were exploited as zero-days before patches existed.</p>
+        <p>Based on threat intelligence, attackers exploiting these flaws drop custom webshells on the compromised appliance, deploy tunneling malware that survives reboots, and use the privileged position on the gateway to harvest SSO credentials from every authenticated session that passes through — effectively turning the compromised NetScaler into a credential skimmer targeting every employee who logs in via VPN.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Citrix NetScaler is like a security bouncer that stands at the entrance to a company's internal network and checks employee IDs before letting them in remotely. These two bugs let attackers walk straight past the bouncer, then pretend to be the bouncer themselves — watching and secretly copying every real employee ID that gets presented.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-88771 · CVSS: 9.5/10 — Unauthenticated remote command execution. | CVE-2026-88772 · CVSS: 9.5/10 — Memory buffer RCE/DoS companion flaw.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Fortune · Sep 25, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://fortune.com/2026/09/25/north-korea-bitget-387-million-crypto-attack/" style="color:#111827;text-decoration:none;">Bitget Loses $387.5M in Largest Crypto Hack of 2026 as CEO Points to North Korea's Lazarus Group</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Cryptocurrency exchange Bitget lost $387.5 million on September 24 after attackers compromised the wallet backend system and manipulated in-transit transaction authorization data — causing Bitget's own approval engine to process fraudulent payouts — with investigators linking the attack to North Korea's Lazarus Group via VPN infrastructure patterns.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Bitget users whose funds were exposed (covered by the exchange's $464M User Protection Fund); the broader crypto industry given this demonstrates a new class of wallet-backend manipulation attacks targeting custodial exchange architecture.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Bitget users should monitor accounts as USDT withdrawals resume today (Sep 30); organizations running custodial crypto infrastructure should audit their wallet backend authorization flows for transaction data injection vulnerabilities and implement cryptographic integrity checks on internal API calls.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1565.002 · Data Manipulation: Transmitted Data<br>
+      <span style="color:#6b7280;">The Lazarus Group compromised Bitget's wallet backend and manipulated in-flight transaction authorization data — injecting false signals that convinced the exchange's own security layer that legitimate withdrawal requests were being processed — enabling the theft of $387.5 million without exploiting any cryptographic weaknesses in the blockchain itself.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">&#9654; Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Bitget hack is notable not for using cryptographic exploits, but for targeting the logical layer that sits between user withdrawal requests and the blockchain itself. By manipulating data flowing through the backend, attackers caused Bitget's own approval systems to sign and broadcast what appeared internally to be valid transactions, draining $387.5 million across roughly 90 minutes.</p>
+        <p>Bitget CEO Gracy Chen attributed the attack to North Korea, citing IP addresses matching VPN infrastructure previously observed in Lazarus Group operations. North Korea has stolen an estimated $3+ billion in cryptocurrency since 2017. Bitget's $464M User Protection Fund covers affected customer losses, and USDT withdrawals resume today.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a bank robber who doesn't crack the vault, but instead hacks the computer that tells the vault when to open and how much to give out. Bitget's system believed it was just doing normal business, but criminals had reprogrammed the internal approval system to send their addresses hundreds of millions of dollars.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Losses: $387.5M — largest cryptocurrency exchange hack of 2026; backend authorization logic exploitation with North Korea attribution.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Lazarus Group</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-state APT · Attributed to: North Korea (DPRK)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Cryptocurrency exchanges, financial institutions, defense contractors, critical infrastructure — primarily for financial theft to fund DPRK's weapons programs</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> 2016 Bangladesh Bank SWIFT heist ($81M), WannaCry ransomware (2017), repeated crypto exchange compromises totaling $3B+, and highly sophisticated backend-level financial fraud techniques</div>
+</div>
+
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Dark Reading · Sep 29, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.darkreading.com/vulnerabilities-threats/global-threat-campaign-critical-vmware-vcenter-flaw" style="color:#111827;text-decoration:none;">China-Nexus Actor Exploits VMware vCenter CVE-2026-59310 to Deploy Babuk Ransomware Across 47 Countries</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A suspected China-nexus threat actor has exploited CVE-2026-59310 (CVSS 9.8 directory traversal in VMware vCenter) to compromise 361 IPs across 47 countries, gaining root access via the syslog service, then deploying Babuk-derived ransomware that encrypts ESXi VM disk files and disables VMware High Availability to prevent recovery.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched VMware vCenter Server worldwide; each compromised vCenter host can expose dozens to hundreds of virtual machines to simultaneous ransomware encryption.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Broadcom's patch (VMSA-2026-0006) immediately; isolate vCenter management interfaces from public internet access; audit for unauthorized admin accounts, reverse SSH tunnels, or .babyk file extensions.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">After exploiting CVE-2026-59310 to achieve root execution on vCenter, the threat actor deployed Babuk-derived ransomware that halted running VMs, encrypted their disk image files with the .babyk extension, and disabled VMware HA — preventing automatic VM restart on surviving cluster nodes.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">&#9654; Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-59310 is a path-traversal vulnerability in VMware vCenter Server's syslog ingestion service: an unauthenticated attacker who can reach the syslog port can craft malicious log messages that cause vCenter to write attacker-controlled files to arbitrary filesystem locations, escalating to full root-level code execution. Broadcom published the patch (VMSA-2026-0006) on July 29, 2026, but within just five days, a suspected China-nexus threat actor began mass exploitation.</p>
+        <p>The Babuk-derived ransomware deployed in this campaign specifically targets ESXi: it stops all running VMs, encrypts their .vmdk files to .babyk, and disables VMware HA so the cluster cannot automatically recover. This hypervisor-targeting approach maximizes blast radius — one compromised vCenter can simultaneously destroy every VM running across the entire cluster.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> VMware vCenter is like the master control room for a data center full of virtual computers. This bug let attackers sneak in through a back door, then gain total control. They deployed ransomware that locked all the virtual servers at once and disabled the safety system that would normally spin them back up. If you run VMware vCenter and haven't patched since July, assume attackers may already be inside.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-59310 · CVSS: 9.8/10 — Unauthenticated path traversal to root code execution on VMware vCenter; five-day gap between patch and exploitation; confirmed ransomware campaigns across 47 countries.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Sep 29, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/cisa-sonicwall-sma1000-flaws-now-exploited-by-ransomware-gangs/" style="color:#111827;text-decoration:none;">INC Ransomware Exploits CVSS-10 SonicWall SMA1000 Flaws to Plant ROOTRUN Rootkit and Hit Critical Infrastructure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> INC Ransomware is actively exploiting CVE-2026-83548 (CVSS 10.0, SSRF) and CVE-2026-83549 (CVSS 7.2, OS command injection) in SonicWall SMA1000 VPN appliances to gain root-level persistent access via the ROOTRUN setuid rootkit, then lateral-move into victim networks using the KNUCKLEBALL and ORANGETAIL malware framework.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using SonicWall SMA1000 series VPN appliances — confirmed targeting in the United States, Australia, and Switzerland, with documented victims in healthcare, manufacturing, and critical infrastructure sectors.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply SonicWall patches for CVE-2026-83548 and CVE-2026-83549 immediately; audit for unauthorized setuid binaries (especially ROOTRUN), unusual WebSocket tunnels, and KNUCKLEBALL persistence artifacts.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Privilege Escalation] T1548.001 · Abuse Elevation Control Mechanism: Setuid and Setgid<br>
+      <span style="color:#6b7280;">After chaining the SMA1000 SSRF flaw and OS command injection for initial access, INC Ransomware plants ROOTRUN — a setuid ELF binary — which grants any unprivileged process on the appliance permanent root-level execution that persists across service restarts and reboots.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">&#9654; Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-83548 is an SSRF vulnerability in the SMA1000 management portal allowing an unauthenticated attacker to open WebSocket tunnels to internal-only services. CVE-2026-83549 is an OS command injection flaw accessible through this tunnel, enabling arbitrary shell command execution. ROOTRUN is then planted as a setuid ELF binary — a Unix executable that runs with root privileges regardless of which user launches it — establishing durable boot-resilient root access.</p>
+        <p>INC Ransomware has been active since 2023 and employs double-extortion tactics. From the compromised VPN gateway, attackers pivot laterally to domain controllers and backup infrastructure before detonating ransomware. KNUCKLEBALL handles C2 communications and ORANGETAIL handles data staging and exfiltration.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SonicWall SMA1000 is a device that lets employees connect securely to their company network from home. Attackers found two bugs: one lets them peek through a private door they shouldn't access, and the second lets them run commands through that door. They then plant a hidden program (ROOTRUN) that permanently gives them god-mode powers — even after reboots.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-83548 · CVSS: 10.0/10 — Unauthenticated SSRF; maximum severity. | CVE-2026-83549 · CVSS: 7.2/10 — OS command injection via privileged WebSocket tunnel.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">INC Ransomware</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal RaaS · Attributed to: Eastern Europe (suspected)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Healthcare, manufacturing, critical infrastructure, education — primarily organizations in the US, Australia, and Switzerland; known to prioritize victims with cyber insurance</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> ROOTRUN/KNUCKLEBALL/ORANGETAIL malware toolkit, SonicWall VPN exploitation for initial access, double extortion (encrypt + publish), active since 2023</div>
+</div>
+
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Sep 29, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/09/attackers-bypass-wafs-to-exploit-oracle.html" style="color:#111827;text-decoration:none;">ShinyHunters Develops WAF Bypass for Oracle PeopleSoft CVE-2026-35273, Reigniting Mass Exploitation</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> ShinyHunters (UNC6240) modified their exploit for CVE-2026-35273 (CVSS 9.8 unauthenticated RCE in Oracle PeopleSoft) to use URL-encoding tricks that bypass web application firewall protections, reigniting mass exploitation against universities, insurers, and enterprises that relied on WAF rules as their primary mitigation.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Oracle PeopleSoft PeopleTools 8.60/8.61/8.62 customers who applied WAF-based mitigations but have not yet installed Oracle's full patch — particularly higher education institutions, insurance companies, and large HR departments.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Oracle's full patch for CVE-2026-35273 immediately — WAF mitigations are now bypassed and no longer effective; scan environments for MeshCentral agents disguised as cloud management endpoints.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1210 · Exploitation of Remote Services<br>
+      <span style="color:#6b7280;">ShinyHunters refined their CVE-2026-35273 exploit payload with URL-encoding obfuscation to evade WAF signature matching, then exploited the unauthenticated RCE in PeopleSoft's internet-facing PeopleTools application — re-weaponizing a known flaw against organizations that believed their WAF rules had neutralized the risk.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">&#9654; Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-35273 is a critical unauthenticated RCE in Oracle PeopleSoft PeopleTools — used by thousands of universities, government agencies, and large enterprises for HR, financials, and student information systems. Oracle disclosed the vulnerability in June 2026 after confirming ShinyHunters had been exploiting it as a zero-day since at least May 27.</p>
+        <p>After Oracle patched and issued WAF signatures, ShinyHunters adapted by using URL-encoding (representing characters like "/" as "%2F" or using double-encoding) to make the malicious payload look different from the WAF's blocking rules while the server still interprets it as the same exploit. This is a textbook demonstration of why WAF rules are a temporary mitigation, not a permanent fix. Post-exploitation, ShinyHunters deploys MeshCentral agents disguised as normal cloud service endpoints.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A WAF is like a bouncer who checks for known gang members by face. ShinyHunters just put on a disguise — they changed how their attack looks so the bouncer doesn't recognize them, even though the attack still works. Organizations that said "we're safe because our WAF blocks this" are now vulnerable again. The only real fix is Oracle's official patch.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-35273 · CVSS: 9.8/10 — Unauthenticated RCE in Oracle PeopleSoft; zero-day exploited since May 2026; WAF mitigations now bypassed via URL-encoding obfuscation.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">ShinyHunters (UNC6240)</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal · Data Theft &amp; Extortion · International collective</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Higher education, insurance, technology, and large HR-centric enterprises running Oracle PeopleSoft; 100+ confirmed PeopleSoft victims globally since June 2026</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Mass data theft campaigns, 2024 Snowflake credential-stuffing attack affecting 165+ companies, Oracle PeopleSoft zero-day exploitation, deploying MeshCentral remote agents disguised as legitimate cloud endpoints</div>
+</div>
+
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Sep 29, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/09/official-mcp-python-sdk-flaw-can-let.html" style="color:#111827;text-decoration:none;">Official MCP Python SDK Flaw Lets Malicious Servers Steal OAuth Credentials from AI Applications</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A vulnerability in the official Anthropic MCP Python SDK (GHSA-qx49-fqc8-xw99; CVSS 7.5) allows a malicious MCP server to redirect an OAuth authentication flow to an attacker-controlled endpoint, stealing the client secret, authorization code, and PKCE proof key; fixed in versions 1.30.0 and 2.2.0.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Developers and enterprises who built AI-powered applications using MCP Python SDK versions 1.9.1–1.29.1 or 2.0.0–2.1.1, particularly those integrating with Microsoft Entra ID, Keycloak, or other OAuth 2.0 identity providers.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update the MCP Python SDK to version 1.30.0 or 2.2.0 immediately; rotate OAuth client secrets and PKCE keys for any applications built on affected versions; audit MCP server connections to verify all authorization server endpoints are expected.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Credential Access] T1528 · Steal Application Access Token<br>
+      <span style="color:#6b7280;">The SDK's unvalidated issuer-discovery flow trusted any authorization server endpoint advertised by a connected MCP server, allowing a malicious server to redirect the OAuth handshake and capture the client secret, authorization code, and PKCE proof key needed to impersonate the application's identity against legitimate services.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">&#9654; Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>When an MCP client application needs to authenticate with an external service, it asks the MCP server it's connected to where the authorization service is located. The vulnerable SDK versions accepted this response without verifying it against a trusted list — meaning a malicious MCP server could point the client to any attacker-controlled endpoint as the "login service," then capture the three OAuth credentials exchanged during the handshake.</p>
+        <p>With those credentials, an attacker can impersonate the legitimate application to any integrated service — reading emails, accessing databases, or taking actions as the app — even after the session ends. The risk is highest for MCP-powered applications integrated with enterprise identity providers. Developers should update and rotate all credentials immediately.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your AI assistant needs to log into your work email on your behalf. It asks the server it's connected to "where should I log in?" — but a malicious server could say "log in here at this fake address" and steal your login keys in the process. Those keys would let the attacker pretend to be your AI app and access your email silently.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">GHSA-qx49-fqc8-xw99 · CVSS: 7.5/10 — OAuth credential theft via unvalidated authorization server discovery; affects MCP Python SDK 1.9.1–1.29.1 and 2.0.0–2.1.1.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Hypervisor Security &#9654;</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A hypervisor is software that creates and manages multiple virtual machines (VMs) on a single physical server — think of it as a landlord that divides one powerful machine into many separate "apartments," each running its own operating system independently. Type 1 hypervisors like VMware ESXi run directly on bare hardware with no underlying OS, making them extremely efficient but uniquely powerful: because they sit beneath every VM, a single compromised hypervisor gives an attacker control over every virtual machine running on that physical host simultaneously. This is exactly why ransomware groups and nation-state actors specifically target VMware vCenter — breaching the "landlord's master control room" means they can lock every apartment at once, vastly multiplying the impact of a single exploit compared to attacking one VM at a time.
+  </div>
+</details>
+
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: CoreGraphics · ESXi · Babuk · ADC · Setuid &#9654;</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CoreGraphics</strong> — Apple's low-level 2D rendering framework that processes images, PDFs, and documents on iOS, iPadOS, and macOS; a frequent zero-day target because it handles untrusted file content received from the internet.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ESXi</strong> — VMware's bare-metal (Type 1) hypervisor that runs directly on physical server hardware to host multiple virtual machines; a high-value ransomware target because encrypting one ESXi host can simultaneously destroy dozens of VMs.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Babuk</strong> — A ransomware family whose source code was publicly leaked in 2021, spawning numerous independent variants specifically designed to target VMware ESXi hypervisors and NAS devices, making Babuk-derived malware one of the most common enterprise ransomware strains today.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ADC</strong> — Application Delivery Controller: a network device (e.g., Citrix NetScaler ADC) that manages and optimizes application traffic, handling load balancing, SSL offloading, and remote-access VPN; a compromised ADC at the network perimeter can intercept and manipulate all traffic passing through it.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Setuid</strong> — A Unix file permission bit that causes a program to run with the privileges of the file's owner (often root) regardless of which user executes it; while legitimate setuid programs exist (like <em>sudo</em>), attackers plant unauthorized setuid binaries as rootkits to grant permanent root access to any process that runs them.
+    </div>
+  </div>
+</details>
+
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.cisa.gov/news-events/bulletins/sb26-271" style="color:#374151;text-decoration:none;">CISA Retires Its Weekly Vulnerability Bulletin After 20+ Years at End of FY26</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.securityweek.com/153-million-driver-license-images-offered-on-dark-web/" style="color:#374151;text-decoration:none;">IDScan Breach Update: FBI Formally Investigating 153M Driver's License Dark Web Sale</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Sep 30, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
