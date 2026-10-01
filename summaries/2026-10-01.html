@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 1, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 1, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 2 critical · 3 high · 1 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: Citrix NetScaler zero-days — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer / Mandiant · Sep 30, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/" style="color:#111827;text-decoration:none;">Citrix NetScaler Zero-Days Exploited for Weeks — Novel WHIPSHOT Webshell and SLAPSHOT Tunneler Discovered</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Two critical RCE zero-days in Citrix NetScaler ADC and Gateway (CVE-2026-88771 and CVE-2026-88772, both CVSS 9.5) were actively exploited for weeks before patching on Sep 27, with Mandiant and GTIG confirming attackers deployed a PHP webshell (WHIPSHOT) and Python tunneling tool (SLAPSHOT) to maintain persistent root access.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Government agencies, financial institutions, educational and professional services organizations running NetScaler ADC or Gateway 14.1 before 14.1-73.37 or 13.1 before 13.1-64.23.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade immediately per Citrix bulletin CTX697096; hunt for WHIPSHOT webshell artifacts and SLAPSHOT processes; review all NetScaler access logs from the past 30 days for indicators of pre-patch compromise.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Command and Control] T1572 · Protocol Tunneling<br>
+      <span style="color:#6b7280;">SLAPSHOT, the Python-based tunneling tool deployed post-exploitation, creates covert encrypted channels through the compromised NetScaler appliance to maintain command-and-control even after the initial vulnerability is patched.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">Two critical zero-day vulnerabilities were disclosed by Citrix on September 27, 2026, after evidence emerged both had been exploited for weeks. CVE-2026-88771 is an improper input validation flaw that works in the default NetScaler configuration — no special features required — enabling unauthenticated remote code execution with low attack complexity, meaning reliable exploitation is achievable against any unpatched appliance. CVE-2026-88772 is a heap-based memory corruption flaw in the DTLS protocol handler that requires DTLS to be enabled; while harder to exploit reliably, it carries the same CVSS 9.5 critical severity.</p>
+        <p style="margin:0 0 10px;">Mandiant and Google's Threat Intelligence Group have published analysis confirming the deployment of custom post-exploitation tooling: WHIPSHOT, a PHP-based webshell dropped onto the NetScaler filesystem to provide persistent web-accessible command execution, and SLAPSHOT, a Python-based tunneling utility that creates encrypted covert channels for command-and-control communications. Confirmed victims span government, finance, education, legal, and professional services sectors across North America and Europe, with Rapid7 warning of "broad and opportunistic exploitation" by multiple threat actors.</p>
+        <p style="margin:0 0 10px;">Patching alone is insufficient for organizations that may have been compromised in the weeks before September 27. A full incident response investigation — including log review, file integrity checks, and active threat hunting for WHIPSHOT and SLAPSHOT artifacts — is strongly recommended for any organization that ran an affected NetScaler version.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Citrix NetScaler is a widely-deployed device that sits in front of large organizations' web servers, controlling who can access them — like a sophisticated front door for corporate networks. Attackers found two unlock codes for that front door: one that works on every default NetScaler, and one that works when a specific optional feature is on. Once inside, they planted a hidden remote-control backdoor (WHIPSHOT) and a secret communication channel (SLAPSHOT), so they could keep controlling the network even after the door's locks were changed.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-88771 · CVSS: 9.5/10 — Unauthenticated RCE via input validation flaw in default NetScaler config, low attack complexity. | CVE-2026-88772 · CVSS: 9.5/10 — Unauthenticated RCE via DTLS memory corruption, requires DTLS to be enabled on the appliance.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Pentagon breach — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cyber Security News / DoD · Sep 29, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/pentagon-data-breach/" style="color:#111827;text-decoration:none;">Pentagon Breach Exposes SSNs and Job Records of Nearly 3 Million Military and Civilian Personnel</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The Department of Defense confirmed a nine-month intrusion at the Defense Manpower Data Center (DMDC) — via a vulnerability in a file-sharing system — that exposed Social Security numbers and employment records for 2.76 million living individuals and 294,000 deceased people from October 2025 to July 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Active duty military, veterans, DoD civilian employees, and contractors whose records were stored in the DMDC personnel database — the DoD's authoritative HR repository.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Affected individuals should place credit freezes at all three major bureaus, monitor accounts for identity theft, and stay alert for targeted spear-phishing using their personal data; DoD notifications are being sent to those affected.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Collection] T1213 · Data from Information Repositories<br>
+      <span style="color:#6b7280;">Attackers exploited a file-sharing vulnerability to directly access and exfiltrate structured records from the DMDC's centralized personnel repository — a textbook case of harvesting mass data from a privileged information store.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">The Pentagon has confirmed one of the largest breaches of U.S. defense personnel data on record. Unauthorized users exploited a vulnerability in a file-sharing system connected to the Defense Manpower Data Center, maintaining access for approximately nine months — from October 2025 until July 16, 2026, when DMDC detected the intrusion, immediately patched the system, and initiated incident response procedures.</p>
+        <p style="margin:0 0 10px;">The breach exposed data belonging to 2.76 million living individuals and approximately 294,000 deceased people. Compromised information includes Social Security numbers and job-related records, with additional data fields varying by individual — names, dates of birth, and contact information. The Pentagon has stated there is currently no evidence the data has been misused, and law enforcement has been notified; the full scope of the breach is still being assessed.</p>
+        <p style="margin:0 0 10px;">The DMDC is the DoD's authoritative source for personnel data, supporting military ID card issuance, benefits eligibility verification, and access to government systems. Beyond immediate identity theft risk, this data is highly valuable to intelligence services seeking to identify, profile, and target U.S. military personnel for spear-phishing or recruitment operations. The nine-month dwell time before detection raises serious questions about monitoring controls on this sensitive repository.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> The DMDC is essentially the Pentagon's HR filing cabinet, holding employment and personal records for everyone who works for the U.S. military. Someone exploited a vulnerability in a file-transfer tool connected to this cabinet and had nine months of undetected access. A Social Security number is like a master key to your financial identity in the U.S. — with one, criminals can open credit cards, file tax refunds, or take out loans in your name. Combined with job records and contact details, this data package gives bad actors a detailed dossier on millions of military personnel.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned at disclosure — vulnerability in a third-party file-sharing component; classified as critical given the sensitivity and scale of approximately 3 million records exposed, including SSNs of active-duty military and DoD civilians.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: NeedyMantis — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Microsoft Security Blog · Sep 28, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.microsoft.com/en-us/security/blog/2026/09/28/needymantis-unpacking-a-post-compromise-malware-family-used-in-targeted-operations/" style="color:#111827;text-decoration:none;">Microsoft Exposes NeedyMantis: China-Linked Storm-3069 Uses DLL Sideloading to Maintain Stealthy Long-Term Network Access</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft Threat Intelligence disclosed NeedyMantis, a modular post-compromise malware family attributed to Storm-3069 (China-linked APT) that hijacks DLL loading in trusted applications including Poedit, curl, Vim, and TightVNC to achieve stealthy persistent execution and long-term covert access to targeted networks.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Telecommunications companies, universities, medical nonprofits, intergovernmental organizations, and government contractors — sectors aligning with Chinese state intelligence collection priorities.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Hunt for unexpected DLL files in directories alongside known legitimate applications (Poedit, curl, Vim, TightVNC); deploy behavioral detections for DLL sideloading patterns; review Microsoft's published IoCs for NeedyMantis via the MSTIC threat intelligence blog.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion / Persistence] T1574.002 · Hijack Execution Flow: DLL Side-Loading<br>
+      <span style="color:#6b7280;">NeedyMantis plants malicious DLLs named identically to libraries loaded by trusted applications; when the legitimate program runs, Windows finds the attacker's DLL first in the application directory and executes it instead of the real library.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">Microsoft's Threat Intelligence Center has published a deep-dive into NeedyMantis, a sophisticated post-compromise malware family active since at least October 2025 and attributed to Storm-3069 — a threat actor cluster linked to Chinese state-sponsored espionage previously associated with the DAEMON Tools software supply chain compromise documented by Kaspersky. Microsoft notes the malware may be shared among multiple Chinese-affiliated operators, suggesting it has become a valued commodity in the broader Chinese cyberespionage ecosystem.</p>
+        <p style="margin:0 0 10px;">The DLL sideloading mechanism is elegant in its simplicity: NeedyMantis arrives as a three-piece bundle — a legitimate software binary, a malicious DLL sharing the exact name of a library that binary requires, and an encrypted payload archive named identically. When Windows executes the trusted program, it searches the application's own directory first for required DLLs before checking system directories. Finding the attacker's malicious DLL there, it loads it instead of the genuine system library — granting the malware execution under the trusted application's security context and evading endpoint tools that whitelist known software.</p>
+        <p style="margin:0 0 10px;">Storm-3069's targeting aligns precisely with Chinese intelligence priorities: telecom companies (signals intelligence), universities (research data, recruit targeting), medical nonprofits (health data, pharmaceutical R&amp;D), intergovernmental organizations (diplomatic intelligence), and government contractors (classified program exposure). NeedyMantis itself does not exfiltrate data — it establishes covert persistence enabling follow-on collection and lateral movement at the attacker's chosen pace.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When a program like TightVNC (a remote desktop tool) runs, Windows looks in the program's own folder for the helper files it needs before checking anywhere else. NeedyMantis puts a fake helper file in that folder with the correct name. The trusted program loads the fake file by mistake, and the attacker's code begins running — hidden inside a trusted application. Security tools see "TightVNC is running normally" and don't raise an alarm, making NeedyMantis effectively invisible until specifically hunted for.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned — post-compromise tool; initial access vectors include spear-phishing and exploitation of public-facing vulnerabilities. See MSTIC blog (linked in title) for IoCs and detection rules.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD — Storm-3069 -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Storm-3069</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State Espionage · Attributed to: China (unconfirmed; based on targeting and TTPs)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Telecommunications providers, universities, medical nonprofits, intergovernmental organizations, and government contractors — sectors of strategic intelligence value to China</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> DLL sideloading via legitimate software bundles, DAEMON Tools supply chain compromise, and long-term stealthy persistence operations using the NeedyMantis malware family (active since at least Oct 2025)</div>
+</div>
+
+<!-- STORY 4: Water utility attacks — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">StateScoop / CISA · Sep 30, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://statescoop.com/coordinated-cyberattack-disrupts-water-utilities-in-30-minnesota-communities/" style="color:#111827;text-decoration:none;">Iranian-Affiliated Actors Disrupt Water Services Across 30+ Minnesota Communities by Targeting Exposed PLCs</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Iranian-affiliated threat actors conducted coordinated cyberattacks on water and wastewater utilities across 30+ Minnesota communities by directly accessing internet-exposed Rockwell Automation MicroLogix PLCs, causing pressure loss and flooding — with CISA advisory AA26-097A documenting similar attacks across at least 12 U.S. states.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Water utilities and their customers in 30+ Minnesota communities and at least 11 additional U.S. states where analogous internet-exposed PLC infrastructure is deployed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately isolate PLCs and OT devices from direct internet exposure; apply all available firmware updates to Rockwell Automation MicroLogix 1100/1400 series devices; implement IT/OT network segmentation; contact CISA (1-888-282-0870) for threat intelligence support using AA26-097A indicators.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [ICS — Impair Process Control] T0821 · Modify Controller Tasking<br>
+      <span style="color:#6b7280;">Attackers directly accessed and modified control logic on Rockwell Automation MicroLogix PLCs over the internet, commanding physical infrastructure changes (pumps, valves) that caused pressure loss and flooding in affected water systems.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 10px;">In a coordinated campaign attributed to Iranian-affiliated threat actors, cyberattacks disrupted water and wastewater utilities serving more than 30 Minnesota communities. Attackers targeted Rockwell Automation MicroLogix 1100 and 1400 series PLCs that were directly accessible via the internet with inadequate authentication controls, exploiting default credentials and known authentication weaknesses to gain direct control of physical infrastructure and issue unauthorized commands to pumps, valves, and sensors.</p>
+        <p style="margin:0 0 10px;">CISA advisory AA26-097A covers the campaign and documents its expansion to at least 12 U.S. states beyond Minnesota. The FBI confirmed operational effects including pressure loss and flooding — tangible, real-world impacts on communities depending on clean water. CISA also released STIX-formatted indicator bundles covering IP addresses associated with Iranian-affiliated actor activity targeting these devices from September 2025 through July 2026, indicating a sustained and evolving targeting campaign against U.S. water infrastructure.</p>
+        <p style="margin:0 0 10px;">This campaign mirrors the 2023-2024 CyberAv3ngers attacks targeting Unitronics PLCs in U.S. water facilities, but the scale — 30+ communities across at least 12 states — represents a meaningful escalation. CISA and the EPA have urged water utilities to disconnect internet-exposed OT devices for years; this attack demonstrates the direct community consequences when those recommendations go unimplemented.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> PLCs (Programmable Logic Controllers) are the industrial computers that directly control physical equipment in water plants — they tell pumps when to run, valves when to open, and sensors what to measure. When these devices are connected to the internet without strong security protections, attackers can control them remotely the same way you'd control a smart thermostat from your phone. The difference is that misconfiguring a water plant's equipment doesn't just affect your comfort — it can flood neighborhoods, cut water pressure, or disrupt treatment for entire communities.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE — exploitation of authentication weaknesses and default credentials on internet-exposed Rockwell Automation MicroLogix 1100/1400 series PLCs; see CISA advisory AA26-097A for full indicator list and mitigation guidance.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Protocol Tunneling ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Protocol tunneling is a technique where attackers disguise malicious network traffic by encapsulating it inside a different, commonly permitted protocol — for example, hiding command-and-control instructions inside what looks like normal HTTPS web traffic. Think of it like mailing a forbidden item inside a legal package: the courier (your firewall) sees a normal envelope and waves it through, unaware of what's concealed inside. Attackers use tunneling tools like SLAPSHOT — deployed in today's Citrix NetScaler attacks — to maintain covert communication channels with compromised systems that blend seamlessly into legitimate traffic and bypass security tools that would otherwise block suspicious protocols outright.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: DLL Sideloading · DTLS · OT · PLC · DMDC · SD-WAN ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">DLL Sideloading</strong> — An attack technique where a malicious DLL file is placed in the same directory as a legitimate application so Windows loads the attacker's code instead of the genuine library when the trusted program starts.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">DTLS</strong> — Datagram Transport Layer Security; a protocol that provides TLS-equivalent encryption for UDP-based communications, used in VPNs, VoIP, and other latency-sensitive applications — the protocol component affected by CVE-2026-88772 in Citrix NetScaler.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">OT</strong> — Operational Technology; hardware and software that monitors and controls physical equipment and industrial processes — such as pumps, valves, and sensors in water plants or power grids — as opposed to traditional IT systems that handle data and communications.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PLC</strong> — Programmable Logic Controller; a ruggedized industrial computer designed to control manufacturing equipment, assembly lines, and critical infrastructure devices like pumps and valves in real time.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">DMDC</strong> — Defense Manpower Data Center; the Department of Defense's authoritative repository for military and civilian personnel records, supporting ID card issuance, benefits eligibility verification, and access control for DoD systems.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">SD-WAN</strong> — Software-Defined Wide Area Network; a networking approach that uses software to centrally manage and optimize connections between geographically distributed offices, enabling flexible traffic routing and visibility — the context for the Arista VeloCloud Orchestrator CVE-2026-93952 added to CISA's KEV catalog.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://securityaffairs.com/199631/hacking/u-s-cisa-adds-check-point-arista-velocloud-orchestrator-and-f5-big-ip-apm-flaws-to-its-known-exploited-vulnerabilities-catalog.html" style="color:#374151;text-decoration:none;">CISA Adds Four Exploited Flaws to KEV: F5 BIG-IP APM (CVSS 9.8), Check Point CVE-2026-85102 &amp; CVE-2026-93616, Arista VeloCloud CVE-2026-93952</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Security Affairs / CISA</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/cyber-insights-2026-malware-and-cyberattacks-in-the-age-of-ai/" style="color:#374151;text-decoration:none;">AI-Powered Malware Moves from Proof-of-Concept to Real-World Attacks — 15% of Attack Techniques Now Boosted by Generative AI</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 1, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

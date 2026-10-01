@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 1, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 2 critical · 3 high · 1 medium · ~8 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-01.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: Citrix NetScaler — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer / Mandiant · Sep 30, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Citrix NetScaler Zero-Days Exploited for Weeks — WHIPSHOT Webshell and SLAPSHOT Tunneler Discovered</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-88771 and CVE-2026-88772 (both CVSS 9.5) enabled weeks of zero-day RCE exploitation before Citrix patched them on Sep 27, with Mandiant now confirming custom malware deployment including a PHP webshell and Python tunneling tool for persistent root access.</div>
+    <div style="margin-top:2px;">👤 Organizations running NetScaler ADC or Gateway 14.1 before 14.1-73.37 or 13.1 before 13.1-64.23 in government, finance, education, and professional services sectors.</div>
+    <div style="margin-top:2px;">✅ Upgrade per CTX697096 immediately and hunt for WHIPSHOT/SLAPSHOT artifacts — patching alone does not remediate a pre-patch compromise.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Command and Control] T1572 · Protocol Tunneling</div>
+</div>
+
+<!-- STORY 2: Pentagon breach — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cyber Security News / DoD · Sep 29, 2026</span>
+  </div>
+  <a href="https://cybersecuritynews.com/pentagon-data-breach/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Pentagon Breach Exposes SSNs and Job Records of Nearly 3 Million Military and Civilian Personnel</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A nine-month DMDC intrusion via a file-sharing vulnerability exposed Social Security numbers and employment records for 2.76 million living individuals and 294,000 deceased DoD personnel.</div>
+    <div style="margin-top:2px;">👤 Active duty military, veterans, DoD civilian employees, and contractors whose records were stored in the DMDC personnel database.</div>
+    <div style="margin-top:2px;">✅ Place credit freezes at all three major bureaus and watch for targeted phishing — DoD is sending notifications to affected individuals.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Collection] T1213 · Data from Information Repositories</div>
+</div>
+
+<!-- STORY 3: NeedyMantis — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Microsoft Security Blog · Sep 28, 2026</span>
+  </div>
+  <a href="https://www.microsoft.com/en-us/security/blog/2026/09/28/needymantis-unpacking-a-post-compromise-malware-family-used-in-targeted-operations/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">NeedyMantis: China-Linked Storm-3069 Uses DLL Sideloading to Maintain Stealthy Long-Term Network Access</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Microsoft disclosed NeedyMantis, a post-compromise malware family that hides inside trusted apps (Poedit, curl, TightVNC) via DLL sideloading, giving China-linked Storm-3069 persistent stealthy access to targeted critical-sector organizations.</div>
+    <div style="margin-top:2px;">👤 Telecom providers, universities, medical nonprofits, intergovernmental organizations, and government contractors globally.</div>
+    <div style="margin-top:2px;">✅ Hunt for suspicious DLLs in legitimate application directories and deploy behavioral sideloading detections per MSTIC's published IoCs.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Defense Evasion / Persistence] T1574.002 · Hijack Execution Flow: DLL Side-Loading</div>
+</div>
+
+<!-- STORY 4: Water utility attacks — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">StateScoop / CISA · Sep 30, 2026</span>
+  </div>
+  <a href="https://statescoop.com/coordinated-cyberattack-disrupts-water-utilities-in-30-minnesota-communities/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Iranian-Affiliated Actors Disrupt Water Services Across 30+ Minnesota Communities via Exposed PLCs</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Coordinated attacks on internet-exposed Rockwell Automation MicroLogix PLCs disrupted water and wastewater systems in 30+ Minnesota communities, causing pressure loss and flooding — CISA advisory AA26-097A covers similar attacks across at least 12 U.S. states.</div>
+    <div style="margin-top:2px;">👤 Water utilities and their customers in 30+ Minnesota communities with similar exposure across at least 11 additional U.S. states.</div>
+    <div style="margin-top:2px;">✅ Immediately isolate internet-exposed PLCs; apply Rockwell Automation MicroLogix firmware updates; implement IT/OT network segmentation per CISA advisory AA26-097A.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [ICS — Impair Process Control] T0821 · Modify Controller Tasking</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://securityaffairs.com/199631/hacking/u-s-cisa-adds-check-point-arista-velocloud-orchestrator-and-f5-big-ip-apm-flaws-to-its-known-exploited-vulnerabilities-catalog.html" style="color:#374151;text-decoration:none;">CISA Adds Four Exploited Flaws to KEV: F5 BIG-IP APM (CVSS 9.8), Check Point, Arista VeloCloud</a>
+    <span style="color:#9ca3af;"> · Security Affairs / CISA</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/cyber-insights-2026-malware-and-cyberattacks-in-the-age-of-ai/" style="color:#374151;text-decoration:none;">AI-Powered Malware Moves from Proof-of-Concept to Real-World Attacks — 15% of Techniques Now Use GenAI</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-01.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Oct 1, 2026</div>
+
+</body>
+</html>
