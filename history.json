@@ -1,12 +1,13 @@
 {
-  "til": ["Certificate Transparency", "Network Segmentation", "Egress Filtering", "JWT Algorithm Confusion Attacks", "Webshell Persistence", "Hypervisor Security", "Protocol Tunneling"],
-  "glossary": ["Threat Hunting", "Honeypot", "Tripwire", "RCE", "KEV", "LPE", "MQTT", "cPanel", "RSS", "OPML", "TTP", "OSINT", "SSRF", "AiTM", "ZTNA", "DAST", "SIEM", "IAB", "LotL", "Supply Chain Attack", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN"],
+  "til": ["Egress Filtering", "JWT Algorithm Confusion Attacks", "Webshell Persistence", "Hypervisor Security", "Protocol Tunneling", "Null Byte Injection"],
+  "glossary": ["LPE", "MQTT", "cPanel", "RSS", "OPML", "TTP", "OSINT", "SSRF", "AiTM", "ZTNA", "DAST", "SIEM", "IAB", "LotL", "Supply Chain Attack", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC"],
   "week": {
-    "critical": 8, "high": 10, "medium": 5,
-    "techniques": ["T1190", "T1021", "T1059", "T1588", "T1505.003", "T1657", "T1068", "T1027", "T1203", "T1133", "T1565.002", "T1486", "T1548.001", "T1528", "T1210", "T1572", "T1213", "T1574.002", "T0821"],
-    "actors": ["Lazarus Group", "ShinyHunters", "INC Ransomware", "Storm-3069"]
+    "critical": 11, "high": 13, "medium": 7,
+    "techniques": ["T1190", "T1021", "T1059", "T1588", "T1505.003", "T1657", "T1068", "T1027", "T1203", "T1133", "T1565.002", "T1486", "T1548.001", "T1528", "T1210", "T1572", "T1213", "T1574.002", "T0821", "T1078", "T1556", "T1505.002", "T1204.002", "T1537", "T1562.001"],
+    "actors": ["Lazarus Group", "ShinyHunters", "INC Ransomware", "Storm-3069", "KillSec"]
   },
   "digests": [
+    {"date": "2026-10-02", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
     {"date": "2026-10-01", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1},
     {"date": "2026-09-30", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 1},
     {"date": "2026-09-29", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 2},

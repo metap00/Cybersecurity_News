@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 2, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 2, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 3 critical · 3 high · 2 medium · ~9 min read</div>
+</div>
+
+<!-- STORY 1: Bitget CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 1, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/bitget-confirms-third-party-zero-day.html" style="color:#111827;text-decoration:none;">Bitget Confirms North Korean Zero-Day Behind $387.5 Million Cryptocurrency Theft</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> North Korean hackers exploited a zero-day flaw in third-party security software integrated with Bitget to steal high-level internal credentials, then drained $387.5 million from hot and warm wallets across 11 blockchains in a ~3-hour window beginning September 24.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Bitget customers whose funds were held in hot/warm wallets, plus $463 million in additional customer outflows following the disclosure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Cryptocurrency users should move significant holdings to cold (offline) storage; organizations should audit and isolate third-party security tool integrations from high-value credential stores.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access / Credential Access] T1078 · Valid Accounts<br>
+      <span style="color:#6b7280;">Attackers leveraged internal credentials stolen via the zero-day to authenticate as authorized users of Bitget's wallet management system, then issued fraudulent withdrawal commands that bypassed existing risk controls because the requests appeared to originate from legitimate high-privilege accounts.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Forensic analysis by blockchain security firm SlowMist revealed that attackers exploited a zero-day vulnerability in a third-party security product deeply integrated with Bitget's infrastructure — the specific vendor has not been publicly disclosed. By exploiting this flaw, the attackers obtained high-level internal credentials that granted them authority to issue withdrawal commands to the exchange's wallet management system.</p>
+        <p>The attack was remarkably precise and fast: the first abnormal transfer was logged at 02:31 UTC+8 and the last at 05:23, covering 11 blockchains including Ethereum, TRON, XRP Ledger, BNB Smart Chain, Avalanche, and several others. The fraudulent commands bypassed existing transaction-risk controls because they bore the signatures of legitimate administrative accounts, making real-time detection extremely difficult.</p>
+        <p>CEO Gracy Chen publicly attributed the attack to North Korea, citing IP address behavioral patterns and on-chain transaction analysis. North Korea-linked groups — principally Lazarus Group — have stolen billions of dollars in cryptocurrency since 2017, laundering proceeds to fund the DPRK's weapons programs. The Bitget incident may represent one of the largest single crypto heists attributed to the regime, exceeding the $625M Ronin Network hack of 2022 in operational speed if not total value.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine Bitget's vault has a keypad that only responds to certain authorized fingerprints. A third-party company was trusted to manage part of that keypad's security system. Hackers found a hidden flaw in that company's software, used it to copy the fingerprints of the most powerful administrators, and then simply walked in and transferred $387.5 million out — all before anyone noticed, because the fingerprints looked genuine.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE: Undisclosed (third-party zero-day) · CVSS: N/A — No patch available for the exploited third-party product until vendor discloses; Bitget has halted withdrawals and reimbursed affected users.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Cisco SD-WAN CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security / CISA KEV · Oct 1, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://tech-insider.org/cisco-sd-wan-zero-day-cve-2026-76504-2026/" style="color:#111827;text-decoration:none;">Cisco SD-WAN CVE-2026-76504 (CVSS 9.8): Authentication Bypass Zero-Day Actively Exploited, CISA Mandates Oct 3 Fix</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Cisco confirmed active exploitation of CVE-2026-76504 (CVSS 9.8), a critical authentication bypass in Catalyst SD-WAN Manager caused by improper URI encoding handling that lets any unauthenticated remote attacker gain full administrative access with a single crafted HTTP request.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises running Cisco Catalyst SD-WAN Manager releases prior to the fixed versions; U.S. federal civilian agencies face a mandatory CISA remediation deadline of October 3, 2026.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply patched releases immediately (20.9.10.1, 20.12.8.2, 20.15.6.1, 20.18.4.1, 26.1.2.1, 26.2.1); if patching is not immediately possible, restrict network access to the SD-WAN Manager API to trusted IP ranges only.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion / Credential Access] T1556 · Modify Authentication Process<br>
+      <span style="color:#6b7280;">The improper URI encoding in SD-WAN Manager's HTTP request handling allows attackers to craft a request that subverts the authentication rule protecting the admin API endpoint — effectively rewriting the authentication logic to grant access without valid credentials, the defining characteristic of this technique.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-76504 is the fifth actively exploited Cisco SD-WAN zero-day disclosed in 2026, highlighting persistent security weaknesses in the Catalyst SD-WAN Manager platform. The root cause is a URI encoding handling flaw: when the application processes HTTP requests, it fails to properly decode certain URL-encoded characters before evaluating authentication rules, allowing an attacker to route a request to a privileged API endpoint that the authentication check believes is off-limits but the backend actually processes.</p>
+        <p>The exploit requires only a network path to the Manager's API — no credentials, no prior foothold. Given that SD-WAN Manager serves as the central control plane for the entire enterprise WAN fabric, administrative access translates directly into the ability to reconfigure routing policies, pivot into network segments, or disable security controls across the organization's wide-area network.</p>
+        <p>CISA added CVE-2026-76504 to its Known Exploited Vulnerabilities (KEV) catalog on September 30, 2026, with a 72-hour remediation deadline for federal civilian agencies. Cisco has released patches across all supported release trains, and temporary mitigation via API access restriction is possible for organizations unable to patch immediately.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SD-WAN Manager is like the master control room for an entire company's network highways. This vulnerability is like finding that the locked door to the control room can be fooled by slightly misspelling the passcode — the door's security check misreads it as valid. Anyone on the internet who sends that one crafted password can walk in and reprogram every highway in the company's network.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-76504 · CVSS: 9.8/10 — Maximum network impact with no authentication required; patches available now for all supported release trains.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: FortiMail CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 1, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/" style="color:#111827;text-decoration:none;">Fortinet FortiMail CVE-2026-104286 (CVSS 9.8): Null-Byte Path Traversal Actively Exploited — No Patch Available</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Fortinet disclosed CVE-2026-104286 (CVSS 9.8), a null-byte path traversal vulnerability in FortiMail's HTTP/HTTPS management interface that allows unauthenticated remote attackers to write arbitrary files on affected devices; the flaw is actively exploited in zero-day attacks and patched versions are not yet available.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running FortiMail 7.2.0–7.2.9, 7.4.0–7.4.8, 7.6.0–7.6.6, or 8.0.0–8.0.1 — virtually all supported FortiMail versions.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately disable IBE (Identity-Based Encryption) feature support on affected FortiMail appliances, or block all external access to the FortiMail management interface; apply Fortinet's upcoming patches (7.4.9, 7.6.7, 8.0.2) as soon as they release.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Persistence] T1505.002 · Server Software Component: Transport Agent<br>
+      <span style="color:#6b7280;">The arbitrary file write capability on FortiMail — a mail security appliance — allows attackers to implant persistent malicious components into the mail server's processing pipeline, analogous to how adversaries install malicious transport agents on mail servers to intercept, exfiltrate, or manipulate email in transit.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-104286 arises from improper null-byte handling in FortiMail's HTTP request parser. When the server processes file-path references in incoming requests, it fails to correctly sanitize null bytes (the \0 character), allowing an attacker to craft a path that appears to terminate at a safe location to the security check but is processed by the underlying OS as pointing to a sensitive directory. The result: any unauthenticated remote user can write arbitrary files anywhere on the appliance's filesystem.</p>
+        <p>The practical consequence is severe: attackers can overwrite configuration files, inject malicious code into server-side scripts, or install backdoors — all without a single valid credential. Because FortiMail handles organizational email security (spam filtering, antivirus scanning, encryption), a compromised appliance sits at the intersection of inbound and outbound corporate email, giving attackers a persistent position to intercept or manipulate communications.</p>
+        <p>Critically, Fortinet has confirmed active zero-day exploitation but has not yet shipped patches. The vulnerability was added to CISA's KEV catalog on October 1, 2026. The only available mitigations are disabling the IBE feature (which reduces attack surface exposure) or isolating the management interface from public internet access — effective but operationally disruptive for organizations relying on external management.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> FortiMail is a security appliance that screens all incoming and outgoing company email. This vulnerability is like discovering that the building's security guard — the one who checks every letter for threats — has an unlocked back door that anyone can walk through to reach the filing room. Attackers can slip through that back door and rewrite the rulebook the guard uses, potentially letting them read every email or make the guard wave through malicious messages.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104286 · CVSS: 9.8/10 — Unauthenticated, remote, no user interaction; patches pending release (7.4.9, 7.6.7, 8.0.2).</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Apple CoreGraphics HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Security Affairs / SecurityWeek · Sep 29–Oct 1, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityaffairs.com/200001/hacking/apple-patches-coregraphics-zero-day-linked-to-sophisticated-targeted-attacks.html" style="color:#111827;text-decoration:none;">Apple Patches iOS/macOS CoreGraphics Zero-Day CVE-2026-86950 Exploited in 'Extremely Sophisticated' Targeted Attacks — CISA Deadline Today</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Apple released emergency patches for CVE-2026-86950 (CVSS 8.8), an out-of-bounds write in the CoreGraphics font glyph rasterizer triggered by maliciously crafted PDF files (likely delivered via WhatsApp), enabling arbitrary code execution in "extremely sophisticated" targeted attacks discovered by Meta Product Security.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> iOS, iPadOS, and macOS users on unpatched versions; attack pattern suggests high-value targets including journalists, executives, and activists.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update immediately to iOS/iPadOS 26.7.1, macOS Tahoe 26.7.1, or macOS Sequoia 15.8.1; CISA's October 2 deadline for federal agencies applies today.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Execution] T1204.002 · User Execution: Malicious File<br>
+      <span style="color:#6b7280;">Attackers delivered malicious PDF files (likely via WhatsApp) that, when the device's CoreGraphics framework processes the embedded font glyphs, triggers an integer overflow leading to an out-of-bounds write — the payload executes when the user opens or previews the file, making them an unwitting participant in their own device compromise.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-86950 sits in CoreGraphics, Apple's foundational graphics rendering framework used across iOS, iPadOS, and macOS. Security firm Calif traced the root cause to an integer overflow in the font glyph rasterizer — when the system renders certain maliciously crafted font characters embedded in a PDF, it performs a size calculation that overflows, causing the system to write attacker-controlled data past the end of an allocated memory buffer. This out-of-bounds write can be shaped into arbitrary code execution.</p>
+        <p>The attack vector is particularly insidious: PDF processing is deeply integrated into iOS, meaning a WhatsApp message preview or Files app thumbnail could trigger exploitation without the user explicitly opening a document. Meta Product Security, credited with the discovery, assessed the attack as "extremely sophisticated," language Apple reserves for state-grade capability. The pattern — targeted delivery via messaging apps, PDF lure, CoreGraphics exploit — echoes documented NSO Group and Intellexa campaign methodologies.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Every iPhone uses CoreGraphics to draw text and images on screen, including rendering fonts inside PDFs. This bug means a cleverly crafted font in a PDF can overflow like a glass of water poured too fast — and the overflow splashes into the wrong memory area, overwriting instructions with attacker code. The attacker just needs to send you a PDF in WhatsApp; you might not even need to open it fully.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-86950 · CVSS: 8.8/10 — Patched in iOS/iPadOS 26.7.1 and macOS 26.7.1/15.8.1 released September 29, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: KillSec HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / SC World · Oct 1, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/police-arrest-16-year-old-suspected-of.html" style="color:#111827;text-decoration:none;">Operation KillSwitch: 16-Year-Old KillSec Ransomware Leader Arrested in Spain, Leak Site Seized, 110TB of Stolen Data Recovered</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Europol-coordinated Operation KillSwitch arrested three suspects — a 16-year-old Romanian national in Alicante (Spain) and two adults in the UK and Romania — dismantling the KillSec ransomware group, which was linked to nearly 1,000 ransomware incidents worldwide since 2024.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> KillSec's ~1,000 global victims; the operation seized 5 servers, the group's dark-web leak site, and approximately 110TB of stolen organizational data.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Organizations that received KillSec extortion demands or suspect data theft should contact their national cybercrime unit; law enforcement is encouraging victims to come forward to aid in identifying additional members.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Exfiltration] T1537 · Transfer Data to Cloud Account<br>
+      <span style="color:#6b7280;">KillSec's business model depended on transferring stolen victim data to cloud-hosted and dark-web infrastructure — creating a publicly accessible leak site as extortion leverage — which is precisely the technique of transferring data to external cloud accounts to pressure victims into paying.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>KillSec operated a "data extortion" ransomware model: rather than primarily encrypting files for ransom, the group focused on stealing sensitive organizational data and publishing it on a dark-web leak site unless victims paid. Active since 2024, the group accumulated nearly 1,000 victims globally, across industries including healthcare, manufacturing, and government.</p>
+        <p>Operation KillSwitch involved authorities from nine countries, coordinated through Eurojust and Europol. The discovery that the group was allegedly led by a 16-year-old Romanian national underscores the young age at which individuals can operate significant criminal infrastructure — the suspect had access to sophisticated tools and managed a distributed criminal network from Spain.</p>
+        <p>The seizure of 110TB of stolen data is significant: law enforcement will now work to notify victims whose data was on the servers, and some organizations may learn for the first time that they were breached. The takedown follows a string of major ransomware disruptions in 2025–2026, including actions against REvil, LockBit, and INC Ransomware, suggesting sustained international law enforcement momentum.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> KillSec worked like digital blackmailers: they would break into a company, copy all the sensitive files, and then threaten to post everything publicly on a secret website unless the company paid up. Police from 9 countries worked together to find the suspects, shut down that secret website, and recover the stolen files — and they discovered the person running the whole operation was just 16 years old.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: KillSec -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">KillSec</div>
+  <div style="opacity:.85;margin-top:4px;">Cybercriminal ransomware/extortion group · Attributed to: Romania (leadership), international members</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Healthcare, manufacturing, government, and SMEs globally; indiscriminate targeting with ~1,000 confirmed victims since 2024</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Data theft extortion model (double extortion without encryption focus), dark-web leak site pressure campaigns, operating via distributed criminal network with a teenage core operator</div>
+</div>
+
+<!-- STORY 6: Defender ShieldCrash HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CybersecurityNews / Bleeping Computer · Oct 1, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/defender-shieldcrash-0-day-bypasses/" style="color:#111827;text-decoration:none;">Microsoft Defender 'ShieldCrash' Zero-Day PoC Released: SYSTEM-Level File Read Bypasses September Patch on All Supported Windows</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researcher "Nightmare Eclipse" published a proof-of-concept (PoC) exploit called ShieldCrash that reads arbitrary files — including the SAM database and registry hives — with SYSTEM-level privileges on fully patched Windows, representing an incomplete fix for CVE-2026-69414 (ShieldBreak) from September 2026 updates.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All supported Windows versions (including fully patched post-September 2026 systems) in enterprise environments where credential theft via SYSTEM access could enable lateral movement.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor for anomalous reads of SAM, NTDS.dit, and registry hive files using EDR tools; enforce least-privilege and application controls; await Microsoft's emergency patch addressing the incomplete CVE-2026-69414 fix.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1562.001 · Impair Defenses: Disable or Modify Tools<br>
+      <span style="color:#6b7280;">ShieldCrash exploits a flaw within Microsoft Defender itself to achieve SYSTEM-level file access, effectively turning the security tool against the system it protects — an attacker who abuses this can read credential stores while Defender remains blind to the activity, directly impairing the defensive capability the tool is meant to provide.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>ShieldCrash is a bypass of Microsoft's September 2026 patch for CVE-2026-69414 (ShieldBreak), which previously allowed SYSTEM privilege escalation via Defender. The researcher "Nightmare Eclipse" demonstrated that the underlying access control misconfiguration was only partially corrected: the PoC can still read arbitrary files — including the SAM (Security Account Manager) database, NTDS.dit (Active Directory password hashes), and critical registry hives — with SYSTEM-level permissions.</p>
+        <p>The SAM and NTDS.dit databases contain hashed credentials for every local and domain user account respectively. Reading them with SYSTEM access enables offline hash cracking or pass-the-hash attacks, providing a direct path to lateral movement and domain compromise. The attack requires local code execution (not a remote exploit), meaning it would typically be used as a privilege escalation step after an initial foothold is established.</p>
+        <p>Microsoft has been notified and is reportedly working on a supplemental patch. Until then, organizations should prioritize monitoring for Defender-related file access anomalies, particularly any process reading from \%SystemRoot%\System32\config\SAM or NTDS.dit outside expected backup windows.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SAM is a database Windows keeps locked in a vault — it stores all the password hashes for every user account. ShieldCrash tricks Windows Defender (your security guard) into using its own master key to open that vault and hand over the contents. Microsoft tried to fix a similar issue last month but left a gap, and a researcher just showed that gap is still exploitable on every up-to-date Windows machine.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-69414 (incomplete fix) · CVSS: Not yet assigned for ShieldCrash variant — requires local code execution; SYSTEM file read enables credential theft and lateral movement.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Null Byte Injection ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A null byte is the character with ASCII value zero (\0) — it signals "end of string" in the C programming language, but web applications written in higher-level languages often process it as a literal character. When an attacker inserts a null byte into a filename or file path sent to a vulnerable server (e.g., <code>../../etc/passwd%00.jpg</code>), the web application sees a harmless ".jpg" path and allows it through, while the underlying operating system or C library truncates at the null byte and reads the actual sensitive file. The FortiMail CVE-2026-104286 exploits exactly this mismatch: the HTTP interface fails to strip null bytes before passing paths to the OS, allowing attackers to write arbitrary files anywhere on the appliance by crafting requests that bypass the path-safety checks.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: IBE · Path Traversal · SAM · Out-of-Bounds Write · PoC ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">IBE</strong> — Identity-Based Encryption; a cryptographic scheme in email security (used by FortiMail) where a recipient's email address itself serves as their public key, eliminating the need to exchange certificates in advance.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Path Traversal</strong> — An attack where an attacker manipulates file path variables (e.g., using <code>../</code> sequences) to access files and directories outside the intended directory, potentially reaching sensitive system files.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SAM</strong> — Security Account Manager; the Windows database that stores hashed passwords for local user accounts, located at <code>%SystemRoot%\System32\config\SAM</code> and normally inaccessible even to administrators while the OS is running.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Out-of-Bounds Write</strong> — A memory corruption vulnerability where a program writes data past the end of an allocated buffer; attackers can craft the overflow to overwrite adjacent memory with malicious code, often leading to arbitrary code execution.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">PoC</strong> — Proof of Concept; a working piece of exploit code released (typically by researchers) to demonstrate that a vulnerability is real and practically exploitable, used to pressure vendors into patching but also a risk if weaponized by attackers.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://securityonline.info/apache-http-server-2-4-69/" style="color:#374151;text-decoration:none;">Apache HTTP Server 2.4.69 Patches 20 Security Flaws Including Potential Code Execution via mod_vhost_alias</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityOnline</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.wiu.edu/cybersecuritycenter/cybernews.php" style="color:#374151;text-decoration:none;">AI Agent Exploits Zammad Zero-Days to Breach Dutch Vulnerability Disclosure Non-Profit in Novel Automated Attack</a>
+    <span style="color:#9ca3af;font-size:11px;"> · WIU Cybersecurity Center</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 2, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
