@@ -1,12 +1,13 @@
 {
-  "til": ["Egress Filtering", "JWT Algorithm Confusion Attacks", "Webshell Persistence", "Hypervisor Security", "Protocol Tunneling", "Null Byte Injection"],
-  "glossary": ["LPE", "MQTT", "cPanel", "RSS", "OPML", "TTP", "OSINT", "SSRF", "AiTM", "ZTNA", "DAST", "SIEM", "IAB", "LotL", "Supply Chain Attack", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC"],
+  "til": ["Egress Filtering", "JWT Algorithm Confusion Attacks", "Webshell Persistence", "Hypervisor Security", "Protocol Tunneling", "Null Byte Injection", "Deserialization Attacks"],
+  "glossary": ["OSINT", "SSRF", "AiTM", "ZTNA", "DAST", "SIEM", "IAB", "LotL", "Supply Chain Attack", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "Deserialization", "RaaS", "ELF"],
   "week": {
-    "critical": 11, "high": 13, "medium": 7,
-    "techniques": ["T1190", "T1021", "T1059", "T1588", "T1505.003", "T1657", "T1068", "T1027", "T1203", "T1133", "T1565.002", "T1486", "T1548.001", "T1528", "T1210", "T1572", "T1213", "T1574.002", "T0821", "T1078", "T1556", "T1505.002", "T1204.002", "T1537", "T1562.001"],
-    "actors": ["Lazarus Group", "ShinyHunters", "INC Ransomware", "Storm-3069", "KillSec"]
+    "critical": 14, "high": 16, "medium": 10,
+    "techniques": ["T1190", "T1021", "T1059", "T1588", "T1505.003", "T1657", "T1068", "T1027", "T1203", "T1133", "T1565.002", "T1486", "T1548.001", "T1528", "T1210", "T1572", "T1213", "T1537", "T1574.002", "T0821", "T1078", "T1556", "T1505.002", "T1204.002", "T1562.001", "T1530", "T1059.004", "T1595"],
+    "actors": ["Lazarus Group", "ShinyHunters", "INC Ransomware", "Storm-3069", "KillSec", "Interlock Ransomware Group"]
   },
   "digests": [
+    {"date": "2026-10-03", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 3},
     {"date": "2026-10-02", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
     {"date": "2026-10-01", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1},
     {"date": "2026-09-30", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 1},

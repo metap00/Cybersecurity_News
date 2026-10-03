@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 3, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 3, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">11 stories · 3 critical · 3 high · 3 medium · ~9 min read</div>
+</div>
+
+<!-- STORY 1: Citrix NetScaler zero-days -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Citrix / CISA · Oct 3, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cisa.gov/news-events/alerts/2026/09/27/critical-zero-day-vulnerabilities-exploited-citrix-netscaler-adc-gateway" style="color:#111827;text-decoration:none;">Citrix NetScaler RCE Zero-Days CVE-2026-88771 &amp; CVE-2026-88772 Actively Exploited Globally — Now Causing Post-Patch Reboots</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Two critical RCE zero-days in Citrix NetScaler ADC and Gateway (CVSSv4 9.5 each) are being actively exploited worldwide to deliver web shells, and administrators who applied the emergency patches are now reporting unexpected appliance reboots triggered by crafted SAML authentication traffic.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organisation running Citrix NetScaler ADC or NetScaler Gateway in a default configuration — this includes thousands of VPN and load-balancer deployments in healthcare, finance, and government sectors globally.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Citrix's emergency patches immediately, preserve forensic images before patching (updates may erase evidence), and hunt for web shells using CISA's published IOCs; if appliances are rebooting post-patch, check Citrix's updated advisory for the SAML workaround.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers sent unauthenticated HTTP requests to the NetScaler management interface — a public-facing application — to trigger the improper input validation flaw and execute arbitrary commands, bypassing all authentication controls.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-88771 is the more dangerous of the two: it requires no special configuration, no authentication, and no user interaction — affecting every NetScaler in its default state. The flaw stems from improper input validation in the management interface and allows arbitrary command execution. CVE-2026-88772 is a memory corruption bug requiring the DTLS feature to be enabled, making it harder to exploit reliably but still critical where DTLS is active.</p>
+        <p>Threat actors exploited both vulnerabilities as zero-days for weeks before Citrix's September 27 disclosure, delivering web shells that persist through reboots and grant persistent backdoor access. A new complication emerged October 2-3: a subset of patched appliances began rebooting in a loop when processing crafted SAML requests, suggesting either residual attacker activity or a patch interaction with SAML authentication middleware.</p>
+        <p>CISA added both CVEs to its Known Exploited Vulnerabilities catalog on September 27 and is urging federal agencies to patch immediately, while also advising forensic preservation before applying updates since patches may overwrite attacker artefacts.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Citrix NetScaler is the "front door" many companies use to let employees access internal systems securely from home. These bugs let hackers walk through that front door without any key, then hide a "secret back door" (web shell) inside so they can return any time. The patch complication is like a locksmith's new lock occasionally jamming — the fix is real, but roll it out carefully.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-88771 · CVSSv4: 9.5/10 — Critical improper input validation enabling unauthenticated RCE on all default NetScaler deployments. | CVE-2026-88772 · CVSSv4: 9.5/10 — Memory corruption enabling RCE on NetScalers with DTLS enabled.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Fortinet FortiMail -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / Fortinet · Oct 3, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cisa.gov/news-events/alerts/2026/10/01/cisa-adds-one-known-exploited-vulnerability-catalog" style="color:#111827;text-decoration:none;">Fortinet FortiMail CVE-2026-104286 (CVSS 9.8): Unauthenticated Arbitrary File Write Exploited in Wild — No Patch Available, Federal Deadline Oct 4</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Fortinet disclosed CVE-2026-104286, a CVSS 9.8 path traversal + null-byte injection flaw in FortiMail that lets unauthenticated attackers write arbitrary files to the underlying Linux system via crafted HTTP/HTTPS requests — and no patch is yet available.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organisations running FortiMail 7.2.0–7.2.9, 7.4.0–7.4.8, 7.6.0–7.6.6, or 8.0.0–8.0.1 are vulnerable; attackers are using the flaw to plant backdoors on email gateway appliances.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> CISA mandates federal agencies remediate by October 4; until Fortinet releases patches, restrict management interface access to trusted IPs, audit file system integrity on exposed appliances, and review FortiMail logs for unexpected HTTP POST requests.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Persistence] T1505.003 · Server Software Component: Web Shell<br>
+      <span style="color:#6b7280;">The arbitrary file write capability in this FortiMail flaw is being leveraged to plant web shells on the email gateway's web root, giving attackers persistent remote access long after initial exploitation.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-104286 combines two classic weaknesses: path traversal (the attacker specifies a file path that escapes the intended directory, e.g., using "../../../") and null-byte injection (appending a null byte "\x00" to terminate a filename string before a forced extension is added). Together, they let an attacker write any file to any location on the system as the web server process user — including PHP web shells in the web root or malicious SSH authorized_keys entries.</p>
+        <p>Fortinet confirmed exploitation in the wild in advisory FG-IR-26-175 on October 1, but noted that corrected firmware versions are "upcoming" — meaning there are currently no fixed releases. Attackers have been observed backdooring FortiMail appliances with no password required, according to TechTimes, turning email security gateways into persistent footholds inside the network perimeter.</p>
+        <p>CISA's binding directive gives federal agencies until October 4 to remediate, a 72-hour window with no vendor patch available — highlighting how urgent this is. The only interim mitigations are network-level access controls to the management interface.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> FortiMail is a popular email security appliance that scans incoming email for spam and malware. This bug lets a hacker write any file to the device — imagine someone being able to slip a master key into your locks without knowing any password. Because there's no fix yet, the only defence is to make the device's management panel unreachable from the internet.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104286 · CVSS: 9.8/10 — Unauthenticated path traversal enabling arbitrary file write on all affected FortiMail versions; actively exploited with no patch currently available.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Pentagon Breach -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 3, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/pentagon-personnel-agency-data-breach-impacts-3-million-people/" style="color:#111827;text-decoration:none;">Pentagon DMDC Breach: 3.05 Million Military Personnel Records Exposed Over 9 Months via File-Sharing Vulnerability</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The Defense Manpower Data Center (DMDC) confirmed a breach of its personnel database, with unauthorised access to records of over 3 million people — including active-duty service members, veterans, contractors, and their families — occurring undetected between October 2025 and July 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> 2.76 million living individuals and ~294,000 deceased persons affiliated with the US Department of Defense had their names, Social Security numbers, dates of birth, contact details, race, sex, and military occupational specialties exposed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Affected individuals should place credit freezes at all three major bureaus and monitor for targeted phishing or social engineering using military-related details; DMDC says it will provide notification letters and credit monitoring to impacted persons.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1530 · Data from Cloud Storage Object<br>
+      <span style="color:#6b7280;">Attackers exploited a vulnerability in a file-sharing service used to store DMDC records, effectively accessing cloud-hosted data objects containing millions of sensitive personnel files without needing to compromise the core database directly.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The DMDC manages identity and personnel databases for the entire Department of Defense. The breach exploited a vulnerability in a file-sharing system used to exchange personnel records — a third-party integration rather than the core DMDC database itself. This lateral attack vector (compromising a connected system rather than the fortified core) is increasingly common in high-value government breaches.</p>
+        <p>The nine-month dwell time (October 2025 to July 2026) before detection is especially alarming. During that window, attackers had persistent read access to one of the most sensitive personnel databases in the US government: the combination of SSNs, military job roles, and contact information creates ideal raw material for spear-phishing, blackmail, or foreign intelligence recruitment operations.</p>
+        <p>DMDC says it has "no indications of misuse" — but given the intelligence value of this data to nation-state actors, that may simply reflect a lack of visibility rather than a lack of use. The attacker has not been publicly attributed.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> The DMDC is like the Pentagon's HR database — it knows who works there, their job, their ID number, and their address. Hackers quietly read that database for nine months through a side door (a file-sharing tool that had a bug). The stolen data is extremely valuable to foreign governments who want to identify and target people with access to classified information.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE assigned · Breach duration: Oct 2025 – Jul 2026 · 3.05M records exposed including SSNs, military occupational data, and contact information.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Operation KillSwitch -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/police-arrest-16-year-old-suspected-of.html" style="color:#111827;text-decoration:none;">Operation KillSwitch: International Police Dismantle KillSec Ransomware Gang, Arrest Alleged 16-Year-Old Mastermind</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A nine-country law enforcement operation arrested three KillSec ransomware members including the alleged 16-year-old gang leader, seized 5 servers hosting the leak site and infrastructure, secured 110 TB of victim data, and linked the group to approximately 1,000 attacks on 500+ organisations worldwide.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> KillSec's victims span education, government, and private sector organisations across multiple countries; the takedown also protects future targets from an active extortion operation.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Organisations that received extortion demands from KillSec should contact law enforcement — seized infrastructure may reveal whether data was actually exfiltrated, potentially changing incident response obligations.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">KillSec's core operation followed the classic double-extortion ransomware model: encrypting victim data to deny access, then threatening to publish stolen files on their leak site to pressure victims into paying ransoms.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Operation KillSwitch was led by German authorities with coordination from Europol, Eurojust, and law enforcement in Belgium, Finland, Greece, Romania, Spain, Switzerland, the UK, and the United States. Arrests were made on September 30 with public confirmation on October 1. Eight properties were searched across Spain, Greece, Romania, and the UK.</p>
+        <p>The revelation that the alleged mastermind is a 16-year-old follows a troubling pattern in ransomware — young developers with elite coding skills being recruited or self-initiating into cybercrime. The teen's identity has not been publicly released due to juvenile protection laws, but German prosecutors have confirmed the individual's age and role as the gang's administrator and developer.</p>
+        <p>The 110 TB of seized victim data creates an important forensic opportunity: investigators can now determine exactly which organisations had data exfiltrated, potentially identifying breaches that were never publicly disclosed. Prior victims who paid ransoms without public disclosure may soon find themselves notified.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> KillSec was a ransomware gang that broke into company systems, copied their files, encrypted their data so they couldn't use it, then demanded payment to restore access and not publish the stolen files. This takedown is like police raiding a criminal gang's headquarters — they arrested the members, seized the computers, and secured the stolen goods.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">Operation KillSwitch · ~1,000 attacks worldwide · 3 arrests (including alleged 16-year-old leader) · 5 servers seized · 110 TB of victim data secured.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- Threat Actor: KillSec -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor (Dismantled)</div>
+  <div style="font-weight:bold;font-size:15px;">KillSec</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal · Alleged leader: 16-year-old, Germany-linked investigation</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Education, government agencies, healthcare, and private sector organisations across Europe and North America</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion ransomware operations, maintaining a Tor-based data leak site, ~1,000 attacks against 500+ victim organisations; infrastructure seized by Operation KillSwitch on Sept 30, 2026</div>
+</div>
+
+<!-- STORY 5: Interlock Ransomware + Cisco FMC -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Oct 3, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.helpnetsecurity.com/2026/03/20/cisco-fmc-interlock-ransomware-cve-2026-20131/" style="color:#111827;text-decoration:none;">Interlock Ransomware Exploited Cisco FMC CVE-2026-20131 (CVSS 10.0) as Zero-Day for 37 Days Before Patch — Active Targeting of Education &amp; Healthcare</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The Interlock ransomware group exploited a CVSS 10.0 unauthenticated RCE flaw in Cisco's Secure Firewall Management Center (FMC) as a zero-day for 37 days before Cisco patched it, using Java deserialization via crafted HTTP POST requests to achieve root-level command execution and deploy ransomware payloads.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched on-premises Cisco Secure FMC deployments, with Interlock specifically targeting education, engineering, manufacturing, healthcare, and government sectors for ransomware deployment and data theft.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Cisco's March 4 patch for CVE-2026-20131 immediately, audit FMC systems for ELF binaries or reverse proxy scripts dropped in /tmp or web directories, and review HTTP POST logs for Java magic bytes (0xAC ED 00 05) indicating deserialization payloads.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1059.004 · Command and Scripting Interpreter: Unix Shell<br>
+      <span style="color:#6b7280;">After the deserialization exploit achieved code execution as root on the Cisco FMC's underlying Linux OS, Interlock used Unix shell to run bash scripts that downloaded an ELF binary toolkit, deployed reverse proxies, and staged the ransomware payload across the network.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-20131 is a CWE-502 (Deserialization of Untrusted Data) flaw in the Cisco Secure Firewall Management Center's web interface. An attacker sends an HTTP POST request containing Java serialized object data with malicious "gadget chains" using Apache Commons Collections — a well-known exploit primitive. When FMC deserializes the payload, it executes attacker-controlled Java code as root on the underlying Linux OS, with no authentication required.</p>
+        <p>Interlock began weaponizing this flaw on January 26, 2026 — 37 days before Cisco's patch on March 4 and 51 days before public disclosure on March 18. The group's toolkit included a PowerShell reconnaissance script for Windows enumeration, custom JavaScript and Java remote access trojans, and a bash script that configured compromised Linux FMC servers as HTTP reverse proxies to route further attack traffic.</p>
+        <p>This story resurfaced this week as security researchers confirmed continued active scanning for unpatched FMC instances, and incident response firms are still finding fresh Interlock intrusions linked to this vector in healthcare and education networks.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Cisco FMC is a central management console for Cisco firewalls — if you compromise it, you control the security devices protecting an entire network. The "deserialization" flaw is like a mail room that opens any package and runs whatever is inside without checking for bombs. Interlock sent malicious packages 37 days before anyone knew the mail room was insecure.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-20131 · CVSS: 10.0/10 — Unauthenticated Java deserialization RCE in Cisco Secure FMC web interface, allowing arbitrary code execution as root; exploited by Interlock 37 days as zero-day.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- Threat Actor: Interlock -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Interlock Ransomware Group</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal (Ransomware-as-a-Service) · Attribution: Unknown, suspected Eastern Europe</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Education, engineering, manufacturing, healthcare, and government organisations; known for sophisticated zero-day exploitation ahead of vendor disclosure</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion ransomware, advanced zero-day weaponization (exploited Cisco FMC 37 days pre-patch), custom Linux RATs and reverse proxy tooling, targeting critical infrastructure sectors</div>
+</div>
+
+<!-- STORY 6: Cisco SD-WAN zero-day -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/cisco-sd-wan-zero-day-exploited-months-before-patching/" style="color:#111827;text-decoration:none;">Cisco Catalyst SD-WAN CVE-2026-20127 (CVSS 10.0): Authentication Bypass Zero-Day Grants Full Admin Control, Exploited for Months Before Patch</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A CVSS 10.0 authentication bypass vulnerability in Cisco Catalyst SD-WAN Manager (CVE-2026-20127) stemming from a broken peering authentication mechanism allows unauthenticated remote attackers to gain full administrative control of SD-WAN controllers, with evidence of exploitation in the wild months before the patch was available.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises and service providers using Cisco Catalyst SD-WAN Manager for managing distributed WAN infrastructure across branch offices — compromise of the management controller gives attackers the ability to reroute, monitor, or disrupt all SD-WAN traffic.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Cisco's patch immediately, restrict SD-WAN Manager access to trusted management networks, audit admin account activity logs for unexpected logins, and review routing policy changes made in the past 90 days for unauthorised modifications.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion / Privilege Escalation] T1078 · Valid Accounts<br>
+      <span style="color:#6b7280;">By bypassing the SD-WAN Manager's peering authentication, attackers obtain the equivalent of a legitimate administrative session, appearing in logs as a valid admin account and inheriting all privileges without triggering authentication anomaly alerts.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-20127 targets the vdaemon peering service in Cisco Catalyst SD-WAN Manager — a component that handles authentication between SD-WAN controller nodes. A broken authentication check in the peering mechanism allows an unauthenticated external attacker to send forged peering requests that are accepted without credential verification, resulting in full administrative access to the management plane.</p>
+        <p>With administrative control of the SD-WAN Manager, an attacker can modify routing policies across an entire distributed enterprise network, enable traffic mirroring to exfiltrate data in transit, inject malicious route advertisements, or simply disable WAN connectivity for branch offices — a potentially catastrophic outcome for organisations with WAN-dependent operations.</p>
+        <p>The exploitation pre-dated the patch by months, consistent with a targeted campaign by sophisticated threat actors conducting reconnaissance on enterprise WAN infrastructure. Attribution remains unclear, but the attack profile aligns with nation-state or advanced criminal groups interested in persistent network-layer access.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SD-WAN Manager is like the control tower for a company's entire network connecting all its offices. This bug lets an attacker walk into the control tower without any badge, posing as an administrator. From there they can redirect internet traffic, spy on communications, or cut off entire offices — all without triggering any alarms because they look like a legitimate user.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-20127 · CVSS: 10.0/10 — Unauthenticated administrative access via broken peering authentication in Cisco Catalyst SD-WAN Manager; exploited as zero-day months before patch release.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 7: Debian 1313 CVEs -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybersecurity News · Oct 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/debian-1313-security-flaws" style="color:#111827;text-decoration:none;">Debian Releases Massive Linux Kernel Update Patching 1,313 CVEs Including Privilege Escalation and DoS Vulnerabilities</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The Debian security team issued a single mega-update rolling up 1,313 CVE entries in the Linux kernel, addressing a wide range of flaws including local privilege escalation, denial-of-service, and information leak vulnerabilities accumulated since the last major kernel update.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Debian-based Linux systems (Debian, Ubuntu derivatives, Kali Linux) running older kernel versions are exposed; server operators, cloud instances, and embedded systems using Debian kernels should prioritise this update.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Run <code>apt update &amp;&amp; apt upgrade</code> and reboot to apply the new kernel; container environments may require host kernel updates since containers share the host kernel.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Several of the 1,313 patched flaws are local privilege escalation vulnerabilities in kernel subsystems, which an attacker with existing low-privilege access to a Debian system could exploit to escalate to root — enabling container escapes, credential dumping, or persistence.</span>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 8: Zammad / DIVD -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 3, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/threatsday-ai-powered-zero-day-chain.html" style="color:#111827;text-decoration:none;">Chained Zammad Zero-Days CVE-2026-102489 &amp; CVE-2026-102490 Used to Breach Dutch Institute for Vulnerability Disclosure (DIVD)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Threat actors chained two zero-day vulnerabilities in the open-source Zammad helpdesk/ticketing system (CVE-2026-102489 and CVE-2026-102490) to compromise the Dutch Institute for Vulnerability Disclosure (DIVD), an ironic breach of the organisation responsible for responsibly disclosing vulnerabilities to vendors.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organisations using Zammad for IT helpdesk or ticketing operations are vulnerable; the DIVD breach is the confirmed real-world case, but any internet-exposed Zammad instance running vulnerable versions is at risk.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Zammad to the latest patched version, restrict internet access to Zammad instances to VPN or trusted networks, and audit ticket system logs for anomalous access patterns.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">The two chained Zammad zero-days targeted the helpdesk application's public-facing interface, allowing attackers to exploit both flaws in sequence to achieve authenticated access and then escalate to full system compromise of DIVD's ticketing infrastructure.</span>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 9: AI Agents in Attacks -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Federal News Network · Oct 3, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://federalnewsnetwork.com/cybersecurity/2026/10/agencies-critical-infrastructure-balance-evolving-cybersecurity-risks" style="color:#111827;text-decoration:none;">AI Agents Deployed as Attack Tools Against US Department of Education and Library and Archives Canada</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers leveraged autonomous AI agents as attack tools in cyber operations targeting the US Department of Education and Library and Archives Canada, using AI-driven automation to conduct reconnaissance, adapt to defences, and exfiltrate data at a pace human operators could not match.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Government agencies and educational institutions are primary targets; the use of AI agents significantly lowers the barrier for sophisticated attacks, suggesting broader campaigns across critical infrastructure sectors.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Review network anomaly detection rules for high-speed automated reconnaissance patterns, implement rate limiting and behavioural analytics on authentication endpoints, and assess whether AI-assisted defences can match AI-assisted attacks.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Reconnaissance] T1595 · Active Scanning<br>
+      <span style="color:#6b7280;">AI agents in these attacks autonomously conducted active scanning and vulnerability discovery at machine speed, iterating through defences and adapting probe strategies in real time — a capability that dramatically accelerates the reconnaissance phase before exploitation.</span>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Deserialization Attacks ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Serialization is how software converts a complex in-memory object (like a user session or a message) into a flat stream of bytes for storage or transmission — and deserialization is the reverse: reconstructing that object from the byte stream. Deserialization attacks exploit the fact that many programming languages (Java, PHP, Python) automatically execute code during this reconstruction, meaning if an attacker can inject a malicious serialized payload into any input that gets deserialized, they can run arbitrary code before any security check happens. The Cisco FMC zero-day (CVE-2026-20131) is a textbook example: Java deserializes the attacker's POST body without authentication, triggering a "gadget chain" — a sequence of already-loaded library methods that, when chained together in the right order, executes arbitrary shell commands as root.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: RCE · KEV · FMC · Deserialization · RaaS · ELF ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RCE</strong> — Remote Code Execution; a class of vulnerability that allows an attacker to run arbitrary commands on a target system from across a network without physical access.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">KEV</strong> — Known Exploited Vulnerabilities; CISA's continuously updated catalog of CVEs confirmed to be actively exploited in real-world attacks, which federal agencies are required to patch within binding deadlines.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">FMC</strong> — Firewall Management Center; Cisco's centralised management console for administering Cisco Secure Firewall (formerly Firepower) appliances across an enterprise network.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Deserialization</strong> — The process of reconstructing a data object from a serialized (byte-stream) representation; when untrusted data is deserialized without validation, attackers can inject malicious payloads that execute code during reconstruction.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RaaS</strong> — Ransomware-as-a-Service; a criminal business model where ransomware developers license their malware and infrastructure to affiliates who conduct attacks in exchange for a percentage of ransom payments.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">ELF</strong> — Executable and Linkable Format; the standard binary executable format for Linux and Unix-like operating systems, equivalent to Windows .exe files; attackers frequently drop ELF binaries containing malware tools onto compromised Linux servers.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://cybersecuritynews.com/ps5-relapse-exploit" style="color:#374151;text-decoration:none;">New PS5 "Relapse" Exploit Achieves Kernel-Level Code Execution Across Multiple Firmware Versions</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Cybersecurity News</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://federalnewsnetwork.com/cybersecurity/2026/10/agencies-critical-infrastructure-balance-evolving-cybersecurity-risks" style="color:#374151;text-decoration:none;">Water Utility Cyber Attacks Across 12 US States Expose Critical OT/ICS Weaknesses in Water Infrastructure</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Federal News Network</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 3, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
