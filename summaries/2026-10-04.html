@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 4, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 4, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 3 high · 3 medium · ~11 min read</div>
+</div>
+
+<!-- STORY 1: FortiMail CVE-2026-104286 — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 3, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="color:#111827;text-decoration:none;">Critical FortiMail Zero-Day CVE-2026-104286 Exploited Actively — No Patch Available, CISA Deadline Today</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are actively exploiting CVE-2026-104286, a CVSS 9.8 path traversal flaw in Fortinet FortiMail that allows unauthenticated arbitrary file writes — enabling persistent backdoor installation — with no patch currently available.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running FortiMail versions 7.2.0–7.2.9, 7.4.0–7.4.8, 7.6.0–7.6.6, and 8.0.0–8.0.1 are vulnerable; federal civilian agencies face a mandatory CISA remediation deadline of today, October 4.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Fortinet's official workaround immediately (disable the IBE portal or restrict management port access), audit for IoCs (modified /data/lib/liblog.so, binaries named smit or webconsole, outbound C2 to 79.141.169.187 or 45.129.0.192), and isolate FortiMail management interfaces from public networks.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1574.006 · Dynamic Linker Hijacking<br>
+      <span style="color:#6b7280;">After writing arbitrary files via the path traversal bug, attackers replaced FortiMail's /data/lib/liblog.so with a malicious shared library, hijacking the dynamic linker so their code executes with elevated privileges every time a FortiMail process starts.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The vulnerability lives in the Identity Based Encryption (IBE) component of FortiMail's web GUI. An unauthenticated attacker who can reach the management port sends a crafted HTTP or HTTPS request containing a null-byte–injected path, causing the IBE handler to traverse outside the intended directory and write attacker-supplied content to any filesystem location.</p>
+        <p>Active exploitation forensics confirm attackers are chaining the write primitive into full persistence: they overwrite /data/lib/liblog.so (a shared library loaded by multiple FortiMail processes), plant setuid binaries, and establish outbound command-and-control sessions. The result is a backdoored email gateway that survives reboots and can silently intercept, alter, or exfiltrate email traffic.</p>
+        <p>Fortinet published advisory FG-IR-26-175 on October 1, the same day CISA added the CVE to its Known Exploited Vulnerabilities catalog. No fixed build exists yet — only a configuration workaround. FCEB agencies had until today (October 4) to comply under Binding Operational Directive 26-04.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> FortiMail is an email security appliance — think of it as a smart filter that sits in front of your organization's email, blocking spam and malware. This bug lets an attacker who hasn't logged in trick FortiMail into writing their own files onto its hard drive — like slipping a fake key into a lockbox. They use that to install a permanent backdoor so they can come back anytime, even after reboots, without a password.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104286 · CVSS: 9.8/10 — Network-accessible, no authentication required, full read/write/execute impact across confidentiality, integrity, and availability.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Pentagon DMDC Breach — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybernews · Oct 1, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybernews.com/security/pentagon-dmdc-data-breach-3-million-affected/" style="color:#111827;text-decoration:none;">Pentagon DMDC Breach Exposes PII and Military Job Data of 3 Million People</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Hackers accessed a Defense Manpower Data Center file-sharing system for nine months (October 2025 – July 2026), stealing names, dates of birth, Social Security numbers, contact information, and sensitive military job details belonging to over 3 million current and former personnel.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Approximately 2.76 million living individuals and 294,000 deceased persons whose records were held in the DMDC HR management system, including active military, veterans, and civilian Pentagon employees.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Affected individuals should accept the 12-month credit monitoring offer from IDX, place a credit freeze with major bureaus, monitor for targeted phishing using the exposed job and contact details, and watch for unusual financial or identity activity.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Collection] T1005 · Data from Local System<br>
+      <span style="color:#6b7280;">Threat actors directly accessed records stored within the DMDC's HR file-sharing infrastructure, harvesting over 3 million personnel files — names, SSNs, and sensitive job assignments — without moving laterally across network segments.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Defense Manpower Data Center manages personnel records for all branches of the U.S. military and civilian DoD workforce. DMDC discovered the flaw on July 16, 2026, patched the system immediately, and sent breach notifications on September 18 — but the unauthorized access had been ongoing since at least October 2025, a nine-month window during which attackers could freely harvest records.</p>
+        <p>The national security implications extend beyond identity theft. Exposed military job details reveal which personnel hold sensitive roles, creating targeting opportunities for foreign intelligence services: social engineering attacks, blackmail, or recruitment attempts against cleared individuals are all plausible downstream consequences.</p>
+        <p>No threat actor has been publicly attributed, and the exact initial access vector has not been disclosed. The combination of a long dwell time and sensitive job data suggests a patient, intelligence-motivated adversary rather than financially motivated cybercriminals.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> The DMDC is essentially the Pentagon's HR department in database form — it knows who works there, what they do, and how to contact them. Imagine a company's entire employee directory, payroll records, and org chart sitting on an exposed server for nine months. Anyone who grabbed that data now knows exactly who to impersonate, bribe, or blackmail to access classified military systems.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Breach duration: Oct 2025 – Jul 16, 2026 — Unauthorized access to unencrypted PII including SSNs and military occupational data for 3.05M+ individuals.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Zammad Zero-Days / DIVD AI Hack — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityweek.com/zammad-zero-days-exploited-in-ai-powered-divd-hack" style="color:#111827;text-decoration:none;">AI-Powered Attack Chains Two Zammad Zero-Days to Compromise Cybersecurity Nonprofit DIVD</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The Dutch Institute for Vulnerability Disclosure (DIVD) was breached when an attacker chained two Zammad zero-days — CVE-2026-102489 (CVSS 9.4, session hijacking) and CVE-2026-102490 (CVSS 9.4, local privilege escalation to root) — deploying an autonomous AI agent to conduct post-exploitation activities inside the network.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All organizations running Zammad versions 6.3.0 through 6.5.4 are vulnerable to the same attack chain; Zammad is widely used as a help-desk and ticketing platform by support teams and IT organizations globally.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Zammad immediately to a patched release (6.5.5 or later), audit session logs for anomalous access from the period September 21–22, rotate all credentials and API tokens stored within Zammad, and monitor for new privileged accounts or lateral movement signs.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Lateral Movement] T1550.004 · Web Session Cookie<br>
+      <span style="color:#6b7280;">CVE-2026-102489 exposed valid Zammad session cookies to unauthenticated attackers, allowing full session takeover as any logged-in user; the attacker immediately chained this into OS-level root access via CVE-2026-102490.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The attack began on September 21 when the threat actor exploited CVE-2026-102489 — a vulnerability in Zammad 6.3.0–6.5.4 that leaks active session tokens to unauthenticated requests — to hijack a legitimate user session. From there, CVE-2026-102490 escalated the compromised Zammad service account to operating-system root, granting complete control of the underlying server.</p>
+        <p>Most notably, once initial access was established, the attacker deployed an autonomous AI agent to conduct reconnaissance, pivot, and data-collection tasks inside DIVD's network. This represents one of the first confirmed incidents where an AI system performed multi-step post-exploitation activities in a real intrusion rather than a research context — a signal that AI-powered cyberattacks are now operational, not theoretical.</p>
+        <p>DIVD detected suspicious activity the following day and blocked datacenter access, limiting the breach. The organization — a nonprofit that normally finds and discloses vulnerabilities in others' software — discovered the two zero-days as a direct result of investigating its own compromise, turning an embarrassing incident into new CVEs that protect the broader community.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Zammad is ticketing software like Zendesk — companies use it to manage support requests. Imagine if a bug in Zendesk let anyone steal your login session just by visiting the website, then another bug let them become the server's administrator. The twist here is that once inside, the hacker used an AI program that automatically explored the network on its own, deciding what to do next — like a smart robot burglar who cases the building after breaking in.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-102489 / CVE-2026-102490 · CVSS: 9.4/10 each — Unauthenticated session leakage chained with local privilege escalation to root; affects Zammad 6.3.0–6.5.4.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: TA419 China Phishing — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Security Boulevard · Oct 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityboulevard.com/2026/10/china-linked-hackers-impersonate-ex-u-s-officials-to-target-ai-experts/" style="color:#111827;text-decoration:none;">China-Nexus TA419 Impersonates US Officials and Anthropic Employee to Steal AI Policy Researchers' Credentials</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Proofpoint identified China-linked APT group TA419 running a precision spearphishing campaign that impersonated a former White House OSTP official, a former State Department economist, and an Anthropic employee to lure AI policy researchers into handing over Microsoft 365 passwords, MFA codes, and session cookies via Browser-in-the-Browser and adversary-in-the-middle techniques.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Fewer than 10 high-profile individuals at U.S. and Japanese universities, think tanks, defense contractors, and law firms focused on AI policy, export controls, and national security were directly targeted; no Anthropic systems were compromised.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Use phishing-resistant hardware security keys (FIDO2/passkeys) instead of TOTP-based MFA, verify unexpected meeting or committee invitations through a separate channel, and treat any Microsoft login popup that appears inside a web page as suspicious — legitimate SSO never opens inside an embedded window.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1566.002 · Spearphishing Link<br>
+      <span style="color:#6b7280;">TA419 sent targeted emails with fake committee invitation links that launched a Browser-in-the-Browser fake Microsoft login window to harvest credentials and MFA session tokens from AI policy researchers.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>TA419 is a China-nexus espionage group Proofpoint has tracked since at least April 2025, targeting individuals connected to U.S. and Japanese AI policy, think tanks, and defense research. The group's current campaign uses social engineering of unusual sophistication: the impersonation personas (former OSTP principal deputy director Lynne Parker, former State Department chief economist Heidi Crebo-Rediker, and an unnamed Anthropic senior employee) are not publicly announced AI-sector celebrities but rather credible mid-level figures that a targeted researcher would plausibly trust.</p>
+        <p>The technical mechanism combines a customized Browser-in-the-Browser (BitB) tool — which renders a pixel-perfect fake browser popup showing a convincing Microsoft 365 login URL — with an adversary-in-the-middle (AiTM) relay that captures not just passwords but live MFA codes and session cookies, bypassing standard two-factor authentication. With session cookies in hand, TA419 gains cloud account access that persists even after victims change passwords, until the session is explicitly revoked.</p>
+        <p>The strategic objective appears to be intelligence collection on U.S. AI governance positions ahead of critical policy decisions around export controls and AI supply chains — highly valuable to a foreign government seeking to shape or anticipate regulatory outcomes.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine receiving an email from someone who looks like a famous researcher, inviting you to a prestigious AI advisory committee. You click the link, see a Microsoft login window at what looks like microsoft.com — but it's actually a fake window drawn inside the webpage. When you log in, attackers grab your password AND your 6-digit MFA code in real time, letting them log in as you before that code expires. Hardware security keys (a physical USB device) are the only reliable defense because they verify the real website address, not a fake one.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE · Nation-state espionage — Browser-in-the-Browser + AiTM credential harvesting campaign targeting U.S./Japanese AI policy researchers.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: TA419 -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">TA419</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: China</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> AI policy researchers, think tanks, universities, defense contractors, and law firms in the U.S. and Japan focused on technology governance and export controls</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> High-fidelity persona impersonation of credible policy figures combined with Browser-in-the-Browser phishing and AiTM credential capture to bypass MFA and access cloud accounts for intelligence collection</div>
+</div>
+
+<!-- STORY 5: UAT-11587 Antino Backdoor — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cisco Talos · Oct 3, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://blog.talosintelligence.com/china-nexus-uat-11587-targets-government-and-policy-organizations-across-asia-with-antino-backdoor/" style="color:#111827;text-decoration:none;">China-Nexus UAT-11587 Deploys Antino Backdoor Across 350 Systems in Asia, Hiding C2 in Microsoft 365</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Cisco Talos revealed that China-nexus cluster UAT-11587 compromised approximately 350 endpoints across eight Asian nations using Antino — a previously undocumented Rust-based Windows backdoor that tunnels all command-and-control traffic through legitimate Microsoft Outlook and OneDrive, making it nearly invisible to network defenders.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Government, defense, diplomatic, policy, academic, and civil-society organizations in Taiwan, India, the Philippines, Cambodia, Pakistan, Thailand, Myanmar, and Syria were targeted between September 2025 and July 2026.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Deploy EDR rules for Antino's characteristic Outlook mailbox polling (command_req_* and command_res_* message name patterns every 10 seconds), monitor for anomalous Microsoft Graph API calls from non-standard processes, and apply Talos YARA/Snort rules from the published advisory.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Command and Control] T1102 · Web Service<br>
+      <span style="color:#6b7280;">Antino routes all C2 communications through legitimate Microsoft 365 services — polling an attacker-controlled Outlook inbox for commands and posting results via OneDrive — blending espionage traffic into normal enterprise Microsoft traffic flows that few organizations block.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Talos first identified UAT-11587's activity while investigating a spear-phishing campaign against Taiwan's academic and civil-society policy community in March 2026. The emails mimicked Gmail's attachment interface and funneled victims into a cloud-hosted multi-stage infection chain, ultimately deploying Antino on Windows endpoints.</p>
+        <p>Antino's defining characteristic is its C2 architecture: rather than connecting to a dedicated command server (which network monitoring would detect), the backdoor authenticates to an attacker-controlled Microsoft 365 account and polls an Outlook inbox every 10 seconds for emails named command_req_[session_id]. It executes the commands and sends results back as command_res_[session_id] messages. All traffic goes over legitimate Microsoft infrastructure at microsoft.com, making it indistinguishable from normal enterprise communication.</p>
+        <p>Beyond C2, Antino — compiled in Rust for improved evasion — supports host reconnaissance, shell and PowerShell execution, file transfer, in-memory shellcode loading, and persistence. The breadth of targets (eight countries, sectors from legislature to law enforcement) is consistent with strategic intelligence collection to support Chinese foreign-policy objectives across the Indo-Pacific.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Normal malware phones home to an obvious attacker server — security teams watch for those suspicious connections. Antino is cleverer: it sends its messages through Microsoft Outlook, the same email service your company already uses. It's like a spy who passes notes through the regular office mail system instead of a secret radio transmitter — security cameras never flag the mail room as suspicious. The fix is monitoring what Microsoft 365 is doing on your machines, not just what connects to the internet.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE · APT espionage campaign — 350 endpoints compromised across 8 Asian nations; Rust-based Windows backdoor using Microsoft 365 dead-drop C2.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: UAT-11587 -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">UAT-11587</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: China (Cisco Talos cluster designation)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government, defense, diplomatic, academic, and civil-society organizations across the Indo-Pacific — particularly Taiwan, India, the Philippines, and Southeast Asian nations involved in foreign policy and national security</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Deploying the novel Rust-based Antino backdoor with Microsoft 365 dead-drop C2, spear-phishing via Gmail-clone lures, and long-dwell-time espionage campaigns across at least eight countries over a 10-month period</div>
+</div>
+
+<!-- STORY 6: Dell CSM CVE-2026-40710 — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Dell Security · Oct 3, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.dell.com/support/kbdoc/en-us/000467149/dsa-2026-234-security-update-for-dell-container-storage-modules-hard-coded-credentials-vulnerability" style="color:#111827;text-decoration:none;">Dell Patches CVSS 10.0 Hard-Coded Credentials Flaw in Container Storage Modules (CVE-2026-40710)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Dell patched CVE-2026-40710 (CVSS 10.0), a use-of-hard-coded-credentials vulnerability in Dell Container Storage Modules (CSM) where default authentication credentials were embedded in public source code repositories, allowing any attacker to gain unauthorized access to storage backend components.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Dell CSM Operator versions 1.6.0 through 1.16.3 or Helm Charts 1.11.0 through 1.16.3 in Kubernetes environments — commonly used by enterprises running containerized workloads on Dell PowerStore, PowerFlex, PowerScale, or Unity storage systems.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update to Operator 1.16.4 / Helm Charts 1.16.4 immediately, rotate all storage backend service account credentials, audit CSM access logs for unauthorized storage access since the credentials were publicly exposed, and review any GitHub repositories for inadvertently committed credentials.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Credential Access] T1212 · Exploitation for Credential Access<br>
+      <span style="color:#6b7280;">Default hardcoded credentials embedded in publicly accessible CSM source code allow remote unauthenticated attackers to authenticate directly to Dell storage backend APIs, potentially exfiltrating or corrupting enterprise storage data at scale.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Dell Container Storage Modules are the Kubernetes integration layer for Dell enterprise storage — they handle provisioning, replication, and access control for containerized workloads connecting to Dell storage arrays. The vulnerability arose because CSM's source code on public GitHub repositories contained hardcoded default service account credentials used to authenticate to backend storage APIs.</p>
+        <p>The severity — a perfect CVSS 10.0 — reflects that no exploitation complexity is required: the credentials are openly documented in public code, reachable from the network, require no privileges to use, and grant access to the entire storage backend, potentially covering petabytes of production data. Any attacker who read the GitHub repository, even passively, has had these credentials since they were first committed.</p>
+        <p>Published as DSA-2026-234, the patch eliminates the hardcoded credentials and introduces per-deployment credential generation. Organizations should treat this as an active incident: assume the credentials are already known to adversaries and rotate them immediately regardless of whether suspicious activity has been observed.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a bank published its vault master password in its open-source software on GitHub. Anyone who ever browsed that repo now has the password. That's this vulnerability. Dell accidentally put the "password to the storage room" in public code that anyone could read — so an attacker doesn't need to hack anything, they just use the published password to walk into your data storage system.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-40710 · CVSS: 10.0/10 — Hardcoded credentials in public source; affects Dell CSM Operator 1.6.0–1.16.3 and Helm Charts 1.11.0–1.16.3.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Browser-in-the-Browser (BitB) Attack ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A Browser-in-the-Browser (BitB) attack creates a convincing fake browser popup window rendered entirely within a webpage using HTML and CSS, mimicking a legitimate single sign-on dialog — for example a Microsoft or Google login — complete with a spoofed URL bar that looks exactly like the real domain. Because the fake window is drawn inside the real browser, victims see what appears to be an authentic login prompt at a trusted URL, but they are actually entering credentials directly into attacker-controlled page elements. This technique, weaponized by China-linked TA419 against AI policy researchers this week, defeats the classic security advice to "check the URL bar" because the fake URL bar is simply an image — making hardware security keys (FIDO2/passkeys) that cryptographically verify the actual website the only reliable defense.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: BitB · C2 · FCEB · Dead Drop ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">BitB (Browser-in-the-Browser)</strong> — a phishing technique that renders a fake browser popup window inside a real webpage to steal credentials, making a spoofed login URL appear convincingly legitimate.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">C2 (Command-and-Control)</strong> — the attacker-controlled infrastructure used to remotely issue commands to compromised systems (malware, implants, agents) and receive stolen data back.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">FCEB (Federal Civilian Executive Branch)</strong> — U.S. government agencies (excluding DoD and intelligence community) subject to CISA binding operational directives; these agencies must remediate CISA KEV-listed vulnerabilities within mandated deadlines.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Dead Drop</strong> — a covert C2 method where attackers hide commands inside legitimate cloud services (email inboxes, file storage, social media posts) rather than a dedicated attacker server, making the malicious traffic blend with normal business communications.
+    </div>
+  </div>
+</details>
+
+<!-- WEEK IN REVIEW (Sunday) -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:12px;">📅 Week in Review</div>
+  <div style="display:flex;gap:10px;margin-bottom:12px;">
+    <div style="flex:1;text-align:center;padding:10px;background:#fef2f2;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#dc2626;">17</div>
+      <div style="font-size:11px;color:#6b7280;">Critical</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fff7ed;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ea580c;">19</div>
+      <div style="font-size:11px;color:#6b7280;">High</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fefce8;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ca8a04;">13</div>
+      <div style="font-size:11px;color:#6b7280;">Medium</div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:#374151;margin-bottom:6px;"><strong>ATT&amp;CK this week:</strong> T1190 · T1021 · T1059 · T1588 · T1505.003 · T1068 · T1027 · T1203 · T1133 · T1486 · T1548.001 · T1528 · T1210 · T1572 · T1213 · T1537 · T1574.002 · T1078 · T1556 · T1562.001 · T1530 · T1595 · T1574.006 · T1005 · T1550.004 · T1566.002 · T1102 · T1212 + 6 more</div>
+  <div style="font-size:13px;color:#374151;margin-bottom:10px;"><strong>Threat actors:</strong> Lazarus Group · ShinyHunters · INC Ransomware · Storm-3069 · KillSec · Interlock Ransomware Group · TA419 · UAT-11587</div>
+  <div style="font-size:13px;color:#374151;line-height:1.6;padding:10px;background:#f8fafc;border-radius:4px;">This week saw 17 critical incidents driven primarily by zero-day exploits in enterprise gateway products — FortiMail, Citrix NetScaler, and Zammad — alongside a major Pentagon personnel breach affecting over 3 million records with national security implications. China-nexus threat groups dominated the actor landscape, with TA419 running precision Browser-in-the-Browser phishing against AI policy researchers and UAT-11587 deploying the novel Rust-based Antino backdoor with Microsoft 365 dead-drop C2 across 350 government and academic endpoints in eight Asian nations.</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://about.gitlab.com/releases/" style="color:#374151;text-decoration:none;">GitLab Patches Critical AI Gateway RCE Vulnerability — Authenticated Command Execution Risk</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GitLab</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://securityaffairs.com/" style="color:#374151;text-decoration:none;">China-Linked Warlock APT Continues Microsoft SharePoint Exploitation Against LATAM Critical Infrastructure</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Security Affairs</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/citrix-netscaler-0-day-patch" style="color:#374151;text-decoration:none;">Citrix NetScaler Appliances Rebooting Repeatedly After Emergency Zero-Day Patch</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Cybersecurity News</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 4, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 4, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 3 high · ~11 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-04.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: FortiMail CVE-2026-104286 — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 3, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Critical FortiMail Zero-Day CVE-2026-104286 Exploited Actively — No Patch Available, CISA Deadline Today</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVSS 9.8 path traversal in FortiMail allows unauthenticated attackers to write arbitrary files, with active backdoor installations observed; no patch exists yet.</div>
+    <div style="margin-top:2px;">👤 All FortiMail 7.2.x–8.0.x deployments; federal agencies had until today to remediate under CISA BOD 26-04.</div>
+    <div style="margin-top:2px;">✅ Apply Fortinet's workaround now, restrict management port access, and hunt for IoCs (modified liblog.so, binaries named smit/webconsole).</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Defense Evasion] T1574.006 · Dynamic Linker Hijacking</div>
+</div>
+
+<!-- STORY 2: Pentagon DMDC Breach — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybernews · Oct 1, 2026</span>
+  </div>
+  <a href="https://cybernews.com/security/pentagon-dmdc-data-breach-3-million-affected/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Pentagon DMDC Breach Exposes PII and Military Job Data of 3 Million People</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Hackers had nine months of unauthorized access (Oct 2025–Jul 2026) to a DMDC file-sharing system, stealing SSNs, contact info, and sensitive military job details.</div>
+    <div style="margin-top:2px;">👤 2.76M living and 294K deceased current/former DoD personnel including military members, veterans, and civilian employees.</div>
+    <div style="margin-top:2px;">✅ Accept 12-month IDX credit monitoring offer, place a credit freeze, and watch for targeted phishing using your exposed job and contact details.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Collection] T1005 · Data from Local System</div>
+</div>
+
+<!-- STORY 3: Zammad DIVD AI hack — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 2, 2026</span>
+  </div>
+  <a href="https://securityweek.com/zammad-zero-days-exploited-in-ai-powered-divd-hack" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">AI-Powered Attack Chains Two Zammad Zero-Days to Compromise Cybersecurity Nonprofit DIVD</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-102489 + CVE-2026-102490 (both CVSS 9.4) chained to achieve session hijack → RCE → OS root on DIVD's systems, with an AI agent conducting post-exploitation automatically.</div>
+    <div style="margin-top:2px;">👤 All Zammad 6.3.0–6.5.4 installations used as help-desk/ticketing systems globally.</div>
+    <div style="margin-top:2px;">✅ Update Zammad to 6.5.5+, rotate all credentials, and audit session logs for Sept 21–22 anomalies.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Lateral Movement] T1550.004 · Web Session Cookie</div>
+</div>
+
+<!-- STORY 4: TA419 Phishing — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Security Boulevard · Oct 2, 2026</span>
+  </div>
+  <a href="https://securityboulevard.com/2026/10/china-linked-hackers-impersonate-ex-u-s-officials-to-target-ai-experts/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">China-Nexus TA419 Impersonates US Officials and Anthropic Employee to Steal AI Policy Researchers' Credentials</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 TA419 used Browser-in-the-Browser + AiTM phishing impersonating White House and State Dept officials to capture M365 passwords, MFA codes, and session cookies from AI policy researchers.</div>
+    <div style="margin-top:2px;">👤 Fewer than 10 high-profile AI policy researchers at U.S. and Japanese think tanks, universities, and law firms; no Anthropic systems were compromised.</div>
+    <div style="margin-top:2px;">✅ Switch to FIDO2 hardware security keys, verify unexpected committee invitations out-of-band, and treat any login popup inside a webpage as a phishing attempt.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1566.002 · Spearphishing Link · Threat Actor: TA419 (China)</div>
+</div>
+
+<!-- STORY 5: Antino Backdoor — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cisco Talos · Oct 3, 2026</span>
+  </div>
+  <a href="https://blog.talosintelligence.com/china-nexus-uat-11587-targets-government-and-policy-organizations-across-asia-with-antino-backdoor/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">China-Nexus UAT-11587 Deploys Antino Backdoor Across 350 Systems in Asia, Hiding C2 in Microsoft 365</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Rust-based Antino backdoor compromised 350 endpoints across 8 Asian nations, routing all C2 through legitimate Microsoft Outlook/OneDrive to evade detection.</div>
+    <div style="margin-top:2px;">👤 Government, defense, academic, and civil-society organizations in Taiwan, India, Philippines, Cambodia, Pakistan, Thailand, Myanmar, and Syria.</div>
+    <div style="margin-top:2px;">✅ Deploy EDR rules for Outlook mailbox polling patterns (command_req_*/command_res_* every 10s), monitor anomalous M365 API calls, and apply Talos YARA/Snort rules.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Command and Control] T1102 · Web Service · Threat Actor: UAT-11587 (China-nexus)</div>
+</div>
+
+<!-- STORY 6: Dell CSM — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Dell Security · Oct 3, 2026</span>
+  </div>
+  <a href="https://www.dell.com/support/kbdoc/en-us/000467149/dsa-2026-234-security-update-for-dell-container-storage-modules-hard-coded-credentials-vulnerability" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Dell Patches CVSS 10.0 Hard-Coded Credentials Flaw in Container Storage Modules (CVE-2026-40710)</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Default service credentials embedded in public GitHub source code allow unauthenticated remote attackers to access Dell storage backend systems in Kubernetes environments.</div>
+    <div style="margin-top:2px;">👤 Organizations running Dell CSM Operator 1.6.0–1.16.3 or Helm Charts 1.11.0–1.16.3 with Dell PowerStore, PowerFlex, PowerScale, or Unity storage.</div>
+    <div style="margin-top:2px;">✅ Update to Operator/Helm 1.16.4+ immediately, rotate all storage backend credentials, and audit CSM access logs for unauthorized activity.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1212 · Exploitation for Credential Access</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://about.gitlab.com/releases/" style="color:#374151;text-decoration:none;">GitLab Patches Critical AI Gateway RCE Vulnerability</a>
+    <span style="color:#9ca3af;"> · GitLab</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://securityaffairs.com/" style="color:#374151;text-decoration:none;">China-Linked Warlock APT Continues SharePoint Exploitation Against LATAM Critical Infrastructure</a>
+    <span style="color:#9ca3af;"> · Security Affairs</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/citrix-netscaler-0-day-patch" style="color:#374151;text-decoration:none;">Citrix NetScaler Appliances Rebooting Repeatedly After Emergency Zero-Day Patch</a>
+    <span style="color:#9ca3af;"> · Cybersecurity News</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-04.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards · Week in Review</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Oct 4, 2026</div>
+
+</body>
+</html>
