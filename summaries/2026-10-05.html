@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 5, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 5, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 3 critical · 3 high · 2 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: FortiMail Zero-Day CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 4, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="color:#111827;text-decoration:none;">Critical FortiMail Zero-Day CVE-2026-104286 (CVSS 9.8) Exploited in the Wild — CISA Issues Emergency Directive</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Fortinet confirmed that CVE-2026-104286, a CVSS 9.8 path traversal flaw in FortiMail, allows unauthenticated remote attackers to write arbitrary files to the system and achieve remote code execution, with CISA adding it to its Known Exploited Vulnerabilities catalog.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations worldwide using Fortinet FortiMail as an email security gateway — thousands of enterprises in finance, healthcare, and government sectors.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Fortinet's emergency patch immediately; if patching is not possible, restrict external access to the FortiMail management interface and check CISA's KEV catalog for your agency's remediation deadline.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers exploit the path traversal bug in FortiMail's publicly reachable web interface to write a backdoor file to disk without ever supplying valid credentials, gaining a foothold into the email security appliance.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>FortiMail sits at a privileged position in enterprise network architecture — every email entering or leaving the organization passes through it, making it a high-value target for attackers seeking initial access or persistent surveillance. CVE-2026-104286 is a path traversal vulnerability, meaning the software fails to properly sanitize file path characters in a web request, allowing an attacker to write a file to an arbitrary location on disk rather than the intended restricted directory.</p>
+        <p>In practice, an attacker sends a specially crafted unauthenticated HTTP request that includes path sequences like <code>../../../</code> to escape the intended upload directory and plant a malicious file — such as a PHP webshell — in a location that the web server will execute. From that point forward, the attacker has persistent remote code execution on the appliance. Since FortiMail processes all inbound and outbound email, a compromised appliance could silently intercept, modify, or exfiltrate every email in the organization.</p>
+        <p>CISA's addition to the KEV catalog means there is confirmed, active exploitation in the wild — this is not merely a theoretical threat. Federal civilian agencies had a mandatory remediation deadline, highlighting the urgency.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of FortiMail like a security guard checking every package delivered to your building. This bug lets an attacker smuggle in a hidden remote-control device by exploiting a flaw in how the guard's computer handles file names — suddenly the attacker can secretly read every package that passes through.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104286 · CVSS: 9.8/10 — Maximum severity score reflecting unauthenticated remote code execution with no user interaction required.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Cisco SD-WAN CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / SecurityWeek · Oct 4, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://socprime.com/?p=53555" style="color:#111827;text-decoration:none;">Cisco Catalyst SD-WAN Zero-Day CVE-2026-76504 (CVSS 9.8): Authentication Bypass Grants Full Admin Access</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A critical authentication bypass in Cisco Catalyst SD-WAN Manager exploits improper URI encoding validation to let unauthenticated remote attackers send crafted HTTP requests that completely bypass login checks and gain full administrative API access.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises using Cisco Catalyst SD-WAN Manager versions 20.9 through 26.2; federal agencies faced a mandatory Oct 3 remediation deadline per CISA's KEV catalog.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade SD-WAN Manager to the patched version immediately — Cisco has released fixes for all affected releases and there are no available workarounds.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1036 · Masquerading — URI Encoding Variant<br>
+      <span style="color:#6b7280;">The attacker disguises a request to a restricted API endpoint by percent-encoding characters in a way that bypasses the authentication filter while the backend application still processes it as a privileged admin request — a normalization mismatch that lets attackers masquerade as legitimate traffic.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Cisco Catalyst SD-WAN Manager is the nerve center of enterprise wide-area networks, controlling routing policies, security rules, and connectivity for potentially hundreds of branch offices and remote sites. Gaining administrative access means an attacker can reroute traffic, create new admin accounts for persistence, or disable security monitoring across the entire enterprise network.</p>
+        <p>CVE-2026-76504 exploits a subtle flaw in how the SD-WAN Manager validates URL paths before routing requests. URLs can encode special characters in multiple valid ways (for example, a forward slash can be written as <code>/</code> or <code>%2F</code>). The authentication middleware checks whether the incoming URL path matches a list of protected endpoints — but it evaluates the path before decoding these encoded characters. The backend application decodes them first. This means an attacker can send a request to <code>/api/v2/admin%2Fusers</code>, which the security filter sees as an innocuous path, while the application processes it as <code>/api/v2/admin/users</code> with full admin privileges.</p>
+        <p>This is the fifth actively exploited Cisco SD-WAN zero-day in 2026, highlighting a systemic pattern in how SD-WAN Manager validates input. Attackers who gain admin access can pivot to every connected network segment and site.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a bouncer at a door checking IDs — but if you write your name in a slightly different font, the bouncer's scanner says "not on the restricted list" even though the manager inside reads the same name just fine. This bug lets attackers "write their name in code" to slip past the security check.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-76504 · CVSS: 9.8/10 — Unauthenticated remote code execution with network-level access; no special privileges or user interaction needed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Pentagon DMDC Breach CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 5, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/hackers-breach-pentagon-human-resources-management-system-steal-data-of-nearly-3-million-people/" style="color:#111827;text-decoration:none;">Pentagon DMDC Breach: Hackers Stole Social Security Numbers and Military Records of 3.05 Million People</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Unauthorized actors exploited a vulnerability in the Defense Manpower Data Center's file-sharing system between October 2025 and July 2026, exfiltrating sensitive personal records of 3.05 million military personnel, veterans, and civilian employees — including Social Security numbers, birth dates, race, sex, and military job specialties.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> 2.76 million living current and former U.S. military personnel and civilian employees plus approximately 294,000 deceased individuals whose records were stored in the DMDC HR system.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Affected individuals should immediately place credit freezes with all three major bureaus and monitor for identity theft or financial fraud; the DoD is issuing breach notifications and credit monitoring offers to victims.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Exfiltration] T1530 · Data from Cloud Storage Object<br>
+      <span style="color:#6b7280;">Attackers leveraged a misconfiguration or vulnerability in the DMDC's file-sharing service to silently download bulk personnel records over nine months — a classic cloud storage exfiltration where improper access controls expose sensitive data repositories to unauthorized users.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Defense Manpower Data Center manages the authoritative database of U.S. military personnel — active duty, reserve, veterans, and civilian employees. The exposed data is extraordinarily sensitive: Social Security numbers paired with military job specialties, birth dates, and contact information create a comprehensive profile that enables identity theft, impersonation, social engineering attacks, and potentially counterintelligence targeting of personnel in sensitive roles.</p>
+        <p>The breach ran undetected for approximately nine months (October 2025 through July 2026), suggesting that the attackers accessed files slowly and carefully to avoid triggering anomaly detection thresholds. The DMDC discovered the vulnerability on July 16, 2026, but disclosure to the public only came in October 2026 — a gap of nearly three months during which affected individuals had no opportunity to protect themselves.</p>
+        <p>The Pentagon has stated it has "no indications of misuse of the accessed information," but this reflects the absence of detected abuse rather than a guarantee of safety. Nation-state actors routinely harvest personnel databases for long-term strategic intelligence rather than immediate financial exploitation, making such data breach notifications particularly challenging to evaluate for risk.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> This is like someone quietly copying the employee directory from a government building's file server over nine months without anyone noticing — except this directory contains Social Security numbers, military assignments, and personal details for millions of people who defended or currently defend the country.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Severity: CRITICAL — Mass exfiltration of PII including SSNs for 3+ million individuals; 9-month dwell time indicates sophisticated, patient threat actor.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Apple CoreGraphics HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 5, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/apple-patches-meta-reported-zero-day-linked-to-extremely-sophisticated-attack/" style="color:#111827;text-decoration:none;">Apple CoreGraphics Zero-Day CVE-2026-86950: PoC Emerges as "Extremely Sophisticated" iPhone Attack Chain Widens</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A public proof-of-concept for CVE-2026-86950 has emerged, raising the risk profile of an out-of-bounds write in Apple's CoreGraphics framework that was previously used in a narrowly targeted "extremely sophisticated attack" against specific iOS users; WhatsApp PDF preview behavior has been identified as a potential zero-click delivery path.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Apple device users on iOS, iPadOS, and macOS prior to iOS 26.7.1, iPadOS 26.7.1, macOS Tahoe 26.7.1, and macOS Sequoia 15.8.1; previously targeted individuals were specific, but a public PoC broadens exposure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Apple devices to iOS 26.7.1 / iPadOS 26.7.1 / macOS Tahoe 26.7.1 immediately — now that a PoC exists, exploitation risk extends well beyond the original targeted victims.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Execution] T1203 · Exploitation for Client Execution<br>
+      <span style="color:#6b7280;">A maliciously crafted PDF or image file triggers the CoreGraphics out-of-bounds write when parsed by the device, achieving code execution through content the user merely previews — in the WhatsApp delivery scenario, the exploit fires the moment the app renders a thumbnail, requiring no deliberate user action.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CoreGraphics is Apple's foundational 2D rendering engine, responsible for displaying PDFs, images, and graphical elements across iOS and macOS. Because it processes untrusted content received from external sources — emails, messaging attachments, web pages — a memory corruption bug here can be triggered remotely without the user ever explicitly opening a file.</p>
+        <p>The vulnerability was originally reported by Meta Product Security, which suggests it may have been observed in the context of WhatsApp or another Meta platform. The newly identified delivery path via WhatsApp PDF previews is particularly concerning because messaging apps automatically generate thumbnail previews of attachments — meaning the exploit could potentially fire before a user decides whether to open a document.</p>
+        <p>The emergence of a public proof-of-concept dramatically changes the risk landscape. What began as a targeted attack against a small number of high-value individuals (journalists, dissidents, executives) can now be replicated by a far wider pool of attackers. Organizations with unpatched iOS and macOS devices should treat this as urgent.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine that every time your phone drew a picture on screen, it used a specific set of drawing instructions. This bug means a maliciously crafted picture can slip in fake instructions that make your phone do something the attacker wants — like opening a back door — just by being shown on screen.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-86950 · CVSS: ~8.8/10 — Out-of-bounds write leading to arbitrary code execution; actively exploited in targeted campaigns; PoC now public.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Star Blizzard HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Microsoft Security · Oct 5, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://microsoft.com/en-us/security/blog/2026/09/29/star-blizzard-refines-phishing-and-malware-delivery-with-the-redflick-technique/" style="color:#111827;text-decoration:none;">Russia's Star Blizzard Abandons ClickFix for "RedFlick" Scheduled-Task Backdoor Targeting 100+ Pro-Ukraine Organizations</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Russia's FSB-linked Star Blizzard APT has replaced its ClickFix social engineering lure with a new technique Microsoft calls RedFlick, which uses Windows Scheduled Tasks to silently install a backdoor named CosmicPulse, dramatically expanding operations from highly targeted spear-phishing to mass campaigns hitting 100+ organizations.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> NGOs, think tanks, governments, and financial institutions supporting Ukraine in the United States and United Kingdom — primarily civil society organizations and their employees.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit Windows Scheduled Tasks for unauthorized entries, deploy MFA everywhere, train staff on spear-phishing recognition, and apply Microsoft's published CosmicPulse indicators of compromise to your endpoint detection platform.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Persistence] T1053.005 · Scheduled Task/Job: Scheduled Task<br>
+      <span style="color:#6b7280;">RedFlick plants a Windows Scheduled Task that silently re-launches the CosmicPulse backdoor after every reboot or login, ensuring persistent remote access even if the initial malware dropper is removed — the task blends in with legitimate system maintenance entries to avoid detection.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Star Blizzard (also tracked as SEABORGIUM and Callisto Group) is one of Russia's most persistent cyber-espionage actors, primarily tasked with intelligence collection against individuals and organizations involved in Western policy toward Russia and Ukraine. The group's evolution from ClickFix — which required targets to manually run a command — to RedFlick reflects adversarial learning: defenders got better at identifying fake CAPTCHA pages, so the group shifted to a technique requiring less user action.</p>
+        <p>RedFlick arrives via phishing emails that, when the link is opened, execute a script in the background that creates a Windows Scheduled Task. The task entry looks like a routine system maintenance job but runs CosmicPulse, a lightweight backdoor that establishes command-and-control communication to Star Blizzard's infrastructure. Because Scheduled Tasks are a normal part of Windows, security tools that aren't specifically configured to monitor for new task creation can miss this entirely.</p>
+        <p>The scale expansion — from highly targeted individuals to 13 mass campaigns since January 2026, each targeting tens or hundreds of people — indicates that Star Blizzard has either improved its operational efficiency or shifted strategy to cast a wider net ahead of a specific intelligence collection priority related to Ukraine support networks.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Windows Scheduled Tasks are like alarm clocks that automatically run programs at set times. Star Blizzard is secretly setting a hidden alarm on victims' computers that quietly re-activates their spy tool every time the computer restarts, even if the victim thinks they've cleaned up the infection.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE · Nation-state espionage campaign — 100+ organizations targeted in 2026; RedFlick/CosmicPulse IOCs published by Microsoft.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Star Blizzard -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Star Blizzard</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: Russia (FSB — Federal Security Service)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> NGOs, think tanks, civil society groups, governments, and media organizations that support Ukraine or monitor Russian activities; also targets former intelligence officials and military officers.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Long-running spear-phishing campaigns with convincing lure documents; previously used ClickFix fake CAPTCHA social engineering; now deploying RedFlick scheduled-task persistence with CosmicPulse backdoor; active since at least 2017.</div>
+</div>
+
+<!-- STORY 6: Warlock Ransomware HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Dark Reading · Oct 5, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.darkreading.com/vulnerabilities-threats/warlock-ransomware-targets-vulnerable-sharepoint-servers" style="color:#111827;text-decoration:none;">China's Longleaf (Storm-2603) Deploys Warlock Ransomware Against Water Utility, Telecom, and Government via SharePoint Exploits</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> China-nexus threat actor Longleaf (Storm-2603) is exploiting unpatched Microsoft SharePoint RCE vulnerabilities to deploy Warlock ransomware, targeting critical infrastructure including a water utility, telecommunications provider, regional government, and university across Latin America, Europe, and Africa — compromising 400+ SharePoint servers across 148 organizations total.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched Microsoft SharePoint servers, with particular focus on critical infrastructure in Portuguese- and Spanish-speaking countries.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply patches for SharePoint CVEs-2025-49706, -49704, -53770, and -53771 immediately; audit for web shells on SharePoint servers; disable Visual Studio Code tunneling features not operationally required; verify the integrity of signed security drivers.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">After gaining initial access via SharePoint RCE and establishing lateral movement through the network, Longleaf deploys Warlock ransomware via SYSVOL group policy distribution, encrypting data across hundreds of hosts simultaneously to maximize disruption to critical infrastructure operations.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Longleaf represents the increasingly blurred line between nation-state espionage and ransomware operations — a pattern researchers call "ransomware as cover" where the financial crime aspect obscures attribution and intelligence collection objectives. SharePoint, Microsoft's collaboration and document management platform, is deployed by governments, utilities, and educational institutions worldwide, making it a high-value initial access vector for a group with wide targeting interests.</p>
+        <p>The attack chain is methodical: initial access via SharePoint RCE vulnerability, web shell deployment for persistence, abuse of a legitimately-signed but vulnerable security driver (K7RKScan) to disable endpoint protection in a technique known as Bring Your Own Vulnerable Driver (BYOVD), lateral movement across the network, and finally ransomware deployment via SYSVOL — the Active Directory mechanism that distributes group policies to all domain computers. Using SYSVOL means the ransomware propagates to every domain-joined machine simultaneously, maximizing disruption.</p>
+        <p>The targeting of a water utility is particularly alarming. Operational Technology (OT) systems controlling water treatment processes are often connected to the same networks as IT systems, meaning ransomware could potentially disrupt water safety operations affecting public health.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SYSVOL is like an internal broadcast network where the company's main server sends instructions to every computer at once. Longleaf hijacks this broadcast to send ransomware to every computer in the organization simultaneously — like replacing a morning announcement with a command to lock all the filing cabinets.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVEs-2025-49706 / -49704 / -53770 / -53771 · CVSS: 9.0–9.8 — SharePoint RCE chain enabling unauthenticated remote code execution on enterprise collaboration servers.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Longleaf -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Longleaf (Storm-2603)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State / Criminal Hybrid · Attributed to: China</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Critical infrastructure operators (water, telecom, energy), regional governments, universities; focus on Portuguese- and Spanish-speaking countries in Latin America, Europe, and Africa.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Exploiting SharePoint RCE "ToolShell" vulnerabilities for initial access; deploying Warlock ransomware using BYOVD to disable endpoint protection; abusing VS Code tunneling for covert remote access; SYSVOL-based mass ransomware propagation; 400+ SharePoint server compromises in 2026.</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: URI Encoding Bypass ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    When web applications process URLs, they must decode percent-encoded characters (like <code>%2F</code> for a forward slash) before acting on a request — but there is often a mismatch in when security filters decode them versus when the application backend does, creating an exploitable gap. In the Cisco SD-WAN case, the authentication middleware evaluated path strings before decoding, so a request encoded to look like an innocuous URL bypassed the firewall-style check, while the actual application decoded it normally and treated the request as a privileged admin API call. This class of vulnerability, sometimes called a normalization mismatch or HTTP splitting attack, has appeared in web servers, reverse proxies, firewalls, and API gateways for over two decades — yet it keeps reappearing because developers and security teams often use different libraries, at different layers of the stack, that handle URL normalization in subtly incompatible ways.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: SAML · RedFlick · CosmicPulse · BYOVD ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SAML</strong> — Security Assertion Markup Language: an XML-based open standard that lets identity providers (like Okta or Azure AD) pass authentication tokens to service providers, enabling single sign-on so users log in once and access many applications.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RedFlick</strong> — Microsoft's name for Star Blizzard's updated malware delivery technique, which creates hidden Windows Scheduled Tasks to silently install a backdoor, replacing the group's previous ClickFix fake-CAPTCHA social engineering approach.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CosmicPulse</strong> — The backdoor implant installed by Star Blizzard's RedFlick technique; it establishes a covert command-and-control channel from the victim's system back to the attacker's infrastructure and persists via a Windows Scheduled Task.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">BYOVD</strong> — Bring Your Own Vulnerable Driver: an attack technique where threat actors install a legitimate but vulnerable signed driver onto a victim's system to exploit its kernel-level privileges and disable or bypass security software, as Longleaf did with K7RKScan.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybernews.com/news/hackers-breach-arizona-court-system/" style="color:#374151;text-decoration:none;">Arizona Supreme Court Breach: Phishing Attack Exposes Protective Order and Foster Care Records</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CyberNews</span>
+    <div style="margin-top:4px;font-size:12px;color:#6b7280;">ATT&amp;CK: [Initial Access] T1566 · Phishing — A court employee clicked a malicious phishing link that gave attackers access to backup files containing sensitive protective order and foster care case records.</div>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/citrix-netscaler-saml-0-day-vulnerability" style="color:#374151;text-decoration:none;">Citrix NetScaler SAML Zero-Day CVE-2026-88779: Emergency Patch for Actively Exploited DoS Flaw</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Cybersecurity News</span>
+    <div style="margin-top:4px;font-size:12px;color:#6b7280;">ATT&amp;CK: [Impact] T1499 · Endpoint Denial of Service — Exploited SAML processing flaw in NetScaler ADC and Gateway allows attackers to send crafted requests that crash the appliance, disrupting remote access for enterprise users.</div>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 5, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
