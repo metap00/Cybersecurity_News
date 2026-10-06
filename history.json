@@ -1,12 +1,13 @@
 {
-  "til": ["URI Encoding Bypass", "JWT Algorithm Confusion Attacks", "Webshell Persistence", "Hypervisor Security", "Protocol Tunneling", "Null Byte Injection", "Deserialization Attacks"],
-  "glossary": ["SAML", "RedFlick", "CosmicPulse", "BYOVD", "SSRF", "AiTM", "ZTNA", "DAST", "SIEM", "IAB", "LotL", "Supply Chain Attack", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC"],
+  "til": ["JWT Algorithm Confusion Attacks", "Webshell Persistence", "Hypervisor Security", "Protocol Tunneling", "Null Byte Injection", "Deserialization Attacks", "Prompt Injection in AI Gateways"],
+  "glossary": ["SSRF", "AiTM", "ZTNA", "DAST", "SIEM", "IAB", "LotL", "Supply Chain Attack", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "Memory Overflow"],
   "week": {
-    "critical": 3, "high": 3, "medium": 2,
-    "techniques": ["T1190", "T1036", "T1530", "T1203", "T1053.005", "T1486", "T1566", "T1499"],
-    "actors": ["Star Blizzard", "Longleaf (Storm-2603)"]
+    "critical": 6, "high": 5, "medium": 4,
+    "techniques": ["T1190", "T1036", "T1530", "T1203", "T1053.005", "T1486", "T1566", "T1499", "T1499.004", "T1059", "T1212", "T1068", "T1583", "T1548"],
+    "actors": ["Star Blizzard", "Longleaf (Storm-2603)", "KillSec"]
   },
   "digests": [
+    {"date": "2026-10-06", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 2},
     {"date": "2026-10-05", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
     {"date": "2026-10-04", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 3},
     {"date": "2026-10-03", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 3},

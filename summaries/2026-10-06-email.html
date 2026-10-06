@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 6, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 3 critical · 2 high · ~8 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-06.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: FortiMail - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 6, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Critical FortiMail Zero-Day (CVE-2026-104286) Exploited — Unauthenticated Arbitrary File Write</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVSS 9.8 zero-day in FortiMail's IBE GUI lets unauthenticated attackers write arbitrary files to the appliance filesystem via path traversal and null byte bypass — actively exploited before patch release.</div>
+    <div style="margin-top:2px;">👤 Organizations running FortiMail 8.0.x, 7.6.x, 7.4.x, or 7.2.x as their email security gateway.</div>
+    <div style="margin-top:2px;">✅ Upgrade to a patched FortiMail version immediately; CISA KEV — federal deadline was October 4.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: NetScaler - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Oct 5, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Citrix Patches NetScaler SAML Zero-Day (CVE-2026-88779) Exploited in Targeted Attacks</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Unauthenticated memory overflow in NetScaler's SAML handler crashes authentication infrastructure; six crashes reboot the entire appliance, and researchers report possible RCE in some configurations.</div>
+    <div style="margin-top:2px;">👤 Enterprises using NetScaler ADC or Gateway configured as a SAML Service Provider or Identity Provider.</div>
+    <div style="margin-top:2px;">✅ Upgrade to NetScaler 14.1-73.41 or 13.1-64.28; federal deadline October 7 per CISA KEV.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1499.004 · Endpoint Denial of Service: Application or System Exploitation</div>
+</div>
+
+<!-- STORY 3: GitLab AI Gateway - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 6, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/gitlab-patches-critical-self-hosted-ai.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">GitLab Patches CVSS 9.9 AI Gateway Flaw (CVE-2026-90970) Enabling Command Execution on Self-Hosted Servers</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Authenticated Duo Agent Platform users can escape the prompt-template sandbox and execute OS commands on self-hosted GitLab AI Gateway hosts; CVSS 9.9 with no active exploitation reported yet.</div>
+    <div style="margin-top:2px;">👤 Organizations running self-hosted AI Gateway 18.1.6–19.2.3, 19.3.0–19.3.1, or 19.4.0; GitLab.com already patched.</div>
+    <div style="margin-top:2px;">✅ Update self-hosted AI Gateway to 19.2.4, 19.3.2, or 19.4.1 immediately.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1059 · Command and Scripting Interpreter</div>
+</div>
+
+<!-- STORY 4: Rejetto HFS - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 6, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/attackers-target-rejetto-hfs-flaw-that.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Attackers Target Rejetto HFS Flaw (CVE-2026-61500) Enabling Admin Session Forgery and RCE</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Non-cryptographic PRNG session signing in HFS 3.x leaks enough data for unauthenticated attackers to reconstruct the key, forge admin cookies, and achieve RCE via server_code; actively exploited.</div>
+    <div style="margin-top:2px;">👤 Anyone running Rejetto HFS 3.0.0–3.2.0 for file sharing, especially internet-exposed instances.</div>
+    <div style="margin-top:2px;">✅ Upgrade to Rejetto HFS 3.2.1 or later immediately.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1212 · Exploitation for Credential Access</div>
+</div>
+
+<!-- STORY 5: Exchange - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Oct 6, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/nearly-22-000-microsoft-exchange-servers-vulnerable-to-hijack-attacks/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Nearly 22,000 Microsoft Exchange Servers Remain Unpatched Against Privilege Escalation Flaw (CVE-2026-62911)</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Shadowserver found 21,899 internet-exposed Exchange servers still vulnerable to CVE-2026-62911, a CVSS 8.8 weak-authorization flaw enabling authenticated privilege escalation to Exchange admin.</div>
+    <div style="margin-top:2px;">👤 Organizations running Exchange Server 2016, 2019, or SE without the latest Microsoft security updates.</div>
+    <div style="margin-top:2px;">✅ Apply Microsoft's latest Exchange security updates; restrict Exchange admin roles to dedicated privileged accounts.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/10/police-arrest-16-year-old-suspected-of.html" style="color:#374151;text-decoration:none;">Spain Arrests 16-Year-Old Suspected of Running KillSec Ransomware; Servers and Leak Site Seized</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/new-dell-system-update-flaw-lets-hackers-gain-root-privileges/" style="color:#374151;text-decoration:none;">Dell Patches Four High-Severity System Update Flaws Including RCE and Privilege Escalation</a>
+    <span style="color:#9ca3af;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">LOW</span>
+    <a href="https://www.bleepingcomputer.com/news/security/microsoft-to-block-entra-id-script-injection-attacks-starting-october/" style="color:#374151;text-decoration:none;">Microsoft Rolls Out Entra ID Script Injection Protections Starting Mid-October</a>
+    <span style="color:#9ca3af;"> · BleepingComputer</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-06.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Oct 6, 2026</div>
+
+</body>
+</html>

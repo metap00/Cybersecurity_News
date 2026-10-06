@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 6, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 6, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 3 critical · 2 high · 2 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: FortiMail CVE-2026-104286 - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 6, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="color:#111827;text-decoration:none;">Critical FortiMail Zero-Day (CVE-2026-104286) Exploited — Unauthenticated Arbitrary File Write</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Fortinet disclosed a CVSS 9.8 zero-day in FortiMail's IBE GUI component that lets unauthenticated attackers write files anywhere on the appliance via a path traversal and null byte bypass in crafted HTTP/HTTPS requests.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running FortiMail 8.0.0–8.0.1, 7.6.0–7.6.6, 7.4.0–7.4.8, or 7.2.0–7.2.9 as their enterprise email security gateway.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to a patched FortiMail version immediately; if patching is delayed, restrict access to the FortiMail management interface from untrusted networks and monitor for unexpected new files on the appliance.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers send crafted HTTP/HTTPS requests to FortiMail's publicly accessible IBE GUI component, exploiting path traversal and null byte handling to write arbitrary files — establishing a foothold without credentials on a perimeter-facing email security appliance.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-104286 combines two weaknesses in FortiMail's Identity-Based Encryption GUI: improper path traversal handling and improper null byte neutralization. Together, they allow an attacker to craft an HTTP or HTTPS request that convinces the server to write controlled content to any path on the filesystem — bypassing the directory restriction meant to confine uploaded files to a safe location. No authentication is required; only network access to the HTTPS interface is needed to trigger the write.
+        <br><br>
+        Once arbitrary file-write is achieved, the typical follow-on is planting a web shell in a web-accessible directory, converting the write primitive into persistent interactive remote code execution. Fortinet confirmed active exploitation before issuing the patch — a true zero-day. CISA added CVE-2026-104286 to its Known Exploited Vulnerabilities catalog immediately, mandating U.S. federal agencies remediate by October 4, 2026. Patches are available for all affected branches.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> FortiMail is an email security appliance that filters spam and malware before it reaches a company's inbox. This bug is like a flaw in a building's mail-room scanner: instead of keeping deliveries contained, it lets anyone drop a package anywhere in the building — including the server room — without showing ID. That planted package can then unlock every door.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104286 · CVSS: 9.8/10 — Unauthenticated, no user interaction, actively exploited in the wild before patch release; CISA KEV listed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: NetScaler CVE-2026-88779 - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Oct 5, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/" style="color:#111827;text-decoration:none;">Citrix Patches NetScaler SAML Zero-Day (CVE-2026-88779) Exploited in Targeted Attacks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A memory overflow zero-day in Citrix NetScaler ADC/Gateway's SAML authentication handler is being actively exploited to crash enterprise authentication infrastructure and potentially achieve remote code execution on targeted appliances.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises using NetScaler ADC or NetScaler Gateway configured as a SAML Service Provider (SP) or Identity Provider (IdP) for single sign-on.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to NetScaler ADC/Gateway 14.1-73.41 or 13.1-64.28 immediately; U.S. federal agencies must remediate by October 7, 2026 per CISA KEV requirements.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1499.004 · Endpoint Denial of Service: Application or System Exploitation<br>
+      <span style="color:#6b7280;">Attackers repeatedly crash NetScaler's SAML handler via the memory overflow — taking authentication infrastructure offline after six crashes trigger a full appliance reboot — while researchers also observe exploitation patterns consistent with remote code execution attempts.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-88779 is a memory overflow vulnerability in the SAML processing code of Citrix NetScaler ADC and NetScaler Gateway. When an appliance is configured for SAML-based authentication — common in enterprises using single sign-on — a specially crafted unauthenticated HTTP request can overflow a buffer in the SAML handler, crashing the service. Each exploit attempt crashes SAML; after six crashes, the entire appliance reboots, taking all dependent VPN and application authentication services offline.
+        <br><br>
+        While Citrix's official CVSS score of 8.7 reflects a denial-of-service classification, security researchers and network administrators monitoring active exploitation activity have observed behavior patterns consistent with remote code execution being attempted in some configurations — significantly elevating real-world risk beyond the DoS descriptor. The vulnerability was exploited as a zero-day before Citrix had a patch, and CISA added it to its KEV catalog on the same day as disclosure. Fixed versions (14.1-73.41 and 13.1-64.28) are available now.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> NetScaler is a widely deployed system that manages who can log into a company's applications — think of it as the digital front door for remote workers. SAML is the protocol that door uses to verify your identity. This bug lets anyone on the internet crash that door's authentication system without needing a key, and after enough crashes the entire entry system reboots — locking out legitimate users while attackers probe for deeper access.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-88779 · CVSS: 8.7/10 — Remote unauthenticated memory overflow; denial of service confirmed, RCE suspected; exploited in the wild before patch; CISA KEV listed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: GitLab AI Gateway CVE-2026-90970 - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 6, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/gitlab-patches-critical-self-hosted-ai.html" style="color:#111827;text-decoration:none;">GitLab Patches CVSS 9.9 AI Gateway Flaw (CVE-2026-90970) Enabling Command Execution on Self-Hosted Servers</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> GitLab patched a near-maximum severity (CVSS 9.9) flaw in its Duo AI Gateway where an authenticated user with Duo Agent Platform access can craft a malicious flow configuration to escape the prompt-template sandbox and execute OS commands on the host.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running self-hosted GitLab AI Gateway versions 18.1.6 through 19.2.3, 19.3.0–19.3.1, or 19.4.0; GitLab.com and GitLab Dedicated instances are already patched.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update self-hosted AI Gateway to version 19.2.4, 19.3.2, or 19.4.1 immediately; restrict Duo Agent Platform access to trusted personnel until patching is complete.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Execution] T1059 · Command and Scripting Interpreter<br>
+      <span style="color:#6b7280;">A crafted Duo Agent Platform flow configuration breaks out of GitLab AI Gateway's prompt-template sandbox, causing the gateway process to execute arbitrary OS-level commands on the host server — turning a developer AI productivity tool into a remote command execution vector.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-90970 exists in the prompt-template engine of GitLab's AI Gateway, the backend component powering Duo AI coding features on self-hosted deployments. The flaw stems from improper input neutralization in custom flow prompt templates: by crafting a specially designed flow configuration, an authenticated attacker with Duo Agent Platform access can escape the sandboxed template execution environment and cause the AI Gateway process to run arbitrary operating system commands on the underlying host server.
+        <br><br>
+        The attack requires only a valid GitLab account with Duo Agent Platform access — a role many developers would hold in an enterprise deployment. Once exploited, the attacker achieves command execution on the AI Gateway host, which may store API keys, model configuration data, and direct connectivity to internal code repositories and services. CISA's CVE record lists exploitation status as "none" as of October 2, but the 9.9 CVSS score and low attack bar make this a critical priority for self-hosted operators. GitLab.com, GitLab Dedicated, and self-managed instances connected to GitLab-hosted gateways are already protected; only self-hosted AI Gateway deployments are at risk.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> GitLab's AI Gateway is a coding assistant embedded in developers' workflow. This vulnerability works like tricking a smart form into running hidden commands: instead of asking the AI to help write code, you craft a special configuration that makes the AI's host computer execute arbitrary instructions. Any developer with access to the AI tool could potentially exploit this against the server it runs on.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-90970 · CVSS: 9.9/10 — Authenticated prompt-template sandbox escape enabling OS command execution on self-hosted AI Gateway hosts; no active exploitation reported yet.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Rejetto HFS CVE-2026-61500 - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 6, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/attackers-target-rejetto-hfs-flaw-that.html" style="color:#111827;text-decoration:none;">Attackers Target Rejetto HFS Flaw (CVE-2026-61500) Enabling Admin Session Forgery and RCE</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are actively exploiting a CVSS 9.3 flaw in Rejetto HTTP File Server 3.x where the server uses a non-cryptographic PRNG for session cookie signing keys and leaks enough PRNG output to unauthenticated clients to enable full key reconstruction and admin session forgery.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Anyone running Rejetto HFS versions 3.0.0 through 3.2.0, commonly used for lightweight file sharing in small businesses, developer environments, and home labs.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to Rejetto HFS 3.2.1 or later immediately; if unable to patch, take HFS offline or restrict it to trusted internal networks only.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Credential Access] T1212 · Exploitation for Credential Access<br>
+      <span style="color:#6b7280;">Attackers observe login response data from HFS's Math.random() PRNG to reconstruct the generator's internal state, recover the session cookie signing key, and forge a valid administrator session cookie — using a cryptographic weakness to bypass authentication without any brute force.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-61500 exploits a fundamental cryptographic design error in Rejetto HFS 3.x: the server uses JavaScript's Math.random() — a non-cryptographic pseudorandom number generator — to generate the secret key used to sign session cookies. Math.random() is deterministic and seeded from a predictable source, and HFS inadvertently exposes enough PRNG output in its unauthenticated login responses for an attacker to reconstruct the generator's full internal state and thereby recover the signing secret.
+        <br><br>
+        Armed with the recovered signing key, the attacker forges a session cookie that the server accepts as a valid administrator session. Full admin access then enables exploitation of HFS's built-in server_code execution feature — which allows running arbitrary scripts on the host — achieving remote code execution. The entire kill chain requires only unauthenticated HTTP access to a publicly reachable HFS instance; no brute force, no credentials, no prior access. Rejetto HFS 3.2.1 replaces Math.random() with a cryptographically secure generator; upgrading is the only complete fix.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a safe whose combination is generated by rolling ordinary dice, and the safe's door displays each dice roll on a small screen. After watching it long enough, you can predict the next roll and open the safe. That's exactly this flaw — HFS's "random" numbers aren't truly random, and the server accidentally shows enough of them for an attacker to figure out the secret key and gain full control.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-61500 · CVSS: 9.3/10 — Unauthenticated PRNG state reconstruction enables session cookie forgery and full RCE via built-in server_code feature; actively exploited in the wild.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Exchange CVE-2026-62911 - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Oct 6, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/nearly-22-000-microsoft-exchange-servers-vulnerable-to-hijack-attacks/" style="color:#111827;text-decoration:none;">Nearly 22,000 Microsoft Exchange Servers Remain Unpatched Against Privilege Escalation Flaw (CVE-2026-62911)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Shadowserver scanning found 21,899 internet-exposed Microsoft Exchange servers still vulnerable to CVE-2026-62911, a CVSS 8.8 weak-authorization flaw that allows authenticated network attackers to escalate their privileges on the email server.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Exchange Server 2016, 2019, or Subscription Edition that have not applied Microsoft's latest security updates — particularly dangerous given Exchange's deep Active Directory integration.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's latest Exchange Server security updates immediately; audit mailbox-level account access and restrict Exchange administrative roles to dedicated privileged accounts not used for day-to-day email.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Authenticated attackers exploit Exchange's weak authorization logic to elevate their network privileges, potentially gaining administrative access to one of the most sensitive and Active Directory-integrated services in the enterprise — and from there pivoting toward domain-wide compromise.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-62911 is an elevation of privilege flaw in Exchange Server 2016, 2019, and Subscription Edition caused by insufficient authorization checks. An authenticated attacker — even one with only a standard user mailbox account — can craft requests that exploit the weak validation to escalate their permissions on the Exchange server to Exchange Organization Management level, providing administrative control over the email infrastructure.
+        <br><br>
+        Exchange admin access is a critical stepping stone in enterprise attacks: it enables reading all user mailboxes, exporting email at scale, modifying mail flow rules to intercept or redirect messages, and — because of Exchange's tight Active Directory integration — in many configurations can be leveraged to escalate further to domain administrator level. Shadowserver confirmed 21,899 externally reachable Exchange instances running unpatched versions, representing thousands of organizations globally. Exchange servers are perennially high-value targets for ransomware groups and state-sponsored actors alike; the CVSS 8.8 score reflects network-reachable exploitation requiring only a basic authenticated account.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Exchange Server handles a company's email. This bug lets someone with a basic employee account — like "alice@company.com" — exploit a flaw to promote themselves to all-powerful IT administrator over the entire mail system. From there they can read everyone's email, redirect messages, and potentially take over the whole company network. Nearly 22,000 of these servers are still reachable from the internet and unpatched.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-62911 · CVSS: 8.8/10 — Authenticated network privilege escalation on enterprise email infrastructure; 21,899 vulnerable instances confirmed internet-exposed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Prompt Injection in AI Gateways ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Prompt injection is a class of attack where malicious instructions are embedded in data processed by an AI model, tricking it into executing unintended actions — in an AI coding assistant or gateway, this can escalate from generating bad suggestions to running OS commands on the host. When AI gateways like GitLab's process user-supplied template configurations, insufficient input neutralization creates a direct path from crafted prompt content to host-level command execution, turning a developer productivity tool into a remote shell. Defending against prompt injection requires strict input/output sanitization at every boundary, sandboxing AI processing components away from privileged system calls, and treating all AI-processed text as untrusted data that must be validated before any action is taken on it.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: PRNG · Sandbox Escape · Session Cookie · Memory Overflow ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PRNG</strong> — Pseudorandom Number Generator: a deterministic algorithm that produces number sequences appearing random but predictable from a known seed; using a non-cryptographic PRNG (like Math.random()) for security-critical values such as session signing keys is dangerous because an attacker who observes enough outputs can reconstruct the internal state and derive the secret.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Sandbox Escape</strong> — A vulnerability allowing code executing inside an isolated environment designed to contain dangerous operations to break out and interact with the host system or broader network, bypassing the security boundary the sandbox was built to enforce.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Session Cookie</strong> — A browser-stored token signed by the server that proves an authenticated user's identity for the duration of a session; if the signing key is weak, predictable, or leaked, an attacker can forge a cookie to impersonate any user — including an administrator — without knowing their password.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Memory Overflow</strong> — A condition where a program writes more data into a fixed-size buffer than it can hold, corrupting adjacent memory; in a network-facing service, a remotely triggered overflow can overwrite program control structures and redirect execution, allowing attackers to run arbitrary commands on the target.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/10/police-arrest-16-year-old-suspected-of.html" style="color:#374151;text-decoration:none;">Spain Arrests 16-Year-Old Suspected of Running KillSec Ransomware Operation; Servers and Leak Site Seized</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+    <div style="margin-top:4px;font-size:11px;color:#6d28d9;">🎯 [Resource Development] T1583 · Acquire Infrastructure — KillSec maintained dark web ransomware infrastructure including a double-extortion leak site and affiliated server network used to host stolen data and coordinate attacks.</div>
+  </div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;margin-top:4px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/new-dell-system-update-flaw-lets-hackers-gain-root-privileges/" style="color:#374151;text-decoration:none;">Dell Patches Four High-Severity System Update Flaws Including Remote Code Execution and Privilege Escalation</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+    <div style="margin-top:4px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1548 · Abuse Elevation Control Mechanism — Two of four patched Dell System Update flaws allow local privilege escalation to root/SYSTEM by abusing the update tool's elevated execution context.</div>
+  </div>
+
+  <div style="padding:6px 0;font-size:13px;margin-top:4px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.bleepingcomputer.com/news/security/microsoft-to-block-entra-id-script-injection-attacks-starting-october/" style="color:#374151;text-decoration:none;">Microsoft Begins Rolling Out Entra ID Script Injection Protections Starting Mid-October 2026</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+  </div>
+</div>
+
+<!-- THREAT ACTOR CARD: KillSec -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">KillSec</div>
+  <div style="opacity:.85;margin-top:4px;">Cybercriminal ransomware group · Attribution: Unknown nationality</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Healthcare, financial services, government agencies, and manufacturing sectors globally — with a focus on mid-market organizations lacking mature incident response capabilities</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Ransomware-as-a-service operations with double extortion: encrypting victim files then threatening to publish stolen data on a dark web leak site unless a ransom is paid; recruiting affiliates through underground cybercrime forums</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 6, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
