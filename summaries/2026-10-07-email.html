@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 7, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 3 critical · 2 high · ~6 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-07.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: FortiMail -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 7, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Critical FortiMail Zero-Day CVE-2026-104286 Exploited in the Wild — CISA Deadline Today</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVSS 9.8 path traversal + NULL-byte flaw lets unauthenticated attackers write arbitrary files to FortiMail servers; active exploitation confirmed.</div>
+    <div style="margin-top:2px;">👤 Organizations running FortiMail 7.2.x, 7.4.x, 7.6.x, or 8.0.x email security gateways.</div>
+    <div style="margin-top:2px;">✅ Upgrade to FortiMail 7.2.10 / 7.4.9 / 7.6.7 / 8.0.2 immediately; restrict management interface access.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Persistence] T1505.003 · Server Software Component: Web Shell</div>
+</div>
+
+<!-- STORY 2: Warlock Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 7, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/warlock-exploits-sharepoint-flaws-to.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">China-Linked Warlock Exploits SharePoint ToolShell Flaws, Uses BYOVD to Kill Security Tools Before Ransomware</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Warlock APT exploits SharePoint ToolShell CVEs to drop web shells, forge ASP.NET machine keys for RCE, then loads vulnerable drivers (BYOVD) to disable endpoint security before deploying ransomware.</div>
+    <div style="margin-top:2px;">👤 Water utilities, telecom, universities, and regional governments in Portuguese- and Spanish-speaking countries across Europe, Africa, and Latin America.</div>
+    <div style="margin-top:2px;">✅ Apply all SharePoint patches, rotate ASP.NET machine keys, audit LAYOUTS directory, monitor for kernel driver anomalies.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Defense Evasion] T1562.001 · Impair Defenses: Disable or Modify Tools</div>
+</div>
+
+<!-- STORY 3: Denmark CPR -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 6, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/denmark-says-attackers-accessed-cpr.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Denmark: Attackers Harvested 8.8 Million People's National ID Data via Legitimate Company Account</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers abused a private company's lawful CPR database access to automate mass lookups across September, extracting names, addresses, and national ID numbers for 8.8 million people.</div>
+    <div style="margin-top:2px;">👤 Virtually all of Denmark's population — living and deceased — whose CPR number is their universal identity token for banking, healthcare, and government services.</div>
+    <div style="margin-top:2px;">✅ Monitor for targeted phishing using personal data; watch for unauthorized banking/healthcare account activity; authorities have blocked the compromised company's access.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1078 · Valid Accounts</div>
+</div>
+
+<!-- STORY 4: Gentlemen/Azazel MCP -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CyberSecurityNews · Oct 5, 2026</span>
+  </div>
+  <a href="https://cybersecuritynews.com/ransomware-hacker/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Ransomware Affiliate "Azazel" Weaponizes AI Coding Assistant via MCP to Breach 24+ Enterprises</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Gentlemen ransomware affiliate registered a reverse shell as an MCP tool inside enterprise AI coding assistants, using stolen GitLab CI/CD secrets for initial access and the AI assistant as a C2 channel.</div>
+    <div style="margin-top:2px;">👤 Development teams at logistics, insurance, pharma, medtech, and AI companies across six countries using MCP-connected AI coding assistants.</div>
+    <div style="margin-top:2px;">✅ Audit MCP server tool registrations, rotate all CI/CD secrets, restrict MCP tool access to approved servers only.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Command and Control] T1102 · Web Service</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://www.cisa.gov/news-events/alerts/2026/09/27/critical-zero-day-vulnerabilities-exploited-citrix-netscaler-adc-gateway" style="color:#374151;text-decoration:none;">Citrix NetScaler CVE-2026-88771/88772 Active Exploitation Continues — Patch &amp; Forensic Review Urged</a>
+    <span style="color:#9ca3af;"> · CISA</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://vulert.com/vuln-db/CVE-2026-77248" style="color:#374151;text-decoration:none;">CVE-2026-77248: MCP-Atlassian Unauthenticated File Read (CVSS 8.6) — Upgrade to v0.22.0</a>
+    <span style="color:#9ca3af;"> · Vulert</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-07.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Oct 7, 2026</div>
+
+</body>
+</html>

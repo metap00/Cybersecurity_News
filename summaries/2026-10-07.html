@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 7, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 7, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 3 critical · 2 high · 1 medium · ~6 min read</div>
+</div>
+
+<!-- STORY 1: FortiMail Zero-Day -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 7, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="color:#111827;text-decoration:none;">Critical FortiMail Zero-Day CVE-2026-104286 Exploited in the Wild — CISA Remediation Deadline Today</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Fortinet disclosed CVE-2026-104286 (CVSS 9.8), a path traversal and NULL-byte injection flaw in FortiMail that lets unauthenticated remote attackers write arbitrary files to the server, with active exploitation confirmed and CISA's federal remediation deadline falling today.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running FortiMail versions 7.2.0–7.2.9, 7.4.0–7.4.8, 7.6.0–7.6.6, or 8.0.0–8.0.1 — primarily enterprises using Fortinet's email security gateway for filtering and protection.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade immediately to FortiMail 7.2.10, 7.4.9, 7.6.7, or 8.0.2; if patching is not immediately possible, restrict access to the management interface and hunt for unexpected files written to the server filesystem.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Persistence] T1505.003 · Server Software Component: Web Shell<br>
+      <span style="color:#6b7280;">The arbitrary file write capability allows attackers to drop a web shell onto the FortiMail server, creating persistent access that survives reboots and evades detection as legitimate server files.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-104286 combines two weaknesses: improper path restriction (CWE-22) and inadequate NULL byte handling (CWE-158). When an attacker crafts an HTTP request with a NULL byte inserted into the path, FortiMail's parser truncates the string at that point, stripping away safety checks and allowing the attacker to write files to arbitrary locations on the server filesystem.</p>
+        <p>The attack vector is as simple as sending a specially crafted HTTPS request — no credentials required, no user interaction needed. Once an attacker can write arbitrary files, the practical outcome is remote code execution: they plant a web shell or overwrite a configuration file to execute commands. Threat actors have already confirmed this path in the wild, deploying backdoors on compromised FortiMail appliances.</p>
+        <p>Fortinet patched the vulnerability in forked version lines released this week. CISA added the flaw to its Known Exploited Vulnerabilities catalog and set an October 4 deadline for Federal Civilian Executive Branch agencies — that deadline has passed, indicating the threat is real and persistent.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your email security system has a locked filing cabinet. The path traversal flaw is like tricking the lock mechanism by inserting a key with a hidden notch — the lock thinks it's locking, but the notch bypasses the mechanism. The attacker can then put whatever documents (malicious code) they want into the cabinet, and the server will later run them without question.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104286 · CVSS: 9.8/10 — Network-reachable, no credentials, no interaction required; a theoretical perfect-score attack surface for remote code execution.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Warlock Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 7, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/warlock-exploits-sharepoint-flaws-to.html" style="color:#111827;text-decoration:none;">Warlock Exploits SharePoint ToolShell Flaws to Disable Security Tools and Deploy Ransomware Against Critical Infrastructure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Symantec documented the China-linked Warlock ransomware group exploiting Microsoft SharePoint ToolShell vulnerabilities (including CVE-2025-49704 and related flaws) to drop web shells, harvest ASP.NET machine keys for remote code execution, and deploy ransomware — using a BYOVD technique to disable endpoint security tools before encrypting data.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Water utilities, telecommunications providers, universities, and regional governments in Portuguese- and Spanish-speaking countries across Europe, Africa, and Latin America.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply all Microsoft SharePoint Server patches immediately, rotate ASP.NET machine keys, audit the SharePoint LAYOUTS directory for unauthorized files, and monitor for unexpected kernel driver loads.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1562.001 · Impair Defenses: Disable or Modify Tools<br>
+      <span style="color:#6b7280;">Warlock loads a legitimate but vulnerable kernel driver (BYOVD) to forcibly terminate and disable endpoint detection and response software before deploying ransomware, ensuring the encryption payload runs undetected.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Warlock emerged in mid-2025 exploiting zero-day flaws in Microsoft SharePoint Server collectively called "ToolShell." The group's intrusion chain is methodical: first, they exploit SharePoint to write a web shell into the LAYOUTS directory; second, they harvest the SharePoint farm's ASP.NET machine keys — secret cryptographic values that, once obtained, allow crafting a validly signed payload that executes code inside the SharePoint application pool; third, they pivot into internal networks.</p>
+        <p>The most technically novel element of Warlock's 2026 campaign is the BYOVD step. Before deploying ransomware, the group imports a known-vulnerable but legitimately code-signed kernel driver. Because Windows trusts the driver's signature, security software cannot block it from loading. Once running at kernel level, it terminates endpoint protection processes from below — a place no user-space security tool can defend. Velociraptor, a legitimate incident-response tool, is then repurposed as Warlock's command-and-control framework.</p>
+        <p>The targeting pattern — Portuguese- and Spanish-speaking critical infrastructure — suggests geopolitical intelligence objectives alongside financial extortion, a hallmark of Chinese state-affiliated operations.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of your antivirus as a guard standing in the lobby. BYOVD is like the attacker hiring a locksmith (the vulnerable driver) who has a master keycard. The locksmith walks right past the guard and locks the guard in a back room. With the guard neutralized, the attacker can roam the building freely and encrypt all the files.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2025-49704 (SharePoint ToolShell) · CVSS: 9.8/10 — Remote code execution via machine key forgery; actively exploited since 2025 with ongoing campaigns in 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: Warlock -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Warlock</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State Ransomware · Attributed to: China (suspected)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Critical infrastructure (utilities, telecom), government, and education in Portuguese- and Spanish-speaking regions of Europe, Africa, and Latin America</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Weaponizing Microsoft SharePoint zero-days (ToolShell), BYOVD to disable endpoint security, ASP.NET machine key forgery for lateral movement, and using the Velociraptor IR tool as command-and-control infrastructure</div>
+</div>
+
+<!-- STORY 3: Denmark CPR Breach -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 6, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/denmark-says-attackers-accessed-cpr.html" style="color:#111827;text-decoration:none;">Denmark Says Attackers Accessed CPR Data for 8.8 Million People via Legitimate Company Account</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Unauthorized actors abused a private company's lawful access rights to Denmark's Central Person Register (CPR), conducting automated high-volume lookups throughout September to harvest names, addresses, and national ID numbers for approximately 8.8 million people.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Virtually the entire population of Denmark — living, deceased, and citizens abroad — as CPR numbers are used universally for healthcare, banking, taxes, and government services.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Danish residents should monitor for targeted phishing using their personal data, be alert to suspicious requests citing their CPR number, and watch for unauthorized account activity in banking and healthcare portals.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1078 · Valid Accounts<br>
+      <span style="color:#6b7280;">Attackers weaponized a legitimate company's authorized credentials and system access to the CPR database, using valid account privileges to conduct mass automated data harvesting that appeared indistinguishable from normal queries until volume anomalies were detected.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Denmark's CPR system is the backbone of its digital society — every resident has a unique 10-digit number used across all government and private sector services. Private companies in specific industries are granted lawful read access for legitimate purposes such as age verification or identity confirmation. Attackers compromised one such company's credentials and automated API calls to extract records at scale.</p>
+        <p>CPR administration detected "irregular activity" on October 2, suggesting the data harvest had been running for weeks without triggering rate-limiting or anomaly detection. This is a classic insider-access abuse pattern: because the queries were authenticated and individually legitimate, they blended into normal traffic until the cumulative volume became visible.</p>
+        <p>The breadth of the breach is staggering — 8.8 million records in a country of 5.9 million living residents (deceased and abroad are included). CPR numbers are non-revocable and used for lifetime identity, making this data permanently valuable for identity theft, targeted social engineering, and synthetic identity fraud.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine every person in Denmark has a single master key that opens every door — their bank, doctor, tax office. This breach is like someone copying every citizen's master key by quietly duplicating them one at a time, using a locksmith's legitimate access to the key registry. Nobody noticed because copying a key looks the same as checking if a key is valid.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — this is an access abuse incident, not a software vulnerability · Severity: CRITICAL due to nation-scale identity data exposure affecting 8.8M people.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Gentlemen/Azazel MCP Ransomware -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CyberSecurityNews · Oct 5, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/ransomware-hacker/" style="color:#111827;text-decoration:none;">Ransomware Affiliate "Azazel" Turns AI Coding Assistant Into Attack Channel, Breaches 24+ Organizations via MCP</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Gentlemen ransomware affiliate "Azazel" registered a reverse shell handler as an MCP (Model Context Protocol) tool inside enterprise AI coding assistants, leveraging stolen GitLab CI/CD pipeline secrets to gain initial access and then using the AI assistant as a command-and-control channel to breach over two dozen organizations across six countries.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Logistics, insurance, pharmaceuticals, medical devices, and AI companies in six countries whose development teams use AI coding assistants with MCP server integrations connected to internal infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit all MCP server tool registrations in your AI development environment, rotate all CI/CD pipeline secrets immediately, enforce least-privilege on MCP tool access, and review network logs for unexpected outbound connections from AI assistant processes.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Command and Control] T1102 · Web Service<br>
+      <span style="color:#6b7280;">Azazel registered a malicious reverse shell as a legitimate MCP tool, routing C2 traffic through an AI coding assistant's trusted web service connection — making the command channel appear to be normal AI tool usage and bypassing network monitoring that would flag traditional C2 protocols.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Model Context Protocol (MCP) is a standard that lets AI assistants connect to external tools — code linters, databases, APIs — so developers can interact with their whole infrastructure through a single AI interface. Azazel discovered that this powerful connectivity could be weaponized: by registering a reverse shell handler as an MCP "tool," any AI assistant that discovers and calls this tool becomes an unwitting C2 relay for the attacker.</p>
+        <p>Most intrusions started with secrets stolen from software build pipelines — environment variables containing database passwords, API tokens, and internal service credentials left exposed in GitLab CI/CD configuration. From there, Azazel used the MCP-based C2 channel to move laterally, exfiltrate data, and ultimately deliver ransomware. One outlier attack exploited an AI medical imaging service directly.</p>
+        <p>In a dramatic twist, Azazel then double-crossed the Gentlemen ransomware group — building his own independent leak site called "Leakned" and pocketing all extortion payments without sharing with the gang. CloudSEK researchers identified the operation through an exposed directory and misconfigured storage infrastructure left by the operator.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> An AI coding assistant is like a very capable secretary who can call anyone on your internal phone system on your behalf. Azazel added a fake "colleague" to the phone directory — but that number connects to his base of operations. Every time a developer's AI assistant "calls" this contact for a routine task, it's unknowingly passing messages to the attacker.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE — exploitation of stolen CI/CD secrets and MCP misconfiguration · Campaign affected 24+ organizations across logistics, insurance, pharma, medtech, and AI sectors.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: Gentlemen -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Gentlemen (Ransomware-as-a-Service)</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal RaaS Group · Attribution: Unknown (Eastern Europe suspected)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Technology, logistics, healthcare, insurance, and pharmaceutical companies globally</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operating a ransomware affiliate program, exploitation of software build pipeline secrets (CI/CD), novel AI/MCP-based C2 channels, and double-extortion via the "Leakned" independent leak site operated by rogue affiliate Azazel</div>
+</div>
+
+<!-- STORY 5: Citrix NetScaler (HIGH) -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA · Oct 7, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cisa.gov/news-events/alerts/2026/09/27/critical-zero-day-vulnerabilities-exploited-citrix-netscaler-adc-gateway" style="color:#111827;text-decoration:none;">Citrix NetScaler CVE-2026-88771/88772 Active Exploitation Continues Despite Patches — CISA Issues Urgent Guidance</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Patches are available for critical Citrix NetScaler ADC and Gateway RCE zero-days CVE-2026-88771 and CVE-2026-88772 (both CVSS 9.8+), yet exploitation continues globally with attackers deploying web shells, credential harvesters, and tunneling malware on unpatched appliances.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization with internet-exposed Citrix NetScaler ADC or NetScaler Gateway appliances that have not yet applied the September patches, particularly in enterprise, government, and financial services sectors.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the Citrix patches immediately and conduct forensic review of all NetScaler appliances — even if patched, check for web shells, unauthorized admin accounts, and credential dumps that may have occurred before patching.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Threat actors are exploiting these NetScaler vulnerabilities to gain initial foothold, then pivoting from the exposed appliance into internal networks — a pattern consistent with both nation-state and criminal initial access brokers selling access to victim networks.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-88771 and CVE-2026-88772 are memory-related vulnerabilities in Citrix NetScaler — a widely deployed network appliance that acts as a gateway, load balancer, and VPN endpoint. Both flaws independently enable unauthenticated remote code execution: an attacker on the internet can exploit either to run arbitrary commands on the appliance without any credentials.</p>
+        <p>The threat is compounded by post-exploitation persistence. Confirmed attack patterns include web shell implantation, credential harvesting from active sessions passing through the gateway, and deployment of tunneling malware that allows attackers to route traffic into the victim's internal network long after patching. Organizations that patched quickly may still have compromised appliances that were breached in the zero-day window.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A NetScaler appliance is like the front door and receptionist desk of a corporate building. These bugs let an attacker walk in off the street, forge a staff badge, and set up a hidden listening post behind the reception desk — even after security changes the locks, the hidden post remains until it's specifically hunted down and removed.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-88771, CVE-2026-88772 · CVSS: 9.8/10 each — Unauthenticated RCE; both on CISA KEV catalog; federal remediation deadline passed September 30, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: BYOVD (Bring Your Own Vulnerable Driver) ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    BYOVD is a technique where attackers load a legitimate but known-vulnerable driver into Windows to operate at the kernel level — the deepest layer of the operating system — allowing them to kill security software from below where no antivirus can fight back. Because the driver carries a valid code-signing certificate from a real vendor, Windows loads it without complaint, making blocklists the primary defense. Microsoft publishes a Vulnerable Driver Blocklist updated via Windows Update, and WDAC (Windows Defender Application Control) policies can enforce it, but many organizations don't keep these enforced — leaving the door open for groups like Warlock to walk straight through antivirus protection before deploying ransomware.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: MCP · BYOVD · FCEB · C2 · CI/CD ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MCP</strong> — Model Context Protocol: an open standard that lets AI coding assistants and chatbots securely connect to external tools, APIs, and data sources, enabling them to take actions on behalf of developers.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">BYOVD</strong> — Bring Your Own Vulnerable Driver: a technique where attackers import a legitimately signed but exploitable kernel driver to gain elevated privileges and disable security software from the OS kernel level.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">FCEB</strong> — Federal Civilian Executive Branch: the U.S. federal agencies (excluding military and intelligence) subject to CISA's Binding Operational Directives, including mandatory KEV remediation deadlines.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">C2</strong> — Command and Control: the infrastructure (servers, protocols, or channels) attackers use to remotely issue commands to and receive data from compromised systems inside a victim network.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">CI/CD</strong> — Continuous Integration / Continuous Deployment: automated software build and delivery pipelines that, when misconfigured, can expose sensitive secrets (API keys, credentials) that attackers harvest for initial access.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://vulert.com/vuln-db/CVE-2026-77248" style="color:#374151;text-decoration:none;">CVE-2026-77248: MCP-Atlassian Unauthenticated Arbitrary File Read (CVSS 8.6) — Upgrade to v0.22.0</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Vulert</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/10/weekly-recap-netscaler-and-fortimail-0.html" style="color:#374151;text-decoration:none;">Weekly Recap: Spectre v2 Returns, Ransomware Arrests, AI Coding Leaks</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 7, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
