@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 8, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 8, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 3 critical · 2 high · 2 medium · ~12 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - Atlassian -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 7, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/atlassian-data-center-flaw-draws.html" style="color:#111827;text-decoration:none;">Atlassian Data Center CVE-2026-21589 Exploited Within Two Hours of Public Disclosure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Threat actors began exploiting CVE-2026-21589, a CVSS 9.3 unauthenticated flaw in Atlassian Jira, Confluence, and Bitbucket Data Center, within two hours of technical details being published.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running any self-managed Atlassian Data Center product on unpatched versions are exposed to unauthenticated remote attacks.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Atlassian's security updates immediately; if patching cannot be done right now, restrict all Atlassian Data Center services from public internet access using firewall rules or VPN requirements.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers are targeting internet-exposed Atlassian Data Center login interfaces to exploit the unauthenticated vulnerability and gain initial access to organizational development infrastructure.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-21589 is an authentication bypass flaw affecting multiple Atlassian Data Center products — Jira, Confluence, and Bitbucket — the tools enterprise development teams rely on for issue tracking, documentation, and code hosting. Because no credentials are required to trigger the flaw, any internet-connected instance on a vulnerable version is exposed without any user interaction or phishing campaign needed.
+        <br><br>
+        The speed of exploitation — within two hours of public details being available — reflects the rapid operationalization standard in today's threat landscape: automated scanners find vulnerable instances within minutes, and weaponization follows almost immediately. This is not a theoretical threat; administrators should assume attackers are actively scanning for their systems right now.
+        <br><br>
+        The real danger extends beyond initial access. Atlassian Data Center products contain source code, deployment keys, API tokens, and internal project data. Compromising these systems often yields credentials needed to pivot deeper into infrastructure, and in a software development context, access to Confluence or Bitbucket could enable supply chain attacks affecting downstream customers.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Atlassian makes popular workplace tools like Jira (for tracking tasks and bugs) and Confluence (for internal documentation). This bug lets hackers walk straight into those systems without needing a username or password, and attackers started breaking in just two hours after the vulnerability was made public.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-21589 · CVSS: 9.3/10 — Critical authentication bypass enabling unauthenticated remote access across multiple Atlassian Data Center products; no credentials or user interaction required.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - Denmark Breach -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Euronews · Oct 5, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://euronews.com/2026/10/05/hackers-access-data-of-88-million-people-in-denmark-in-extremely-serious-breach" style="color:#111827;text-decoration:none;">Hackers Access Data of 8.8 Million People in Denmark's National Population Registry</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Hackers breached Denmark's national CPR population registry, accessing personal data on 8.8 million people — including names, addresses, and the immutable national identity numbers used across all government and financial services.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Virtually all Danish residents and potentially Danish diaspora, as CPR numbers cannot be changed and the exposed data enables targeted identity theft and fraud at national scale.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Danish residents should monitor bank and government accounts for unauthorized activity, be vigilant for highly personalized phishing attempts using their real name and address, and await official guidance from Danish authorities on protective measures.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Collection] T1213 · Data from Information Repositories<br>
+      <span style="color:#6b7280;">Attackers targeted Denmark's centralized national population registry — a government information repository — to exfiltrate personally identifiable information at massive scale, exactly the repository-targeting pattern T1213 describes.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        Denmark's CPR (Central Persons Register) is the backbone of Danish society — every citizen uses their CPR number for healthcare, tax filing, banking, and government services. Unlike passwords, CPR numbers are permanent and cannot be changed, making this breach qualitatively different from a typical credential leak. The damage is long-lasting and irreversible at the individual level.
+        <br><br>
+        The 8.8 million figure exceeds Denmark's current population of approximately 5.9 million, suggesting the registry also contains historical records, records of Danish diaspora, or foreign nationals who were registered at some point. This broadens the potential victim pool significantly beyond current residents.
+        <br><br>
+        Danish officials' characterization of the breach as "extremely serious" is significant — they are not prone to hyperbole in security communications. The combination of CPR numbers with names and addresses creates the ideal dataset for synthetic identity fraud, highly personalized phishing, and cross-referencing with other leaked databases to build comprehensive dossiers on individuals. Nation-state actors have historically targeted national identity registries for intelligence purposes.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Denmark gives every resident a unique ID number (called a CPR number) used for everything from seeing a doctor to filing taxes — like a social security number that works everywhere. Hackers stole those numbers plus names and addresses for 8.8 million people. Since you can't change your CPR number, this causes problems for affected individuals for years to come.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE: N/A (data breach) · CVSS: N/A — Mass unauthorized access to national population registry; attack vector not yet publicly disclosed by Danish authorities.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: CRITICAL - FortiMail -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="color:#111827;text-decoration:none;">FortiMail Zero-Day CVE-2026-104286 (CVSS 9.8): CISA Remediation Deadline Has Passed, Active Exploitation Continues</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The CISA KEV remediation deadline (October 4) for FortiMail CVE-2026-104286 — a CVSS 9.8 unauthenticated arbitrary file write zero-day — has now passed, and active exploitation continues to deploy backdoors, web shells, and persistent malicious shared libraries.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running FortiMail 7.2.x through 8.0.x as their email security gateway, particularly those with internet-accessible management interfaces or webmail portals.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade FortiMail immediately to a patched release; if immediate patching isn't possible, disable IBE and remove management and webmail access from untrusted networks — any appliance with prior internet exposure should be treated as potentially compromised and investigated.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Persistence] T1574.006 · Hijack Execution Flow: Dynamic Linker Hijacking<br>
+      <span style="color:#6b7280;">After exploiting FortiMail, attackers modified the Linux dynamic linker preload configuration so malicious shared libraries load automatically at every system startup — establishing persistence that survives reboots and routine maintenance.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-104286 exploits a combination of path traversal (CWE-22) and null-byte injection (CWE-158) in Fortinet's FortiMail email security gateway, letting an unauthenticated attacker write arbitrary files to the underlying Linux system. This is not a privilege escalation or post-auth flaw — any attacker who can reach the management interface can exploit it without any valid account.
+        <br><br>
+        Post-exploitation artifacts observed in active campaigns are sophisticated: attackers establish deep persistence by modifying the /etc/ld.so.preload configuration so malicious shared libraries load on every system start, adding archive accounts configured to silently exfiltrate data to external servers, and deploying web shells for persistent remote access. This level of tradecraft suggests organized, well-resourced threat actors operating with a long-term access objective.
+        <br><br>
+        The CISA KEV deadline of October 4 has now passed. Organizations that haven't patched are operating past due. Because FortiMail sits at the email perimeter, a compromised appliance gives attackers visibility into all incoming and outgoing email traffic, inbound credentials, and internal communications. Any FortiMail appliance with prior internet exposure before patching should be forensically investigated — look for the sec_monitor superuser account, suspicious binaries, and unauthorized preload entries.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> FortiMail is software companies use to filter spam and protect business email. This bug lets hackers break in without a password and secretly install hidden programs that start up automatically every time the system restarts. The government's deadline for agencies to fix this already passed — any organization that hasn't acted is leaving a door wide open.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104286 · CVSS: 9.8/10 — Unauthenticated path traversal + null-byte injection enables arbitrary file write on FortiMail appliances; leads to full system compromise including persistent backdoors.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - ShinyHunters FBI -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">eSecurityPlanet · Oct 6, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.esecurityplanet.com/threats/news-shinyhunters-fbi-breach-peoplesoft-zero-day/" style="color:#111827;text-decoration:none;">ShinyHunters Claims FBI Jobs Portal Breach via Oracle PeopleSoft Zero-Day, 5,000 Records Leaked as Proof</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Criminal hacking group ShinyHunters claims to have breached the FBI's jobs portal (FBIjobs.gov) via an Oracle PeopleSoft zero-day, leaking a 5,000-record sample of employee and applicant data; the FBI has confirmed an investigation is underway.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> FBI personnel and job applicants in the leaked dataset; Mandiant also tracks related PeopleSoft compromises across education, healthcare, technology, and government — making this a broader sector-wide risk.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Organizations running Oracle PeopleSoft should apply Oracle's June 2026 security patches (CVE-2026-35273) immediately and audit internet-facing PeopleSoft instances for unauthorized access or data exfiltration indicators.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">ShinyHunters exploited a vulnerability in the FBI's internet-facing PeopleSoft HR portal to gain unauthorized access to a government personnel database — a direct application of exploiting public-facing application weaknesses.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        ShinyHunters is among the most prolific criminal data theft groups of the 2020s, with confirmed major breaches of AT&amp;T, Ticketmaster, and numerous Snowflake-linked companies. The claimed FBI breach via PeopleSoft represents a significant escalation in target sensitivity — law enforcement personnel records carry obvious value for criminal and potentially nation-state actors seeking to identify undercover agents, coerce officers, or target their families.
+        <br><br>
+        Oracle PeopleSoft is widely deployed enterprise HR software across government, healthcare, education, and finance. Mandiant's tracking of related PeopleSoft compromises across multiple sectors indicates the underlying vulnerability or technique isn't limited to the FBI — organizations in higher education, technology, agriculture, and government have all been identified as victims. This is a sector-wide risk requiring immediate attention from all PeopleSoft operators.
+        <br><br>
+        ShinyHunters' claims remain unverified by the FBI, but the publication and independent review of a 5,000-record sample of what appear to be genuine FBI applicant files lends credibility. The group has a track record of both accurate disclosures and exaggerated claims, but the data sample's apparent authenticity means this warrants serious treatment pending official confirmation.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> ShinyHunters is a criminal hacker group known for stealing huge amounts of personal data and selling it online. They're now claiming they hacked the FBI's job application website by exploiting a bug in the software that runs it, and they've released a sample of thousands of FBI employee and applicant records to prove it. This is especially dangerous because the data could be used to identify and target FBI agents.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-35273 (Oracle PeopleSoft, June 2026) · CVSS: Not yet published — PeopleSoft HR portal exploitation enabling unauthorized access to government personnel records; FBI investigation ongoing.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: ShinyHunters -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">ShinyHunters</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Hacking Group · Attribution: International (no nation-state link established)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> High-value data repositories across enterprise, government, cloud platforms (AT&amp;T, Ticketmaster, Snowflake customers, FBI)</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Mass-scale data theft and extortion; exploiting enterprise application vulnerabilities (PeopleSoft, Snowflake); monetizing stolen data through dark web sales and extortion demands</div>
+</div>
+
+<!-- STORY 5: HIGH - MALFEX npm -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Checkmarx · Oct 1, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://checkmarx.com/zero-post/malfex-npm-malware-campaign-three-payloads-and-an-adversary-that-signs-their-work/" style="color:#111827;text-decoration:none;">MALFEX npm Supply Chain Campaign Delivers Overlord RAT via 8 Malicious Packages Downloaded 40,767 Times</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Checkmarx and CloudSEK identified 8 malicious npm packages (MALFEX campaign) delivering three payloads — Overlord RAT, movinlike infostealer, and a persistent downloader — totaling 40,767 downloads, with three packages still live on the registry as of October 1.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> JavaScript and Node.js developers who installed any MALFEX packages, and potentially downstream users of applications built with the compromised dependencies on Windows systems.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit all projects for function-flag, function-color, cdn-img-fetch, and related MALFEX packages; isolate any Windows machine that installed them, remove persistence mechanisms, and rotate all credentials accessible from affected systems.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1195.001 · Supply Chain Compromise: Compromise Software Dependencies<br>
+      <span style="color:#6b7280;">Attackers published malicious packages to the npm registry masquerading as legitimate utilities, compromising the software supply chain by targeting developers at the dependency installation stage using npm postinstall lifecycle hooks.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        MALFEX is notable for its persistence and multi-payload architecture. The threat actor has been operating on npm since August 2023, using npm postinstall scripts to execute malware automatically during routine package installation — a moment developers typically don't scrutinize. function-flag alone, malicious since July 2025, accounts for 37,419 of the campaign's 40,767 downloads.
+        <br><br>
+        Three distinct payloads serve different attack objectives: Overlord RAT (a Go-based open-source RAT) provides full remote access including screen capture, keylogging, and remote shell; movinlike steals browser credentials and Discord tokens; and the persistent downloader can receive and execute additional payloads on demand. This modular architecture suggests an organized operator planning for long-term access rather than opportunistic credential theft.
+        <br><br>
+        A critical coverage gap identified by Checkmarx: function-flag and function-color have no security advisories at all, meaning automated scanning tools relying on advisory databases will silently allow these packages to install. Organizations with high confidence in their npm security posture based solely on automated tools may have a false sense of protection. The operator also digitally signs some payloads to bypass security controls that trust signed code.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Programmers build apps using pre-made code packages downloaded from a shared library called npm — like ordering parts from a catalogue. Attackers uploaded fake packages that looked legitimate; when developers downloaded them, malware installed automatically on their computers. It's like receiving certified parts in the mail, but some are secretly counterfeit with hidden tracking devices inside.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE: N/A (supply chain attack) · CVSS: N/A — Malicious npm packages delivering RAT and infostealer via postinstall lifecycle abuse; three packages remain live as of Oct 1, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: MEDIUM - ASOS -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 6, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityweek.com/asos-confirms-cyberattack-data-breach" style="color:#111827;text-decoration:none;">ASOS Confirms Cyberattack: Unauthorized Push Notifications Sent via Compromised Third-Party Platform</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> ASOS confirmed attackers compromised a third-party customer push notification platform, sending unauthorized messages to app users and potentially accessing basic user information including names and contact details.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> ASOS app users who received unexpected push notifications; payment card data and account passwords are not believed to be impacted.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> ASOS users should disregard unexpected push notifications, enable two-factor authentication on their account, and stay alert for personalized phishing attempts using their real name and contact details.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1199 · Trusted Relationship<br>
+      <span style="color:#6b7280;">Attackers exploited the trusted relationship between ASOS and its third-party push notification vendor to reach millions of ASOS customers, accessing the user base without needing to breach ASOS's own core infrastructure directly.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        The ASOS incident follows an established pattern: targeting weaker third-party service providers to access a large organization's customer base without directly breaching the primary target. By compromising the push notification vendor, attackers gained the ability to reach ASOS's app users with content appearing to come from a legitimate, trusted source.
+        <br><br>
+        While ASOS indicates payment cards and passwords are not believed affected, the exposed names and contact details are sufficient to fuel highly targeted follow-on phishing campaigns. Customers who received an unexpected ASOS push notification are now at elevated risk of convincing social engineering attempts, because attackers have their real names and accurate contact information.
+        <br><br>
+        This attack vector — trusted communication channels (push notifications, SMS gateways, email marketing platforms) managed by third-party vendors with different security standards — is a growing concern. A breach of these services reaches millions of end-users while bypassing the primary organization's own security controls entirely.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> ASOS is a popular online clothing store. Hackers didn't attack ASOS directly — they broke into a smaller company that ASOS pays to send push notifications to customers' phones. Using that access, they sent fake messages to ASOS users and may have seen some basic contact information.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE: N/A · CVSS: N/A — Third-party push notification platform breach; scope of user data exposure under investigation by ASOS.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 7: MEDIUM - Nikkei -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Cyber Express · Oct 4, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thecyberexpress.com/nikkei-cyberattack/" style="color:#111827;text-decoration:none;">Nikkei Cyberattack: Hackers Compromise Microsoft 365 Accounts, Send 9,000 Spoofed Emails</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers compromised Nikkei employees' Microsoft 365 accounts and sent approximately 9,000 spoofed emails from legitimate Nikkei addresses; a separate cloud intrusion potentially exposed data on 1,646 employees and business partners.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Nikkei employees and business partners whose data may have been exposed, plus recipients of the 9,000 spoofed emails who may now be targeted by follow-on phishing attacks.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Recipients of unexpected emails from Nikkei addresses should verify through alternative channels; Nikkei business contacts should be alert to targeted phishing attempts leveraging the legitimate sender reputation.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Resource Development] T1586.002 · Compromise Accounts: Email Accounts<br>
+      <span style="color:#6b7280;">Attackers compromised legitimate Nikkei Microsoft 365 email accounts to send malicious or reconnaissance emails from trusted, authenticated senders — bypassing spam filters and recipient vigilance through inherited sender reputation.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        The Nikkei incident demonstrates a dual-threat pattern of cloud account compromise: direct data exposure combined with the weaponization of legitimate credentials for downstream attacks. By using genuine Nikkei employee Microsoft 365 accounts to send emails, attackers inherited Nikkei's established email reputation — meaning those 9,000 emails had significantly higher inbox delivery rates and were more likely to be trusted by recipients.
+        <br><br>
+        Nikkei is Japan's most influential financial and business media organization, with extensive contacts across financial institutions, major corporations, and government entities. Its compromised email infrastructure represents a particularly high-value launching pad for business email compromise (BEC) attacks against Nikkei's network of sources and contacts.
+        <br><br>
+        The separate cloud-service intrusion affecting 1,646 records suggests either a related credential reuse attack against Nikkei's cloud storage, or a parallel campaign. The relatively contained record count may indicate early detection and successful containment of that second breach.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Nikkei is Japan's equivalent of the Wall Street Journal — one of the world's most important financial newspapers. Hackers broke into Nikkei employees' email accounts on Microsoft 365, then used those real accounts to send thousands of fake emails. Because those emails came from real Nikkei addresses, spam filters didn't catch them and recipients were much more likely to trust them.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE: N/A · CVSS: N/A — Microsoft 365 account compromise enabling 9,000 spoofed emails; separate cloud intrusion exposed 1,646 employee and partner records.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Template Injection ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Template injection occurs when a server uses a template engine to dynamically generate output — like a webpage or automated email — and an attacker is able to inject their own template syntax into that output, causing the engine to execute malicious logic rather than simply render it as text. Unlike SQL injection (which targets databases) or command injection (which targets the OS shell), template injection exploits the template rendering layer and can often bypass application-level sandboxes to achieve server-side code execution. This week's GitLab AI Gateway flaw (CVE-2026-90970, CVSS 9.9) is a prime example: an authenticated user could craft a Duo Agent Platform flow configuration that escaped the prompt-template sandbox and ran arbitrary commands directly on the gateway server.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: SSRF · ccTLD · RAT · npm ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SSRF</strong> — Server-Side Request Forgery; an attack where a hacker tricks a server into making network requests to internal systems on their behalf, often used to reach resources that aren't directly accessible from the internet.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ccTLD</strong> — Country Code Top-Level Domain; the two-letter domain suffix assigned to each country (e.g., .uk for the United Kingdom, .gh for Ghana), administered by a national registry authority controlling domain registration for that country.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RAT</strong> — Remote Access Trojan; malware that gives an attacker full remote control over an infected computer, typically including screen capture, keystroke logging, file access, and command execution as if they were sitting at the keyboard.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">npm</strong> — Node Package Manager; the default package manager for the JavaScript/Node.js ecosystem, hosting millions of open-source code libraries that developers install as project dependencies — and a prime target for supply chain attacks.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#dc2626;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">CRITICAL</span>
+    <a href="https://thehackernews.com/2026/10/citrix-netscaler-post-exploitation.html" style="color:#374151;text-decoration:none;">Citrix NetScaler CVE-2026-88771 Post-Exploitation: Attackers Create Superuser Accounts, Deploy CSS-Mapped Web Shells</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/10/gitlab-patches-critical-self-hosted-ai.html" style="color:#374151;text-decoration:none;">GitLab Patches CVE-2026-90970 (CVSS 9.9) in AI Gateway — Self-Hosted Deployments Must Update Immediately</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/10/attackers-target-rejetto-hfs-flaw-that.html" style="color:#374151;text-decoration:none;">Attackers Target Rejetto HFS CVE-2026-61500: Session Forgery Flaw Enabling Admin Access and RCE</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/10/anthropic-expands-claude-access-for.html" style="color:#374151;text-decoration:none;">Anthropic Expands Claude AI Access for Vetted Security Teams; Project Glasswing Reports 129,000 Vulnerabilities Found</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 8, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
