@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 9, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 2 critical · 2 high · ~10 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-09.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL — Flax Typhoon -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer / DOJ · Oct 8, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/fbi-disrupts-chinese-hacking-tools-used-to-breach-critical-infrastructure/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">FBI and DOJ Dismantle Flax Typhoon's MicroScan and FishHub Hacking Tools, Expose China-Backed Email Espionage Portal</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 FBI/DOJ seized 7 domains and dismantled MicroScan and FishHub — commercial hacking platforms used by China-linked Flax Typhoon (Integrity Technology Group) — while revealing the group ran a portal providing clients access to stolen emails from Southeast Asian governments and healthcare organizations.</div>
+    <div style="margin-top:2px;">👤 Government agencies, law enforcement, healthcare systems, and critical infrastructure operators in Southeast Asia are primary targets; any organization scanned by MicroScan's 1,300+ vulnerability scripts may also be at risk.</div>
+    <div style="margin-top:2px;">✅ Review network logs for connections to seized domains, audit email infrastructure for unauthorized access, and apply mitigations from the joint FBI/CISA/NSA advisory.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Reconnaissance] T1595.002 · Active Scanning: Vulnerability Scanning</div>
+</div>
+
+<!-- STORY 2: CRITICAL — Splunk RCE -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybersecurity News · Oct 7, 2026</span>
+  </div>
+  <a href="https://cybersecuritynews.com/splunk-patches-critical-flaw/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Splunk Patches CVSS 9.8 Pre-Auth RCE: Exposed Patroni REST API Allows Unauthenticated OS Command Execution (CVE-2026-76268)</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-76268 (CVSS 9.8) exposes Splunk Enterprise's Patroni cluster management REST API without any authentication, letting any attacker with network access run arbitrary operating system commands — no credentials required.</div>
+    <div style="margin-top:2px;">👤 Organizations running Splunk Enterprise 10.4.x &lt; 10.4.3 or 10.2.x &lt; 10.2.7 with search head clustering enabled; Splunk Cloud is not affected.</div>
+    <div style="margin-top:2px;">✅ Update to Splunk Enterprise 10.4.3, 10.2.7, 10.0.10, or 9.4.15 immediately; restrict network access to the Patroni REST API as an interim measure.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 3: HIGH — Cisco NX-OS -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cyberpress / Cisco · Oct 8, 2026</span>
+  </div>
+  <a href="https://cyberpress.org/critical-cisco-nx-os-vulnerabilities/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Cisco Patches Five Critical NX-OS Vulnerabilities (CVSS 9.8) Allowing Unauthenticated Remote Root Access on Nexus Switches</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Cisco's October hardening release patches CVSS 9.8 flaws in NGOAM, SRv6, NX-API, and MPLS OAM features that allow unauthenticated remote attackers to execute code with root privileges or cause denial of service on Nexus data center switches.</div>
+    <div style="margin-top:2px;">👤 Organizations with Cisco Nexus, MDS, or UCS hardware running NX-OS that have NGOAM, SRv6, MPLS OAM, or NX-API features enabled.</div>
+    <div style="margin-top:2px;">✅ Apply Cisco's October NX-OS hardening patches; disable NGOAM, SRv6, MPLS OAM, or NX-API features not actively needed while updates are deployed.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 4: HIGH — Android firmware malware -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 8, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/low-cost-android-phones-ship-with-residential-proxy-malware/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Budget Android Phones from Cubot and Doogee Found Shipping with Residential Proxy Malware Embedded in Firmware</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Researchers discovered malicious code embedded directly in the firmware of Cubot and Doogee budget Android phones that silently enrolls devices as residential proxy nodes, routing criminal traffic through victims' home internet connections.</div>
+    <div style="margin-top:2px;">👤 Buyers of affected Cubot and Doogee Android models; victims have no way to detect or remove the malware through normal means as it lives below the Android OS layer.</div>
+    <div style="margin-top:2px;">✅ Avoid budget Android phones from unclear supply chains; affected users must reflash with a verified clean firmware image; enterprises should block non-approved mobile devices.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.002 · Compromise Hardware Supply Chain</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/10/monstercloud-owner-accused-of-billing.html" style="color:#374151;text-decoration:none;">MonsterCloud CEO Charged With Ransomware Recovery Fraud: $19M Billed, $8M Secretly Paid to Attackers</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html" style="color:#374151;text-decoration:none;">AI Pentesting Tool ARTEX Weaponized in Data Theft Campaign Against South Korean Financial Firms</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/10/citrix-netscaler-post-exploitation.html" style="color:#374151;text-decoration:none;">Citrix NetScaler Post-Exploitation Payload Creates Superuser, Maps Web Shell to CSS-Like URLs (CVE-2026-88771)</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-09.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Oct 9, 2026</div>
+
+</body>
+</html>

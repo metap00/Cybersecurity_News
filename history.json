@@ -1,12 +1,13 @@
 {
-  "til": ["Hypervisor Security", "Protocol Tunneling", "Null Byte Injection", "Deserialization Attacks", "Prompt Injection in AI Gateways", "BYOVD (Bring Your Own Vulnerable Driver)", "Template Injection"],
-  "glossary": ["IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "Memory Overflow", "MCP", "BYOVD", "FCEB", "C2", "CI/CD", "SSRF", "ccTLD", "RAT", "npm"],
+  "til": ["Missing Authentication for Critical Functions", "Hypervisor Security", "Protocol Tunneling", "Null Byte Injection", "Deserialization Attacks", "Prompt Injection in AI Gateways", "BYOVD (Bring Your Own Vulnerable Driver)"],
+  "glossary": ["CWE", "Residential Proxy", "NGOAM", "Patroni", "NX-OS", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "Memory Overflow", "MCP", "BYOVD", "FCEB"],
   "week": {
-    "critical": 12, "high": 9, "medium": 7,
-    "techniques": ["T1190", "T1036", "T1530", "T1203", "T1053.005", "T1486", "T1566", "T1499", "T1499.004", "T1059", "T1212", "T1068", "T1583", "T1548", "T1505.003", "T1562.001", "T1078", "T1102", "T1213", "T1574.006", "T1195.001", "T1199", "T1586.002"],
-    "actors": ["Star Blizzard", "Longleaf (Storm-2603)", "KillSec", "Warlock", "Gentlemen", "ShinyHunters"]
+    "critical": 14, "high": 11, "medium": 9,
+    "techniques": ["T1190", "T1036", "T1530", "T1203", "T1053.005", "T1486", "T1566", "T1499", "T1499.004", "T1059", "T1212", "T1068", "T1583", "T1548", "T1505.003", "T1562.001", "T1078", "T1102", "T1213", "T1574.006", "T1195.001", "T1199", "T1586.002", "T1595.002", "T1195.002", "T1657", "T1119"],
+    "actors": ["Star Blizzard", "Longleaf (Storm-2603)", "KillSec", "Warlock", "Gentlemen", "ShinyHunters", "Flax Typhoon"]
   },
   "digests": [
+    {"date": "2026-10-09", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 2},
     {"date": "2026-10-08", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 2},
     {"date": "2026-10-07", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 1},
     {"date": "2026-10-06", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 2},

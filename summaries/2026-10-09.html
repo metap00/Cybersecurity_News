@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 9, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 9, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 2 critical · 2 high · 2 medium · ~10 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — Flax Typhoon FBI seizure -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer / DOJ · Oct 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/fbi-disrupts-chinese-hacking-tools-used-to-breach-critical-infrastructure/" style="color:#111827;text-decoration:none;">FBI and DOJ Dismantle Flax Typhoon's MicroScan and FishHub Hacking Tools, Expose China-Backed Email Espionage Portal</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The FBI and DOJ seized seven domains and shut down MicroScan and FishHub — two commercial hacking platforms operated by Chinese firm Integrity Technology Group (Flax Typhoon) — and simultaneously revealed the group ran a portal letting clients access emails stolen from Southeast Asian governments and healthcare organizations.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Government agencies, law enforcement bodies, healthcare systems, and religious organizations across Southeast Asia, plus any organization whose internet-facing services were scanned by MicroScan's 1,300+ vulnerability-detection scripts.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Review network logs for connections to newly seized domains, audit email infrastructure for unauthorized access, and apply mitigations from the joint FBI/CISA/NSA advisory released alongside the seizure action.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Reconnaissance] T1595.002 · Active Scanning: Vulnerability Scanning<br>
+      <span style="color:#6b7280;">MicroScan was a purpose-built commercial platform using over 1,300 scripts to systematically probe internet-facing services for weaknesses, giving Chinese intelligence services a structured pipeline from reconnaissance to exploitation at scale.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Integrity Technology Group, publicly tracked as Flax Typhoon, has operated as a commercial cyber-offensive contractor providing hacking capabilities to Chinese government intelligence services. The October 8 DOJ action represents one of the most direct US strikes against Chinese state-linked offensive infrastructure: authorities seized seven domains controlling MicroScan and FishHub while issuing a joint advisory signed by the FBI, CISA, and NSA warning of the tools' continued use against critical infrastructure worldwide.</p>
+        <p>MicroScan is not a repurposed open-source tool — it is a custom-built reconnaissance platform that deploys over 1,300 scripts to identify vulnerabilities in public-facing services. Paired with FishHub, a spearphishing platform, operators could move from automated reconnaissance to targeted initial access in a structured, repeatable workflow. The email portal revelation adds a third dimension: Integrity Tech also appears to have operated an intelligence-sharing service that gave vetted clients read access to email archives stolen from Southeast Asian government and civil-society organizations, effectively acting as an intelligence broker.</p>
+        <p>This is the same group behind the 260,000-device Mirai-based botnet dismantled in 2024. That operation targeted the botnet's command-and-control infrastructure; this one targets the offensive tooling itself. The coordinated advisory lists indicators of compromise and urges all organizations — particularly government and critical infrastructure operators — to review their exposure now that the tools' existence and methods are public.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a company that secretly rents specialized spy tools to a government. MicroScan was like a robot lockpicker that automatically tried thousands of "keys" on every digital door it could find — cataloguing which organizations had weak points. FishHub was a convincing fake-email factory. Together they let Chinese intelligence services know exactly where to attack before actually attacking. The FBI essentially raided the factory that made these tools and padlocked the doors, while warning every potential target to check whether the robot had already been inside their network.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — this is an infrastructure seizure and tool takedown action, not a software patch advisory.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD — Flax Typhoon -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Flax Typhoon (Integrity Technology Group)</div>
+  <div style="opacity:.85;margin-top:4px;">State-Sponsored APT · Attributed to: China (PRC)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government agencies, critical infrastructure, military, telecommunications, healthcare, and civil-society organizations worldwide with focus on Southeast Asia and the Pacific.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operating commercial hacking-as-a-service platforms (MicroScan, FishHub); running the 260,000-device Mirai botnet dismantled in 2024; providing intelligence services including access to stolen email archives; offering Chinese state actors plausible deniability through its contractor structure.</div>
+</div>
+
+<!-- STORY 2: CRITICAL — Splunk CVE-2026-76268 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybersecurity News / Splunk · Oct 7, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/splunk-patches-critical-flaw/" style="color:#111827;text-decoration:none;">Splunk Patches CVSS 9.8 Pre-Auth RCE: Exposed Patroni REST API Allows Unauthenticated OS Command Execution (CVE-2026-76268)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Splunk disclosed CVE-2026-76268, a CVSS 9.8 flaw in which the Patroni REST API on Splunk Enterprise search head cluster members is exposed without authentication, allowing any attacker with network access to execute arbitrary OS commands without needing credentials.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Splunk Enterprise 10.4.x before 10.4.3 or 10.2.x before 10.2.7 with search head clustering enabled; Splunk Cloud is not affected by this vulnerability.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update to Splunk Enterprise 10.4.3, 10.2.7, 10.0.10, or 9.4.15 immediately; if patching cannot happen today, restrict network access to the Patroni REST API and PostgreSQL sidecar endpoints as an interim mitigation.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">The unauthenticated Patroni REST API is exposed as a network service in many enterprise Splunk deployments, making CVE-2026-76268 a single-step path from network access to full OS command execution on the Splunk server — no credentials or user interaction required.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Splunk Enterprise's search head cluster architecture uses Patroni — an open-source PostgreSQL high-availability manager — to coordinate cluster membership and configuration changes. Advisory SVD-2026-1001 reveals that Splunk exposed the Patroni REST API without requiring authentication (CWE-306: Missing Authentication for a Critical Function). Because Patroni controls cluster-wide configuration operations, an attacker who reaches this interface doesn't just read data — they can reconfigure the cluster and inject commands that execute with the Splunk process's operating system privileges.</p>
+        <p>This is particularly dangerous because Splunk servers in enterprise environments often run with elevated privileges and sit on network segments alongside sensitive data sources: Active Directory audit logs, firewall telemetry, endpoint detection data. Compromising a Splunk instance means an attacker can both exfiltrate an organization's complete security history and alter or delete log data to erase their tracks — a dual-use threat that makes swift patching critical.</p>
+        <p>Splunk released fixed versions 10.4.3, 10.2.7, 10.0.10, and 9.4.15 on October 7. Versions 10.0.x and 9.4.x are not affected by this specific flaw but should still be updated for the broader advisory's fixes. No active exploitation has been confirmed yet, but given the ease of exploitation and the value of Splunk access to attackers, this should be treated as a P1 patching priority regardless.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Splunk is like a massive security diary that records everything suspicious that happens on a company's network. This flaw means anyone on the same network as Splunk could walk up to its back door — a management interface called the Patroni API — and give it commands like "run this program" without ever needing a username or password. It's like discovering that the bank's vault has a maintenance hatch that anyone can open from the inside of the building.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-76268 · CVSS: 9.8/10 — Unauthenticated OS command execution via the Patroni REST API in Splunk Enterprise search head clusters; network-accessible with no credentials or user interaction required.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH — Cisco NX-OS -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cyberpress / Cisco · Oct 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cyberpress.org/critical-cisco-nx-os-vulnerabilities/" style="color:#111827;text-decoration:none;">Cisco Releases October Hardening Patch for Five Critical NX-OS Vulnerabilities Allowing Unauthenticated Remote Root Access</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Cisco issued a NX-OS hardening release patching five critical vulnerabilities — including CVSS 9.8 flaws in the NGOAM, SRv6, MPLS OAM, and NX-API features — that allow unauthenticated remote attackers to execute arbitrary code with root privileges or cause denial of service on Nexus data center switches.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Cisco Nexus, MDS, or UCS hardware with NX-OS that have NGOAM, SRv6, MPLS OAM, or NX-API features enabled; Cisco found these internally and no active exploitation has been confirmed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Cisco's October 2026 NX-OS hardening release; audit which optional features (NGOAM, SRv6, MPLS OAM, NX-API) are enabled and disable any not in active use while patches are deployed.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Each vulnerable NX-OS feature exposes a network-accessible service that can be exploited without authentication; an attacker able to reach an affected Nexus switch over the network could gain root OS access to core data center switching infrastructure.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The October 2026 NX-OS hardening release addresses flaws across multiple feature sets. Key CVEs include: CVE-2026-76486 and CVE-2026-76501 (CVSS 9.8) in the NGOAM feature used for VXLAN OAM monitoring; CVE-2026-76471 (CVSS 9.8) in the NX-API heap-based buffer overflow; CVE-2026-76459 (CVSS 9.8) in improper access control; and CVE-2026-76455 (CVSS 9.8) — all involving improper input validation in network-facing interfaces. CVE-2026-76501 additionally requires both SRv6 and NGOAM to be simultaneously enabled, slightly reducing its exposure surface.</p>
+        <p>Cisco's advisory notes these were discovered through internal security testing and are not known to be exploited in the wild. However, data center switching infrastructure represents high-value targets — a compromised core switch provides network-wide visibility and interception capability. Organizations should validate their NX-OS feature inventory now, as many deployments enable monitoring features like NGOAM by default without reviewing whether those features introduce network-accessible attack surface.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Cisco Nexus switches are the specialized computers that route network traffic inside large data centers — think of them as the highway interchanges of a company's internal internet. NX-OS is their operating system. These vulnerabilities are in add-on features of that OS: if those optional "lanes" are open, an attacker anywhere on the network could crash the whole interchange or secretly redirect all the traffic through their own server.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-76486, CVE-2026-76501, CVE-2026-76471, CVE-2026-76459, CVE-2026-76455 · CVSS: 9.8/10 — Multiple unauthenticated RCE and root-access vulnerabilities in optional NX-OS features; no active exploitation confirmed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH — Android firmware malware -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/low-cost-android-phones-ship-with-residential-proxy-malware/" style="color:#111827;text-decoration:none;">Budget Android Phones from Cubot and Doogee Found Shipping with Residential Proxy Malware Embedded in Firmware</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researchers discovered that low-cost Android smartphones from Cubot and Doogee ship from the factory with malicious code embedded directly in their firmware that secretly enrolls devices as residential proxy nodes, routing cybercriminals' traffic through victims' home internet connections.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Buyers of affected Cubot and Doogee Android models who may unknowingly be providing their internet connection and device resources to criminal operations; the supply chain compromise predates the buyer receiving the device.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Avoid purchasing Android phones from low-cost manufacturers with unclear supply chains; buyers of potentially affected devices should perform a full factory reset with a verified clean firmware image or replace the device; enterprise mobile device management policies should block non-approved devices.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1195.002 · Compromise Hardware Supply Chain<br>
+      <span style="color:#6b7280;">Attackers embedded residential proxy malware directly in device firmware during manufacturing, compromising thousands of Android phones before they ever reached end users — making this a supply chain attack that bypasses all conventional endpoint security.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>This campaign continues a documented pattern of firmware-level compromise targeting budget Android manufacturers. By embedding malware at the firmware level — not in a downloadable app — the malicious code persists through normal factory resets, is invisible to conventional antivirus apps, and cannot be removed without reflashing the device with a clean firmware image. Users first flagged anomalies on XDA Developers forums before researchers confirmed the malicious firmware components.</p>
+        <p>The proxy functionality allows cybercriminals to route attack traffic through victims' residential IP addresses, making their malicious requests appear to come from legitimate home users rather than data center or VPN exit nodes. This helps bypass IP-based blocking and fraud detection systems. Beyond proxying, such firmware implants are typically capable of credential theft, SMS interception, and installing additional malware at any time via command-and-control updates.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine buying a new house and discovering that the previous contractor installed a hidden pipe that lets strangers route sewage through your property without your knowledge. That's essentially what this is: someone got to the phone while it was still being assembled and installed hidden software that uses your home internet connection on behalf of hackers. Your phone looks innocent, but it's secretly acting as a relay station for criminal network traffic.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — supply chain compromise via modified firmware image during manufacturing; clean firmware reflash required to remediate.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: MEDIUM — MonsterCloud fraud -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/monstercloud-owner-accused-of-billing.html" style="color:#111827;text-decoration:none;">MonsterCloud Owner Accused of Billing Ransomware Victims Over $19M While Secretly Paying Attackers for Decryptors</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The U.S. Department of Justice charged Zohar Pinhasi, CEO of ransomware recovery firm MonsterCloud, with fraudulently billing ransomware victims over $19 million in "recovery" fees while secretly negotiating with and paying ransomware gangs approximately $8 million to obtain decryption keys — pocketing the difference.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations that paid MonsterCloud for ransomware recovery services; the charges raise broad concerns about the transparency of third-party ransomware negotiation and recovery firms operating in the unregulated incident response market.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Organizations contracting incident response or ransomware recovery services should demand full transparency on negotiation methodology and fee structures; legal counsel should review whether any prior MonsterCloud engagement may be subject to recourse.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1657 · Financial Theft<br>
+      <span style="color:#6b7280;">Pinhasi allegedly exploited victims' desperation immediately following ransomware attacks to inflate fees and commit financial theft — charging rates up to double what he actually paid attackers while misrepresenting his firm's recovery methods.</span>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 6: MEDIUM — ARTEX AI pentesting tool -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html" style="color:#111827;text-decoration:none;">AI Pentesting Tool ARTEX Weaponized in Data Theft Campaign Against South Korean Financial Firms</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CrowdStrike Intelligence tracked an intrusion campaign running from late September through early October 2026 in which threat actors used ARTEX — a commercially available AI-powered penetration testing tool — to conduct automated data collection and exfiltration from South Korean financial institutions.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> South Korean financial sector organizations; the case illustrates a growing trend of attackers weaponizing legitimate commercial security tools to automate data theft operations.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Financial sector security teams should monitor for unusual automated internal network scanning activity characteristic of AI pentesting tools; review CrowdStrike's indicators of compromise for ARTEX activity signatures.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Collection] T1119 · Automated Collection<br>
+      <span style="color:#6b7280;">ARTEX leveraged its AI-driven automation engine to systematically identify, access, and stage data from targeted financial firm systems — turning a legitimate pentesting workflow into a scalable exfiltration pipeline with minimal human operator involvement.</span>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Missing Authentication for Critical Functions (CWE-306) ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    CWE-306 describes the mistake of exposing a powerful internal function — like a cluster management API or an admin console — over the network without requiring any form of login or credential check, allowing anyone who can reach that network port to use it freely. Today's Splunk flaw (CVE-2026-76268) is a textbook example: the Patroni REST API, designed for internal cluster coordination, was network-accessible without authentication, turning an internal tool into a remote code execution entry point. Defenders can find and fix CWE-306 issues by reviewing every service that listens on a network port and asking whether it enforces authentication — if the answer is no, it should either require credentials or be firewalled to allow only specific internal systems.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: CWE · Residential Proxy · NGOAM · Patroni · NX-OS ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CWE</strong> — Common Weakness Enumeration; a MITRE-maintained catalogue of named software and hardware weakness types (e.g., CWE-306: Missing Authentication) used to classify the root cause of vulnerabilities beyond just their CVE identifier.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Residential Proxy</strong> — a network of real consumer devices (home routers, phones) that have been infected with malware and rented out to route attackers' internet traffic, making malicious requests appear to originate from ordinary home IP addresses rather than data center servers.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">NGOAM</strong> — Network Generic Operations, Administration, and Maintenance; a Cisco protocol for monitoring and troubleshooting VXLAN-based data center networks; when enabled on NX-OS devices it exposes a network-facing service that today's CVEs show can be exploited for unauthenticated root access.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Patroni</strong> — an open-source Python tool that manages high-availability clusters for PostgreSQL databases by coordinating leader election and configuration across cluster members; Splunk Enterprise uses it internally for search head cluster coordination, and its exposed REST API was the entry point for today's CVE-2026-76268.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">NX-OS</strong> — Cisco's network operating system designed for Nexus data center switches and MDS storage switches; built for high-density, high-throughput environments, it supports advanced features like VXLAN, SRv6, and NGOAM whose optional activation can introduce significant attack surface.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/10/16-malicious-firefox-extensions-pose-as.html" style="color:#374151;text-decoration:none;">16 Malicious Firefox Extensions Pose as Rabby and OKX Wallets to Steal Crypto Recovery Phrases</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/10/citrix-netscaler-post-exploitation.html" style="color:#374151;text-decoration:none;">Citrix NetScaler Post-Exploitation Payload Creates Superuser, Maps Web Shell to CSS-Like URLs (CVE-2026-88771)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.jpcert.or.jp/english/" style="color:#374151;text-decoration:none;">JPCERT/CC Issues Alert on Wave of Personal Data Leaks at Japanese Organizations via Mobile App API Abuse</a>
+    <span style="color:#9ca3af;font-size:11px;"> · JPCERT/CC</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 9, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
