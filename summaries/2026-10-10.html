@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 10, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 10, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 2 critical · 3 high · 1 medium · ~7 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — IDCF Cloud Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Oct 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/ransomware-attack-disrupts-japans-idcf-cloud-used-by-govt-clients/" style="color:#111827;text-decoration:none;">Ransomware Attack on IDCF Cloud Disrupts 495 Japanese Organizations</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Ransomware attackers breached IDC Frontier's IDCF Cloud East Japan Region 1, encrypted an estimated 239 hypervisors and 3.6 PB of data, and took 495 companies and local government clients offline starting Oct 7.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> 495 Japanese organizations including Ibaraki Prefecture government websites, Nissui's nationwide cold-chain logistics arm, railways, police, and food suppliers.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> IDCF Cloud tenants should rebuild from off-site backups, test cross-region or offline disaster recovery plans, and isolate hypervisor management planes from public internet access.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1490 · Inhibit System Recovery<br>
+      <span style="color:#6b7280;">Attackers targeted the hypervisor management plane specifically to prevent victims from reverting encrypted VMs via snapshots or provider-managed backups, compounding the business disruption.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        IDC Frontier is a SoftBank Group subsidiary that operates IDCF Cloud, one of Japan's largest infrastructure cloud providers. At 3:40 a.m. Japan Standard Time on October 7, services in its East Japan Region 1 cluster collapsed. The company disclosed that 495 customer organizations lost access to virtual servers, storage volumes, and networking resources simultaneously. Nissui Corporation's logistics division halted all warehouse shipments nationwide. Ibaraki Prefecture's public-facing websites went dark. At least one municipality reported being unable to access its own backup data held within the affected region, making recovery significantly harder.
+        <br><br>
+        Attacker-claimed figures — 7 minutes to breach the management plane, 239 hypervisors, 3.6 PB encrypted — have not been independently confirmed by IDC Frontier, but the scope is consistent with a hypervisor-level attack. This class of attack is distinct from traditional ransomware because a single management credential grants access to every virtual machine running on a host. IDC Frontier stated that customers may need to rebuild entirely from their own backups. The supply-chain risk extends beyond Japan: U.S. food producers including a Gorton's parent company are reported to have exposure through logistics contracts with Nissui.
+        <br><br>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of IDCF Cloud like a massive apartment building where each "unit" is one customer's servers. Ransomware normally breaks into one unit and locks it up. In this attack, the criminals somehow got the master key to the whole building's electrical and plumbing systems — so when they turned things off, every unit went dark at once. Rebuilding means tenants have to move all their furniture back in from scratch, which is why hundreds of organizations have disrupted services days after the attack.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — supply chain ransomware via hypervisor management plane access; investigation ongoing.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL — AhsayCBS zero-days -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Huntress / SecurityWeek · Oct 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/" style="color:#111827;text-decoration:none;">Unpatched AhsayCBS Backup Flaws (CVE-2026-105133, CVE-2026-105134) Exploited to Drop Webshells and Cryptominers</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are chaining two unpatched flaws in AhsayCBS backup software — an authentication bypass (CVE-2026-105133) followed by a SYSTEM-level remote code execution bug (CVE-2026-105134) — to install JSP webshells and XMRig cryptominers on victim systems.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running AhsayCBS backup server versions up to and including 10.3.4; Huntress confirmed at least 5 organizations actively compromised as of Oct 8.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately restrict AhsayCBS management interface access to trusted IPs or VPN; audit for JSP webshells and the persistence service named 'MicrosoftEdgeUpdateSvc'; no vendor patch is available yet.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1496 · Resource Hijacking<br>
+      <span style="color:#6b7280;">After achieving SYSTEM-level code execution on the backup server, attackers deploy XMRig to hijack victims' computing resources for cryptocurrency mining, generating attacker revenue while concealing deeper persistence via webshells.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        AhsayCBS (Ahsay Cloud Backup Suite) is a widely used enterprise backup solution. The attack chain begins with CVE-2026-105133, a medium-severity flaw in the checkSysPwd authentication function that lets attackers bypass login without valid credentials. Once authenticated, they exploit CVE-2026-105134 — a critical unauthenticated RCE bug in the Replication Receiver component — to execute arbitrary code running as SYSTEM (the highest Windows privilege level). Huntress researchers began observing exploitation activity starting October 7, 2026 at 23:20 UTC.
+        <br><br>
+        What makes this particularly dangerous is that backup infrastructure typically holds elevated credentials, agent certificates, and administrative access to every system it protects. Attackers who compromise a backup server often have a springboard to the entire environment. In confirmed incidents, post-exploitation activity included dropping JSP webshells for persistent access and installing XMRig hidden behind a service mimicking the legitimate Microsoft Edge update service. No vendor patch exists at time of publication, making firewall isolation the only reliable mitigation.
+        <br><br>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A backup server is like the master key room of a hotel — it has copies of credentials and access paths to everything else. CVE-2026-105133 is like finding the door to the master key room unlocked, and CVE-2026-105134 is finding the safe inside also broken. The attacker then installs invisible software that quietly uses your computers to mine cryptocurrency (like having a stranger run up your electricity bill 24/7) while leaving backdoors to come back whenever they want.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-105133 · CVSS: 7.3/10 — authentication bypass in AhsayCBS checkSysPwd function, medium severity but enables chaining to critical RCE. CVE-2026-105134 · CVSS: 10.0/10 — unauthenticated RCE via Replication Receiver component, runs as SYSTEM.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH — Citrix NetScaler SAML CVE-2026-88779 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Oct 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/" style="color:#111827;text-decoration:none;">Citrix Patches NetScaler SAML Zero-Day CVE-2026-88779 — Third Exploited Flaw in 10 Days</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Citrix patched CVE-2026-88779, a memory-overflow vulnerability (CVSS 8.7) in the NetScaler ADC/Gateway SAML endpoint that was exploited in targeted attacks before the fix arrived; it is the third actively exploited zero-day in NetScaler in 10 days.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running NetScaler ADC or Gateway as a SAML service provider or identity provider on builds below 14.1-73.41 or 13.1-64.28; CISA added it to KEV with a federal remediation deadline of October 7 (already passed).</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to NetScaler ADC/Gateway 14.1-73.41 or 13.1-64.28 immediately; FIPS builds require 14.1-73.41 FIPS; review logs for anomalous SAML request traffic.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1606.002 · Forge Web Credentials: SAML Tokens<br>
+      <span style="color:#6b7280;">The vulnerability in the SAML authentication endpoint allows attackers to send malformed XML requests that manipulate the authentication flow, potentially forging session tokens that grant unauthorized access to downstream enterprise applications.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-88779 affects NetScaler ADC and NetScaler Gateway only when configured as a SAML service provider or SAML identity provider — a configuration extremely common in enterprise environments where NetScaler serves as the VPN/SSO gateway. The flaw is classified as CWE-119 (memory corruption) and carries a CVSS v4.0 score of 8.7. Citrix's own disclosure characterizes it as a denial-of-service vulnerability, but independent researchers have observed behavior suggesting the memory corruption can be leveraged for remote code execution, though this remains disputed.
+        <br><br>
+        This is the third Citrix NetScaler zero-day to see active exploitation in roughly 10 days, following CVE-2026-88771 and CVE-2026-88772 which CISA had already added to its KEV catalog. The pattern suggests highly motivated threat actors systematically probing NetScaler's complex protocol handling code. The federal patch deadline of October 7 has already passed. Organizations that patched for the previous two CVEs must apply this separate update, as prior upgrades do not cover CVE-2026-88779.
+        <br><br>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> NetScaler acts as the front door to many companies' internal apps — it's what you hit when you click a corporate VPN or SSO login. SAML is a login protocol where it hands you a digital "visitor pass" to get into other systems. This bug is in how NetScaler processes those visitor pass requests — attackers can send a broken request that crashes or manipulates it in a useful way. For companies that haven't patched, it's like the security desk at the lobby accepting forged ID cards.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-88779 · CVSS: 8.7/10 — memory overflow (CWE-119) in NetScaler SAML endpoint; CISA KEV listed, federal deadline Oct 7, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH — Atlassian CVE-2026-21589 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/atlassian-data-center-flaw-draws.html" style="color:#111827;text-decoration:none;">Attackers Begin Exploiting Critical Atlassian Data Center File-Read Bug CVE-2026-21589 Within Hours of PoC Release</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Threat actors began exploiting CVE-2026-21589, a CVSS 9.3 unauthenticated arbitrary file-read vulnerability in 8 self-hosted Atlassian products, within hours of watchTowr releasing a public proof-of-concept demonstrating how to extract admin credentials from crowd.properties.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All self-hosted Atlassian Data Center users running unpatched versions of Jira, Confluence, Bitbucket, Bamboo, Crowd, Crucible, and Fisheye; Atlassian Cloud customers are not affected.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Atlassian's patched LTS releases immediately; if patching is not possible, take the instance offline or isolate it from the internet; audit access logs for traversal patterns in URL paths.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1552.001 · Unsecured Credentials: Credentials in Files<br>
+      <span style="color:#6b7280;">The arbitrary file-read flaw enables unauthenticated attackers to retrieve plaintext database credentials stored in crowd.properties, which watchTowr demonstrated can then be used via Crowd's API to create a new Jira administrator account.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CVE-2026-21589 allows an unauthenticated attacker to read any file within the web root of affected Atlassian self-hosted products — as long as they know the exact file path. Atlassian noted the flaw does not allow directory listing, so attackers must know or guess the file path. This limitation was largely negated when security firm watchTowr published a technical write-up showing that the crowd.properties configuration file (a predictable path) stores plaintext database credentials for Crowd-integrated deployments. Using those credentials through Crowd's administration API, watchTowr demonstrated full escalation to Jira administrator.
+        <br><br>
+        The exploitation window opened rapidly: honeypot activity logged by security firm Previdian showed active exploitation attempts within hours of watchTowr's publication. Eight Atlassian Data Center products are affected, making this a broad attack surface affecting some of the world's most widely deployed development infrastructure. Organizations using self-hosted Atlassian tools for source code management, CI/CD, or issue tracking are at risk of complete takeover if unpatched.
+        <br><br>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a filing cabinet at a company where you can pull out any specific document if you know its exact location. The flaw lets anyone from the internet ask for a document — and the particular document (crowd.properties) contains the keys to the whole admin system. It's like a building management file that lists all the door codes being accessible from the lobby. Attackers can read those codes, walk into the manager's office, and create themselves administrator accounts.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-21589 · CVSS: 9.3/10 — unauthenticated arbitrary file read in Atlassian Data Center products; patched versions available, active exploitation confirmed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH — FortiBleed Campaign -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Record / FBI Advisory · Oct 7, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://therecord.media/fortibleed-warning-fbi-secret-service" style="color:#111827;text-decoration:none;">FBI and Secret Service Warn FortiBleed Campaign Has Compromised 86,000+ Fortinet Devices Across 194 Countries</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A joint FBI/Secret Service advisory warns that the FortiBleed campaign has compromised 86,000+ FortiGate devices by credential stuffing with breached Fortinet credentials and GPU-accelerated password hash cracking, resulting in at least 12 confirmed ransomware deployments.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization with internet-exposed Fortinet management interfaces, particularly those using reused or previously leaked credentials, or running legacy FortiOS with SHA-256 password storage.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit all Fortinet admin accounts for unauthorized additions; rotate all credentials; enforce MFA on Fortinet management interfaces; restrict management access to non-internet-facing addresses; check for signs of ransomware staging.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1110.004 · Brute Force: Credential Stuffing<br>
+      <span style="color:#6b7280;">Attackers combine leaked Fortinet credential databases with GPU-powered hash cracking tools (Hashcat/Hashtopolis) to recover plaintext passwords from SHA-256 hashes, then automate login attempts across exposed management interfaces.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        FortiBleed is not a new vulnerability — it exploits a structural weakness in how older FortiOS versions stored password hashes combined with years of accumulated credential leaks from previous Fortinet breaches and infostealer campaigns. Attackers sourced credentials from prior FortiGate exposures and infostealer logs, then cracked the weaker SHA-256 password hashes offline using GPU clusters running Hashcat and Hashtopolis. Valid credentials obtained this way were then used in automated campaigns to log into exposed FortiGate management interfaces.
+        <br><br>
+        The scale is remarkable: SOCRadar estimates 86,000+ devices across 194 countries. At least 12 confirmed ransomware deployments have been linked to FortiBleed access, with hundreds of endpoints encrypted per incident. The most alarming aspect, per the FBI advisory, is that patching alone may be insufficient — if attackers already possess valid credentials or have created new admin accounts, they retain access after patching. Complete remediation requires credential rotation, account audits, and thorough review of authentication logs, not just software updates.
+        <br><br>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Fortinet firewalls are like advanced security guards at the front of company networks. FortiBleed attackers didn't pick the lock — they found old ID badges (stolen usernames and passwords from previous hacks) and used powerful computers to decode them, then walked in the front door with a valid badge. When they get in, they sometimes create their own fake badges so even if you change the locks (patch), they can still use their fake badge to get back in. That's why just updating the software isn't enough — you have to check the guest list.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — credential stuffing campaign exploiting previously leaked FortiOS hashes; joint FBI/USSS advisory issued Oct 6, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: SAML Authentication and Token Forgery ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    SAML (Security Assertion Markup Language) is an XML-based protocol that enables Single Sign-On (SSO): it lets you log in once through your company's identity provider (like Active Directory or Okta) and receive a digitally signed XML "assertion" — essentially a cryptographically verified visitor pass — that any participating service (your VPN, your cloud apps) will honor without you re-entering credentials. A SAML Token Forgery attack exploits flaws in how a system validates these assertions, allowing an attacker to either craft a fake assertion from scratch or manipulate a legitimate one (for example, by changing the username field) in a way that passes the destination service's authentication check — effectively letting them log in as any user, including administrators. CVE-2026-88779 in Citrix NetScaler turned its SAML endpoint into this kind of attack surface by introducing a memory-corruption vulnerability in the parsing of SAML requests, which could allow attackers to manipulate the authentication context for organizations using NetScaler as their SAML gateway.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: SAML · Credential Stuffing · XMRig · ISE · FortiOS ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SAML</strong> — Security Assertion Markup Language; an XML-based open standard for exchanging authentication data between an identity provider and a service provider to enable Single Sign-On.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Credential Stuffing</strong> — an automated attack that replays large sets of previously breached username/password pairs against new targets, exploiting widespread password reuse.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">XMRig</strong> — an open-source command-line Monero cryptocurrency mining program that threat actors commonly deploy on compromised systems to generate illicit revenue using victims' CPU and GPU resources.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ISE</strong> — Cisco Identity Services Engine; a network access control platform that authenticates and authorizes devices and users connecting to enterprise networks, enforcing security policies at the network edge.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">FortiOS</strong> — Fortinet's proprietary operating system powering FortiGate firewall and VPN appliances, forming the core of Fortinet's network security product line; legacy versions used SHA-256 password storage exploited in FortiBleed.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/qilin-ransomware-suspect-arrested-in-japan-extradited-to-germany/" style="color:#374151;text-decoration:none;">Qilin Ransomware Suspect Arrested in Japan, Extradited to Germany to Face 2024 Attack Charges</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<!-- THREAT ACTOR CARD: Qilin -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Qilin (a.k.a. Agenda)</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal ransomware-as-a-service group · No confirmed nation-state attribution</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Critical infrastructure, healthcare organizations, financial services, logistics, and manufacturing sectors globally</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion ransomware with cross-platform variants targeting Windows and VMware ESXi; tied to 1,022 attacks in 2025 and an estimated $193M in revenue; exploited CVE-2026-50751 in Check Point VPN products in 2026</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 10, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
