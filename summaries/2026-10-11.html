@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 11, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 11, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~13 min read</div>
+</div>
+
+<!-- STORY 1: Citrix NetScaler CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/new-netscaler-zero-day-exploited-in.html" style="color:#111827;text-decoration:none;">New NetScaler Zero-Days CVE-2026-88771 &amp; 88772 Exploited in Wild — Web Shells Deployed Globally</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Citrix confirmed two critical zero-day vulnerabilities in NetScaler ADC and Gateway appliances (CVE-2026-88771, CVE-2026-88772) are being actively exploited, with attackers deploying custom PHP web shells (dubbed WHIPSHOT) and establishing tunneling tools for persistent access since at least September 4.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running unpatched Citrix NetScaler ADC or NetScaler Gateway — including VPN deployments — is at risk; enterprise customers, government agencies, and financial institutions are prime targets.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Citrix bulletin CTX697096 immediately, check for compromise dating back to September 4, and hunt for WHIPSHOT-style PHP web shells in your NetScaler file system.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1572 · Protocol Tunneling<br>
+      <span style="color:#6b7280;">After exploiting the NetScaler flaws, attackers installed custom tunneling tools that disguise command-and-control traffic as legitimate HTTPS, making detection with standard network monitoring extremely difficult.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-88771 is an unauthenticated command-injection vulnerability that allows a remote attacker to execute arbitrary operating-system commands against a NetScaler ADC or Gateway appliance without providing any credentials. CVE-2026-88772 is a memory overflow triggered when DTLS (Datagram Transport Layer Security) is enabled — a feature that is on by default for VPN virtual servers — allowing an unauthenticated attacker to crash the device or execute code. Mandiant and Google's Threat Intelligence Group confirmed active exploitation of CVE-2026-88772 dating back to early September 2026, and Australia's ACSC advised organizations to examine logs from at least September 4.</p>
+        <p>Attackers exploited both flaws in combination, first achieving initial access via CVE-2026-88771 and then deploying WHIPSHOT, a custom PHP web shell designed to blend into the NetScaler web directory. Alongside the web shell, they installed tunneling tools that redirect traffic through the appliance to internal network segments, effectively turning the perimeter device into a pivot point for deeper lateral movement. A separate denial-of-service flaw (CVE-2026-88779) targeting SAML authentication was also added to CISA's KEV catalog on October 4, extending the attack surface further.</p>
+        <p>Organizations should treat any unpatched NetScaler as potentially compromised. Patching alone is not sufficient if the device was accessible before the update — forensic review of file system changes and web-accessible directories is critical. Citrix bulletin CTX697096 lists the specific patched build numbers and indicators of compromise.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your company's front door (the NetScaler appliance) has a broken lock that anyone can exploit without a key. Attackers walked in, hid a secret spy camera inside (the WHIPSHOT web shell), and drilled a hidden tunnel to get deeper into your building whenever they want. Simply changing the lock now is good, but you also need to search the whole building to make sure nothing was left behind.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-88771 · CVSS: ~9.8/10 — Unauthenticated RCE with no user interaction required makes this among the most dangerous possible vulnerability classes. CVE-2026-88772 · CVSS: ~9.1/10 — Memory overflow enabling RCE when DTLS (on by default) is enabled.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: SonicWall CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/max-severity-sonicwall-sma1000-flaw-now-exploited-in-attacks/" style="color:#111827;text-decoration:none;">Max-Severity SonicWall SMA1000 SSRF Flaw CVE-2026-102255 (CVSS 10) Sees Active Exploitation Attempts</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A CVSS 10.0 pre-authentication Server-Side Request Forgery (SSRF) vulnerability in SonicWall SMA1000 appliances is drawing active exploitation attempts, with honeypot data showing crafted requests targeting internal CouchDB services on vulnerable devices.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using SonicWall SMA1000 6210, 7210, and 8200v appliances for remote access are exposed; over 400 internet-facing instances were counted at time of disclosure, with no workaround available.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade immediately to SMA1000 build 12.4.3-03670 or 12.5.0-03082; if patching is delayed, restrict management-interface access to trusted IP ranges only.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">The SMA1000 is an enterprise remote access gateway — by exploiting CVE-2026-102255 without credentials, attackers gain a foothold through a device specifically designed to provide external access to internal networks, the highest-value initial-access target imaginable.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-102255 is a pre-authentication SSRF in the Appliance WorkPlace web interface of SonicWall SMA1000 appliances. The vulnerability allows an unauthenticated remote attacker to make the appliance issue arbitrary HTTP requests on their behalf — including requests to the device's internal CouchDB database running on localhost port 5984. This internal database stores configuration and session data that could expose credentials, session tokens, or allow further exploitation of the device's internal services.</p>
+        <p>This is the third pre-authentication SSRF discovered in the SMA1000 product line in 2026 alone. The earlier two SSRF flaws (July and September) were both confirmed exploited and added to CISA's KEV catalog, giving this vulnerability a high-probability-of-exploitation baseline. Honeypot operator Ryan Dewhurst observed crafted OPTIONS requests targeting the CouchDB endpoint from multiple source IPs within 72 hours of the advisory's publication. While SonicWall's official advisory (SNWLID-2026-0017) still does not confirm successful exploitation, the attack pattern is established and the vendor says no workaround exists.</p>
+        <p>With 400+ internet-exposed instances at disclosure and a product historically targeted by state-sponsored actors, organizations should treat this as a priority-one patch even without confirmed exploitation in their environment. The absence of a workaround means patching is the only mitigation.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SSRF is like tricking a bank's receptionist into making calls on your behalf to restricted internal departments. You can't access those departments directly, but you get the receptionist (the SMA1000) to relay your requests inside. In this case, attackers use the trick to poke at an internal database that could hand them the keys to the whole network.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-102255 · CVSS: 10.0/10 — A perfect-10 score reflects that the flaw requires no authentication, no user interaction, and can be exploited remotely with low complexity, meeting every maximum-severity criterion.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Flax Typhoon HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/flax-typhoon-exploits-five-flaws-as.html" style="color:#111827;text-decoration:none;">Flax Typhoon Exploits Five Old CVEs as CISA Sets October 11 Patch Deadline for Federal Agencies</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A seven-nation joint advisory backed by the FBI confirmed that China-linked Flax Typhoon (attributed to Beijing's Integrity Technology Group) exploited eight vulnerabilities including five just added to CISA's KEV — some dating back to 2015 — with the FBI simultaneously seizing seven domains tied to the group's infrastructure.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Government agencies, critical infrastructure operators, and defense contractors in the US, UK, Australia, Canada, Japan, New Zealand, and Spain face the most immediate risk; federal agencies had until today (Oct 11) to patch.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch CVE-2015-3306 (ProFTPD), CVE-2021-3199 (ONLYOFFICE), CVE-2023-22894 (Strapi), CVE-2016-3081 (Apache Struts), and CVE-2015-5477 (BIND) immediately; audit for indicators of compromise using the joint advisory's IoC list.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Command and Control] T1090.003 · Multi-hop Proxy<br>
+      <span style="color:#6b7280;">Integrity Technology Group operates a large-scale residential proxy network (tracked as Raptor Train) to route attack traffic through innocent users' devices, masking the true origin of intrusions and making attribution and blocking extremely difficult for defenders.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The joint advisory from Australia, Canada, Japan, New Zealand, Spain, the UK, and the US describes Flax Typhoon (also known as Ethereal Panda and linked to Beijing-based Integrity Technology Group) as an espionage-focused threat actor targeting government entities, research organizations, and critical infrastructure across allied nations. The five newly-KEV'd CVEs include two from 2015 (ProFTPD and BIND), one from 2016 (Apache Struts), one from 2021 (ONLYOFFICE), and one from 2023 (Strapi) — a chilling reminder that unpatched legacy software remains one of the most reliable attack vectors for state-sponsored actors years after patches become available.</p>
+        <p>Flax Typhoon's operational signature involves living off the land: after initial exploitation, they tend to use built-in system tools (legitimate binaries and scripts) to move laterally and exfiltrate data rather than deploying obvious custom malware. Their Raptor Train botnet — built from compromised SOHO routers and IoT devices — acts as a multi-hop proxy network that routes intrusion traffic through ordinary consumer devices in victim countries, making source-IP blocking ineffective and attribution difficult. The FBI's simultaneous domain seizure disrupted some of this infrastructure but likely represents only a fraction of the group's operational capability.</p>
+        <p>The fact that CVEs from 2015 are still being reliably exploited in 2026 underscores a systemic patch management failure across many organizations. These are not obscure or difficult-to-find vulnerabilities — they are public, scored, and have had patches available for a decade. Any organization still running ProFTPD version 1.3.5 or ISC BIND versions vulnerable to CVE-2015-5477 should treat this as an emergency.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of Flax Typhoon as a professional burglar who still uses skeleton keys from 2015 — because millions of buildings never changed their locks. They route their break-ins through innocent neighbors' houses (the proxy network) so it looks like the burglary came from next door, not China. The joint advisory is seven governments saying together: "Here are the specific old locks they're targeting — change them now."
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2015-3306 (ProFTPD) · CVSS: 10.0/10 — Allows arbitrary file read/write without authentication, a decade-old flaw with a perfect severity score still being exploited in 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Flax Typhoon -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Flax Typhoon (Integrity Technology Group)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: China (People's Republic of China)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government agencies, critical infrastructure, defense contractors, research institutions — primarily in the US, UK, Canada, Australia, Japan, New Zealand, and Spain</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Living-off-the-land techniques, operating the Raptor Train multi-hop proxy botnet (compromised SOHO/IoT devices), exploiting legacy CVEs, long-term espionage and persistent access rather than destructive attacks</div>
+</div>
+
+<!-- STORY 4: AhsayCBS HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Huntress · Oct 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.huntress.com/blog/ahsaycbs-flaws-exploit" style="color:#111827;text-decoration:none;">Unpatched AhsayCBS Backup Flaws CVE-2026-105133 &amp; 105134 Exploited to Deploy XMRig Miners as Fake Microsoft Edge</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Threat actors are chaining two critical AhsayCBS backup server vulnerabilities — an authentication bypass (CVE-2026-105133) and an unauthenticated RCE as SYSTEM (CVE-2026-105134) — to drop JSP web shells and XMRig cryptocurrency miners disguised as the Microsoft Edge browser executable.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Managed service providers (MSPs) and IT integrators running AhsayCBS version 10.3.4 or earlier are at risk; at least five organizations have been compromised, and no complete patch is currently available.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately restrict the AhsayCBS management interface to trusted IPs or VPN-only access; audit for edge.exe or MicrosoftEdgeUpdateSvc processes that shouldn't exist; monitor for unusual outbound traffic to mining pools.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1036.005 · Masquerading: Match Legitimate Name or Location<br>
+      <span style="color:#6b7280;">Attackers name the XMRig miner binary "edge.exe" and register it as a service called "MicrosoftEdgeUpdateSvc" — names specifically chosen to blend in with legitimate Microsoft Edge components and avoid triggering security alerts or admin suspicion.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>AhsayCBS is a backup management server used predominantly by MSPs and IT service providers to manage backup jobs for multiple clients. This makes it a particularly high-value target: a single compromised AhsayCBS instance can give attackers authenticated access to backup data — and the servers those backups came from — across dozens of downstream organizations. CVE-2026-105133 is an authentication bypass in the checkSysPwd function, and CVE-2026-105134 is a critical flaw in the Replication Receiver component that allows unauthenticated RCE as NT AUTHORITY/SYSTEM on Windows hosts.</p>
+        <p>Huntress researchers observed active exploitation starting October 7, with attackers first chaining the two flaws to achieve SYSTEM-level code execution, then deploying a JSP web shell for persistent access, followed by downloading the XMRig miner. The masquerading as edge.exe (with "MicrosoftEdgeUpdateSvc" as the service name) is a deliberate evasion technique designed to survive casual inspection by administrators who might see the service but assume it belongs to the browser. The miner connects to an external mining pool and siphons computing resources from the compromised server.</p>
+        <p>The patch situation is particularly troubling: the vendor initially indicated a fix in version 10.3.2, but Huntress confirmed that the latest release (10.3.4) remains vulnerable. Until a genuine patch is available, access restriction is the only mitigation. MSPs running AhsayCBS should also check all managed client environments for signs of post-compromise activity, since the backup server likely has credentials or access paths to client systems.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> AhsayCBS is software that IT companies use to manage data backups for their customers. An attacker who compromises it doesn't just get one company's data — they potentially get access to every company that IT firm manages. Here, attackers broke in and started running a cryptocurrency miner, secretly using the server's computing power to earn money, and hiding it under a Microsoft-sounding name so no one would notice.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-105134 · CVSS: 9.8/10 — Unauthenticated RCE granting SYSTEM privileges on Windows represents near-maximum severity; the authentication bypass (CVE-2026-105133) that enables chaining makes the attack trivial to execute with no prior credentials.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: ARTEX AI HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 8, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html" style="color:#111827;text-decoration:none;">ARTEX AI Autonomous Pentesting Framework Used to Breach Seven South Korean Banks, 68,000 Customers Exposed</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CrowdStrike attributed a late-September to early-October data theft campaign against at least seven South Korean financial institutions to an unidentified threat actor using ARTEX — a Chinese-developed, open-source LLM multi-agent autonomous pentesting framework — resulting in the exposure of data on approximately 68,000 customers including those of Shinhan Bank and KB Kookmin.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Customers of at least seven (possibly nine) South Korean banks and financial institutions had personal data exposed; South Korea's National Police Agency has opened a criminal investigation.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Financial institutions should audit for unauthorized access, rotate credentials, and review ARTEX's known attack signatures; affected individuals should monitor accounts for fraud and be alert to phishing attempts using their exposed data.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Exfiltration] T1041 · Exfiltration Over C2 Channel<br>
+      <span style="color:#6b7280;">ARTEX's agentic framework directed data exfiltration over its C2 channel autonomously — the tool's LLM-driven agents selected, staged, and transmitted stolen financial records without continuous human direction, marking a new evolution in attacker automation.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>ARTEX (developed by a group called Autumn-27) is a publicly released, open-source LLM-powered multi-agent system designed to autonomously conduct penetration tests. It chains together specialized AI agents — reconnaissance, exploitation, lateral movement, and exfiltration — that can operate with minimal human direction after being given a target. CrowdStrike describes it as the first confirmed use of an agentic AI pentesting framework in a real-world financially-motivated attack, distinguishing it from earlier AI-assisted tools that still required significant human orchestration at each stage.</p>
+        <p>The campaign targeted South Korean financial institutions from late September through early October. The attacker (or actors) leveraged ARTEX to identify vulnerabilities in target banks' web applications, exploit them for access, and extract customer records. Perhaps most unsettling: the attackers also used a commercial LLM to query for Korean Telegram groups where stolen financial data could be sold, automating the post-exfiltration monetization phase. Shinhan Bank confirmed roughly 25,000 customers were affected; total estimates across all institutions range from 66,000 to 68,000 people.</p>
+        <p>The attack has not been formally attributed to a known nation-state group, though circumstantial evidence points to a Chinese-speaking operator motivated by financial gain. The use of an open-source Chinese-developed tool does not itself prove Chinese state involvement. South Korea's regulatory response — a presidential-level investigation order — signals the severity with which the country views the use of AI-augmented attacks against critical financial infrastructure.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Previously, hacking required a person to manually try different attack techniques at each step. ARTEX is like a robot hacker: you tell it "attack this bank," and it independently figures out the vulnerabilities, breaks in, steals data, and hands it back to you — all without someone having to do each step manually. This is significant because it lowers the skill barrier for attackers and dramatically increases how many targets can be hit simultaneously.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE — ARTEX chains multiple known weaknesses in web applications through autonomous LLM-driven reconnaissance and exploitation; the attack surface severity depends entirely on the target's own vulnerability posture.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Agentic AI Attacks ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Agentic AI attacks use large language models (LLMs) arranged as a network of specialized "agents" — each responsible for a different phase of an attack like reconnaissance, exploitation, or data theft — that can operate autonomously after receiving a high-level goal like "compromise this financial institution." Unlike older automation tools that execute fixed scripts, these systems can reason about their environment, adapt when a technique fails, and chain together attack stages in real time without continuous human input. The ARTEX framework used against South Korean banks this week represents the first confirmed deployment of this architecture in a live financially-motivated attack, marking a threshold moment where AI-augmented offense has moved from theoretical red-team exercise to operational criminal tooling.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: SSRF · MSP · LLM · C2 ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SSRF</strong> — Server-Side Request Forgery; an attack where a vulnerable server is tricked into making HTTP requests on the attacker's behalf, often used to access internal services (like databases) that aren't directly internet-accessible.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MSP</strong> — Managed Service Provider; a company that remotely manages IT infrastructure and end-user systems for other businesses, making them high-value targets because compromising one MSP can give attackers access to many downstream client organizations.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">LLM</strong> — Large Language Model; an AI system trained on vast amounts of text that can generate, summarize, and reason about language; increasingly being weaponized by threat actors to automate reconnaissance, generate phishing content, and orchestrate multi-stage attacks.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">C2</strong> — Command and Control; the infrastructure (servers, domains, IP addresses) that attackers use to send instructions to compromised systems and receive stolen data back; disrupting C2 infrastructure is a primary goal of law enforcement and incident responders.
+    </div>
+  </div>
+</details>
+
+<!-- WEEK IN REVIEW (Sunday!) -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:12px;">📅 Week in Review: Oct 5–11, 2026</div>
+  <div style="display:flex;gap:10px;margin-bottom:12px;">
+    <div style="flex:1;text-align:center;padding:10px;background:#fef2f2;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#dc2626;">18</div>
+      <div style="font-size:11px;color:#6b7280;">Critical</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fff7ed;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ea580c;">17</div>
+      <div style="font-size:11px;color:#6b7280;">High</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fefce8;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ca8a04;">12</div>
+      <div style="font-size:11px;color:#6b7280;">Medium</div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:#374151;margin-bottom:6px;"><strong>Top ATT&amp;CK techniques this week:</strong> T1190 · T1486 · T1566 · T1505.003 · T1572 · T1090.003 · T1036.005</div>
+  <div style="font-size:13px;color:#374151;margin-bottom:10px;"><strong>Threat actors active:</strong> Flax Typhoon · ShinyHunters · Qilin · Warlock · KillSec · Star Blizzard · Xuanye Group</div>
+  <div style="font-size:13px;color:#374151;line-height:1.6;padding:10px;background:#f8fafc;border-radius:4px;">The week of October 5–11, 2026 was dominated by Chinese state-sponsored activity (Flax Typhoon exploiting legacy CVEs dating to 2015) and a landmark moment in attacker tooling — the ARTEX AI-driven autonomous penetration framework was used to breach at least seven South Korean banks, the first confirmed use of an agentic LLM framework in a financially motivated attack. Enterprise perimeter devices remained the primary target, with critical zero-days in Citrix NetScaler and SonicWall SMA1000 seeing active exploitation, while ransomware groups Qilin and KillSec continued to target healthcare and manufacturing sectors.</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://bleepingcomputer.com/news/security/asos-links-data-breach-to-social-engineering-attack-credential-theft" style="color:#374151;text-decoration:none;">ASOS Confirms Data Breach via Social Engineering — Xuanye Group Claims Access to Millions of Customer Records</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Bleeping Computer · Oct 9, 2026</span>
+    <div style="margin-top:4px;font-size:12px;color:#6b7280;">Attackers impersonated a trusted contact to steal employee credentials, then accessed personal data (names, contact info) for a potentially large portion of ASOS's 16.5 million active customer base. No payment card data or passwords were exposed; the UK NCSC advises all ASOS customers to treat themselves as affected.</div>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://bleepingcomputer.com/news/security/low-cost-android-phones-ship-with-residential-proxy-malware" style="color:#374151;text-decoration:none;">'Midnight Mimosa' Firmware Malware Found Preinstalled on Low-Cost Android Phones Across 150+ Countries</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Bitdefender / Bleeping Computer · Oct 8, 2026</span>
+    <div style="margin-top:4px;font-size:12px;color:#6b7280;">Bitdefender identified pre-installed system-level malware on low-cost MediaTek-based Android devices from brands including Doogee and Cubot, running across thousands of devices in over 150 countries. The malware (Midnight Mimosa) silently conducts ad/click fraud and enrolls devices as proxy nodes; it cannot be removed through normal Android uninstall processes and 13 associated apps were found on Google Play.</div>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 11, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
