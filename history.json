@@ -1,11 +1,13 @@
 {
-  "til": ["Agentic AI Attacks", "Hypervisor Security", "Protocol Tunneling", "Null Byte Injection", "Deserialization Attacks", "Prompt Injection in AI Gateways", "BYOVD (Bring Your Own Vulnerable Driver)"],
-  "glossary": ["SSRF", "MSP", "LLM", "C2", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "Memory Overflow", "MCP", "BYOVD", "FCEB", "SAML"],
+  "til": ["Authentication Override Cookies", "Agentic AI Attacks", "Hypervisor Security", "Protocol Tunneling", "Null Byte Injection", "Deserialization Attacks", "Prompt Injection in AI Gateways"],
+  "glossary": ["VPN", "Supply Chain Attack", "Double Extortion", "Arbitrary File Write", "ICS", "SSRF", "MSP", "LLM", "C2", "IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie"],
   "week": {
-    "critical": 0, "high": 0, "medium": 0,
-    "techniques": [], "actors": []
+    "critical": 2, "high": 3, "medium": 2,
+    "techniques": ["T1133", "T1505.003", "T1552.001", "T1068", "T0812", "T1562.001"],
+    "actors": ["Qilin", "Warlock"]
   },
   "digests": [
+    {"date": "2026-10-12", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-10-11", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-10-10", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1},
     {"date": "2026-10-09", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 2},

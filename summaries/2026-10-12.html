@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 12, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 12, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~6 min read</div>
+</div>
+
+<!-- STORY 1: Palo Alto GlobalProtect - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/palo-alto-globalprotect-vpn-auth-bypass-flaw-now-exploited-in-attacks/" style="color:#111827;text-decoration:none;">Qilin Ransomware Actively Exploiting Palo Alto GlobalProtect VPN Auth Bypass (CVE-2026-0257)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Qilin ransomware affiliates are exploiting an authentication bypass in Palo Alto GlobalProtect (CVE-2026-0257, CVSS 7.8) to forge VPN sessions without credentials and gain initial access to victim networks.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organisations using Palo Alto GlobalProtect or Prisma Access with override cookie authentication enabled and internet-exposed portals — estimated 167,000 instances online.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Palo Alto's May 2026 patch immediately; if already patched, disable override cookie authentication and restrict portal access to trusted IP ranges only.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">Qilin affiliates exploit the GlobalProtect portal as an external remote service entry point, using forged override cookies to obtain authenticated VPN sessions that appear legitimate in network logs.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-0257 is a logic flaw in how GlobalProtect validates authentication override cookies — a feature intended for seamless single-sign-on. Palo Alto patched it in May 2026, but the CVSS score was initially reported as medium (4.7) and was only raised to 7.8 after CISA added it to the KEV catalog on May 29. This delayed prioritisation likely explains the large number of unpatched devices now being exploited.</p>
+        <p>Arctic Wolf Labs has investigated multiple intrusions in which every attack began at the firewall. After forging an authenticated VPN session, Qilin operators escalated privileges, performed lateral movement across the network, disabled backup and recovery tools, and then deployed ransomware. Some engagements involved double extortion, with data exfiltrated prior to encryption.</p>
+        <p>The attack requires an internet-exposed GlobalProtect portal or gateway with override cookie authentication enabled — a non-default setting that many enterprises turn on for seamless SSO. Organisations that patched but did not disable override cookies should review whether that feature is still necessary.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of a VPN as a locked back door into your office network. A normal employee uses their key (password + certificate) to open it. This bug let Qilin attackers create a fake master key (a forged "override cookie") that the door lock accepted as valid — no password needed. Once inside the network, they moved from computer to computer until they owned everything, then scrambled all the files and demanded money.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-0257 · CVSS: 7.8/10 — High severity; network-accessible, no authentication required, directly enables ransomware deployment via VPN initial access.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Qilin -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Qilin (Agenda) Ransomware Group</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal ransomware-as-a-service · Attributed to: Russian-speaking operators</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Healthcare, critical infrastructure, legal firms, and enterprise organisations globally; no known sector exclusions.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Cross-platform ransomware (Windows/Linux/ESXi), double extortion via a dedicated leak site, targeting VMware ESXi hypervisors to maximise encryption impact, and aggressive exploitation of edge device vulnerabilities for initial access.</div>
+</div>
+
+<!-- STORY 2: Fortinet FortiMail - CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 10, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="color:#111827;text-decoration:none;">Critical FortiMail Zero-Day CVE-2026-104286 (CVSS 9.8) Added to CISA KEV — Federal Deadline Passed</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A CVSS 9.8 zero-day in Fortinet FortiMail (CVE-2026-104286) that allows unauthenticated attackers to write arbitrary files to the underlying system was exploited in the wild and added to CISA's Known Exploited Vulnerabilities catalog on October 1, with a federal remediation deadline of October 4 that has now passed.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organisations running FortiMail versions 7.2.0–7.2.9, 7.4.0–7.4.8, 7.6.0–7.6.6, or 8.0.0–8.0.1 — especially those with the IBE (Identity-Based Encryption) feature enabled or with management interfaces internet-exposed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade immediately to fixed versions (8.0.2, 7.6.7, or 7.4.9); as a workaround, disable IBE via CLI and block external access to the management interface; review Fortinet advisory FG-IR-26-175 for published indicators of compromise.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Persistence] T1505.003 · Web Shell<br>
+      <span style="color:#6b7280;">Attackers leverage the arbitrary file write primitive to plant web shells on the FortiMail server, establishing persistent command-and-control access that survives reboots and credential rotations.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-104286 is an unauthenticated arbitrary file write flaw discovered internally by Fortinet's own Product Security team (Gwendal Guégniaud). Despite internal discovery, the flaw reached a CVSS 9.8 maximum score — reflecting that no authentication is required and that writing arbitrary files to a mail server gives an attacker near-total control: they can plant a web shell, overwrite configuration, or install persistent backdoors.</p>
+        <p>The IBE (Identity-Based Encryption) feature is implicated in the attack surface; disabling it removes the exploitable endpoint if patching is not immediately possible. Fortinet published IOCs in advisory FG-IR-26-175, including file hashes, network indicators, and log patterns that defenders can use to check for prior compromise.</p>
+        <p>CISA's October 4 federal deadline has passed for FCEB agencies, but any organisation running FortiMail should treat this as an emergency patch given the CVSS 9.8 score and confirmed in-the-wild exploitation. Organisations that cannot patch immediately should at minimum isolate the management interface from the internet.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> FortiMail is a piece of software that many companies use to filter spam and secure their corporate email. This bug lets a criminal send a specially crafted message to the FortiMail server without any login, and the server responds by saving a malicious file the attacker tells it to. That file can then be a "web shell" — essentially a secret remote control panel hidden on your email server — giving the attacker complete control over your mail infrastructure.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104286 · CVSS: 9.8/10 — Critical; no authentication required, remotely exploitable, enables arbitrary file write leading to full server compromise.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Citrix NetScaler - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/" style="color:#111827;text-decoration:none;">Citrix NetScaler CVE-2026-88779 Exploited to Deploy Web Shells — Third Patch in Two Weeks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are actively exploiting CVE-2026-88779, a CVSS 8.7 memory overflow in Citrix NetScaler ADC and Gateway, to crash appliances and deploy web shells; CISA added it to KEV and Citrix has issued its third emergency patch in a fortnight.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organisations running NetScaler ADC/Gateway on versions prior to 14.1-73.41 or 13.1-64.28 — including those who patched earlier flaws CVE-2026-88771 through 88778, which require a second upgrade.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to NetScaler 14.1-73.41 or 13.1-64.28 immediately; note that appliances patched for the earlier CVE-2026-88771–88778 batch still need this additional update; review for installed web shells post-patching.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Persistence] T1505.003 · Web Shell<br>
+      <span style="color:#6b7280;">Attackers exploiting the NetScaler memory overflow download and execute a script that installs a web shell on the appliance, giving persistent access to the network gateway for future command-and-control use.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-88779 is the latest in a string of NetScaler vulnerabilities; Citrix shipped three emergency patches in two weeks, indicating active vulnerability research against the platform. While Citrix officially classifies the impact as denial of service, administrators and researchers have observed exploitation patterns consistent with remote code execution — specifically, attackers downloading scripts that install web shells on the appliance.</p>
+        <p>A parallel SAML vulnerability, CVE-2026-107406 (affecting appliances configured as SAML IdP or SP), has no known exploitation yet, but Citrix urges immediate patching regardless. Organisations that patched CVE-2026-88771 through 88778 are at risk from 88779 because it requires a separate upgrade release.</p>
+        <p>Unit 42 has previously documented threat actors using earlier NetScaler flaws (CVE-2026-88771/88772) to deliver web shells for initial access and long-term persistence, suggesting a well-established playbook targeting Citrix infrastructure.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> NetScaler is a network device that many large companies use to manage who can access their web applications — think of it as a smart receptionist for your company's website and VPN. When attackers find a bug in it, they can crash it (denial of service) or sneak malicious code onto it. Installing a "web shell" on a NetScaler is like hiding a secret phone line inside the receptionist's desk — the attacker can call in any time, even after the company thinks they've kicked them out.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-88779 · CVSS: 8.7/10 — High severity; network-accessible, leads to web shell installation and persistent access on a critical network gateway appliance.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: GhostAction GitHub supply chain - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/category/vulnerabilities/" style="color:#111827;text-decoration:none;">GhostAction Campaign Compromises 346 GitHub Repositories via Hijacked Maintainer Accounts</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A threat actor tracked as GhostAction hijacked two open-source maintainer accounts and injected a fake "security audit" GitHub Actions workflow into 346 repositories, exfiltrating secrets (API keys, tokens, credentials) from CI/CD pipelines.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Open-source projects and their downstream users relying on the compromised repositories; any organisation whose CI/CD pipeline pulls from one of the 346 affected repos may have had secrets exposed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit GitHub Actions workflows for unexpected recent additions; rotate any secrets (API keys, tokens, passwords) that may have been accessible in affected CI environments; pin Actions to commit SHAs rather than mutable tags.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1552.001 · Credentials in Files<br>
+      <span style="color:#6b7280;">The malicious workflow executed in the CI/CD environment and harvested credentials stored as GitHub Actions secrets, environment variables, and configuration files — a targeted credential theft via the build pipeline itself.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>GhostAction is a supply chain attack campaign that used two legitimate but compromised maintainer accounts to appear trustworthy. By pushing a workflow disguised as a "security audit", the attacker exploited the implicit trust repositories place in contributions from known maintainers. GitHub Actions workflows run with access to repository secrets, giving the malicious workflow the ability to exfiltrate credentials to an attacker-controlled endpoint.</p>
+        <p>The attack is particularly dangerous because downstream users of the 346 affected repositories may not realise their CI pipelines pulled the malicious workflow version. Any build that ran while the malicious workflow was active may have exposed secrets — the scope of downstream impact is difficult to quantify without detailed audit logs from each affected project.</p>
+        <p>This attack reinforces the industry recommendation to pin GitHub Actions to immutable commit SHAs rather than mutable version tags (e.g., <code>uses: actions/checkout@abc1234</code> instead of <code>uses: actions/checkout@v4</code>), and to use least-privilege token scopes in workflows.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> GitHub Actions is a system that automatically runs tasks (like testing code or deploying software) every time a developer makes a change. It works like a robot assistant that has the keys to many services. In this attack, criminals broke into the accounts of trusted developers, then added instructions telling the robot to secretly copy all the passwords it has access to and send them to the criminals. Because the instructions came from a known, trusted account, nobody noticed at first.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: AnyDesk Linux pre-auth root - HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/category/vulnerabilities/" style="color:#111827;text-decoration:none;">AnyDesk Linux Silent Patch: Pre-Auth Root RCE Flaw Now Has Public Exploit</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> AnyDesk silently patched a pre-authentication flaw in its Linux client in June 2026 — describing it only as "fixed a bug that could lead to a crash" — but a public exploit now exists confirming the bug grants unauthenticated root access to any Linux system running an affected version.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organisations and individuals running AnyDesk on Linux servers and desktops, particularly IT and MSP environments that use AnyDesk for remote support and thus have it deployed broadly across Linux endpoints.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update AnyDesk Linux to the latest version (patched since June 2026); audit installed AnyDesk versions across your Linux fleet immediately; consider whether AnyDesk exposure on internet-facing Linux systems is necessary.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">The pre-authentication flaw in AnyDesk Linux allows an unauthenticated network attacker to exploit the remote access daemon and achieve root-level privilege escalation before any login — giving complete system control with the highest possible permissions.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>AnyDesk's silent patching practice — fixing a critical security flaw without assigning a CVE, publishing a security advisory, or alerting users — is a significant transparency failure. The June changelog described the fix only as a crash bug, meaning most administrators would not have applied the update with urgency. This is exactly the scenario that CVE assignment and responsible disclosure practices are designed to prevent.</p>
+        <p>The existence of a public exploit means the bar for exploitation has dropped to near zero for any attacker with basic technical skills. AnyDesk is widely deployed in enterprise and MSP environments, making this a high-value target for ransomware operators seeking to abuse legitimate remote access tooling — a documented tactic used by Qilin and other groups.</p>
+        <p>No CVE number was assigned, making tracking and patch compliance verification harder for vulnerability management programs. Security teams should verify the AnyDesk version across all Linux endpoints and may wish to raise this case as justification for requiring CVE assignment from software vendors during procurement reviews.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> AnyDesk is a program like TeamViewer that lets IT staff remotely log into computers to fix problems. This bug meant an attacker could break into any Linux computer running AnyDesk — before even being asked to log in — and immediately get the highest level of control (root/admin). The company quietly fixed it in June while telling nobody it was a security issue; researchers only discovered its true severity months later when someone wrote public attack code for it.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Severity: Critical-equivalent — pre-authentication root RCE with public exploit available; treat as emergency patch despite absence of CVE tracking.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: CISA Red Lion MEDIUM -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA · Oct 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cisa.gov/uscert/ncas/all.xml" style="color:#111827;text-decoration:none;">CISA ICS Advisory: Seven CVEs in Red Lion N-Tron 700 Series Industrial Switches</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA issued an ICS advisory covering seven CVEs in Red Lion N-Tron 700 Series industrial Ethernet switches, including authentication bypass, command injection, and information disclosure flaws that could allow an attacker to take control of OT network switching equipment.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Industrial operators and critical infrastructure facilities using Red Lion N-Tron 700 Series managed switches in operational technology (OT) environments such as manufacturing, utilities, and energy.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply available firmware updates from Red Lion; if updates are unavailable, segment N-Tron switches behind firewalls and restrict management interface access to authorised OT administrators only.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK ICS:</strong> [Lateral Movement] T0812 · Default Credentials<br>
+      <span style="color:#6b7280;">The authentication bypass flaws in the N-Tron switches allow an attacker already on the OT network segment to move laterally by taking control of switching infrastructure, redirecting or intercepting ICS traffic between PLCs and engineering workstations.</span>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 7: Warlock SharePoint MEDIUM -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 3, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/category/vulnerabilities/" style="color:#111827;text-decoration:none;">China-Linked Warlock Group Exploits SharePoint Flaws Against Latin American Critical Infrastructure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A suspected China-linked APT tracked as Warlock is exploiting Microsoft SharePoint vulnerabilities to disable security tools and deploy ransomware against critical infrastructure, government, and educational targets in Portuguese- and Spanish-speaking countries.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Government agencies, critical infrastructure operators, and universities primarily in Latin America and Portugal; any organisation with internet-exposed SharePoint deployments remains at elevated risk.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Ensure SharePoint Server is fully patched; apply Microsoft's mitigations for known SharePoint CVEs; review EDR logs for security tool termination events that could indicate Warlock's defense-evasion phase.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1562.001 · Impair Defenses: Disable or Modify Tools<br>
+      <span style="color:#6b7280;">After initial SharePoint compromise, Warlock operators specifically disable endpoint security tools (EDR/AV) before deploying ransomware — a deliberate defense-evasion step designed to prevent detection and response during the encryption phase.</span>
+    </div>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Warlock -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Warlock</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-state APT · Attributed to: China (suspected)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Critical infrastructure, government agencies, and educational institutions in Latin America and Portuguese-speaking countries; broader interest in Spanish-speaking nations.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Exploiting Microsoft collaboration platform vulnerabilities (SharePoint) for initial access, disabling endpoint security tools before deploying ransomware as a destructive or financial attack component, and targeting strategic geopolitical regions with limited cyber defence capacity.</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Authentication Override Cookies ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Authentication override cookies are a convenience feature in some VPN products that allow users to skip re-entering credentials by storing a cryptographically signed token in a browser cookie — once validated, the VPN gateway grants a full session without a password. When a bug like CVE-2026-0257 exists in the validation logic, attackers can forge or manipulate these cookies to trick the gateway into accepting them as legitimate, establishing an authenticated VPN session with no actual credentials. The lesson is that "convenience" features in security products often expand the attack surface: every alternative authentication pathway is a potential bypass, and features like override cookies should be disabled when not strictly necessary.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: VPN · Supply Chain Attack · Double Extortion · Arbitrary File Write · ICS ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">VPN</strong> — Virtual Private Network; an encrypted tunnel between a device and a corporate network that makes remote workers appear as if they are on the local office network.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Supply Chain Attack</strong> — An attack that targets software dependencies, build tools, or trusted third-party code to compromise the many downstream users who rely on that supply chain without directly attacking them.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Double Extortion</strong> — A ransomware tactic where attackers both encrypt victim files AND exfiltrate data beforehand, threatening to publish it publicly if the ransom is not paid — creating two independent levers of pressure.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Arbitrary File Write</strong> — A vulnerability class that allows an attacker to create or overwrite any file on a target system, often used to plant web shells, modify configuration, or replace system binaries.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">ICS</strong> — Industrial Control System; computing equipment and software that monitors and controls physical processes such as power generation, water treatment, manufacturing assembly lines, and pipeline flow.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.helpnetsecurity.com/?p=386856" style="color:#374151;text-decoration:none;">CISA Flags NetScaler CVE-2026-88779 as Attackers Crash Appliances</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Help Net Security</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://cybersecuritynews.com/32-0-days-pwn2own-2026/" style="color:#374151;text-decoration:none;">Pwn2Own 2026: 32 Unique Zero-Days Exploited on Day One — $388,500 Awarded</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Cyber Security News</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.csoonline.com/article/4230642/citrix-warns-of-actively-exploited-netscaler-flaw-days-after-zero-day-patch-rush.html" style="color:#374151;text-decoration:none;">Germany Arrests Suspected Qilin Ransomware Leader After Japan Detention</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CSO Online</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://senserva.com/exploited-this-week.html" style="color:#374151;text-decoration:none;">CISA KEV: 8 New Exploited Vulnerabilities This Week, 40 in 30 Days</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Senserva</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 12, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
