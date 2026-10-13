@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 13, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 13, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 2 critical · 4 high · 3 medium · ~12 min read</div>
+</div>
+
+<!-- STORY 1: GitLab RCE CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://bleepingcomputer.com/news/security/gitlab-warns-of-max-severity-rce-flaw-in-regex-compiler-engine" style="color:#111827;text-decoration:none;">GitLab Issues Emergency Patches for CVSS 10.0 CI/CD Regex Compiler RCE</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> GitLab disclosed CVE-2026-97229, a CVSS 10.0 integer overflow in its CI/CD regular expression compiler that allows unauthenticated attackers to execute arbitrary code on self-managed GitLab servers via a crafted regex in a pipeline configuration file.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running self-managed GitLab CE/EE versions 19.2.x, 19.3.x, or 19.4.x; GitLab.com and Dedicated customers are already patched and require no action.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade immediately to GitLab 19.4.2, 19.3.4, or 19.2.8; internet-facing instances should be treated as highest priority and temporarily firewalled if patching is delayed.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">A crafted regex submitted to the CI/CD API triggers an integer overflow in GitLab's bundled Ruby runtime, bypassing bounds checks and achieving unauthenticated remote code execution on the server without any login or project membership.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">GitLab's emergency patch release addresses one of the most severe vulnerabilities discovered in developer tooling this year. The flaw resides in the Regular Expression Compiler used to parse <code>.gitlab-ci.yml</code> pipeline configurations — the same files that control automated build, test, and deployment workflows for millions of software projects worldwide.</p>
+        <p style="margin:0 0 8px;">An attacker who can reach the GitLab server's HTTP API needs only to submit a specially crafted regex pattern to trigger an integer overflow (CWE-190) in the underlying Ruby runtime that GitLab bundles. Because regex evaluation happens before any authentication checks, no login or project membership is required. The overflow corrupts memory in a way that redirects execution to attacker-controlled code.</p>
+        <p style="margin:0 0 8px;">GitLab.com was patched silently before disclosure, but the roughly 30% of organizations running self-managed installations face real exposure. Exploitation requires only network access — firewalled internal installations behind a VPN are far less exposed than internet-facing ones. No public proof-of-concept existed at disclosure, but the detailed advisory and prior bugs in the same component give skilled attackers a clear map. Researcher <em>joaxcar</em> discovered the flaw through GitLab's HackerOne bug bounty program.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> GitLab is a platform developers use to store code and run automated software-building tasks. A regex is a pattern used to search or validate text. This bug is like a trick calculation where a too-big number wraps around to zero and tricks the computer into running the attacker's code — with no password needed. If your company uses a self-managed GitLab server, treat this as a fire drill.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-97229 · CVSS: 10.0/10 — Maximum score; network-accessible, zero-authentication exploitation with full server compromise potential (C:H/I:H/A:H).</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: SonicWall SSRF CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/critical-sonicwall-sma-1000-flaw.html" style="color:#111827;text-decoration:none;">SonicWall SMA1000 Pre-Auth SSRF Flaw Under Active Attack 48 Hours After Patch</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CVE-2026-102255, a CVSS 10.0 pre-authentication SSRF in SonicWall SMA1000 remote access appliances, is being actively probed with 135 exploitation attempts detected beginning October 8 — just 48 hours after SonicWall published its patch on October 6.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using SonicWall SMA 6210, 7210, or 8200v appliances running firmware 12.4.3-03526 or earlier, or 12.5.0-02952 or earlier; the SMA 100 series and firewall SSL-VPN are not affected.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade SMA1000 firmware to build 12.4.3-03670 or 12.5.0-03082 immediately and restrict public internet exposure of the WorkPlace and management interfaces as a defense-in-depth measure.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1599.001 · Network Boundary Bridging: Reduced Network Filtering<br>
+      <span style="color:#6b7280;">The pre-authentication SSRF flaw forces the SMA1000 to relay HTTP requests on the attacker's behalf to internal network hosts that trust the device, bypassing network segmentation entirely without requiring any credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">SonicWall's SMA1000 series are corporate VPN and remote-access gateways — the very devices organizations deploy at their network perimeter to protect internal resources. CVE-2026-102255 is the third pre-authentication SSRF discovered in SonicWall's SMA product line this year alone, suggesting systemic input-validation weaknesses in the appliance's WorkPlace web interface.</p>
+        <p style="margin:0 0 8px;">The flaw stems from an unintended alternate access path: an unauthenticated HTTP request can instruct the appliance to fetch a URL from inside the organization's internal network, acting as a trusted proxy. This gives attackers a free pivot point into network segments otherwise isolated from the internet — internal admin panels, database management interfaces, and services that explicitly trust the SMA appliance's IP address are all reachable.</p>
+        <p style="margin:0 0 8px;">Threat intelligence firm Previdian detected 135 exploitation attempts from two IP addresses beginning October 8, following a well-documented pattern: sophisticated attackers maintain automated scanners that monitor vendor advisories and begin probing within hours of public disclosure. The patch notes describe this as SNWLID-2026-0017. Any SMA1000 appliance exposed to the internet without this firmware update should be treated as potentially compromised.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A VPN gateway is a locked door between the internet and your company's internal systems. This bug lets any attacker on the internet trick that door into fetching information from inside — without a key — essentially turning your security device into a spy that reports back to criminals.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-102255 · CVSS: 10.0/10 — Maximum score; pre-authentication, network-accessible, enabling internal network access through a trusted security boundary device.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: GhostAction HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Socket / The Hacker News · Oct 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/credential-stealing-github-actions.html" style="color:#111827;text-decoration:none;">GhostAction Campaign Plants Credential-Stealing Workflows in 10,000+ GitHub Repositories</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers compromised 500+ GitHub maintainer accounts since October 7 and used them to plant malicious GitHub Actions workflow files (named security-audit.yml) that silently exfiltrate cloud credentials, AI API keys, and repository secrets to an attacker-controlled server.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Open source maintainers and organizations with contributors whose GitHub accounts were compromised; any repository containing the planted workflow file is actively leaking credentials on every code push.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit recent workflow file changes for unexpected security-audit.yml files, immediately rotate all GitHub Actions secrets, AWS keys, and AI API tokens, and review your git history for any previously committed credentials.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1552.004 · Unsecured Credentials: Private Keys<br>
+      <span style="color:#6b7280;">Malicious workflow files silently collect repository secrets, cloud API keys (AWS, Anthropic, OpenAI), and OAuth tokens from the CI/CD environment and full git history, exfiltrating everything over HTTP to a hard-coded attacker IP address (193.32.204.199).</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">GhostAction represents a sophisticated supply chain attack exploiting the trust relationships between developers and their automated tools. The attackers first compromised legitimate, well-known maintainer accounts — including contributors to popular projects like Uber's athenadriver and the Pyxel game engine — then used those trusted identities to push a file named <code>security-audit.yml</code> to hundreds of repositories in a single evening.</p>
+        <p style="margin:0 0 8px;">The filename is deliberately chosen to mimic a legitimate security scanning workflow, blending into the automated pipelines developers run daily without raising suspicion. Once merged, the workflow executes silently on every code push, harvesting: GitHub Actions secrets (including <code>GITHUB_TOKEN</code> and <code>AWS_ACCESS_KEY_ID</code>), credentials stored anywhere in the repository or its full git history, and API keys for AI services including Anthropic, OpenAI, and OpenRouter. All stolen data is transmitted in plaintext to 193.32.204.199.</p>
+        <p style="margin:0 0 8px;">Scale grew rapidly: on October 8, two seed accounts pushed to 27 and then 318 repositories in a 16-minute window. Socket has since tracked more than 500 compromised accounts and tens of thousands of affected repositories. The campaign links to GhostAction activity first documented in September 2025. How attackers initially obtained the maintainers' credentials remains unknown.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> GitHub Actions are automated robots that run when developers push code — like a conveyor belt that automatically tests and packages software. The attackers inserted a fake "security check" robot into thousands of projects; instead of checking security, it quietly copied all the passwords and API keys and sent them to the criminals.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — supply chain attack via compromised developer accounts; credential theft scope includes cloud, AI platform, and source control credentials.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- GhostAction Threat Actor Card -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">GhostAction</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Campaign · Attribution: Unknown</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Open source developers, CI/CD pipelines, cloud and AI platform credentials in public GitHub repositories</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Planting malicious GitHub Actions workflow files disguised as security tools to silently harvest secrets from repository environments and git history at scale</div>
+</div>
+
+<!-- STORY 4: Bricksforge HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / Patchstack · Oct 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/bricksforge-wordpress-plugin-vulnerability-exploited-in-the-wild/" style="color:#111827;text-decoration:none;">Bricksforge WordPress Plugin CVE-2026-85097 Exploited in Wild — Third Critical Bug in Five Weeks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A CVSS 9.8 unauthenticated arbitrary file upload vulnerability (CVE-2026-85097) in the Bricksforge WordPress plugin is being actively exploited since October 7, allowing attackers to upload malicious PHP files and execute arbitrary code on victim websites.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> WordPress websites running Bricksforge plugin version 3.1.8.9 or earlier — this is a paid premium plugin used for advanced form building and page customization on top of the Bricks page builder.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Bricksforge to version 3.1.8.10 or later immediately; scan your WordPress upload and plugin directories for unexpected PHP files; review server logs for suspicious POST requests to form endpoints since October 7.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Insufficient validation of the attacker-controlled <code>temporaryFileUploads</code> parameter in form submissions allows unauthenticated HTTP POST requests to write arbitrary PHP files to the web server's document root, enabling immediate remote code execution.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">Bricksforge is a premium add-on for the Bricks page builder, used by WordPress site owners to create advanced forms, animations, and custom interactive elements. The vulnerability is rooted in how the plugin handles file uploads through its form component: the <code>temporaryFileUploads</code> parameter accepts a URL without validating the file type or verifying the requester's identity (CWE-434).</p>
+        <p style="margin:0 0 8px;">This lets an unauthenticated attacker POST a request pointing to a remote PHP script, which the plugin downloads and stores in the web server's publicly accessible directory. The attacker can then navigate to that URL and execute arbitrary server-side commands — effectively owning the web server. Patchstack observed exploitation beginning October 7 at 21:47 UTC.</p>
+        <p style="margin:0 0 8px;">Critically, this is the third serious vulnerability in Bricksforge within five weeks, indicating a pattern of inadequate security review in the codebase. Even after patching, previously uploaded webshells may persist in upload directories — a full cleanup audit is required alongside the update. Patchstack's virtual patching rules provide a temporary shield for customers who cannot immediately update.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> WordPress powers about 40% of all websites, and plugins add extra features. This bug is like a mailbox that accepts any package without checking contents — attackers send a package containing a remote-control program, and once it's delivered to the website's files, they can run any command on that server.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-85097 · CVSS: 9.8/10 — Near-maximum; unauthenticated network exploitation with critical impact across server confidentiality, integrity, and availability.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Microsoft Patch Tuesday HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Microsoft / Senserva · Oct 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://senserva.com/patch-tuesday-2026-10" style="color:#111827;text-decoration:none;">Patch Tuesday October 2026: Exchange Server Elevation of Privilege CVE-2026-96940 (CVSS 8.8) Patched</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's October 2026 Patch Tuesday includes an Exchange Server elevation of privilege fix (CVE-2026-96940, CVSS 8.8) affecting Exchange Server Subscription Edition, 2019, and 2016, with no CVEs confirmed as actively exploited in this release.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Exchange Server Subscription Edition, Exchange Server 2019 (CU14/CU15), or Exchange Server 2016 (CU23 via Extended Security Update program) that have not applied the October patch.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Exchange Server update KB5129955 (or the relevant CU-specific update); if the October 2 re-release was already applied, verify successful installation — no additional action is needed.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">CVE-2026-96940 allows an authenticated attacker with a network foothold to exploit a flaw in Exchange Server's back-end service and escalate to SYSTEM-level privileges, gaining full control over mail flow, message stores, and Active Directory integration points.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">October's Patch Tuesday is lighter than average: the bulk of Exchange fixes were rolled into an early October 2 re-release, making today's official update primarily a formalization. CVE-2026-96940 is an elevation of privilege vulnerability in Exchange Server's back-end service component, carrying a CVSS 8.8 score that reflects its requirement for prior authentication — an attacker must already have a network foothold or valid credentials before exploiting it.</p>
+        <p style="margin:0 0 8px;">Despite that pre-condition, Exchange Server remains one of the highest-value targets in enterprise environments: successful exploitation gives attackers access to executive communications, HR records, financial reporting data, and often cached domain credentials stored in the Exchange service account. In organizations where Exchange is internet-facing or reachable from a compromised endpoint, the path from initial access to full email infrastructure takeover is short.</p>
+        <p style="margin:0 0 8px;">CISA has not added CVE-2026-96940 to its KEV catalog as of today's date, meaning no confirmed in-the-wild exploitation has been observed. Nonetheless, Exchange vulnerabilities historically attract rapid exploitation interest from both nation-state actors and ransomware affiliates. The October 2 advance release date means organizations on strict monthly patching cycles may have had a two-week window of exposure — verify installation status now.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Exchange Server is Microsoft's software for running company email. This bug is like a back door in the mail room: someone who already has a key to the building can use it to steal the master key to every inbox and server — often leading to access to extremely sensitive company communications.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-96940 · CVSS: 8.8/10 — High severity; requires authenticated network access but enables SYSTEM-level takeover of Exchange infrastructure including all stored mail.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: Flax Typhoon / CISA KEV HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / The Hacker News · Oct 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/flax-typhoon-exploits-five-flaws-as.html" style="color:#111827;text-decoration:none;">CISA Adds Five Flax Typhoon-Exploited CVEs to KEV Catalog; Federal Agencies Deadline Was Oct 11</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added five vulnerabilities actively exploited by China-linked Flax Typhoon (Integrity Technology Group) to its Known Exploited Vulnerabilities catalog — spanning ProFTPD, ONLYOFFICE, Strapi CMS, Apache Struts, and ISC BIND — as part of a joint Five Eyes advisory on Flax Typhoon's 260,000-device proxy botnet.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running ProFTPD (CVE-2015-3306), ONLYOFFICE Docs (CVE-2021-3199), Strapi CMS (CVE-2023-22894), Apache Struts with DMI enabled (CVE-2016-3081), or ISC BIND (CVE-2015-5477) — federal agencies faced a mandatory remediation deadline of October 11.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply all available patches for the five CVEs immediately; disable Dynamic Method Invocation in Apache Struts if you cannot patch; remove internet exposure of ProFTPD and BIND management interfaces.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Resource Development] T1584.001 · Compromise Infrastructure: Botnet<br>
+      <span style="color:#6b7280;">Flax Typhoon builds and maintains a 260,000-device proxy botnet by exploiting these five vulnerabilities on internet-exposed servers and network devices, using the compromised infrastructure to anonymize further intrusions against high-value critical infrastructure targets worldwide.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">The Five Eyes advisory (U.S., UK, Canada, Australia, New Zealand) details how Integrity Technology Group — a Chinese company assessed to act on behalf of the PRC's Ministry of State Security — operates Flax Typhoon's botnet as a commercial hacking-for-hire service. The botnet's 260,000+ compromised devices serve as proxy nodes that route attack traffic, making attribution and network-level blocking extremely difficult.</p>
+        <p style="margin:0 0 8px;">The five newly added KEV entries span a wide range of software and ages — the oldest dates to 2015 — illustrating a key Flax Typhoon tactic: targeting legacy, unpatched systems that organizations deprioritize for updates. CVE-2015-3306 (ProFTPD, CVSS 10.0) enables arbitrary file read/write without authentication. CVE-2021-3199 (ONLYOFFICE, CVSS 9.8) enables RCE via path traversal. CVE-2023-22894 (Strapi, CVSS 7.2) exposes admin credentials. CVE-2016-3081 (Apache Struts, CVSS 8.1) enables command injection. CVE-2015-5477 (BIND, CVSS 7.5) enables denial-of-service.</p>
+        <p style="margin:0 0 8px;">The operation also involves Exchange Server password spraying and email exfiltration — overlapping with today's Patch Tuesday focus on Exchange. U.S. authorities previously disrupted Flax Typhoon infrastructure in a September 2024 operation, but the group has rebuilt its botnet capacity.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A botnet is like an army of secretly infected computers rented from their unwitting owners. China's Flax Typhoon built one with 260,000 machines by hacking servers with old vulnerabilities — they then use this army as a cover to attack governments and utilities, making it look like the attacks come from innocent computers worldwide.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVEs: 2015-3306 · 2016-3081 · 2015-5477 · 2021-3199 · 2023-22894 — Range from CVSS 7.2 to 10.0; oldest dates to 2015, confirming that legacy systems remain primary botnet recruitment targets.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- Flax Typhoon Threat Actor Card -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Flax Typhoon</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: China (PRC) — Integrity Technology Group</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Critical infrastructure (energy, utilities, telecom), government agencies, education, and defense contractors in the U.S., Taiwan, and Southeast Asia</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operating a 260,000-device proxy botnet built from unpatched legacy vulnerabilities, Exchange Server password spraying for email exfiltration, and infrastructure-as-a-proxy for nation-state intrusions</div>
+</div>
+
+<!-- STORY 7: iRhythm MEDIUM -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BankInfoSecurity · Oct 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bankinfosecurity.com/heart-monitoring-firm-tells-sec-hackers-stole-sensitive-data-a-32004" style="color:#111827;text-decoration:none;">Cardiac Monitoring Firm iRhythm Discloses Breach Affecting 360,000 Patients' Health Records</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> iRhythm (maker of the Zio cardiac monitoring patch) disclosed that a June 2026 social engineering attack against a third-party hosting provider exposed protected health information and personal data of at least 360,000 patients, with the threat actor demanding ransom to withhold publication.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Patients who used iRhythm's Zio cardiac monitoring services — stolen data includes names, addresses, dates of birth, phone numbers, email addresses, and protected health information.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Affected patients should monitor credit reports, be alert to phishing attempts referencing their cardiac monitoring history, and watch for suspicious healthcare billing or insurance irregularities.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1566 · Phishing<br>
+      <span style="color:#6b7280;">A social engineering attack targeting the identity verification and access processes of a third-party hosting provider gave threat actors unauthorized access to iRhythm's patient databases — exploiting the weaker security controls that often exist in vendor access chains compared to the primary organization.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">iRhythm's Zio patch is a wearable cardiac monitoring device prescribed by cardiologists to detect arrhythmias over days or weeks of continuous monitoring. The breach therefore affects patients who have shared detailed cardiac health data with their doctors — a particularly sensitive class of protected health information. The company discovered the breach June 8 when it received a ransom demand the following day, citing the theft of proprietary data and patient PHI.</p>
+        <p style="margin:0 0 8px;">The attack vector — social engineering against a third-party hosting provider — reflects a 2026 trend of attackers targeting vendors and subprocessors rather than the primary organization. These providers often have weaker identity verification chains and less rigorous security oversight while still holding access to sensitive production data. State breach notifications list 298,647 affected individuals in Texas and 69,526 in South Carolina, with other states still receiving notifications.</p>
+        <p style="margin:0 0 8px;">iRhythm confirmed that clinical and medical device systems, patient safety infrastructure, manufacturing, and financial reporting were unaffected. Whether the company paid the ransom demand has not been disclosed. Under HIPAA, affected healthcare organizations must notify individuals within 60 days of discovering a breach — making this disclosure now legally mandated.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> iRhythm makes a small sticker with heart sensors that doctors use to record a patient's heartbeat for days at a time. Attackers tricked a company that was storing this data and stole sensitive health records of hundreds of thousands of heart patients — then demanded money to keep it secret. This is a textbook third-party vendor breach.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — social engineering breach; mandatory HIPAA notification under 45 CFR §164.400 with multi-state filing obligations.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Integer Overflow ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    An integer overflow happens when a computer program tries to store a number that is too large for the memory slot it allocated, causing the value to silently "wrap around" — like a car odometer that clicks back to 00000 after reaching 99999. In software security, attackers deliberately trigger these overflows by feeding programs extreme input values, causing the program to miscalculate the size of memory regions and skip safety checks — this is the classic path to buffer corruption and ultimately arbitrary code execution. Today's GitLab vulnerability (CVE-2026-97229) is a textbook example: a crafted regex pattern causes the CI/CD parser's internal counter to overflow its bounds, corrupting memory in a way that lets an unauthenticated attacker redirect execution to their own code.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: GitHub Actions · CI/CD · Botnet · HIPAA · PHI ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">GitHub Actions</strong> — Automated workflow scripts that run inside GitHub repositories when code events occur (like a push or pull request), used for testing, building, and deploying software.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CI/CD</strong> — Continuous Integration/Continuous Delivery: the practice of automatically building, testing, and deploying software every time developers commit code changes, enabling faster and more reliable software releases.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Botnet</strong> — A network of computers silently infected with malware and remotely controlled by a threat actor without the owners' knowledge, used to launch coordinated attacks, proxy malicious traffic, or mine cryptocurrency.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">HIPAA</strong> — Health Insurance Portability and Accountability Act: U.S. federal law requiring healthcare organizations to protect the privacy and security of patient health information and notify affected individuals of data breaches.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">PHI</strong> — Protected Health Information: individually identifiable health data — such as diagnoses, treatment records, and test results — that is legally protected under HIPAA when held by a covered healthcare entity or its business associates.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://therecord.media/arizona-court-phishing-breach-foster-care" style="color:#374151;text-decoration:none;">Arizona State Court System Hit by Phishing Attack — 150,000+ Foster Care Records Copied</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Record</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.cybersecuritydive.com/news/fbi-shinyhunters-arrest/822370/" style="color:#374151;text-decoration:none;">FBI Arrests Another Suspected ShinyHunters Co-Conspirator — Canadian Executive Taken Into Custody</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Cybersecurity Dive</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 13, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
