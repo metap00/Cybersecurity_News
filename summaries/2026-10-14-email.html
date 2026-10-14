@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 14, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 3 high · ~11 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-14.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: Ivanti CVE-2026-104935 — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 13, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/attacker-chains-three-ivanti-connect.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Attacker Chains Three Ivanti Connect Secure Zero-Days for Root Access — Only Two Patched</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Threat actor UTA0576 has been chaining three zero-days in Ivanti Connect Secure VPN for unauthenticated root access since Oct 3 — only two of three flaws are patched.</div>
+    <div style="margin-top:2px;">👤 All organizations running Ivanti Connect Secure before version 25.1.3.0 as an internet-facing VPN gateway.</div>
+    <div style="margin-top:2px;">✅ Upgrade to ICS 25.1.3.0 immediately and use Volexity's published IoCs to check for lateral movement originating from the VPN device.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: Microsoft Patch Tuesday CVE-2026-96951 — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 14, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Microsoft October 2026 Patch Tuesday Fixes Record 1,411 Flaws — Exploited Windows Shell Zero-Day CVE-2026-96951</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-96951 is an actively exploited Windows Shell Mark-of-the-Web bypass (CVSS 8.8) that lets attackers bypass SmartScreen and Protected View via a malicious file in email or download.</div>
+    <div style="margin-top:2px;">👤 All Windows users globally — particularly anyone who opens email attachments or downloads files from the internet.</div>
+    <div style="margin-top:2px;">✅ Apply October 2026 Patch Tuesday updates immediately; CISA federal deadline is October 16.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Defense Evasion] T1553.005 · Mark-of-the-Web Bypass</div>
+</div>
+
+<!-- STORY 3: FortiMail CVE-2026-104286 — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 13, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">FortiMail CVE-2026-104286 (CVSS 9.8) Actively Exploited — Unauthenticated File Write Leads to Full System Compromise</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A critical path traversal flaw lets unauthenticated attackers write arbitrary files to FortiMail servers, with confirmed exploitation deploying web shells, backdoors, and malicious shared libraries for full system takeover.</div>
+    <div style="margin-top:2px;">👤 ~2,800 internet-exposed FortiMail instances on versions 7.2.x, 7.4.x, 7.6.x, and 8.0.x.</div>
+    <div style="margin-top:2px;">✅ Apply Fortinet advisory FG-IR-26-175 patches immediately; disable IBE as a temporary workaround if patching is delayed.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Persistence] T1505.003 · Server Software Component: Web Shell</div>
+</div>
+
+<!-- STORY 4: Citrix NetScaler — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 13, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/new-netscaler-zero-day-exploited-in.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Citrix NetScaler CVE-2026-88779 SAML Zero-Day Exploited — Can Knock SSO Authentication Offline</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A memory overflow in NetScaler's SAML module (CVSS 8.7) was exploited before a patch existed, crashing the SAML authentication service and potentially enabling code execution on SAML-configured appliances.</div>
+    <div style="margin-top:2px;">👤 Enterprises using customer-managed NetScaler ADC/Gateway as a SAML identity provider or service provider for single sign-on.</div>
+    <div style="margin-top:2px;">✅ Apply Citrix bulletin CTX697174; verify SAML configuration in your appliance and treat unexplained SAML crashes as a possible compromise indicator.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1499.004 · Endpoint Denial of Service: Application or System Exploitation</div>
+</div>
+
+<!-- STORY 5: Nippon Columbia breach — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 13, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/nippon-columbia-malware-incident-exposes-86-million-karaoke-fan-records/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Malware at Contractor Exposes 8.7 Million Daiichi Kosho Karaoke Customer Records</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Malware on an employee computer at Nippon Columbia Group (contractor for Daiichi Kosho/BIG ECHO) may have exposed names, birthdates, emails, and phone numbers of up to 8.7 million customers.</div>
+    <div style="margin-top:2px;">👤 Customers of BIG ECHO, MEGA BIG, Karaoke CLUB DAM, Banana Club, B-GARAGE, and DK Dining karaoke brands in Japan.</div>
+    <div style="margin-top:2px;">✅ Be alert to targeted phishing using real name and contact details; no passwords were exposed and investigation is ongoing.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Collection] T1074.001 · Data Staged: Local Data Staging</div>
+</div>
+
+<!-- STORY 6: SonicWall + Inc Ransomware — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Dark Reading · Oct 12, 2026</span>
+  </div>
+  <a href="https://darkreading.com/vulnerabilities-threats/inc-ransomware-exploits-sonicwall-sma-zero-days" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA Confirms Inc Ransomware Now Exploiting SonicWall SMA1000 Flaws (CVE-2026-15409 / CVE-2026-15410)</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CISA confirmed ransomware affiliates are actively chaining a CVSS 10.0 SSRF with a code injection flaw in SonicWall SMA1000 for unauthenticated root access and credential harvesting prior to ransomware deployment.</div>
+    <div style="margin-top:2px;">👤 Organizations running unpatched SonicWall SMA1000 appliances — patches have been available since July 14, 2026.</div>
+    <div style="margin-top:2px;">✅ Patch immediately and treat any unpatched internet-exposed SMA1000 as compromised; reset all credentials for accounts that authenticated through the device.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1486 · Data Encrypted for Impact</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/" style="color:#374151;text-decoration:none;">.NET CVE-2026-108398 Publicly Disclosed WDAC Bypass — No Exploitation Yet</a>
+    <span style="color:#9ca3af;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.nippon.com/en/news/yjj2026100900441/" style="color:#374151;text-decoration:none;">Osaka Metropolitan University Ransomware Encrypts 500 Servers, Cancels Classes</a>
+    <span style="color:#9ca3af;"> · Nippon.com</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://cybernews.com/security/moneygram-data-breach-ransomware-claim/" style="color:#374151;text-decoration:none;">Gentlemen Ransomware Gang Claims MoneyGram Attack — Unverified, No Data Published Yet</a>
+    <span style="color:#9ca3af;"> · CyberNews</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-14.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Oct 14, 2026</div>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 14, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 14, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 3 high · 3 medium · ~11 min read</div>
+</div>
+
+<!-- STORY 1: Ivanti Connect Secure Zero-Day Chain — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/attacker-chains-three-ivanti-connect.html" style="color:#111827;text-decoration:none;">Attacker Chains Three Ivanti Connect Secure Zero-Days for Root Access — Only Two Patched So Far</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A threat actor tracked as UTA0576 has been chaining three zero-day vulnerabilities in Ivanti Connect Secure VPN appliances since at least October 3, achieving unauthenticated root access on fully patched devices.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Ivanti Connect Secure before version 25.1.3.0 (and older 22.x and 25.1.x branches) that use the VPN appliance as an internet-facing remote-access gateway.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to ICS 25.1.3.0 immediately, review Ivanti's advisory for the unpatched third flaw workaround, and use Volexity's published IoCs to check for signs of lateral movement originating from the VPN device.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">UTA0576 exploits chained authentication bypass and privilege escalation flaws in the internet-exposed Ivanti Connect Secure VPN interface to achieve unauthenticated root access with no user interaction required.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Ivanti disclosed CVE-2026-104935 on October 13, acknowledging that Volexity had observed active exploitation of a three-vulnerability chain in Connect Secure VPN appliances. The chain begins with an unauthenticated HTTP request that bypasses Ivanti's authentication layer, proceeds to execute arbitrary commands, and then escalates privileges to root via a third, as-yet-unpatched local privilege escalation bug. The result is full administrative control over the appliance — including access to all tunneled VPN traffic, stored credentials, and internal network routes.</p>
+        <p>Volexity attributes the campaign to UTA0576, a suspected nation-state threat actor with a pattern of targeting network edge devices. Exploitation was traced back to October 3, meaning attackers had at least 10 days of undetected access before public disclosure. Only two of the three CVEs have patches available. Ivanti's advisory promises a fix for the third "in the coming weeks." Federal agencies face the most acute exposure, as Ivanti Connect Secure is widely deployed in government environments.</p>
+        <p>The attack mirrors previous Ivanti zero-day campaigns (CVE-2023-46805 / CVE-2024-21887) that were also exploited by suspected nation-state actors weeks before patches arrived. Organizations should treat any ICS device with internet exposure as potentially compromised and conduct forensic triage regardless of patch status.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Ivanti Connect Secure is essentially a digital doorway that lets employees securely access company networks from home. This attack lets hackers walk right through that doorway without needing a key — by exploiting three bugs in a chain, they can take over the entire door system with administrator privileges and then sneak into the internal network behind it.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104935 · CVSS: 8.6/10 — High severity; the score reflects the unauthenticated network access vector and low attack complexity, with the primary risk being full device compromise leading to network intrusion.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: UTA0576 -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">UTA0576</div>
+  <div style="opacity:.85;margin-top:4px;">Suspected Nation-State APT · Attributed to: Unknown (tracked by Volexity)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government agencies, critical infrastructure, and enterprise organizations using VPN and remote-access edge appliances as internet gateways</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Serial exploitation of zero-day vulnerabilities in network perimeter devices (Ivanti, Pulse Secure); gains deep network access while remaining undetected for weeks or months before disclosure</div>
+</div>
+
+<!-- STORY 2: Microsoft Patch Tuesday CVE-2026-96951 — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/" style="color:#111827;text-decoration:none;">Microsoft October 2026 Patch Tuesday Fixes Record 1,411 Flaws — Exploited Windows Shell Zero-Day Among Them</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's October Patch Tuesday — the largest in history — includes a fix for CVE-2026-96951, a Windows Shell Mark-of-the-Web bypass rated CVSS 8.8 that is already being actively exploited in the wild.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows users on any supported Windows version who open files received via email, messaging apps, or the internet, which is effectively all Windows desktops and servers worldwide.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the October 2026 Patch Tuesday updates immediately — especially CVE-2026-96951; CISA has added it to the KEV catalog with a federal remediation deadline of October 16.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1553.005 · Mark-of-the-Web Bypass<br>
+      <span style="color:#6b7280;">Attackers exploit the Windows Shell flaw to strip the MotW flag from malicious files delivered via phishing or download, letting executables and scripts run without SmartScreen warnings or Protected View activation.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>October 2026's Patch Tuesday is the largest single release in the history of the program, addressing roughly 1,411 CVEs across Windows, Office, Azure, .NET, and dozens of other products. Among them, CVE-2026-96951 stands out as the only confirmed actively exploited zero-day. The flaw exists in Windows Shell's handling of file metadata: when a user downloads a file from the internet, Windows attaches a Zone Identifier attribute (the Mark-of-the-Web) that tells apps like Office and Edge to treat it as untrusted. The bug allows an attacker to craft a malicious file that arrives appearing trustworthy, bypassing SmartScreen warnings and Office Protected View.</p>
+        <p>The typical attack chain involves a phishing email or malicious download link. When the victim opens the specially crafted file, the shell flaw silently removes or suppresses the MotW flag, causing Windows to treat a dangerous script or executable as if it came from a trusted local source. Microsoft has not publicly attributed the exploitation but CISA's same-day KEV addition suggests active, in-the-wild attacks against real targets.</p>
+        <p>A second zero-day, CVE-2026-108398, affecting .NET Framework's Windows Defender Application Control enforcement was also disclosed but has not yet been seen exploited. Security teams should prioritize CVE-2026-96951 but plan to patch WDAC within days given the public disclosure risk.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Windows normally puts a digital sticker on files you download from the internet saying "be careful — this came from the web." Programs like Word or Edge see that sticker and show you a warning before running anything. This bug lets hackers make a dangerous file that arrives without that sticker, so Windows trusts it just like a file you created yourself and skips the warning entirely.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-96951 · CVSS: 8.8/10 — High severity; command injection via Windows Shell with local user interaction required, but exploitation is trivial once a victim opens a crafted file.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: FortiMail CVE-2026-104286 — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="color:#111827;text-decoration:none;">Critical FortiMail Zero-Day CVE-2026-104286 Actively Exploited — Unauthenticated File Write Leads to Full System Takeover</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Fortinet disclosed and CISA immediately added CVE-2026-104286 to its Known Exploited Vulnerabilities catalog — a CVSS 9.8 path traversal vulnerability in FortiMail that allows unauthenticated remote attackers to write arbitrary files to the server, leading to full system compromise via deployed web shells and backdoors.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Approximately 2,800 internet-exposed FortiMail deployments running versions 7.2.0–7.2.9, 7.4.0–7.4.8, 7.6.0–7.6.6, and 8.0.0–8.0.1 are at immediate risk.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Fortinet advisory FG-IR-26-175 patches immediately; if patching is not immediately possible, disable IBE feature support as a temporary workaround and restrict management interface access to trusted IP ranges only.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Persistence] T1505.003 · Server Software Component: Web Shell<br>
+      <span style="color:#6b7280;">Attackers exploit the path traversal to write attacker-controlled PHP or JSP files to web-accessible directories on FortiMail, establishing persistent web shells that survive reboots and provide ongoing command execution and backdoor access.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-104286 combines a path traversal weakness with improper handling of NULL bytes in HTTP requests — an attacker sends a crafted request that tricks FortiMail into interpreting a path like <code>/mail/../../webroot/shell.php%00</code> as a valid file destination, writing attacker-supplied content to any location the FortiMail process has write access to. Because FortiMail runs with elevated privileges to process mail for the entire organization, this translates to arbitrary file write across the appliance. Post-exploitation analysis from Fortinet and third-party responders has found web shells, malicious shared libraries injected into running processes, and backdoor SSH keys.</p>
+        <p>Fortinet published advisory FG-IR-26-175 on October 1 and CISA immediately added the CVE to its KEV catalog, setting a federal remediation deadline of October 4 — indicating that confirmed exploitation was already underway at time of publication. The attack requires no authentication and no user interaction, making it trivially weaponizable. With roughly 2,800 FortiMail hosts exposed to the internet, the blast radius is significant — FortiMail is particularly common in mid-size enterprises and government email environments.</p>
+        <p>Organizations that cannot patch immediately should treat the mitigation (disabling IBE) as a short-term measure only. The feature disablement does not eliminate all exploitation paths. The Fortinet advisory includes SHA-256 hashes of known malicious files placed by attackers; administrators should run integrity checks against these IoCs before concluding they are clean.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> FortiMail is a server that handles email for organizations. This bug is like a delivery person exploiting a confusing building address system to leave a package in the server room instead of the mailroom — except the "package" is a hacker's remote control script. Once placed, the script lets attackers run commands on the mail server at any time without logging in, even after the building changes the lock on the front door.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104286 · CVSS: 9.8/10 — Critical; network-accessible, no authentication required, no user interaction, arbitrary file write with immediate path to code execution.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Citrix NetScaler CVE-2026-88779 — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/new-netscaler-zero-day-exploited-in.html" style="color:#111827;text-decoration:none;">New Citrix NetScaler Zero-Day CVE-2026-88779 Exploited in Targeted Attacks — Can Knock SAML Authentication Offline</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Citrix disclosed and patched CVE-2026-88779, a memory overflow in NetScaler ADC and Gateway that allows unauthenticated remote attackers to crash SAML authentication services — with evidence that code execution may also be achievable — and confirmed it was exploited before the patch existed.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Customer-managed NetScaler appliances configured as SAML service providers or SAML identity providers — enterprises using Citrix as a single sign-on gateway for Microsoft 365, Okta, and similar services are most exposed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Citrix bulletin CTX697174; verify your appliance is configured as a SAML SP or IdP (look for <code>add authentication samlAction</code> in the config) and treat systems showing unexplained SAML crashes as potentially compromised.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1499.004 · Endpoint Denial of Service: Application or System Exploitation<br>
+      <span style="color:#6b7280;">Attackers send crafted unauthenticated requests that trigger the memory overflow in NetScaler's SAML processing module, crashing the authentication service and forcing organizations to fall back to less-secure or backup authentication methods.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-88779 is a memory overflow vulnerability (CWE-119) in the SAML authentication module of Citrix NetScaler ADC and Gateway. The flaw can be triggered without authentication by sending malformed HTTP/HTTPS requests to any NetScaler appliance configured to act as a SAML service provider or identity provider. The confirmed impact is a crash of the SAML authentication process — effectively a targeted denial of service against organizations' SSO infrastructure. Citrix notes that cloud-managed NetScaler instances were patched automatically by Citrix prior to public disclosure.</p>
+        <p>While Citrix characterizes the vulnerability as causing denial of service, incident responders have observed memory corruption patterns consistent with potential remote code execution exploitation attempts. CISA added CVE-2026-88779 to its KEV catalog on October 4 with a remediation deadline of October 7, confirming confirmed exploitation before any patch was available. The flaw is the third NetScaler zero-day in October alone (following CVE-2026-88771 and CVE-2026-88772), suggesting sustained researcher or threat-actor focus on the Citrix platform.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SAML is the technology that lets you click "Log in with Google" or "Log in with Microsoft" on a company app and get in without entering a new password. NetScaler is the appliance that handles this for many large companies. This bug lets an attacker crash that "single sign-on" system, locking everyone out of their company apps simultaneously — imagine if flipping a switch could instantly lock every employee out of every business tool at once.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-88779 · CVSS: 8.7/10 — High severity; network-accessible, no authentication required, denial of service with potential for code execution in SAML-configured deployments.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Nippon Columbia / Daiichi Kosho 8.7M breach — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/nippon-columbia-malware-incident-exposes-86-million-karaoke-fan-records/" style="color:#111827;text-decoration:none;">Malware at Daiichi Kosho Contractor Nippon Columbia Group Exposes 8.7 Million Karaoke Customer Records</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Japan's largest karaoke operator Daiichi Kosho disclosed that malware was discovered on a computer at Nippon Columbia Group, the contractor handling customer data — potentially exposing records for 8.7 million customers across BIG ECHO and other karaoke brands.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Approximately 8.7 million current and former Daiichi Kosho customers across brands including BIG ECHO, MEGA BIG, Karaoke CLUB DAM, Banana Club, B-GARAGE, and DK Dining; exposed data includes full names, dates of birth, email addresses, and phone numbers.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Affected customers should be alert to phishing attempts using their real name and contact information; no passwords were exposed, but Daiichi Kosho says data theft cannot be ruled out and a full investigation is ongoing.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1074.001 · Data Staged: Local Data Staging<br>
+      <span style="color:#6b7280;">Malware on the contractor's endpoint likely staged the customer database records locally before potential exfiltration — the investigation is ongoing, but the access pattern of malware on a data-handling employee's workstation is consistent with collection-and-stage techniques.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Daiichi Kosho, operator of Japan's largest karaoke chain BIG ECHO and related brands, disclosed October 5 that Nippon Columbia Group (NCG) — a third-party contractor responsible for managing customer personal data — discovered malware on an employee's computer. NCG isolated the affected system the following day and notified Daiichi Kosho. The total records potentially exposed: 93,000 employee records and approximately 8.63–8.72 million customer records (reports vary slightly by outlet).</p>
+        <p>This incident exemplifies a recurring and growing attack pattern: targeting under-resourced third-party contractors that hold sensitive data on behalf of large enterprises but may lack the security controls of their enterprise clients. The data types exposed — names, dates of birth, email addresses, phone numbers — are highly valuable for social engineering and targeted phishing campaigns. Separately, Jiji Press reported a second major Japanese data breach this week: Bookoff Group also disclosed a breach exposing up to 6.43 million customer records, suggesting attackers may be systematically targeting Japanese retail and entertainment sector supply chains.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Large companies often hire smaller companies (contractors) to manage some of their data. The large company might have great security, but if the smaller company's security is weak, attackers target the smaller company to get the big company's data — like robbing a bank by breaking into the much less secure office of an accounting firm that keeps the bank's client records.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned (malware incident) · Impact: 8.7M PII records exposed — high severity due to scale and confirmed system compromise at the data-handling contractor.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: SonicWall SMA1000 + Inc Ransomware — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Dark Reading · Oct 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://darkreading.com/vulnerabilities-threats/inc-ransomware-exploits-sonicwall-sma-zero-days" style="color:#111827;text-decoration:none;">CISA Confirms Inc Ransomware Gang Now Exploiting SonicWall SMA1000 Flaws for Unauthenticated Root Access</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA confirmed that Inc Ransomware affiliates are actively exploiting CVE-2026-15409 (CVSS 10.0, SSRF) and CVE-2026-15410 (code injection) in SonicWall SMA1000 appliances, granting unauthenticated root access and enabling credential harvesting before ransomware deployment.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched SonicWall SMA1000 appliances as remote-access gateways — both flaws were patched by SonicWall in July 2026, so any unpatched device is at immediate risk of ransomware compromise.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch SMA1000 appliances to the versions published in SonicWall's July 14 advisory immediately; treat any SMA1000 device that was internet-exposed and unpatched since July as potentially compromised and conduct credential reset across all accounts that authenticated through it.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">Inc Ransomware affiliates leverage the SMA1000 root access to harvest credentials and active session tokens, move laterally into the internal network, and ultimately encrypt critical systems and data to demand ransom.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CISA's advisory confirms what researchers at Resecurity and Rapid7 had observed since late summer: Inc Ransomware affiliates are systematically using the chain of CVE-2026-15409 and CVE-2026-15410 against SonicWall SMA1000 appliances. The first vulnerability is a maximum-severity SSRF flaw (CVSS 10.0) allowing unauthenticated attackers to forge server-side requests; chained with CVE-2026-15410 (command injection in the management console), attackers gain unauthenticated root-level code execution on the VPN appliance. From there, attackers harvest stored credentials, active session databases, and MFA seeds — giving them the keys to the entire network the VPN protects.</p>
+        <p>Patches were available from SonicWall since July 14, 2026, but CISA's confirmation suggests a significant tail of unpatched devices. This pattern — ransomware groups following state-linked actors into VPN appliance vulnerabilities weeks or months after patches — is now well established. Organizations in healthcare, education, and local government are especially exposed, as SMA1000 is common in those sectors and patch cycles tend to be slower.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A VPN appliance is the locked front door to a company's internal network. Ransomware gangs are now exploiting a bug in SonicWall's version of that front door that lets them walk in without a key, copy every employee's login credentials stored inside, and then use those credentials to spread through the entire company network before activating ransomware that encrypts everything.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-15409 · CVSS: 10.0/10 — Maximum severity SSRF; CVE-2026-15410 · CVSS: 9.1/10 — Critical code injection; patches available since July 14, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Inc Ransomware -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Inc Ransomware</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Ransomware-as-a-Service Gang · Not nation-state attributed</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Healthcare providers, educational institutions, legal firms, and local government — sectors with valuable data, limited security resources, and high pressure to restore services quickly</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion model — encrypts victim systems while exfiltrating sensitive data and threatening to publish it on a leak site unless ransom is paid; aggressive exploitation of VPN and remote-access appliance vulnerabilities for initial access</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Mark-of-the-Web (MotW) ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Mark-of-the-Web is a Windows security mechanism that attaches a hidden Zone Identifier tag to files downloaded from the internet — this metadata tells Windows apps like Office or PowerShell that the file came from an untrusted source, triggering Protected View, SmartScreen warnings, and script execution blocks. The tag lives inside the file's NTFS alternate data streams and is checked by the operating system every time the file is opened, but notably it does not survive being copied to FAT32 drives or most ZIP extraction processes. Bypassing MotW is a critical attacker goal because it silences nearly all of Windows' user-facing security warnings, allowing malicious scripts and executables to run as if they were locally created, trusted files — which is exactly what CVE-2026-96951 exploits in today's Patch Tuesday.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: MotW · SAML · WDAC · RaaS ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MotW</strong> — Mark-of-the-Web; a Windows NTFS alternate data stream tag automatically applied to internet-downloaded files that triggers enhanced security warnings and execution restrictions when those files are opened.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SAML</strong> — Security Assertion Markup Language; an XML-based open standard for exchanging authentication and authorization data between an identity provider (e.g., your company's login server) and a service provider (e.g., a SaaS app), enabling single sign-on across services.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">WDAC</strong> — Windows Defender Application Control; a Windows security feature that allows administrators to define policies restricting which applications and scripts are permitted to run, preventing unauthorized software execution even with administrator credentials.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">RaaS</strong> — Ransomware-as-a-Service; a criminal business model where ransomware developers build and maintain malware infrastructure, then lease it to "affiliates" who conduct attacks in exchange for a cut of ransom payments — similar to a software franchise, but for cybercrime.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/" style="color:#374151;text-decoration:none;">.NET Framework CVE-2026-108398 Bypasses WDAC Enforcement — Publicly Disclosed, No Active Exploitation Yet</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.nippon.com/en/news/yjj2026100900441/" style="color:#374151;text-decoration:none;">Osaka Metropolitan University Ransomware Knocks Out 500 Servers — Classes Cancelled, Some Backups Encrypted</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Nippon.com</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybernews.com/security/moneygram-data-breach-ransomware-claim/" style="color:#374151;text-decoration:none;">The Gentlemen Ransomware Gang Claims MoneyGram Attack — No Data Published Yet, Breach Unverified</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CyberNews</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 14, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
