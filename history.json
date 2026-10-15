@@ -1,12 +1,13 @@
 {
-  "til": ["Hypervisor Security", "Protocol Tunneling", "Null Byte Injection", "Deserialization Attacks", "Prompt Injection in AI Gateways", "Integer Overflow", "Mark-of-the-Web"],
-  "glossary": ["IR", "MitM", "BGP", "YARA", "TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "GitHub Actions", "CI/CD", "Botnet", "HIPAA", "PHI", "MotW", "SAML", "WDAC", "RaaS"],
+  "til": ["Null Byte Injection", "Deserialization Attacks", "Prompt Injection in AI Gateways", "Integer Overflow", "Mark-of-the-Web", "Log Tampering"],
+  "glossary": ["TTL", "VLAN", "DMZ", "Egress Filtering", "Network Proxy", "JWT", "SQLi", "EoP", "ALPC", "WAF", "CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "GitHub Actions", "CI/CD", "Botnet", "HIPAA", "PHI", "MotW", "SAML", "WDAC", "RaaS", "LAPS", "SSRF", "Cobalt Strike", "BloodHound"],
   "week": {
-    "critical": 7, "high": 10, "medium": 8,
-    "techniques": ["T1133", "T1505.003", "T1552.001", "T1068", "T0812", "T1562.001", "T1190", "T1599.001", "T1552.004", "T1584.001", "T1566", "T1553.005", "T1499.004", "T1074.001", "T1486"],
-    "actors": ["Qilin", "Warlock", "GhostAction", "Flax Typhoon", "UTA0576", "Inc Ransomware"]
+    "critical": 9, "high": 13, "medium": 11,
+    "techniques": ["T1133", "T1505.003", "T1552.001", "T1068", "T0812", "T1562.001", "T1190", "T1599.001", "T1552.004", "T1584.001", "T1566", "T1553.005", "T1499.004", "T1074.001", "T1486", "T1003", "T1204.002", "T1606.002", "T1069.002", "T1072"],
+    "actors": ["Qilin", "Warlock", "GhostAction", "Flax Typhoon", "UTA0576", "Inc Ransomware", "Settra"]
   },
   "digests": [
+    {"date": "2026-10-15", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 3},
     {"date": "2026-10-14", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 3},
     {"date": "2026-10-13", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 3},
     {"date": "2026-10-12", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},

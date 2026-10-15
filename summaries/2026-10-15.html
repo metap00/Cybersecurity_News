@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 15, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 15, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 3 high · 3 medium · ~6 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - Ivanti Zero-Day Chain -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/ivanti-zero-day-chain-gave-attackers-root-access-to-fully-patched-vpn/" style="color:#111827;text-decoration:none;">Attacker Chains Three Ivanti Zero-Days for Unauthenticated Root Access on Fully Patched VPN</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Threat actor UTA0576 chained three zero-day vulnerabilities in Ivanti Connect Secure (tracked as CVE-2026-104935) to gain unauthenticated root access on fully patched VPN appliances, operating since October 3 without installing any persistent malware.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Ivanti Connect Secure VPN appliances, especially those whose appliances store Active Directory credentials, LAPS passwords, and BitLocker recovery keys.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the October 13 patch for CVE-2026-104935 immediately; perform forensic investigation using memory and disk images; monitor for lateral movement originating from VPN appliances; note that one privilege-escalation flaw in the chain remains unpatched.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1003 · OS Credential Dumping<br>
+      <span style="color:#6b7280;">UTA0576 specifically targeted LAPS passwords, BitLocker recovery keys, and Active Directory credentials stored on the compromised appliance — classic credential dumping to enable broader network compromise.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Volexity discovered the attack campaign on October 13, 2026, after noticing suspicious activity on a monitored customer's network. The attackers targeted Ivanti Connect Secure build 22.8R2.4 — the latest available at the time — meaning even fully patched organizations were vulnerable. The exploit chain begins with an authentication bypass and a remote code execution bug (together tracked as CVE-2026-104935), which elevates the attacker to the VPN service's low-privilege user; a third unpublished privilege escalation flaw then raises access to full root.</p>
+        <p>What makes UTA0576 stand out operationally is their deliberate avoidance of persistence. Rather than installing a web shell or backdoor that defenders could detect, they re-ran the entire exploit chain from scratch for every single command they needed to execute. After each session they also deleted log entries on the appliance, making traditional log-based detection impossible. Volexity reconstructed the attack timeline only by analyzing memory dumps, disk images, and core dump files.</p>
+        <p>The stolen data included Active Directory domain credentials, LAPS (Local Administrator Password Solution) passwords, and BitLocker recovery keys — exactly the credentials needed to move laterally through an enterprise and decrypt encrypted drives. Two of the three vulnerabilities were patched on October 13; the third privilege escalation flaw has no patch yet and Ivanti says a fix is weeks away.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine a locked building where the security system itself has a hidden flaw. The attacker found three flaws they could combine: one to get through the front door without a key card, one to move past an inner checkpoint, and one to get master keys to the whole building. They were so careful that instead of copying the master key (installing malware), they re-picked the locks each time they wanted something — and then erased the security camera footage after each visit, leaving no trace for weeks.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104935 · CVSS: 8.6/10 — Critical severity covering the authentication bypass + RCE pair; third privilege escalation CVE pending assignment.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - Microsoft Patch Tuesday -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/" style="color:#111827;text-decoration:none;">Microsoft's Record October Patch Tuesday: 1,413 CVEs Fixed Including Exploited Windows Shell Zero-Day CVE-2026-96951</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's October 2026 Patch Tuesday fixed a record 1,413 CVEs — the largest ever Patch Tuesday — including CVE-2026-96951, an actively exploited Windows Shell security feature bypass (CVSS 8.8) that lets attackers circumvent Mark-of-the-Web protections.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows users across Windows 10, Windows 11, and Windows Server versions; SharePoint Server administrators face additional urgent exposure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply October cumulative updates immediately, prioritizing CVE-2026-96951; enable Windows Update on all endpoints; review SharePoint Server patching; monitor for suspicious file executions that originated from the internet.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1204.002 · User Execution: Malicious File<br>
+      <span style="color:#6b7280;">CVE-2026-96951 bypasses Windows' Mark-of-the-Web flag, which normally triggers SmartScreen warnings on internet-downloaded files — letting attackers deliver weaponized Office documents or executables that run silently without any security prompt.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>October 2026 set a new record for Microsoft's monthly security update cycle: 1,413 CVEs addressed in a single Patch Tuesday, surpassing any previous month. Of these, approximately 69–80 are rated Critical (sources differ on the exact count), with the largest concentrations in Windows (1,102 CVEs), Microsoft Office (134), and SharePoint Server (36). The scale reflects both an expanded attack surface as Windows becomes more modular and Microsoft's growing commitment to disclosing vulnerabilities in third-party components bundled with Windows.</p>
+        <p>The patch receiving most urgent attention is CVE-2026-96951, a Windows Shell security feature bypass rated CVSS 8.8. Dark Reading reports it was discovered by Claude AI. Attackers are already exploiting it in the wild to deliver malicious files that bypass Windows' Mark-of-the-Web (MotW) protection. When a file is downloaded from the internet, Windows attaches a MotW tag; SmartScreen uses this to display a warning before the file runs. CVE-2026-96951 strips or corrupts that tag, silencing the warning and enabling execution. This makes it ideal for phishing campaigns delivering weaponized archives or Office macros.</p>
+        <p>A second zero-day, CVE-2026-108398 (.NET Framework security feature bypass), was publicly disclosed prior to patching but has no confirmed exploitation. Administrators running SharePoint Server on-premises should treat that product as a high priority given its 36 CVEs and historically frequent use as a ransomware entry point.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Windows puts a secret "came from the internet" sticker on every file you download, and shows you a scary warning before running it. This vulnerability lets attackers remove that sticker, so Windows runs the malicious file as if you had created it yourself — no warning, no security check. Think of it as forging the "inspected by customs" stamp on a package to bypass border security entirely.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-96951 · CVSS: 8.8/10 — Security feature bypass enabling silent execution of internet-delivered malicious files by nullifying Mark-of-the-Web protections.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH - Citrix NetScaler SAML Zero-Day -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/new-netscaler-zero-day-exploited-in.html" style="color:#111827;text-decoration:none;">New Citrix NetScaler SAML Zero-Day CVE-2026-88779 Exploited in Targeted Attacks; CISA Orders Federal Patch by Oct 7</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A memory overflow zero-day in Citrix NetScaler ADC/Gateway (CVE-2026-88779, CVSS 8.7) has been added to CISA's KEV catalog and is being exploited in targeted attacks against SAML-enabled appliances, crashing devices and potentially enabling remote code execution when chained with CVE-2026-88771.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using NetScaler ADC or Gateway configured as a SAML service provider or identity provider — particularly federal agencies that faced a mandatory October 7 remediation deadline.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to NetScaler fixed builds 14.1-73.41 or 13.1-64.28 (FIPS variants included); if immediate patching isn't possible, temporarily disable SAML authentication on the appliance; Citrix-managed cloud deployments were automatically patched.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1606.002 · Forge Web Credentials: SAML Tokens<br>
+      <span style="color:#6b7280;">The flaw resides in NetScaler's SAML authentication processing code — exploitation can manipulate the SAML assertion flow, potentially allowing attackers to forge authentication tokens and impersonate any user in the connected SSO environment.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-88779 is the sixth exploited NetScaler vulnerability CISA has added to its KEV catalog in 2026 alone, highlighting the sustained attacker interest in Citrix appliances as high-value perimeter targets. The flaw is classified as CWE-119 (memory overflow) in the SAML authentication component of NetScaler ADC and Gateway. Citrix published bulletin CTX697174 on October 3; CISA added it to KEV on October 4 with an October 7 deadline for federal civilian agencies.</p>
+        <p>The primary exploitable impact is a denial of service — attackers can crash any NetScaler appliance that has SAML configured, forcing a reboot. Researchers at WatchTowr reproduced the bug and initially assessed it as DoS-only. However, CISA's advisory notes that the crash can be combined with CVE-2026-88771 (an earlier NetScaler pre-auth flaw) to accelerate code execution injected through that prior vulnerability on unpatched systems. Mandiant has been tracking CVE-2026-88771 exploitation since early September.</p>
+        <p>The broader NetScaler CVE cluster — CVE-2026-88771 through CVE-2026-88779 plus CVE-2026-107406 — represents a systematic exploitation pattern by threat actors who treat Citrix appliances as long-term access points into enterprise networks. Organizations should treat any NetScaler showing unexpected reboots in recent weeks as potentially compromised and conduct forensic review.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SAML is the technology that lets you log into one website and automatically be recognized by dozens of others — it's the backbone of corporate single sign-on. NetScaler sits at the edge of corporate networks and handles these logins. This bug lets attackers crash that login gateway by sending it a specially crafted message, and when chained with another flaw, potentially break in entirely and impersonate any employee in the organization.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-88779 · CVSS: 8.7/10 — Memory overflow in NetScaler SAML component enabling denial-of-service and potentially RCE via chaining with prior exploited flaws.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - Palo Alto CVE-2026-0257 Qilin/Settra Ransomware -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Infosecurity Magazine / ReliaQuest · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.infosecurity-magazine.com/news/palo-alto-vpn-vulnerability-target/" style="color:#111827;text-decoration:none;">Ransomware Groups Qilin and Settra Still Actively Exploiting Old Palo Alto PAN-OS Authentication Bypass CVE-2026-0257</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> ReliaQuest confirmed that ransomware groups Qilin and the newly identified Settra are actively exploiting CVE-2026-0257, a Palo Alto PAN-OS/GlobalProtect authentication bypass patched months ago, then deploying Cobalt Strike, BloodHound, and SharpHound to conduct Active Directory reconnaissance before ransomware detonation.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched Palo Alto Networks PAN-OS or GlobalProtect appliances — post-exploitation pivots directly into enterprise Active Directory environments to identify high-value targets for ransomware encryption.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Palo Alto's patch for CVE-2026-0257 immediately if not already done; hunt for Cobalt Strike beacons and BloodHound/SharpHound artifacts in your environment; review privileged AD group membership for unauthorized changes; enable Cortex XDR behavioral detection rules for post-exploitation tooling.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Discovery] T1069.002 · Permission Groups Discovery: Domain Groups<br>
+      <span style="color:#6b7280;">After exploiting the auth bypass, attackers deploy BloodHound and SharpHound specifically to enumerate Active Directory domain groups and privilege paths — enabling them to identify the fastest route to domain administrator access before deploying ransomware.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-0257 has been public and patched for months, yet ReliaQuest's October 2026 threat intelligence confirms it remains one of the most actively targeted vulnerabilities by ransomware affiliates. Palo Alto scores it CVSS 7.8, while NIST's National Vulnerability Database rates it 9.1 Critical — a discrepancy that underscores why organizations should consult multiple CVSS sources when prioritizing patches. The vulnerability allows an attacker without valid credentials to bypass the GlobalProtect authentication gate and gain a foothold inside the VPN-protected network segment.</p>
+        <p>The post-exploitation chain observed by ReliaQuest is notably sophisticated. After initial access, attackers deploy Cobalt Strike — a commercial penetration testing framework widely abused by criminal actors — to establish an encrypted command-and-control channel. They then run BloodHound and SharpHound, Active Directory reconnaissance tools that graph every trust relationship, group membership, and privilege delegation in the domain. This "attack path analysis" reveals the fastest route to domain administrator, typically through misconfigured service accounts or nested group memberships that IT teams are unaware of.</p>
+        <p>Both Qilin and Settra represent the evolution of the ransomware-as-a-service model: they are affiliate programs where the malware developers take a percentage of each ransom while independent operators run the actual intrusions. Qilin previously targeted healthcare and critical infrastructure; Settra is a newer group emerging in 2026 with similar targeting patterns but distinct tooling preferences.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of BloodHound as a GPS for hackers navigating your company's internal directory of users and groups. Once attackers bypass the Palo Alto VPN, they use BloodHound to instantly map every permission and group membership — like getting a complete building blueprint — which tells them exactly which accounts to compromise to become the "master administrator" who can lock every file with ransomware.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-0257 · CVSS: 7.8/10 (Palo Alto) / 9.1/10 (NVD) — Authentication bypass in PAN-OS GlobalProtect enabling unauthenticated network access and subsequent AD domain compromise.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: Settra -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Settra</div>
+  <div style="opacity:.85;margin-top:4px;">Ransomware-as-a-Service (RaaS) Affiliate Program · Criminal, financially motivated</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Enterprise networks across manufacturing, logistics, and healthcare sectors in North America and Europe; prioritizes high-revenue organizations with sensitive operational data.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Emerged in mid-2026 deploying double-extortion ransomware; uses perimeter appliance exploits (VPN, firewall) for initial access, followed by Cobalt Strike C2 and BloodHound AD recon before detonating ransomware across domain-joined systems.</div>
+</div>
+
+<!-- STORY 5: HIGH - JetBrains TeamCity RCE -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Senserva / The Hacker News · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://senserva.com/patch-tuesday.html" style="color:#111827;text-decoration:none;">JetBrains TeamCity Critical RCE CVE-2026-63077 (CVSS 9.8) Confirmed Exploited in Ransomware Attacks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CVE-2026-63077, a critical CVSS 9.8 remote code execution vulnerability in JetBrains TeamCity CI/CD servers, has been confirmed exploited in the wild by ransomware actors, per Senserva's October Patch Tuesday risk ranking and corroborating threat intelligence.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Development teams and enterprises running JetBrains TeamCity on-premises — CI/CD servers typically hold deployment credentials, API keys, and pipeline access to both staging and production infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update TeamCity to the latest patched version immediately; audit all build configurations and recently created user accounts for unauthorized changes; rotate all secrets, tokens, and API keys stored in TeamCity; review deployment pipeline outputs for unexpected artifacts.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1072 · Software Deployment Tools<br>
+      <span style="color:#6b7280;">Once inside TeamCity, attackers abuse the CI/CD platform's trusted software deployment role to inject malicious build steps or scripts that execute on every connected build agent, effectively weaponizing the organization's own deployment infrastructure against itself.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>JetBrains TeamCity is a popular continuous integration and continuous delivery (CI/CD) platform used by development teams to automate the building, testing, and deployment of software. CVE-2026-63077 carries a maximum-severity CVSS score of 9.8, indicating unauthenticated remote code execution with no user interaction required — the worst possible combination for an internet-facing server. Ransomware actors have targeted TeamCity consistently since 2023, recognizing that CI/CD servers occupy a uniquely privileged position: they have credentials for cloud platforms, production databases, code repositories, and container registries, all in one place.</p>
+        <p>The exploitation pattern observed in TeamCity incidents follows a predictable arc: initial RCE is used to create a new administrator account or extract existing credentials, then attackers enumerate all connected build agents (which are often production-adjacent virtual machines), insert malicious build steps that run automatically on the next scheduled pipeline trigger, and use the legitimate deployment trust to push ransomware or exfiltrate intellectual property before demanding payment.</p>
+        <p>This CVE represents a recurring pattern at JetBrains — previous critical TeamCity vulnerabilities (notably in 2023 and 2024) were exploited within hours of public disclosure. The October 2026 iteration confirms that threat actors monitor TeamCity advisories as closely as security teams do, and patch windows are extremely narrow.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A CI/CD server is like the factory floor for software — it automatically builds, tests, and ships your app to users. When attackers break into the factory, they don't just steal what's there; they reprogram the assembly line to add malicious code to every product going forward. Compromising TeamCity means attackers could secretly alter every software update your company ships, or use the factory's keys to access every system the factory connects to.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-63077 · CVSS: 9.8/10 — Critical unauthenticated RCE in JetBrains TeamCity enabling full CI/CD pipeline compromise with no credentials required.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Log Tampering ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    After compromising a system, attackers routinely delete or alter the event logs that record their activity — a technique called log tampering — to erase forensic evidence and buy more time inside the network. Today's Ivanti breach took this to an extreme: rather than installing a persistent backdoor that might be detected, UTA0576 re-ran their entire exploit chain fresh for every command and then deleted each log entry, making their intrusion nearly invisible to defenders relying on standard SIEM monitoring. Security teams counter this by configuring real-time log forwarding to immutable, remote storage — once a log line is shipped to a write-protected SIEM, even an attacker with root access to the compromised device cannot erase it.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: LAPS · SSRF · Cobalt Strike · BloodHound ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">LAPS</strong> — Local Administrator Password Solution, a Microsoft tool that automatically manages and rotates unique local administrator passwords for each domain-joined computer, preventing attackers who compromise one machine from using the same password to log into every other machine in the organization.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SSRF</strong> — Server-Side Request Forgery, an attack where a vulnerable web server is tricked into making HTTP requests to internal resources on behalf of the attacker, allowing them to reach internal systems that are normally blocked from external access by firewalls.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Cobalt Strike</strong> — A commercial penetration testing framework originally designed for red teams that attackers widely abuse as a command-and-control platform; its "beacons" establish encrypted, hard-to-detect communication channels between a compromised host and the attacker's remote infrastructure.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">BloodHound</strong> — An open-source Active Directory reconnaissance tool that graphs trust relationships, group memberships, and privilege delegation paths within a Windows domain, helping attackers (and defenders) visually identify the shortest route from a low-privilege foothold to domain administrator access.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://detections.ai/intel-exchange/019fc893-0f9c-704b-980d-fef890f1db3f" style="color:#374151;text-decoration:none;">SonicWall SMA1000 New Zero-Days CVE-2026-83548/83549 Chained by INC Ransomware Affiliate for RCE on VPN Gateways</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Detections.ai</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.welivesecurity.com/en/business-security/state-aligned-apt-groups-increasingly-deploying-ransomware/" style="color:#374151;text-decoration:none;">ClickFix Social Engineering Now Adopted by North Korean, Iranian, and Russian APT Groups Across Separate Campaigns</a>
+    <span style="color:#9ca3af;font-size:11px;"> · ESET / SecurityWeek</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.trendmicro.com/en_us/research/26/d/us-public-sector-under-siege.html" style="color:#374151;text-decoration:none;">Google Intelligence: AI Tooling Now Giving Lesser-Resourced Threat Actors Nation-State-Level Offensive Capabilities</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek / Google</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 15, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
