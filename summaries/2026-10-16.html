@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 16, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 16, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - Microsoft Patch Tuesday CVE-2026-96951 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CyberScoop · Oct 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cyberscoop.com/microsoft-patch-tuesday-october-2026/" style="color:#111827;text-decoration:none;">Microsoft Patches Record 1,413 CVEs Including Actively Exploited Windows Shell Zero-Day (CVE-2026-96951)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's October 2026 Patch Tuesday—the largest on record—fixed 1,413 CVEs including CVE-2026-96951, a Windows Shell vulnerability that bypasses Mark of the Web protections and was already being exploited in targeted attacks before the patch shipped.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Every unpatched Windows user is at risk; organizations with email-exposed workforces are primary targets since the exploit is delivered via malicious file lures.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Install the October 2026 Windows cumulative update immediately—CISA's Known Exploited Vulnerabilities deadline for federal agencies was today, October 16.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1553.005 · Mark-of-the-Web Bypass<br>
+      <span style="color:#6b7280;">Attackers deliver malicious files crafted to trigger this flaw, stripping the MotW "downloaded from internet" safety tag so Windows SmartScreen and other defenses treat the file as locally trusted and execute it without warnings.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Microsoft's October 2026 Patch Tuesday is historically notable: 1,413 CVEs in a single release is the largest ever, reflecting both an expanded attack surface across Windows, Azure, Office, and Exchange, and Microsoft's accelerated disclosure pipeline. Among those fixes, CVE-2026-96951 stands out as the one actively exploited in the wild before the patch arrived.</p>
+        <p>CVE-2026-96951 is a command-injection flaw (CWE-77/CWE-78) in Windows Shell. It allows an attacker to craft a file—delivered via email attachment or a malicious download link—that triggers the flaw when a user opens or previews it. The result: the file's "Mark of the Web" tag, which Windows applies to anything downloaded from the internet, is silently stripped. Without that tag, SmartScreen, Protected View in Office, and other sandboxing controls do not activate.</p>
+        <p>The CVSS score is 8.8 and user interaction is required (a victim must open the file), but this aligns with common phishing delivery chains where interaction is easily obtained. Microsoft has not publicly attributed the exploitation campaign to a specific threat actor. A second zero-day also patched this cycle—CVE-2026-108398, a Windows Defender Application Control bypass—was publicly disclosed before a fix was available, making it a separately tracked risk.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Windows adds a hidden "I came from the internet" label to every file you download or receive by email. This label makes Windows extra cautious—it asks before running scripts or shows a warning in Office. CVE-2026-96951 is a bug that lets a specially crafted file remove that label so Windows treats it as a file you created yourself, skipping all the safety checks. Attackers send you this file, you open it thinking it's an invoice or a resume, and it runs silently.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-96951 · CVSS: 8.8/10 — High-severity due to active exploitation; user interaction required but social engineering delivers that reliably.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - Japan IDC Frontier Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CPO Magazine · Oct 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cpomagazine.com/cyber-security/string-of-ransomware-cyber-attacks-prompts-first-cybersecurity-state-of-emergency-declaration-from-japan/" style="color:#111827;text-decoration:none;">Japan Declares Cybersecurity Emergency After Ransomware Hits SoftBank Cloud Provider IDC Frontier, Exposing 14 Million Citizens</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Ransomware struck IDC Frontier—a SoftBank-owned cloud provider—on October 8, cascading through its infrastructure to impact 495 customer organizations and exposing an estimated 14 million Japanese citizens' personal data, including up to 6.09 million records from JR East's payment subsidiary.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> IDC Frontier's 495 enterprise cloud customers and millions of ordinary Japanese citizens who use services from JR East, banks, retailers, and other affected clients.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> IDC Frontier clients should immediately activate incident response plans and verify off-site backup availability; the provider has warned that data recovery may not be possible for customers without their own backups.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1199 · Trusted Relationship<br>
+      <span style="color:#6b7280;">Attackers compromised IDC Frontier's shared cloud infrastructure, then pivoted through the provider's trusted network links to simultaneously impact all 495 downstream client organizations—a single-point breach with massive blast radius.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The IDC Frontier incident represents what analysts are calling a "supply chain ransomware" attack: rather than targeting individual organizations, attackers hit the cloud provider that hundreds of businesses depend on. IDC Frontier's East Japan Region 1 was encrypted at 3:40 a.m. local time on October 8. The company was forced to shut down the entire IDCF Cloud network to contain the spread—effectively taking 495 customers offline simultaneously.</p>
+        <p>The downstream impact includes JR East (Japan Railways East), whose payment subsidiary may have had up to 6.09 million customer records exposed. Analysts from Japan's National Cybersecurity Strategy Headquarters used language describing a "state of emergency in cyberspace," though this appears to be a party-level declaration rather than a formal government emergency order. The government has issued mandatory advisories for software updates, stronger passwords, and supply chain security reviews.</p>
+        <p>September 2026 alone recorded 86 cyber incidents in Japan, with the year-to-date total now exceeding 500. Multiple reports suggest AI tools are accelerating ransomware campaign velocity—enabling rapid target reconnaissance and payload customization—though direct attribution for the IDC Frontier attack has not been established. As of October 15, IDC Frontier has not disclosed the intrusion vector.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of a cloud provider like a landlord who rents office space to hundreds of companies. When the building itself is ransomware-locked, every tenant—every company in that building—loses access to their offices at the same time. That's why hitting a shared cloud provider is so valuable to attackers: one successful break-in produces hundreds of victims and the leverage to demand hundreds of separate ransoms.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE — supply chain ransomware event · Scale: ~14 million citizens, 495 organizations affected</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH - Cisco SEG CVE-2026-76519 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://news.lavx.hu/article/cisco-secure-email-gateway-zero-day-exploited-in-the-wild-cisa-orders-federal-patch-by-saturday" style="color:#111827;text-decoration:none;">Cisco Patches Actively Exploited Critical Zero-Day in Secure Email Gateway — CVE-2026-76519, CVSS 9.8</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Cisco disclosed CVE-2026-76519, a CVSS 9.8 path traversal zero-day in Secure Email Gateway (SEG) that allows unauthenticated attackers to write arbitrary files to the appliance and potentially achieve root-level command execution—exploitation in the wild confirmed.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Cisco SEG appliances with Content Scanner Tools versions below 25.3.0.5525 and File Reputation scanning enabled—both physical and virtual appliances are vulnerable.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to AsyncOS 16.5.0-780 or later immediately; Cisco confirmed there is no workaround, and CISA ordered federal agencies to patch by October 18 (this Saturday).</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers send specially crafted email attachments that trigger the path traversal flaw during the SEG's malware scanning process, writing attacker-controlled files to the appliance filesystem with no credentials required.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-76519 is a relative path traversal flaw (CWE-23) in the Advanced Malware Protection feature of Cisco's Secure Email Gateway. The irony is stark: the attack vector is the very scanning feature designed to detect malicious files. When an attacker sends a crafted email attachment, the AMP scanner processes it and the path traversal allows the attacker's content to be written outside its intended directory—potentially including web shells or credential stealers on the appliance filesystem.</p>
+        <p>This is the third actively exploited zero-day in Cisco SEG within approximately one year, following CVE-2025-20393 and CVE-2026-76461. Each time, the exploitation has occurred via the email delivery pipeline—the appliance's core function. Cisco's advisory includes indicators of compromise and advises checking appliance logs and rotating credentials on any device suspected of compromise. There is no announced threat actor attribution.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> An email security gateway is a filter your company's email passes through before reaching employees—it scans every attachment for viruses. This bug means an attacker can send a "virus" designed not to infect your laptop but to infect the security scanner itself. Once the scanner is compromised, the attacker can access your company's entire email infrastructure, bypass all future scanning, and potentially move deeper into the network.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-76519 · CVSS: 9.8/10 — Critical; unauthenticated, network-reachable, no user interaction needed, active exploitation confirmed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - MoneyGram Gentlemen Ransomware -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cyber News · Oct 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybernews.com/security/moneygram-data-breach-ransomware-claim/" style="color:#111827;text-decoration:none;">Gentlemen Ransomware Gang Claims MoneyGram Breach, Threatens to Leak Customer Data</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The prolific Gentlemen ransomware gang listed MoneyGram on its dark web leak site on October 12, claiming to have stolen sensitive customer data and issuing a ransom deadline before publication—MoneyGram has not yet confirmed or denied the breach.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> MoneyGram customers globally, particularly those who use the money transfer service for remittances; the company was previously confirmed-breached in September 2024.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> MoneyGram customers should monitor accounts for unusual activity, watch for targeted phishing using personal details, and be prepared for possible notification from MoneyGram if the breach is confirmed.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1657 · Financial Theft<br>
+      <span style="color:#6b7280;">The Gentlemen use double-extortion: first stealing financial transaction and identity data from MoneyGram, then threatening publication to coerce payment—directly targeting the financial infrastructure of a global money transfer service used by millions of low-income remittance senders.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Gentlemen ransomware gang has become one of the most active ransomware operations in 2026, with claims against high-profile consumer brands serving as both genuine attacks and reputational leverage. The MoneyGram listing appeared October 12 with a multi-day negotiation window before the gang threatens to publish. Notably, no data samples have been released to verify the claim—a tactic sometimes used to pressure payment before evidence can be independently assessed.</p>
+        <p>MoneyGram is a high-value target: it processes billions in annual wire transfers, primarily for unbanked and low-income communities sending remittances internationally. A confirmed breach of transaction data and identity verification records would carry significant fraud risk for those populations. The company's previous September 2024 breach, which took systems offline for five days, suggests it remains a target of continued interest. Security researchers assessing The Gentlemen's track record note the group has not fabricated claims historically, giving this listing a higher credibility rating than typical unverified dark web posts.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Ransomware gangs now typically steal your data first, then encrypt your systems. They then demand two payments: one to unlock your computers, and one to not publish the stolen data on the internet. This "double extortion" means even if you have backups and don't need to decrypt your files, you still face blackmail over the data. The dark web "leak site" is essentially a ransom countdown timer visible to the public to maximize pressure.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — ransomware double-extortion claim · Status: Unconfirmed; MoneyGram has not responded publicly as of Oct 15.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: The Gentlemen -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">The Gentlemen</div>
+  <div style="opacity:.85;margin-top:4px;">Cybercriminal / Ransomware-as-a-Service · Attributed to: Unknown (Eastern European criminal ecosystem suspected)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Financial services, consumer brands, and logistics companies—with demonstrated interest in high-profile victims including MoneyGram and KFC that generate media pressure.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion ransomware with a public dark web leak site; one of the most prolific active RaaS operations of 2026; historically credible claims (rarely fabricates listings); no data samples required to mount pressure.</div>
+</div>
+
+<!-- STORY 5: HIGH - TerminalFix/ClickFix Python Tunnels -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / Sophos · Oct 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://bleepingcomputer.com/news/security/microsoft-warns-of-terminalfix-attacks-deploying-reverse-tunnels" style="color:#111827;text-decoration:none;">Microsoft Warns TerminalFix Attacks Deploy Python SOCKS5 Tunnels to Pre-Position for Ransomware</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft and Sophos warn that TerminalFix—an evolved ClickFix variant—lures victims into running malicious PowerShell in Windows Terminal via fake Cloudflare CAPTCHA pages, then installs a Python-based SOCKS5 reverse tunnel providing persistent backdoor access for follow-on ransomware or data theft.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations whose employees browse compromised websites, particularly remote workers whose home or VPN connections may expose internal network segments through the established tunnel.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Block outbound SOCKS5 proxy traffic at the firewall, alert on unexpected Python.exe processes spawned by browser-related parent processes, and train employees to never run commands from browser pop-up prompts.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Command and Control] T1572 · Protocol Tunneling<br>
+      <span style="color:#6b7280;">Attackers deploy a Python-based SOCKS5 proxy (often PySoxy, a decade-old open-source tool) on victim machines to relay C2 traffic through the victim's trusted network, bypassing perimeter firewalls that would block direct attacker connections.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>TerminalFix represents the maturation of the ClickFix social engineering paradigm. Where early ClickFix attacks asked victims to paste commands into the Windows Run dialog, TerminalFix directs victims to a Windows Terminal window instead—a subtler, more credible prompt that evades user suspicion. The attack chain: fake CAPTCHA on a compromised website → "Press Windows+R" instruction replaced with "Open Terminal as Administrator" → PowerShell downloads and executes a Python tunnel implant.</p>
+        <p>The tunnel payload is often PySoxy, an open-source Python SOCKS5 proxy originally written around 2014. Its age is a defensive evasion feature: many EDR signatures and YARA rules target newer, purpose-built malware rather than decade-old utility scripts repurposed as C2 infrastructure. Sophos MDR analysts observed persistence mechanisms including scheduled tasks that re-execute an in-memory PowerShell RAT even when the Python process is killed. ESET has documented sharp growth in ClickFix-family attacks throughout 2025-2026, with endpoints ranging from infostealers to ransomware payloads.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A CAPTCHA is the "prove you're human" puzzle on websites. TerminalFix shows you a fake CAPTCHA that says "Your browser failed the check—click here and run this command to fix it." The "fix" command secretly installs a program that acts as a tunnel: imagine drilling a hidden pipe from your work computer to the attacker's server. Your company's firewall only watches for suspicious connections from outside—it can't see traffic flowing backward through a pipe that originates inside your own network.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — social engineering campaign · Microsoft and Sophos confirmed active campaigns as of October 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: SOCKS5 Proxying ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    SOCKS5 is a network proxy protocol that acts as a relay station for internet traffic: instead of your computer connecting directly to a destination server, the connection routes through a SOCKS5 proxy that forwards it onward, hiding your true origin address. Unlike web-only HTTP proxies, SOCKS5 can tunnel <em>any</em> type of traffic—TCP, UDP, DNS, remote desktop, database connections—making it far more versatile. Attackers abuse this power by installing Python-based SOCKS5 proxies on compromised machines inside corporate networks, creating a hidden backdoor tunnel that lets them route commands through the victim's own trusted systems and bypass firewalls that only look for inbound threats.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: Patch Tuesday · CWE · AsyncOS · ClickFix · FCEB ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Patch Tuesday</strong> — Microsoft's monthly security update cycle: vulnerability fixes are released on the second Tuesday of each month, giving defenders a predictable window to test and deploy patches.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CWE</strong> — Common Weakness Enumeration; MITRE's standardized catalog of software and hardware weakness types (e.g., CWE-22 Path Traversal, CWE-77 Command Injection) used to classify the root cause of vulnerabilities.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">AsyncOS</strong> — Cisco's proprietary operating system powering its Secure Email Gateway and Web Security Appliance products; the OS layer targeted by CVE-2026-76519.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ClickFix</strong> — A social engineering technique in which attackers display fake error messages or CAPTCHA challenges in browsers, tricking users into pasting and executing malicious terminal commands under the guise of "fixing" a problem.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">FCEB</strong> — Federal Civilian Executive Branch; the U.S. federal civilian agencies subject to CISA's Binding Operational Directives, which set mandatory deadlines for patching vulnerabilities in CISA's Known Exploited Vulnerabilities catalog.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://gbhackers.com/ai-powered-ransomware-attacks" style="color:#374151;text-decoration:none;">AI Used in 84% of Ransomware Attacks as Identity Infrastructure Comes Under Fire</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GBHackers</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/gentlemen-ransomware-kfc-breach/" style="color:#374151;text-decoration:none;">KFC Named in Gentlemen Ransomware Group's Latest Breach Claim (Unverified)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Cybersecurity News</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 16, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
