@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 17, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 17, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 3 critical · 3 high · 2 medium · ~10 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — Microsoft Patch Tuesday -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / Tenable · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/" style="color:#111827;text-decoration:none;">Microsoft October 2026 Patch Tuesday: 1,413 CVEs — Windows Shell Zero-Day CVE-2026-96951 Under Active Exploitation</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft released its largest-ever Patch Tuesday fixing 1,413 CVEs, including a Windows Shell Mark-of-the-Web bypass (CVE-2026-96951) already exploited in the wild and a critical MSMQ remote code execution flaw (CVE-2026-100202, CVSS 9.8).</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All supported Windows systems are affected by the MotW bypass; organizations running Windows servers with MSMQ services exposed to the network face the critical RCE risk.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply October cumulative updates immediately — CISA's KEV deadline for CVE-2026-96951 was October 16; disable or firewall MSMQ (TCP 1801) if not in use to mitigate CVE-2026-100202.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1553.005 · Mark-of-the-Web Bypass<br>
+      <span style="color:#6b7280;">CVE-2026-96951 exploits T1553.005 to strip the MotW Zone.Identifier metadata from files downloaded via web browsers, allowing malicious executables to bypass SmartScreen and Attachment Manager warnings and run without user prompts.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Microsoft's October 2026 Patch Tuesday is the largest in the company's history at 1,413 CVEs — nearly double the typical monthly volume. The sheer count reflects years of accumulated technical debt across the Windows ecosystem combined with an expanding attack surface from cloud, IoT, and hybrid identity services. Among the three zero-days, CVE-2026-96951 is the most urgent: it is a Windows Shell security feature bypass that strips the Mark-of-the-Web tag from downloaded files, meaning an attacker who tricks a victim into downloading a malicious file can bypass SmartScreen warnings entirely and execute code with the victim's privileges.</p>
+        <p>The second standout is CVE-2026-100202, a CVSS 9.8 remote code execution flaw in Microsoft Message Queuing (MSMQ). MSMQ is a Windows networking component that is enabled by default on many older Windows Server installs and is reachable on TCP port 1801. An unauthenticated attacker on the network can send a specially crafted packet to trigger arbitrary code execution. Two publicly disclosed bugs round out October's patch load: a .NET Framework security bypass (CVE-2026-108398) reported by Google Project Zero, and a MessagePack-CSharp denial-of-service flaw (CVE-2026-92707).</p>
+        <p>Enterprises with extensive patch testing cycles should treat CVE-2026-96951 and CVE-2026-100202 as emergency patches and apply them out-of-band rather than waiting for the next maintenance window. Tenable and CrowdStrike have both published prioritization guides for the full October list.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine Windows puts a sticky note on every file you download from the internet saying "this came from outside — be careful." Mark-of-the-Web is that sticky note. CVE-2026-96951 lets attackers remove the sticky note before Windows reads it, so Windows thinks the file is safe and runs it without asking you. The MSMQ flaw is different — it's like a mailbox service on Windows servers that attackers can stuff with a poisoned letter to take over the whole machine without needing a password.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-96951 (MotW bypass, exploited) · CVE-2026-100202 (MSMQ RCE) · CVSS: 9.8/10 — CVSS 9.8 indicates near-maximum severity with network exploitability and no authentication required.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL — BeyondTrust zero-day -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / CyberScoop · Oct 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/chinese-apt-exploited-beyondtrust-vulnerability-as-zero-day/" style="color:#111827;text-decoration:none;">ARMORY CASTLE (China-Nexus APT) Exploits BeyondTrust CVE-2026-102764 Zero-Day Since August, Steals Credentials and Deploys Web Shells</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A China-linked espionage group tracked as ARMORY CASTLE exploited CVE-2026-102764 (CVSS 9.3) — an improper origin validation flaw in BeyondTrust Remote Support — since August 29 as a zero-day to seize root access on appliances, steal credential stores, drop web shells, and erase audit logs.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running self-hosted BeyondTrust Remote Support up to version 26.2.3 are at risk; any downstream endpoints managed through a compromised appliance may have had credentials and configurations exfiltrated.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply patch BT26-05 immediately; treat any exposed appliance as fully compromised — rotate all credentials stored within BeyondTrust and audit downstream systems for unauthorized access.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">ARMORY CASTLE used T1190 to exploit the unauthenticated improper origin validation bug in BeyondTrust's internet-facing Remote Support portal, pivoting from appliance root access to downstream endpoint credential theft.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>BeyondTrust Remote Support is a privileged access management product used by IT teams to remotely support employees and customers. ARMORY CASTLE — attributed by Google Threat Intelligence Group and Mandiant to a China-nexus espionage actor previously tracked as UNC5221 and WARP PANDA — identified and began exploiting CVE-2026-102764 a full six weeks before BeyondTrust detected it. The flaw is an improper validation of message origins that allows an unauthenticated remote attacker to perform arbitrary file operations on the appliance, culminating in root-level OS access.</p>
+        <p>Once inside, attackers extracted credentials from the appliance's secrets store and used them to open legitimate remote support sessions with downstream endpoints — gaining full file-system access on victim machines through the very tool designed to keep them secure. Mandiant observed web shells being dropped approximately eleven minutes after initial exploitation, and the actor systematically deleted logs and forensic artifacts to complicate incident response. BeyondTrust published patch BT26-05 on October 8 after extensive testing of the fix across exploitation paths; all SaaS customers are already patched, but self-hosted operators must apply it manually.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of BeyondTrust as a master key that IT support uses to access any computer in a company. This vulnerability is like a design flaw that lets anyone on the internet forge a copy of that master key without needing a password. Once the attackers had the master key, they could walk into any room in the building — and they were careful to wipe their fingerprints as they went.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-102764 · CVSS: 9.3/10 — Unauthenticated network-exploitable flaw with full system impact; exploited in the wild since August 29, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: ARMORY CASTLE -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">ARMORY CASTLE</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State Espionage · Attributed to: China (PRC)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Technology companies, security vendors, managed service providers, and defense-adjacent supply chain organizations globally</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Exploiting remote access and privileged access management tools as an initial access vector; credential harvesting from IT management infrastructure; sophisticated log deletion to evade forensics; previously tracked as UNC5221 and WARP PANDA</div>
+</div>
+
+<!-- STORY 3: CRITICAL — Palo Alto PAN-OS zero-day -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / SecurityWeek · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/palo-alto-networks-patches-pan-os.html" style="color:#111827;text-decoration:none;">Palo Alto Networks Patches PAN-OS Zero-Day CVE-2026-0322: Root RCE on Firewall Management Interface Under Active Exploitation</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Palo Alto Networks patched CVE-2026-0322 (CVSS 8.6), a code injection zero-day in the PAN-OS management interface that allows authenticated attackers to execute commands as root; CISA added it to its KEV catalog with a federal remediation deadline of October 17.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running PA-Series and VM-Series firewalls and Panorama appliances on PAN-OS 10.2 through 12.2; Cloud NGFW and Prisma Access are not affected.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply available PAN-OS patches immediately; restrict management interface access to a dedicated out-of-band management network or trusted internal IPs; review Palo Alto's published IoCs for signs of prior exploitation.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Execution] T1059.004 · Command and Scripting Interpreter: Unix Shell<br>
+      <span style="color:#6b7280;">Exploitation of CVE-2026-0322 enables an attacker to inject OS commands that execute as root in the PAN-OS management process, effectively giving the attacker an unrestricted Unix shell on the firewall appliance.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Palo Alto Networks' PAN-OS powers some of the world's most widely deployed enterprise firewalls, making any RCE flaw in its management interface a high-value target. CVE-2026-0322 is a code injection vulnerability: an attacker who has valid credentials and network access to the management interface can craft a malicious request that causes the management process to execute arbitrary OS-level commands as root. Palo Alto confirmed the vulnerability is being exploited in "very limited" attacks and released patches across PAN-OS 10.2, 11.1, 11.2, 12.1, and 12.2.</p>
+        <p>The requirement for valid credentials creates a meaningful bar for exploitation — attackers must either already possess admin credentials via phishing, credential stuffing, or a prior breach, or have positioned themselves on a network that can reach the management interface. However, CISA's same-day addition to the KEV catalog suggests it considers exploitation a credible near-term threat for federal agencies. Palo Alto published three attacker-controlled IP addresses as IoCs; organizations should correlate these against firewall and VPN access logs immediately. No full workaround exists — patching is the only complete remedy.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A firewall's management interface is like the control panel for a security guard station — you use it to configure rules, review alerts, and manage the whole system. This vulnerability means that if an attacker can reach that control panel and log in (even with a stolen account), they can make the firewall execute any command they want as the most privileged user on the system, essentially owning the device that's supposed to be protecting the network.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-0322 · CVSS: 8.6/10 — Code injection in management interface with root-level impact; CISA KEV deadline October 17, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH — PEERSTITCH/FortiOS -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Security Affairs (Unit 42) · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/attackers-exploit-fortios-flaw-to.html" style="color:#111827;text-decoration:none;">PEERSTITCH: APT Chains FortiManager and FortiOS CVEs to Deploy Memory-Resident Malware, Compromising 500+ Managed Firewalls</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Unit 42 disclosed a suspected nation-state APT (CL-STA-0954) chaining CVE-2024-47575 (FortiJump, CVSS 9.8) and CVE-2025-61624 to deploy PEERSTITCH — a previously undocumented memory-resident ARM64 implant that injects into legitimate FortiOS daemons, exfiltrating configurations and credentials from over 500 managed FortiGate firewalls.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running FortiManager and managed FortiGate deployments, with particular exposure for managed service providers and telecom companies that centrally manage customer firewall fleets.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch both CVEs; hunt for PEERSTITCH indicators in FortiOS daemon memory using Unit 42's published IoCs; rotate all credentials and configurations exported from affected FortiManager instances.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1014 · Rootkit<br>
+      <span style="color:#6b7280;">PEERSTITCH uses T1014 by injecting malicious code into the memory of two legitimate FortiOS daemons (miglogd and iked), hiding its execution within trusted processes to evade process-based detection and conventional endpoint security tools.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>PEERSTITCH represents a significant evolution in network appliance compromise tradecraft. The attack began via FortiJump (CVE-2024-47575, CVSS 9.8), a critical deserialization flaw in FortiManager that Unit 42 first documented in 2024 — demonstrating how exploitation of an older, publicly known vulnerability can persist in under-patched environments. From FortiManager, the attacker deployed PEERSTITCH by exploiting CVE-2025-61624, a path traversal in FortiOS, to place the ARM64 implant where it could inject into the miglogd (logging daemon) and iked (VPN key management) processes.</p>
+        <p>What makes PEERSTITCH especially dangerous is its persistence and stealth strategy: because it lives in the memory of legitimate system daemons, it generates no new processes or files on disk, and its command-and-control traffic is hidden within traffic generated by the very processes it has hijacked. The implant was active on the original victim — a telecom managed service provider — for an extended period before detection, and Unit 42 identified configurations and credentials for 500+ managed customer firewalls within the exfiltrated data, though it could not confirm downstream customer compromises.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine hackers broke into the security company that monitors the alarm systems for 500 different buildings. Instead of setting off any alarms, they secretly copied the keys and access codes for every building that security company manages. The malware was so clever it disguised itself as normal security software already running on the monitoring systems, making it nearly invisible to automated checks.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2024-47575 (FortiJump) CVSS 9.8 · CVE-2025-61624 CVSS 5.4 — Chained exploitation; FortiJump provides initial FortiManager access, path traversal delivers the ARM64 implant to FortiOS.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH — iRhythm breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/irhythm-data-breach-impacts-over-360000-people/" style="color:#111827;text-decoration:none;">iRhythm Discloses June 2026 Breach Affecting 360,000+ Cardiac Monitor Patients via Third-Party Social Engineering</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> iRhythm Technologies disclosed that attackers accessed third-party-hosted business applications via social engineering between June 3–8, 2026, exposing the personal data of at least 360,000 patients who use its cardiac monitoring devices.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> 360,000+ iRhythm patients (confirmed: 298,647 in Texas, 69,526 in South Carolina); names, contact details, dates of birth, device identifiers, and insurance information were exposed — clinical systems and devices were unaffected.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Affected patients should monitor for targeted phishing and identity fraud using their medical device information; check state AG breach notification portals for confirmation of individual exposure.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Reconnaissance] T1598 · Phishing for Information<br>
+      <span style="color:#6b7280;">Attackers used T1598-style social engineering against third-party service staff to obtain access credentials for iRhythm's business application environment, using human manipulation rather than technical exploits as the initial breach vector.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>iRhythm manufactures the Zio patch — a wearable cardiac monitor worn by hundreds of thousands of patients monitoring for arrhythmias. This breach did not compromise the medical devices or clinical data directly, but it exposed the administrative layer: the business application systems used to manage patient enrollment, billing, and device assignment. Attackers used social engineering against a third-party vendor with access to these systems, highlighting how healthcare organizations inherit their vendors' human-factor vulnerabilities.</p>
+        <p>The four-month delay between breach detection (June 8) and public disclosure in October is notable. State breach notification laws generally require notification within 30–90 days, depending on jurisdiction. iRhythm stated it detected suspicious activity on the same day it ended (June 8) and received a payment demand the following day, but the company says it has no evidence data has been used for identity theft. The true affected patient count is likely higher than the 360,000 confirmed through state filings, as iRhythm has declined to release a total figure.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Social engineering means the attackers didn't need to crack any passwords with a computer — they convinced a real human at one of iRhythm's partner companies to hand over access. It's the digital equivalent of a con artist calling a building's receptionist, pretending to be from IT support, and talking them into propping open the door.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned — social engineering breach · 360,000+ patients affected · Breach window: June 3–8, 2026 · Notified via state AG filings: October 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: HIGH — Japan cybersecurity state of emergency -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">IBTimes / CPO Magazine · Oct 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.ibtimes.co.uk/japan-cyber-crisis-ransomware-data-breaches-1825675" style="color:#111827;text-decoration:none;">Japan Declares First-Ever "Cybersecurity State of Emergency" After Ransomware Cripples SoftBank Cloud Unit IDC Frontier</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A ransomware attack on IDC Frontier — a SoftBank subsidiary providing cloud infrastructure and hosting services — disrupted operations for 495 corporate and government customers, prompting Japan to formally declare its first "cybersecurity state of emergency."</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> 495 Japanese corporate and local-government cloud customers of IDC Frontier; the declaration reflects broader concern about Japan's critical infrastructure resilience against ransomware campaigns.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Organizations relying on shared cloud infrastructure should validate BCP/DR runbooks; governments should maintain air-gapped backups of critical systems independent of any single cloud provider.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">The ransomware group applied T1486 against IDC Frontier's shared infrastructure, encrypting systems serving hundreds of customers simultaneously — amplifying the blast radius of a single compromise far beyond what attacking each victim individually would achieve.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>IDC Frontier is a major Japanese cloud IaaS and colocation provider, and a SoftBank Group subsidiary. The attack represents a classic "cloud concentration risk" scenario: a single ransomware deployment against a shared hosting provider creates cascading disruption across hundreds of organizations simultaneously, most of which had no direct interaction with the attacker. No specific ransomware group has been publicly attributed for this attack, and IDC Frontier states there is currently no evidence that data inside affected virtual servers was exfiltrated to external parties.</p>
+        <p>The significance of Japan's "cybersecurity state of emergency" declaration extends beyond this single incident — it signals that Japanese authorities view the cumulative volume and sophistication of ransomware targeting domestic organizations as having crossed a threshold requiring a coordinated government response. This is likely to drive accelerated investment in national cyber defense frameworks and mandatory incident reporting requirements for critical infrastructure operators. Japanese businesses and government agencies should treat this as a forcing function to review their cloud concentration risk, supplier security assessments, and offline backup strategies.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Ransomware locks up a victim's data with encryption until they pay. When attackers hit a cloud provider instead of a single company, it's like locking the doors of an entire office building rather than one office — suddenly hundreds of businesses that rent space in that building are all locked out at the same time. Japan's government declaration is essentially saying: this problem has gotten serious enough that we're treating it like a national emergency.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE — ransomware (group unattributed) · 495 customers disrupted · Japan first-ever "cybersecurity state of emergency" declared.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Memory-Resident Malware ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Memory-resident malware (also called fileless malware) lives entirely in a computer's RAM and injects itself into legitimate running processes, leaving no executable files on disk for traditional antivirus scanners to find. Because it exists only in volatile memory, most variants vanish when the system reboots — but sophisticated examples like PEERSTITCH are engineered to persist by hijacking the startup routines of trusted system daemons so they reload automatically after every restart. Defenders must rely on behavioral monitoring of running processes and anomalous network traffic rather than signature-based file scanning to detect this class of threat — which is exactly why it has become the preferred persistence technique for nation-state actors targeting network appliances.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: MSMQ · FortiManager · PAN-OS · ARM64 · Implant ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MSMQ</strong> — Microsoft Message Queuing, a Windows service that lets applications send messages across networks asynchronously; it has a long history of critical remote code execution vulnerabilities because its ports are often left exposed on Windows servers.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">FortiManager</strong> — Fortinet's centralized management platform used by enterprises and managed service providers to configure and monitor large fleets of FortiGate firewalls; a single FortiManager compromise can cascade into dozens or hundreds of downstream device takeovers.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PAN-OS</strong> — Palo Alto Networks Operating System, the software powering PA-Series firewalls and Panorama management appliances; its management interface runs with full system privileges, making any code execution flaw in it a critical severity issue.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ARM64</strong> — The 64-bit variant of the ARM processor architecture found in most modern smartphones, network appliances, and embedded devices; attackers now write malware natively compiled for ARM64 because more critical network infrastructure (routers, firewalls, IoT devices) runs on this architecture.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Implant</strong> — A stealthy malware payload, typically small and modular, placed on a compromised system to await and execute commands from a remote operator; unlike full-featured RATs, implants are designed for minimal footprint and maximum operational security.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.globenewswire.com/news-release/2026/10/16/3382778/0/en/medical-data-rx-data-breach-investigation-edelson-lechtzin-llp-probes-class-action-claims-after-customer-data-is-exposed.html" style="color:#374151;text-decoration:none;">Medical Data Rx Breach: The Gentlemen Ransomware Group Exposes Michigan Patient Data, Class Action Probe Launched</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GlobeNewswire</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.securityweek.com/" style="color:#374151;text-decoration:none;">Semperis Research: 25% of Ransomware Attacks in Past Year Included Threats of Physical Violence Against Executives and Families</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 17, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
