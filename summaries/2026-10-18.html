@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 18, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 18, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 3 critical · 2 high · 2 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: BeyondTrust CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Google Threat Intelligence · Oct 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-beyondtrust" style="color:#111827;">China-Linked ARMORY CASTLE Exploited BeyondTrust Zero-Day CVE-2026-102764 Since August</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> China-nexus APT ARMORY CASTLE (formerly UNC5221) exploited a critical zero-day (CVE-2026-102764, CVSS 9.3) in BeyondTrust Remote Support appliances enabling arbitrary file uploads, then escalated privileges and deleted audit logs to cover their tracks.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running BeyondTrust Remote Support (formerly Bomgar) appliances, particularly government, telecommunications, and defense sectors targeted since August 2026.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch immediately; conduct memory and disk forensics for signs of file uploads or unusual API calls since August 2026, and verify audit log completeness.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1070.004 · Indicator Removal: File Deletion<br>
+      <span style="color:#6b7280;">ARMORY CASTLE systematically deleted audit logs from compromised BeyondTrust appliances to prevent defenders from reconstructing the intrusion timeline and lateral movement paths.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        BeyondTrust Remote Support is widely deployed by IT teams and managed service providers to remotely access end-user systems — a uniquely privileged piece of infrastructure. CVE-2026-102764 allows an attacker to upload arbitrary files without proper authorization, bypassing authentication checks in the appliance's file-handling component.
+        <br><br>
+        ARMORY CASTLE (formerly UNC5221) is a China-nexus espionage group that has repeatedly targeted remote access and VPN infrastructure as its preferred initial access vector. By exploiting this flaw since August 2026 — months before public disclosure — the group demonstrated zero-day capabilities consistent with a well-resourced nation-state program. After gaining initial access, they escalated privileges and deleted logs, a counter-forensics move that significantly delayed detection.
+        <br><br>
+        The timing of the October 15 public disclosure creates a race: now that the flaw is known, other threat actors can attempt exploitation before all organizations patch. Treat unpatched BeyondTrust Remote Support appliances as potentially already compromised.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> BeyondTrust is like a master key that lets IT staff remotely fix computers. ARMORY CASTLE found a hidden door into these "master key servers" and used it for months to spy on victims — then carefully erased the security camera footage (audit logs) so nobody would know they'd been there.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-102764 · CVSS: 9.3/10 — Critical score reflects unauthenticated arbitrary file upload enabling full appliance compromise without prior credentials.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: ARMORY CASTLE -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">ARMORY CASTLE (formerly UNC5221)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State Espionage · Attributed to: China (PRC)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government agencies, defense contractors, telecommunications providers, and technology companies globally</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Exploiting zero-days in remote access and VPN products (Ivanti, BeyondTrust, Citrix) as initial access vectors; in-memory tooling and log deletion to evade detection</div>
+</div>
+
+<!-- STORY 2: Ivanti CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / Rapid7 · Oct 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/attacker-chains-three-ivanti-connect.html" style="color:#111827;">Ivanti Connect Secure: Three Chained Zero-Days Exploited in the Wild — One Still Unpatched</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Threat actor UTA0576 is chaining three Ivanti Connect Secure vulnerabilities — CVE-2026-104935 authentication bypass (CVSS 8.6), a code execution flaw, and an unpatched privilege escalation to root — with confirmed exploitation since October 1 on fully-patched appliances.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Ivanti Connect Secure versions 22.8R2.4 and earlier or 25.1.2.2 and earlier; CISA mandated federal agency patching by October 16.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade immediately to ICS 25.1.1.2, 25.1.3.0, or 22.8R2.5; run memory forensics since the Integrity Checker Tool may miss in-memory compromise; monitor for Ivanti's upcoming patch for the third unresolved flaw.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1556 · Modify Authentication Process<br>
+      <span style="color:#6b7280;">CVE-2026-104935 weaponizes a flaw in Ivanti's authentication logic itself, allowing attackers to bypass the login gate entirely — a foothold the standard file-based Integrity Checker Tool cannot detect.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        This attack is particularly alarming because exploitation was confirmed on a fully-patched Ivanti Connect Secure appliance running 22.8R2.4 — the latest available at the time. The chain begins with CVE-2026-104935, an authentication bypass letting attackers interact as legitimate users. A second flaw provides code execution, and a third (still unpatched) escalates that to root.
+        <br><br>
+        UTA0576 avoids deploying persistent malware or web shells — instead re-exploiting the device on each visit and actively tampering with logs. This anti-forensic approach defeats Ivanti's Integrity Checker Tool, which examines disk files but cannot detect in-memory-only manipulation. Volexity recommends network-level and memory forensics for detection.
+        <br><br>
+        The unpatched third vulnerability means defenders face an active, unresolvable exposure window. Apply available patches immediately and monitor closely for the third fix.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Ivanti Connect Secure is the "VPN gateway" employees use to connect to company systems remotely. UTA0576 found three secret passages into these gateways and chains them: pick the lock (auth bypass), get inside (code execution), become the building owner (root access). And they leave no fingerprints on the hard drive, making detection extremely difficult.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104935 · CVSS: 8.6/10 — High score reflects unauthenticated network-exploitable authentication bypass with confirmed in-the-wild exploitation on patched devices.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: UTA0576 -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">UTA0576</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State Suspected Espionage · Attributed to: China (suspected, per Volexity)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Enterprise and government organizations running Ivanti VPN appliances; repeated Ivanti Connect Secure targeting across multiple campaigns</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Chaining multiple Ivanti zero-days, log tampering, operating entirely in-memory to bypass file-based integrity checks</div>
+</div>
+
+<!-- STORY 3: PAN-OS CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.news4hackers.com/palo-alto-networks-pan-os-zero-day-patched-after-remote-code-execution-exploit/" style="color:#111827;">Palo Alto Networks Patches PAN-OS Zero-Day CVE-2026-0322 After Targeted RCE Exploitation</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Palo Alto patched a critical zero-day (CVE-2026-0322) in PAN-OS enabling remote code execution through the management interface, confirmed exploited in targeted attacks and added to CISA's Known Exploited Vulnerabilities catalog.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running PA-Series, VM-Series, and Panorama on vulnerable PAN-OS versions where the management interface is network-accessible.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply patches immediately; as an interim control, restrict management interface access to trusted IP ranges and remove it from any public network segment.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Lateral Movement] T1210 · Exploitation of Remote Services<br>
+      <span style="color:#6b7280;">CVE-2026-0322 turns the PAN-OS management interface — the nerve center controlling all firewall policy — into a remote code execution endpoint, making the organization's primary perimeter defense the initial point of compromise.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        Palo Alto firewalls are the crown jewels of many corporate networks, enforcing access control for the entire organization. A vulnerability in the management interface is severe because it allows an attacker to completely reconfigure security policies, add backdoor rules, or pivot to any internal segment the firewall routes to.
+        <br><br>
+        CVE-2026-0322 was exploited in "targeted attacks" before Palo Alto became aware of the flaw, indicating a threat actor with zero-day intelligence and access to high-value targets. The CISA KEV listing confirms active exploitation against U.S. organizations.
+        <br><br>
+        Organizations that have not restricted management interface access to a dedicated, isolated administrative network segment are at greatest risk. Palo Alto's best-practice guidance has long recommended removing the management interface from any publicly routable network — this incident illustrates the consequence of deviating from that guidance.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of a firewall as a security guard booth for your corporate network. CVE-2026-0322 is a flaw in the booth's control panel — attackers can reach that panel from the internet and reprogram the guard's instructions, effectively telling the security guard to let them pass while locking everyone else out.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-0322 · CVSS: Critical — Remote code execution via the management interface; no authentication required in the exploited configuration.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Microsoft Patch Tuesday HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / CrowdStrike · Oct 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/" style="color:#111827;">Microsoft's Record October Patch Tuesday: 1,413 CVEs Including Actively Exploited Windows Shell Zero-Day CVE-2026-96951</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft released the largest Patch Tuesday ever, addressing 1,413 vulnerabilities including CVE-2026-96951 (CVSS 8.8) — a Windows Shell security feature bypass actively exploited in the wild that enables attackers to evade Mark-of-the-Web defenses.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows users and organizations running Windows Server; CISA added CVE-2026-96951 to its KEV catalog with a federal remediation deadline of October 16.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply October Patch Tuesday updates immediately, prioritizing CVE-2026-96951 and the 75+ other Critical-rated vulnerabilities; test and deploy within 24–72 hours given active exploitation.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1203 · Exploitation for Client Execution<br>
+      <span style="color:#6b7280;">CVE-2026-96951 bypasses the Windows Mark-of-the-Web safety mechanism, allowing a malicious file downloaded from the internet to execute without triggering security warnings — turning standard phishing deliveries into silent execution.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        The October 2026 Patch Tuesday is the largest single Microsoft security update ever released, exceeding September's previous record. The sheer volume is driven by 1,102 Windows-specific CVEs with 670+ privilege escalation vulnerabilities and 300+ remote code execution flaws across the portfolio.
+        <br><br>
+        The actively exploited zero-day, CVE-2026-96951, targets Windows Shell handling of internet-downloaded files. Windows uses Mark-of-the-Web — a hidden metadata tag — to identify files from the internet and restrict their execution. This flaw strips or bypasses that tag, allowing a maliciously crafted file to execute without the usual security warnings, most likely delivered through phishing emails.
+        <br><br>
+        Two additional zero-days were publicly disclosed before fixes shipped, including a MessagePack-CSharp denial-of-service (CVE-2026-92707), but CVE-2026-96951 represents the highest immediate risk. Organizations should prioritize patch deployment for this vulnerability above all others in this release.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Mark-of-the-Web is Windows' way of putting a warning label on files you download from the internet. CVE-2026-96951 lets attackers remove that label before you open the file, so it looks like a trusted local document rather than a potentially dangerous internet download — making phishing attacks far more effective.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-96951 · CVSS: 8.8/10 — High score reflects client-side exploitation bypassing a security feature with confirmed active in-the-wild abuse.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Cisco SEG HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/" style="color:#111827;">Cisco Warns of Actively Exploited Secure Email Gateway Flaw Enabling Unauthenticated Root Command Execution</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Cisco disclosed CVE-2026-76519 in Secure Email Gateway — a critical flaw allowing an unauthenticated remote attacker to execute arbitrary OS commands with root privileges — with active exploitation confirmed by Cisco's PSIRT.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Cisco Secure Email Gateway (formerly IronPort) appliances on vulnerable software versions exposed to the internet.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the Cisco PSIRT patch immediately; review gateway logs for anomalous commands or unexpected outbound connections from the appliance.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">CVE-2026-76519 turns Cisco's email security appliance — which processes every inbound and outbound email — into an unauthenticated remote code execution point, giving attackers an ideal pivot into the organization's mail infrastructure.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        Email gateways occupy a uniquely sensitive position in corporate infrastructure — they sit at the boundary between the internet and the internal mail system, processing every employee email. A root-level compromise enables an attacker to read, modify, or intercept all organizational email, exfiltrate sensitive communications, and use the appliance as a trusted pivot point into internal networks.
+        <br><br>
+        The unauthenticated nature of CVE-2026-76519 elevates this beyond a typical high-severity finding: no valid credentials are required. An attacker with network access to the appliance's interface can immediately run commands as root. Cisco's PSIRT confirmation of active exploitation means this is already being weaponized.
+        <br><br>
+        Organizations with Cisco Secure Email Gateway deployed internet-facing (MX record pointing to it) are at direct risk. Patching should be treated as an emergency change.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Cisco Secure Email Gateway is the security checkpoint all your organization's email passes through. CVE-2026-76519 lets a remote attacker skip the checkpoint entirely and become the checkpoint — reading every email, forwarding sensitive messages, and using the device as a launchpad deeper into the company network.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-76519 · CVSS: Critical — Unauthenticated root OS command injection on an internet-facing appliance with active exploitation confirmed by vendor PSIRT.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: iRhythm MEDIUM -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 17, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/" style="color:#111827;">iRhythm Discloses Data Breach Affecting 360,000 Cardiac Monitoring Patients</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Medical wearable company iRhythm disclosed a data breach exposing personal and health information of at least 360,000 patients who use their Zio cardiac monitoring patches.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Current and past iRhythm Zio patch users whose health records and personal identifiers may have been exposed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Watch for breach notification letters from iRhythm, monitor for identity fraud, and enroll in any credit monitoring services offered.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1213 · Data from Information Repositories<br>
+      <span style="color:#6b7280;">Healthcare patient management systems are high-value targets because they aggregate sensitive PHI, insurance data, and contact details that command premium prices on criminal marketplaces.</span>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 7: Ransomware Physical Threats MEDIUM -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">DataBreachToday · Oct 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://ransomware.databreachtoday.com/" style="color:#111827;">Ransomware Gangs Now Making Physical Threats Against Executives and Family Members to Force Payment</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A Semperis-commissioned survey reveals ransomware operators are escalating to real-world physical threats against corporate executives and their family members when encryption and data-leak pressure fails to compel payment.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Senior executives and incident response leaders at companies that have suffered ransomware infections and entered negotiations with threat actors.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Brief executive teams on this emerging vector, engage physical security firms during active incidents, and notify the FBI immediately upon any credible threat.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1657 · Financial Theft (Extortion)<br>
+      <span style="color:#6b7280;">Physical intimidation is a real-world escalation of digital extortion, deployed when traditional ransomware leverage — data encryption and leak threats — hasn't compelled payment quickly enough.</span>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Vulnerability Chaining ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Vulnerability chaining is the technique of combining two or more security flaws in sequence to achieve an impact no single flaw could produce alone — for example, linking an authentication bypass (to get in) with a code execution flaw (to run commands) and a privilege escalation (to become root). The Ivanti Connect Secure attack this week is a textbook example: no individual vulnerability granted full system control, but chained together they handed attackers root access on fully-patched devices. Defenders counter chaining by patching all vulnerabilities promptly, since removing any single link in the chain breaks the entire attack sequence — even patching just the first flaw can neutralize an otherwise devastating exploit chain.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: Authentication Bypass · Patch Tuesday · IKE · FortiOS · Integrity Checker · Management Interface ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Authentication Bypass</strong> — A vulnerability that allows an attacker to skip the login or identity-verification process entirely and access a system as if they were a legitimate, authorized user.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Patch Tuesday</strong> — Microsoft's scheduled monthly release of security updates, always on the second Tuesday of the month, during which fixes for dozens to hundreds of vulnerabilities are published simultaneously.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">IKE</strong> — Internet Key Exchange, the protocol used by IPsec VPNs to negotiate cryptographic keys and establish encrypted tunnels between two endpoints.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">FortiOS</strong> — Fortinet's proprietary operating system that powers its FortiGate firewall and security appliance product line.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Integrity Checker</strong> — A security tool that verifies whether system files match their known-good state; limited to on-disk verification and cannot detect compromise that exists only in memory.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Management Interface</strong> — The administrative web portal or API endpoint used to configure a network device; typically the highest-privilege attack surface since it controls the device's entire behavior and security policy.
+    </div>
+  </div>
+</details>
+
+<!-- WEEK IN REVIEW (Sunday) -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:12px;">📅 Week in Review</div>
+  <div style="display:flex;gap:10px;margin-bottom:12px;">
+    <div style="flex:1;text-align:center;padding:10px;background:#fef2f2;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#dc2626;">17</div>
+      <div style="font-size:11px;color:#6b7280;">Critical</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fff7ed;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ea580c;">21</div>
+      <div style="font-size:11px;color:#6b7280;">High</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fefce8;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ca8a04;">17</div>
+      <div style="font-size:11px;color:#6b7280;">Medium</div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:#374151;margin-bottom:6px;"><strong>ATT&CK this week:</strong> T1133 · T1505.003 · T1068 · T1562.001 · T1190 · T1566 · T1553.005 · T1486 · T1003 · T1204.002 · T1072 · T1657 · T1572 · T1014 · T1598 · T1070.004 · T1556 · T1210 · T1203 · T1055 · T1213</div>
+  <div style="font-size:13px;color:#374151;margin-bottom:10px;"><strong>Threat actors:</strong> ARMORY CASTLE · UTA0576 · Flax Typhoon · Qilin · Warlock · GhostAction · Inc Ransomware · Settra · The Gentlemen</div>
+  <div style="font-size:13px;color:#374151;line-height:1.6;padding:10px;background:#f8fafc;border-radius:4px;">A record-shattering Microsoft Patch Tuesday released 1,413 CVEs while China-linked ARMORY CASTLE exploited a critical BeyondTrust zero-day in a sustained espionage campaign running since August. Multiple perimeter device zero-days in Ivanti Connect Secure, Palo Alto PAN-OS, and Cisco Secure Email Gateway remained under active exploitation simultaneously, and ransomware groups escalated to physical threats against executives — making this one of the most significant weeks for enterprise threat exposure in recent memory.</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.tenable.com/cve" style="color:#374151;text-decoration:none;">SonicWall SMA WorkPlace Interface SSRF CVE-2026-102255 Exploited in the Wild</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Tenable</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://secarma.com/14-10-2026-cybersecurity-news-roundup" style="color:#374151;text-decoration:none;">European Retailers Confirm Active Cyber Incidents Amid Wave of Coordinated Attacks</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Secarma</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://unit42.paloaltonetworks.com/?p=188095" style="color:#374151;text-decoration:none;">Unit 42 Details PEERSTITCH: Memory-Resident Malware Targeting FortiOS Logging and VPN Daemons</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Unit 42 / Palo Alto</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://www.securityweek.com/" style="color:#374151;text-decoration:none;">Meta Reports GitHub Incident Exposing Code and Personal Data of ~1,500 Individuals</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 18, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
