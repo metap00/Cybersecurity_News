@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — October 19, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · ~13 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-19.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: BeyondTrust CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 19, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/chinese-apt-exploited-beyondtrust-vulnerability-as-zero-day/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Chinese APT Exploited BeyondTrust Zero-Day Since August — CISA Deadline Is Today</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 China-linked ARMORY CASTLE exploited CVE-2026-102764 (CVSS 9.3) in BeyondTrust Remote Support since August 29, deployed custom malware, harvested credentials, and wiped logs before an Oct 8 patch.</div>
+    <div style="margin-top:2px;">👤 Any org running BeyondTrust Remote Support ≤ 26.2.3, including hosted and self-hosted appliances.</div>
+    <div style="margin-top:2px;">✅ Apply BT26-05-RS patch NOW — CISA deadline is today; treat exposed appliances as compromised and rotate all credentials.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: Ivanti CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Volexity · Oct 13, 2026</span>
+  </div>
+  <a href="https://www.volexity.com/blog/2026/10/13/a-series-of-unauthenticated-events-chained-exploitation-of-ivanti-connect-secure-zero-days/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Ivanti VPN Zero-Day Chain Gives Attackers Root on Fully Patched Appliances</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 UTA0576 chains three zero-days (CVE-2026-104935) to gain unauthenticated root on fully patched Ivanti Connect Secure VPNs; all exploitation runs in memory, bypassing Ivanti's Integrity Checker Tool.</div>
+    <div style="margin-top:2px;">👤 Organizations using ICS versions ≤ 22.8R2.4, ≤ 25.1.2.2, or ≤ 25.1.1.1 with internet-exposed appliances.</div>
+    <div style="margin-top:2px;">✅ Apply Oct 13 patch immediately; do not rely on ICT scan results; audit Active Directory for LAPS and BitLocker key access.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1133 · External Remote Services</div>
+</div>
+
+<!-- STORY 3: Cisco SEG HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 14, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/cisco-warns-of-active-attacks.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Cisco Confirms Active Exploitation of CVSS 9.8 Secure Email Gateway Zero-Day</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-76519 (CVSS 9.8) allows crafted email attachments to trigger path traversal on Cisco SEG, giving unauthenticated attackers root access through the email security appliance itself.</div>
+    <div style="margin-top:2px;">👤 Cisco SEG users with File Reputation enabled and Content Scanner Tools older than version 25.3.0.5525.</div>
+    <div style="margin-top:2px;">✅ Patch to SEG 15.5.5-014 or 16.5.0-780; CISA deadline was Oct 17 — patch immediately and investigate for indicators of root-level compromise.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 4: GhostBat HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cyble · Oct 15, 2026</span>
+  </div>
+  <a href="https://cyble.com/blog/ghostbat-rat-inside-the-resurgence-of-rto-themed-android-malware/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">GhostBat RAT Targets 60 Indian Banking and UPI Apps with Transparent PIN Overlay</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 GhostBat places invisible touch zones over banking app keypads to silently capture PINs while routing real transactions normally; it also intercepts OTPs and forwards bank calls, defeating two-factor authentication.</div>
+    <div style="margin-top:2px;">👤 Android users in India on PhonePe, Paytm, BHIM, SBI UPI, CRED, Groww, Samsung Pay, and 53 other financial apps.</div>
+    <div style="margin-top:2px;">✅ Install only from Google Play Store; delete any APK installed via an SMS lure; revoke Accessibility Service permissions from unknown apps.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1417.002 · Input Capture: GUI Input Capture</div>
+</div>
+
+<!-- STORY 5: BAE Systems HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 16, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/bae-systems-security-incident-stalls-notices-from-us-bankruptcy-courts/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">BAE Systems Cyber Incident Takes Down US Federal Bankruptcy Noticing System Nationwide</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A security incident at BAE Systems IT has knocked out the Bankruptcy Noticing Center since ~Oct 9, halting all US federal bankruptcy notices and disrupting proceedings in 14 states for over 10 days.</div>
+    <div style="margin-top:2px;">👤 All 94 US federal bankruptcy districts, attorneys, debtors, and creditors nationwide relying on BNC-delivered notices.</div>
+    <div style="margin-top:2px;">✅ Check case status directly via PACER; implement manual notice processes; monitor AOUSC for restoration updates.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1489 · Service Stop</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://therecord.media/anne-arundel-county-maryland-confirms-data-breach" style="color:#374151;text-decoration:none;">Rhysida Claims Anne Arundel County Breach: 2.6TB and $2M Ransom Demand</a>
+    <span style="color:#9ca3af;"> · The Record</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://japancyberwatch.com/articles/idcf-cloud-unauthorized-access-outage-2026" style="color:#374151;text-decoration:none;">IDCF Frontier Ransomware: Data Unrecoverable for 4 Cloud Zones, 495 Japanese Orgs Affected</a>
+    <span style="color:#9ca3af;"> · Japan Cyber Watch</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-19.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · October 19, 2026</div>
+
+</body>
+</html>

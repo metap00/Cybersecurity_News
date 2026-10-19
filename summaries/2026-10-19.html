@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — October 19, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — October 19, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~13 min read</div>
+</div>
+
+<!-- STORY 1: BeyondTrust CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/chinese-apt-exploited-beyondtrust-vulnerability-as-zero-day/" style="color:#111827;text-decoration:none;">Chinese APT Exploited BeyondTrust Zero-Day Since August — CISA Deadline Is Today</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The China-linked espionage group ARMORY CASTLE exploited CVE-2026-102764 (CVSS 9.3) in BeyondTrust Remote Support as a zero-day since August 29, deploying custom malware, harvesting credentials, and wiping logs before a patch shipped October 8.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running BeyondTrust Remote Support versions 26.2.3 and earlier, including both hosted and self-hosted appliances.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the BT26-05-RS patch immediately — CISA's remediation deadline for federal agencies is today, October 19; treat exposed appliances as compromised and rotate all credentials.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">ARMORY CASTLE exploited the authentication bypass in BeyondTrust RS appliances to gain initial footholds in victim organizations before deploying custom backdoors and moving laterally through downstream systems.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>BeyondTrust Remote Support is a product used by IT departments to remotely access and troubleshoot employee computers — it is trust infrastructure by design. CVE-2026-102764 is an authentication bypass caused by improper validation of message origins (CWE-290), which allowed attackers to impersonate legitimate remote support sessions without credentials. CVSS 9.3 reflects the combination of network reachability, no privileges required, and no user interaction needed.</p>
+        <p>Google Threat Intelligence Group and Mandiant attributed active exploitation to ARMORY CASTLE, also tracked as UNC5221 and associated with China-aligned espionage objectives. The group first exploited the flaw on August 29, 2026, against at least one BeyondTrust-hosted and one self-hosted appliance. After gaining access, the actor escalated to root, deployed custom malware families, harvested stored credential vaults, and deleted logs and forensic artifacts to hinder detection. BeyondTrust discovered the issue September 28 and published the patch on October 8 after extended testing.</p>
+        <p>CISA added CVE-2026-102764 to its Known Exploited Vulnerabilities catalog and set a federal agency remediation deadline of October 19, 2026 — today. Because attackers are confirmed to have cleared logs, organizations that ran vulnerable versions during the August–October window should treat those appliances as compromised regardless of whether they see evidence in their logs. Credential rotation for any account managed or accessible through BeyondTrust RS is strongly advised.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> BeyondTrust Remote Support is the "remote control" tool IT teams use to fix your computer from afar. This bug let attackers pretend to be a legitimate remote-support session — without a username or password — to break into organizations quietly. A Chinese spy group used this trick for over a month before anyone noticed, and they were careful to delete their tracks afterward, making detection very hard.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-102764 · CVSS: 9.3/10 — Near-maximum score reflecting unauthenticated network access with no user interaction required and full appliance compromise potential.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: ARMORY CASTLE -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">ARMORY CASTLE (UNC5221 / Warp Panda)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-state espionage · Attributed to: China</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government agencies, defense contractors, remote access and IT support infrastructure globally</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Exploiting trusted IT management tools (VPNs, remote support platforms), deploying custom backdoors, credential vault harvesting, and meticulous log deletion to cover intrusions</div>
+</div>
+
+<!-- STORY 2: Ivanti Connect Secure CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Volexity · Oct 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.volexity.com/blog/2026/10/13/a-series-of-unauthenticated-events-chained-exploitation-of-ivanti-connect-secure-zero-days/" style="color:#111827;text-decoration:none;">Ivanti VPN Zero-Day Chain Gives Attackers Root on Fully Patched Appliances</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Threat actor UTA0576 is chaining three zero-day vulnerabilities in Ivanti Connect Secure VPN — including CVE-2026-104935 — to achieve unauthenticated root access on fully patched appliances, with all exploitation occurring in memory to evade Ivanti's built-in Integrity Checker Tool.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using Ivanti Connect Secure versions 22.8R2.4 and earlier, 25.1.2.2 and earlier, or 25.1.1.1 and earlier, particularly those with internet-exposed management interfaces.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Ivanti's October 13 patch for CVE-2026-104935 immediately; do not rely on the Integrity Checker Tool to rule out compromise; audit for unauthorized queries to Active Directory, LAPS password stores, and BitLocker recovery keys.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">UTA0576 chained three unpatched flaws in internet-facing Ivanti VPN appliances to silently obtain root access and harvest domain credentials, LAPS passwords, and BitLocker recovery keys — entirely in memory, bypassing the vendor's own integrity detection.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Volexity discovered the Ivanti Connect Secure exploitation campaign around October 3, 2026, while investigating a customer intrusion. The attacker, tracked as UTA0576, exploited a chain of three flaws: an authentication bypass and a remote code execution vulnerability (both now patched under CVE-2026-104935 in Ivanti's October 13 release), plus a privilege escalation flaw that still has no patch and no CVE as of today.</p>
+        <p>What makes this attack uniquely dangerous is the in-memory execution model. Traditional endpoint and integrity checkers look for suspicious files written to disk. Because UTA0576 runs the entire exploit chain in RAM, Ivanti's built-in Integrity Checker Tool — the primary recommended detection mechanism — cannot see it. Organizations that ran the ICT and received a clean report may still be compromised.</p>
+        <p>Post-exploitation activity included Active Directory reconnaissance, extraction of LAPS (Local Administrator Password Solution) passwords, and collection of BitLocker disk encryption recovery keys. These capabilities suggest the attacker's goal is persistent, stealthy access: LAPS passwords allow lateral movement to other machines, and BitLocker keys could enable offline data decryption if physical media is ever seized. The third, unpatched flaw for privilege escalation remains an open risk even after applying the October 13 patch.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A VPN (Virtual Private Network) is the tunnel your remote workers use to securely connect to the office network. Ivanti makes popular enterprise VPN boxes. This attack chains three separate bugs together like skeleton keys — each one opens a different lock — to break in without a password and get full admin control, while running invisibly in the computer's memory so the VPN's own security scanner reports everything as clean.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104935 · CVSS: Critical (score not yet published) — Three-flaw chain achieving unauthenticated root on a fully patched appliance with in-memory execution defeating integrity checks.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Cisco Secure Email Gateway HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/cisco-warns-of-active-attacks.html" style="color:#111827;text-decoration:none;">Cisco Confirms Active Exploitation of CVSS 9.8 Secure Email Gateway Zero-Day</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are actively exploiting CVE-2026-76519 (CVSS 9.8) in Cisco Secure Email Gateway by sending crafted email attachments that trigger a path traversal flaw, enabling unauthenticated arbitrary file writes and root-level command execution on the appliance.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using Cisco Secure Email Gateway with File Reputation enabled and Content Scanner Tools older than version 25.3.0.5525; Cisco has confirmed a limited number of customers show indicators of compromise.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch to Secure Email Gateway version 15.5.5-014 or 16.5.0-780 immediately; the CISA remediation deadline for federal agencies was October 17 — apply now and investigate for signs of root-level access.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers weaponized malicious email attachments to trigger the path traversal flaw in Cisco's SEG, turning the organization's own email security appliance into the initial access vector and gaining root access without authentication or user interaction.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-76519 is a relative path traversal bug (CWE-23) in the Advanced Malware Protection feature of Cisco Secure Email Gateway. The attack is triggered entirely by the appliance itself processing a malicious email — there is no requirement for an operator to click anything. When the SEG scans an inbound email's attachment using the File Reputation feature, a specially crafted attachment can direct the scanner to write attacker-controlled content to arbitrary filesystem locations, ultimately enabling root-level OS command execution.</p>
+        <p>The flaw is particularly insidious because the attack surface is the security product itself. Organizations that deployed the SEG specifically to protect against malicious email attachments are exposed through the very mechanism meant to protect them. Cisco patched the issue in September 2026 but only updated its advisory on October 14 to confirm active in-the-wild exploitation. CISA added it to the KEV catalog with an October 17 deadline.</p>
+        <p>Because root access can be used to hide evidence, Cisco advises patching and investigating — not just patching. Shadowserver tracks roughly 300 Cisco SEG instances exposed directly to the internet. Cisco's managed Secure Email Cloud service customers who show indicators of compromise have been contacted directly by Cisco. This is the second actively exploited Cisco SEG flaw since mid-September 2026.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A "Secure Email Gateway" is the bouncer at the door of your email system — it scans incoming emails for viruses and malicious attachments before they reach your inbox. This bug means an attacker can craft a poisoned email that tricks the bouncer itself into opening the back door of the building and handing over the master key, all while the bouncer is just doing its normal job of scanning the attachment.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-76519 · CVSS: 9.8/10 — Maximum-severity path traversal enabling unauthenticated root access with no user interaction through a mail processing operation.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: GhostBat HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cyble · Oct 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cyble.com/blog/ghostbat-rat-inside-the-resurgence-of-rto-themed-android-malware/" style="color:#111827;text-decoration:none;">GhostBat RAT Targets 60 Indian Banking and UPI Apps with Transparent PIN Overlay</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A new GhostBat Android RAT variant places 12 invisible touch zones over real banking app keypads to silently capture PINs, intercepts OTP text messages, and forwards incoming bank calls — all while routing legitimate transactions through normally so victims notice nothing unusual.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Android users in India using PhonePe, Paytm, BHIM, SBI UPI, Axis Pay, BharatPe, CRED, Groww, Samsung Pay, and approximately 55 other financial applications.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Only install apps from the official Google Play Store; be highly suspicious of any SMS claiming a traffic fine or government notice with a link to install an APK; review which apps have Accessibility Service permissions enabled on your device.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Credential Access] T1417.002 · Input Capture: GUI Input Capture<br>
+      <span style="color:#6b7280;">GhostBat places 12 transparent touch regions over genuine banking app keypads so that PIN keystrokes are silently captured and relayed to attacker infrastructure while the real payment continues normally, rendering standard UI inspection useless for victim detection.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Cyble's research describes GhostBat as part of a broader "GhostX" ecosystem of Android malware that has been targeting Indian financial services since at least October 2025. The October 2026 variant is distributed via SMS or messaging app lures posing as traffic-fine notices from government agencies (mParivahan, eChallan), directing users to install APKs from outside the Play Store. Malicious APKs have also been found hosted on public GitHub repositories.</p>
+        <p>Once installed, the malware requests Android Accessibility Service access — a legitimate feature designed to help users with disabilities. With that permission, GhostBat monitors foreground application state. When a targeted banking or payment app opens a PIN-entry screen, GhostBat renders 12 transparent touch-capture regions over the real numeric keypad. Each tap is recorded and forwarded to attacker infrastructure, while the malware simultaneously dispatches a legitimate tap into the real app so the user's payment succeeds and nothing appears wrong.</p>
+        <p>Beyond PIN capture, GhostBat intercepts all incoming SMS (including OTP codes), dials USSD codes to redirect incoming calls from bank fraud-prevention numbers, and uses Firebase Remote Config alongside WebSocket tunnels for resilient command-and-control that can update the target app list in real time. The combination of silent PIN theft and OTP interception gives attackers complete control over a victim's mobile banking identity.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine someone places invisible sticky notes over your phone's keypad when you open your banking app. You type your PIN normally and your payment goes through — but each digit you pressed was secretly recorded and sent to a criminal. That's what GhostBat does, by abusing a phone feature meant for people with disabilities. It also intercepts the text message your bank sends to verify it's really you, so even two-factor protection fails.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned (mobile malware campaign) · Severity: HIGH — Silently captures financial credentials across 60 apps with no indicators visible to victims during a transaction.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: BAE Systems HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/bae-systems-security-incident-stalls-notices-from-us-bankruptcy-courts/" style="color:#111827;text-decoration:none;">BAE Systems Cyber Incident Takes Down US Federal Bankruptcy Noticing System Nationwide</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A security incident at BAE Systems IT — the contractor that operates the federal judiciary's Bankruptcy Noticing Center — has knocked out all BNC websites and services since approximately October 9, halting the delivery of every federally mandated bankruptcy notice across the United States for over ten days.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All US federal bankruptcy courts, debtors, creditors, and attorneys nationwide; 14 states have reported operational disruptions, with some forced to delay bankruptcy proceedings entirely.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Attorneys and creditors should check case status directly through PACER; courts should implement contingency manual notice processes; watch for official updates from the Administrative Office of the U.S. Courts on bnc.uscourts.gov restoration.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1489 · Service Stop<br>
+      <span style="color:#6b7280;">A cyber incident at BAE Systems deliberately or incidentally stopped the Bankruptcy Noticing Center's core systems, disrupting all notice delivery for US federal courts and demonstrating how an attack on a single government contractor can cascade into nationwide judicial disruption.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Bankruptcy Noticing Center is the federal government's official system for delivering bankruptcy notifications — when someone files for bankruptcy, creditors must be legally notified by the BNC. BAE Systems IT operates this infrastructure on behalf of the Administrative Office of the U.S. Courts. On October 15, the AOUSC issued a public notice confirming that the BNC's systems and websites were down due to a security incident at BAE Systems, which the company described as "isolated to the BNC system."</p>
+        <p>The affected services include bnc.uscourts.gov, bankruptcynotices.uscourts.gov, notices.uscourts.gov, and the National Creditor Registration Service. Reports suggest the outage began around October 9, meaning it had already run for nearly a week before public disclosure. As of October 16, no restoration timeline had been provided, and neither BAE nor the AOUSC disclosed whether any case data was accessed or exfiltrated.</p>
+        <p>This incident illustrates the systemic risk of concentrating critical government functions with a single contractor. All 94 US federal bankruptcy court districts depend on BNC notices to comply with legal notification requirements, so a 10-day outage has potential legal ramifications for pending cases, creditor rights deadlines, and judicial timelines across all 50 states. The nature of the incident — ransomware, data breach, or other intrusion — remains undisclosed.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When someone declares bankruptcy in the US, the court is legally required to send official notices to everyone the person owes money to. BAE Systems runs the computer system that sends all those notices for every federal court in the country. A cyberattack took that system offline, meaning hundreds of thousands of legally required notifications may not have been delivered — potentially affecting ongoing court cases across every US state.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE (infrastructure incident) · CVSS: N/A — Nationwide judicial service disruption; attack type not yet disclosed by BAE Systems or the AOUSC.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Fileless Malware ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Fileless malware runs entirely inside a computer's RAM (memory) rather than writing any files to the hard drive, which means traditional antivirus tools that scan files on disk never see it — the malicious code disappears the moment the machine reboots. Today's Ivanti attack used this technique: the three-flaw exploit chain loaded and ran in memory, so Ivanti's own Integrity Checker Tool scanned the disk, found nothing suspicious, and issued a clean report even while the attacker had root control. Because evidence evaporates at shutdown, forensic investigation of fileless attacks requires memory forensics — capturing and analyzing the RAM itself while the machine is still running — a significantly harder and more specialized technique than standard disk forensics.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: RAT · UPI · BNC · CWE ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RAT</strong> — Remote Access Trojan; malware that gives an attacker persistent, hidden remote control over an infected device, typically masquerading as a legitimate app.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">UPI</strong> — Unified Payments Interface; India's real-time mobile payment standard that links bank accounts to a single ID, used by apps like PhonePe, Paytm, and Google Pay for instant transactions.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">BNC</strong> — Bankruptcy Noticing Center; the federal government body that delivers all legally mandated bankruptcy court notices to creditors and interested parties across all 94 US district courts.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">CWE</strong> — Common Weakness Enumeration; a community-maintained taxonomy of software security weaknesses (e.g., CWE-22 for path traversal, CWE-290 for authentication bypass by spoofing) used to categorize root causes of vulnerabilities.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://therecord.media/anne-arundel-county-maryland-confirms-data-breach" style="color:#374151;text-decoration:none;">Rhysida Claims Anne Arundel County Breach: 2.6TB and $2M Ransom Demand</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Record</span>
+    <div style="font-size:12px;color:#6b7280;margin-top:3px;padding-left:0;">Rhysida ransomware gang claims to have stolen 2.6TB of Maryland county data including medical faxes, background-check files, and jail intelligence records, demanding $2 million or threatening public release.</div>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://japancyberwatch.com/articles/idcf-cloud-unauthorized-access-outage-2026" style="color:#374151;text-decoration:none;">IDCF Frontier Ransomware: Data Recovery Deemed Difficult for 4 Cloud Zones, 495 Clients Affected</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Japan Cyber Watch</span>
+    <div style="font-size:12px;color:#6b7280;margin-top:3px;padding-left:0;">SoftBank subsidiary IDC Frontier confirms ransomware encrypted customer data across 4 IDCF Cloud zones with difficult or no recovery path; affected clients include Ibaraki Prefecture, JR East, and JR Kyushu.</div>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · October 19, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
