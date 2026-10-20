@@ -1,12 +1,13 @@
 {
-  "til": ["Prompt Injection in AI Gateways", "Integer Overflow", "Mark-of-the-Web", "Log Tampering", "SOCKS5 Proxying", "Vulnerability Chaining", "Fileless Malware"],
-  "glossary": ["CVSS", "Zero-Day", "Hot Wallet", "APT", "Webshell", "CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "GitHub Actions", "CI/CD", "Botnet", "HIPAA", "PHI", "MotW", "SAML", "WDAC", "RaaS", "LAPS", "SSRF", "Cobalt Strike", "BloodHound", "Authentication Bypass", "Patch Tuesday", "IKE", "FortiOS", "Integrity Checker", "Management Interface", "RAT", "UPI", "BNC", "CWE"],
+  "til": ["OAuth Application Tokens", "Prompt Injection in AI Gateways", "Integer Overflow", "Mark-of-the-Web", "Log Tampering", "SOCKS5 Proxying", "Vulnerability Chaining"],
+  "glossary": ["CoreGraphics", "ESXi", "Babuk", "ADC", "Setuid", "DLL Sideloading", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "GitHub Actions", "CI/CD", "Botnet", "HIPAA", "PHI", "MotW", "SAML", "WDAC", "RaaS", "LAPS", "SSRF", "Cobalt Strike", "BloodHound", "Authentication Bypass", "Patch Tuesday", "IKE", "FortiOS", "Integrity Checker", "Management Interface", "RAT", "UPI", "BNC", "CWE", "OAuth", "MFA", "Entra ID", "WAF", "DoS"],
   "week": {
-    "critical": 2, "high": 3, "medium": 2,
-    "techniques": ["T1190", "T1133", "T1417", "T1489", "T1486"],
+    "critical": 4, "high": 6, "medium": 5,
+    "techniques": ["T1190", "T1133", "T1417", "T1489", "T1486", "T1505", "T1528", "T1490", "T1068", "T1119", "T1553.005", "T1699", "T1552.001"],
     "actors": ["ARMORY CASTLE", "Rhysida"]
   },
   "digests": [
+    {"date": "2026-10-20", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 3},
     {"date": "2026-10-19", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-10-18", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 2},
     {"date": "2026-10-17", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},

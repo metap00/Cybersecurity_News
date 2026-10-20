@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 20, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 20, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">10 stories · 2 critical · 3 high · 3 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - Nextcloud RCE -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Security Boulevard · Oct 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityboulevard.com/2026/10/daily-ot-security-news-october-19-2026" style="color:#111827;text-decoration:none;">Hackers Exploit Critical Nextcloud RCE Flaw (CVE-2026-110447, CVSS 9.2) to Backdoor Servers</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Threat actors are actively exploiting a critical command injection flaw (CVE-2026-110447, CVSS 9.2) in the Collabora Online Built-in CODE Server app for Nextcloud, enabling unauthenticated remote code execution and persistent backdoor installation.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Nextcloud with the Collabora Online Built-in CODE Server integration enabled — commonly deployed in government agencies, healthcare systems, and enterprises as a privacy-respecting alternative to Google Workspace.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately update the Collabora Online Built-in CODE Server app in the Nextcloud App Store; audit server logs, all admin accounts, and writable web directories for web shell artifacts or unauthorized accounts.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Persistence] T1505 · Server Software Component<br>
+      <span style="color:#6b7280;">After exploiting the RCE flaw, attackers install persistent web shells and backdoors within the Nextcloud server environment, maintaining access even after the initial vulnerability is patched if not actively hunted.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Collabora Online Built-in CODE Server is a document collaboration engine bundled with many enterprise Nextcloud deployments, letting users open and edit office documents directly in their browsers. CVE-2026-110447 is a command injection flaw rated CVSS 9.2 — an unauthenticated attacker who can reach the Collabora service over the network can send a specially crafted request that triggers arbitrary OS command execution with the privileges of the Nextcloud web server process. Active exploitation was confirmed on October 19, with incident responders observing attackers installing persistent backdoors on vulnerable servers shortly after initial access.</p>
+        <p>The attack pattern follows a well-documented post-exploitation playbook: initial RCE is leveraged to create hidden administrative accounts, deploy web shells in writable directories, or modify server-side code to introduce backdoors that survive reboots and patching attempts if not proactively removed. Nextcloud is widely deployed in sectors that handle sensitive data — government agencies, healthcare, legal, and research institutions — making this target pool particularly high-value for threat actors seeking persistent footholds.</p>
+        <p>Mitigation is available: administrators should immediately update the Collabora Online Built-in CODE Server through the Nextcloud App Store. Beyond patching, a thorough forensic review is warranted — admins should audit all active user and admin accounts for unauthorized entries, check scheduled tasks and startup scripts for modifications, and scan writable web directories for unexpected PHP files that may represent dropped web shells.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Nextcloud is like your own private Google Drive hosted on your own servers. The Collabora Online app is the built-in document editor — think Google Docs running on your hardware. A hacker found a flaw that lets them send a special request to the server and trick it into running their commands without a password. Once inside, they're planting hidden "back doors" — secret entry points that let them return even after the original flaw is fixed.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-110447 · CVSS: 9.2/10 — Critical-severity command injection enabling unauthenticated remote code execution on Nextcloud servers with the Collabora Online integration.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - ConnectWise SkyKick M365 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Huntress / SpecterOps · Oct 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://specterops.io/blog/2026/10/17/connectwise-skykick-breach-microsoft-365/" style="color:#111827;text-decoration:none;">ConnectWise SkyKick OAuth Credential Stolen — ~1,000 Microsoft 365 Tenants Exposed, 173 Confirmed Breached</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> An attacker stole a ConnectWise Cloud Backup (formerly SkyKick) OAuth application credential and used it to silently authenticate into Microsoft 365 tenants without triggering MFA, with 173 confirmed breaches and sign-in activity visible in roughly 1,000 tenants.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using ConnectWise Cloud Backup for Microsoft 365 — primarily managed service providers and their customers; in at least one tenant, the attacker escalated to Global Administrator and added new persistent OAuth secrets.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately disable (do not delete) the ConnectWise Cloud Backup/SkyKick application in your Microsoft Entra admin center and audit Entra ID for new Global Administrator role assignments and unauthorized app client secret additions.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Credential Access] T1528 · Steal Application Access Token<br>
+      <span style="color:#6b7280;">The attacker used a stolen OAuth client credential — a client assertion or client secret — to authenticate as the ConnectWise backup application itself across customer tenants, bypassing MFA entirely since the sign-in appeared to come from a trusted application identity rather than a human user.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>ConnectWise Cloud Backup, formerly SkyKick, is a Microsoft 365 backup-as-a-service solution widely used by managed service providers. The product works by registering an Enterprise Application in each customer's Microsoft Entra ID tenant, granting it delegated permissions to read and back up mailboxes, SharePoint sites, and Teams content. A threat actor obtained one of ConnectWise's backend OAuth application credentials — either a client secret or a signed JWT client assertion — and used it to silently authenticate as the ConnectWise application across customer tenants. Because the sign-in originated from a trusted application identity rather than a user account, Microsoft's MFA policies never engaged.</p>
+        <p>Huntress identified the breach starting October 15 and tracked unauthorized sign-ins across at least 162 Microsoft 365 tenants initially, rising to 173 confirmed by October 17. By October 19, sign-in activity from the attacker's IP ranges was visible in approximately 1,000 tenants. In at least one case, the attacker used the app's delegated permissions to add itself to the Global Administrator role in an Entra ID directory and created new client secrets on trusted applications — establishing additional persistence pathways that survive the original credential's revocation.</p>
+        <p>This is a textbook supply-chain attack via MSP tooling: a single vendor credential compromise cascades to hundreds of downstream organizations simultaneously. ConnectWise has revoked the affected credential and shut down the Cloud Backup service; data restores are unavailable while the investigation continues. Responders advise disabling (not deleting) the affected applications to preserve forensic evidence, and recommend hunting for Entra ID backdoors — specifically unexpected Global Administrator assignments and newly added OAuth app secrets — that may provide ongoing attacker access.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Managed Service Providers are IT companies that manage technology for other businesses. ConnectWise makes a backup tool that MSPs use to protect client Microsoft email and files. Think of it as a master key card that opens hundreds of office buildings — one card, many doors. A hacker stole ConnectWise's master key card (called an OAuth token). They walked into hundreds of Microsoft 365 tenants without triggering any password prompts or phone verification, and in some buildings even promoted themselves to "building owner" before leaving.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No specific CVE · OAuth application credential theft — The stolen token bypassed multi-factor authentication entirely because it authenticated as the application itself, not as a human user.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH - Japan Cybersecurity Emergency -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CPO Magazine / Sify · Oct 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.sify.com/ai-analytics/japan-declares-cybersecurity-emergency-ai-cyberattacks-hit-14-million-people-and-495-businesses/" style="color:#111827;text-decoration:none;">Japan Declares First-Ever Cybersecurity State of Emergency as AI-Driven Ransomware Wave Hits 495 Businesses</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Japan's National Cybersecurity Strategy Headquarters declared its first "cyberspace state of emergency" on October 9 after ransomware struck IDC Frontier (a SoftBank cloud provider), disrupting 495 businesses and exposing approximately 14 million citizens' data across Lawson, JR East, and Times Car.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> 495 Japanese organisations across retail, transportation, and automotive sectors; individuals whose data was held by JR East (up to 6.09M email records), Times Car (6.6M accounts including driver's license photos), and others in the IDC Frontier cloud environment.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Japanese organisations should immediately apply mandatory software updates, enforce strong password policies, and conduct supply-chain security reviews per government orders; the FSA has separately warned banks against accepting driver's licences as sole identity verification.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1490 · Inhibit System Recovery<br>
+      <span style="color:#6b7280;">Ransomware targeting IDC Frontier's cloud infrastructure disabled backup and recovery systems for 495 hosted organisations simultaneously, preventing victim organisations from restoring data independently — a hallmark of sophisticated ransomware campaigns targeting cloud service providers.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>On October 8, ransomware struck IDC Frontier, a SoftBank-owned cloud provider hosting data for hundreds of Japanese enterprises and government-affiliated organisations. The attack cascaded simultaneously to all 495 IDC Frontier clients whose data was hosted on the affected infrastructure — a single supplier compromise amplified across an entire ecosystem. Japan's NCSH declared the first-ever "cybersecurity state of emergency" on October 9, describing the situation as "extremely critical." Officials noted that September 2026 alone produced 86 recorded cyber incidents in Japan, pushing the year past previous annual records.</p>
+        <p>The scale of exposed personal data is significant: JR East (Japan Railways East) reported up to 6.09 million customer email records potentially compromised; Times Car (a car rental service) reported 6.6 million accounts including driver's license photographs; retail chain Lawson disclosed customer data exposure. In total, approximately 14 million citizens' records have been implicated across the cascade of breaches this year. Analysts note that AI tooling may be lowering the barrier for attackers to customise ransomware campaigns against Japanese organisations with legacy infrastructure.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> IDC Frontier is like a giant storage warehouse where hundreds of companies keep their digital files. When ransomware hit the warehouse, it locked every company's filing cabinet at once. Japan's government had to declare an emergency because so many organisations — train companies, convenience stores, car rental services — all lost access to their data simultaneously, and 14 million people's personal information was potentially exposed. Think of it like a flood hitting an entire office park rather than a single building.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE · Cloud-provider ransomware incident — Multi-tenant impact across 495 organisations illustrates the amplified risk of centralised cloud infrastructure as a ransomware target.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - Palo Alto PAN-OS Zero-Day -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Oct 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://tech-insider.org/palo-alto-pan-os-zero-day-cve-2026-0322/" style="color:#111827;text-decoration:none;">Palo Alto Networks Releases IoCs as PAN-OS Zero-Day CVE-2026-0322 (CVSS 8.6) Sees Active Exploitation</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Palo Alto Networks confirmed limited active exploitation of CVE-2026-0322 (CVSS 8.6), a flaw in PAN-OS management interfaces that allows an authenticated attacker with network access to execute arbitrary commands with root privileges, and released indicators of compromise.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organisations with Palo Alto Networks firewalls whose management interfaces are reachable over the network — particularly those with internet-facing management access or deployments not yet updated to the patched PAN-OS version.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the latest PAN-OS security update immediately; disable internet-facing access to management interfaces as a defence-in-depth measure; review published IoCs against firewall and network logs for signs of compromise.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">CVE-2026-0322 enables an attacker who already has access to the PAN-OS management network to escalate from standard admin credentials to full root-level OS control of the firewall, turning a limited foothold into complete device compromise.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-0322 affects the PAN-OS management interface — the web console administrators use to configure Palo Alto Networks firewalls. An authenticated attacker who has network-level access to this interface can exploit the flaw to run arbitrary commands with root (full operating-system) privileges. The CVSS 8.6 score reflects that the attack requires authentication, but in practice that bar is frequently cleared through phishing, credential reuse, or prior exploitation of initial access vulnerabilities. Palo Alto confirmed limited exploitation in the wild on October 19 and published indicators of compromise including specific IP addresses and file hashes seen in active attacks.</p>
+        <p>Firewalls are particularly high-value targets because they sit at network perimeters and have visibility into all traffic flows; an attacker with root access to a firewall can intercept traffic, modify rules to allow lateral movement, and pivot deep into the protected network without triggering traditional endpoint detection. Organisations that have management interfaces reachable from the internet are at greatest risk and should treat this as an emergency patching situation regardless of authentication requirements.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A firewall is like the security gate at the entrance to a building — it decides what traffic can come in and go out. The management interface is the control panel for that gate. This vulnerability lets an attacker who can reach the control panel take full control of the gate — rewriting the rules, unlocking doors, and watching everything that passes through. It's like a security guard discovering the booth's control system has a bug that lets someone with basic access codes become the building manager.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-0322 · CVSS: 8.6/10 — High-severity privilege escalation in PAN-OS management interface allowing root-level command execution by authenticated attackers.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH - Nikkei Breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Mezha / Nikkei Inc. · Oct 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://mezha.net/eng/news/mezha-b2284eab9ad8465506ea5a8b_nikkei_says_breach" style="color:#111827;text-decoration:none;">Nikkei Inc. Breach Exposes 1.83 Million Personal Records</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Nikkei Inc., publisher of Japan's largest financial newspaper, disclosed a data breach exposing 1.83 million personal records; as of October 16, the company says it has found no evidence that accessed data has been misused or published online.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> 1.83 million individuals — likely a mix of Nikkei subscribers, business contacts, and employees — whose personal information was stored in affected Nikkei systems.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Nikkei customers and subscribers should monitor for phishing attempts and identity-fraud indicators; rotate passwords for Nikkei-linked accounts; enable two-factor authentication on financial and email accounts as a precaution.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Collection] T1119 · Automated Collection<br>
+      <span style="color:#6b7280;">Attackers systematically exfiltrated 1.83 million personal records from Nikkei's systems, consistent with automated bulk collection of structured database records — a technique that enables rapid, large-scale data theft once initial access is established.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Nikkei Inc. is one of Japan's most prominent media organisations, publishing the Nikkei newspaper (Japan's largest by circulation) along with financial data services and the Financial Times internationally. The breach affects 1.83 million personal records across the company's systems — a significant dataset that likely includes names, email addresses, contact information, and potentially subscription or payment details for the company's business and media clientele.</p>
+        <p>The disclosure came with the standard caveat that no misuse of the data has been detected as of the announcement date. However, the absence of detected misuse does not mean the data has not been collected and held for future monetisation or spear-phishing campaigns. Business and financial media subscribers tend to be high-net-worth individuals and senior executives — a demographic that commands premium prices on underground data markets and is frequently targeted by business email compromise and investment fraud schemes.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Nikkei is like Japan's Financial Times or Wall Street Journal. Their subscribers tend to be business professionals and executives. When that kind of database is stolen, it's especially valuable to criminals because they can craft convincing fake emails pretending to be from banks, investment firms, or business contacts — the kind of people Nikkei readers regularly hear from. Even if no data has been misused yet, the stolen information is like a detailed address book that criminals can exploit for months or years.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No specific CVE disclosed · 1.83 million personal records — Breach of a prominent financial media publisher creates phishing and identity-fraud risk for high-value subscriber population.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: MEDIUM - Microsoft Patch Tuesday -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://shattered.io/microsoft-patch-tuesday-october-2026-1413-cves/" style="color:#111827;text-decoration:none;">Microsoft Patches Record 1,413 CVEs in October Patch Tuesday, Including Actively Exploited Windows Shell Zero-Day</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft released its largest-ever security update patching 1,413 CVEs across Windows, Office, SharePoint, and developer tools, including one actively exploited zero-day — CVE-2026-96951 (CVSS 8.8), a Windows Shell flaw that lets attackers bypass Mark-of-the-Web protections on downloaded files.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows users and organisations running Microsoft products; CISA added CVE-2026-96951 to the Known Exploited Vulnerabilities catalog and directed federal agencies to patch by October 16.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the October 2026 cumulative Windows update immediately; prioritise CVE-2026-96951 (Windows Shell MotW bypass) and CVE-2026-108398 (.NET Framework bypass, publicly disclosed); update Office and SharePoint components as well.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1553.005 · Mark-of-the-Web Bypass<br>
+      <span style="color:#6b7280;">CVE-2026-96951 exploits a Windows Shell security-feature bypass to strip or ignore the MotW flag on downloaded files, allowing malicious executables to run without triggering SmartScreen warnings or UAC prompts — the exact mechanism used in this actively exploited zero-day.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Microsoft's October 2026 Patch Tuesday is the largest single release in the company's history, covering 1,413 CVEs — with approximately 1,102 affecting Windows components, 134 in Office, 61 in developer tools, and 36 in SharePoint Server. The sheer volume underscores the expanding attack surface of modern Windows ecosystems and the ongoing challenge of keeping enterprise fleets fully patched.</p>
+        <p>The one actively exploited zero-day, CVE-2026-96951, is a Windows Shell security-feature bypass rated CVSS 8.8. Mark-of-the-Web (MotW) is the mechanism Windows uses to flag files downloaded from the internet — it prompts users with security warnings and limits execution. By bypassing MotW, attackers can deliver malicious files (via phishing emails, drive-by downloads, or USB drops) that execute without triggering expected SmartScreen warnings. CISA added it to KEV hours after release, reflecting active exploitation in the wild. A second publicly disclosed flaw, CVE-2026-108398 (.NET Framework bypass), also warrants priority treatment.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When you download a file from the internet, Windows attaches an invisible sticky note to it saying "this came from outside — be careful." When you try to open it, Windows shows a warning. CVE-2026-96951 lets hackers remove that sticky note, so when someone opens a malicious file delivered by email or downloaded from a website, Windows stays silent and runs it without any warning — making it much easier to deploy malware.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-96951 · CVSS: 8.8/10 — High-severity Windows Shell Mark-of-the-Web bypass enabling downloaded malicious files to execute without security prompts; actively exploited in the wild.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 7: MEDIUM - MITRE ATT&CK v20 -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/mitre-attck-v20-catalogs-ai-abuse-mfa-bypass-water-utility-attacks/" style="color:#111827;text-decoration:none;">MITRE ATT&amp;CK v20 Released: Nine New AI-Focused Techniques Including Direct Prompt Injection (T1699)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> MITRE released ATT&amp;CK v20 on October 13, expanding the Enterprise matrix with nine new AI-specific attack techniques — including T1699 (Direct Prompt Injection), T1698 (Indirect Prompt Injection), and T1700 (AI-Enabled Exfiltration) — along with new CAPTCHA-bypass and water-utility attack entries.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Security teams, threat hunters, red teamers, and organisations deploying AI or LLM-integrated systems now need to re-evaluate detection rules, threat models, and security assessments against the new technique catalogue.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update threat models and detection rules to incorporate the v20 AI techniques; security tool vendors should begin mapping their capabilities to T1698–T1700; red teams running AI assessments should incorporate the new technique IDs in their reporting.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Execution] T1699 · Direct Prompt Injection<br>
+      <span style="color:#6b7280;">MITRE's new T1699 documents how adversaries inject malicious instructions directly into AI model prompts to override system instructions and manipulate model behavior — a technique now formally catalogued in ATT&amp;CK for the first time in v20.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>MITRE ships major ATT&amp;CK releases each April and October, and v20 marks the framework's first comprehensive expansion into AI adversary techniques. The nine new Enterprise technique entries cover the full AI attack lifecycle: T1699 (Direct Prompt Injection) and T1698 (Indirect Prompt Injection) address how attackers manipulate LLM-integrated systems; T1700 (AI-Enabled Exfiltration) documents how AI tools can be abused to accelerate or automate data theft; additional entries cover AI result poisoning and techniques for impairing autonomous AI-driven defenses. The Enterprise matrix now holds 227 techniques and 479 sub-techniques across 15 tactics.</p>
+        <p>The release also introduces an OT (Operational Technology) campaign linked to observed 2026 attacks on water utilities — including unattributed intrusions targeting more than 30 Minnesota water utilities with internet-facing PLCs — and new anti-automation-evasion entries covering CAPTCHA handling. These additions reflect the real-world threat landscape rather than theoretical attack paths: every new ATT&amp;CK technique is supported by observed adversary behaviour, making v20 a meaningful update for practitioners building detection and hunting programmes.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> MITRE ATT&amp;CK is like a universal dictionary of hacker moves — it catalogues every known technique adversaries use so defenders can learn to detect them. Version 20 adds entries specifically for AI systems: it documents how hackers can "trick" AI chatbots into ignoring their safety rules (prompt injection) or use AI tools to steal data faster. For security teams, adding a technique to ATT&amp;CK means they now have a standard name and ID to track it, share threat intelligence, and build automated detections around it.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">ATT&amp;CK v20 released Oct 13, 2026 · Nine new AI techniques — First formal documentation of prompt injection, AI-enabled exfiltration, and AI defense impairment in the enterprise threat knowledge base.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 8: MEDIUM - OpenCode AI API Keys -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/opencode-console-breach-may-have.html" style="color:#111827;text-decoration:none;">OpenCode Console Breach May Have Exposed OpenAI, Anthropic, and Google AI API Keys for 1.4% of Users</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> OpenCode disclosed an October 16 intrusion into a legacy system that may have exposed third-party AI provider API keys — for OpenAI, Anthropic, and Google — saved by approximately 1.4% of Console users, prompting key revocation notices to affected customers.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> OpenCode Console users who had stored AI provider API keys in the platform; compromised keys could allow attackers to consume AI model quota at the victim's expense, access any stored prompts or conversation history, and potentially incur significant billing charges.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately rotate API keys for any AI provider (OpenAI, Anthropic, Google, or others) connected to OpenCode Console; review usage and billing dashboards for unauthorised model calls; check stored prompts and conversation histories for any sensitive data that may now be exposed.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Credential Access] T1552.001 · Unsecured Credentials: Credentials In Files<br>
+      <span style="color:#6b7280;">Attackers extracted stored AI provider API keys from OpenCode's legacy application database — mirroring the classic technique of harvesting credentials stored in configuration files or application datastores rather than in dedicated secrets management systems.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>OpenCode is a developer tool that integrates with AI models from OpenAI, Anthropic, Google, and others, allowing users to store their API keys in the Console for seamless access. An attacker breached a legacy system on October 16, gaining access to stored API keys for roughly 1.4% of the platform's user base. API keys are bearer tokens — anyone who holds one can use it to call the associated AI service, consuming the account owner's compute quota and billing limits, and potentially accessing any data stored in the associated account (conversation history, fine-tuned models, embeddings).</p>
+        <p>The incident highlights the growing risk of "AI key sprawl" — developers storing API keys for multiple AI providers in third-party tools, consoles, and configuration files rather than dedicated secrets managers. Unlike passwords, API keys typically have no MFA protection, can be used programmatically at high volume, and may grant access to sensitive prompt histories and proprietary data in addition to compute resources. OpenCode has revoked the exposed keys and notified affected users, but the window between compromise and revocation represents an exposure period during which attacker-controlled API calls could have occurred.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> An API key is like a digital password that lets software talk to an AI service — when your code sends a request to ChatGPT or Claude, it uses an API key to prove it's authorised. OpenCode is a tool that lets developers work with several AI services in one place, so it stored users' API keys. When hackers broke in, they could copy those keys and then use the AI services themselves — racking up charges on someone else's account, reading their AI conversation history, or using the access to power their own operations.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No specific CVE · Legacy system credential exposure — API key theft impacts 1.4% of OpenCode Console users with keys for OpenAI, Anthropic, and Google at risk.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: OAuth Application Tokens ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    OAuth Application Tokens are machine-to-machine credentials that allow one software service to authenticate to another without any human involvement — they are how a backup tool signs into Microsoft 365 on your behalf using a client secret or cryptographic assertion rather than a username and password. Unlike user logins, these tokens typically cannot be blocked by multi-factor authentication because no human is logging in: the application presents a pre-issued credential and the identity platform grants access based on that credential alone. When attackers steal an OAuth app token, they inherit every permission the application was granted across every tenant or customer where it is installed — potentially bypassing MFA for thousands of organisations simultaneously, as demonstrated in the ConnectWise SkyKick incident this week.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: OAuth · MFA · Entra ID · WAF · DoS ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">OAuth</strong> — An open standard authorisation protocol that allows one service to access another service's resources on behalf of a user or application using short-lived tokens instead of passwords.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MFA (Multi-Factor Authentication)</strong> — A security mechanism requiring two or more independent verification methods — such as a password plus a phone-generated code or biometric — before granting access to a system.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Entra ID</strong> — Microsoft's cloud-based identity and access management service (formerly Azure Active Directory) that controls logins, permissions, and application registrations for Microsoft 365 and Azure environments.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">WAF (Web Application Firewall)</strong> — A security appliance or cloud service that filters and monitors HTTP/S traffic between the internet and a web application, blocking common attacks like SQL injection, cross-site scripting, and command injection.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">DoS (Denial of Service)</strong> — An attack that overwhelms a system, server, or network with traffic or malformed requests to exhaust its resources and make it unavailable to legitimate users.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://securityboulevard.com/2026/10/daily-ot-security-news-october-19-2026" style="color:#374151;text-decoration:none;">SiteGuard WAF Command Injection CVE-2026-106931 Actively Exploited</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Security Boulevard</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.itsecuritynews.info/one-compromised-login-exposed-millions-of-california-students-records/" style="color:#374151;text-decoration:none;">One Compromised Login Exposed Millions of California Students' Records via SFTP</a>
+    <span style="color:#9ca3af;font-size:11px;"> · IT Security News</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 20, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
