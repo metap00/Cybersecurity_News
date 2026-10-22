@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 22, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 22, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 3 critical · 2 high · 1 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: PHP2Shell -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / BleepingComputer · Oct 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/php2shell-two-unpatched-critical-php.html" style="color:#111827;text-decoration:none;">PHP2Shell: Emergency Patches Released for Two Critical RCE Flaws (CVE-2026-109618 &amp; CVE-2026-109619, CVSS 9.2)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> PHP shipped emergency out-of-cycle fixes for two critical remote-code-execution vulnerabilities in the PHP runtime itself, rated CVSS 9.2, affecting PHP versions 5.x through 8.x — government websites in Canada and Europe went offline as a precaution while operators raced to patch.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organisation running a PHP-based website (WordPress, Laravel, Drupal, and virtually all traditional web hosting), with PHP 8.1 and older receiving no official upstream patch.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade immediately to PHP 8.5.12, 8.4.27, 8.3.36, or 8.2.35; for end-of-life PHP 8.1 and below, apply vendor back-port patches (e.g., TuxCare Endless Lifecycle Support) or restrict request sizes at the web server or proxy as a temporary workaround.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers can trigger these flaws remotely with no authentication, executing arbitrary code directly on PHP web servers hosting public-facing websites — this is a textbook T1190 scenario where the application itself is the attack surface.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The flaws, dubbed PHP2Shell by the security community, sit in the PHP runtime engine itself — not in any specific web application or framework. This is unusually dangerous because the entire ecosystem of PHP-powered sites (estimated to run roughly 77% of all websites with a known server-side language) is exposed simultaneously regardless of which CMS or framework they use.</p>
+        <p>The patches were released a day ahead of the planned October 22 disclosure after details leaked on October 20, prompting Cloudflare's CTO to report early attack attempts were already emerging as the fixes shipped. WatchTowr had not confirmed in-the-wild successful exploitation at time of release, but researchers noted the attack surface is enormous and the vulnerabilities affect all PHP versions back to 5.4. PHP 8.1 and older versions have reached end-of-life and will not receive official fixes from php.net, leaving millions of legacy installations permanently vulnerable without third-party support.</p>
+        <p>Canadian federal and provincial government websites went dark as a precautionary measure, echoing the Log4Shell response pattern where organisations took sites offline rather than risk exploitation during the patching window.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> PHP is the programming language that powers most of the web — think the code running behind WordPress blogs, online stores, and government portals. These bugs mean an attacker can visit your website and, without logging in, trick the PHP engine into running their own code on your server, essentially handing them the keys to everything on it.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-109618 &amp; CVE-2026-109619 · CVSS: 9.2/10 (v4.0) — Both flaws score at the highest end of the "Critical" band; the v4.0 scale is stricter than v3.1, making a 9.2 here roughly equivalent to a 10.0 on the older scale in real-world impact.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: GitLab CVE-2026-110264 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/critical-gitlab-flaw-cvss-100-could.html" style="color:#111827;text-decoration:none;">Critical GitLab Flaw (CVE-2026-110264, CVSS 10.0) Enables Unauthenticated RCE Across Every Version Back to 2014</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> GitLab released an emergency security update fixing CVE-2026-110264, a CVSS 10.0 vulnerability in the CI/CD pipeline engine that allows an unauthenticated attacker to execute arbitrary code on any self-managed GitLab server running versions all the way back to 7.0 (released in 2014).</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All self-managed GitLab Community Edition and Enterprise Edition installations that haven't yet updated — GitLab.com (the hosted service) was already patched automatically.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update self-managed instances to GitLab 19.4.2, 19.3.5, or 19.2.8 immediately; place self-managed instances behind a VPN or restrict public internet access until the patch is applied.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">A CVSS 10.0 unauthenticated RCE on GitLab's public-facing web interface gives attackers direct server access with no prior foothold, enabling immediate theft of source code, secrets, and CI/CD pipeline credentials for all hosted repositories.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The vulnerability is an integer overflow in GitLab's CI/CD regular expression compiler. An attacker can craft a specially formed input to trigger the overflow, which bypasses size validation checks and allows arbitrary code execution on the server. The CVSS 10.0 score — the maximum possible — reflects that exploitation requires no authentication, no user interaction, and works across an enormous range of deployed versions.</p>
+        <p>The blast radius is particularly concerning because GitLab self-managed instances are typically the central nervous system of a software development organisation: they contain source code, deployment scripts, environment variables, API tokens, and cloud credentials. A compromised GitLab server provides an attacker with everything needed to pivot into cloud infrastructure, poison CI/CD pipelines with backdoored builds, and access every project in the organisation simultaneously.</p>
+        <p>GitLab.com is already patched and unaffected. The risk falls entirely on organisations running their own GitLab servers who haven't updated — CERT-EU issued an advisory strongly recommending immediate patching of internet-facing instances.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> GitLab is like GitHub but self-hosted — companies run it on their own servers to store their code privately. This bug means a hacker can visit your company's GitLab web address and, without even having a username, take full control of the server, stealing every line of code and every secret your development team has ever stored there.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-110264 · CVSS: 10.0/10 — Maximum severity; a score of 10.0 means the vulnerability is exploitable remotely without authentication or user interaction and results in full system compromise.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: SafePay Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / BleepingComputer · Oct 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/cisa-and-fbi-safepay-ransomware-has-hit-over-600-critical-infrastructure-organizations/" style="color:#111827;text-decoration:none;">FBI &amp; CISA: SafePay Ransomware Has Hit 600+ Critical Infrastructure Orgs and Systematically Destroys Backups</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The FBI, CISA, Secret Service, and international partners issued joint advisory AA26-293A warning that the SafePay ransomware gang has breached more than 600 critical infrastructure organisations across North America, South America, Europe, and Australia since August 2024, with roughly 15–30 new victims per month through 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Critical infrastructure operators globally — energy, healthcare, financial services, and government sectors — particularly those running unpatched VPN appliances or exposed Veeam backup servers.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch all edge devices and VPN appliances immediately (especially CVE-2020-3259 and CVE-2023-20269 in Cisco gear), enforce MFA across all remote access, restrict admin tools like WinSCP and RClone to authorised users, and maintain offline/air-gapped backups since SafePay specifically destroys VSS shadow copies and NAS backup devices.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1490 · Inhibit System Recovery<br>
+      <span style="color:#6b7280;">SafePay's most distinctive TTP is the deliberate destruction of VSS shadow copies and resetting of NAS backup devices before deploying encryption, ensuring victims cannot recover without paying the ransom — a calculated move that maximises leverage.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>SafePay operates as a financially motivated criminal ransomware group first observed in August 2024. The advisory reveals a sophisticated playbook: attackers begin by exploiting known vulnerabilities in edge devices and VPN appliances to gain initial access, then use entirely legitimate administrative tools — FileZilla, 7-Zip, WinRAR, WinSCP, RClone — for lateral movement and data exfiltration. This "living off the land" approach makes detection significantly harder since security tools see normal admin utilities rather than obvious malware.</p>
+        <p>The backup-destruction phase is particularly notable. SafePay actors locate and delete Windows Volume Shadow Copies (VSS snapshots), then factory-reset any network-attached storage devices used for backups before deploying their encryptor. CISA explicitly warns that paying the ransom does not guarantee file recovery — this is consistent with a trend of ransomware actors taking payment while still withholding working decryption keys or having already destroyed data beyond recovery.</p>
+        <p>At 600+ confirmed victims across critical sectors, SafePay has established itself as a top-tier ransomware threat. The advisory comes with 19 specific MITRE ATT&CK technique mappings, indicating a mature and disciplined operation with consistent TTPs across victims.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Ransomware works by scrambling all your files and demanding payment to unscramble them. What makes SafePay especially dangerous is that they first destroy your backups — the copies you'd use to recover without paying. It's like a thief who burns your spare keys before demanding money to return yours.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE assigned — ransomware group advisory AA26-293A · Severity: CRITICAL — Active ransomware campaign with confirmed 600+ victims across critical infrastructure sectors globally.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: SafePay -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">SafePay Ransomware Gang</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal ransomware group · Attribution: Unknown (financially motivated)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Critical infrastructure operators globally — energy, healthcare, finance, government — across North America, South America, Europe, and Australia</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Backup destruction before encryption (shadow copy deletion + NAS reset), living-off-the-land with legitimate admin tools (WinSCP, RClone, FileZilla), exploiting edge device CVEs for initial access, and 600+ confirmed victims since August 2024</div>
+</div>
+
+<!-- STORY 4: LiteLLM Supply Chain -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html" style="color:#111827;text-decoration:none;">LiteLLM 1.107.0 Backdoored on PyPI: AI Package Supply Chain Attack Plants Credential Stealer and Persistent Backdoor</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers compromised three LiteLLM developer GitHub accounts, published malicious LiteLLM 1.107.0 to PyPI and Docker Hub on October 21 between 11:39–13:40 UTC, embedding a credential stealer that harvests API keys, cloud tokens, and browser data, plus a persistent backdoor daemon that polls a GitHub dead drop hourly for new commands.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any developer or organisation that installed LiteLLM 1.107.0 within that two-hour window — the malware targets AI deployments specifically, stealing LiteLLM proxy credentials, OpenAI/Anthropic/Google API keys, and cloud provider tokens.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> If you installed LiteLLM between 11:39 and 13:40 UTC on October 21, treat all secrets accessible to any Python process on that machine as compromised — rotate every API key, cloud credential, and access token immediately; remove the malicious package and follow LiteLLM's remediation guidance.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.001 · Supply Chain Compromise: Compromise Software Dependencies and Development Tools<br>
+      <span style="color:#6b7280;">By inserting malicious code into LiteLLM's PyPI package, attackers compromised every downstream AI deployment that pip-installed the package during the window — a supply chain attack that bypasses all endpoint security by hiding in trusted software.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The malware uses a particularly sophisticated persistence mechanism: a Python path file (.pth file placed in site-packages) that causes malicious code to execute every time the Python interpreter starts — not just when LiteLLM is imported. This means even running an unrelated Python script on a compromised machine triggers the stealer.</p>
+        <p>The credential stealer targets the exact assets most valuable in AI-infrastructure environments: LiteLLM proxy saved credentials, model configuration, OpenAI/Anthropic/Google AI API keys, cloud provider credential JSON files (AWS, GCP, Azure), private keys stored on disk, and Chromium/Firefox browser profile data including saved passwords and session cookies. The backdoor component forks a background daemon that checks a GitHub repository (used as a "dead drop" C2 channel) every hour, executing whatever Python code the attacker serves.</p>
+        <p>This is the second LiteLLM supply chain compromise in 2026 — a March attack via stolen PyPI tokens affected versions 1.82.7 and 1.82.8. The October attack was enabled by GitHub CLI OAuth tokens stolen from three contributors' accounts. The malicious package and Docker images have since been removed, but any environment that installed during the window should be treated as fully compromised.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> LiteLLM is a popular tool that lets developers connect to different AI services like OpenAI or Claude through one interface. The attackers secretly modified the software package so that when developers installed it, it also installed a hidden program that steals all the API keys (like passwords) stored on the computer, then quietly waits for further instructions.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned (supply chain incident) · Severity: HIGH — Targeted attack against AI infrastructure with active credential theft; any affected installation should be considered fully compromised.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: OVHcloud CLI Hijack -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/hackers-hijack-five-ovhcloud-cli.html" style="color:#111827;text-decoration:none;">Attackers Hijack Five OVHcloud CLI GitHub Releases to Distribute Secret-Stealing Malware After Compromising Contributor Account</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> An attacker used a compromised OVHcloud contributor's GitHub account to replace the download archives on five existing CLI releases with secret-stealing malware builds, meaning anyone who downloaded or re-downloaded the OVHcloud CLI from those GitHub release pages received malicious software.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> OVHcloud customers and system administrators who downloaded the CLI from GitHub releases rather than official package managers, particularly those who may reinstall or script-download the tool.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Verify the integrity of your installed OVHcloud CLI binary against OVHcloud's official checksums; if downloaded from GitHub releases recently, rotate all OVHcloud API credentials immediately and reinstall from the official distribution channel.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.002 · Supply Chain Compromise: Compromise Software Supply Chain<br>
+      <span style="color:#6b7280;">Rather than injecting malicious dependencies, the attacker poisoned the distribution artifacts themselves — replacing legitimate release archives on GitHub with trojanised versions — a T1195.002 technique that targets users who trust the vendor's own hosting infrastructure.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>This attack differs from traditional supply chain compromises in that the attacker didn't touch the source code repository or build pipeline — they went directly to the release artifacts. By compromising a contributor's GitHub account (likely via credential theft or session cookie hijacking), the attacker gained enough permissions to edit release assets on existing published releases, swapping out the legitimate binaries for malicious ones.</p>
+        <p>OVHcloud CLI is used by cloud administrators to manage OVHcloud infrastructure, making the secrets most at risk OVHcloud API credentials, project IDs, and any credentials stored in configuration files the tool accesses. The attack is particularly effective because users who have previously downloaded the CLI and then re-download it via an automated script or for reinstallation would receive the malicious version without any visible warning.</p>
+        <p>This incident follows a pattern of GitHub-hosted release poisoning attacks that has accelerated through 2025-2026, where attackers recognise that even organisations with robust code review processes may not verify binary integrity post-release. OVHcloud has since cleaned the affected releases and revoked the compromised contributor credentials.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine downloading software from what looks like the official website, but the download has been secretly swapped for a malicious version. That's what happened here — the attackers got into the contributor's GitHub account and replaced the legitimate download files with ones that steal your passwords and access keys.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned (supply chain incident) · Severity: HIGH — Release artifact poisoning targeting cloud infrastructure administrators; affected users should assume OVHcloud credentials are compromised.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Supply Chain Poisoning ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Supply chain poisoning is an attack where adversaries compromise software packages, build systems, or distribution channels used by developers rather than attacking end users directly — when thousands of organisations install the same backdoored library, the attacker compromises them all at once without ever touching each victim's network. Today's LiteLLM and OVHcloud incidents are textbook examples: one compromised contributor account or one tampered package release creates a single point of infection that propagates silently to every downstream user who runs <code>pip install</code> or downloads a release archive. Defending against it requires verifying software signatures and checksums, pinning dependency versions, and monitoring for unexpected credential exfiltration rather than relying solely on perimeter defences.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: PyPI · Shadow Copy · NAS · Dead Drop · MITRE ATT&CK · Integer Overflow ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PyPI</strong> — The Python Package Index; the official repository from which Python developers install software packages using the <code>pip install</code> command, making it a high-value target for supply chain attacks.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Shadow Copy</strong> — A Windows Volume Shadow Copy Service (VSS) feature that automatically creates point-in-time snapshots of files, providing a built-in recovery option; ransomware actors routinely delete shadow copies to prevent victims from restoring data without paying.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">NAS</strong> — Network-Attached Storage; a dedicated file-storage device connected to a network and used by organisations for centralised backups, frequently targeted by ransomware actors who reset or encrypt NAS devices to destroy recovery options.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Dead Drop</strong> — A covert command-and-control technique where malware retrieves instructions from a public resource (like a GitHub page or Pastebin post) rather than connecting directly to an attacker's server, making C2 traffic harder to detect and block.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MITRE ATT&CK</strong> — A globally accessible knowledge base maintained by MITRE Corporation that catalogues real-world adversary tactics, techniques, and procedures (TTPs) using a standardised taxonomy, widely used by defenders to classify attacks and map detection coverage.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Integer Overflow</strong> — A programming error that occurs when an arithmetic operation produces a value too large to be stored in its allocated variable, causing it to wrap around to an unexpected (usually very small or negative) number; exploited by attackers to bypass size checks and corrupt memory, as seen in today's GitLab CVE-2026-110264.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/" style="color:#374151;text-decoration:none;">Chrome Gains Gemini-Powered Detection to Warn Users Against ClickFix Attacks</a>
+    <span style="color:#9ca3af;font-size:11px;"> · BleepingComputer</span>
+    <div style="margin-top:4px;font-size:12px;color:#6b7280;">🎯 [Defense Evasion / Social Engineering] T1204.002 · User Execution: Malicious File — ClickFix tricks users into copying and running malicious commands disguised as legitimate troubleshooting steps; Chrome's Gemini-powered detection in Enhanced Protection mode aims to identify these deceptive instruction patterns before the user executes them.</div>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 22, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

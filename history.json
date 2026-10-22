@@ -1,12 +1,13 @@
 {
-  "til": ["Prompt Injection in AI Gateways", "Integer Overflow", "Mark-of-the-Web", "Log Tampering", "SOCKS5 Proxying", "Vulnerability Chaining", "Zero-Click Exploits"],
-  "glossary": ["DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "GitHub Actions", "CI/CD", "Botnet", "HIPAA", "PHI", "MotW", "SAML", "WDAC", "RaaS", "LAPS", "SSRF", "Cobalt Strike", "BloodHound", "Authentication Bypass", "Patch Tuesday", "IKE", "FortiOS", "Integrity Checker", "Management Interface", "RAT", "UPI", "BNC", "CWE", "OAuth", "MFA", "Entra ID", "WAF", "DoS", "Zero-Click", "Webshell", "PAN-OS", "CVSS", "Exfiltration", "TTP"],
+  "til": ["Integer Overflow", "Mark-of-the-Web", "Log Tampering", "SOCKS5 Proxying", "Vulnerability Chaining", "Zero-Click Exploits", "Supply Chain Poisoning"],
+  "glossary": ["PyPI", "Shadow Copy", "NAS", "Dead Drop", "MITRE ATT&CK", "Integer Overflow", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "GitHub Actions", "CI/CD", "Botnet", "HIPAA", "PHI", "MotW", "SAML", "WDAC", "RaaS", "LAPS", "SSRF", "Cobalt Strike", "BloodHound", "Authentication Bypass", "Patch Tuesday", "IKE", "FortiOS", "Integrity Checker", "Management Interface", "RAT", "UPI", "BNC", "CWE", "OAuth", "MFA", "Entra ID", "WAF", "DoS"],
   "week": {
-    "critical": 6, "high": 9, "medium": 8,
-    "techniques": ["T1190", "T1133", "T1417", "T1489", "T1486", "T1505", "T1528", "T1490", "T1068", "T1119", "T1553.005", "T1699", "T1552.001", "T1505.003", "T1213", "T1078"],
-    "actors": ["ARMORY CASTLE", "Rhysida", "Qilin", "INC"]
+    "critical": 9, "high": 11, "medium": 9,
+    "techniques": ["T1190", "T1133", "T1417", "T1489", "T1486", "T1505", "T1528", "T1490", "T1068", "T1119", "T1553.005", "T1699", "T1552.001", "T1505.003", "T1213", "T1078", "T1195.001", "T1195.002", "T1204.002"],
+    "actors": ["ARMORY CASTLE", "Rhysida", "Qilin", "INC", "SafePay"]
   },
   "digests": [
+    {"date": "2026-10-22", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 1},
     {"date": "2026-10-21", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 3},
     {"date": "2026-10-20", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 3},
     {"date": "2026-10-19", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},

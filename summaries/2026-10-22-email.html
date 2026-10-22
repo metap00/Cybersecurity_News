@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 22, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 3 critical · 2 high · ~8 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-22.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: PHP2Shell -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / BleepingComputer · Oct 21, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/php2shell-two-unpatched-critical-php.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">PHP2Shell: Emergency Patches Released for Two Critical RCE Flaws (CVE-2026-109618 &amp; CVE-2026-109619, CVSS 9.2)</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 PHP shipped emergency fixes for two RCE vulnerabilities in the PHP runtime, affecting all versions 5.x–8.x; Canadian and European government sites went offline as operators rushed to patch.</div>
+    <div style="margin-top:2px;">👤 Any organisation running PHP-based websites (WordPress, Laravel, Drupal); PHP 8.1 and older have no official upstream patch.</div>
+    <div style="margin-top:2px;">✅ Upgrade immediately to PHP 8.5.12, 8.4.27, 8.3.36, or 8.2.35; restrict request sizes at web server/proxy as interim measure for older branches.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: GitLab -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 21, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/critical-gitlab-flaw-cvss-100-could.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Critical GitLab Flaw (CVE-2026-110264, CVSS 10.0) Enables Unauthenticated RCE Across Every Version Since 2014</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 GitLab patched a maximum-severity integer overflow in its CI/CD regex compiler that lets any unauthenticated attacker run code on self-managed servers running any version back to 7.0 (2014).</div>
+    <div style="margin-top:2px;">👤 All self-managed GitLab CE/EE installations — GitLab.com hosted service is already patched and unaffected.</div>
+    <div style="margin-top:2px;">✅ Update to 19.4.2, 19.3.5, or 19.2.8 immediately; place self-managed instances behind VPN until patched.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 3: SafePay -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / BleepingComputer · Oct 20, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/cisa-and-fbi-safepay-ransomware-has-hit-over-600-critical-infrastructure-organizations/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">FBI &amp; CISA: SafePay Ransomware Has Hit 600+ Critical Infrastructure Orgs and Systematically Destroys Backups</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Joint advisory AA26-293A confirms SafePay ransomware gang has breached 600+ critical infrastructure orgs globally since Aug 2024, deleting shadow copies and resetting NAS backup devices before encrypting.</div>
+    <div style="margin-top:2px;">👤 Critical infrastructure operators globally — energy, healthcare, finance, and government sectors, especially those with unpatched VPN appliances.</div>
+    <div style="margin-top:2px;">✅ Patch edge device CVEs (esp. Cisco VPN), enforce MFA, restrict admin tools (WinSCP/RClone), maintain offline/air-gapped backups.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1490 · Inhibit System Recovery</div>
+</div>
+
+<!-- STORY 4: LiteLLM -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 21, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">LiteLLM 1.107.0 Backdoored on PyPI: AI Package Supply Chain Attack Plants Credential Stealer and Persistent Backdoor</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers compromised contributor GitHub accounts and published malicious LiteLLM 1.107.0 to PyPI on Oct 21 (11:39–13:40 UTC), embedding a credential stealer and hourly-polling backdoor daemon.</div>
+    <div style="margin-top:2px;">👤 Developers/organisations that installed LiteLLM 1.107.0 during that window — AI deployments with stored API keys for OpenAI, Anthropic, Google, and cloud providers are at highest risk.</div>
+    <div style="margin-top:2px;">✅ Rotate all API keys and cloud credentials on any machine that had LiteLLM 1.107.0 installed; follow LiteLLM's remediation guide immediately.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.001 · Supply Chain Compromise: Software Dependencies</div>
+</div>
+
+<!-- STORY 5: OVHcloud -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 20, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/hackers-hijack-five-ovhcloud-cli.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Attackers Hijack Five OVHcloud CLI GitHub Releases to Distribute Secret-Stealing Malware</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A compromised contributor's GitHub account was used to replace download archives on five existing OVHcloud CLI releases with secret-stealing malware binaries.</div>
+    <div style="margin-top:2px;">👤 OVHcloud customers and sysadmins who downloaded the CLI from GitHub release pages recently, particularly those using automated download scripts.</div>
+    <div style="margin-top:2px;">✅ Verify binary integrity against official checksums; rotate OVHcloud API credentials immediately if downloaded from GitHub releases recently.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.002 · Supply Chain Compromise: Software Supply Chain</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/" style="color:#374151;text-decoration:none;">Chrome Gains Gemini-Powered Detection to Warn Users Against ClickFix Attacks</a>
+    <span style="color:#9ca3af;"> · BleepingComputer</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-22.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Oct 22, 2026</div>
+
+</body>
+</html>
