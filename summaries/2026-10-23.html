@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — October 23, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — October 23, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: Arista VeloCloud CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 22, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html" style="color:#111827;text-decoration:none;">Arista Warns of Critical VeloCloud SD-WAN SQL Injection Zero-Day Exploited in Attacks (CVE-2026-114625, CVSS 9.9)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A SQL injection zero-day (CVSS 9.9) in Arista's VeloCloud Orchestrator allows any authenticated user — even with the lowest read-only role — to escalate to full operator-level control of the SD-WAN management plane, with active exploitation confirmed and attacker IPs published in the advisory.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running on-premises VeloCloud Orchestrators on versions before 5.2.3.18, 6.1.3.10, or 6.4.2.12; hosted and dedicated cloud instances were auto-patched by Arista.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch immediately to the fixed releases; block confirmed attacker IPs 74.82.197.86 and 38.54.50.151; restrict VCO web interface access to trusted networks only until patched.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Any authenticated VeloCloud user — even one with a minimal read-only role — exploits this SQL injection flaw to gain full operator control, making T1068 the precise fit: a network-accessible exploit that crosses the privilege boundary without additional credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>SD-WAN orchestrators like Arista's VeloCloud are the centralized management planes for enterprise branch networking — they control traffic routing, VPN tunnels, and firewall policies for potentially hundreds of branch offices from a single web interface. Compromise of the orchestrator doesn't just expose one server; it can expose an organization's entire wide-area network topology, traffic patterns, and VPN credentials.</p>
+        <p>CVE-2026-114625, disclosed in Arista's October 22 advisory, is a SQL injection flaw in the VCO web interface that breaks the privilege model at its foundation. Unlike most SQL injection bugs requiring administrator access, this one activates with the lowest possible "Enterprise Read Only" role — a credential that might be issued to vendors, auditors, or read-only monitoring accounts. An attacker crafts a malicious request to manipulate the underlying database query and grants themselves operator-level privileges. Arista confirmed active exploitation in the wild and named two specific IP addresses being used in ongoing attacks.</p>
+        <p>Fixes are available for all supported branches (5.2.3.18, 6.1.3.10, and 6.4.2.12). Hosted and Dedicated cloud-managed instances have already been patched automatically by Arista. On-premises deployments require immediate manual action. Until patched, restricting the VCO web interface to trusted IP ranges is the single most important mitigation.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your company's entire branch-office network is managed through one web portal — one login to control internet routing for all your offices. This vulnerability lets anyone with even a "view-only" guest login instantly become the full administrator of that portal. An attacker could reroute your company's internet traffic through their servers, shut down remote worker VPN connections, or spy on all internal network activity.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-114625 · CVSS: 9.9/10 — The near-perfect score reflects minimal authentication needed (any valid account), a wide network attack surface, and the complete loss of confidentiality, integrity, and availability over the managed network once operator access is gained.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: BeyondTrust CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 22, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/chinese-apt-exploited-beyondtrust-vulnerability-as-zero-day/" style="color:#111827;text-decoration:none;">China's ARMORY CASTLE Exploited BeyondTrust Remote Support Zero-Day for Seven Weeks; 1,400+ Instances Still Unpatched (CVE-2026-102764)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> China-nexus APT ARMORY CASTLE exploited an unauthenticated zero-day (CVSS 9.3) in BeyondTrust Remote Support from August 29 to September 28, deploying the custom SAWFLY webshell and a legitimate admin utility to steal credentials, API keys, and secrets from the appliance's built-in vault — with over 1,400 on-premises instances still unpatched at time of reporting.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running BeyondTrust Remote Support on-premises; cloud appliances were auto-updated, but self-hosted customers required a manual patch that shipped October 8.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update immediately to Remote Support 26.2.4 or later; rotate every credential, API key, and secret ever stored in BeyondTrust vaults; hunt for SAWFLY webshell indicators from BeyondTrust advisory BT26-05.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Credential Access] T1212 · Exploitation for Credential Access<br>
+      <span style="color:#6b7280;">ARMORY CASTLE did not simply gain shell access — they exploited CVE-2026-102764 specifically to reach BeyondTrust's built-in secrets vault and exfiltrate stored credentials, API keys, and passwords, making T1212 the precise ATT&amp;CK fit where exploitation is the means of credential theft.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>BeyondTrust Remote Support is widely used by IT helpdesks and managed service providers for privileged remote access to customer systems. Many deployments also use its built-in secrets vault to store privileged credentials — passwords, API keys, and certificates used during support sessions. This combination of remote access capability and a rich credential store made it a high-value target for Chinese state-sponsored espionage.</p>
+        <p>CVE-2026-102764 is an improper origin validation flaw in the appliance's internal messaging component that requires no authentication — any attacker with network access to the web interface can exploit it to perform arbitrary file operations. ARMORY CASTLE, attributed by Google's Threat Intelligence Group and Mandiant and tracked historically as UNC5221 and WARP PANDA, used this to deploy the SAWFLY custom webshell and a legitimate administrative utility to extract the vault's contents. First exploitation was August 29; BeyondTrust detected and contained activity September 28 — a 30-day dwell time. A patch shipped October 8 for self-hosted customers; cloud instances were updated automatically.</p>
+        <p>As of October 22, more than 1,400 self-hosted instances remained unpatched. Google's Threat Intelligence Group warned of potential widespread follow-on exploitation as other actors learn of the technique. The group is known for serially targeting edge device zero-days across vendors, having previously exploited Citrix NetScaler and Ivanti products in similar campaigns.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> BeyondTrust is a tool IT teams use to remotely control computers to fix problems. Many companies also use it like a password safe, storing important login credentials inside it. This vulnerability let Chinese state hackers silently break in, plant a hidden backdoor script, and spend a full month quietly stealing all those stored passwords — while IT staff had no idea anything was wrong.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-102764 · CVSS: 9.3/10 (CVSS v4.0) — Critical score reflects unauthenticated remote exploitation, direct access to stored privileged credentials, and the significant lateral movement potential once credential material is in attacker hands.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: ARMORY CASTLE -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">ARMORY CASTLE</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: China (People's Republic of China)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government agencies, defense contractors, financial institutions, critical infrastructure, and enterprises relying on remote access appliances and security management tools</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Serially exploiting zero-days in edge devices and remote access products (Citrix NetScaler, Ivanti, BeyondTrust); long-duration dwell times; custom tooling including the SAWFLY webshell; also tracked as UNC5221 and WARP PANDA</div>
+</div>
+
+<!-- STORY 3: LiteLLM HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 22, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html" style="color:#111827;text-decoration:none;">LiteLLM 1.107.0 Supply Chain Attack: Trojanized PyPI and Docker Release Deploys 16-Module Credential Stealer and Backdoor</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers used stolen GitHub OAuth tokens to publish a trojanized LiteLLM 1.107.0 to PyPI and Docker Hub containing a 16-module credential stealer that harvests cloud provider keys, AI API keys, Kubernetes credentials, SSH keys, and browser secrets — plus an hourly remote-code-execution loader on Linux and macOS; the malicious package was available for roughly two hours before removal.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any developer or organization that pip-installed or docker-pulled LiteLLM 1.107.0 between approximately 11:39 and 14:20 UTC on October 21, 2026; this is the second LiteLLM supply chain compromise in 2026.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> If 1.107.0 was ever installed, treat the host as fully compromised; rotate every secret in reach (cloud keys, OpenAI/Anthropic/other AI API keys, SSH keys, Kubernetes service accounts); downgrade to clean version 1.106.2 and rebuild from verified images.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1195.003 · Supply Chain Compromise: Compromise Software Dependencies<br>
+      <span style="color:#6b7280;">Attackers hijacked maintainer accounts to publish a trojanized package to PyPI and Docker Hub — a direct instance of T1195.003, delivering malware through a trusted software dependency that thousands of AI infrastructure deployments install in good faith.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>LiteLLM is one of the most widely used open-source proxies for routing AI API requests — it lets developers call multiple LLM providers (OpenAI, Anthropic, Mistral, and others) through a single unified interface. This makes it a common dependency in AI-powered applications, and its broad access to AI provider credentials makes it a particularly attractive target.</p>
+        <p>Attackers obtained GitHub CLI OAuth tokens from three maintainers' accounts and used them to trigger the private release workflow, publishing trojanized wheels to PyPI and poisoned Docker Hub tags. The malicious payload used a Python .pth (path configuration) file named cook.pth — placed in site-packages so it executes at startup of any Python process. A 16-module stealer then collects cloud provider credentials, AI API keys, Kubernetes configs, SSH keys, LiteLLM's proxy database credential tables, and browser-stored secrets; it encrypts the collected data and posts it to a lookalike exfiltration domain. On Linux and macOS, a remote-code loader also runs hourly for persistent access.</p>
+        <p>PyPI removed the package within about two hours of detection. No CVE, national CERT alert, or CISA KEV listing had been issued as of October 22. This is LiteLLM's second supply-chain compromise in 2026 — malicious versions 1.82.7 and 1.82.8 were published in March — suggesting the maintainer account security posture warrants serious ongoing attention. Any environment that installed 1.107.0 should be treated as fully compromised until all secrets are rotated and the system is rebuilt.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When developers install a software library with <code>pip install</code>, they trust that the package contains only what it claims. This attack poisoned a popular AI library: anyone who installed the bad version unknowingly ran malware that immediately stole their cloud passwords, AI service keys, and SSH credentials — while the library still appeared to work normally, leaving no obvious sign of compromise.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · The severity stems from credential breadth: cloud, AI, Kubernetes, and SSH secrets harvested in one sweep from an environment trusted with broad service access.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: SafePay HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / FBI · Oct 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://safeguard.sh/resources/blog/safepay-ransomware-cisa-advisory" style="color:#111827;text-decoration:none;">FBI &amp; CISA Joint Advisory AA26-293A: SafePay Ransomware Has Hit 600+ Organizations, Systematically Destroys Backups Before Encrypting</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A joint FBI/CISA advisory (AA26-293A) from October 20 reveals the SafePay ransomware group has compromised at least 600 organizations across critical infrastructure sectors globally, entering primarily via stolen VPN credentials and unpatched edge device vulnerabilities, then factory-resetting NAS backup devices and deleting all shadow copies before encrypting data.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations across healthcare, government, financial services, and manufacturing — particularly those with unpatched VPN appliances (Cisco ASA/FTD, Veeam) or weak credential controls on remote access; the 600 figure is an undercount since only non-paying victims appear on public leak sites.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately patch all VPN and edge device vulnerabilities; enforce MFA on all VPN and RDP access; maintain offline or immutable backup copies that cannot be reached or factory-reset from the network.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1561.001 · Disk Wipe: Disk Content Wipe<br>
+      <span style="color:#6b7280;">SafePay's signature pre-encryption behavior — factory-resetting NAS devices, deleting all Volume Shadow Copies, and terminating backup agent processes — directly maps to T1561.001, a deliberate disk wipe that eliminates the recovery path so victims face a binary choice: pay or lose everything.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Advisory AA26-293A was issued October 20 by a coalition including the FBI, CISA, the U.S. Secret Service, Germany's Landeskriminalamt Rheinland-Pfalz, the UK's National Crime Agency, and the UK's North West Regional Organised Crime Unit — signaling active international law enforcement engagement with the group, even if no arrests or infrastructure takedowns have yet been announced.</p>
+        <p>SafePay's intrusion chain is methodical: initial access typically comes from stolen or credential-stuffed VPN logins, or exploitation of unpatched edge devices such as Cisco ASA/FTD appliances. After establishing a foothold, the group dumps domain credentials, moves laterally to identify backup infrastructure, and systematically destroys it before encryption — factory-resetting NAS appliances, deleting all Windows Volume Shadow Copies, and terminating backup agent processes. This "scorched earth" approach to backup destruction is designed to leave victims with no realistic recovery path other than paying the ransom.</p>
+        <p>The 600+ victim count is certainly an undercount: ransomware groups typically only publish victims who refuse to pay on their leak sites, so organizations that pay — often the majority — never appear in public tallies. The international advisory scope suggests SafePay's reach spans North America and Europe at minimum.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Ransomware encrypts your files so you can't access them without paying for a decryption key. What makes SafePay especially dangerous is that before encrypting anything, they destroy your backups first — like a burglar who not only steals your belongings but smashes your spare house key so you can't get back in without paying a locksmith (them). Without backups, companies face a stark choice: pay the ransom or lose their data permanently.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">Advisory AA26-293A · 600+ confirmed victims minimum — The true total is higher; organizations that pay ransom typically do not appear on public leak sites or in law enforcement statistics.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: PHP HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CybersecurityNews · Oct 22, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/critical-php-vulnerabilities/" style="color:#111827;text-decoration:none;">NSA Advisory: Hackers Targeted Critical PHP RCE Vulnerabilities Four Days Before Patches Were Available (CVE-2026-109618 / CVE-2026-109619)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Two critical PHP vulnerabilities enabling remote code execution were actively exploited by attackers four days before patches became available, according to Amazon threat intelligence; the NSA issued an advisory urging immediate updates or taking affected systems offline.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running PHP on internet-facing web servers, particularly those using versions affected by the PHP2Shell attack chain detailed in the advisory.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update PHP immediately to the patched version; if immediate patching is not possible, the NSA recommends taking PHP-based internet-facing systems offline until the update can be applied.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers exploited these PHP RCE flaws on internet-facing web servers days before patches existed, matching T1190 — using a public-facing application vulnerability as the initial foothold into victim environments before defenders could respond.</span>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Webshell ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A webshell is a small malicious script that attackers plant on a compromised web server — it lets them issue commands through a standard web browser as if sitting at the server's keyboard, with no need to re-exploit the original vulnerability on every visit. Because webshell traffic looks identical to ordinary web requests (HTTP/HTTPS to the same port and service), it can hide in server logs for weeks or months while attackers quietly steal data, dump credentials, and move laterally through internal systems. ARMORY CASTLE demonstrated exactly this with SAWFLY: after exploiting the BeyondTrust zero-day CVE-2026-102764, they installed the custom SAWFLY webshell and used it for 30 undetected days to methodically harvest credentials from the appliance's secrets vault — traffic invisible from normal HTTPS monitoring.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: CVSS · APT · Zero-Day · SQL Injection · Privilege Escalation ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System; a standardized 0–10 scale for rating vulnerability severity: 9.0–10.0 is Critical, 7.0–8.9 is High, 4.0–6.9 is Medium, and below 4.0 is Low.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">APT</strong> — Advanced Persistent Threat; a sophisticated, long-duration attack campaign typically carried out by nation-state actors or well-resourced criminal groups who maintain covert access to networks for extended periods to conduct espionage or sabotage.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Zero-Day</strong> — A software vulnerability that is unknown to the vendor, with no patch available; called "zero-day" because defenders have had zero days to prepare or deploy a fix before it is discovered and exploited.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SQL Injection</strong> — A code injection attack that manipulates database queries by inserting malicious SQL statements into user-controlled input, potentially enabling data theft, authentication bypass, or privilege escalation as seen today in the Arista VeloCloud flaw.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Privilege Escalation</strong> — The act of exploiting a vulnerability or misconfiguration to gain higher system permissions than originally granted, such as moving from a read-only user to a full system administrator — the core impact of CVE-2026-114625.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/connectwise-suspends-cloud-backup-service-as-hacker-targets-microsoft-365-users/" style="color:#374151;text-decoration:none;">ConnectWise Suspends Cloud Backup Service After Hacker Targets Microsoft 365 Users via Compromised Credentials</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://securityonline.info/kiloview-e3-vulnerabilities-ndi-encoder/" style="color:#374151;text-decoration:none;">CISA Advisory ICSA-26-295-01: Nine CVEs in Kiloview E3 NDI Encoder Include Two CVSS 9.9 Root Command Execution Flaws — Update to V1.30</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · October 23, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

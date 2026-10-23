@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — October 23, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · ~8 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-23.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- Story 1: Arista VeloCloud CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 22, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Arista VeloCloud SD-WAN SQL Injection Zero-Day CVE-2026-114625 (CVSS 9.9) Actively Exploited</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 SQL injection zero-day lets any VeloCloud user — even read-only — escalate to full operator control of the SD-WAN orchestrator; active exploitation confirmed by Arista with attacker IPs published.</div>
+    <div style="margin-top:2px;">👤 Organizations with on-premises VeloCloud Orchestrators running versions before 5.2.3.18 / 6.1.3.10 / 6.4.2.12 (cloud instances auto-patched).</div>
+    <div style="margin-top:2px;">✅ Patch immediately; block 74.82.197.86 and 38.54.50.151; restrict VCO web interface to trusted networks.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- Story 2: BeyondTrust CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 22, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/chinese-apt-exploited-beyondtrust-vulnerability-as-zero-day/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">China APT ARMORY CASTLE Exploited BeyondTrust Zero-Day CVE-2026-102764 for 7 Weeks; 1,400+ Still Unpatched</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Chinese state APT used a no-auth zero-day (CVSS 9.3) to deploy the SAWFLY webshell and steal credentials from BeyondTrust's secrets vault for 30 days before detection.</div>
+    <div style="margin-top:2px;">👤 On-premises BeyondTrust Remote Support deployments; over 1,400 self-hosted instances remain unpatched as of Oct 22.</div>
+    <div style="margin-top:2px;">✅ Update to 26.2.4 immediately; rotate all vault credentials; hunt SAWFLY IOCs from advisory BT26-05.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1212 · Exploitation for Credential Access</div>
+</div>
+
+<!-- Story 3: LiteLLM HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 22, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">LiteLLM 1.107.0 Supply Chain Attack: Trojanized PyPI/Docker Steals Cloud &amp; AI API Credentials, Drops Backdoor</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers used stolen GitHub OAuth tokens to publish a trojanized LiteLLM release with a 16-module stealer harvesting cloud, AI API, Kubernetes, SSH, and browser secrets — plus an hourly RCE loader.</div>
+    <div style="margin-top:2px;">👤 Developers and orgs that pip-installed or docker-pulled LiteLLM 1.107.0 on Oct 21 between ~11:39–14:20 UTC; second LiteLLM compromise this year.</div>
+    <div style="margin-top:2px;">✅ Treat as compromised; rotate all secrets; downgrade to 1.106.2; rebuild from clean images.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.003 · Supply Chain Compromise: Compromise Software Dependencies</div>
+</div>
+
+<!-- Story 4: SafePay HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / FBI · Oct 20, 2026</span>
+  </div>
+  <a href="https://safeguard.sh/resources/blog/safepay-ransomware-cisa-advisory" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">FBI &amp; CISA Advisory AA26-293A: SafePay Ransomware Hits 600+ Orgs, Destroys Backups Before Encrypting</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Joint advisory reveals SafePay compromised 600+ critical infrastructure orgs globally via stolen VPN credentials and edge device CVEs, then factory-resets NAS devices and wipes shadow copies before encryption.</div>
+    <div style="margin-top:2px;">👤 Healthcare, government, financial services, and manufacturing sectors with unpatched VPN appliances or weak remote access controls.</div>
+    <div style="margin-top:2px;">✅ Patch VPN edge devices; enforce MFA on all remote access; maintain offline/immutable backups.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1561.001 · Disk Wipe: Disk Content Wipe</div>
+</div>
+
+<!-- Story 5: PHP HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CybersecurityNews · Oct 22, 2026</span>
+  </div>
+  <a href="https://cybersecuritynews.com/critical-php-vulnerabilities/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">NSA Warns: Critical PHP RCE CVE-2026-109618 / CVE-2026-109619 Were Exploited Four Days Before Patches Shipped</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Two critical PHP RCE vulnerabilities were actively exploited in the wild four days before patches were available, with Amazon threat intel confirming the pre-patch exploitation window.</div>
+    <div style="margin-top:2px;">👤 Organizations running PHP on internet-facing web servers.</div>
+    <div style="margin-top:2px;">✅ Update PHP immediately; if patching is not immediate, NSA recommends taking affected systems offline.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- Also Today -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.bleepingcomputer.com/news/security/connectwise-suspends-cloud-backup-service-as-hacker-targets-microsoft-365-users/" style="color:#374151;text-decoration:none;">ConnectWise Suspends Cloud Backup Service After Hacker Targets Microsoft 365 via Compromised Credentials</a>
+    <span style="color:#9ca3af;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://securityonline.info/kiloview-e3-vulnerabilities-ndi-encoder/" style="color:#374151;text-decoration:none;">CISA ICSA-26-295-01: Kiloview E3 NDI Encoder Has Two CVSS 9.9 Root Command Execution Flaws — Update to V1.30</a>
+    <span style="color:#9ca3af;"> · CISA</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-23.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · October 23, 2026</div>
+
+</body>
+</html>
