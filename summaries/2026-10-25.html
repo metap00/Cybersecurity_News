@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 25, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 25, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 4 high · 2 medium · ~10 min read</div>
+</div>
+
+<!-- STORY 1: PHP2Shell CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Oct 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws" style="color:#111827;text-decoration:none;">PHP "PHP2Shell" RCE Flaws Actively Exploited — Patch All Web Servers Now (CVE-2026-109618, CVE-2026-109619)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> PHP shipped emergency patches for two critical unauthenticated RCE vulnerabilities dubbed "PHP2Shell" that allow attackers to execute arbitrary code before any application security controls run.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Every web server running mod_php, PHP-FPM, php-cgi, FrankenPHP, or LiteSpeed on PHP versions prior to 8.2.35, 8.3.36, 8.4.27, or 8.5.12 — effectively all WordPress, Laravel, Drupal, and Symfony sites not yet patched.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update PHP immediately to 8.2.35, 8.3.36, 8.4.27, or 8.5.12; PHP 8.1 and older users must apply vendor-backported patches or isolate the system; deploy Fastly's WAF virtual patch as a temporary safeguard.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers send malformed HTTP requests that trigger PHP memory corruption before any application code executes, achieving unauthenticated shell access on any vulnerable web server directly reachable from the internet.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The PHP2Shell flaws stem from how PHP handles memory when an HTTP request ends abnormally. CVE-2026-109618 creates an out-of-memory condition that corrupts the interpreter's internal state, while CVE-2026-109619 exploits stale global state after request teardown—a classic use-after-free scenario where PHP continues referencing memory it has already released.</p>
+        <p>The PHP security team rates mod_php (PHP as an Apache module) the highest-risk deployment. Demonstrated exploits trigger execution before any application-level authentication checks, meaning a fully updated WordPress installation with strong passwords remains trivially exploitable if PHP itself is unpatched. Exploitation was first confirmed in watchTowr's honeypot network; Amazon's threat intelligence team traced attack attempts back to October 17. Fixed versions exist for PHP 8.2–8.5; users on PHP 8.1 or older should urgently contact their distribution or hosting provider for backported patches since those branches no longer receive regular updates.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> PHP is the programming language that runs most of the web—WordPress, online stores, news sites. These bugs exist in PHP itself, not in any website's code. A hacker can send a specially crafted message to any unpatched website and take full control of its server, no password required. It's like discovering a skeleton key that opens any door built by the same manufacturer.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-109618 &amp; CVE-2026-109619 · CVSS v4.0: 9.2/10 — Critical severity; unauthenticated network-exploitable RCE with high impact on confidentiality, integrity, and availability.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: LiteLLM Supply Chain CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html" style="color:#111827;text-decoration:none;">LiteLLM AI Package Backdoored via Supply Chain Attack — Credential Stealer Distributed to AI Developers (litellm 1.107.0)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers stole GitHub CLI OAuth tokens from three LiteLLM engineers and pushed malicious litellm==1.107.0 to PyPI, embedding a credential stealer and backdoor delivered to every developer or organization that installed or auto-updated the package.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any developer or organization that installed litellm==1.107.0 or had automatic dependency updates enabled — LiteLLM processes over 15 million monthly PyPI downloads and is widely used in production AI applications.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Downgrade to 1.106.x or upgrade to 1.107.1+ immediately; rotate all API keys, LLM provider tokens, and cloud credentials accessible in environments that ran 1.107.0; audit cloud accounts for unauthorized access or unexpected API usage.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.002 · Supply Chain Compromise: Compromise Software Supply Chain<br>
+      <span style="color:#6b7280;">By injecting a credential-stealing payload into a trusted PyPI package used to access dozens of LLM APIs, attackers harvested the API keys, database credentials, and cloud tokens of every organization that automatically updated their AI application dependencies.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>LiteLLM is a Python library that provides a unified interface to over 100 AI providers—OpenAI, Anthropic, Google, Cohere, and others—making it a central dependency in thousands of AI-powered production systems. The attackers compromised the GitHub accounts of three engineers using stolen GitHub CLI OAuth tokens, then published malicious version 1.107.0 containing code that activated on import and exfiltrated environment variables to an attacker-controlled server.</p>
+        <p>Environment variables in AI development environments typically contain LLM API keys (worth thousands of dollars in usage), database credentials, cloud provider tokens (AWS, GCP, Azure), and other sensitive configuration. The malicious PyPI package and associated Docker images have been quarantined, but LiteLLM's security team stated the investigation into the initial OAuth token theft is still ongoing. Organizations that ran 1.107.0 in CI/CD pipelines should treat all secrets available in those environments as compromised and rotate them urgently.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> LiteLLM is a popular software toolkit that developers use to build AI-powered apps—it connects apps to AI systems like ChatGPT and Claude. Hackers broke into the accounts of three engineers who work on LiteLLM, then published a poisoned version. Any developer who automatically updated to that version unknowingly installed a program that stole all their passwords and API keys—the same keys that control access to expensive AI services and company databases.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: BeyondTrust CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">eSecurityPlanet · Oct 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.esecurityplanet.com/threats/news-beyondtrust-zero-day-china-hackers/" style="color:#111827;text-decoration:none;">China APT ARMORY CASTLE Exploiting BeyondTrust Remote Support Zero-Day CVE-2026-102764 Since August</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Google Threat Intelligence and Mandiant attribute active exploitation of CVE-2026-102764 (CVSS 9.3) in BeyondTrust Remote Support—an improper origin validation flaw—to ARMORY CASTLE (UNC5221), a China-nexus espionage actor that has been attacking targets since August 29.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running self-hosted BeyondTrust Remote Support versions 24.3.1 through 26.2.3; exploitation provides full host-level control and access to every credential the appliance has ever brokered.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Self-hosted customers must apply patch BT26-05-RS; SaaS customers were auto-patched by Oct 9 but should rotate all credentials brokered by the appliance and investigate for compromise indicators dating back to August 29.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1210 · Exploitation of Remote Services<br>
+      <span style="color:#6b7280;">ARMORY CASTLE exploited an improper origin validation flaw in BeyondTrust's privileged remote support platform to achieve host-level control, silently intercepting the entire credential store used by IT administrators across targeted enterprise environments.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>BeyondTrust Remote Support is used by corporate IT helpdesks and managed service providers to remotely access employee computers for troubleshooting—it brokers credentials for every session it facilitates. By exploiting CVE-2026-102764, ARMORY CASTLE could silently intercept or extract credentials for hundreds of endpoints from a single compromise point, effectively obtaining master keys to an organization's entire infrastructure.</p>
+        <p>The long dwell time—exploitation began August 29, public disclosure was October 15—suggests ARMORY CASTLE successfully avoided detection for nearly seven weeks in affected environments, consistent with Chinese APT tradecraft that prioritizes stealth over speed. Mandiant describes potential impact as "host-level control and access to every credential the appliance stores or brokers." CISA's KEV listing with a federal civilian deadline of October 23 reflects the urgency. Self-hosted customers running older versions must first upgrade to 24.3.1 before applying patch BT26-05-RS.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> BeyondTrust is software that IT support teams use to remotely fix work computers—like a secure remote control. This bug let Chinese government hackers break into the software and steal every password it had ever handled. If your company's IT team used BeyondTrust, the attackers could have gotten the master keys to virtually every computer in your organization, all while staying completely hidden for seven weeks.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-102764 · CVSS v4.0: 9.3/10 — Critical improper origin validation; unauthenticated exploitation leads to full appliance compromise and complete credential store exposure.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: ARMORY CASTLE -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">ARMORY CASTLE (UNC5221)</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State Espionage · Attributed to: People's Republic of China</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Enterprise IT administration platforms, managed security service providers, VPN and remote access infrastructure, and government networks in the US, UK, and allied nations.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Exploiting privileged remote access and management tools (BeyondTrust, Ivanti, Citrix) to gain persistent, stealthy access to high-value targets; maintains months-long footholds without triggering alerts.</div>
+</div>
+
+<!-- STORY 4: Capcom HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Multiple Sources · Oct 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://theperimetersite.com/hacked-today" style="color:#111827;text-decoration:none;">Capcom ID Breach Exposes Nearly 12 Million Gamer Accounts — Emails and Hashed Passwords Stolen</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Capcom confirmed a data breach affecting approximately 11.8 million Capcom ID accounts, with usernames, email addresses, and hashed passwords exfiltrated from the company's unified gaming platform.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Registered players of Capcom games worldwide—Resident Evil, Monster Hunter, Street Fighter, Devil May Cry—who have a Capcom ID account, particularly those who reuse their password on other services.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Change your Capcom ID password and any other accounts using the same password; enable two-factor authentication on your Capcom account and linked gaming platform accounts; watch for phishing emails targeting Capcom players.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1530 · Data from Cloud Storage Object<br>
+      <span style="color:#6b7280;">Attackers accessed Capcom's cloud-hosted user database to exfiltrate the account records of nearly 12 million registered players, enabling downstream credential stuffing attacks across any service where players reuse the same password.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Capcom ID is the unified account system tied to Capcom's games, game purchases, online multiplayer, and loyalty programs. The breach exposed hashed passwords—scrambled versions that aren't instantly readable—but modern password cracking tools can reverse weak or commonly-used hashes quickly, especially if Capcom used an older or insufficiently strengthened hashing algorithm. Capcom has not yet disclosed which hashing algorithm was used.</p>
+        <p>The real risk is credential stuffing: attackers take the stolen username/email and cracked passwords and automatically try them on other popular sites—email providers, Amazon, banking apps. Gaming accounts are popular breach targets because players often reuse passwords and have linked payment methods. Capcom has not confirmed the attack vector; given the scale of 12 million records, this likely involved exploitation of a web application vulnerability or compromised administrative access to the database. Affected users who made in-game purchases should also check linked payment accounts for unauthorized charges.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Capcom makes Resident Evil and Street Fighter. Their Capcom ID system is like a game account that stores your progress and purchases. Hackers broke in and stole the account info for about 12 million players—email addresses and scrambled passwords. Even though the passwords are scrambled, specialized tools can unscramble common ones. If you use the same password for Capcom as for your email or bank, change it everywhere today.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Firewall/VPN Campaign HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 23, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/hackers-breach-enterprise-firewalls-and.html" style="color:#111827;text-decoration:none;">Threat Group k0t Harvests 70,000+ Enterprise VPN Credentials From Exposed Fortinet and Palo Alto Devices</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researchers uncovered a large-scale credential harvesting campaign by a group tracked as k0t that has systematically targeted internet-exposed Fortinet FortiGate and Palo Alto Networks GlobalProtect VPN gateways, collecting over 70,000 valid enterprise credentials.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises worldwide with internet-exposed Fortinet FortiGate or Palo Alto GlobalProtect VPN management interfaces — the harvested credentials are believed to be sold to ransomware affiliates for network initial access.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Force a password reset for all VPN accounts immediately; enable MFA on all remote access systems without delay; audit VPN gateway access logs for signs of successful unauthorized authentication; restrict management interface exposure.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1110 · Brute Force<br>
+      <span style="color:#6b7280;">The k0t group applied large-scale credential stuffing and brute force against exposed VPN management interfaces, leveraging previously leaked credential databases to harvest valid enterprise VPN logins from thousands of organizations at industrial scale.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>VPN credential harvesting at this scale suggests k0t is operating as an initial access broker (IAB)—a criminal specialty that sells verified network access to ransomware operators, nation-state actors, and other buyers. With 70,000+ valid credentials, even a 1% conversion to paying buyers represents hundreds of compromised corporate networks. The campaign specifically targets Fortinet FortiGate and Palo Alto GlobalProtect—two of the most widely deployed enterprise VPN solutions—maximizing the potential buyer market.</p>
+        <p>The timing aligns with active ransomware exploitation of PAN-OS CVE-2026-0257 by Qilin and INC groups; the k0t harvested credentials may be flowing directly into ransomware affiliate distribution channels. Organizations should treat any exposed VPN gateway as potentially targeted. Multi-factor authentication remains the single most effective control—a stolen password is useless if a second factor is required. Restricting VPN management interfaces to private network access (not internet-exposed) eliminates the attack surface entirely.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A VPN is a secure tunnel employees use to connect to their company's network from home—like a private highway into the office. Hackers found and tried millions of username/password combinations against the "front gate" of over 70,000 companies' VPNs, collecting the ones that worked. Those stolen keys are likely being sold to ransomware gangs who will use them to break into company networks and hold data hostage for payment.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: ConnectWise / Storm-0940 HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Microsoft / SecurityWeek · Oct 23, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityweek.com/chinese-apt-exploited-beyondtrust-vulnerability-as-zero-day" style="color:#111827;text-decoration:none;">Microsoft: China's Storm-0940 Compromised ConnectWise Cloud Backup in MSP-Targeting Supply Chain Attack</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft attributed the compromise of the ConnectWise Cloud Backup application to Storm-0940, a China state-aligned APT actor, giving the group access to backup data stored by managed service providers and potentially hundreds of their downstream enterprise clients.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using ConnectWise Cloud Backup and their managed service provider partners, particularly those in sectors targeted by Chinese intelligence including technology, defense, and critical infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply ConnectWise's emergency security update; review Cloud Backup access logs for unauthorized activity; rotate all service account credentials and secrets stored in or accessible through the backup platform; notify affected clients if you are an MSP.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.001 · Supply Chain Compromise: Compromise Software Dependencies<br>
+      <span style="color:#6b7280;">Storm-0940 compromised the ConnectWise Cloud Backup application to gain simultaneous access to the backup archives and configuration data of multiple MSP clients—a classic force-multiplier strategy enabling broad enterprise espionage from a single supplier compromise.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>ConnectWise is one of the most widely used MSP (managed service provider) platforms globally. By compromising its Cloud Backup application, Storm-0940 potentially accessed stored copies of enterprise data, configuration files, credentials, and application archives for dozens or hundreds of organizations managed by affected MSPs—a single compromise yielding intelligence across an entire client portfolio.</p>
+        <p>Storm-0940 has a history of targeting MSP platforms as a force multiplier; compromising an MSP's management tools is dramatically more efficient than attacking each client individually. Backup archives are particularly valuable espionage targets because they may contain historical copies of sensitive documents, credential stores, and database snapshots long after the originals have been rotated or deleted. Downstream organizations should assume that any data backed up through ConnectWise Cloud Backup by their MSP may have been accessed.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Many companies hire IT management firms (called MSPs) to run their technology. ConnectWise is software those IT firms use. By hacking ConnectWise's backup service, Chinese government hackers gained access to stored data from every company those IT firms manage—like breaking into a storage company that holds confidential files for hundreds of businesses at once.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Storm-0940 -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Storm-0940</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State Espionage · Attributed to: People's Republic of China</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Managed service providers (MSPs), IT management software vendors, technology and defense sector enterprises in the US and allied nations.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Compromising MSP software platforms to gain simultaneous access to hundreds of downstream enterprise clients; focused on intellectual property theft and pre-positioning in critical infrastructure; low-and-slow TTPs designed to maximize dwell time.</div>
+</div>
+
+<!-- STORY 7: PAN-OS Ransomware HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Unit 42 / eSecurity Planet · Oct 23, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.esecurityplanet.com/news/news-globalprotect-vpn-ransomware-attacks/" style="color:#111827;text-decoration:none;">Qilin and INC Ransomware Gangs Actively Exploiting Palo Alto PAN-OS Authentication Bypass CVE-2026-0257</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Palo Alto Networks' Unit 42 researchers confirmed that Qilin (tracked as Spikey Scorpius) and INC (Tarnished Scorpius) ransomware operators are actively exploiting CVE-2026-0257, an authentication bypass in PAN-OS and Prisma Access added to CISA's KEV catalog.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched versions of Palo Alto Networks PAN-OS firewalls or Prisma Access that are exposed to the internet — successful exploitation gives ransomware operators a direct path into the corporate network.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the PAN-OS patch for CVE-2026-0257 immediately; review firewall authentication logs for anomalous admin-level activity; check for lateral movement indicators and early-stage ransomware staging activity on internal networks.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">Qilin and INC ransomware affiliates exploit the PAN-OS authentication bypass to gain unauthenticated access to VPN and firewall management as a privileged administrator, using the perimeter device itself as the beachhead for ransomware deployment across the enterprise.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-0257 is an authentication bypass in Palo Alto Networks PAN-OS and Prisma Access—the software running some of the most trusted enterprise firewalls in the world. By bypassing authentication, ransomware affiliates gain administrator-level access to the firewall itself, a privileged position that allows them to create VPN tunnels, pivot to internal networks, disable security controls, and deploy ransomware payloads at scale.</p>
+        <p>Unit 42 specifically names Qilin and INC as exploiting this CVE, both of which are prolific ransomware groups operating a ransomware-as-a-service model. Organizations that haven't applied the patch may already have intruders present who are in the reconnaissance and staging phase. Given the CISA KEV listing, this is a mandatory patch for federal agencies and strongly recommended for all organizations using these products.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Palo Alto Networks makes high-end security firewalls that companies use to protect their networks—like a very sophisticated security guard at the main entrance. This bug let hackers walk past that security guard as if they were the building owner, then use that privileged position to spread ransomware throughout the entire building (network). Two active ransomware gangs are doing exactly this right now against unpatched companies.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-0257 · CISA KEV listed — Authentication bypass in PAN-OS and Prisma Access actively exploited by ransomware operators; apply vendor patch immediately.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Use-After-Free ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A use-after-free (UAF) vulnerability occurs when a program frees (releases) a block of memory but retains a pointer that still references that freed location—and then uses that pointer again later when the memory may have been reallocated for something else entirely. This is exactly the mechanism behind CVE-2026-109619 (one of the PHP2Shell flaws): PHP frees request-scoped memory at the end of an HTTP request but leaves a stale global pointer referencing it; an attacker who can control what data fills that freed memory slot can redirect PHP's execution flow to run attacker-supplied code. UAF vulnerabilities are especially dangerous because modern memory allocators are often predictable enough that attackers can reliably control what data lands in the freed slot, turning a seemingly random crash into a reliable exploit.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: APT · PyPI · UAF · mod_php · SQL Injection · Credential Stealer ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">APT</strong> — Advanced Persistent Threat; a sophisticated, often state-sponsored hacking group that conducts long-term, targeted intrusion campaigns against specific organizations, prioritizing stealth and persistence over speed.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PyPI</strong> — Python Package Index; the official public repository where Python developers publish and download software packages; a major supply chain attack surface because packages are trusted and often auto-updated.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">UAF</strong> — Use-After-Free; a memory corruption vulnerability where a program accesses a freed memory region, allowing attackers who control what fills that region to hijack program execution.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">mod_php</strong> — A PHP execution mode where PHP runs as a module inside the Apache web server process; the fastest and most common way to serve PHP websites, and the highest-risk deployment for the PHP2Shell RCE flaws.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SQL Injection</strong> — A web attack technique where malicious database query code is inserted into an application's input fields, enabling attackers to read, modify, delete, or exfiltrate database contents without authorization.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Credential Stealer</strong> — Malware specifically designed to locate and exfiltrate stored usernames, passwords, API keys, and authentication tokens from a compromised system or environment.
+    </div>
+  </div>
+</details>
+
+<!-- WEEK IN REVIEW (Sunday) -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:12px;">📅 Week in Review — Oct 19–25, 2026</div>
+  <div style="display:flex;gap:10px;margin-bottom:12px;">
+    <div style="flex:1;text-align:center;padding:10px;background:#fef2f2;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#dc2626;">17</div>
+      <div style="font-size:11px;color:#6b7280;">Critical</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fff7ed;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ea580c;">21</div>
+      <div style="font-size:11px;color:#6b7280;">High</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fefce8;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ca8a04;">15</div>
+      <div style="font-size:11px;color:#6b7280;">Medium</div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:#374151;margin-bottom:6px;"><strong>ATT&CK this week:</strong> T1190 · T1133 · T1417 · T1489 · T1486 · T1505 · T1528 · T1490 · T1068 · T1119 · T1553.005 · T1699 · T1552.001 · T1505.003 · T1213 · T1078 · T1195.001 · T1195.002 · T1204.002 · T1212 · T1195.003 · T1561.001 · T1046 · T1059.004 · T1210 · T1530 · T1110 · T1657</div>
+  <div style="font-size:13px;color:#374151;margin-bottom:10px;"><strong>Threat actors:</strong> ARMORY CASTLE · Rhysida · Qilin · INC · SafePay · UTA0576 · Storm-0940 · k0t</div>
+  <div style="font-size:13px;color:#374151;line-height:1.6;padding:10px;background:#f8fafc;border-radius:4px;">An exceptionally active week dominated by supply chain attacks against AI developer tooling (LiteLLM) and MSP infrastructure (ConnectWise), critical zero-day exploitation by Chinese APT groups ARMORY CASTLE and Storm-0940, and PHP's emergency "PHP2Shell" patches responding to active in-the-wild exploitation of memory corruption flaws. Ransomware operators Qilin, INC, Rhysida, and SafePay maintained relentless pressure on enterprises, schools, and municipalities, with the week's 17 critical-severity stories continuing 2026's record-breaking pace.</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.dexpose.io/category/ransomware-attacks/" style="color:#374151;text-decoration:none;">CISA and FBI Issue Joint Advisory on SafePay Ransomware Tactics and IOCs</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://recentbreaches.com/" style="color:#374151;text-decoration:none;">Richmond Public Schools and Oneonta NY School District Shut Down by Ransomware Attacks</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Multiple Sources</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://techradar.com/news/a10-networks-confirms-ransomware-breach" style="color:#374151;text-decoration:none;">FBI Warns FortiBleed Credential-Harvesting Attacks Locking Out Firewall Administrators</a>
+    <span style="color:#9ca3af;font-size:11px;"> · FBI / Bleeping Computer</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://cybersecuritynews.com/" style="color:#374151;text-decoration:none;">Imperva: Malicious Brotli Data Can Trigger Unauthenticated RCE in Node.js on Official Builds</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Imperva Research</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 25, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
