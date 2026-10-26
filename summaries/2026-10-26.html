@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 26, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 26, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 4 high · 2 medium · ~10 min read</div>
+</div>
+
+<!-- STORY 1: PHP2Shell CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 25, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html" style="color:#111827;text-decoration:none;">PHP2Shell Exploitation Attempts Hit Millions as Mirai Botnet Joins Attacks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Two critical unauthenticated RCE vulnerabilities in the PHP engine (CVE-2026-109618 and CVE-2026-109619), dubbed PHP2Shell, are under massive active exploitation with Cloudflare observing millions of attempts within 24 hours of public disclosure, including Mirai botnet operators attempting to enlist vulnerable servers.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any server running PHP 8.2.x below 8.2.35, 8.3.x below 8.3.36, 8.4.x below 8.4.27, or 8.5.x below 8.5.12 — security firm Brandefense found 59% of scanned PHP servers still running a pre-fix version, covering an enormous portion of the internet's web infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update PHP immediately to 8.2.35, 8.3.36, 8.4.27, or 8.5.12 — the vendor says patching is the only safe remediation, as available workarounds close only some attack paths.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers are directly exploiting the PHP engine's memory corruption (CVE-2026-109618) and stale global state (CVE-2026-109619) flaws to gain a pre-authentication foothold on internet-facing web servers without any credentials or user interaction.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>PHP2Shell refers to two distinct but related vulnerabilities in the PHP scripting engine that together enable pre-authentication remote code execution. CVE-2026-109618 is an out-of-memory corruption flaw, while CVE-2026-109619 involves stale global state management. Together they can be chained to achieve arbitrary code execution without any login or user interaction on the target server.</p>
+        <p>Cloudflare reported tens of thousands of exploitation probes within 45 minutes of public disclosure, scaling to hundreds of thousands within 2 hours and millions by October 22. Sophos, which initially reported successful exploitation, has since clarified that its telemetry shows scanning and failed attempts but no confirmed compromises on its customer base. WatchTowr continues to report active exploitation attempts. The Dutch NCSC-NL also reported one unconfirmed possible case of exploitation abroad. The discrepancy reflects real uncertainty about whether mass-scale successful exploitation is occurring versus widespread probing.</p>
+        <p>Mirai botnet operators have joined the campaign, attempting to deploy a variant called Potassium onto vulnerable servers. Separately, VulnCheck published a sophisticated exploit for CVE-2026-109618 that includes an ASLR bypass using a memory leak to locate code in memory — this exploit is gated to paying subscribers but demonstrates that exploitation on hardened production systems is technically feasible.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> PHP is the programming language that quietly powers around 70% of all websites, including WordPress and many e-commerce platforms. These flaws let an attacker run their own commands on your web server without logging in — like finding a hidden door in a building that bypasses the security desk entirely. Millions of servers are potentially vulnerable, and attackers have been probing them since the bugs were announced. If your server runs PHP, update it now.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-109618 · CVSS: 9.2/10 — A memory corruption flaw in PHP's core engine that allows arbitrary code execution without authentication on any PHP-powered web server running a vulnerable version.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: FortiMail CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 2, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="color:#111827;text-decoration:none;">Critical FortiMail Zero-Day CVE-2026-104286 Exploited — Unauthenticated Attackers Writing Arbitrary Files and Deploying Malicious Libraries</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A path traversal and NULL byte injection vulnerability in Fortinet FortiMail (CVE-2026-104286, CVSS 9.8) allows unauthenticated attackers to write arbitrary files to the underlying system; active exploitation has been confirmed with attackers deploying malicious shared libraries, modifying system binaries, and establishing data exfiltration channels to remote command-and-control servers.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running FortiMail 7.2.0–7.2.9, 7.4.0–7.4.8, 7.6.0–7.6.6, or 8.0.0–8.0.1 as their email security gateway — enterprises across government, financial services, and healthcare that rely on Fortinet for email filtering are at highest risk.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Fortinet patches from advisory FG-IR-26-175 immediately; if IBE functionality is not required, disable it as a workaround; block C2 IPs 79.141.169.187 and 45.129.0.192, and investigate for a rogue "archive234" account indicating possible compromise.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Execution] T1574.006 · Hijack Execution Flow: Dynamic Linker Hijacking<br>
+      <span style="color:#6b7280;">After writing arbitrary files via the path traversal flaw, attackers injected malicious shared libraries into FortiMail's dynamic linker search path, causing their code to execute every time the mail gateway loads a legitimate process — a persistence technique that survives service restarts.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-104286 is a path traversal vulnerability combined with improper NULL byte neutralization in Fortinet FortiMail. Attackers craft a malicious HTTP/HTTPS request that includes a path traversal sequence (e.g., ../../) and a null byte terminator, tricking the server into writing a file to an arbitrary location outside the intended directory. At CVSS 9.8, this is about as severe as it gets for an unauthenticated pre-auth vulnerability.</p>
+        <p>CISA added the flaw to its Known Exploited Vulnerabilities catalog on October 1, 2026, the same day Fortinet published its advisory, and gave US federal civilian executive branch agencies only three days to remediate — a sign of how serious the active exploitation was. Forensic analysis from compromise investigations has found that attackers deploy malicious shared libraries and modify existing binaries to maintain persistent access even after patches are applied, meaning patching alone may be insufficient for already-compromised systems.</p>
+        <p>Indicators of compromise include an archive account named "archive234" configured to communicate with external IP 79.141.169.187, a second C2 at 45.129.0.192, and unexpected files in system directories or modifications to standard FortiMail binaries. Organizations should perform a full compromise assessment alongside patching.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> FortiMail is an email security appliance — a dedicated device or virtual machine that sits in front of your email server and scans incoming messages for spam, malware, and phishing. This vulnerability lets attackers plant their own programs inside it without needing a password, essentially turning your email security system into a backdoor into your network. Because these appliances are always on and internet-facing, they're extremely valuable targets.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-104286 · CVSS: 9.8/10 — Path traversal plus NULL byte injection enabling unauthenticated arbitrary file write on Fortinet FortiMail, granting attackers effective remote code execution and persistent access.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: BeyondTrust CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/china-linked-hackers-exploited.html" style="color:#111827;text-decoration:none;">China-Linked Armory Castle Exploited BeyondTrust Zero-Day for Seven Weeks — Deployed SAWFLY Webshell and BARECLAW Tunneler</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> China-nexus APT group Armory Castle (UNC5221/WARP PANDA), attributed by Mandiant and Google TIG, exploited CVE-2026-102764 in BeyondTrust Remote Support as a zero-day from August 29 through October 15 — gaining root access, deploying the SAWFLY webshell and BARECLAW tunneler, harvesting credentials, deleting logs, and pivoting into downstream enterprise systems across roughly 1,400 internet-reachable self-hosted appliances.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running BeyondTrust Remote Support versions up to 26.2.3 that haven't applied patch BT26-05; SaaS customers were silently patched by October 9, but self-hosted deployments require manual action and should be treated as potentially compromised if they were internet-accessible before that date.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply advisory BT26-05 immediately for self-hosted appliances; assume compromise and conduct a full forensic investigation including hunting for SAWFLY webshell artifacts and BARECLAW network indicators, rotating all credentials harvested through the Remote Support platform.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Persistence] T1505.003 · Server Software Component: Web Shell<br>
+      <span style="color:#6b7280;">Armory Castle deployed the SAWFLY webshell to compromised BeyondTrust appliances after initial exploitation, creating a persistent browser-accessible command channel that survived service restarts and remained even when defenders attempted remediation by patching the initial entry point.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-102764 is an improper origin validation flaw (CWE-290) in BeyondTrust Remote Support's internal messaging component, rated CVSS 9.3. An unauthenticated remote attacker can perform arbitrary file operations on the appliance, effectively achieving pre-auth remote code execution. BeyondTrust Remote Support is an IT management tool that organizations use to allow help-desk technicians to access endpoints remotely — making it a particularly sensitive target because it has privileged access to many systems across an enterprise.</p>
+        <p>Armory Castle's operational timeline spans seven weeks. Initial exploitation began August 29, 2026, but BeyondTrust only disclosed the vulnerability on October 15 in advisory BT26-05, and CISA added it to the KEV catalog the following day with an October 19 due date. During those seven weeks, the attackers escalated to root on compromised appliances, deployed the SAWFLY webshell for persistent command access, used the BARECLAW tunneler to create covert egress channels, harvested credentials from sessions passing through the Remote Support platform, and pivoted laterally into downstream corporate infrastructure. The attackers also deleted logs to hamper forensic investigation.</p>
+        <p>The SAWFLY and BARECLAW toolset aligns with previous Armory Castle / UNC5221 operations, including the 2023 Ivanti Connect Secure campaign. This group consistently targets enterprise remote management and VPN infrastructure, likely because these platforms have legitimate high-privileged access to hundreds or thousands of endpoints within an organization — one compromise gives access to everything that appliance manages.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> BeyondTrust Remote Support is software that lets IT help desk staff remotely access and control company computers to fix problems. By hacking this tool, Chinese government-linked attackers gained the ability to access every computer the IT team could access — potentially the whole company. Think of it like stealing the master key from a locksmith: now you can open every door they've ever made a key for.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-102764 · CVSS: 9.3/10 — Improper origin validation enabling unauthenticated file operations on BeyondTrust Remote Support appliances; exploited as a zero-day for seven weeks by a China-linked nation-state threat actor.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Armory Castle -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Armory Castle</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State APT · Attributed to: China (also tracked as UNC5221 / WARP PANDA)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Enterprise remote access and IT management infrastructure globally — particularly VPN appliances, remote support platforms, and edge devices used by government, defense, technology, and critical infrastructure organizations.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Exploiting zero-days in internet-facing management tools (Ivanti, BeyondTrust, Citrix) for espionage, using custom tooling including the SAWFLY webshell and BARECLAW tunneler to achieve durable persistence that survives patching attempts.</div>
+</div>
+
+<!-- STORY 4: Arista VeloCloud HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 22, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html" style="color:#111827;text-decoration:none;">Arista Warns of Third Exploited VeloCloud Zero-Day in Four Months — CVE-2026-114625 SQL Injection Grants Any Login Superuser Access</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Arista disclosed CVE-2026-114625, a CVSS 9.9 SQL injection zero-day in VeloCloud Orchestrator (VCO), actively being exploited in the wild; any authenticated user — even one with the most restricted Enterprise Read Only role — can exploit the flaw to escalate to full operator superuser privileges, representing the third exploited VCO zero-day since July 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running VeloCloud Orchestrator versions below 5.2.3.18, 6.1.3.10, or 6.4.2.12 for their SD-WAN deployment; CISA added CVE-2026-114625 to the KEV catalog on October 24 and cloud-hosted VCO instances have already been patched by Arista.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to patched VCO builds (5.2.3.18, 6.1.3.10, or 6.4.2.12) immediately — no workaround exists; review VCO audit logs for anomalous privilege escalation activity given active exploitation.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Privilege Escalation] T1078 · Valid Accounts<br>
+      <span style="color:#6b7280;">Attackers use any valid VeloCloud Orchestrator account — even a minimal read-only login — to trigger the SQL injection, abusing the legitimate account's authenticated session to escalate their own privileges to superuser without ever cracking an admin credential.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-114625 is a SQL injection vulnerability in Arista VeloCloud Orchestrator, the centralized management platform for Arista's SD-WAN product line. SQL injection in this context allows an attacker to send specially crafted input to a database query, causing the database to execute arbitrary commands rather than the intended query. In this case, the flaw allows an attacker with any valid login to manipulate database queries in a way that grants them operator-level superuser privileges.</p>
+        <p>This is the third exploited zero-day in VeloCloud Orchestrator in the span of four months, following CVE-2026-16812 (July) and CVE-2026-93952 (September). This pattern suggests sustained attacker interest in SD-WAN management infrastructure, possibly because VCO has operator visibility and control over a company's entire wide-area network — branch connectivity, traffic routing, and security policies. Compromising it could enable network-level manipulation and persistent access across the entire enterprise WAN.</p>
+        <p>Arista's advisory 0199 names two attacker IP addresses observed in exploitation, confirming real-world attacks. The CVSS 9.9 score reflects that even a low-privilege attacker can escalate to superuser with no workaround available. Organizations running VCO should check for logins from unfamiliar IP addresses, unusual privilege changes, or new user accounts in VCO audit logs.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SD-WAN (Software-Defined Wide Area Network) is technology that manages how data flows between a company's offices, data centers, and cloud services. The Orchestrator is the control center that runs everything. This vulnerability means someone with any employee-level login to this control center can instantly become an all-powerful administrator — like a new intern having a master key to every locked room in a building.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-114625 · CVSS: 9.9/10 — SQL injection in VeloCloud Orchestrator enabling any authenticated user to escalate to superuser; the third exploited zero-day in this product in four months, added to CISA KEV October 24.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: LiteLLM Supply Chain HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html" style="color:#111827;text-decoration:none;">LiteLLM PyPI Package Compromised in Supply Chain Attack — Malicious v1.107.0 Deploys Credential Stealer and Backdoor</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers compromised three LiteLLM engineers' GitHub accounts via stolen OAuth tokens, then published malicious version 1.107.0 of the popular AI library to PyPI containing both a credential stealer (harvesting API keys, tokens, and secrets) and a backdoor; the malicious PyPI wheels and Docker images have since been quarantined, but the maintainer says the original entry point investigation is ongoing.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> AI development teams and organizations that installed LiteLLM version 1.107.0 between the release date and its removal — LiteLLM is widely used for building applications that interface with large language model APIs (OpenAI, Anthropic, etc.), meaning affected organizations may have had LLM API keys and other critical secrets stolen.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Audit your environments for LiteLLM v1.107.0 immediately; if installed, assume all credentials in that environment are compromised and rotate them — LLM API keys, cloud credentials, database passwords, and any other secrets the application could access.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1195.002 · Supply Chain Compromise: Compromise Software Supply Chain<br>
+      <span style="color:#6b7280;">Attackers compromised the LiteLLM project's GitHub organization via stolen CLI OAuth tokens, then injected a malicious payload into the legitimate build and release pipeline — so developers received trojanized code through the same trusted package distribution channel they always use.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The LiteLLM attack follows a pattern seen in previous supply chain compromises: rather than attacking the target organizations directly, attackers go after the developers who write the software those organizations trust. By stealing GitHub OAuth tokens (credentials that let GitHub CLI tools act on behalf of a user), the attackers gained write access to the LiteLLM project repository under the guise of three legitimate maintainer accounts.</p>
+        <p>Version 1.107.0 was published through the project's normal CI/CD pipeline with a malicious payload added. The payload included a credential stealer designed to collect API keys, environment variables, and other secrets from any environment where the package runs. LiteLLM is used in AI application development to provide a unified interface to dozens of LLM providers — meaning a developer using it typically has API keys for OpenAI, Anthropic, Azure OpenAI, and other services stored in the same environment. A single infection could expose credentials across multiple AI platforms.</p>
+        <p>Attackers breached the GitHub organization approximately eleven days before the malicious release, suggesting a period of reconnaissance and access validation before the malicious payload was deployed. The investigation into the initial OAuth token theft is still ongoing, which means the original attack vector remains unknown.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> LiteLLM is a very popular open-source tool that helps developers build AI-powered applications. A supply chain attack means the attackers didn't hack your company directly — they poisoned a software package you downloaded and trusted. It's like a thief tainting food at the factory rather than breaking into your kitchen: you bring the danger in yourself without knowing it.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: Windows Shell MotW HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SOC Prime · Oct 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://socprime.com/blog/cve-2026-96951-analysis/" style="color:#111827;text-decoration:none;">Windows Shell Zero-Day CVE-2026-96951 Exploited Before Patch — Mark-of-the-Web Bypass Removes Security Warnings on Downloaded Files</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A Windows Shell security-feature bypass (CVE-2026-96951, CVSS 8.8), fixed in Microsoft's October 13 Patch Tuesday, was already being exploited in the wild before the patch shipped; it allows attackers to craft files that bypass Mark-of-the-Web (MotW) protections, stripping the Windows security warnings that normally appear when users open files downloaded from the internet or received via email.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any Windows user who receives and opens a maliciously crafted file via email, messaging, or a download link — Microsoft has not disclosed which organizations were targeted or what threat actor is behind the exploitation.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply October 2026 Windows security updates immediately, and also apply CVE-2026-108398 which addresses a related WDAC enforcement bypass; train users to be cautious about opening unsolicited file attachments even if no security warning appears.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Defense Evasion] T1553.005 · Subvert Trust Controls: Mark-of-the-Web Bypass<br>
+      <span style="color:#6b7280;">Attackers exploited this zero-day to strip the Zone.Identifier alternate data stream from crafted files, causing Windows to treat attacker-delivered content as locally trusted rather than internet-origin — bypassing SmartScreen and Protected View warnings that are the last line of defense against phishing-delivered malware.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Mark-of-the-Web is Windows' mechanism for tracking the origin of files. When you download a file from the internet or open an email attachment, Windows tags it with a Zone.Identifier attribute indicating it came from an untrusted source. Programs like Microsoft Office, Windows Explorer, and Edge check this tag and trigger security warnings — Protected View in Office, SmartScreen in Windows — before executing potentially dangerous content.</p>
+        <p>CVE-2026-96951 allows an attacker to craft a file that causes Windows to not properly apply or check this tag, so the file opens without any security warning despite coming from the internet. This significantly lowers the barrier for phishing attacks: a malicious document or executable can reach users without triggering the warnings that might prompt a cautious person to stop. Microsoft confirms the flaw requires user interaction — a victim must be socially engineered into opening the malicious file — but the lack of any protective warning makes that social engineering much easier.</p>
+        <p>The flaw was discovered by researchers from Fujitsu and patched on Patch Tuesday October 13. Microsoft has not attributed the in-the-wild exploitation or disclosed affected industries. The CVSS 8.8 rating reflects the requirement for user interaction; without that requirement it would be rated higher. The related CVE-2026-108398 addresses a WDAC (Windows Defender Application Control) policy bypass that can be combined with MotW bypasses for deeper defense evasion.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your email client is like a doorman at a building: when you get mail from a stranger, the doorman (Windows) stamps it "from outside" so the building's security systems know to check it carefully before letting it in. This vulnerability lets attackers remove that stamp — so a dangerous file walks right past security looking like it belongs there. The only defense once patching is done: be suspicious of any file you weren't expecting, even if Windows doesn't warn you.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-96951 · CVSS: 8.8/10 — Windows Shell Mark-of-the-Web bypass exploited as zero-day; allows attacker-crafted files to bypass Windows security warnings, lowering the bar for phishing-delivered malware delivery significantly.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 7: Palo Alto GlobalProtect HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Oct 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.helpnetsecurity.com/2026/10/21/ransomware-groups-exploit-palo-alto-globalprotect-cve-2026-0257/" style="color:#111827;text-decoration:none;">Qilin and INC Ransomware Groups Actively Exploiting Palo Alto GlobalProtect CVE-2026-0257 Across Healthcare, Education, and Government</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Unit 42 (Palo Alto's threat research arm) confirmed that Qilin (Spikey Scorpius) and INC (Tarnished Scorpius) ransomware groups have been exploiting CVE-2026-0257, an authentication bypass in PAN-OS GlobalProtect VPN, to breach corporate networks across healthcare, education, financial services, government, and manufacturing sectors since at least May 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using Palo Alto Networks GlobalProtect VPN with authentication override cookies enabled alongside specific certificate configurations — healthcare and education are specifically named as heavily targeted sectors.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the available PAN-OS patches immediately; disable authentication override cookies where not required; terminate all active GlobalProtect sessions after patching; enable multi-layer monitoring for unusual VPN authentication or lateral movement post-authentication.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">Qilin and INC exploit the GlobalProtect authentication bypass to establish a rogue VPN session without valid credentials, using the enterprise's own remote access infrastructure as their entry point — then bypassing MFA controls that would normally block unauthorized sessions.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-0257 was initially rated medium severity when Palo Alto disclosed it in May. The flaw only applies when authentication override cookies are enabled — a configuration that improves user experience by allowing single-sign-on-style VPN reconnection without full re-authentication. When combined with specific certificate configurations, an attacker can forge an authentication override cookie, tricking GlobalProtect into establishing a fully authenticated VPN session with no legitimate credentials.</p>
+        <p>Rapid7 documented successful exploitation dating back to at least May 17. CISA added CVE-2026-0257 to its KEV catalog on May 29. Unit 42's updated threat intelligence report names Qilin and INC as the primary operators, with ReliaQuest also observing a group called Settra using the same flaw. The attack pattern is consistent: exploit the VPN authentication bypass, establish a network foothold, move laterally to high-value targets, exfiltrate data to cloud storage, then encrypt systems and demand ransom.</p>
+        <p>Healthcare organizations are particularly impacted because their critical operations and sensitive patient data make them willing ransom payers. Arctic Wolf observed both encryption and double extortion tactics in healthcare-targeting campaigns, with stolen patient data used as additional leverage.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> GlobalProtect is Palo Alto's VPN product — software that lets employees securely connect to the company network from home or while traveling. This bug lets attackers pretend to be an authenticated employee without knowing the password or passing the multi-factor authentication check. Once inside, ransomware groups like Qilin encrypt the company's files and demand payment to restore access.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-0257 · CVSS: 7.8/10 — Authentication bypass in Palo Alto PAN-OS GlobalProtect enabling rogue VPN sessions; actively exploited by Qilin and INC ransomware groups across healthcare, education, and government sectors since May 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Qilin -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Qilin</div>
+  <div style="opacity:.85;margin-top:4px;">Ransomware Group · Criminal / Financially Motivated (also tracked as Spikey Scorpius)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Healthcare, education, financial services, government, and manufacturing organizations globally — sectors with high sensitivity to operational disruption and large data stores that increase ransom leverage.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double extortion ransomware operations, exploiting VPN and perimeter device vulnerabilities for initial access, MFA bypass techniques, and aggressive data exfiltration to cloud storage before encryption; often operates through affiliates via a RaaS model.</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: ASLR Bypasses ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    ASLR (Address Space Layout Randomization) is a memory security defense that randomizes where an operating system places key data — the stack, heap, and libraries — in memory every time a program runs, making it far harder for attackers to predict the exact memory addresses they need to exploit a vulnerability. When exploiting memory corruption bugs like PHP2Shell's CVE-2026-109618, attackers would normally be blocked by ASLR because they can't know where to point their exploit code; however, VulnCheck's PHP2Shell exploit demonstrates how ASLR can be defeated using a memory leak — a second, less severe bug that reveals the randomized address — essentially giving the attacker a "GPS coordinate" for what they need to overwrite. This two-stage technique (leak an address, then use it to aim a memory corruption exploit) is how modern exploit chains defeat ASLR, explaining why security engineers insist on patching even "minor" information disclosure vulnerabilities — they may be the first domino in a chain leading to full system compromise.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: CVSS · PAN-OS · Webshell · Double Extortion · ASLR · VCO ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System; a standardized 0–10 scale for rating software vulnerability severity, where 7.0–8.9 is High, 9.0–10.0 is Critical, and scores inform patching priority across the industry.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PAN-OS</strong> — Palo Alto Networks' proprietary operating system that runs on its hardware and virtual firewall and network security appliances, including GlobalProtect VPN gateways and next-generation firewalls.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Webshell</strong> — A malicious script (typically PHP, ASP, or JSP) uploaded to a compromised web server that gives an attacker a persistent, browser-accessible remote command interface, surviving reboots and often discovery by automated scanners.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Double Extortion</strong> — A ransomware tactic in which attackers both encrypt the victim's data and exfiltrate a copy, threatening to publish sensitive data publicly if the ransom is not paid, adding a data-breach liability dimension to the pressure.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">ASLR</strong> — Address Space Layout Randomization; a memory protection technique that randomizes the location of the stack, heap, and libraries in memory at runtime, making it significantly harder for attackers to craft reliable exploits for memory corruption vulnerabilities.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">VCO</strong> — VeloCloud Orchestrator; Arista's centralized management and orchestration platform for SD-WAN deployments, controlling traffic policies, QoS, and network configuration across all branch sites in an enterprise wide-area network.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/telangana-tg-ipass-ransomware/" style="color:#374151;text-decoration:none;">Telangana TG-iPASS Business Portal Encrypted by Ransomware, Forced Offline</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CyberSecurityNews</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.hookphish.com/blog/ransomware-group-whitearmor-hits-partido-liberal/" style="color:#374151;text-decoration:none;">Partido Liberal Argentina Listed on Whitearmor Ransomware Leak Site — Breach Claimed Oct 25</a>
+    <span style="color:#9ca3af;font-size:11px;"> · HookPhish</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 26, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

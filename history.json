@@ -1,12 +1,13 @@
 {
-  "til": ["Mark-of-the-Web", "Log Tampering", "SOCKS5 Proxying", "Vulnerability Chaining", "Zero-Click Exploits", "Supply Chain Poisoning", "Use-After-Free"],
-  "glossary": ["DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "GitHub Actions", "CI/CD", "Botnet", "HIPAA", "PHI", "MotW", "SAML", "WDAC", "RaaS", "LAPS", "SSRF", "Cobalt Strike", "BloodHound", "Authentication Bypass", "Patch Tuesday", "IKE", "FortiOS", "Integrity Checker", "Management Interface", "RAT", "UPI", "BNC", "CWE", "OAuth", "MFA", "Entra ID", "WAF", "DoS", "APT", "PyPI", "UAF", "mod_php", "SQL Injection", "Credential Stealer"],
+  "til": ["ASLR Bypasses", "Mark-of-the-Web", "Log Tampering", "SOCKS5 Proxying", "Vulnerability Chaining", "Zero-Click Exploits", "Supply Chain Poisoning"],
+  "glossary": ["CVSS", "PAN-OS", "Webshell", "Double Extortion", "ASLR", "VCO", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "GitHub Actions", "CI/CD", "Botnet", "HIPAA", "PHI", "MotW", "SAML", "WDAC", "RaaS", "LAPS", "SSRF", "Cobalt Strike", "BloodHound", "Authentication Bypass", "Patch Tuesday", "IKE", "FortiOS", "Integrity Checker", "Management Interface", "RAT", "UPI", "BNC", "CWE", "OAuth", "MFA", "Entra ID", "WAF", "DoS"],
   "week": {
-    "critical": 0, "high": 0, "medium": 0,
-    "techniques": [],
-    "actors": []
+    "critical": 3, "high": 4, "medium": 2,
+    "techniques": ["T1190", "T1574.006", "T1505.003", "T1078", "T1195.002", "T1553.005", "T1133"],
+    "actors": ["Armory Castle", "Qilin"]
   },
   "digests": [
+    {"date": "2026-10-26", "threat": "ELEVATED", "critical": 3, "high": 4, "medium": 2},
     {"date": "2026-10-25", "threat": "ELEVATED", "critical": 3, "high": 4, "medium": 2},
     {"date": "2026-10-24", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
     {"date": "2026-10-23", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},

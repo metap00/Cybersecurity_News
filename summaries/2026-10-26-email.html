@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 26, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 3 critical · 4 high · ~10 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-26.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: PHP2Shell CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 25, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">PHP2Shell Exploitation Attempts Hit Millions as Mirai Botnet Joins Attacks</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Two critical unauthenticated RCE flaws in the PHP engine (CVE-2026-109618/109619) are under massive exploitation — millions of attempts logged since Oct 22, Mirai botnet operators joining to deploy malware on vulnerable servers.</div>
+    <div style="margin-top:2px;">👤 Servers running PHP 8.2.x–8.5.x below current patch levels — roughly 59% of scanned PHP servers still unpatched; affects an enormous share of the internet's web infrastructure.</div>
+    <div style="margin-top:2px;">✅ Update PHP immediately to 8.2.35, 8.3.36, 8.4.27, or 8.5.12 — patching is the only safe remediation.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: FortiMail CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 2, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Critical FortiMail Zero-Day CVE-2026-104286 Exploited — Unauthenticated Arbitrary File Writes Enable RCE</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVSS 9.8 path traversal + NULL byte injection in Fortinet FortiMail lets unauthenticated attackers write arbitrary files; active exploitation confirmed with malicious library deployment and data exfiltration to C2 servers.</div>
+    <div style="margin-top:2px;">👤 FortiMail 7.2.0–7.2.9, 7.4.0–7.4.8, 7.6.0–7.6.6, 8.0.0–8.0.1 — enterprises using Fortinet's email security gateway, CISA KEV listed Oct 1.</div>
+    <div style="margin-top:2px;">✅ Apply FG-IR-26-175 patches; block C2 IPs 79.141.169.187 and 45.129.0.192; hunt for "archive234" account indicating compromise.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1574.006 · Hijack Execution Flow: Dynamic Linker Hijacking</div>
+</div>
+
+<!-- STORY 3: BeyondTrust CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 16, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/china-linked-hackers-exploited.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">China-Linked Armory Castle Exploited BeyondTrust Zero-Day for Seven Weeks, Deployed SAWFLY Webshell and BARECLAW Tunneler</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 China-nexus APT Armory Castle (UNC5221) exploited CVE-2026-102764 (CVSS 9.3) as a zero-day for seven weeks, gaining root access on BeyondTrust Remote Support appliances and pivoting into downstream enterprise systems.</div>
+    <div style="margin-top:2px;">👤 BeyondTrust Remote Support up to v26.2.3 — ~1,400 internet-reachable self-hosted appliances; SaaS customers patched Oct 9.</div>
+    <div style="margin-top:2px;">✅ Apply BT26-05 immediately; assume compromise if internet-accessible before Oct 9; rotate all credentials, hunt for SAWFLY webshell artifacts.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Persistence] T1505.003 · Server Software Component: Web Shell</div>
+</div>
+
+<!-- STORY 4: Arista VeloCloud HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 22, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Arista VeloCloud CVE-2026-114625: Third Exploited Zero-Day in Four Months — Read-Only Login Grants Superuser</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVSS 9.9 SQL injection in VeloCloud Orchestrator actively exploited; any authenticated user can escalate to superuser — third exploited VCO zero-day since July, CISA KEV listed Oct 24.</div>
+    <div style="margin-top:2px;">👤 VCO versions below 5.2.3.18, 6.1.3.10, or 6.4.2.12; cloud-hosted instances already patched by Arista.</div>
+    <div style="margin-top:2px;">✅ Upgrade to patched VCO builds immediately — no workaround available.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1078 · Valid Accounts</div>
+</div>
+
+<!-- STORY 5: LiteLLM Supply Chain HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Oct 21, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">LiteLLM PyPI Package Compromised — Malicious v1.107.0 Deploys Credential Stealer and Backdoor</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers stole three maintainers' GitHub OAuth tokens and published malicious litellm 1.107.0 to PyPI containing a credential stealer and backdoor; malicious packages quarantined but investigation ongoing.</div>
+    <div style="margin-top:2px;">👤 AI development teams that installed LiteLLM v1.107.0 — widely used for building LLM applications, meaning LLM API keys and secrets are at risk.</div>
+    <div style="margin-top:2px;">✅ Audit for v1.107.0; if found, rotate all credentials immediately — LLM API keys, cloud credentials, and all application secrets.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.002 · Supply Chain Compromise: Compromise Software Supply Chain</div>
+</div>
+
+<!-- STORY 6: Windows MotW HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SOC Prime · Oct 13, 2026</span>
+  </div>
+  <a href="https://socprime.com/blog/cve-2026-96951-analysis/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Windows Shell Zero-Day CVE-2026-96951 Exploited Before Patch — Bypasses Mark-of-the-Web Security Warnings</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVSS 8.8 Windows Shell zero-day exploited pre-patch; attackers send crafted files that bypass MotW protections, removing security warnings before users open malicious attachments or downloads.</div>
+    <div style="margin-top:2px;">👤 All unpatched Windows users who receive and open maliciously crafted files via email, messaging, or browser downloads.</div>
+    <div style="margin-top:2px;">✅ Apply October 2026 Windows updates; also patch CVE-2026-108398 (WDAC bypass); train users to be suspicious of files even without security warnings.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Defense Evasion] T1553.005 · Subvert Trust Controls: Mark-of-the-Web Bypass</div>
+</div>
+
+<!-- STORY 7: Palo Alto GlobalProtect HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security · Oct 21, 2026</span>
+  </div>
+  <a href="https://www.helpnetsecurity.com/2026/10/21/ransomware-groups-exploit-palo-alto-globalprotect-cve-2026-0257/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Qilin and INC Ransomware Exploiting Palo Alto GlobalProtect CVE-2026-0257 Across Healthcare, Education, and Government</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Unit 42 confirms Qilin and INC ransomware groups are exploiting the CVSS 7.8 GlobalProtect auth bypass (CVE-2026-0257) since May to establish rogue VPN sessions and deploy ransomware across multiple sectors.</div>
+    <div style="margin-top:2px;">👤 Organizations using PAN-OS GlobalProtect with authentication override cookies enabled — healthcare, education, financial services, and government are named target sectors.</div>
+    <div style="margin-top:2px;">✅ Patch PAN-OS, disable auth override cookies where unnecessary, terminate all active GlobalProtect sessions post-patch.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1133 · External Remote Services</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/telangana-tg-ipass-ransomware/" style="color:#374151;text-decoration:none;">Telangana TG-iPASS Business Portal Encrypted by Ransomware, Forced Offline</a>
+    <span style="color:#9ca3af;"> · CyberSecurityNews</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.hookphish.com/blog/ransomware-group-whitearmor-hits-partido-liberal/" style="color:#374151;text-decoration:none;">Partido Liberal Argentina Listed on Whitearmor Ransomware Leak Site (Oct 25)</a>
+    <span style="color:#9ca3af;"> · HookPhish</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-10-26.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Oct 26, 2026</div>
+
+</body>
+</html>
