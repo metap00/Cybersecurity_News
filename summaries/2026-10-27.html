@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Oct 27, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Oct 27, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 2 critical · 3 high · 3 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: SafePay Ransomware CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / BleepingComputer · Oct 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/cisa-and-fbi-safepay-ransomware-has-hit-over-600-critical-infrastructure-organizations/" style="color:#111827;text-decoration:none;">FBI &amp; CISA: SafePay Ransomware Has Hit Over 600 Critical Infrastructure Organizations</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The FBI, CISA, and U.S. Secret Service issued joint advisory AA26-293A warning that SafePay, a private ransomware group operating since August 2024, has compromised at least 600 critical infrastructure organizations across North America, Europe, and Australia.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Healthcare, critical manufacturing, energy, government facilities, and financial services organizations, primarily in the US but also in South America, Europe, and Australia.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch edge devices for all 2024-era CVEs listed in the advisory, enforce MFA on all remote access, maintain offline backups in network-segmented storage, and hunt for signs of shadow copy deletion or NAS resets.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">SafePay deploys ransomware to encrypt victim systems and delete shadow copies, rendering data inaccessible to extort payment—a direct example of this impact technique.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>SafePay distinguishes itself from other ransomware-as-a-service operations by operating as a fully private group—it takes no affiliates, keeping operational security tight and reducing the chance of insider leaks. Since its emergence in August 2024, it has maintained a steady pace of 15–30 attacks per month and now claims over 600 confirmed victims.</p>
+        <p>The group's intrusion methodology relies on automated scripts that probe for known, often year-old, vulnerabilities in edge devices such as VPNs and firewalls. Once inside, they laterally move through Active Directory, escalate privileges, and stage their payload. Before encrypting files, they sabotage recovery: shadow copies are deleted and any network-attached storage devices holding backups are factory-reset. This removes the fastest recovery path for most victims.</p>
+        <p>The advisory lists five CVEs, all disclosed in 2024, that SafePay actors exploit through scanning campaigns. Organizations that have fallen behind on edge device patching remain their primary target pool. The joint advisory recommends patching those CVEs, enforcing offline backup strategies, and implementing network segmentation to limit ransomware blast radius.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Ransomware is malware that locks all your files like putting them in an encrypted safe—you can't open them without the key the attacker holds. SafePay is a criminal group that does this professionally to hospitals, factories, and government agencies, then demands millions of dollars to hand back the key. What makes them especially dangerous is that they also destroy backup copies before locking your files, so restoring from backup (the usual defense) is no longer an option.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">Advisory AA26-293A · No single CVSS — exploits multiple 2024-era CVEs (CVSS 7.5–9.8 range) — each enables unauthenticated remote code execution on edge network devices.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: SafePay -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">SafePay</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal ransomware group · Private (no affiliates) · Attribution: Unknown / Eastern Europe suspected</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Critical infrastructure globally — healthcare, manufacturing, energy, government, and financial sectors across North America, Europe, South America, and Australia</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Operating as a closed, affiliate-free ransomware syndicate since August 2024; sabotaging recovery by deleting shadow copies and wiping NAS backup devices before encryption</div>
+</div>
+
+<!-- STORY 2: PHP2Shell CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / CybersecurityNews · Oct 26, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/public-php2shell-exploit-code/" style="color:#111827;text-decoration:none;">Hackers Weaponize Public PHP2Shell Exploit Code to Target Universities and Business Websites</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are actively exploiting CVE-2026-109618 and CVE-2026-109619 (PHP2Shell), two critical PHP remote code execution vulnerabilities with public PoC exploit code, targeting universities and business websites; exploitation attempts began four days before patches were released on October 21.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any web server running PHP 8.2.x below 8.2.35, 8.3.x below 8.3.36, 8.4.x below 8.4.27, or 8.5.x below 8.5.12—plus all end-of-life PHP 8.1 and older installations which have no official patch available.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update PHP immediately to the patched versions; for EOL PHP 8.1 and older, apply web server-level mitigations (limit request sizes, block direct PHP execution at the proxy) and plan an urgent upgrade.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers send crafted HTTP requests to PHP-powered websites, exploiting the memory handling flaw to run operating system commands without any authentication—a textbook exploitation of a public-facing web application.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>PHP is the server-side language running an estimated 77% of all websites, making PHP2Shell one of the most broadly impactful vulnerability disclosures of 2026. CVE-2026-109618 involves a memory corruption flaw triggered by specific request patterns, while CVE-2026-109619 is a related bypass. Together they allow unauthenticated remote code execution on any PHP-powered server.</p>
+        <p>What makes this particularly dangerous is the timeline: SOCRadar found exploit tooling on an exposed attacker server dated four days before PHP issued its emergency patches on October 21. Akatsuki Legion documented the active exploitation campaign, and the public PoC on GitHub has lowered the bar for less sophisticated actors to join the attacks. Universities are disproportionately targeted because they often run older PHP versions on legacy web applications with slower patch cycles.</p>
+        <p>PHP's own mitigation guidance for CVE-2026-109618 includes setting memory_limit to -1 and limiting request sizes at the web server or proxy layer—but PHP explicitly states this is not a complete fix. The only reliable remediation is upgrading to the patched releases. PHP 8.1 and older branches receive no official patch; those sites must rely on web server-level controls or urgent upgrades to a supported branch.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> PHP is a programming language that powers the back-end of most websites—think WordPress, university portals, and e-commerce sites. A remote code execution vulnerability means an attacker can send a special web request to your server and run whatever commands they want, as if they had typed them at your keyboard. With public exploit code available on GitHub, even low-skill attackers can now automate attacks against millions of sites. Updating PHP is the only real fix.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-109618 / CVE-2026-109619 · CVSS v4.0: 9.2/10 — Both flaws allow pre-authentication remote code execution via memory corruption in PHP's core request handling, affecting the most widely deployed web scripting language in the world.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: CISA KEV Arista VeloCloud + Collabora Online HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / CISA · Oct 24, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html" style="color:#111827;text-decoration:none;">CISA Flags Two Actively Exploited Critical Flaws in Collabora Online and Arista VeloCloud</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-110447 (Collabora Online command injection, CVSS 9.2) and CVE-2026-114625 (Arista VeloCloud Orchestrator SQL injection, CVSS 9.9) to its Known Exploited Vulnerabilities catalog; Collabora exploitation is installing webshells on Nextcloud servers to harvest credentials, and VCO is seeing its third zero-day exploited in four months.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running on-premise Nextcloud with the Collabora Online Built-in CODE Server, and enterprises using on-premise Arista VeloCloud Orchestrator versions before the patched releases.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Collabora Online to version 26.4.303 or later; update Arista VCO to versions 5.2.3.18, 6.1.3.10, or 6.4.2.12; hunt for webshells on Nextcloud instances and audit operator-level activity logs on VCO immediately.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Persistence] T1505.003 · Server Software Component: Web Shell<br>
+      <span style="color:#6b7280;">Attackers exploiting the Collabora Online command injection flaw are deploying webshells onto Nextcloud servers, establishing persistent server-side access to harvest credentials and cryptocurrency wallets even after reboots.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>This CISA KEV addition covers two entirely separate products, both critically flawed and both already being exploited in the wild as of the advisory date. The federal agency patch deadline was October 26—yesterday—meaning FCEB agencies were already required to patch.</p>
+        <p>CVE-2026-110447 in Collabora Online's Built-in CODE Server is a command injection via proxy.php. An unauthenticated attacker can reach this endpoint when Nextcloud's local document conversion server is not running and submit a crafted payload that executes arbitrary OS commands. Attackers have used this to plant webshells and then systematically search for credentials, password-manager vaults, and cryptocurrency wallet files. The fixed version is 26.4.303.</p>
+        <p>CVE-2026-114625 in Arista VeloCloud Orchestrator is a SQL injection flaw requiring only an authenticated "Enterprise Read Only" role—the lowest privilege level. By injecting malicious SQL, an attacker elevates to superuser-operator status, giving full control of the SD-WAN orchestration platform. Arista has shared two Japan-geolocated IPs linked to active exploitation but has not attributed the activity to a specific threat actor. This is the third VCO zero-day exploited since July 2026.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Nextcloud is a popular self-hosted file storage and collaboration platform, and Collabora is the document editor that plugs into it. The vulnerability lets attackers run commands on your server just by visiting a URL—no username or password required. A webshell is a malicious file the attacker plants on the server that acts like a hidden remote control, letting them come back and run commands any time. Arista VeloCloud is the software that large enterprises use to manage their wide-area networks; in this case, even a low-privilege account can be used to take over the whole platform.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-110447 · CVSS: 9.2/10 — Unauthenticated command injection in Collabora Online. / CVE-2026-114625 · CVSS: 9.9/10 — Authenticated SQL injection enabling full VCO takeover.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: LiteLLM Supply Chain HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / Datadog Security Labs · Oct 21, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://bleepingcomputer.com/news/security/litellm-release-pipeline-hacked-to-distribute-info-stealer-malware" style="color:#111827;text-decoration:none;">LiteLLM Release Pipeline Hacked to Distribute Infostealer and RAT via PyPI and Docker</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers used stolen GitHub CLI OAuth tokens from three LiteLLM engineers to trigger and approve the release of version 1.107.0, which was backdoored with a credential-stealing infostealer and a remote access trojan that activates at Python interpreter startup—the malicious package was live on PyPI and Docker for approximately two hours.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any developer or AI application that installed or ran LiteLLM v1.107.0 from PyPI or the official Docker registry between approximately 10:00–12:00 UTC on October 21, 2026.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Pin litellm==1.106.2 in your requirements; rotate all cloud provider credentials, AI API keys, browser-stored credentials, and developer tokens on any host that ran the poisoned version; search for the infostealer indicator files identified by Datadog.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.001 · Supply Chain Compromise: Compromise Software Dependencies and Development Tools<br>
+      <span style="color:#6b7280;">By compromising the OAuth tokens of three LiteLLM engineers and hijacking the CI/CD release pipeline, attackers poisoned the official PyPI package and Docker images—delivering malware to downstream users who simply ran a routine update.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>LiteLLM is a widely used Python library that provides a unified interface to hundreds of large language model APIs—OpenAI, Anthropic, Cohere, and dozens more. Its use in AI application development pipelines means a compromised release can expose the API keys and cloud credentials of organizations running cutting-edge AI workloads.</p>
+        <p>The attack method was surgical: the adversaries did not compromise LiteLLM's source code repository. Instead, they stole GitHub CLI OAuth tokens from three engineers with release permissions. With those tokens, they triggered LiteLLM's existing automated release workflow and approved their own malicious commit—abusing legitimate tooling to appear as a standard release. The payload was not a simple backdoor; it runs at Python interpreter startup via startup hooks, meaning it activates whenever Python starts on an infected host, regardless of whether the application ever imports LiteLLM.</p>
+        <p>The infostealer collects cloud provider credentials, AI API keys (OpenAI, Anthropic, etc.), browser-saved passwords, and LiteLLM proxy secrets. A second-stage RAT provides persistent remote access. This is the second supply chain compromise of LiteLLM in 2026—the March incident (versions 1.82.7 and 1.82.8) was attributed to the TeamPCP threat actor group; the October incident has not been linked to the same actor.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When developers build software they use thousands of libraries written by other people, installed via a central registry called PyPI (like an app store for Python code). In a supply chain attack, the attacker doesn't break into your company—they compromise a library your code depends on, so when you update your software, you unknowingly install their malware. This is especially dangerous because the malware comes from a trusted source (the official PyPI page) and passes your normal security checks.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Second LiteLLM supply chain incident in 2026 — LiteLLM is used across thousands of AI applications; any host that ran the 2-hour malicious release window should be treated as fully compromised.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Tailscale Tailworm HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / Cyberdione Labs · Oct 25, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/10/unpatched-tailscale-ssh-flaws-could-let.html" style="color:#111827;text-decoration:none;">Tailworm: Researcher Drops 11 Unpatched Tailscale SSH Flaws — Root Access on Connected Servers</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Security researcher Erica Windisch published the "Tailworm" report detailing 11 unpatched vulnerabilities in Tailscale v1.104.2 and headscale 0.29.5, with the most severe involving SSH race conditions that allow a compromised device to gain root privileges on other servers in the same Tailscale network.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization using Tailscale SSH with port forwarding or App Connectors enabled; developers, homelab operators, and enterprises who rely on Tailscale's zero-trust mesh for internal access are all at risk from a single compromised endpoint.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Disable Tailscale SSH and App Connectors immediately; review and tighten SSH forwarding permissions in your Tailscale ACL policy; enable auto-updates; monitor Tailscale's advisory channels for patched releases before re-enabling SSH.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Lateral Movement] T1021.004 · Remote Services: SSH<br>
+      <span style="color:#6b7280;">An attacker with a foothold on one approved Tailscale node exploits SSH race conditions to move laterally across the mesh network and achieve root on other servers—turning the zero-trust network's own SSH access feature into a lateral movement vector.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Tailscale is a zero-trust networking tool used by millions of developers and organizations to create secure overlay networks without traditional VPN infrastructure. The "zero-trust" branding implies that even if one machine is compromised, others remain protected—the Tailworm findings directly challenge that assumption.</p>
+        <p>Windisch published the report without coordinated disclosure, citing lack of responsiveness during the notification period. The most critical finding involves a race condition in Tailscale SSH forwarding: when an attacker controls an approved device on the Tailnet and SSH forwarding is permitted to a target server, they can time a request to win the race and assume the identity of a privileged user—ultimately gaining root on the target server. A secondary class of vulnerabilities allows rogue node enrollment, potentially expanding an attacker's foothold across the mesh.</p>
+        <p>As of October 25, Tailscale had issued no CVEs, no security bulletin, and no patched release, though Tailscale VP Mike Shaver acknowledged the issues publicly and confirmed fixes are being developed. Until patches ship, the researcher's recommended mitigations—disabling Tailscale SSH and App Connectors, tightening forwarding policies—are the only effective controls.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Tailscale creates a private network between your devices using modern cryptography, replacing traditional VPNs. Its SSH feature lets you securely log into one of your servers from any approved device. The problem discovered here is that if an attacker takes over any one device in your Tailscale network, they can potentially hop to all your other servers—like someone who steals one key on a keyring and can open every door in the building. Until Tailscale issues patches, the safest move is to turn off the SSH feature.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned (11 vulnerabilities disclosed) · No CVSS score published — affects Tailscale v1.104.2 and headscale 0.29.5; no patched release confirmed as of Oct 25, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Certificate Transparency Logs ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    Certificate Transparency (CT) is a public, append-only logging system that requires every certificate authority to record each TLS certificate they issue in a cryptographically verifiable public log—meaning no certificate can be secretly issued without showing up in a searchable, global ledger. When eMudhra's eight intermediate CA private keys were found to be compromised, security researchers and browser vendors could immediately query CT logs to see exactly which fraudulent certificates may have been signed with those stolen keys, even before any malicious use was detected. This transparency mechanism is why modern browsers like Chrome trust only certificates whose issuance is logged—any certificate that doesn't appear in a CT log is rejected, making unauthorized certificate issuance far harder to hide.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: SQL Injection · Infostealer · Lateral Movement · PyPI · CT Logs ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SQL Injection</strong> — An attack where malicious SQL code is inserted into a database query, potentially letting attackers read, modify, or delete database data, or escalate their privileges within an application.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Infostealer</strong> — Malware designed to silently harvest credentials, browser passwords, cryptocurrency wallets, API keys, and session tokens from an infected system and exfiltrate them to an attacker-controlled server.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Lateral Movement</strong> — Techniques attackers use to progressively move through a network after gaining initial access, compromising additional systems to reach higher-value targets or data.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PyPI</strong> — The Python Package Index, the official third-party software repository for Python packages that developers install via the <code>pip</code> tool; a prime target for supply chain attacks due to its massive reach.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">CT Logs</strong> — Certificate Transparency Logs, public append-only ledgers where every TLS certificate issued by a certificate authority must be recorded, enabling rapid detection of unauthorized or fraudulent certificate issuance.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-34971" style="color:#374151;text-decoration:none;">Wasmtime CVE-2026-34971: Cranelift Sandbox Escape on aarch64 Allows Host Memory Read/Write</a>
+    <span style="color:#9ca3af;font-size:11px;"> · NIST NVD / Wasmtime Project</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.ssl.com/article/check-your-certificates-before-october-27-chrome-is-removing-an-emudhra-root/" style="color:#374151;text-decoration:none;">Chrome Removes eMudhra emSign ECC Root CA – G3 Today: ~30,000 Certificates Must Migrate</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SSL.com / Google Chrome</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/10/urgent-php-warns-of-another-unpatched.html" style="color:#374151;text-decoration:none;">PHP Warns of Additional Unpatched RCE Risk (CVE-2026-115560) Two Days After PHP2Shell Patches</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Oct 27, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
