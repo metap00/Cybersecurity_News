@@ -1,12 +1,13 @@
 {
-  "til": ["Certificate Transparency Logs", "ASLR Bypasses", "Mark-of-the-Web", "Log Tampering", "SOCKS5 Proxying", "Vulnerability Chaining", "Zero-Click Exploits"],
-  "glossary": ["SQL Injection", "Infostealer", "Lateral Movement", "PyPI", "CT Logs", "CVSS", "PAN-OS", "Webshell", "Double Extortion", "ASLR", "VCO", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "GitHub Actions", "CI/CD", "Botnet", "HIPAA", "PHI", "MotW", "SAML", "WDAC", "RaaS", "LAPS", "SSRF", "Cobalt Strike", "BloodHound", "Authentication Bypass", "Patch Tuesday", "IKE", "FortiOS", "Integrity Checker", "Management Interface", "RAT", "UPI", "BNC", "CWE"],
+  "til": ["DNS Sinkholes", "Certificate Transparency Logs", "ASLR Bypasses", "Mark-of-the-Web", "Log Tampering", "SOCKS5 Proxying", "Vulnerability Chaining"],
+  "glossary": ["CT Logs", "CVSS", "PAN-OS", "Webshell", "Double Extortion", "ASLR", "VCO", "DTLS", "OT", "PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "GitHub Actions", "CI/CD", "Botnet", "HIPAA", "PHI", "MotW", "SAML", "WDAC", "RaaS", "LAPS", "SSRF", "Cobalt Strike", "BloodHound", "Authentication Bypass", "Patch Tuesday", "IKE", "FortiOS", "Integrity Checker", "Management Interface", "RAT", "UPI", "BNC", "CWE", "C2", "IOC", "DNS Sinkhole"],
   "week": {
     "critical": 5, "high": 7, "medium": 5,
     "techniques": ["T1190", "T1574.006", "T1505.003", "T1078", "T1195.002", "T1553.005", "T1133", "T1486", "T1195.001", "T1021.004"],
     "actors": ["Armory Castle", "Qilin", "SafePay"]
   },
   "digests": [
+    {"date": "2026-10-28", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-10-27", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 3},
     {"date": "2026-10-26", "threat": "ELEVATED", "critical": 3, "high": 4, "medium": 2},
     {"date": "2026-10-25", "threat": "ELEVATED", "critical": 3, "high": 4, "medium": 2},
