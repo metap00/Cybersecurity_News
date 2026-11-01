@@ -1,101 +1,702 @@
 {
-  "til": ["Mark-of-the-Web", "Log Tampering", "SOCKS5 Proxying", "Vulnerability Chaining", "Canary Tokens", "SBOM", "Memory Tagging Extension (MTE)"],
-  "glossary": ["PLC", "DMDC", "SD-WAN", "IBE", "Path Traversal", "SAM", "Out-of-Bounds Write", "PoC", "RCE", "KEV", "FMC", "PRNG", "Sandbox Escape", "Session Cookie", "GitHub Actions", "CI/CD", "Botnet", "HIPAA", "PHI", "MotW", "SAML", "WDAC", "RaaS", "LAPS", "SSRF", "Cobalt Strike", "BloodHound", "Authentication Bypass", "Patch Tuesday", "IKE", "FortiOS", "Integrity Checker", "Management Interface", "RAT", "UPI", "BNC", "CWE", "C2", "IOC", "DNS Sinkhole", "Canary Token", "Honeypot", "OSINT", "TTP", "SBOM", "CRA", "Supply-Chain Security", "MTE", "UAF", "EPSS"],
+  "til": [
+    "Log Tampering",
+    "SOCKS5 Proxying",
+    "Vulnerability Chaining",
+    "Canary Tokens",
+    "SBOM",
+    "Memory Tagging Extension (MTE)",
+    "Living off the Land (LotL)"
+  ],
+  "glossary": [
+    "Path Traversal",
+    "SAM",
+    "Out-of-Bounds Write",
+    "PoC",
+    "RCE",
+    "KEV",
+    "FMC",
+    "PRNG",
+    "Sandbox Escape",
+    "Session Cookie",
+    "GitHub Actions",
+    "CI/CD",
+    "Botnet",
+    "HIPAA",
+    "PHI",
+    "MotW",
+    "SAML",
+    "WDAC",
+    "RaaS",
+    "LAPS",
+    "SSRF",
+    "Cobalt Strike",
+    "BloodHound",
+    "Authentication Bypass",
+    "Patch Tuesday",
+    "IKE",
+    "FortiOS",
+    "Integrity Checker",
+    "Management Interface",
+    "RAT",
+    "UPI",
+    "BNC",
+    "CWE",
+    "C2",
+    "IOC",
+    "DNS Sinkhole",
+    "Canary Token",
+    "Honeypot",
+    "OSINT",
+    "TTP",
+    "SBOM",
+    "CRA",
+    "Supply-Chain Security",
+    "MTE",
+    "UAF",
+    "EPSS",
+    "LotL",
+    "LOLBins",
+    "APT",
+    "EDR"
+  ],
   "week": {
-    "critical": 5, "high": 7, "medium": 5,
-    "techniques": ["T1190", "T1574.006", "T1505.003", "T1078", "T1195.002", "T1553.005", "T1133", "T1486", "T1195.001", "T1021.004"],
-    "actors": ["Armory Castle", "Qilin", "SafePay"]
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "techniques": [],
+    "actors": []
   },
   "digests": [
-    {"date": "2026-10-31", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-10-30", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-10-29", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-10-28", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-10-27", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 3},
-    {"date": "2026-10-26", "threat": "ELEVATED", "critical": 3, "high": 4, "medium": 2},
-    {"date": "2026-10-25", "threat": "ELEVATED", "critical": 3, "high": 4, "medium": 2},
-    {"date": "2026-10-24", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
-    {"date": "2026-10-23", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-10-22", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 1},
-    {"date": "2026-10-21", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 3},
-    {"date": "2026-10-20", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 3},
-    {"date": "2026-10-19", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-10-18", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 2},
-    {"date": "2026-10-17", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
-    {"date": "2026-10-16", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-10-15", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 3},
-    {"date": "2026-10-14", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 3},
-    {"date": "2026-10-13", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 3},
-    {"date": "2026-10-12", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-10-11", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-10-10", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1},
-    {"date": "2026-10-09", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 2},
-    {"date": "2026-10-08", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 2},
-    {"date": "2026-10-07", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 1},
-    {"date": "2026-10-06", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 2},
-    {"date": "2026-10-05", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
-    {"date": "2026-10-04", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 3},
-    {"date": "2026-10-03", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 3},
-    {"date": "2026-10-02", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
-    {"date": "2026-10-01", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1},
-    {"date": "2026-09-30", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 1},
-    {"date": "2026-09-29", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 2},
-    {"date": "2026-09-28", "threat": "ELEVATED", "critical": 1, "high": 2, "medium": 1},
-    {"date": "2026-09-27", "threat": "ELEVATED", "critical": 1, "high": 2, "medium": 1},
-    {"date": "2026-09-26", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1},
-    {"date": "2026-09-25", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-24", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-23", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-22", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-21", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-20", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-19", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-18", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-17", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 0},
-    {"date": "2026-09-16", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-15", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-14", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-13", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-12", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-11", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-10", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-09", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-08", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-07", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-06", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-05", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-09-04", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-09-03", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-09-02", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 2},
-    {"date": "2026-09-01", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
-    {"date": "2026-08-31", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 5},
-    {"date": "2026-08-30", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-08-29", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 1},
-    {"date": "2026-08-28", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-08-27", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 1},
-    {"date": "2026-08-26", "threat": "ELEVATED", "critical": 1, "high": 3, "medium": 2},
-    {"date": "2026-08-25", "threat": "ELEVATED", "critical": 2, "high": 2, "medium": 1},
-    {"date": "2026-08-24", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 2},
-    {"date": "2026-08-23", "threat": "ELEVATED", "critical": 2, "high": 5, "medium": 2},
-    {"date": "2026-08-22", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 1},
-    {"date": "2026-08-21", "threat": "ELEVATED", "critical": 1, "high": 4, "medium": 2},
-    {"date": "2026-08-20", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-08-19", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 2},
-    {"date": "2026-08-18", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 0},
-    {"date": "2026-08-17", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 1},
-    {"date": "2026-08-16", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 3},
-    {"date": "2026-08-15", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-08-14", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1},
-    {"date": "2026-08-13", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-08-12", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 0},
-    {"date": "2026-07-23", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-07-22", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 2},
-    {"date": "2026-07-21", "threat": "ELEVATED", "critical": 3, "high": 4, "medium": 2},
-    {"date": "2026-07-20", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 1},
-    {"date": "2026-07-19", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
-    {"date": "2026-07-18", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 2},
-    {"date": "2026-07-17", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-07-16", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 4},
-    {"date": "2026-07-15", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 2}
+    {
+      "date": "2026-11-01",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-10-31",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-10-30",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-10-29",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-10-28",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-10-27",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 3
+    },
+    {
+      "date": "2026-10-26",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 4,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-25",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 4,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-24",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-23",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-22",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 2,
+      "medium": 1
+    },
+    {
+      "date": "2026-10-21",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 3
+    },
+    {
+      "date": "2026-10-20",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 3
+    },
+    {
+      "date": "2026-10-19",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-18",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 2,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-17",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-16",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-15",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 3
+    },
+    {
+      "date": "2026-10-14",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 3
+    },
+    {
+      "date": "2026-10-13",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 4,
+      "medium": 3
+    },
+    {
+      "date": "2026-10-12",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-11",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-10",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 1
+    },
+    {
+      "date": "2026-10-09",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 2,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-08",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 2,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-07",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 2,
+      "medium": 1
+    },
+    {
+      "date": "2026-10-06",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 2,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-05",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-04",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 3
+    },
+    {
+      "date": "2026-10-03",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 3
+    },
+    {
+      "date": "2026-10-02",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-10-01",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 1
+    },
+    {
+      "date": "2026-09-30",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 1
+    },
+    {
+      "date": "2026-09-29",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 2,
+      "medium": 2
+    },
+    {
+      "date": "2026-09-28",
+      "threat": "ELEVATED",
+      "critical": 1,
+      "high": 2,
+      "medium": 1
+    },
+    {
+      "date": "2026-09-27",
+      "threat": "ELEVATED",
+      "critical": 1,
+      "high": 2,
+      "medium": 1
+    },
+    {
+      "date": "2026-09-26",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 1
+    },
+    {
+      "date": "2026-09-25",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-24",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-23",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-22",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-21",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-20",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-19",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-18",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-17",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 4,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-16",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-15",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-14",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-13",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-12",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-11",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-10",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-09",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-08",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-07",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-06",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-05",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-09-04",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-09-03",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-09-02",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 2,
+      "medium": 2
+    },
+    {
+      "date": "2026-09-01",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    {
+      "date": "2026-08-31",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 2,
+      "medium": 5
+    },
+    {
+      "date": "2026-08-30",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-08-29",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 4,
+      "medium": 1
+    },
+    {
+      "date": "2026-08-28",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-08-27",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 2,
+      "medium": 1
+    },
+    {
+      "date": "2026-08-26",
+      "threat": "ELEVATED",
+      "critical": 1,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-08-25",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 2,
+      "medium": 1
+    },
+    {
+      "date": "2026-08-24",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 4,
+      "medium": 2
+    },
+    {
+      "date": "2026-08-23",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 5,
+      "medium": 2
+    },
+    {
+      "date": "2026-08-22",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 4,
+      "medium": 1
+    },
+    {
+      "date": "2026-08-21",
+      "threat": "ELEVATED",
+      "critical": 1,
+      "high": 4,
+      "medium": 2
+    },
+    {
+      "date": "2026-08-20",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-08-19",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 4,
+      "medium": 2
+    },
+    {
+      "date": "2026-08-18",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 4,
+      "medium": 0
+    },
+    {
+      "date": "2026-08-17",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 2,
+      "medium": 1
+    },
+    {
+      "date": "2026-08-16",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 3
+    },
+    {
+      "date": "2026-08-15",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-08-14",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 1
+    },
+    {
+      "date": "2026-08-13",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-08-12",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 0
+    },
+    {
+      "date": "2026-07-23",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-07-22",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 4,
+      "medium": 2
+    },
+    {
+      "date": "2026-07-21",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 4,
+      "medium": 2
+    },
+    {
+      "date": "2026-07-20",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 1
+    },
+    {
+      "date": "2026-07-19",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-07-18",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-07-17",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
+    {
+      "date": "2026-07-16",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 4,
+      "medium": 4
+    }
   ]
 }
