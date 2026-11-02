@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 2, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 2 critical · 4 high · ~13 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-11-02.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: Ukraine Air Alert — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Al Jazeera · Nov 2, 2026</span>
+  </div>
+  <a href="https://www.aljazeera.com/news/2026/11/2/ukraine-blames-russia-after-air-alert-app-sends-out-false-warnings" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Russia Blamed After Ukraine's Air Raid Alert App Sends False Nuclear and Chemical Attack Warnings</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Ukraine's official air raid alert app was compromised, broadcasting fabricated warnings of nuclear, chemical, and hypersonic missile attacks over Kyiv — Ukraine's SPRAVDI attributed the hack to Russia.</div>
+    <div style="margin-top:2px;">👤 Millions of Ukrainian civilians relying on the app for genuine air raid warnings; erosion of public trust in the alert system is a strategic effect of the attack.</div>
+    <div style="margin-top:2px;">✅ Cross-reference all alerts with official radio broadcasts and the unaffected Kyiv city app before acting on emergency notifications.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [IMPACT] T1565.002 · Transmitted Data Manipulation</div>
+</div>
+
+<!-- STORY 2: PHP2Shell + Fragnesia — CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Palo Alto Unit 42 · Nov 1, 2026</span>
+  </div>
+  <a href="https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Suspected Chinese Attackers Chain PHP2Shell + Linux Kernel Flaw to Root 25 PAN-OS Firewalls Including U.S. Government Targets</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers exploited PHP2Shell (CVE-2026-109618/109619, CVSS 9.2) on exposed PAN-OS management interfaces, then chained with Fragnesia kernel flaw (CVE-2026-46300) to achieve full root access on 25 servers starting Oct 23.</div>
+    <div style="margin-top:2px;">👤 Organizations running PAN-OS 12.1/12.2 with internet-exposed management interfaces; U.S. government-affiliated targets confirmed among the 25 compromised servers.</div>
+    <div style="margin-top:2px;">✅ Patch PAN-OS immediately; remove all public internet access to management interfaces; patch Linux kernel for CVE-2026-46300.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [INITIAL ACCESS] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 3: LXD/MicroCloud — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Nov 1, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CVSS 10.0 Auth Bypass in Canonical LXD and MicroCloud — No Private Key Needed to Impersonate Trusted Clients</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-112816 allows remote attackers to impersonate trusted clients against the LXD HTTPS API using only a public certificate — no private key required — potentially granting root access to the host.</div>
+    <div style="margin-top:2px;">👤 Operators of Canonical LXD (versions 4.0.14–6.9) and MicroCloud, commonly deployed in cloud and DevOps environments.</div>
+    <div style="margin-top:2px;">✅ Run <code>sudo snap refresh lxd && sudo snap refresh microcloud</code> now; no workaround exists — patching is the only fix.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [INITIAL ACCESS] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 4: Ivanti Connect Secure — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Security Affairs / CISA · Nov 1, 2026</span>
+  </div>
+  <a href="https://securityaffairs.com/202175/security/u-s-cisa-adds-ivanti-connect-secure-flaws-to-its-known-exploited-vulnerabilities-catalog.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA Adds Two More Ivanti Connect Secure Flaws to KEV — Triple Chain Achieves Unauthenticated Root; Federal Deadline is Today</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-111357 and CVE-2026-118527 added to CISA KEV Oct 30; chained with CVE-2026-104935, they enable unauthenticated root access on Ivanti VPN gateways. Federal patch deadline for CVE-2026-111357 is November 2 — today.</div>
+    <div style="margin-top:2px;">👤 Federal agencies and enterprises using Ivanti Connect Secure VPN; exploitation confirmed against fully patched appliances by UTA0576.</div>
+    <div style="margin-top:2px;">✅ Patch immediately; Ivanti's built-in Integrity Checker may miss CVE-2026-104935 exploitation — conduct independent forensic review of all appliances.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [INITIAL ACCESS] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 5: Amadeus Breach — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Star / Malaysia Airlines · Nov 2, 2026</span>
+  </div>
+  <a href="https://www.thestar.com.my/business/business-news/2026/11/02/malaysia-airlines-says-customer-data-may-be-affected-by-amadeus-breach" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Amadeus Travel Platform Breach Exposes 37 Months of Passenger Data — Multiple Airlines Including Cathay Pacific Warn Customers</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Breach at Amadeus's airline reservation portal exposed customer data from August 2023 to September 2026 across multiple carriers; Cathay Pacific confirmed 53,000 affected bookings.</div>
+    <div style="margin-top:2px;">👤 Passengers who booked with Malaysia Airlines, Cathay Pacific, Korean Air, Asiana Airlines, Japan Airlines, and others over the past three years.</div>
+    <div style="margin-top:2px;">✅ Disregard unsolicited messages referencing your travel details; verify all airline communications directly through official websites; monitor loyalty accounts.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [CREDENTIAL ACCESS] T1078 · Valid Accounts</div>
+</div>
+
+<!-- STORY 6: Warp Panda VMware — HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / CISA · Oct 28, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/china-linked-hackers-exploited-vmware.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">China-Nexus Warp Panda Exploited VMware ESX Logging Zero-Day to Erase Audit Trails at U.S. Law Firms — CISA KEV Deadline Nov 11</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CrowdStrike found Warp Panda exploited CVE-2026-41709 (VMware ESX) as a zero-day to suppress hypervisor audit logs during intrusions at U.S. law firms, hiding privileged actions from forensic review.</div>
+    <div style="margin-top:2px;">👤 Organizations running VMware ESX/ESXi must patch by November 11, 2026 (federal deadline); law firms and IP-holding enterprises are primary targets.</div>
+    <div style="margin-top:2px;">✅ Apply Broadcom's ESX patch; forward all hypervisor audit logs to an external immutable SIEM so they cannot be suppressed at the device level.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [DEFENSE EVASION] T1562.002 · Impair Defenses: Disable Event Logging</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://securityaffairs.com/" style="color:#374151;text-decoration:none;">C3RB3R Ransomware Resurfaces — Synology NAS Firmware Update Urgently Needed</a>
+    <span style="color:#9ca3af;"> · Security Affairs</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://www.cisa.gov/uscert/ncas/all.xml" style="color:#374151;text-decoration:none;">CVSS 9.8 RCE Flaw Disclosed in EPICS Industrial Control System Base</a>
+    <span style="color:#9ca3af;"> · CISA</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://news.risky.biz/risky-bulletin-game-devs-are-being-extorted-with-ai-game-cloning-threats/" style="color:#374151;text-decoration:none;">Silent Ransom Group Breaches Six Law Firms Across North America</a>
+    <span style="color:#9ca3af;"> · Risky Biz / This Week in Security</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-11-02.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Nov 2, 2026</div>
+
+</body>
+</html>

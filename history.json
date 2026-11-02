@@ -1,20 +1,14 @@
 {
   "til": [
-    "Log Tampering",
     "SOCKS5 Proxying",
     "Vulnerability Chaining",
     "Canary Tokens",
     "SBOM",
     "Memory Tagging Extension (MTE)",
-    "Living off the Land (LotL)"
+    "Living off the Land (LotL)",
+    "Hypervisor Security"
   ],
   "glossary": [
-    "Path Traversal",
-    "SAM",
-    "Out-of-Bounds Write",
-    "PoC",
-    "RCE",
-    "KEV",
     "FMC",
     "PRNG",
     "Sandbox Escape",
@@ -58,16 +52,29 @@
     "LotL",
     "LOLBins",
     "APT",
-    "EDR"
+    "EDR",
+    "NAS",
+    "ICS",
+    "TLS",
+    "Webshell",
+    "Hypervisor",
+    "Privilege Escalation"
   ],
   "week": {
-    "critical": 0,
-    "high": 0,
-    "medium": 0,
-    "techniques": [],
-    "actors": []
+    "critical": 2,
+    "high": 4,
+    "medium": 3,
+    "techniques": ["T1565.002", "T1190", "T1562.002", "T1078"],
+    "actors": ["Warp Panda"]
   },
   "digests": [
+    {
+      "date": "2026-11-02",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 4,
+      "medium": 3
+    },
     {
       "date": "2026-11-01",
       "threat": "QUIET",
@@ -690,13 +697,6 @@
       "critical": 2,
       "high": 3,
       "medium": 2
-    },
-    {
-      "date": "2026-07-16",
-      "threat": "ELEVATED",
-      "critical": 2,
-      "high": 4,
-      "medium": 4
     }
   ]
 }
