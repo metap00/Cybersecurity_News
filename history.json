@@ -1,22 +1,14 @@
 {
   "til": [
+    "Agentic Intrusion",
     "SOCKS5 Proxying",
     "Vulnerability Chaining",
     "Canary Tokens",
     "SBOM",
     "Memory Tagging Extension (MTE)",
-    "Living off the Land (LotL)",
-    "Hypervisor Security"
+    "Living off the Land (LotL)"
   ],
   "glossary": [
-    "FMC",
-    "PRNG",
-    "Sandbox Escape",
-    "Session Cookie",
-    "GitHub Actions",
-    "CI/CD",
-    "Botnet",
-    "HIPAA",
     "PHI",
     "MotW",
     "SAML",
@@ -58,16 +50,31 @@
     "TLS",
     "Webshell",
     "Hypervisor",
-    "Privilege Escalation"
+    "Privilege Escalation",
+    "KEV",
+    "DeFi",
+    "SSO",
+    "OT",
+    "SSH",
+    "AI Agent",
+    "VPN",
+    "Zero-Day Chain"
   ],
   "week": {
-    "critical": 2,
-    "high": 4,
-    "medium": 3,
-    "techniques": ["T1565.002", "T1190", "T1562.002", "T1078"],
-    "actors": ["Warp Panda"]
+    "critical": 5,
+    "high": 8,
+    "medium": 6,
+    "techniques": ["T1565.002", "T1190", "T1562.002", "T1078", "T1657", "T1059.004", "T1499.004", "T1078.004", "T1482", "T1195.001"],
+    "actors": ["Warp Panda", "TraderTraitor", "GOLD OGRE"]
   },
   "digests": [
+    {
+      "date": "2026-11-03",
+      "threat": "ELEVATED",
+      "critical": 3,
+      "high": 4,
+      "medium": 3
+    },
     {
       "date": "2026-11-02",
       "threat": "ELEVATED",
@@ -688,13 +695,6 @@
       "date": "2026-07-18",
       "threat": "ELEVATED",
       "critical": 3,
-      "high": 3,
-      "medium": 2
-    },
-    {
-      "date": "2026-07-17",
-      "threat": "ELEVATED",
-      "critical": 2,
       "high": 3,
       "medium": 2
     }

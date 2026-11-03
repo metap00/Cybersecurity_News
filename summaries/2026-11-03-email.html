@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 3, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">10 stories · 3 critical · 4 high · ~9 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-11-03.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1 — CRITICAL: Binance -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Nov 2, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/fbi-links-63-billion-binance-crypto-heist-to-north-korean-hackers/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">FBI Pins $6.3 Billion Binance Crypto Heist on North Korea's TraderTraitor</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 The FBI attributed the Oct 29 theft of $6.3B from Binance — the largest crypto heist on record — to North Korea's TraderTraitor group; ~$2.85B has been frozen.</div>
+    <div style="margin-top:2px;">👤 Binance users globally; Binance pledged to cover losses from company funds so most users will not be directly impacted.</div>
+    <div style="margin-top:2px;">✅ Crypto platforms should audit hot-wallet security and signing key access; individuals should enable withdrawal whitelists and 2FA on all exchange accounts.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1657 · Financial Theft</div>
+</div>
+
+<!-- STORY 2 — CRITICAL: Ivanti -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 2, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/ivanti-patches-two-more-zero-days-exploited-in-connect-secure-attack-chain/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Ivanti Connect Secure Triple Zero-Day Chain Grants Unauthenticated Root Access on Fully Patched Appliances</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 UTA0576 chained three ICS zero-days (CVE-2026-104935 + CVE-2026-111357 CVSS 8.8 + CVE-2026-118527) for unauthenticated root RCE; exploitation traced to Oct 1.</div>
+    <div style="margin-top:2px;">👤 All orgs running Ivanti Connect Secure before 25.1.1.3 or 22.8R2.6; federal agencies face Nov 2 / Nov 13 CISA deadlines.</div>
+    <div style="margin-top:2px;">✅ Upgrade to ICS 25.1.1.3 or 22.8R2.6 immediately — no workaround exists; treat any unaudited appliance as potentially compromised.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 3 — CRITICAL: Node-RED -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">VulnCheck / SecurityOnline · Nov 2, 2026</span>
+  </div>
+  <a href="https://securityonline.info/node-red-rce-vulnerability-cve-2026-58115/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Max-Severity CVE-2026-58115 (CVSS 10.0) in Siemens SIMATIC Node-RED Exploited in the Wild</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers exploited an unauthenticated RCE in the Node-RED admin interface on Siemens SIMATIC IoT2050 Advanced devices, using built-in exec nodes to drop webshells and Linux malware onto OT systems.</div>
+    <div style="margin-top:2px;">👤 Operators of SIMATIC IoT2050 Advanced (Industrial OS &lt; V4.3.4.1) and any standalone Node-RED with auth disabled; industrial and OT environments at highest risk.</div>
+    <div style="margin-top:2px;">✅ Upgrade to V4.3.4.1 immediately; enable authentication on the Node-RED admin interface; isolate the interface from untrusted networks.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1059.004 · Command and Scripting Interpreter: Unix Shell</div>
+</div>
+
+<!-- STORY 4 — HIGH: Cisco -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / Cisco · Oct 28, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/cisco-warns-of-firewall-zero-day-exploited-to-crash-ssl-vpn-devices/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Cisco Secure Firewall Zero-Day CVE-2026-76418 (CVSS 8.6) Exploited in SSL VPN Attacks, Added to CISA KEV</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Unauthenticated attackers crash Cisco ASA/FTD SSL VPN devices via a crafted request triggering a logic error in secondary authentication; 51,000+ devices estimated internet-exposed.</div>
+    <div style="margin-top:2px;">👤 Organizations using Cisco ASA or FTD with WebVPN / SSL VPN enabled on any interface; federal deadline was Nov 1.</div>
+    <div style="margin-top:2px;">✅ Upgrade to a fixed ASA/FTD version (e.g., ASA 9.16.4.104); workaround: disable secondary auth on DefaultWEBVPNGroup tunnel group.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Impact] T1499.004 · Endpoint Denial of Service: Application or System Exploitation</div>
+</div>
+
+<!-- STORY 5 — HIGH: DHS breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CBC News / CNN · Nov 1, 2026</span>
+  </div>
+  <a href="https://www.cbc.ca/news/world/dhs-data-breach-leak-distributed-denial-of-secrets-9.7400488" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Hacktivists Leak 41,000 DHS Employee Records After Compromising Okta SSO Portal</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 "Department of Peace" hacktivist group published 41,000+ DHS employee records — names, titles, emails, cell numbers, office locations — via DDoSecrets, claiming access through DHS's Okta SSO portal.</div>
+    <div style="margin-top:2px;">👤 Current and former DHS staff and contractors including potentially undercover ICE personnel; Okta denies any compromise of its own systems.</div>
+    <div style="margin-top:2px;">✅ DHS employees should treat unexpected contacts as potential social engineering; organizations must audit SSO access logs and enforce phishing-resistant MFA on all cloud identity providers.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1078.004 · Valid Accounts: Cloud Accounts</div>
+</div>
+
+<!-- STORY 6 — HIGH: Aur0ra AI agents -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Help Net Security / Sophos · Nov 2, 2026</span>
+  </div>
+  <a href="https://www.helpnetsecurity.com/2026/11/02/aur0ra-ransomware-ai-agents/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Sophos: Aur0ra Ransomware Gang (GOLD OGRE) Used Cursor AI Agents to Autonomously Reach Domain Admin</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Sophos found GOLD OGRE operators fed Cursor's Composer AI agent VPN credentials and objectives, letting it autonomously map AD attack paths and escalate to domain admin with minimal human involvement.</div>
+    <div style="margin-top:2px;">👤 Any enterprise network; Sophos assesses other ransomware groups are likely to adopt AI-agent-assisted intrusion techniques rapidly.</div>
+    <div style="margin-top:2px;">✅ Deploy behavioral detection for AD enumeration and lateral movement; audit AI coding tools allowed on corporate networks; layer defenses to catch behavior, not just known operator signatures.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Discovery] T1482 · Domain Trust Discovery</div>
+</div>
+
+<!-- STORY 7 — HIGH: Claude Code extension backdoor -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / SecurityWeek · Nov 2, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/10/official-claude-code-vs-code-extension.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Trojanized Claude Code Extension on Cursor Marketplace Installed Persistent SSH Backdoor on Developer Machines</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Tampered Claude Code extension versions 2.1.312 &amp; 2.1.313 were live on Cursor's marketplace for ~11 hours on Oct 29, planting an attacker SSH key for persistent backdoor access; up to 5,000 developers affected.</div>
+    <div style="margin-top:2px;">👤 Developers who installed anthropic.claude-code from Cursor's marketplace during the exposure window; Anthropic's official channels and v2.1.314 are unaffected.</div>
+    <div style="margin-top:2px;">✅ Uninstall and follow Cursor's full remediation guide (uninstall alone is insufficient); rotate all credentials and SSH keys on affected machines; upgrade to official v2.1.314 from Anthropic.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.001 · Supply Chain Compromise: Compromise Software Dependencies and Development Tools</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://securityweek.com/chainalysis-discloses-data-breach-following-ai-driven-cyberattack" style="color:#374151;text-decoration:none;">Chainalysis Discloses Data Breach Following AI-Driven Cyberattack</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://cisoseries.com/cybersecurity-news-november-2-2026/" style="color:#374151;text-decoration:none;">Northflank Cloud Breach Exposes Customer AI API Keys — Rotate All Credentials</a>
+    <span style="color:#9ca3af;"> · CISO Series</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://this.weekinsecurity.com/this-week-in-security-november-1-2026-edition/" style="color:#374151;text-decoration:none;">Ukraine Air Raid Alert App Breached by Hacktivist Group Hitcore</a>
+    <span style="color:#9ca3af;"> · This Week in Security</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-11-03.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Nov 3, 2026</div>
+
+</body>
+</html>
