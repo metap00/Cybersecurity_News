@@ -1,17 +1,14 @@
 {
   "til": [
-    "Agentic Intrusion",
     "SOCKS5 Proxying",
     "Vulnerability Chaining",
     "Canary Tokens",
     "SBOM",
     "Memory Tagging Extension (MTE)",
-    "Living off the Land (LotL)"
+    "Living off the Land (LotL)",
+    "Cryptographic Agility"
   ],
   "glossary": [
-    "PHI",
-    "MotW",
-    "SAML",
     "WDAC",
     "RaaS",
     "LAPS",
@@ -58,16 +55,41 @@
     "SSH",
     "AI Agent",
     "VPN",
-    "Zero-Day Chain"
+    "Zero-Day Chain",
+    "SIEM",
+    "MFA",
+    "PKI"
   ],
   "week": {
     "critical": 5,
     "high": 8,
     "medium": 6,
-    "techniques": ["T1565.002", "T1190", "T1562.002", "T1078", "T1657", "T1059.004", "T1499.004", "T1078.004", "T1482", "T1195.001"],
-    "actors": ["Warp Panda", "TraderTraitor", "GOLD OGRE"]
+    "techniques": [
+      "T1565.002",
+      "T1190",
+      "T1562.002",
+      "T1078",
+      "T1657",
+      "T1059.004",
+      "T1499.004",
+      "T1078.004",
+      "T1482",
+      "T1195.001"
+    ],
+    "actors": [
+      "Warp Panda",
+      "TraderTraitor",
+      "GOLD OGRE"
+    ]
   },
   "digests": [
+    {
+      "date": "2026-11-04",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
     {
       "date": "2026-11-03",
       "threat": "ELEVATED",
@@ -686,13 +708,6 @@
     },
     {
       "date": "2026-07-19",
-      "threat": "ELEVATED",
-      "critical": 3,
-      "high": 3,
-      "medium": 2
-    },
-    {
-      "date": "2026-07-18",
       "threat": "ELEVATED",
       "critical": 3,
       "high": 3,
