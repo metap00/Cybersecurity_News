@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Nov 5, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 5, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">8 stories · 1 critical · 4 high · 3 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — European Refrigeration Cyberattacks -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CBS News / BankInfoSecurity · Nov 4, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cbsnews.com/news/cyberattack-france-blood-bank/" style="color:#111827;text-decoration:none;">Wave of European Refrigeration Cyberattacks Reaches UK Food Chain and French Blood Bank</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Hackers compromised a refrigeration equipment supplier to push Danfoss AK-SM refrigeration controllers to extreme temperature and defrost settings, affecting supermarkets across Germany, Romania, and the UK, plus three French Blood Establishment (EFS) cold-storage sites for plasma.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> UK meat suppliers and food retailers, German and Romanian supermarket chains, and France's EFS blood bank network — all organizations relying on Danfoss-managed cold-chain infrastructure.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately isolate Danfoss AK-SM refrigeration management controllers from internet-facing networks, audit authentication logs for the past two weeks, and apply vendor firmware updates — do not wait for scheduled maintenance cycles.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1565.002 · Transmitted Data Manipulation<br>
+      <span style="color:#6b7280;">Attackers pushed malicious configuration data to Danfoss refrigeration controllers, overriding temperature setpoints to sabotage cold-chain infrastructure at scale across multiple countries.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        This is the second major wave of refrigeration-system attacks in Europe. The first wave targeted supermarkets in France during October, and this expansion brings in UK and German food retailers alongside critical healthcare infrastructure. Investigators identified that attackers targeted a single refrigeration equipment supplier — likely a provider of industrial control software or remote-management credentials — using it as a pivot point to reach all of that supplier's customers simultaneously.
+        <br><br>
+        The French Blood Establishment confirmed the attack hit at least three regional cold-storage facilities where plasma is stored, pushing temperature thresholds and defrost cycles to extreme settings. EFS's own monitoring systems detected the anomalies before damage occurred, and the organization reported no health consequences and no lost blood products. In the UK, the National Cyber Security Centre said impact to the food supply chain was "minimal," though a handful of meat suppliers reported that cold-storage units began warming.
+        <br><br>
+        The targeting of blood banks alongside food infrastructure signals an escalation in ICS/OT attack sophistication. Attribution remains open — French and EU cybersecurity agencies are investigating, and no group has claimed responsibility. The attack bears hallmarks of supply-chain compromise at a managed services or IoT platform layer, rather than direct targeting of individual organizations.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of an industrial refrigerator as a computer with a thermostat. These "smart" fridges connect to the internet so technicians can monitor temperatures remotely. Hackers found a way to send false commands to hundreds of these systems simultaneously — like being able to turn up everyone's thermostat in an entire city at once. The fact that they targeted a blood bank is especially alarming: blood products stored at the wrong temperature become unsafe within hours.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · OT/ICS attack — CVSS N/A — This is a targeted operational technology attack, not a software vulnerability disclosure.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: HIGH — Entra ID breach 27 orgs -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cybersecurity Dive · Nov 5, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.cybersecuritydive.com/news/attacker-microsoft-entra-id-downstream-msp/873744/" style="color:#111827;text-decoration:none;">Stolen Microsoft Entra ID App Credentials Used to Silently Breach 27 Organizations</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> An unattributed attacker (traced to a Poland-based IP, 199.19.77.84) leveraged stolen Entra ID application registration credentials and Azure DevOps federated identities to access Microsoft 365 and Azure environments across at least 27 organizations, with attacks ongoing since November 1.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Managed service providers and their downstream business clients — stolen data includes password lists, VPN profiles, MFA keys, firewall configurations, backup credentials, and service-account maps.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Disable unused Entra ID application registrations, revoke all active sessions for affected apps, rotate client secrets, and immediately block source IP 199.19.77.84 at your perimeter.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1528 · Steal Application Access Token<br>
+      <span style="color:#6b7280;">The attacker replayed stolen Entra ID app-registration tokens to authenticate without passwords, evading credential-based detection rules while silently accessing M365 and Azure DevOps environments.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        MSP (Managed Service Provider) environments are uniquely dangerous targets because they hold administrator-level credentials across all their clients. By compromising the MSP's Entra ID application registrations — the machine-to-machine identities that grant automated tools access to M365 and Azure — the attacker gained a master key that opened 27+ tenant environments simultaneously.
+        <br><br>
+        What makes this campaign technically notable is the use of replayed session tokens alongside stolen app credentials. App registrations normally authenticate using client ID and secret pairs; once stolen, these secrets can be replayed from any location. Todyl, the firm investigating, found no evidence that any vendor platform was breached, suggesting the original credential theft occurred through phishing, an earlier intrusion, or a misconfigured secrets vault.
+        <br><br>
+        Attacks have been ongoing since November 1 and are described as active at time of publication. Todyl identified roughly 45 app registrations targeted across 18 organizations, with 33+ successful authentications. The scope will likely grow as investigations continue. This campaign underscores why MSPs represent a critical attack surface — their customers inherit their security posture.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When apps need to talk to each other (like your company's HR software accessing Microsoft Teams), they use special "app passwords" called client secrets. The hacker stole those app passwords — not human passwords — and used them to impersonate the apps themselves. Because security teams often monitor human logins closely but watch app-to-app traffic less carefully, this kind of attack can go undetected for days.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE · N/A CVSS — This is an identity abuse campaign, not a software vulnerability exploit.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH — Zyxel GS1900 zero-day -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Nov 4, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/" style="color:#111827;text-decoration:none;">Zyxel Zero-Day CVE-2026-107441 Exploited to Compromise Nearly 1,000 Network Switches Across 48 Countries</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> An unauthenticated out-of-bounds write in the Zyxel GS1900 switch web management interface (CVE-2026-107441, CVSS 8.8) was actively exploited against 996 devices in 48 countries — bypassing a previous patch that fixed a related but different flaw (CVE-2026-7273).</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises and ISPs running any of 10 affected GS1900 switch models with web management enabled, particularly those who believed they were protected by the earlier October firmware update for CVE-2026-7273.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update all GS1900 switches to the October 22 firmware release immediately — the previous patch does NOT protect against this new flaw; also disable web management from untrusted networks where possible.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers exploited the unauthenticated out-of-bounds write in the GS1900 web interface to execute arbitrary OS commands without credentials, gaining control of network switching infrastructure.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        This case illustrates a dangerous pattern: a vendor patches one bug in a component, but the security researcher's public exploit was aimed at a different underlying weakness. When Zyxel released its patch for CVE-2026-7273, it was considered adequate. But researchers at Binarly discovered that the web management interface contained a separate out-of-bounds write that the first patch left untouched — and attackers had already found it.
+        <br><br>
+        GreyNoise tracked exploitation activity against 996 devices across 48 countries, attributing the attacks to a single operator who began scanning around mid-August. The flaw operates over plain HTTP from any host that can reach the management interface, meaning even internal network access — from a compromised workstation, for example — is sufficient to trigger it without authentication.
+        <br><br>
+        Network infrastructure attacks of this kind are particularly dangerous because a compromised switch sits in the data path: attackers can capture unencrypted traffic, redirect connections, or use the device as a persistent foothold invisible to endpoint detection tools. Zyxel rates the flaw CVSS 8.8; some researchers argue it should be higher given the unauthenticated HTTP attack vector.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A network switch is the box that connects all devices in an office — computers, printers, security cameras — to each other. This vulnerability lets a hacker take control of that box without knowing any password, just by sending a specially crafted web request to its management page. Once an attacker controls the switch, they can eavesdrop on all network traffic flowing through it, like tapping a phone line.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-107441 · CVSS: 8.8/10 — Unauthenticated out-of-bounds write in web management CGI enabling OS command execution.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH — Ivanti Connect Secure zero-day chain -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 4, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/ivanti-patches-two-more-zero-days-exploited-in-connect-secure-attack-chain/" style="color:#111827;text-decoration:none;">Ivanti Patches Two New Zero-Days Chained with Auth Bypass for Full Root Access on Connect Secure VPNs</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Volexity discovered threat actor UTA0576 chaining three Connect Secure zero-days — CVE-2026-104935 (auth bypass) + CVE-2026-111357 (CVSS 8.8, privilege escalation) + CVE-2026-118527 (CVSS 4.3, file upload) — to achieve unauthenticated root access on VPN appliances, with active exploitation observed since October 3.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Ivanti Connect Secure prior to versions 25.1.1.3 or 22.8R2.6; federal civilian agencies face a CISA patch deadline of November 13 for CVE-2026-118527.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to ICS 25.1.1.3 or 22.8R2.6 immediately, run the Ivanti Integrity Checker Tool, hunt for lateral movement artifacts from October 3 onward, and check for unexpected files in known-path locations.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">UTA0576 chained an authentication bypass with a local privilege escalation flaw to reach root on ICS appliances from an initially unauthenticated position, completing full compromise of the network perimeter device.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        Ivanti Connect Secure has been a persistent target for sophisticated actors, and this latest chain is among the most complete exploit sequences disclosed against VPN infrastructure. By chaining all three vulnerabilities, UTA0576 achieves the highest possible impact from the network edge: bypass authentication to get in, escalate to root to gain full control, and use the predictable file-upload path to stage persistent tools.
+        <br><br>
+        Volexity's investigation found no use of traditional malware or web shells in the initial stages — consistent with tradecraft designed to evade Ivanti's built-in Integrity Checker. The firm describes UTA0576 as a previously unknown actor motivated by criminal rather than espionage objectives, though Volexity notes this assessment carries low confidence given limited data. Activity was observed from October 3, giving attackers over a month of potential dwell time before patches arrived.
+        <br><br>
+        The CISA-mandated deadlines (November 2 for CVE-2026-111357, November 13 for CVE-2026-118527) cover only federal civilian agencies. Private sector organizations should treat these as urgent given confirmed in-the-wild exploitation. The fixed versions require a full appliance upgrade — there are no workarounds.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A VPN appliance is the device employees connect through to access the company network remotely. This attack chain is like finding three security flaws in a building's front door: the first lets you pick the lock, the second lets you get the master key once inside, and the third lets you hide your tools in a predictable spot. Chaining all three means the attacker gets complete control of the front door — and everything behind it — without any alarm going off.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-111357 · CVSS: 8.8/10 — Local privilege escalation to root; also CVE-2026-118527 (CVSS 4.3) file upload and CVE-2026-104935 auth bypass.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: UTA0576 -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">UTA0576</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal threat actor · Attribution: Unknown (Poland-based hosting IP observed)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Organizations using Ivanti Connect Secure VPN appliances; Volexity first observed activity October 3, 2026, in an enterprise environment</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Chaining three Ivanti zero-days (auth bypass + privilege escalation + file upload) to achieve unauthenticated root access; tradecraft avoids traditional malware to evade integrity checking tools; Volexity assesses criminal (not espionage) motivation with low confidence</div>
+</div>
+
+<!-- STORY 5: HIGH — WordPress KEV -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Nov 4, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/search/label/Vulnerability" style="color:#111827;text-decoration:none;">CISA Adds WordPress Core Flaw to KEV Catalog as 63,000 Attacks Surge in 24 Hours</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added a WordPress Core vulnerability to its Known Exploited Vulnerabilities (KEV) catalog on November 4, confirming active exploitation in the wild; simultaneously, a separate WordPress remote code execution flaw drew nearly 63,000 attack attempts in just 24 hours.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> WordPress website administrators worldwide running outdated Core versions — WordPress powers approximately 43% of all websites, making the attack surface exceptionally broad.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update WordPress Core to the latest version immediately, review server logs for unauthorized file writes or admin account creation, and consider installing a web application firewall to block exploitation attempts while patching.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Mass scanning generating 63,000 exploitation attempts in 24 hours targets unpatched WordPress installations for initial access, allowing attackers to establish footholds across thousands of websites simultaneously.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        CISA's KEV catalog is a definitive signal: when a flaw appears there, it means real attackers are actively exploiting it against real organizations, not just proof-of-concept researchers testing in labs. The simultaneous surge of 63,000 attack attempts on a second WordPress RCE flaw — whether related or separate — indicates an coordinated campaign by multiple actors taking advantage of the patching gap.
+        <br><br>
+        WordPress's ubiquity makes it a perpetual target. With approximately 43% of all websites running WordPress, automated scanning tools can find vulnerable installations at massive scale in hours. Compromised WordPress sites are typically weaponized for three purposes: hosting phishing pages, distributing malware to visitors, or serving as stepping stones for further network intrusion if the web server has access to backend databases or internal services.
+        <br><br>
+        The combination of a KEV-confirmed flaw and a simultaneous mass-exploitation wave against a separate RCE is unusual and suggests either coordinated threat actor activity or a rapidly developing ecosystem of exploits targeting WordPress Core. All WordPress administrators should treat this as an emergency update, not a routine patch.
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> WordPress is the software behind nearly half of all websites on the internet. These vulnerabilities are like skeleton keys that work on nearly half the websites in existence. The 63,000 attacks in 24 hours means hackers wrote automated scripts that knocked on doors all across the internet, trying each vulnerable site — the digital equivalent of walking down an entire city block checking if every door is unlocked.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE TBD (KEV-confirmed) · CVSS: Pending — Active exploitation confirmed by CISA KEV listing November 4, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Workload Identity Federation ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    When an application needs to prove who it is to a cloud service — say, a CI/CD pipeline asking Azure for permission to deploy code — it traditionally used a stored "client secret," essentially an app password. Workload Identity Federation replaces that static secret with a trust relationship: the cloud platform says "I'll accept any token issued by this identity provider for this specific workload," and the app proves its identity with a short-lived, automatically-rotating token instead of a password that can be stolen. The Entra ID breach in today's news exploited stolen client secrets precisely because those long-lived credentials were being used instead of federated, ephemeral tokens — if Workload Identity Federation had been enforced, the stolen secrets would have been worthless the moment the attack began.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: Entra ID · MSP · Out-of-Bounds Write · Workload Identity ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Entra ID</strong> — Microsoft's cloud-based identity and access management platform (formerly Azure Active Directory) used to authenticate users and applications in Microsoft 365 and Azure environments.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">MSP</strong> — Managed Service Provider; a third-party company that remotely manages IT infrastructure and services for other businesses, making them a high-value attack target because a single compromise can reach all their clients simultaneously.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Out-of-Bounds Write</strong> — A memory safety vulnerability where a program writes data beyond the end of its allocated memory buffer, potentially overwriting adjacent data and enabling an attacker to redirect code execution.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Workload Identity</strong> — A non-human identity assigned to an application, service, or automated process to authenticate to cloud APIs and resources, ideally using short-lived federated tokens rather than long-lived stored passwords.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://gbhackers.com/" style="color:#374151;text-decoration:none;">Google Chrome Patches 213 Vulnerabilities Including 7 Rated Critical</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GBHackers</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://source.android.com/docs/security/bulletin/2026-11-01" style="color:#374151;text-decoration:none;">Android November 2026 Security Bulletin Addresses Critical RCE Flaws</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Android Security Bulletin</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://gbhackers.com/" style="color:#374151;text-decoration:none;">Chainstack Production Breach Exposes Customer Data and Password Hashes</a>
+    <span style="color:#9ca3af;font-size:11px;"> · GBHackers</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Nov 5, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

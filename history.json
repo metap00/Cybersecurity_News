@@ -1,6 +1,6 @@
 {
   "til": [
-    "SOCKS5 Proxying",
+    "Workload Identity Federation",
     "Vulnerability Chaining",
     "Canary Tokens",
     "SBOM",
@@ -9,10 +9,6 @@
     "Cryptographic Agility"
   ],
   "glossary": [
-    "WDAC",
-    "RaaS",
-    "LAPS",
-    "SSRF",
     "Cobalt Strike",
     "BloodHound",
     "Authentication Bypass",
@@ -58,12 +54,16 @@
     "Zero-Day Chain",
     "SIEM",
     "MFA",
-    "PKI"
+    "PKI",
+    "Entra ID",
+    "MSP",
+    "Out-of-Bounds Write",
+    "Workload Identity"
   ],
   "week": {
-    "critical": 5,
-    "high": 8,
-    "medium": 6,
+    "critical": 6,
+    "high": 12,
+    "medium": 9,
     "techniques": [
       "T1565.002",
       "T1190",
@@ -74,15 +74,25 @@
       "T1499.004",
       "T1078.004",
       "T1482",
-      "T1195.001"
+      "T1195.001",
+      "T1528",
+      "T1068"
     ],
     "actors": [
       "Warp Panda",
       "TraderTraitor",
-      "GOLD OGRE"
+      "GOLD OGRE",
+      "UTA0576"
     ]
   },
   "digests": [
+    {
+      "date": "2026-11-05",
+      "threat": "ELEVATED",
+      "critical": 1,
+      "high": 4,
+      "medium": 3
+    },
     {
       "date": "2026-11-04",
       "threat": "QUIET",
@@ -705,13 +715,6 @@
       "critical": 3,
       "high": 3,
       "medium": 1
-    },
-    {
-      "date": "2026-07-19",
-      "threat": "ELEVATED",
-      "critical": 3,
-      "high": 3,
-      "medium": 2
     }
   ]
 }
