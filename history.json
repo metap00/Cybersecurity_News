@@ -1,22 +1,14 @@
 {
   "til": [
-    "Vulnerability Chaining",
     "Canary Tokens",
     "SBOM",
     "Memory Tagging Extension (MTE)",
     "Living off the Land (LotL)",
     "Cryptographic Agility",
-    "Return-Oriented Programming (ROP)"
+    "Return-Oriented Programming (ROP)",
+    "Threat Modeling"
   ],
   "glossary": [
-    "Patch Tuesday",
-    "IKE",
-    "FortiOS",
-    "Integrity Checker",
-    "Management Interface",
-    "RAT",
-    "UPI",
-    "BNC",
     "CWE",
     "C2",
     "IOC",
@@ -58,7 +50,15 @@
     "Workload Identity",
     "ROP",
     "Gadget",
-    "Stack Canary"
+    "Stack Canary",
+    "Patch Tuesday",
+    "IKE",
+    "FortiOS",
+    "Integrity Checker",
+    "Management Interface",
+    "RAT",
+    "STRIDE",
+    "Attack Surface"
   ],
   "week": {
     "critical": 6,
@@ -86,6 +86,7 @@
     ]
   },
   "digests": [
+    {"date": "2026-11-07", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-06", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-05", "threat": "ELEVATED", "critical": 1, "high": 4, "medium": 3},
     {"date": "2026-11-04", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
