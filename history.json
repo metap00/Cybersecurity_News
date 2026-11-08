@@ -1,16 +1,14 @@
 {
   "til": [
-    "Canary Tokens",
     "SBOM",
     "Memory Tagging Extension (MTE)",
     "Living off the Land (LotL)",
     "Cryptographic Agility",
     "Return-Oriented Programming (ROP)",
-    "Threat Modeling"
+    "Threat Modeling",
+    "Certificate Transparency"
   ],
   "glossary": [
-    "CWE",
-    "C2",
     "IOC",
     "DNS Sinkhole",
     "Canary Token",
@@ -58,34 +56,19 @@
     "Management Interface",
     "RAT",
     "STRIDE",
-    "Attack Surface"
+    "Attack Surface",
+    "CT Log",
+    "Merkle Tree"
   ],
   "week": {
-    "critical": 6,
-    "high": 12,
-    "medium": 9,
-    "techniques": [
-      "T1565.002",
-      "T1190",
-      "T1562.002",
-      "T1078",
-      "T1657",
-      "T1059.004",
-      "T1499.004",
-      "T1078.004",
-      "T1482",
-      "T1195.001",
-      "T1528",
-      "T1068"
-    ],
-    "actors": [
-      "Warp Panda",
-      "TraderTraitor",
-      "GOLD OGRE",
-      "UTA0576"
-    ]
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "techniques": [],
+    "actors": []
   },
   "digests": [
+    {"date": "2026-11-08", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-07", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-06", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-05", "threat": "ELEVATED", "critical": 1, "high": 4, "medium": 3},
@@ -174,8 +157,6 @@
     {"date": "2026-08-14", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1},
     {"date": "2026-08-13", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-08-12", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 0},
-    {"date": "2026-07-23", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-07-22", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 2},
-    {"date": "2026-07-21", "threat": "ELEVATED", "critical": 3, "high": 4, "medium": 2}
+    {"date": "2026-07-23", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2}
   ]
 }
