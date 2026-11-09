@@ -1,19 +1,14 @@
 {
   "til": [
-    "SBOM",
     "Memory Tagging Extension (MTE)",
     "Living off the Land (LotL)",
     "Cryptographic Agility",
     "Return-Oriented Programming (ROP)",
     "Threat Modeling",
-    "Certificate Transparency"
+    "Certificate Transparency",
+    "Zero-Click Exploit"
   ],
   "glossary": [
-    "IOC",
-    "DNS Sinkhole",
-    "Canary Token",
-    "Honeypot",
-    "OSINT",
     "TTP",
     "SBOM",
     "CRA",
@@ -58,16 +53,22 @@
     "STRIDE",
     "Attack Surface",
     "CT Log",
-    "Merkle Tree"
+    "Merkle Tree",
+    "SAML",
+    "musl libc",
+    "Residential Proxy",
+    "BYOD",
+    "Zero-Click"
   ],
   "week": {
-    "critical": 0,
-    "high": 0,
-    "medium": 0,
-    "techniques": [],
-    "actors": []
+    "critical": 1,
+    "high": 4,
+    "medium": 2,
+    "techniques": ["T1190", "T1556", "T1203", "T1552", "T1133"],
+    "actors": ["UTA0576"]
   },
   "digests": [
+    {"date": "2026-11-09", "threat": "ELEVATED", "critical": 1, "high": 4, "medium": 2},
     {"date": "2026-11-08", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-07", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-06", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
@@ -156,7 +157,6 @@
     {"date": "2026-08-15", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-08-14", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1},
     {"date": "2026-08-13", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-08-12", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 0},
-    {"date": "2026-07-23", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2}
+    {"date": "2026-08-12", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 0}
   ]
 }

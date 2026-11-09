@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 9, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 1 critical · 4 high · ~10 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-11-09.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: CRITICAL — Ivanti Connect Secure Zero-Day Chain -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / Rapid7 · Nov 9, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/ivanti-patches-two-more-zero-days-exploited-in-connect-secure-attack-chain/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Ivanti Patches Two More Zero-Days in Connect Secure Attack Chain, Root Access Possible</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Two new Ivanti Connect Secure VPN zero-days (CVE-2026-111357 and CVE-2026-118527) have been exploited in the wild as part of a three-bug chain enabling root-level access on enterprise VPN appliances.</div>
+    <div style="margin-top:2px;">👤 Organizations running Ivanti Connect Secure before versions 25.1.1.3 or 22.8R2.6; October patchers are still exposed to these two newer CVEs.</div>
+    <div style="margin-top:2px;">✅ Upgrade immediately to 25.1.1.3 or 22.8R2.6 and run Ivanti's Integrity Checker Tool to detect prior compromise.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 2: HIGH — OpenSSH "sshole" -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Nov 9, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Hackers Exploit OpenSSH "sshole" Flaw Within Hours — Root Access on Alpine Linux Honeypot</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 CVE-2026-123158 is an OpenSSH password auth bypass affecting Alpine Linux and musl libc systems, exploited on a honeypot within hours of public disclosure; CVSS 8.1.</div>
+    <div style="margin-top:2px;">👤 Systems running OpenSSH before 10.6p2 on Alpine Linux or musl libc — extremely common in Docker container and cloud environments.</div>
+    <div style="margin-top:2px;">✅ Upgrade to OpenSSH 10.6p2 and restart sshd; audit logs for unexpected "Accepted password" entries on locked accounts.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1556 · Modify Authentication Process</div>
+</div>
+
+<!-- STORY 3: HIGH — Android November 2026 Patch -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 9, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/androids-november-2026-updates-patch-over-200-vulnerabilities/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Android November 2026 Patch: 216 Bugs Fixed Including Critical Zero-Click RCE (CVE-2026-58868)</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Google's November 2026 Android bulletin patches 216 CVEs, 23 Critical, led by CVE-2026-58868 — a zero-click RCE flaw in the Android Framework affecting versions 14–17.</div>
+    <div style="margin-top:2px;">👤 All Android 14–17 users whose device manufacturers have not yet distributed the November patch.</div>
+    <div style="margin-top:2px;">✅ Check Settings → Security → Security update; for complete coverage seek patch level 2026-11-05+; enforce minimum patch levels on corporate devices via MDM.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1203 · Exploitation for Client Execution</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://www.bleepingcomputer.com/news/security/dreamhost-confirms-data-breach-exposed-ftp-logins-and-webmail-sessions/" style="color:#374151;text-decoration:none;">DreamHost File Manager Breach: FTP/SFTP and Webmail Credentials Stolen Over 10 Weeks</a>
+    <span style="color:#9ca3af;"> · BleepingComputer</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://www.securityweek.com/sonicwall-patches-authentication-bypass-vulnerabilities-in-firewalls/" style="color:#374151;text-decoration:none;">SonicOS SSLVPN CVE-2026-19868: SAML/MFA Authentication Bypass in CISA KEV</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://therecord.media/michigan-state-university-byod-gang-cyber-incident" style="color:#374151;text-decoration:none;">BYOD Ransomware Gang Claims 1.3M Michigan State University Student Records</a>
+    <span style="color:#9ca3af;"> · The Record</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/11/mirax-android-rat-turns-devices-into.html" style="color:#374151;text-decoration:none;">Mirax Android RAT: Updated Reporting on Banking Credential Theft via Fake Streaming App Ads</a>
+    <span style="color:#9ca3af;"> · Cyber Security News</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-11-09.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Nov 9, 2026</div>
+
+</body>
+</html>

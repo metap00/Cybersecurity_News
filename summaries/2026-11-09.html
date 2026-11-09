@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Nov 9, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 9, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 1 critical · 4 high · 2 medium · ~10 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — Ivanti Connect Secure Zero-Day Chain -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / Rapid7 · Nov 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/ivanti-patches-two-more-zero-days-exploited-in-connect-secure-attack-chain/" style="color:#111827;text-decoration:none;">Ivanti Patches Two More Zero-Days in Connect Secure Attack Chain, Root Access Possible</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Two new Ivanti Connect Secure VPN zero-days (CVE-2026-111357 and CVE-2026-118527) have been exploited in the wild as part of a three-bug chain enabling root-level access on enterprise VPN appliances.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Ivanti Connect Secure before versions 25.1.1.3 or 22.8R2.6; administrators who patched in October for CVE-2026-104935 are still exposed to these two newer CVEs.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade immediately to Ivanti Connect Secure 25.1.1.3 or 22.8R2.6, then run Ivanti's Integrity Checker Tool to detect prior compromise — the CISA federal deadline for CVE-2026-118527 is November 13, 2026.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers exploit Ivanti's public-facing VPN appliance by chaining three CVEs — authentication bypass, privilege escalation (CWE-306 missing auth for critical function), and predictable file placement — to achieve persistent root access on the network perimeter device without valid credentials.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>This is the third and most dangerous chapter in an ongoing Ivanti Connect Secure exploit saga. The original flaw (CVE-2026-104935), an authentication bypass rated 8.8, was patched on October 13. But Volexity researchers discovered that attackers had already pivoted to two additional flaws in the same codebase: CVE-2026-111357, a "missing authentication for critical function" bug (CWE-306), and CVE-2026-118527, which lets authenticated attackers write files to predictable paths. When chained, all three give an unauthenticated remote attacker root shell access on the VPN appliance.</p>
+        <p>CISA added both CVEs to its Known Exploited Vulnerabilities (KEV) catalog on October 30, citing confirmed in-the-wild exploitation. The federal civilian agency deadline for CVE-2026-111357 was November 2; for CVE-2026-118527 it is November 13, 2026. Volexity attributes the campaign to a threat actor it tracks as UTA0576, with targets consistent with government and critical-infrastructure networks. Organizations that patched in October for CVE-2026-104935 but have not yet updated to 25.1.1.3 or 22.8R2.6 remain fully exposed to this chain.</p>
+        <p>Indicators of compromise include unexpected outbound connections, unauthorized VPN sessions, new administrator accounts, and modified configuration files on the appliance. Ivanti's Integrity Checker Tool (ICT) can flag unauthorized changes to firmware. Any organization that may have been compromised before patching should treat the appliance as untrusted and conduct a full incident-response investigation.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Imagine your company's VPN gateway — the door employees use to work remotely — is a secure vault. These three vulnerabilities are like finding a hidden back entrance, a trick that unlocks the manager's override key, and a way to leave a copy of the master key on a known shelf. When combined, any attacker on the internet can get in without a password and gain the highest level of access. If your company uses Ivanti Connect Secure for remote access, this is an emergency patch situation.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-111357 · CVSS: 8.8/10 — Missing authentication for a critical function allows local privilege escalation to root. CVE-2026-118527 · CVSS: 4.3/10 — Predictable file path write enables persistent payload placement on the appliance.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: UTA0576 -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">UTA0576</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State (suspected) · Attribution: Under Investigation (tracked by Volexity)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Enterprise VPN infrastructure, government agencies, and critical-infrastructure networks globally</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Chaining Ivanti Connect Secure zero-days for persistent network access; exploiting authentication bypass and privilege escalation flaws in edge devices to establish durable footholds ahead of full network compromise</div>
+</div>
+
+<!-- STORY 2: HIGH — OpenSSH "sshole" CVE-2026-123158 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Nov 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html" style="color:#111827;text-decoration:none;">Hackers Exploit OpenSSH "sshole" Flaw Within Hours of Disclosure, Gaining Root Access on Alpine Linux Honeypot</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CVE-2026-123158, nicknamed "sshole," is an OpenSSH password authentication bypass affecting systems using musl libc (most notably Alpine Linux) without PAM, confirmed exploited on a honeypot within hours of public disclosure.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Systems running OpenSSH prior to 10.6p2 on Alpine Linux or any distribution using musl libc — particularly prevalent in Docker container environments and cloud microservices built on Alpine base images.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to OpenSSH 10.6p2 (or the branch-specific Alpine patched package) and restart sshd; audit logs for unexpected "Accepted password" entries on accounts configured to reject passwords.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1556 · Modify Authentication Process<br>
+      <span style="color:#6b7280;">The vulnerability exploits a flaw in sshd's password handling where oversized input interacts with musl libc's crypt() function in a way that bypasses credential validation — directly subverting how the system verifies identity, the core of ATT&CK's T1556 technique.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The vulnerability stems from how OpenSSH's sshd interacts with musl libc — a lightweight C library used in Alpine Linux and many Docker containers — when password authentication is enabled but PAM (Pluggable Authentication Modules) is not. The root cause: when the stored password hash is shorter than 4 characters (which occurs on locked accounts configured via "*" or "!" in /etc/shadow), sending an unusually long password input causes the comparison to succeed, bypassing authentication entirely. OpenSSH 10.6p2 addresses this by validating hash length before the comparison takes place.</p>
+        <p>Alpine Linux is by far the most popular base image for Docker containers — the majority of containerized services, CI/CD runners, web servers, and microservices deployed to cloud environments use Alpine. If sshd is enabled and password authentication is on, those containers could be internet-exposed or reachable from compromised services on the same network. Exploitation on a public honeypot within hours of disclosure confirms threat actors have weaponized the vulnerability and are actively scanning. While CISA has not yet added this to KEV as of this writing, the speed of exploitation makes it urgent.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> SSH is the standard secure way to log into a remote server via the terminal. This flaw is like a combination lock that opens if you just spin the dial long enough — the combination itself stops mattering. Alpine Linux is what most Docker images are built on; if you've ever used a Docker image starting with "FROM alpine," your app might be running affected software. Upgrade any Alpine-based containers that expose SSH, and do it now.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-123158 · CVSS: 8.1/10 — Password authentication bypass via oversized input interacting with musl libc's crypt() function; affects OpenSSH sshd without PAM on musl-based Linux systems; patched in 10.6p2.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH — Android November 2026 Patch CVE-2026-58868 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/androids-november-2026-updates-patch-over-200-vulnerabilities/" style="color:#111827;text-decoration:none;">Android November 2026 Patch Fixes 216 Bugs Including Critical Zero-Click RCE (CVE-2026-58868)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Google's November 2026 Android Security Bulletin patches 216 vulnerabilities including 23 rated Critical, led by CVE-2026-58868 — a zero-click remote code execution flaw in the Android Framework component affecting Android 14 through 17.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Android 14–17 users whose devices have not yet received the November 2026 security patch level (2026-11-01 or later); timing depends on device manufacturers and carriers.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Check Settings → Security → Security update and apply the November 2026 patch; for full bulletin coverage seek patch level 2026-11-05 or later, and configure your MDM to enforce minimum patch levels on corporate devices.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1203 · Exploitation for Client Execution<br>
+      <span style="color:#6b7280;">CVE-2026-58868 is exploitable without any user interaction — an attacker can send a specially crafted packet or message to execute code on Android 14–17 devices, perfectly matching T1203's pattern of client-side exploitation requiring zero victim action.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>November 2026 is one of Google's largest Android patch cycles in recent memory, covering 216 CVEs across the Android Framework, System, Kernel, and vendor components. The marquee flaw, CVE-2026-58868, resides in the Android Framework layer and is rated Critical because it enables remote code execution without requiring any action from the target — a "zero-click" vulnerability. Two additional Critical flaws in the System component (CVE-2026-58876 and CVE-2026-58936) were also patched. Google states none of these are currently being exploited in the wild.</p>
+        <p>The practical risk is fragmentation: Google patches Android on the first Monday of each month, but device manufacturers (Samsung, OnePlus, Motorola, etc.) and carriers need additional time to test and distribute updates. Many enterprise Android fleets and consumer devices will remain unpatched for weeks or months. Organizations managing corporate Android devices should use their MDM/EMM platform to enforce minimum patch levels. Personal device users on major Android brands should expect patches within 2–4 weeks and should check for updates manually rather than waiting for automatic delivery.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A "zero-click" vulnerability means an attacker can take over your phone without you tapping anything, clicking any link, or downloading any app — your phone could be compromised just by receiving a message. It's especially dangerous because there's no warning sign. Keeping your Android phone updated is the single most important step to protect against these flaws. Check for updates manually in your phone's settings — don't wait for a notification.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-58868 · CVSS: Critical — Zero-click remote code execution in Android Framework; affects Android 14–17; no reported exploitation in the wild as of Nov 9, 2026. Full coverage requires patch level 2026-11-05+.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH — DreamHost File Manager Breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Nov 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/dreamhost-confirms-data-breach-exposed-ftp-logins-and-webmail-sessions/" style="color:#111827;text-decoration:none;">DreamHost Confirms File Manager Breach: FTP/SFTP and Webmail Credentials Stolen Over 10 Weeks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> An attacker exploited an undisclosed vulnerability in DreamHost's browser-based File Manager to steal FTP/SFTP usernames and passwords — along with some webmail session credentials — for customers who used the tool between August and October 23, 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> DreamHost customers who logged into files.dreamhost.com during the ~10-week intrusion window; the company says "well under 10%" of hosted FTP/SFTP and email accounts were affected, with no control-panel or billing data compromised.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Change FTP/SFTP passwords immediately if you used DreamHost's File Manager, audit your site files for unexpected modifications, switch to SFTP key-based authentication, and check webmail forwarding rules for unauthorized additions.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1552 · Unsecured Credentials<br>
+      <span style="color:#6b7280;">The attacker targeted DreamHost's File Manager to harvest FTP/SFTP credentials and active webmail session tokens from an application storing authentication material in an accessible way — a textbook case of credential collection via insecure credential exposure in a web-hosted management tool.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>DreamHost's browser-based File Manager lets customers manage their hosting files without a desktop FTP client. An attacker exploited an undisclosed vulnerability in this tool to intercept or access FTP/SFTP credentials and webmail session tokens over approximately ten weeks — from August 2026 until DreamHost discovered the breach on October 23. The specific flaw has not been publicly identified. DreamHost found no evidence of compromised control-panel credentials or billing information, but email contents and files stored on FTP/SFTP servers may also have been accessed during the window.</p>
+        <p>The practical risk extends beyond the breach itself: stolen FTP credentials allow attackers to silently modify hosted websites to inject malware, credit-card skimmers (Magecart-style JavaScript), or phishing pages that victimize site visitors without the site owner's knowledge. Stolen webmail sessions could expose business email, supplier communications, and password reset links for other services. Any site with potentially compromised FTP credentials should be treated as potentially modified and undergo a thorough file integrity audit. DreamHost has reset affected passwords and ended active sessions; users must set a new password in the control panel.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> FTP is how website owners upload and manage their site's files — think of it as the behind-the-scenes control panel for a website's contents. If a hacker has your FTP password, they can add or change files on your website without you knowing — this is how legitimate websites get turned into malware distributors or fake login pages. If you use DreamHost, check your site's files for anything unexpected and change your hosting passwords now.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Undisclosed vulnerability in DreamHost File Manager web interface — intrusion ran Aug–Oct 23, 2026, affecting under 10% of FTP/SFTP and email accounts; FTP/webmail credentials and potentially site file contents exposed.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH — SonicOS SSLVPN CVE-2026-19868 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 6, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/sonicwall-patches-authentication-bypass-vulnerabilities-in-firewalls/" style="color:#111827;text-decoration:none;">SonicWall SSLVPN CVE-2026-19868: SAML Authentication Bypass Circumvents MFA — In CISA KEV</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CVE-2026-19868 is an authentication enforcement flaw in SonicOS SSLVPN that allows a user with credentials for an alternate authentication method to bypass SAML controls — including SAML-enforced multi-factor authentication — and gain VPN access without completing the full MFA flow.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using SonicWall firewalls with SSLVPN enabled in SAML authentication mode; CISA has flagged this as a Known Exploited Vulnerability, indicating active use in attacks against real-world networks.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the SonicWall PSIRT patch when published, disable any alternate login methods that bypass SAML on the SSLVPN portal, and restrict VPN access to known-IP allowlists while the fix is pending.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">This vulnerability abuses the SonicWall SSLVPN's external remote access service, allowing attackers to bypass authentication and enter the corporate network through the VPN as if they were a legitimately authenticated employee — directly targeting the boundary control organizations rely on for perimeter defense.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>SAML (Security Assertion Markup Language) is the enterprise standard for single sign-on and federated MFA. Organizations configure SonicWall SSLVPN to use SAML precisely to enforce MFA — requiring a hardware token, mobile authenticator, or biometric in addition to a password. CVE-2026-19868 (CWE-308: Use of Single-Factor Authentication Where Multi-Factor Is Required, CVSS 7.5) undermines this entirely: an attacker who possesses or guesses any alternate credential accepted by the VPN service can skip the SAML/MFA requirement and log directly in.</p>
+        <p>MFA bypass vulnerabilities on VPN gateways are especially prized by ransomware operators and nation-state groups because VPN access typically leads directly to the internal corporate network, bypassing all perimeter security controls. CISA's KEV designation confirms this is not theoretical — real attackers are actively using it. No public patch details have been disclosed as of Nov 9, raising immediate urgency for interim mitigations: disabling alternate authentication paths that don't route through SAML, and setting up geo-based or IP-based access restrictions on the SSLVPN portal.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> MFA (Multi-Factor Authentication) is the extra step — like a code texted to your phone — that protects accounts even if someone steals your password. SAML is how corporate systems enforce that extra step centrally. This vulnerability is like a secret back door to the office that bypasses the security guard who checks for your ID and phone code together — attackers can walk straight in. If your company uses SonicWall for VPN access, ask your IT team whether this applies and what mitigations are in place right now.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-19868 · CVSS: 7.5/10 — Authentication enforcement bypass in SonicOS SSLVPN allows SAML/MFA circumvention via alternate credential methods; in CISA KEV catalog with active exploitation confirmed; no public patch details disclosed as of Nov 9, 2026.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Zero-Click Exploit ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A zero-click exploit is a type of cyberattack that compromises a device without the target ever needing to tap, click, or open anything — the malicious code runs automatically when a device receives a specially crafted message, image, or data packet. These are especially dangerous because all the conventional "don't click suspicious links" advice offers zero protection, making them valuable for nation-state surveillance tools like Pegasus and high-end criminal operations willing to pay premium prices. Historically, zero-click bugs have been found in messaging apps (iMessage, WhatsApp), image rendering libraries, and operating system components that process incoming data before any user sees it — the Android Framework flaw patched this month is a prime example.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: SAML · musl libc · Residential Proxy · BYOD · Zero-Click ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SAML</strong> — Security Assertion Markup Language; an open standard that lets a single identity provider (like Azure AD or Okta) authenticate users across multiple services using a trust token, enabling corporate single sign-on and centralized MFA enforcement.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">musl libc</strong> — A lightweight alternative to the standard C library (glibc) used in minimal Linux distributions like Alpine; its smaller codebase makes it popular for containers but can introduce subtle behavioral differences from glibc that expose vulnerabilities when software assumes glibc semantics.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Residential Proxy</strong> — An intermediary server that routes internet traffic through the IP address of a real home device (often an infected phone or PC), making malicious traffic appear to come from a legitimate consumer internet connection and bypassing blocks that target data-center IPs.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">BYOD</strong> — Bring Your Own Device; a corporate policy permitting personal devices for work tasks, and also the name of a ransomware group that exploits weakly managed personal devices to pivot into corporate networks.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Zero-Click</strong> — An attack class requiring no interaction from the victim; the exploit fires automatically upon receipt of a malicious packet, message, or media file, leaving users with no behavioral defenses against compromise.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://therecord.media/michigan-state-university-byod-gang-cyber-incident" style="color:#374151;text-decoration:none;">BYOD Ransomware Gang Claims 1.3M Michigan State University Student Records — University Investigating</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Record</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/2026/11/mirax-android-rat-turns-devices-into.html" style="color:#374151;text-decoration:none;">Mirax Android RAT: Updated Reporting on Banking Credential Theft via Fake Streaming App Ads</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Cyber Security News</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Nov 9, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
