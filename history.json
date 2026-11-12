@@ -1,14 +1,19 @@
 {
   "til": [
+    "Supply Chain Attack",
     "Cryptographic Agility",
     "Return-Oriented Programming (ROP)",
     "Threat Modeling",
     "Certificate Transparency",
     "Zero-Click Exploit",
-    "Kerberoasting",
-    "DNS over HTTPS (DoH)"
+    "Kerberoasting"
   ],
   "glossary": [
+    "IoC",
+    "OSINT",
+    "EDR",
+    "C2",
+    "TTP",
     "Privilege Escalation",
     "KEV",
     "DeFi",
@@ -57,6 +62,7 @@
     "actors": ["UTA0576"]
   },
   "digests": [
+    {"date": "2026-11-12", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-11", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-10", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-09", "threat": "ELEVATED", "critical": 1, "high": 4, "medium": 2},
