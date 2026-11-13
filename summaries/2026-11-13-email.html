@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 13, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 1 critical · 3 high · ~9 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-11-13.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: SignDrop CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Nov 12, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/11/new-signdrop-zero-day-exploit-turns.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">New SignDrop Zero-Day Exploit Turns Windows CLFS Security Feature Into SYSTEM Access</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Researcher publicly released a PoC exploit abusing Windows CLFS kernel driver authentication to escalate any local user to SYSTEM — no patch exists.</div>
+    <div style="margin-top:2px;">👤 All Windows 11 26H2 and Windows Server 2025 systems with the CLFS HMAC mitigation enabled (default on updated systems).</div>
+    <div style="margin-top:2px;">✅ Monitor the CLFS Authentication registry key, deploy detection rules for companion-file manipulation, and await an emergency patch from Microsoft.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation</div>
+</div>
+
+<!-- STORY 2: Apache HTTP/2 RCE HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Nov 11, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/11/critical-apache-http2-flaw-could-let.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Critical Apache HTTP/2 Flaw Allows Unauthenticated RCE on Web Servers (CVE-2026-119618, CVSS 9.8)</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Race condition in mod_http2's assign_headers() function allows unauthenticated remote code execution; fixed in Apache 2.4.71.</div>
+    <div style="margin-top:2px;">👤 All servers running Apache HTTP Server 2.4.55–2.4.70 with HTTP/2 enabled — a very common default for modern deployments.</div>
+    <div style="margin-top:2px;">✅ Upgrade to Apache 2.4.71 with a full restart, or disable HTTP/2 immediately as a temporary mitigation.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 3: Outlook NTLM HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / SecurityWeek · Nov 11, 2026</span>
+  </div>
+  <a href="https://cybersecuritynews.com/active-exploitation-of-outlook-0-day-vulnerability" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">CISA Confirms Active Exploitation of Outlook Zero-Day CVE-2026-124194 That Leaks NTLMv2 Hashes</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Opening a crafted Outlook message forces silent authentication to an attacker server, exposing NTLMv2 credential hashes; CISA added to KEV with a Nov 24 federal deadline.</div>
+    <div style="margin-top:2px;">👤 All Microsoft Outlook users on Windows, particularly those in organizations using NTLM on internal corporate networks.</div>
+    <div style="margin-top:2px;">✅ Apply the November 2026 Microsoft 365 Apps / Office security update now — it ships via standard Windows Update.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1187 · Forced Authentication</div>
+</div>
+
+<!-- STORY 4: Maersk HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Nov 11, 2026</span>
+  </div>
+  <a href="https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Maersk Confirms Data Breach as WhiteArmor Ransomware Demands $5 Million for 100GB Stolen Data</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Global shipping giant Maersk confirmed a legacy-system breach; WhiteArmor claims 100GB exfiltrated including ~29,000 driver records and demands $5M in Bitcoin.</div>
+    <div style="margin-top:2px;">👤 Maersk logistics customers, supply chain partners, and tens of thousands of drivers whose personal data may be exposed.</div>
+    <div style="margin-top:2px;">✅ Affected drivers should change passwords and watch for phishing; organizations using Maersk APIs should audit and rotate credentials.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Exfiltration] T1041 · Exfiltration Over C2 Channel</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://ccb.belgium.be/advisories/warning-microsoft-patch-tuesday-november-2026-patches-1093-vulnerabilities-63-critical" style="color:#374151;text-decoration:none;">Microsoft November 2026 Patch Tuesday: ~1,094 CVEs, 63 Critical</a>
+    <span style="color:#9ca3af;"> · Microsoft</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/active-exploitation-of-outlook-0-day-vulnerability" style="color:#374151;text-decoration:none;">30+ Zero-Days Disclosed in N-able N-central ("Able2Shell") — Hotfixes Issued</a>
+    <span style="color:#9ca3af;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-11-13.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Nov 13, 2026</div>
+
+</body>
+</html>

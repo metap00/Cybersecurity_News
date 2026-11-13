@@ -1,14 +1,21 @@
 {
   "til": [
+    "NTLM Relay Attack",
     "Supply Chain Attack",
     "Cryptographic Agility",
     "Return-Oriented Programming (ROP)",
     "Threat Modeling",
     "Certificate Transparency",
-    "Zero-Click Exploit",
-    "Kerberoasting"
+    "Zero-Click Exploit"
   ],
   "glossary": [
+    "CLFS",
+    "LPE",
+    "NTLMv2",
+    "HMAC",
+    "mod_http2",
+    "Race Condition",
+    "Double Extortion",
     "IoC",
     "OSINT",
     "EDR",
@@ -51,17 +58,17 @@
     "SPN",
     "TGT",
     "gMSA",
-    "DoH",
-    "DNS Tunneling"
+    "DoH"
   ],
   "week": {
-    "critical": 1,
-    "high": 4,
-    "medium": 2,
-    "techniques": ["T1190", "T1556", "T1203", "T1552", "T1133"],
-    "actors": ["UTA0576"]
+    "critical": 2,
+    "high": 7,
+    "medium": 4,
+    "techniques": ["T1190", "T1556", "T1203", "T1552", "T1133", "T1068", "T1187", "T1041"],
+    "actors": ["UTA0576", "WhiteArmor"]
   },
   "digests": [
+    {"date": "2026-11-13", "threat": "ELEVATED", "critical": 1, "high": 3, "medium": 2},
     {"date": "2026-11-12", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-11", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-10", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},

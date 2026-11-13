@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Nov 13, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 13, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">6 stories · 1 critical · 3 high · 2 medium · ~9 min read</div>
+</div>
+
+<!-- STORY 1: SignDrop CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News / BleepingComputer · Nov 12, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/11/new-signdrop-zero-day-exploit-turns.html" style="color:#111827;text-decoration:none;">New SignDrop Zero-Day Exploit Turns Windows CLFS Security Feature Into SYSTEM Access</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A researcher publicly released a proof-of-concept exploit called SignDrop that exploits a flaw in the Windows CLFS kernel driver authentication mechanism, allowing a local user to escalate privileges to SYSTEM — with no patch available from Microsoft.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All users running Windows 11 26H2 and Windows Server 2025 with the CLFS authentication mitigation enabled (the default on updated systems).</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor the CLFS authentication registry key (HKLM\SYSTEM\CurrentControlSet\Services\CLFS\Authentication), apply endpoint detection rules for CLFS companion-file manipulation, and await an emergency patch from Microsoft.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">SignDrop exploits the CLFS kernel driver's new HMAC authentication mitigation to corrupt internal state and pivot from a standard user process to full SYSTEM-level execution on the local machine.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>SignDrop, released by researcher MSNightmare (also tracked as Nightmare-Eclipse), is a local privilege escalation exploit targeting the Windows Common Log File System (clfs.sys) kernel driver. The exploit weaponizes a security hardening feature Microsoft shipped in October 2025 that was intended to protect CLFS log files from tampering — specifically an HMAC-based authentication scheme applied to companion files (.cnpf). The flaw is not in the original CLFS code but in the new protection layer itself, making the fix extremely difficult without removing the mitigation entirely.</p>
+        <p>The PoC chains CLFS companion file manipulation with Windows Defender's privileged update interface to trigger execution as SYSTEM. Because it leverages a trusted Microsoft binary as the privileged trampoline, traditional execution-based detections may miss it. The researcher is part of the Howler Cell cluster, which has published 16 public zero-days over the past seven months — several also targeting CLFS. No CVE has been assigned and no Microsoft advisory exists as of publication.</p>
+        <p>The practical risk is significant: any attacker who can run code as a standard user (via phishing, a drive-by exploit, or an insider) can silently escalate to SYSTEM. Organizations running Windows 11 26H2 or Windows Server 2025 should treat this as an active threat until a patch arrives.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of SYSTEM as the most powerful account on a Windows computer — even more powerful than your administrator account. SignDrop is like finding a master key hidden inside the lock itself: a hacker who can already run a basic program on your PC can use this exploit to instantly gain total control over the entire system, with no warning and no password required.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · CVSS: N/A — Microsoft has not issued a formal advisory; severity is researcher-assessed as critical given SYSTEM-level impact and public PoC code.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: Apache HTTP/2 RCE HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Nov 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/11/critical-apache-http2-flaw-could-let.html" style="color:#111827;text-decoration:none;">Critical Apache HTTP/2 Flaw Could Let Unauthenticated Attackers Execute Code Remotely (CVE-2026-119618)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Apache patched a critical race condition in the mod_http2 module (CVE-2026-119618, CVSS 9.8) that allows an unauthenticated remote attacker to execute arbitrary code on any Apache HTTP Server serving HTTP/2 traffic, fixed in version 2.4.71.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any organization running Apache HTTP Server versions 2.4.55 through 2.4.70 with HTTP/2 enabled — a very common default configuration for modern deployments.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to Apache 2.4.71 immediately, perform a full restart (not graceful reload), or disable HTTP/2 by removing h2 and h2c from the Protocols directive as a temporary workaround.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">This race condition in Apache's HTTP/2 header assignment function lets unauthenticated internet-facing attackers compromise servers hosting any public-facing application, turning a patching gap into a direct server foothold.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-119618 is a race condition bug in the assign_headers() function inside Apache's mod_http2 module. HTTP/2 multiplexes many requests over a single TCP connection simultaneously, and when header assignment races between threads, it can corrupt heap memory in ways that give an attacker control over program execution. The flaw affects Apache 2.4.55 through 2.4.70, covering approximately three years of releases. Notably, the vulnerability was discovered through AI-assisted code analysis by a joint Anthropic/Google research effort — an increasingly common finding method for subtle concurrency bugs.</p>
+        <p>As of publication, no public exploit code has appeared and the CVE is not in CISA's KEV catalog. However, the CVSS 9.8 score and the prevalence of Apache in production environments make rapid patching critical — historical precedent shows similar Apache RCE flaws attract exploit development within days of disclosure. Linux distribution vendors (Debian, Red Hat, Ubuntu) are releasing backport patches for their supported versions, so checking your vendor's advisory may be faster than a full Apache version upgrade.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Apache is the software that serves billions of websites. HTTP/2 is a faster version of the web protocol used by most modern browsers. This bug is like a timing glitch in a busy restaurant kitchen: when two orders arrive at exactly the same moment, the cook gets confused and accidentally hands an attacker the keys to the entire restaurant — no login required.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-119618 · CVSS: 9.8/10 — A perfect near-maximum score reflecting unauthenticated access, no user interaction needed, and full system compromise potential on affected servers.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Outlook NTLM HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / SecurityWeek · Nov 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/active-exploitation-of-outlook-0-day-vulnerability" style="color:#111827;text-decoration:none;">CISA Confirms Active Exploitation of Outlook Zero-Day CVE-2026-124194 That Leaks NTLMv2 Hashes</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> CISA added CVE-2026-124194 to its Known Exploited Vulnerabilities catalog — a Microsoft Outlook flaw that forces authentication to an attacker's server when a victim opens a crafted email, exposing the user's NTLMv2 credential hash for offline cracking or relay attacks.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Microsoft Outlook users on Windows across enterprise, government, and home environments — particularly those in organizations using NTLM authentication on internal networks.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the November 2026 Microsoft 365 Apps / Office security update immediately; federal agencies must patch by November 24 per CISA's mandatory deadline.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1187 · Forced Authentication<br>
+      <span style="color:#6b7280;">CVE-2026-124194 coerces Outlook into silently authenticating to an attacker-controlled SMB server when a crafted message is opened, handing over the victim's NTLMv2 hash without any secondary user interaction.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-124194 is a forced-authentication vulnerability in Microsoft Outlook. When a user opens a specially crafted message (a .msg file or inline attachment), Outlook is tricked into reaching out to an attacker-controlled server using NTLM authentication — a Windows credential protocol — without displaying any warning. The server captures the resulting NTLMv2 response hash. The Preview Pane does not trigger the bug; the user must open the message. Microsoft originally rated it Moderate (CVSS 6.5), but active exploitation and CISA's KEV addition signal the real-world risk is substantially higher.</p>
+        <p>Once an attacker holds a victim's NTLMv2 hash, they have two paths: relay the hash in real time to authenticate to other internal servers (an NTLM relay attack), or crack it offline using tools like Hashcat on GPU clusters. Corporate domain credentials cracked this way grant lateral movement across internal networks. The fix ships with the standard November Patch Tuesday Office update — no special download needed if automatic updates are enabled.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> NTLM is an older Windows password verification system. When you open a booby-trapped email, Outlook quietly "knocks on the door" of the attacker's server and uses your Windows password to identify itself — the attacker captures that knock and can use it to impersonate you on your company's network, or try to guess your actual password from it.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-124194 · CVSS: 6.5/10 — Microsoft's moderate rating reflects spoofing rather than RCE, but active exploitation for credential theft elevates the practical risk significantly.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Maersk WhiteArmor HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer / SecurityWeek · Nov 11, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/" style="color:#111827;text-decoration:none;">Maersk Confirms Data Breach as WhiteArmor Ransomware Demands $5 Million for 100GB of Stolen Logistics Data</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Global shipping giant Maersk confirmed unauthorized access to a legacy IT system inherited through an acquisition, with the emerging ransomware group WhiteArmor claiming to hold 100GB of logistics data including approximately 29,000 driver records and demanding $5 million in Bitcoin.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Maersk customers, logistics partners, and potentially tens of thousands of drivers whose personal and credential data may have been exfiltrated from the former LF Logistics platform.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Affected drivers should assume credential compromise and change any reused passwords; organizations using Maersk's OCF/LF Logistics platform APIs should audit API credentials and monitor for anomalous access.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Exfiltration] T1041 · Exfiltration Over C2 Channel<br>
+      <span style="color:#6b7280;">WhiteArmor exfiltrated 100GB of sensitive logistics and driver data from Maersk's legacy acquisition infrastructure, using the data as leverage in a double-extortion scheme without deploying traditional file-encrypting ransomware.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Maersk — the world's second-largest container shipping company — confirmed on November 11 that a threat actor breached a legacy system acquired as part of an earlier business acquisition. The company says its core logistics platforms, customer-facing APIs, and EDI connections remain unaffected. The incident appears to be a "data theft extortion" attack rather than a traditional ransomware deployment — no encryption of production systems was reported.</p>
+        <p>WhiteArmor is an emerging criminal group that Ransomware.live began tracking in mid-2026. The group claims to hold approximately 100GB of data from the OCF/LF Logistics platform (a legacy arm from Maersk's LF Logistics acquisition), allegedly including 29,000 driver records. WhiteArmor also claims some passwords were stored in plaintext — a claim Maersk disputes, saying credentials were hashed and any one-time tokens had expired. The $5 million demand with a 30-day Bitcoin deadline follows a double-extortion model: pay or the data gets published.</p>
+        <p>Legacy systems inherited through acquisitions are a persistent soft underbelly in large enterprises — they often don't meet current security standards and can go years without systematic hardening. This incident illustrates why post-acquisition security audits and isolation of inherited infrastructure are critical.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When a big company buys a smaller one, they inherit all of that company's old computer systems — including ones that haven't been secured properly. Criminals look for these "forgotten" systems like burglars checking for unlocked back doors. Once inside, instead of locking your files (classic ransomware), they just steal the data and threaten to publish it online unless you pay up — that's called double extortion.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE · CVSS: N/A — Breach severity assessed HIGH based on scale of affected company, volume of exfiltrated data, and exposure of personal driver records.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: WhiteArmor -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">WhiteArmor</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Extortion Group · Attribution: Unknown (suspected Eastern European)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Large enterprises with complex supply chains and legacy acquisition infrastructure, particularly logistics, shipping, and manufacturing sectors</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Data-theft-only extortion (no encryption), targeting inherited/legacy systems post-acquisition, high-value ransom demands ($1M–$10M range), and threatening data publication on their leak site</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: NTLM Relay Attack ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    An NTLM relay attack is a technique where an attacker intercepts a Windows NTLM authentication exchange in real time and immediately forwards it to another server, tricking that server into granting access as the legitimate user — without ever needing to know the actual password. The attack works because NTLM's challenge-response design doesn't verify that the server being authenticated to is actually the one the client intended to reach, creating a window for a "man-in-the-middle" to silently relay credentials. Modern mitigations like SMB signing, LDAP signing/channel binding, and Extended Protection for Authentication (EPA) block most relay paths, but misconfigurations remain surprisingly common in enterprise environments.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: CLFS · LPE · NTLMv2 · HMAC · mod_http2 · Race Condition · Double Extortion ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CLFS</strong> — Common Log File System: a Windows kernel driver that provides a high-performance structured logging API, historically a frequent target for privilege escalation exploits due to its complex kernel-mode data structures.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">LPE</strong> — Local Privilege Escalation: a class of vulnerability that allows an attacker who already has limited access to a system to gain higher-level (e.g., SYSTEM or root) permissions without authorization.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">NTLMv2</strong> — NT LAN Manager version 2: a challenge-response Windows authentication protocol that proves identity by hashing a server-sent challenge with the user's password hash — the resulting response can be captured and cracked or relayed.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">HMAC</strong> — Hash-based Message Authentication Code: a cryptographic construction that uses a secret key plus a hash function (like SHA-256) to verify both the integrity and authenticity of data, ensuring it hasn't been tampered with.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">mod_http2</strong> — The Apache HTTP Server module that implements the HTTP/2 protocol, enabling faster multiplexed connections; it is the component affected by CVE-2026-119618.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Race Condition</strong> — A software bug where two operations compete to execute simultaneously and the program's correct behavior depends on which finishes first; in security, exploitable race conditions can corrupt memory or bypass checks.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Double Extortion</strong> — A ransomware tactic where attackers both steal data before (or instead of) encrypting it, then threaten to publicly release the stolen data unless a ransom is paid, adding a second pressure lever beyond just file recovery.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://ccb.belgium.be/advisories/warning-microsoft-patch-tuesday-november-2026-patches-1093-vulnerabilities-63-critical" style="color:#374151;text-decoration:none;">Microsoft November 2026 Patch Tuesday: ~1,094 CVEs Including 63 Critical and One Exploited Zero-Day</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Microsoft / CCB Belgium</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/active-exploitation-of-outlook-0-day-vulnerability" style="color:#374151;text-decoration:none;">Researcher Discloses 30+ Zero-Days in N-able N-central ("Able2Shell") — Hotfixes Issued</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityWeek</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Nov 13, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
