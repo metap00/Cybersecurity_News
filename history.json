@@ -1,17 +1,14 @@
 {
   "til": [
-    "NTLM Relay Attack",
     "Supply Chain Attack",
     "Cryptographic Agility",
     "Return-Oriented Programming (ROP)",
     "Threat Modeling",
     "Certificate Transparency",
-    "Zero-Click Exploit"
+    "Zero-Click Exploit",
+    "DNS Cache Poisoning"
   ],
   "glossary": [
-    "CLFS",
-    "LPE",
-    "NTLMv2",
     "HMAC",
     "mod_http2",
     "Race Condition",
@@ -58,7 +55,10 @@
     "SPN",
     "TGT",
     "gMSA",
-    "DoH"
+    "DoH",
+    "DNS Resolver",
+    "Cache Poisoning",
+    "DNSSEC"
   ],
   "week": {
     "critical": 2,
@@ -68,6 +68,7 @@
     "actors": ["UTA0576", "WhiteArmor"]
   },
   "digests": [
+    {"date": "2026-11-14", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-13", "threat": "ELEVATED", "critical": 1, "high": 3, "medium": 2},
     {"date": "2026-11-12", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-11", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
@@ -156,9 +157,6 @@
     {"date": "2026-08-20", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
     {"date": "2026-08-19", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 2},
     {"date": "2026-08-18", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 0},
-    {"date": "2026-08-17", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 1},
-    {"date": "2026-08-16", "threat": "ELEVATED", "critical": 3, "high": 3, "medium": 3},
-    {"date": "2026-08-15", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 2},
-    {"date": "2026-08-14", "threat": "ELEVATED", "critical": 2, "high": 3, "medium": 1}
+    {"date": "2026-08-17", "threat": "ELEVATED", "critical": 3, "high": 2, "medium": 1}
   ]
 }
