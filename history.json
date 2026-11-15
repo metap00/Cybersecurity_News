@@ -1,19 +1,14 @@
 {
   "til": [
-    "Supply Chain Attack",
     "Cryptographic Agility",
     "Return-Oriented Programming (ROP)",
     "Threat Modeling",
     "Certificate Transparency",
     "Zero-Click Exploit",
-    "DNS Cache Poisoning"
+    "DNS Cache Poisoning",
+    "API Key Security"
   ],
   "glossary": [
-    "HMAC",
-    "mod_http2",
-    "Race Condition",
-    "Double Extortion",
-    "IoC",
     "OSINT",
     "EDR",
     "C2",
@@ -58,16 +53,22 @@
     "DoH",
     "DNS Resolver",
     "Cache Poisoning",
-    "DNSSEC"
+    "DNSSEC",
+    "CLFS",
+    "NTLM",
+    "PoC",
+    "Infostealer",
+    "RMM"
   ],
   "week": {
-    "critical": 2,
-    "high": 7,
-    "medium": 4,
-    "techniques": ["T1190", "T1556", "T1203", "T1552", "T1133", "T1068", "T1187", "T1041"],
-    "actors": ["UTA0576", "WhiteArmor"]
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "techniques": [],
+    "actors": []
   },
   "digests": [
+    {"date": "2026-11-15", "threat": "ELEVATED", "critical": 2, "high": 4, "medium": 3},
     {"date": "2026-11-14", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},
     {"date": "2026-11-13", "threat": "ELEVATED", "critical": 1, "high": 3, "medium": 2},
     {"date": "2026-11-12", "threat": "QUIET", "critical": 0, "high": 0, "medium": 0},

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Nov 15, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 15, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 2 critical · 4 high · 3 medium · ~15 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL - 125M SMS Breach -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Escudo Digital · Nov 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.escudodigital.com/en/cybersecurity/telecom-data-breach-exposes-more-125-million-sms-messages-europe.html" style="color:#111827;text-decoration:none;">Telecom Data Breach Exposes 125 Million SMS Messages Across Baltic States</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A publicly accessible, unauthenticated database at CSCTelecom's Latvian subsidiary exposed over 125 million SMS messages, including OTP codes and personal communications.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Telecom subscribers in Latvia, Lithuania, and Estonia whose SMS messages—including one-time passwords for banking and authentication—were stored in the exposed system.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Contact your carrier, monitor accounts for unauthorized access, switch from SMS-based 2FA to authenticator apps, and watch for targeted phishing using information gleaned from exposed messages.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1530 · Data from Cloud Storage Object<br>
+      <span style="color:#6b7280;">Attackers accessed an improperly secured cloud-hosted database containing SMS logs with no credentials required, directly exfiltrating sensitive message content at scale.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The breach centers on a misconfigured cloud database operated by a subsidiary of CSCTelecom in Latvia that stored SMS message records without any access controls. With no authentication required, anyone who discovered the endpoint could read SMS traffic in bulk—including one-time passwords sent for banking logins, healthcare portals, and other sensitive services.</p>
+        <p>The severity here goes beyond the volume: SMS OTP codes are only valid for 30–120 seconds, but bulk access to live message streams could enable real-time account takeovers. Regulators in Latvia, Lithuania, and Estonia have been notified, and the database was taken offline after disclosure. Investigators have not yet attributed the exposure to a specific threat actor or confirmed how long the database was accessible.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When you receive a text message with a login code, that message passes through your phone carrier's systems before it reaches you. If those systems store messages in a database that isn't locked down properly, anyone who finds it can read every code sent—including yours. This is why security experts recommend using an authenticator app (like Google Authenticator) instead of SMS codes whenever possible.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · 125M+ records exposed — Scale qualifies as a critical-tier breach; real-time OTP exposure elevates risk beyond a standard database leak.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL - Fireworks AI Breach / Backdoored Claude Code Extension -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cyber Security News · Nov 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/" style="color:#111827;text-decoration:none;">Exposed Fireworks AI Key Used to Backdoor Claude Code Extension and Breach Uber Driver Records</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> An exposed Fireworks AI API key was exploited to push a malicious backdoored update to a Claude Code IDE extension and to exfiltrate Uber's U.S. driver records stored on Fireworks AI's infrastructure.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Developers using the compromised Claude Code extension (who may have had secrets stolen from their workstations) and Uber drivers whose personal records were accessed via the platform breach.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Uninstall and reinstall all Claude Code IDE extensions from official sources, rotate any Fireworks AI API keys, audit CI/CD secrets and developer machine credentials, and check Uber's breach notification channels if you are a driver.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.001 · Compromise Software Dependencies and Development Tools<br>
+      <span style="color:#6b7280;">Attackers leveraged a leaked service API key to inject malicious code into a trusted IDE extension update, turning the developer's own toolchain into the attack delivery mechanism.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The incident originates from an API key for Fireworks AI—an AI inference platform—being exposed, most likely through a leaked repository secret or misconfigured CI/CD environment. Attackers who obtained the key used it to authenticate as a legitimate publisher and push a malicious update to a Claude Code extension distributed through VS Code or Cursor's extension marketplace.</p>
+        <p>Once installed, the backdoored extension could harvest secrets, tokens, and credentials from the developer's local environment—exactly the kind of sensitive material that developers keep close at hand. Separately, the same compromised Fireworks AI credentials provided access to data Uber had stored on the platform, exposing U.S. driver records. The incident highlights a growing pattern: AI platform credentials are becoming high-value targets because they bridge AI tooling with broad data and code access.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> An API key is like a password that programs use to identify themselves to a service. If that "password" leaks, attackers can pretend to be you—even publishing updates to software you wrote. In this case, an AI service's key leaked, letting attackers sneak malicious code into a developer tool that many programmers trust and run on their computers every day.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE · Supply chain severity — Active exploitation confirmed; scope of developer workstation compromise under investigation.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH - Check Point Gaia CVE-2026-123039 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA KEV / Rescana · Nov 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.rescana.com/post/checkpoint-gaia-cve-2026-123039-kev-patch-now" style="color:#111827;text-decoration:none;">⚠ PATCH BY TOMORROW — Check Point Gaia CVE-2026-123039: Root Escalation Exploited Since October</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A local privilege escalation flaw in Check Point's Gaia OS has been exploited since late October by attackers chaining it with PHP shell injection bugs to reach root on internet-facing firewall appliances.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Check Point security gateways on Gaia OS, especially those with internet-facing Mobile Access or VPN portals enabled.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Check Point's November Jumbo Hotfix immediately — the CISA federal patch deadline is November 16 (tomorrow). Audit logs for exploitation attempts dating back to late October.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Attackers first gained a web-tier foothold via PHP shell injection, then leveraged CVE-2026-123039 to escalate from application access to root on the Gaia OS firewall, achieving full appliance compromise.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-123039 affects Check Point's Gaia OS—the Linux-based operating system that runs on Check Point firewall and security gateway appliances. The vulnerability allows a low-privileged attacker who already has local access to escalate to root. In observed attacks, this was achieved through a two-step chain: attackers first used a web-facing PHP injection vulnerability ("PHP2Shell") to execute code in the web tier, then used CVE-2026-123039 to elevate that access to root, granting full control of the firewall.</p>
+        <p>CISA added this to the Known Exploited Vulnerabilities catalog on November 13 with an unusually short federal remediation deadline of November 16. The tight window reflects active exploitation observed since late October—attackers had a three-week head start before the public disclosure. Organizations should not wait for scheduled maintenance windows; this is a patch-now situation.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A firewall is supposed to be your network's gatekeeper, blocking threats before they get in. When attackers can compromise the firewall itself, they don't just get through the gate—they become the gatekeeper, able to see everything and block nothing. This exploit chain let attackers use a weakness in a web page to get a foothold, then use a second bug to become the firewall's administrator.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-123039 · CVSS: 7.8/10 — High severity local privilege escalation; becomes critical when chained with remote initial access via web exploits as observed in the wild.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH - SignDrop Windows CLFS Zero-Day -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Security Online / The Hacker News · Nov 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityonline.info/signdrop-windows-clfs-zero-day-poc/" style="color:#111827;text-decoration:none;">SignDrop: Unpatched Windows CLFS Zero-Day with Working PoC Grants SYSTEM Privileges — No CVE, No Patch</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Researcher MSNightmare published working exploit code dubbed "SignDrop" that abuses Windows' own CLFS log-signing protection to escalate any local user to SYSTEM on Windows 11 and Server 2025—with no CVE assigned and no patch from Microsoft as of today.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Windows 11 and Windows Server 2025 systems; no in-the-wild exploitation confirmed yet, but the public PoC significantly lowers the barrier for attackers.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Restrict local access to workstations, monitor CLFS driver activity in EDR logs, and watch for a Microsoft out-of-band security update. As a temporary measure, set HKLM\SYSTEM\CurrentControlSet\Services\CLFS\Authentication\Mode to audit mode.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Defense Evasion] T1562.001 · Disable or Modify Tools<br>
+      <span style="color:#6b7280;">SignDrop weaponizes Microsoft's own CLFS authentication hardening feature—a defensive control—turning it into a privilege escalation vector rather than bypassing it, exploiting the security mechanism's own signing logic.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>What makes SignDrop unusual is what it doesn't do: it doesn't bypass a security feature. Instead, it exploits one. Microsoft shipped CLFS log file authentication as a hardening measure in October 2025 to prevent malicious manipulation of Windows log files—a technique used in several past Windows privilege escalation exploits (including previous CLFS zero-days). SignDrop, published 378 days after that hardening shipped, abuses the signing verification logic itself to reach SYSTEM.</p>
+        <p>As of November 15, Microsoft has not assigned a CVE, issued an advisory, or released a patch. The November 13 out-of-band update did not address SignDrop. With a working PoC now publicly available, threat actors capable of obtaining local execution—via phishing, initial access brokers, or other vulnerabilities—can chain SignDrop to become a SYSTEM-level attacker. Watch for a Microsoft emergency patch.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of SYSTEM as the highest-level account on a Windows computer—more powerful than even an Administrator. A "privilege escalation" exploit is like finding a secret staircase from the ground floor to the penthouse. What's unusual here is that the attacker is using the building's own security camera system as the staircase—exploiting a safety feature rather than breaking through a wall.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned yet · CVSS: Pending — Unpatched zero-day with public PoC; risk escalates significantly with any in-the-wild adoption.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH - Sega 22M Email Breach -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Cyber Security News · Nov 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/" style="color:#111827;text-decoration:none;">Sega Newsletter Breach Exposes 22 Million Subscriber Email Addresses</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Sega's newsletter subscription platform was breached, exposing a database of 22 million subscriber email addresses and associated account metadata.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Sega newsletter subscribers worldwide who shared their email address with Sega's promotional services; passwords and financial data are not confirmed stolen.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Watch for increased phishing targeting gaming accounts; consider using a unique email alias for newsletter subscriptions; do not reuse passwords across your gaming and email accounts.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Collection] T1114 · Email Collection<br>
+      <span style="color:#6b7280;">Attackers exfiltrated a subscriber email list from Sega's newsletter management infrastructure, assembling a large corpus of gaming-community targets primed for follow-on phishing and credential stuffing campaigns.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The breach targeted Sega's third-party newsletter management infrastructure rather than core gaming services or account passwords. With 22 million email addresses now in attacker hands, the gaming community faces an elevated risk of targeted phishing campaigns—particularly messages impersonating Sega with fake prize announcements, account verification requests, or free game offers designed to capture credentials.</p>
+        <p>Email-only breaches are frequently used as the entry point for credential stuffing attacks: attackers take the email list, pair it with leaked password databases from other breaches, and attempt to log in to gaming platforms, Steam, PSN, and email providers. The gaming sector is a perennial target because accounts often hold real monetary value through in-game items, digital game libraries, and stored payment information.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When a company gets hacked and your email address is taken, it's like your name and home address leaking from a mailing list. The attacker now knows you have a Sega account and can send you convincing fake emails from "Sega" trying to trick you into handing over your password. Use a unique email for subscriptions and always check a link before clicking it.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE · 22M records exposed — Email-tier breach; primary risk is follow-on phishing and credential stuffing against gaming platforms.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: HIGH - Node.js Brotli CVE-2026-111497 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Security Boulevard / CISA ICS · Nov 14, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityboulevard.com/2026/11/daily-ot-security-news-november-14-2026/" style="color:#111827;text-decoration:none;">CVSS 9.8 Brotli Decoder Buffer Overflow (CVE-2026-111497) Hits Node.js and Siemens Industrial Systems</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A critical buffer overflow in the Brotli compression decoder bundled with Node.js (CVE-2026-111497, CVSS 9.8) has been patched; the same library flaw also appears in Siemens Desigo CC building automation systems, now covered by CISA advisory ICSA-26-316-02.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Node.js web applications and operators of Siemens Desigo CC building automation and energy management systems.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Node.js to the patched version immediately; Siemens Desigo CC operators should apply the ICSA-26-316-02 remediation steps and isolate affected systems from untrusted networks.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Lateral Movement] T1210 · Exploitation of Remote Services<br>
+      <span style="color:#6b7280;">A remote attacker supplying maliciously crafted Brotli-compressed data to a vulnerable Node.js or Siemens Desigo endpoint can trigger the buffer overflow to gain remote code execution without authentication.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Brotli is a data compression algorithm developed by Google that is widely used to speed up web traffic. Node.js bundles its own Brotli decoder, and a flaw in that decoder—CVE-2026-111497—allows an attacker to send specially crafted compressed data that overflows a memory buffer and potentially executes attacker-controlled code. With a CVSS score of 9.8, this is classified as critical, though no active exploitation in the wild has been confirmed.</p>
+        <p>The same underlying Brotli library also ships inside Siemens Desigo CC, a widely deployed building automation platform used for HVAC, lighting, and energy management in commercial and industrial facilities. CISA issued advisory ICSA-26-316-02 for this OT/ICS exposure. Industrial control system operators should treat the Siemens advisory as high priority: OT environments are often slower to patch, and a compromised building system can have physical consequences beyond data theft.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Compression is used to send data faster over the internet—like squishing a file before mailing it. A "buffer overflow" bug means the program didn't check that the squished data would fit in the box before unpacking it, letting an attacker stuff in extra instructions that get run by accident. What makes this serious is that the same buggy compression code is used in both web servers and industrial building systems.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-111497 · CVSS: 9.8/10 — Critical buffer overflow in a widely-used compression library; no active exploitation confirmed but patch urgency is high given the score and OT/ICS scope.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- WEEK IN REVIEW (Sunday) -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:12px;">📅 Week in Review — Nov 9–15, 2026</div>
+  <div style="display:flex;gap:10px;margin-bottom:12px;">
+    <div style="flex:1;text-align:center;padding:10px;background:#fef2f2;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#dc2626;">4</div>
+      <div style="font-size:11px;color:#6b7280;">Critical</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fff7ed;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ea580c;">11</div>
+      <div style="font-size:11px;color:#6b7280;">High</div>
+    </div>
+    <div style="flex:1;text-align:center;padding:10px;background:#fefce8;border-radius:6px;">
+      <div style="font-size:22px;font-weight:bold;color:#ca8a04;">7</div>
+      <div style="font-size:11px;color:#6b7280;">Medium</div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:#374151;margin-bottom:6px;"><strong>ATT&CK this week:</strong> T1190 · T1556 · T1203 · T1552 · T1133 · T1068 · T1187 · T1041 · T1530 · T1195 · T1562 · T1114 · T1210</div>
+  <div style="font-size:13px;color:#374151;margin-bottom:10px;"><strong>Threat actors:</strong> UTA0576 · WhiteArmor</div>
+  <div style="font-size:13px;color:#374151;line-height:1.6;padding:10px;background:#f8fafc;border-radius:4px;">The week of November 9–15 produced 4 critical incidents spanning telecom infrastructure, developer supply chains, enterprise firewalls, and Windows system internals, with 11 high-severity vulnerabilities requiring urgent patching across the period. The most dangerous open exposure heading into next week remains the unpatched SignDrop zero-day in Windows CLFS—where a public exploit exists but no Microsoft patch does—alongside the confirmed exploitation of Check Point Gaia appliances by attackers who had been active since late October, three weeks before public disclosure.</div>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: API Key Security ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    An API key is a secret token that identifies a program to a web service—the equivalent of a password for automated software, used in everything from AI platforms to cloud storage to payment processors. Unlike passwords, API keys are frequently embedded in code, CI/CD pipelines, and configuration files, where they're one careless git commit away from public exposure on GitHub. When an API key leaks, attackers gain the same access the legitimate program had—which in today's Fireworks AI incident meant the ability to publish malicious software updates and read stored customer data, all without breaking any encryption.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: CLFS · NTLM · PoC · Infostealer · RMM ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CLFS</strong> — Common Log File System: a Windows kernel driver that provides a high-performance logging API; it has been exploited in multiple Windows privilege escalation zero-days over the past two years.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">NTLM</strong> — NT LAN Manager: an older Windows authentication protocol that passes a hashed version of a password called an NTLMv2 hash; if intercepted, this hash can be "relayed" to other services to authenticate without knowing the actual password.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">PoC</strong> — Proof of Concept: working code or a reproducible demonstration that confirms a vulnerability is exploitable; a public PoC dramatically lowers the skill bar for attackers, often triggering a surge in exploitation within days.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Infostealer</strong> — a category of malware designed to silently harvest credentials, browser cookies, saved passwords, cryptocurrency wallets, and other sensitive data from infected machines before exfiltrating them to an attacker's server.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">RMM</strong> — Remote Monitoring and Management: software used by IT teams and managed service providers to remotely administer, monitor, and control endpoints; frequently targeted by attackers because legitimate RMM tools provide deep, trusted access to systems while often bypassing security controls.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://windowsforum.com/news/cisa-kev-alert-patch-unrealircd-cve-2026-114713-and-check-point-cve-2026-123039.452241/" style="color:#374151;text-decoration:none;">CISA Adds UnrealIRCd CVE-2026-114713 to Known Exploited Vulnerabilities Catalog</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.publish0x.com/some-news/news-for-november-15-2026-xqvzxgx" style="color:#374151;text-decoration:none;">CISA Warns of Active Exploitation of 18-Year-Old WordPress Core Vulnerability</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CISA</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/" style="color:#374151;text-decoration:none;">Baker Tilly Discloses Data Breach at Third-Party Provider Affecting Client Records</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Cyber Security News</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Nov 15, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
