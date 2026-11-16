@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Nov 16, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 16, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">10 stories · 1 critical · 5 high · 3 medium · ~8 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — Maersk WhiteArmor Ransomware -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">BleepingComputer · Nov 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/" style="color:#111827;text-decoration:none;">Maersk Confirms Data Breach as WhiteArmor Ransomware Demands $5 Million</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Shipping giant Maersk confirmed unauthorized access and data extraction from a legacy IT system inherited via its 2022 acquisition of LF Logistics; the WhiteArmor ransomware group claims to hold ~100 GB of data including 27,842 mobile device logs and 16,000 driver passwords potentially stored in plaintext, and demands $5 million.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Maersk employees and logistics customers globally, particularly those whose data passed through the LF Logistics platform; organizations with Maersk supply-chain integrations may face downstream phishing risk.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Organizations using Maersk's logistics services should alert staff to spear-phishing attempts; security teams should audit M&amp;A-inherited systems for patch gaps and exposed legacy credentials immediately.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers exploited an unpatched public-facing service on the legacy LF Logistics platform — a classic M&amp;A blind spot — to gain initial access to Maersk's network and begin data exfiltration.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>This incident follows a well-documented and dangerous pattern: an attacker identifies a neglected legacy IT system within a large enterprise's M&amp;A-inherited portfolio and exploits it before the new owner's security team can fully assess or patch it. Maersk acquired LF Logistics from the Li &amp; Fung Group in 2022; a four-year-old acquisition asset that likely never received the same security hardening as Maersk's core infrastructure made for a soft target.</p>
+        <p>WhiteArmor's double-extortion approach — steal data first, then threaten to publish it even if a ransom is paid for a decryption key — means Maersk faces reputational risk regardless of whether it pays. The group has claimed more than 20 victims globally since appearing in October 2026, suggesting a well-resourced and aggressive operation. The claim of plaintext passwords is especially severe: if confirmed, those credentials could be weaponized in credential-stuffing campaigns against Maersk's partner systems.</p>
+        <p>Maersk's statement that "no sensitive data has been disclosed" is standard corporate language during active investigations, but it refers only to current evidence — not to what WhiteArmor may have silently copied over prior weeks. The 30-day payment deadline the group set means this story will continue developing through mid-December.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When a big company buys another company, they also inherit all of its computer systems — including old, poorly-maintained ones that nobody's been keeping secure. Hackers look for exactly these "forgotten" systems. In this case, a criminal hacking group called WhiteArmor found one of Maersk's old platforms, broke in, and stole about 100 GB of data (think: 50,000 Word documents' worth). Now they're threatening to publish the stolen data online unless Maersk pays $5 million — this extortion tactic is called "double-extortion ransomware."
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Investigation ongoing — scope and root vulnerability not yet publicly confirmed by Maersk</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: WhiteArmor -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">WhiteArmor</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal Ransomware Group · Nation-state attribution: Unknown</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Maritime/logistics, industrial, and mid-to-large enterprises globally; active since October 2026 with 20+ claimed victims</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion ransomware (data theft + encryption), aggressive payment deadlines, public leak-site pressure campaigns; rapidly expanding victim portfolio suggests well-funded affiliate operations</div>
+</div>
+
+<!-- STORY 2: HIGH — Qilin Ransomware Industrial Surge + Check Point VPN -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">HookPhish / The Next Web · Nov 15, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.hookphish.com/blog/ransomware-group-qilin-hits-cole-manufacturing/" style="color:#111827;text-decoration:none;">Qilin Ransomware Lists Four Industrial Victims; Exploits Check Point VPN Zero-Day for ESXi Attacks</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The Qilin (Agenda) ransomware group listed Cole Manufacturing, Godrej &amp; Boyce, Connectwell Industries, and Apex on its leak site on Nov 15–16; separately, researchers confirmed Qilin affiliates have been exploiting Check Point Security Gateway VPN flaw CVE-2026-50751 to gain network access and deploy ESXi/Linux-targeting ransomware payloads.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Industrial manufacturing and supply-chain companies using Check Point Security Gateways without the latest patches are at high risk; existing Qilin victims face imminent data publication.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Immediately apply Check Point's patch for CVE-2026-50751; audit VPN access logs for anomalous activity; ensure ESXi and Linux hosts have current backups stored offline.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">After entering through the Check Point VPN zero-day, Qilin deploys Rust-based payloads that encrypt ESXi, Linux, and Nutanix environments — maximizing disruption by targeting the virtualization layer that hosts most critical business systems.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Qilin's operational tempo is accelerating. The group, which operates as a Ransomware-as-a-Service, has been exploiting CVE-2026-50751 — a remote code execution flaw in Check Point's Security Gateway VPN — as a primary initial access vector since at least mid-2026. A PoC exploit was published in June, dramatically lowering the barrier for affiliates to weaponize the flaw.</p>
+        <p>The targeting of industrial manufacturing companies is strategically deliberate: manufacturers often have lower security maturity than financial-sector targets, face intense pressure to minimize downtime, and frequently run legacy OT/IT environments that make recovery complex. ESXi attacks are particularly devastating because a single encrypted hypervisor can take down dozens of virtual machines simultaneously.</p>
+        <p>The four new victim listings on Nov 15–16 suggest Qilin affiliates are running multiple concurrent campaigns. Organizations that haven't patched CVE-2026-50751 should treat it as an emergency — a working exploit has been public for over five months.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> VPN software lets employees securely connect to their company's network from home. Check Point makes popular VPN/firewall products. This particular bug lets hackers break into a company's network through that VPN without needing a password. Once inside, the Qilin gang uses a special type of ransomware designed to attack the "hypervisor" — the master server that runs all of a company's virtual machines at once — encrypting everything simultaneously and demanding payment to unlock it.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-50751 · CVSS: 9.8/10 — Critical RCE in Check Point Security Gateway; unauthenticated network-level exploitation confirmed with public PoC available since June 2026</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR: Qilin -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">Qilin (a.k.a. Agenda)</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal RaaS Group · Attributed to: Eastern Europe (suspected)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Manufacturing, healthcare, critical infrastructure, and professional services; active globally since 2022 with particular focus on ESXi/Linux environments</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Rust-based cross-platform ransomware (ESXi, Linux, Windows, Nutanix); double-extortion; exploiting network edge vulnerabilities (VPN/firewall flaws) for initial access; affiliate-driven RaaS model with customizable payloads</div>
+</div>
+
+<!-- STORY 3: HIGH — Microsoft Outlook Zero-Day -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / CISA · Nov 10, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/exploited-outlook-zero-day-among-1094-flaws-patched-by-microsoft/" style="color:#111827;text-decoration:none;">Microsoft Patches Actively Exploited Outlook Zero-Day CVE-2026-124194 That Steals NTLM Hashes Without User Interaction</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Microsoft's November Patch Tuesday fixed CVE-2026-124194, an Outlook spoofing zero-day already exploited in the wild that forces Outlook to auto-connect to an attacker-controlled server when a crafted .msg file is received — sending the victim's NTLM credential hash without any user click required.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows Outlook users in organizations relying on NTLM authentication; enterprise environments where NTLM is used for internal service authentication face the highest risk of credential relay attacks.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply November 2026 Patch Tuesday immediately (federal deadline: Nov 24 per CISA KEV); enable SMB signing; disable NTLMv1; consider blocking outbound SMB (port 445) to external hosts at the perimeter.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Credential Access] T1187 · Forced Authentication<br>
+      <span style="color:#6b7280;">The exploit triggers Outlook to automatically initiate an SMB or HTTP authentication request to an attacker-controlled host, involuntarily sending the victim's NTLMv2 hash — which can then be cracked offline or relayed to authenticate against internal services.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The CVSS score of 6.5 (Moderate) dramatically understates this vulnerability's real-world impact. While it doesn't allow direct remote code execution, stolen NTLM hashes are highly actionable: an attacker on the same network can immediately relay them to authenticate to file shares, Exchange servers, or domain controllers (pass-the-hash). Even off-network, modern GPU clusters can crack NTLMv2 hashes for weak-to-medium-strength passwords in minutes to hours.</p>
+        <p>The "no user interaction" aspect makes this especially dangerous in targeted phishing scenarios. An attacker need only send a malicious .msg file attachment — the moment Outlook processes it, authentication fires automatically. This follows a lineage of similar Outlook forced-auth bugs (CVE-2023-23397 being the most notable prior example) that have been weaponized by nation-state actors.</p>
+        <p>CISA's addition to the KEV catalog with the November 24 federal deadline signals that exploitation is active and not theoretical. Organizations should treat this as a priority even if they applied Patch Tuesday — confirm the patch is deployed everywhere, including RDS/Citrix environments where Outlook is hosted.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When you log into a Windows computer or company network, Windows stores a scrambled version of your password called an "NTLM hash." This bug tricks your Outlook email program into automatically sending that hash to a hacker's server — without you clicking anything. The hacker can then use your hash to log into other company systems pretending to be you, or they can try to unscramble it to get your actual password. It's like someone stealing your house key impression without you knowing.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-124194 · CVSS: 6.5/10 — Marked Moderate but CISA-flagged as actively exploited; real-world impact significantly higher due to credential relay potential</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH — Chrome Zero-Day UAF -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CybersecurityNews / CISA · Nov 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/google-chromium-0-day-vulnerability-exploited/" style="color:#111827;text-decoration:none;">Google Chrome Zero-Day CVE-2026-125350: Use-After-Free in XML Component Actively Exploited in the Wild</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Google patched a use-after-free bug in Chrome's XML processing component (CVE-2026-125350) on November 9 after CISA confirmed it was being actively exploited; a crafted malicious webpage can trigger memory corruption and achieve remote code execution within the browser's renderer process.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All users of Google Chrome prior to version 157.0.8103.50 on all platforms; Chromium-based browsers (Microsoft Edge, Brave, Opera) are also affected until vendors ship their own updates based on the upstream patch.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Chrome immediately to 157.0.8103.50 or later; enterprise admins should verify managed browser policies force rapid update delivery; Edge/Brave/Opera users should check for available updates.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Execution] T1203 · Exploitation for Client Execution<br>
+      <span style="color:#6b7280;">The UAF vulnerability in Chrome's XML parser allows a malicious webpage to execute arbitrary code inside the browser's renderer sandbox, representing the first step toward full system compromise if chained with a sandbox-escape bug.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>This is Chrome's eighth zero-day of 2026 — a pace that reflects both the browser's enormous attack surface and the intensity of research by state-sponsored and criminal actors targeting it. Use-after-free bugs are among the most exploitable memory corruption classes: they occur when a program accesses memory it has already freed, allowing attackers to place malicious data at that memory location and have the program execute it as code.</p>
+        <p>The XML component is particularly attractive to attackers because XML parsing is complex, widely used (SVG images, XHTML content, and many web APIs rely on it), and difficult to sandbox away from main rendering logic. Active exploitation prior to the patch suggests a sophisticated actor discovered this bug and was using it in targeted attacks before Google was aware of it.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When you visit a website, your browser processes lots of different types of content — including a data format called XML, which is used for things like images and structured data. This bug is in the part of Chrome that handles XML. When Chrome reads certain specially-crafted XML content on a malicious website, it can be tricked into running the attacker's code on your computer. Just visiting a malicious webpage — without downloading anything — could be enough to trigger it.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-125350 · CVSS: not publicly assigned — CISA KEV listed; Google confirms in-the-wild exploitation prior to patch; Chrome 157.0.8103.50 resolves the issue</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH — Cisco BroadWorks AI Attack -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek / Malbear Labs · Nov 10, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/" style="color:#111827;text-decoration:none;">Chinese-Attributed Actor Uses Autonomous AI Intrusion Harness to Exploit Cisco BroadWorks at European Telecom</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A Chinese-speaking threat actor used an AI-powered autonomous intrusion tool (dubbed the "AI intrusion harness" by Malbear Labs) to exploit Cisco BroadWorks vulnerabilities at a European telecommunications provider, automating asset enumeration, credential harvesting, and collection of subscriber billing records and device data.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Telecom providers running Cisco BroadWorks without current security patches; end-users whose subscriber billing data, phone numbers, and device records may have been exfiltrated.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Patch Cisco BroadWorks to the latest version immediately (CISA KEV deadline Nov 24); review BroadWorks audit logs for automated/scripted access patterns; alert telecom SOC teams to AI-paced intrusion indicators.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Collection] T1119 · Automated Collection<br>
+      <span style="color:#6b7280;">The AI intrusion harness autonomously enumerated BroadWorks assets, extracted credentials, and collected subscriber billing and device records at machine speed — dramatically compressing the time between initial access and full data exfiltration compared to manual operations.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>This incident represents a significant evolution in state-sponsored cyber operations: the deployment of AI-driven tooling that can autonomously conduct multi-stage intrusions. The "harness" described by Malbear Labs combines automated reconnaissance, vulnerability exploitation, and data collection in a single pipeline — compressing an operation that would historically take a team of operators days or weeks into a process that runs in hours.</p>
+        <p>The targeting of telecom infrastructure follows a well-documented Chinese state-linked pattern of interest in subscriber data (useful for tracking individuals), billing records (useful for understanding communication patterns), and device identifiers (useful for network-level surveillance). The campaign shares tactical characteristics with previously reported Salt Typhoon/Volt Typhoon telecom-targeting operations, though attribution to a specific group has not been confirmed publicly.</p>
+        <p>For defenders, AI-paced intrusions are particularly challenging because they can saturate traditional SIEM alert pipelines with automated reconnaissance noise, making human analysts slow to identify the attack. Anomaly-based detection tuned for scripted/API-paced access patterns is essential.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Cisco BroadWorks is software that telecom companies use to manage their phone and internet customers. A Chinese hacking group used an AI tool — essentially a robot that automatically hacks systems — to break into a European phone company's BroadWorks installation. The AI tool did in hours what a human hacker team might take days to do: it mapped the system, stole login credentials, and copied customer billing records. This is concerning because it shows hackers are starting to use AI to attack faster than human defenders can respond.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">Cisco BroadWorks CVE not specified in reports · CISA KEV listed Nov 10 — federal remediation deadline November 24, 2026</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: MEDIUM — SAP ICM2Shell RCE -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/" style="color:#111827;text-decoration:none;">SAP ICM2Shell: Researchers Publish Working Unauthenticated RCE Exploit for Critical SAP Flaw (CVE-2026-76964)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Security researchers published a working exploit for CVE-2026-76964 (and related CVE-2026-89126), dubbed "ICM2Shell," that achieves unauthenticated remote code execution against internet-facing SAP application servers via the SAP Internet Communication Manager (ICM) component.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running SAP application servers with internet-accessible ICM interfaces that have not applied SAP's latest security patches; this affects a significant portion of large enterprise SAP deployments.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply SAP's security patches immediately; restrict ICM interface exposure to internal networks and VPNs; check SAP Security Notes for the November 2026 patch cycle.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">The ICM2Shell exploit targets SAP's public-facing web server component to gain unauthenticated OS-level code execution — bypassing all application-layer authentication and directly exposing the underlying server to attacker control.</span>
+    </div>
+  </details>
+</div>
+
+<!-- STORY 7: MEDIUM — Trezor Hardware Supply Chain -->
+<div style="background:white;border-left:4px solid #ca8a04;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ca8a04;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">MEDIUM</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Krebs on Security · Nov 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://krebsonsecurity.com/" style="color:#111827;text-decoration:none;">Trezor Finds Hidden Circuit Boards in Safe 5 Wallets Sold by Reseller, Designed to Exfiltrate Recovery Phrases</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Trezor confirmed that three Safe 5 hardware cryptocurrency wallets purchased from a third-party reseller contained hidden unauthorized circuit boards capable of copying the wallet's recovery seed phrase and transmitting it to attacker-controlled servers, enabling complete theft of stored funds.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Anyone who purchased a Trezor Safe 5 from unauthorized resellers; users who generated their seed phrase on a compromised device may have already had their funds stolen.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Purchase hardware wallets only from the manufacturer directly; verify device integrity using Trezor's official authenticity check; if purchased from a reseller, migrate funds to a new wallet generated on a trusted device immediately.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&amp;CK:</strong> [Initial Access] T1195.003 · Compromise Hardware Supply Chain<br>
+      <span style="color:#6b7280;">Attackers intercepted Safe 5 units in the reseller supply chain and physically installed covert hardware implants designed to silently exfiltrate the BIP39 seed phrase at the moment of wallet initialization — the single most sensitive moment in a hardware wallet's lifecycle.</span>
+    </div>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: NTLM Relay Attack ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    An NTLM relay attack lets hackers authenticate to systems as you without ever knowing your actual password — they simply intercept your NTLM credential hash and immediately forward it to another target server in real time. The key insight is that NTLM authentication doesn't verify the full chain of trust: if an attacker sits between you and a service, they can relay your authentication handshake to a completely different service and gain access as you. Today's Outlook zero-day (CVE-2026-124194) demonstrates exactly this: it forces your email client to auto-authenticate to an attacker's server, handing them your hash to relay into your company's file shares, internal web apps, or even domain controllers. Defenders stop relay attacks by enforcing SMB signing (which ties each authentication to a specific session), requiring EPA (Extended Protection for Authentication), and disabling legacy NTLMv1 — all of which break the relay chain even if the hash is captured.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: UAF · RaaS · Supply Chain Attack · Firmware Implant · Authentication Bypass ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">UAF (Use-After-Free)</strong> — A memory corruption bug where a program continues to use a memory pointer after freeing that memory; exploiting it lets attackers place malicious data at the freed location and have the program execute it as code.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RaaS (Ransomware-as-a-Service)</strong> — A criminal business model where ransomware developers license their malware to "affiliate" operators who carry out attacks, splitting the ransom proceeds — mirroring legitimate software-as-a-service economics.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Supply Chain Attack</strong> — An attack that compromises a less-secure element in the production or distribution chain of a product — such as a hardware manufacturer, software vendor, or IT provider — to reach downstream victims who trust that element.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Firmware Implant</strong> — Malicious code or hardware inserted into a device's low-level firmware or physical components during manufacturing or distribution, making it deeply persistent and invisible to conventional antivirus and OS-level security tools.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Authentication Bypass</strong> — A vulnerability that allows an attacker to skip or circumvent the normal login/authentication process and gain access to a system or resource without providing valid credentials.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">HIGH</span>
+    <a href="https://thehackernews.com/2026/11/cisa-warns-of-active-exploitation-of.html" style="color:#374151;text-decoration:none;">OpenSSH Authentication Bypass CVE-2026-123158 Active in Wild; GT10 Actor Deploys TAC Agent C2</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News / CISA</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://securityboulevard.com/2026/11/daily-ot-security-news-november-15-2026" style="color:#374151;text-decoration:none;">N-able N-central RMM: Researcher Publishes Two New Exploit Sets, 21 Servers Compromised</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Security Boulevard</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#6b7280;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">LOW</span>
+    <a href="https://securityonline.info/" style="color:#374151;text-decoration:none;">Cursor October Security Incident Traced to Fireworks AI Exposed API Key</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityOnline</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Nov 16, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
