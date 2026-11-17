@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Nov 17, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 17, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">9 stories · 2 critical · 5 high · 2 medium · ~13 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — Outlook NTLM Zero-Day CVE-2026-124194 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA / Cybersecurity News · Nov 10, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/active-exploitation-of-outlook-0-day-vulnerability/" style="color:#111827;text-decoration:none;">CISA Confirms Active Exploitation of Outlook Zero-Day CVE-2026-124194 Stealing NTLMv2 Hashes via Crafted Email Attachment</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A zero-day flaw in Microsoft Outlook causes the application to auto-connect to attacker-controlled servers when a victim opens a crafted .msg email attachment, exposing their NTLMv2 authentication hash without displaying any security warning.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Microsoft Outlook desktop users on Windows, with heightened risk in enterprise environments where NTLM authentication remains in use—especially U.S. federal agencies, which face a November 24 remediation deadline from CISA.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Microsoft's emergency patch immediately, block outbound SMB traffic (ports 445/139) at the network perimeter, enforce SMB signing, and require NTLMv2 authentication at minimum across all domain systems.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1187 · Forced Authentication<br>
+      <span style="color:#6b7280;">Outlook is weaponized to coerce NTLM authentication against an attacker-controlled server when a victim opens the crafted attachment—stealing NTLMv2 hashes that can be cracked offline or used in pass-the-hash lateral movement against this specific victim's corporate network.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">CVE-2026-124194 is a zero-day flaw in Microsoft Outlook that enables attackers to steal NTLMv2 authentication hashes simply by sending a specially crafted .msg email attachment. When a victim opens the file, Outlook automatically reaches out to an attacker-controlled server—without displaying its usual security warning about external content—and in doing so transmits the user's Windows authentication hash.</p>
+        <p style="margin:0 0 8px;">These stolen hashes can be cracked offline using GPU-accelerated tools like Hashcat, potentially revealing plaintext passwords, or used directly in "pass-the-hash" attacks to authenticate as the victim against other internal systems without ever needing the actual password. CISA confirmed active exploitation and added CVE-2026-124194 to its Known Exploited Vulnerabilities catalog with a remediation deadline of November 24, 2026 for federal civilian agencies.</p>
+        <p style="margin:0 0 8px;">The vulnerability is particularly dangerous in enterprise environments where NTLM authentication remains widespread. A single stolen hash can enable full lateral movement across corporate networks, potentially reaching domain controllers and administrative systems. The attack requires only that a victim opens a specially crafted attachment—no macro approval, no additional clicks required.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> When you log into Windows at work, your computer creates a scrambled version of your password called an "NTLM hash." This Outlook bug tricks your computer into sending that scrambled password to a hacker's server when you open a certain email attachment—the hacker can then use it to log into other computers on your network pretending to be you, without ever knowing your actual password.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-124194 · CVSS: 8.1/10 — High-severity NTLM coercion flaw in Outlook with confirmed in-the-wild exploitation and CISA KEV listing; Nov 24 federal deadline.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL — Apache Axis CVE-2026-90436 / N-able / Atlassian -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 17, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/hackers-exploit-new-n-central-zero-day-hours-after-poc-publication/" style="color:#111827;text-decoration:none;">21 Servers Compromised: Attackers Exploit Apache Axis CVE-2026-90436 Against Atlassian Confluence and N-able N-central Hours After PoC Release</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A critical 9.8-rated RCE flaw in Apache Axis (CVE-2026-90436) was weaponized within hours of a public PoC release on November 12, with attackers confirmed to have compromised 21 N-able N-central management servers across seven countries and exploiting Atlassian Confluence Data Center instances.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Managed service providers running N-able N-central and organizations using Atlassian Confluence Data Center—with critical downstream risk to all businesses managed via any compromised MSP platform.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply N-able and Atlassian patches immediately, audit N-central for new unauthorized administrator accounts, isolate the management interface from internet exposure, and investigate managed environments for signs of lateral movement.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers scanned for and exploited CVE-2026-90436 against internet-exposed N-central and Confluence management interfaces within hours of PoC publication—a pattern of automated exploitation that specifically targets MSP infrastructure to gain simultaneous access to hundreds of downstream managed networks.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">CVE-2026-90436, a 9.8-rated critical remote code execution vulnerability in Apache Axis, is being actively weaponized to compromise enterprise management platforms at scale. Within hours of a proof-of-concept exploit being published on November 12, attackers began targeting both Atlassian Confluence Data Center and N-able N-central endpoints exposed to the internet.</p>
+        <p style="margin:0 0 8px;">N-able N-central is a remote monitoring and management (RMM) platform used by managed service providers to administer hundreds or thousands of client systems simultaneously. Compromising a single N-central server provides attackers with privileged access to all downstream customer environments—making MSP platforms a priority target for ransomware groups and nation-state actors. As of November 17, at least 21 N-central servers across the US, UK, Canada, Germany, France, South Africa, and Sweden have been confirmed compromised.</p>
+        <p style="margin:0 0 8px;">Atlassian Confluence Data Center instances are also at risk; Rapid7 MDR detected confirmed exploitation in a customer environment on November 13. The speed of exploitation after PoC publication—hours, not days—underscores the shrinking window organizations have to patch critical vulnerabilities before widespread automated attacks begin.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> N-central is a tool IT companies use to manage computers for many businesses at once—like a master control room. Apache Axis is old software running underneath it. The bug lets hackers take complete control of these "control rooms," giving them access to every business managed from that system. It is like stealing the master key to an apartment building instead of picking a single lock—one compromise unlocks hundreds of doors.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-90436 · CVSS: 9.8/10 — Critical RCE in Apache Axis; 21 N-central servers confirmed compromised across 7 countries as of Nov 17.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH — Windows SignDrop CLFS LPE -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Nov 13, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/" style="color:#111827;text-decoration:none;">New Windows "SignDrop" Zero-Day: CLFS Driver PoC Elevates Any Process to SYSTEM — No Patch, No CVE</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Security researcher "Nightmare Eclipse" published working exploit code for an unpatched Windows CLFS driver zero-day that elevates any low-privileged process to SYSTEM-level access on modern Windows systems; the PoC was independently verified by Cyderes but Microsoft has not yet assigned a CVE or released a patch.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Windows users running unpatched systems—with particular risk in enterprise and server environments where privilege escalation is a standard second-stage step in ransomware and APT attack chains.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor EDR solutions for anomalous CLFS driver behavior and process privilege changes, ensure detection rules for CLFS exploitation are enabled, and prioritize applying a patch immediately once Microsoft releases one.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">The SignDrop PoC exploits a CLFS driver vulnerability to escalate from a standard user context to full SYSTEM privileges—the critical post-compromise step attackers need to disable security tools, dump credentials with LSASS access, and deploy ransomware payloads on Windows targets.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">Researcher "Nightmare Eclipse" publicly released exploit code for a local privilege escalation (LPE) zero-day in Windows' Common Log File System (CLFS) driver. Dubbed "SignDrop," the exploit claims to elevate any user-level process to SYSTEM access—the highest privilege level on Windows—on current Windows versions. Microsoft has not yet acknowledged the vulnerability, assigned a CVE, or released a patch.</p>
+        <p style="margin:0 0 8px;">Cybersecurity firm Cyderes independently confirmed the PoC compiles and functions as described. No confirmed in-the-wild exploitation has been reported as of November 17, though the public availability of a verified, working exploit dramatically compresses the time before threat actors incorporate it into active attack chains.</p>
+        <p style="margin:0 0 8px;">CLFS vulnerabilities have historically been favored by ransomware operators and nation-state APTs: CVE-2022-24521 and CVE-2023-28252 were both CLFS flaws exploited in real-world attacks before patches were available. Organizations should ensure endpoint detection rules cover CLFS-related privilege escalation patterns and treat this as an imminent threat.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Programs on your computer run with limited permissions. "SYSTEM" is Windows' highest privilege—it lets a program do absolutely anything. The SignDrop exploit lets a normal program secretly upgrade itself to SYSTEM level. If a hacker already has limited access to your computer through a phishing email or another exploit, they can use SignDrop to gain complete control, including turning off your antivirus.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE pending assignment · CVSS: N/A — Working PoC confirmed by third party; no in-the-wild exploitation yet; no Microsoft patch available.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH — Optimizely Supply Chain Attack -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Report-URI · Nov 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely" style="color:#111827;text-decoration:none;">Supply Chain Attack: Malicious JavaScript Injected via Optimizely Hits 178 Organizations Including BBC, HSBC, and Zoom</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers injected malicious JavaScript into Optimizely's web experimentation platform on November 16, causing the script to execute in the browsers of visitors across 178 major organizations and potentially harvesting session tokens, credentials, and form data.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> End users who visited any of the 178 impacted websites during the attack window; organizations using Optimizely should audit their CSP violation logs and investigate whether customer data was exposed.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Change passwords for accounts accessed on affected websites; organizations should implement Content Security Policy headers and Subresource Integrity checks on third-party scripts to prevent or detect future injections.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.001 · Supply Chain Compromise: Compromise Software Dependencies and Libraries<br>
+      <span style="color:#6b7280;">Attackers compromised the Optimizely platform itself rather than targeting individual organizations, weaponizing 178 legitimate websites simultaneously through a single injection point—exploiting the implicit trust organizations place in their third-party A/B testing JavaScript vendors.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">On November 16, attackers successfully compromised Optimizely's Web experimentation platform, injecting malicious JavaScript that was automatically distributed to 178 customer websites. Optimizely is a widely-used A/B testing and personalization service; customer websites load scripts directly from Optimizely's CDN, meaning any compromise of Optimizely's serving infrastructure instantly propagates to all customer sites with no action needed from those customers.</p>
+        <p style="margin:0 0 8px;">The malicious script ran in visitor browsers, potentially harvesting session cookies, form input (including passwords entered during the attack window), and other sensitive browser-side data before transmitting it to attacker-controlled infrastructure. High-profile organizations in the impacted list include the BBC, HSBC, and Zoom—companies whose users would have no reason to suspect a routine visit was being compromised by a third-party injection they had no visibility into.</p>
+        <p style="margin:0 0 8px;">This follows a well-established Magecart-style supply chain injection pattern that has targeted analytics platforms, CDN providers, and experimentation tools. Organizations should implement Content Security Policy headers with strict-dynamic mode and apply Subresource Integrity (SRI) attributes to any externally-hosted JavaScript—controls that would have either blocked or detected this attack.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Many websites use third-party tools—like Optimizely for A/B testing—that add small programs (JavaScript) running directly in your browser. Users trust the main website, but the third-party code runs there too. Hackers broke into Optimizely and added malicious code that then ran automatically on 178 websites. Everyone who visited those sites might have had their passwords or session tokens stolen—like a pickpocket working all the stores in a mall after hacking the security system.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE pending · CVSS: N/A — Supply chain injection affecting 178 organizations on Nov 16; full attacker identity and scope under investigation.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: HIGH — APT29 Watering Hole -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Nov 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html" style="color:#111827;text-decoration:none;">APT29 Hijacks Ukrainian Analytics Platform Plerdy in Watering-Hole Campaign Targeting iPhone and Android Users with DarkSword Exploit Kit</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Russia's APT29 (Cozy Bear) compromised the Ukrainian web analytics tracker Plerdy for at least a week, injecting the DarkSword exploit kit to silently compromise iOS and Android devices of website visitors, stealing cookies, Wi-Fi passwords, and device data.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Users who visited Ukrainian websites embedding Plerdy analytics scripts on unpatched mobile devices, with highest risk for Ukrainian government officials, journalists, and civil society members whose device data was targeted for intelligence collection.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Keep iOS and Android fully updated, enable Lockdown Mode on high-risk iPhones, treat any mobile device that browsed Ukrainian websites in the past two weeks as potentially compromised, and rotate cookies and stored passwords.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1189 · Drive-by Compromise<br>
+      <span style="color:#6b7280;">APT29 planted exploit code in the legitimate Plerdy analytics platform so that high-value Ukrainian targets would trigger the attack chain simply by visiting sites they already trusted and frequented—making the compromise invisible to conventional phishing defenses and requiring zero interaction beyond a routine website visit.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">Russia's APT29—the SVR intelligence service's cyber unit, also known as Cozy Bear and Midnight Blizzard—executed a sophisticated watering-hole campaign by compromising Plerdy, a Ukrainian web analytics and heatmap platform used by many Ukrainian organizations. By injecting the DarkSword exploit kit into Plerdy's script delivery, APT29 ensured that any device loading the analytics script on a vulnerable iOS or Android version would be silently exploited without any user interaction.</p>
+        <p style="margin:0 0 8px;">Once a device was compromised, the malware stole browser cookies, saved Wi-Fi network credentials, and broader device data before exfiltrating it to APT29-controlled infrastructure. The targeting of a Ukrainian analytics platform strongly indicates the campaign was aimed at Ukrainian civil servants, government officials, journalists, and civil society members—consistent with APT29's known mission priorities aligned with Russian foreign intelligence objectives during ongoing conflict.</p>
+        <p style="margin:0 0 8px;">The campaign operated undetected for at least one week, potentially compromising thousands of devices. The use of the DarkSword exploit kit—a sophisticated iOS exploit framework—indicates significant resource investment, typical of nation-state operations targeting specific high-value populations rather than opportunistic criminal actors.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A "watering hole" attack is named after predators that wait by a water source to ambush animals that come to drink. Russian hackers compromised a web analytics tool used by many Ukrainian websites. When someone visited any of those sites on their phone, the attack code silently installed itself—no clicking required, no suspicious emails to watch for. It is particularly sneaky because victims are targeted through legitimate websites they visit every single day.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE — multi-exploit iOS/Android chain via DarkSword kit · Nation-state campaign attributed to Russia's SVR (APT29/Cozy Bear).</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: APT29 -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">APT29 — Cozy Bear / Midnight Blizzard / The Dukes</div>
+  <div style="opacity:.85;margin-top:4px;">Nation-State Intelligence · Attributed to: Russia (SVR — Foreign Intelligence Service)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Government ministries, embassies, diplomatic missions, NGOs, think tanks, defense contractors, tech companies, and civil society—particularly in Europe, the US, and Ukraine.</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Long-dwell-time espionage, supply chain attacks (SolarWinds 2020, Microsoft email 2024), spearphishing, password spray campaigns, watering holes, and highly custom malware including SUNBURST, WellMess, and the DarkSword exploit kit.</div>
+</div>
+
+<!-- STORY 6: HIGH — LiteLLM/Starlette RCE Chain -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CISA KEV / Security Research · Nov 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://senserva.com/exploited-this-week.html" style="color:#111827;text-decoration:none;">Active Exploitation Scanning: Chained SSRF + RCE in LiteLLM and Starlette (CVE-2026-42271 + CVE-2026-48710) Targets Enterprise AI Infrastructure</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers are conducting internet-wide scans exploiting a chained SSRF and RCE vulnerability in the Starlette framework (CVE-2026-42271) and LiteLLM AI proxy (CVE-2026-48710), enabling unauthenticated code execution on exposed LiteLLM API instances and theft of all configured LLM API keys.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running internet-exposed LiteLLM proxy instances risk unauthorized access to all configured LLM API keys (OpenAI, Anthropic, etc.), AI session histories, and proprietary system prompts.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update LiteLLM immediately to the patched version, rotate all LLM API keys, restrict LiteLLM admin interfaces to VPN or private network access only, and audit logs for unauthorized API calls or unusual token consumption.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">The chained SSRF-to-RCE exploit targets LiteLLM's publicly-exposed API endpoints to bypass authentication and gain initial code execution on AI proxy infrastructure—which holds highly sensitive LLM API credentials and proprietary enterprise data processed through AI services.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">Researchers have detected active internet-wide scanning for a two-step exploit chain targeting LiteLLM, a popular open-source proxy used to manage and route requests to various large language model APIs. CVE-2026-42271 is an SSRF flaw in the Starlette web framework that LiteLLM depends on; chained with CVE-2026-48710, attackers can bypass authentication entirely and achieve unauthenticated remote code execution on exposed instances.</p>
+        <p style="margin:0 0 8px;">LiteLLM is widely deployed in enterprise environments to centrally manage connections to AI services including OpenAI, Anthropic, and Google Gemini. Compromising a LiteLLM instance yields all configured API keys, billing accounts, stored conversation histories, and system prompt configurations. Beyond the financial cost of API abuse (unexpected charges from unauthorized model usage), attackers gain insight into an organization's AI tooling and any sensitive data processed through those AI services.</p>
+        <p style="margin:0 0 8px;">The active scanning activity suggests threat actors are building a target list for follow-on exploitation. Organizations should immediately patch, verify no unauthorized API activity has occurred in billing dashboards, and treat any internet-exposed LiteLLM instance as a potential credential compromise.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> LiteLLM is a "hub" that companies use to connect to multiple AI services (like ChatGPT or Claude) through one place, with one set of keys. These vulnerabilities let attackers break in without a password and steal all the "access cards" (API keys) stored inside. It is like breaking into a keymaster's office: once you have the keys, you can access everything they unlock and rack up enormous charges on the victim's account while reading their private AI conversations.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-42271 (Starlette) · CVE-2026-48710 (LiteLLM) · CVSS: 9.1/10 — Chained unauthenticated RCE in AI proxy infrastructure; active exploitation scanning confirmed Nov 16.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 7: HIGH — ActiveCloud Ransomware -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Security Affairs · Nov 16, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityaffairs.com/" style="color:#111827;text-decoration:none;">Ransomware Attack Encrypts Belarusian Cloud Provider ActiveCloud's Infrastructure, Knocking Customer Services Offline</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Belarusian cloud hosting provider ActiveCloud was hit by ransomware on November 16 that encrypted a significant portion of its infrastructure, taking customer-facing services including hosted websites, VPS instances, and databases offline.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> ActiveCloud's business customers across Belarus and neighboring regions whose hosted services, websites, and databases remain inaccessible while the provider works to restore systems from backup.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Cloud-hosted customers must maintain independent offline backups that do not rely solely on provider-managed backups, test restoration procedures regularly, and ensure business continuity plans account for extended cloud provider outages.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1486 · Data Encrypted for Impact<br>
+      <span style="color:#6b7280;">Attackers deployed ransomware to encrypt ActiveCloud's production infrastructure simultaneously, maximizing business disruption across all customer environments at once—a multiplier effect that makes cloud and MSP providers disproportionately high-value ransomware targets compared to individual businesses.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p style="margin:0 0 8px;">Belarusian cloud hosting provider ActiveCloud suffered a ransomware attack on November 16 that encrypted a significant portion of its production infrastructure. The attack caused widespread service disruption for ActiveCloud's customers, including hosted websites, virtual private server instances, and database services going offline. ActiveCloud provides cloud, VPS, and dedicated server services to businesses across Belarus and the broader Eastern European region.</p>
+        <p style="margin:0 0 8px;">Ransomware attacks against cloud service providers represent an extremely high-impact scenario: rather than a single organization going down, potentially hundreds or thousands of downstream businesses lose access to their infrastructure simultaneously. The specific ransomware group responsible has not been publicly identified, and the initial access vector remains under investigation.</p>
+        <p style="margin:0 0 8px;">This incident continues a pattern of ransomware groups targeting hosting and infrastructure providers for maximum leverage—prior incidents include attacks on Leaseweb (2023) and multiple regional MSPs. Cloud customers must not assume provider-level resilience substitutes for independent backup and recovery capabilities maintained outside the provider's infrastructure.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Ransomware scrambles all files on a computer so they can't be opened until a ransom is paid. Usually this affects one company at a time. Here it happened to a company that hosts hundreds of other businesses' websites and servers—so it is like the power company getting hit, not just one house. All businesses relying on ActiveCloud suddenly found their websites down. This shows why having your own backup copies stored independently of your cloud provider is so important.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE assigned · Responsible ransomware group not yet identified · Investigation ongoing as of Nov 17.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: Watering Hole Attack ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A watering hole attack is a strategy where an attacker compromises a website or service that their intended targets are known to visit regularly, rather than attacking the targets directly—the name comes from the hunting tactic of a predator waiting by a water source to ambush animals that must come there to drink. Instead of sending phishing emails that savvy targets might recognize and ignore, the attacker poisons a trusted destination and waits for the targets to arrive on their own. Today's APT29 campaign is a textbook example: rather than approaching Ukrainian officials with suspicious messages, Russian hackers compromised a Ukrainian web analytics platform used by hundreds of local websites, turning any routine daily visit into a silent device compromise.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: LPE · RCE · SSRF · Exploit Kit · Drive-by Compromise ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">LPE</strong> — Local Privilege Escalation: a vulnerability that allows an attacker who already has limited access to a computer to gain higher-level permissions such as SYSTEM or root without needing additional credentials.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">RCE</strong> — Remote Code Execution: a vulnerability class allowing an attacker to run arbitrary code on a target system over the network without prior access; typically the most critical class of server vulnerability.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">SSRF</strong> — Server-Side Request Forgery: an attack that tricks a server into making HTTP requests on the attacker's behalf, often used to reach internal services or bypass firewall rules that block the attacker directly.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Exploit Kit</strong> — A packaged collection of exploits targeting common software vulnerabilities (browsers, plugins, operating systems) that automatically attempts to compromise any visiting device; typically delivered through compromised websites or malicious ads.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Drive-by Compromise</strong> — MITRE ATT&CK technique T1189 where an attacker compromises a system through the browser visiting a malicious or compromised website, requiring no user interaction beyond the visit itself.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://shattered.io/chrome-zero-day-cve-2026-125350-xml-use-after-free-157-0-8103-50" style="color:#374151;text-decoration:none;">Chrome Zero-Day CVE-2026-125350 Patched — Update to 157.0.8103.50 (8th Chrome Zero-Day of 2026)</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Shattered.io · Nov 10, 2026</span>
+    <div style="margin-top:3px;font-size:12px;color:#6b7280;">🎯 [Execution] T1203 · Exploitation for Client Execution — Use-after-free in Chrome's XML parser; patch by updating to build 157.0.8103.50 or later; CISA KEV listed.</div>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.rescana.com/post/checkpoint-gaia-cve-2026-123039-kev-patch-now" style="color:#374151;text-decoration:none;">Check Point Gaia CVE-2026-123039 Root Escalation Added to CISA KEV — Apply November Jumbo Hotfix</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Rescana · Nov 13, 2026</span>
+    <div style="margin-top:3px;font-size:12px;color:#6b7280;">🎯 [Privilege Escalation] T1068 · Exploitation for Privilege Escalation — DynamicCLI root escalation exploit confirmed in targeted attacks against Check Point Gaia firewall appliances; mitigation available pending hotfix.</div>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Nov 17, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
