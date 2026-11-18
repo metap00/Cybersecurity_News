@@ -1,14 +1,19 @@
 {
   "til": [
+    "NTLM Relay Attack",
     "Cryptographic Agility",
     "Return-Oriented Programming (ROP)",
     "Threat Modeling",
     "Certificate Transparency",
     "Zero-Click Exploit",
-    "DNS Cache Poisoning",
-    "Watering Hole Attack"
+    "DNS Cache Poisoning"
   ],
   "glossary": [
+    "NTLMv2 Hash",
+    "CVSS",
+    "UAF",
+    "Authentication Bypass",
+    "Extortion",
     "KEV",
     "DeFi",
     "SSO",
@@ -53,17 +58,12 @@
     "NTLM",
     "PoC",
     "Infostealer",
-    "RMM",
-    "LPE",
-    "RCE",
-    "Exploit Kit",
-    "SSRF",
-    "Drive-by Compromise"
+    "RMM"
   ],
   "week": {
-    "critical": 3,
-    "high": 10,
-    "medium": 5,
+    "critical": 5,
+    "high": 13,
+    "medium": 7,
     "techniques": [
       "T1190",
       "T1486",
@@ -73,15 +73,25 @@
       "T1195.003",
       "T1068",
       "T1195.001",
-      "T1189"
+      "T1189",
+      "T1657",
+      "T1133"
     ],
     "actors": [
       "WhiteArmor",
       "Qilin",
-      "APT29"
+      "APT29",
+      "n0n"
     ]
   },
   "digests": [
+    {
+      "date": "2026-11-18",
+      "threat": "ELEVATED",
+      "critical": 2,
+      "high": 3,
+      "medium": 2
+    },
     {
       "date": "2026-11-17",
       "threat": "ELEVATED",
@@ -703,13 +713,6 @@
       "threat": "ELEVATED",
       "critical": 1,
       "high": 4,
-      "medium": 2
-    },
-    {
-      "date": "2026-08-20",
-      "threat": "ELEVATED",
-      "critical": 2,
-      "high": 3,
       "medium": 2
     }
   ]

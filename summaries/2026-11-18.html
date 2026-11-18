@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Nov 18, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 18, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">7 stories · 2 critical · 3 high · 2 medium · ~7 min read</div>
+</div>
+
+<!-- STORY 1: CRITICAL — Microsoft Outlook CVE-2026-124194 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/exploited-outlook-zero-day-among-1094-flaws-patched-by-microsoft/" style="color:#111827;text-decoration:none;">Microsoft Outlook CVE-2026-124194 NTLM Zero-Day Actively Exploited — CISA Demands Federal Patch by Nov 24</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A zero-day spoofing flaw in Microsoft Outlook leaks NTLMv2 credential hashes to attacker-controlled servers when a victim merely previews a crafted email, requiring zero clicks.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Any enterprise or organization running Microsoft Outlook on Windows where NTLM authentication remains enabled — the vast majority of corporate environments worldwide.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply November 2026 Microsoft security updates immediately; CISA has added this to its Known Exploited Vulnerabilities catalog with a mandatory federal deadline of November 24, 2026.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1187 · Forced Authentication<br>
+      <span style="color:#6b7280;">This flaw triggers an outbound NTLM authentication request from Outlook to an attacker's server simply by loading the malicious email, handing over NTLMv2 hashes for cracking or relay without any victim interaction.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-124194 is what researchers call a "zero-click" vector in its most dangerous form. A victim does not click a link or open an attachment — simply having the malicious email load in Outlook's reading pane triggers an outbound NTLM authentication request to an attacker-controlled server. The NTLMv2 hash that arrives can be cracked offline (especially effective against weaker passwords) or relayed immediately to authenticate to other internal services, achieving lateral movement across an enterprise network.</p>
+        <p>This class of NTLM leaking flaw has been exploited repeatedly over the years. Microsoft patched similar issues in CVE-2023-23397 and CVE-2024-21413. The persistence of these vulnerabilities reflects how difficult it is to remove NTLM from large enterprise environments — it is deeply embedded in legacy systems, printers, and network shares. Organizations that have completed the migration to Kerberos-only authentication are unaffected.</p>
+        <p>CISA's addition to the KEV catalog confirms active exploitation, meaning attacks are happening now. Threat actors using credential theft via this vector can quickly establish a foothold, pivot to Active Directory, and escalate privileges — often before defenders detect the initial email preview.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Windows networks use a system called NTLM to prove who you are, like showing an ID badge. This bug tricks your Outlook email app into automatically showing that badge to a hacker's server the moment you view the email. The hacker captures a copy of your badge and can use it to walk into other servers in your company pretending to be you — without ever knowing your actual password.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-124194 · CVSS: 9.0/10 — High-severity spoofing flaw; network-reachable with no user interaction required beyond email preview in the reading pane.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: CRITICAL — Atlassian Confluence CVE-2026-90436 -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CyberSecurityNews · Nov 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/hackers-exploiting-atlassian-confluence-vulnerability/" style="color:#111827;text-decoration:none;">Hackers Actively Exploiting Atlassian Confluence RCE CVE-2026-90436, 1.2 Million Instances Exposed</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A critical unauthenticated remote code execution flaw in Atlassian Confluence is under active attack, with Rapid7 observing exploitation campaigns since November 13 and Censys counting approximately 1.2 million internet-facing instances.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running unpatched on-premises Confluence servers exposed to the internet, particularly software companies, enterprises, and government agencies that use Confluence for documentation.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Atlassian's emergency security patch immediately; if patching is not possible today, block internet access to the Confluence instance and monitor for unusual process spawning from the Confluence service account.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Attackers directly target Confluence's exposed administration interface to execute arbitrary code without authentication, using it as the initial foothold to access sensitive internal documentation and pivot to connected systems.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Confluence has become a persistent high-value target because enterprises store sensitive content — credentials, architecture diagrams, internal processes, and sometimes even source code — directly in it. An RCE flaw means an attacker can run arbitrary code as the Confluence service account, which typically has broad read access to all spaces, and can be leveraged to dump credentials stored in pages or pivot to the underlying server OS.</p>
+        <p>The 1.2 million exposed figure from Censys highlights a systemic problem: organizations frequently expose Confluence to the internet for remote collaboration but then fall behind on patching. The critical severity and lack of authentication requirement means exploitation requires no prior knowledge or credentials — just an internet connection and the right exploit payload.</p>
+        <p>Rapid7's observation of exploitation starting November 13 — days after the CVE was published — confirms automated scanning campaigns are running. The window between patch release and exploitation for critical Confluence flaws has historically been less than 72 hours.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Confluence is like a company-wide internal Wikipedia that teams use to store instructions, passwords, and business plans. This bug lets anyone on the internet — without logging in — take complete control of that server, read everything stored there, and potentially access other company systems it's connected to. It's the digital equivalent of leaving your company's filing room unlocked and facing the street.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-90436 · CVSS: 10.0/10 — Perfect score; unauthenticated, network-exploitable, no user interaction required, full code execution.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: HIGH — Google Chrome CVE-2026-125350 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">TechJournal · Nov 9, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://techjournal.org/chrome-zero-day-update" style="color:#111827;text-decoration:none;">Google Patches 8th Chrome Zero-Day of 2026: CVE-2026-125350 Use-After-Free Exploited in the Wild</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Google released an emergency Chrome update fixing CVE-2026-125350, a use-after-free memory corruption flaw in the browser's XML parsing component that attackers are actively exploiting — the eighth Chrome zero-day patched in 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Chrome users on Windows, macOS, Linux, and Android; also users of Chromium-based browsers including Microsoft Edge, Brave, and Opera which share the underlying rendering engine.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Verify Chrome is on the latest version via chrome://settings/help (Chrome will auto-update but may need a restart to apply); Edge, Brave and other Chromium-based browsers should also be updated immediately.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1189 · Drive-by Compromise<br>
+      <span style="color:#6b7280;">This use-after-free flaw in Chrome's XML parser is triggered when a user visits an attacker-controlled webpage, turning a normal browsing session into a code execution opportunity without any additional user interaction.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Use-after-free vulnerabilities in browser engines are among the most dangerous classes of memory corruption bugs. When Chrome frees a block of memory used for XML parsing and then attempts to use a pointer to that memory, an attacker who controls the XML input can arrange for attacker-controlled data to occupy that freed memory slot — potentially redirecting code execution to arbitrary instructions.</p>
+        <p>Eight Chrome zero-days in a single year reflects the enormous attack surface of modern browsers and the competitive market for browser exploits. High-sophistication threat actors — including nation-state groups and exploit brokers — pay premium prices for reliable Chrome RCE chains. The active exploitation of this flaw before Google patched it suggests it was part of an exploit chain, likely paired with a sandbox escape to achieve full OS code execution.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of a use-after-free like erasing a whiteboard note and then accidentally reading from the erased spot — where an attacker has secretly written their own instructions. By crafting a malicious webpage that feeds Chrome a specially designed piece of XML data, the attacker can make your browser run their code just from you visiting the page.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-125350 · CVSS: 8.8/10 — High; renderer process exploitation potentially escaping the Chrome sandbox via a secondary privilege escalation step.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: HIGH — n0n Ransomware Visa/JPMorgan -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CyberNews · Nov 18, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybernews.com/security/visa-jpmorgan-data-breach/" style="color:#111827;text-decoration:none;">n0n Ransomware Gang Claims Visa and JPMorgan Chase as Victims, Sets 48-Hour Leak Deadline</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A newly emerged ransomware group named n0n has listed both Visa and JPMorgan Chase on its dark web leak site, claiming to hold stolen financial data with a 48-hour deadline before public release.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Visa has acknowledged the incident involved a third-party provider in the Asia Pacific region; JPMorgan Chase attributes its reported service disruption to a software bug and says there is no evidence of a cyberattack.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Monitor official disclosures from Visa and JPMorgan; security teams at financial institutions and payment processors should audit third-party API access and review data egress logs from payment processing systems.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1657 · Financial Theft<br>
+      <span style="color:#6b7280;">The n0n group specifically targeted global payment infrastructure — Visa's transaction data and JPMorgan's financial records — to maximize extortion leverage, exploiting a third-party provider as the entry point into the payment ecosystem.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The n0n group's simultaneous claims against two of the world's largest financial institutions marks a significant escalation in ransomware targeting. While both organizations have largely minimized the claims, Visa's specific acknowledgment of a "third-party provider" incident suggests some form of access did occur through a supply chain partner rather than a direct breach of core systems.</p>
+        <p>Third-party provider breaches in the payment ecosystem are particularly dangerous because they can expose transaction metadata, card numbers, or merchant identifiers at scale. Even if only a subset of data was accessed, the reputational and regulatory implications for financial institutions are enormous — especially with PCI-DSS requirements demanding rapid disclosure.</p>
+        <p>The 48-hour deadline is a pressure tactic designed to prevent victims from properly assessing what was taken and negotiating methodically. Law enforcement guidance consistently advises against paying ransoms, as payment does not guarantee data deletion and simply funds the next attack.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> n0n is a new criminal group that breaks into companies or their partners, steals sensitive data, and threatens to post it publicly unless paid. Think of it as digital blackmail: "Pay us or we'll publish your secrets." Both Visa and JPMorgan are disputing the claims, but the fact that Visa confirmed something happened at a partner company in Asia means there is at least some fire behind this smoke.
+        </div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- THREAT ACTOR CARD: n0n -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">n0n</div>
+  <div style="opacity:.85;margin-top:4px;">Criminal ransomware group · Attributed to: Unknown (newly emerged)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Major global financial institutions, payment processors, and their third-party technology providers in Asia Pacific and beyond</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> High-profile simultaneous claims against multiple Tier-1 financial brands; aggressive 48-hour extortion deadlines; third-party supply chain access as preferred entry vector</div>
+</div>
+
+<!-- STORY 5: HIGH — Barracuda CVE-2026-116606 -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityOnline · Nov 17, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://securityonline.info/" style="color:#111827;text-decoration:none;">Barracuda Email Security Gateway CVE-2026-116606: Critical Authentication Bypass Grants Admin Access (CVSS 9.3)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A critical authentication bypass flaw (CVSS 9.3) in Barracuda Email Security Gateway appliances allows unauthenticated attackers to gain full administrative access to the management interface without any credentials.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using Barracuda Email Security Gateway hardware and virtual appliances — widely deployed in mid-market and enterprise environments as the primary inbound and outbound email security layer.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Barracuda's emergency patch immediately; if unable to patch now, restrict management interface access to trusted IP ranges via firewall rules and monitor for unauthorized admin user creation or configuration changes.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1133 · External Remote Services<br>
+      <span style="color:#6b7280;">The authentication bypass exploits Barracuda's externally accessible management console — an external remote service many organizations expose to the internet — to gain admin access and silently reconfigure the email security appliance.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Email security gateways sit at a privileged position in network architecture — all inbound and outbound email flows through them. An attacker with admin access can intercept communications, whitelist malicious senders to bypass spam filtering, disable antivirus and malware scanning, or silently copy all email to an external server. The gateway is effectively a wiretap on the organization's communications.</p>
+        <p>A CVSS 9.3 authentication bypass at this chokepoint is exceptionally dangerous. Organizations typically trust their email security gateway implicitly, so a compromised device has a very long detection dwell time. Historically, Barracuda gateway vulnerabilities (such as CVE-2023-2868) were exploited by state-sponsored actors who maintained persistent access for months before discovery.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A Barracuda Email Security Gateway is the bouncer at your company's email front door — it checks every incoming message for viruses and spam before letting it through. This bug lets hackers walk straight past the bouncer and take control of the whole door. Once inside, they could let malicious emails through, read all your company's email, or even lock you out of your own system.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-116606 · CVSS: 9.3/10 — Critical; unauthenticated admin access to email security appliance management interface, no user interaction required.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: NTLM Relay Attack ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    An NTLM relay attack occurs when an attacker intercepts your Windows authentication request and immediately forwards it to another server as if they were you — the attacker never needs to know your password, only capture the authentication flow in transit. Because NTLM doesn't verify which server is being authenticated to, the attacker can use your credentials to log into internal file shares, databases, or even Active Directory domain controllers on your behalf. Modern defenses include disabling NTLM network authentication in favor of Kerberos, enabling SMB signing to prevent relay, and deploying Extended Protection for Authentication (EPA) — but millions of enterprise environments still have NTLM enabled because legacy devices require it.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: NTLMv2 Hash · CVSS · UAF · Authentication Bypass · Extortion ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">NTLMv2 Hash</strong> — The cryptographic token Windows sends when proving a user's identity over a network; if captured by an attacker it can be cracked offline or replayed to impersonate the user on other systems.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CVSS</strong> — Common Vulnerability Scoring System; a standardized 0.0–10.0 scale for rating vulnerability severity, where scores above 9.0 are considered Critical and demand immediate patching.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">UAF (Use-After-Free)</strong> — A memory corruption bug where code uses a pointer to memory that has already been freed and potentially reallocated to attacker-controlled data, allowing arbitrary code execution.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Authentication Bypass</strong> — A vulnerability that allows an attacker to skip login procedures entirely and gain unauthorized access to a system or application without valid credentials.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">Extortion</strong> — In a ransomware context, the practice of threatening to publicly release stolen data unless the victim pays a ransom, also called "double extortion" when combined with encrypting the victim's files.
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://securityonline.info/" style="color:#374151;text-decoration:none;">Check Point Gaia OS CVE-2026-123039: Local Privilege Escalation in DynamicCLI Hits Dozens of Customers</a>
+    <span style="color:#9ca3af;font-size:11px;"> · SecurityOnline</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://www.hookphish.com/blog/ransomware-group-curious-worm-hits-risingpharma-com/" style="color:#374151;text-decoration:none;">Rising Pharma Listed on Curious Worm Ransomware Leak Site — US Generic Drug Maker at Risk</a>
+    <span style="color:#9ca3af;font-size:11px;"> · HookPhish</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Nov 18, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>
