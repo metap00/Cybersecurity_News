@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — Nov 19, 2026</title></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="margin-bottom:12px;">
+  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
+</div>
+
+<!-- THREAT BANNER -->
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 19, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">10 stories · 2 critical · 5 high · 3 medium · ~9 min read</div>
+</div>
+
+<!-- STORY 1: Chrome Zero-Day CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Nov 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://thehackernews.com/2026/11/google-issues-chrome-security-update.html" style="color:#111827;text-decoration:none;">Google Issues Emergency Chrome Update for Eighth Actively Exploited Zero-Day of 2026 (CVE-2026-125350)</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Google patched a use-after-free vulnerability in Chrome's XML component (CVE-2026-125350) that is being actively exploited in the wild and has been added to CISA's Known Exploited Vulnerabilities catalog.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All users running Chrome below version 157.0.8103.50 on Windows, macOS, and Linux are vulnerable to arbitrary code execution via a malicious web page.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Update Chrome immediately to version 157.0.8103.50 or later; federal agencies must patch by November 24, 2026 per CISA's KEV directive.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Execution] T1203 · Exploitation for Client Execution<br>
+      <span style="color:#6b7280;">Attackers exploit this browser-level UAF bug to execute shellcode in the context of the Chrome renderer process, turning a drive-by page visit into code execution on the victim's machine.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-125350 is a use-after-free (UAF) flaw in Chrome's handling of XML document parsing. When Chrome frees a memory object but continues using a reference to that freed memory, an attacker can craft a web page with a specially structured XML payload that causes the stale pointer to reference attacker-controlled data, leading to arbitrary code execution inside the renderer process.</p>
+        <p>This is Chrome's eighth zero-day patched in 2026 — an unusually high count that reflects both the browser's attack-surface breadth and the sustained commercial demand for browser exploits from nation-states and criminal groups. CISA added this to its KEV catalog the same day Google published the advisory, confirming active exploitation across federal and commercial targets.</p>
+        <p>Google has not disclosed the identity of the threat actors exploiting this flaw, the scale of the campaign, or specific indicators of compromise. The fix is available through Chrome's automatic update mechanism; users can verify their version at chrome://settings/help.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Chrome is constantly loading web pages that are written by strangers. This bug meant that a malicious web page could trick Chrome into running the attacker's code on your computer without you doing anything beyond visiting the page. Google has already pushed a fix — just restart Chrome and let it update.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-125350 · CVSS: 8.8/10 — High-severity browser exploit enabling remote code execution through a crafted web page, with active in-the-wild exploitation confirmed by Google and CISA.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 2: OPTIMJACK CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">StepSecurity / Newsweek · Nov 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.stepsecurity.io/blog/optimjack-optimizely-hosted-scripts-crypto-clipper-card-skimmer" style="color:#111827;text-decoration:none;">OPTIMJACK: Malicious JavaScript Injected via Optimizely CDN, Hitting 178+ Organizations Including CNN, Zoom, BBC, Salesforce</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Attackers placed a crypto-clipper and card-skimmer payload in Optimizely's per-customer "Project JavaScript" field, causing cdn.optimizely.com to serve malicious code to visitors of at least 178 major organizations since November 16, 2026.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Visitors to sites using Optimizely's A/B testing platform — including CNN, Zoom, BBC, Salesforce, GitLab, Fox News, and American Eagle — may have had their clipboard and payment data harvested.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Site owners should audit their Optimizely Project JavaScript for any reference to the domain 1688360.cc and remove any code they did not author; end users on affected sites should monitor payment accounts and avoid cryptocurrency transactions until further notice.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1195.002 · Supply Chain Compromise: Compromise Software Supply Chain<br>
+      <span style="color:#6b7280;">By injecting malicious JavaScript into Optimizely's trusted CDN delivery pipeline, the attacker piggybacks on the implicit trust organizations place in their A/B testing vendor's scripts, bypassing CSP and browser security warnings entirely.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The OPTIMJACK campaign exploited the fact that Optimizely allows customers to inject arbitrary JavaScript into their per-project configuration. An unauthorized party modified these project-level code fields, causing the legitimate Optimizely CDN domain (cdn.optimizely.com) to deliver a two-stage payload: first loading a secondary script from the domain 1688360.cc, which then deployed a crypto-clipboard hijacker (swapping copied wallet addresses) and a card-skimming module targeting payment forms.</p>
+        <p>The attack was first detected by security researcher Scott Helme of Report URI, who scanned 1,611 Optimizely snippets and found 188 infected, belonging to 178 distinct organizations. Because the malicious code was served from cdn.optimizely.com — a domain that virtually all security tools and CSPs trust — conventional defenses did not block it. StepSecurity confirmed at least 186 infected sites and noted the attacker used a consent-manager loading chain (cdn.cookielaw.org → cdn.optimizely.com → 1688360.cc) to maintain stealth.</p>
+        <p>Optimizely began cleaning files on the evening of November 16, but the attack was still being reported as ongoing as of this writing. The company has not yet published a formal security advisory. Mandiant is reported to be assisting with the investigation. The specific method by which the attacker gained write access to customer Project JavaScript fields — whether via compromised credentials, an Optimizely admin-panel vulnerability, or insider access — has not been confirmed.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Many major websites use a service called Optimizely to run A/B tests (showing different versions of a page to different visitors). That service runs a JavaScript file on the page, and attackers slipped malicious code into that file. Because the file came from a trusted Optimizely server, the browser ran it without question — the same as if the company itself had placed it there.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No single CVE assigned · CVSS: N/A — Supply chain attack with broad blast radius; severity is based on the number of affected organizations and the sensitive nature of the harvested data (payment cards, cryptocurrency).</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 3: Outlook Zero-Day HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/exploited-outlook-zero-day-among-1094-flaws-patched-by-microsoft/" style="color:#111827;text-decoration:none;">Exploited Outlook Zero-Day CVE-2026-124194 — Crafted Email Silently Steals Windows NTLM Hashes</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A spoofing vulnerability in Microsoft Outlook (CVE-2026-124194) allows an attacker to send a crafted .msg file that causes Outlook to automatically authenticate to a remote server, leaking the recipient's NTLMv2 hash without any warning or user click.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> All Microsoft 365 and Office 2021/2019/2016 users on Windows who have not applied the November 10, 2026 security update are vulnerable to credential theft via a single received email.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the November 2026 Patch Tuesday update immediately, and enforce outbound SMB (port 445) blocking at the network perimeter as a secondary control against hash relay attacks.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Credential Access] T1187 · Forced Authentication<br>
+      <span style="color:#6b7280;">The crafted .msg file contains a UNC path that Outlook resolves automatically, forcing the victim's Windows host to authenticate to the attacker's SMB server and surrender the NTLMv2 hash, which can then be cracked offline or relayed to other services.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-124194 is a spoofing vulnerability in Microsoft Outlook's handling of message file (.msg) attachments. When a specially crafted .msg file is delivered to a victim's inbox, Outlook automatically resolves an embedded UNC path (e.g., \\attacker-server\share\file) during preview or rendering. This triggers Windows' NTLM authentication mechanism, sending the user's NTLMv2 hash to the attacker-controlled server without displaying any warning dialog or requiring the user to click anything beyond opening the email.</p>
+        <p>The stolen NTLMv2 hash can be relayed in an NTLM relay attack against other internal services (Exchange, file shares, Active Directory LDAP) or cracked offline using tools like Hashcat, potentially revealing the user's plaintext password. Microsoft confirmed exploitation in the wild was detected before the November 10, 2026 patch was released, though it has not attributed the attacks to a specific threat actor or disclosed the number of victims. ThreatDefence published a hunting guide with Sigma rules for detecting exploitation attempts.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Windows uses a system called NTLM to prove who you are on a network. This bug tricks Outlook into quietly sending your login credentials to a hacker's server just by receiving a booby-trapped email — no clicking required. The fix is a free Windows update that Microsoft already released on November 10.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-124194 · CVSS: 8.0/10 — Spoofing flaw that enables credential theft via passive email receipt, with active exploitation confirmed by Microsoft prior to patch availability.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 4: Apache Roller RCE HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/critical-vulnerability-found-in-apache-roller-blog-server/" style="color:#111827;text-decoration:none;">Critical Deserialization RCE in Apache Roller (CVE-2026-82384) Allows Unauthenticated Takeover — Patch to 6.1.6</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> A critical deserialization vulnerability in the Apache Roller blogging platform's XML-RPC endpoint (CVE-2026-82384) allows unauthenticated attackers to achieve remote code execution on any exposed instance by sending a crafted XML payload.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations running Apache Roller versions 4.0 through 6.1.5 with the XML-RPC interface exposed — commonly used by universities, government agencies, and media organizations — are at risk of full server compromise.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Upgrade to Apache Roller 6.1.6 immediately, which disables the vulnerable XML-RPC extension types; if patching is not immediately possible, block port 443/80 access to the /roller-services/xmlrpc endpoint at the WAF or firewall.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">The Apache Roller XML-RPC endpoint is reachable without authentication, making it a direct internet-facing attack surface; exploiting the deserialization flaw gives the attacker an OS-level shell on the web server with no prior access required.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Apache Roller is a Java-based blogging platform used primarily in enterprise and academic settings. Its XML-RPC endpoint, originally designed to allow remote publishing tools (like desktop blog editors) to interact with the platform, deserializes arbitrary Java objects sent in XML payloads. CVE-2026-82384 exploits this by sending a specially crafted serialized payload containing a "gadget chain" — a sequence of legitimate Java class constructors that, when chained together by the deserializer, ultimately executes attacker-specified OS commands.</p>
+        <p>The flaw is particularly dangerous because it requires no authentication — an attacker with network access to the XML-RPC endpoint gets immediate code execution. Black Duck researchers noted that exploitation requires only a public PoC payload adapted from existing deserialization frameworks like ysoserial. The fix in 6.1.6 removes the ability to deserialize untrusted extension types and disables XML-RPC by default. A secondary deserialization bug (CVE-2026-123374) affecting versions through 6.1.6 was also patched in 6.1.7, so updating directly to 6.1.7 is recommended if available.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Think of "deserialization" as the software equivalent of opening a package: you receive data and unpack it into usable objects. This bug lets an attacker ship a "package" that, when unpacked by Apache Roller, secretly runs their malicious code. Because the unpacking happens automatically on every request, no login or social engineering is needed.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-82384 · CVSS: 9.8/10 — Critical unauthenticated RCE via deserialization; organizations are urged to patch immediately as public exploit tooling makes mass exploitation trivial.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 5: Atlassian 318 Flaws HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.securityweek.com/feed/" style="color:#111827;text-decoration:none;">Atlassian November 2026 Security Bulletin: 318 Vulnerabilities Patched, Including Critical CVSS 9.8 RCE in Jira and Confluence</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Atlassian's November 2026 monthly security bulletin fixes 318 vulnerabilities across Jira, Confluence, Bitbucket, Bamboo, and related products, with the most critical being a CVSS 9.8 remote code execution flaw that affects both cloud and on-premises deployments.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Enterprises running any Atlassian product — particularly on-premises Jira and Confluence installations, which are prime targets for ransomware groups and nation-state actors — should treat this as a priority patch event.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply the November 2026 Atlassian security bulletin updates immediately; Atlassian Cloud customers are updated automatically, while Data Center and Server customers must apply patches manually.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Initial Access] T1190 · Exploit Public-Facing Application<br>
+      <span style="color:#6b7280;">Atlassian's products are routinely exposed to the internet as DevOps collaboration tools, making each critical bulletin a race between defenders patching and attackers mass-scanning for unpatched instances to exploit for initial access into corporate networks.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>Atlassian's November 2026 security bulletin is notably large at 318 vulnerabilities — a figure that includes both original Atlassian flaws and third-party dependencies bundled within its products. Among them, the CVSS 9.8 RCE is the headline risk: a remotely exploitable, pre-authentication flaw that could allow attackers to gain arbitrary command execution on any exposed Jira or Confluence instance without valid credentials.</p>
+        <p>Historically, critical Atlassian bulletins have been weaponized within days of publication. Nation-state groups (notably Chinese APTs) and ransomware gangs (including Cl0p) have previously chained Confluence RCE exploits to pivot through enterprise DevOps environments, exfiltrating source code, credentials stored in wikis, and CI/CD pipeline secrets. Organizations should also audit Jira for any stored sensitive information — API keys, cloud credentials, internal IPs — that could be harvested if the RCE is exploited.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Jira and Confluence are tools that companies use to track projects and share documentation. They often contain sensitive corporate information — passwords, API keys, internal plans. This patch fixes a flaw that would let an attacker break in without a password and read (or modify) everything stored there.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">Multiple CVEs · Top CVSS: 9.8/10 — The highest-severity issue in this bulletin represents a pre-authentication RCE with the highest possible exploitability score, requiring urgent patching on all on-premises installations.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- STORY 6: NVIDIA Gentlemen Ransomware HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">CybersecurityNews · Nov 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://cybersecuritynews.com/nvidia-data-breach-claim/" style="color:#111827;text-decoration:none;">The Gentlemen Ransomware Gang Claims to Have Breached NVIDIA — Alleged Data Exfiltration, 48-Hour Leak Deadline</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> The Gentlemen ransomware group listed NVIDIA on its dark web leak site on November 18, 2026, claiming to have exfiltrated sensitive corporate data and threatening to publish it unless a ransom is paid within 48 hours; NVIDIA has not confirmed any breach.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> If confirmed, the breach could expose NVIDIA's proprietary AI chip designs, driver source code, and employee/customer data, with potential downstream impact on the AI supply chain given NVIDIA's market position.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> NVIDIA customers and partners should monitor NVIDIA's official security advisories and exercise heightened vigilance for any phishing or social engineering leveraging NVIDIA branding while the claim is under investigation.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Impact] T1657 · Financial Theft<br>
+      <span style="color:#6b7280;">The Gentlemen uses the double-extortion model: exfiltrate data first, then threaten to publish it publicly to pressure the victim into paying even if they have backups — data exposure, not encryption, is the primary coercive lever here.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>The Gentlemen is a ransomware-as-a-service operation that emerged in mid-2026 and has primarily targeted technology and semiconductor companies in North America and Western Europe. The group's dark web listing for NVIDIA includes what appear to be file tree screenshots and partial samples; however, security researchers caution that such samples may be fabricated or sourced from older leaks to create false urgency. NVIDIA has stated only that it is investigating the claim.</p>
+        <p>NVIDIA is a particularly high-value target: its H200 and B200 AI accelerator designs represent hundreds of millions of dollars in R&D investment, and exposure of firmware, driver code, or manufacturing specs could benefit both rival chipmakers and state-sponsored actors seeking to advance their own AI hardware programs. The group's simultaneous listing of Visa and JPMorgan Chase (via its sister gang n0n, see below) suggests a coordinated extortion campaign targeting high-profile technology and financial sector firms this week.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> Ransomware gangs now usually steal data before they lock it. Even if NVIDIA has perfect backups, the threat to publish stolen files online is what forces a ransom decision. This particular gang is unverified as of now — we don't yet know if the breach is real or a bluff.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">No CVE · CVSS: N/A — Unconfirmed extortion claim; severity assessed as HIGH based on potential impact to global AI supply chain if the breach is substantiated.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- Threat Actor Card: The Gentlemen -->
+<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
+  <div style="font-weight:bold;font-size:15px;">The Gentlemen</div>
+  <div style="opacity:.85;margin-top:4px;">Ransomware-as-a-Service (RaaS) · Criminal · Attribution: Unknown (possibly Eastern European)</div>
+  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> Technology companies, semiconductor manufacturers, AI infrastructure providers, and high-value intellectual property holders in North America and Western Europe</div>
+  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> Double-extortion model (exfiltration-first, encryption-optional), dark web leak site with 48-hour pressure deadlines, and simultaneous multi-victim listings to amplify media coverage and ransom pressure</div>
+</div>
+
+<!-- STORY 7: Check Point LPE HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:8px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">Bleeping Computer · Nov 19, 2026</span>
+  </div>
+  <details>
+    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;"><a href="https://www.bleepingcomputer.com/news/security/check-point-patches-zero-day-that-lets-hackers-get-root-access/" style="color:#111827;text-decoration:none;">Check Point Patches Gaia OS Privilege Escalation Zero-Day CVE-2026-123039 Exploited Against ~24 Customers</a></summary>
+    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
+      <div>🔍 <strong>What happened:</strong> Check Point patched a local privilege escalation vulnerability in its Gaia OS (CVE-2026-123039) affecting its network security appliances, confirming that the flaw has been actively exploited against approximately 24 customers to achieve root-level access.</div>
+      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> Organizations using Check Point next-generation firewalls and network security gateways running vulnerable Gaia OS builds — particularly those with management interfaces accessible from the internet or via compromised VPN sessions — are at elevated risk.</div>
+      <div style="margin-top:3px;">✅ <strong>What to do:</strong> Apply Check Point's hotfix immediately; as a stopgap, stop the dynamic_server process and prevent it from auto-restarting, and audit management interface access logs for anomalous privilege changes.</div>
+    </div>
+    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
+      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [Privilege Escalation] T1068 · Exploitation for Privilege Escalation<br>
+      <span style="color:#6b7280;">Once an attacker has achieved limited access to a Gaia OS appliance — via a compromised admin credential or a previous exploit — this LPE flaw allows them to escalate from a restricted shell to full root, defeating all subsequent security controls on the device.</span>
+    </div>
+    <details style="margin-top:10px;">
+      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
+      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+        <p>CVE-2026-123039 is a local privilege escalation flaw in Check Point's Gaia OS, the hardened Linux-based operating system that runs on Check Point's firewall and gateway appliances. The vulnerability resides in the dynamic_server process — a component that handles dynamic routing updates — and allows a user with restricted shell access to escalate to root by exploiting an unsafe system call or configuration that the process runs with elevated privileges.</p>
+        <p>Check Point confirmed exploitation against roughly 24 customers, suggesting a targeted campaign rather than mass exploitation. Network security appliances are high-value post-compromise targets: once an attacker achieves root on a firewall, they can intercept all traffic flowing through it, modify routing tables, disable logging, implant persistent backdoors in firmware, or pivot deeper into the protected network. The existence of a temporary mitigation (stopping dynamic_server) allows organizations to reduce exposure before fully patching.</p>
+        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
+          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> A firewall is like the security guard at the entrance to your network. This flaw lets someone who has already gotten past the guard (with limited access) convince the guard system to give them the master key. With the master key, they can read everything passing through the firewall and even leave a backdoor for future visits.
+        </div>
+        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-2026-123039 · CVSS: 7.8/10 — Locally-exploitable privilege escalation on network security appliances with confirmed in-the-wild exploitation against a small number of targeted organizations.</div>
+      </div>
+    </details>
+  </details>
+</div>
+
+<!-- TODAY I LEARNED -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: CDN-Based Supply Chain Compromise ▶</summary>
+  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
+    A CDN-based supply chain compromise occurs when an attacker gains write access to code that is served from a trusted Content Delivery Network domain — a domain that most websites, browsers, and security tools explicitly trust. Because the malicious script is delivered from an authoritative, expected source (e.g., cdn.optimizely.com), standard browser security mechanisms like Content Security Policy and subresource integrity checks fail to block it unless the site owner has explicitly pinned the expected script hash. The OPTIMJACK campaign is a textbook example: by modifying Optimizely's customer-configurable JavaScript field rather than attacking the CDN infrastructure itself, the attacker bypassed CDN-level protections entirely and turned a marketing tool into a weaponized distribution channel reaching millions of visitors across 178+ organizations simultaneously.
+  </div>
+</details>
+
+<!-- GLOSSARY -->
+<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: CDN · Supply Chain Attack · Deserialization · Credential Coercion · OGNL ▶</summary>
+  <div style="margin-top:10px;">
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">CDN</strong> — Content Delivery Network; a geographically distributed network of servers that caches and delivers website assets (scripts, images, fonts) from locations close to the visitor, improving load times and providing a trusted delivery channel that browsers rarely question.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Supply Chain Attack</strong> — An attack that compromises a vendor, software library, or service that the target organization trusts and uses, allowing the attacker to reach many victims simultaneously through a single point of leverage rather than attacking each one individually.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Deserialization</strong> — The process of reconstructing a data object from a stored or transmitted byte sequence; when an application deserializes data from an untrusted source without validation, attackers can craft payloads that cause the reconstructed object to execute arbitrary code.
+    </div>
+    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+      <strong style="color:#111827;">Credential Coercion</strong> — A technique that tricks a Windows host into automatically initiating an authentication handshake (typically NTLM) to an attacker-controlled server, surrendering the user's password hash in the process without any user interaction beyond receiving a crafted message.
+    </div>
+    <div style="padding:7px 0;font-size:13px;">
+      <strong style="color:#111827;">OGNL</strong> — Object-Graph Navigation Language; a Java expression language used in frameworks like Apache Struts and Confluence to access and modify object properties; frequently exploited in RCE attacks when user-supplied OGNL expressions are evaluated without sandboxing (e.g., the original Log4Shell and multiple Confluence vulnerabilities).
+    </div>
+  </div>
+</details>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybernews.com/security/visa-jpmorgan-data-breach/" style="color:#374151;text-decoration:none;">n0n Ransomware Lists Visa and JPMorgan Chase — Visa Says Third-Party Provider in APAC at Fault, JPMorgan Mum</a>
+    <span style="color:#9ca3af;font-size:11px;"> · Cybernews</span>
+  </div>
+  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://thehackernews.com/" style="color:#374151;text-decoration:none;">Java4Shell CVE-2026-114938: Unauthenticated RCE Path in Jira, Jenkins, and Keycloak — No Exploitation Detected Yet</a>
+    <span style="color:#9ca3af;font-size:11px;"> · The Hacker News</span>
+  </div>
+  <div style="padding:6px 0;font-size:13px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/" style="color:#374151;text-decoration:none;">TYPO3 CMS CVE-2026-125160 Actively Exploited — Attackers Targeting Unpatched Enterprise Installations</a>
+    <span style="color:#9ca3af;font-size:11px;"> · CybersecurityNews</span>
+  </div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
+  Generated by Claude · 10 feeds monitored · Nov 19, 2026 · <a href="../index.html" style="color:#9ca3af;">All digests</a>
+</div>
+
+</body>
+</html>

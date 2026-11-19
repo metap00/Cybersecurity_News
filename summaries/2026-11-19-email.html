@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
+
+<div style="background:#dc2626;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">🔴 ELEVATED</div>
+  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — Nov 19, 2026</div>
+  <div style="font-size:13px;opacity:.85;margin-top:4px;">10 stories · 2 critical · 5 high · ~9 min read</div>
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-11-19.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
+</div>
+
+<!-- STORY 1: Chrome Zero-Day CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">The Hacker News · Nov 19, 2026</span>
+  </div>
+  <a href="https://thehackernews.com/2026/11/google-issues-chrome-security-update.html" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Google Issues Emergency Chrome Update for Eighth Actively Exploited Zero-Day of 2026 (CVE-2026-125350)</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Google patched a use-after-free in Chrome's XML component (CVE-2026-125350) that is being actively exploited in the wild and added to CISA's KEV catalog.</div>
+    <div style="margin-top:2px;">👤 All Chrome users below version 157.0.8103.50 are vulnerable to arbitrary code execution via a malicious web page.</div>
+    <div style="margin-top:2px;">✅ Update Chrome immediately to 157.0.8103.50+; federal agencies must patch by November 24 per CISA KEV directive.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Execution] T1203 · Exploitation for Client Execution</div>
+</div>
+
+<!-- STORY 2: OPTIMJACK CRITICAL -->
+<div style="background:white;border-left:4px solid #dc2626;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#dc2626;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">CRITICAL</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">StepSecurity · Nov 19, 2026</span>
+  </div>
+  <a href="https://www.stepsecurity.io/blog/optimjack-optimizely-hosted-scripts-crypto-clipper-card-skimmer" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">OPTIMJACK: Malicious JavaScript Injected via Optimizely CDN, Hitting 178+ Organizations Including CNN, Zoom, BBC, Salesforce</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Attackers placed a crypto-clipper and card-skimmer in Optimizely's Project JavaScript field, causing cdn.optimizely.com to deliver malicious code to 178+ organizations since November 16.</div>
+    <div style="margin-top:2px;">👤 Visitors to sites using Optimizely (CNN, Zoom, BBC, Salesforce, GitLab, Fox News, American Eagle) may have had payment and clipboard data stolen.</div>
+    <div style="margin-top:2px;">✅ Audit Optimizely Project JavaScript for any reference to 1688360.cc and remove any code you did not author.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1195.002 · Supply Chain Compromise: Compromise Software Supply Chain</div>
+</div>
+
+<!-- STORY 3: Outlook Zero-Day HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 19, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/exploited-outlook-zero-day-among-1094-flaws-patched-by-microsoft/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Exploited Outlook Zero-Day CVE-2026-124194 — Crafted Email Silently Steals Windows NTLM Hashes</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A spoofing flaw in Outlook (CVE-2026-124194) causes it to auto-authenticate to attacker servers via UNC path resolution, leaking NTLMv2 hashes with no user interaction needed.</div>
+    <div style="margin-top:2px;">👤 All unpatched Microsoft 365 and Office 2021/2019/2016 users on Windows are at risk of credential theft via received email.</div>
+    <div style="margin-top:2px;">✅ Install the November 10 Patch Tuesday update and block outbound SMB (port 445) at the network perimeter.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Credential Access] T1187 · Forced Authentication</div>
+</div>
+
+<!-- STORY 4: Apache Roller RCE HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 19, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/critical-vulnerability-found-in-apache-roller-blog-server/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Critical Deserialization RCE in Apache Roller CVE-2026-82384 (CVSS 9.8) — Unauthenticated Takeover via XML-RPC</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 A CVSS 9.8 deserialization flaw in Apache Roller's XML-RPC endpoint allows unauthenticated attackers to achieve remote code execution on any exposed instance.</div>
+    <div style="margin-top:2px;">👤 Organizations running Apache Roller 4.0–6.1.5, commonly used by universities, government agencies, and media organizations, face full server compromise risk.</div>
+    <div style="margin-top:2px;">✅ Upgrade to Apache Roller 6.1.6 immediately, or block access to /roller-services/xmlrpc at your WAF as an emergency measure.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- STORY 5: Atlassian HIGH -->
+<div style="background:white;border-left:4px solid #ea580c;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="margin-bottom:6px;">
+    <span style="background:#ea580c;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">HIGH</span>
+    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SecurityWeek · Nov 19, 2026</span>
+  </div>
+  <a href="https://www.securityweek.com/feed/" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">Atlassian November 2026 Bulletin: 318 Vulnerabilities Fixed Including Critical CVSS 9.8 Pre-Auth RCE in Jira and Confluence</a>
+  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
+    <div>🔍 Atlassian released its November 2026 security bulletin patching 318 vulnerabilities, headlined by a CVSS 9.8 pre-authentication RCE affecting on-premises Jira and Confluence.</div>
+    <div style="margin-top:2px;">👤 Enterprises running on-premises Atlassian products are at high risk; Atlassian Cloud customers are updated automatically.</div>
+    <div style="margin-top:2px;">✅ Apply November 2026 Atlassian patches immediately on all on-premises installations, and audit stored credentials in Confluence and Jira.</div>
+  </div>
+  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [Initial Access] T1190 · Exploit Public-Facing Application</div>
+</div>
+
+<!-- ALSO TODAY -->
+<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
+  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://www.bleepingcomputer.com/news/security/check-point-patches-zero-day-that-lets-hackers-get-root-access/" style="color:#374151;text-decoration:none;">Check Point Gaia OS LPE CVE-2026-123039 Exploited Against ~24 Customers</a>
+    <span style="color:#9ca3af;"> · Bleeping Computer</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ea580c;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">HIGH</span>
+    <a href="https://cybersecuritynews.com/nvidia-data-breach-claim/" style="color:#374151;text-decoration:none;">The Gentlemen Ransomware Claims NVIDIA Breach — 48-Hour Leak Deadline Set</a>
+    <span style="color:#9ca3af;"> · CybersecurityNews</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://cybernews.com/security/visa-jpmorgan-data-breach/" style="color:#374151;text-decoration:none;">n0n Ransomware Lists Visa and JPMorgan Chase — Visa Blames Third-Party Provider in APAC</a>
+    <span style="color:#9ca3af;"> · Cybernews</span>
+  </div>
+  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://thehackernews.com/" style="color:#374151;text-decoration:none;">Java4Shell CVE-2026-114938: Unauthenticated RCE in Jira, Jenkins, and Keycloak — No Exploitation Yet</a>
+    <span style="color:#9ca3af;"> · The Hacker News</span>
+  </div>
+  <div style="padding:5px 0;font-size:12px;">
+    <span style="background:#ca8a04;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">MEDIUM</span>
+    <a href="https://cybersecuritynews.com/" style="color:#374151;text-decoration:none;">TYPO3 CMS CVE-2026-125160 Actively Exploited in Enterprise Installations</a>
+    <span style="color:#9ca3af;"> · CybersecurityNews</span>
+  </div>
+</div>
+
+<div style="text-align:center;margin-bottom:16px;">
+  <a href="https://metap00.github.io/Cybersecurity_News/summaries/2026-11-19.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&amp;CK Analysis →</a>
+  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
+</div>
+
+<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · Nov 19, 2026</div>
+
+</body>
+</html>
