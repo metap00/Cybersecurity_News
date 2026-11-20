@@ -1,17 +1,14 @@
 {
   "til": [
-    "Cryptographic Agility",
     "Return-Oriented Programming (ROP)",
     "Threat Modeling",
     "Certificate Transparency",
     "Zero-Click Exploit",
     "DNS Cache Poisoning",
-    "CDN-Based Supply Chain Compromise"
+    "CDN-Based Supply Chain Compromise",
+    "Lateral Movement"
   ],
   "glossary": [
-    "KEV",
-    "DeFi",
-    "SSO",
     "OT",
     "SSH",
     "AI Agent",
@@ -58,7 +55,10 @@
     "Supply Chain Attack",
     "Deserialization",
     "Credential Coercion",
-    "OGNL"
+    "OGNL",
+    "TTPs",
+    "IOC",
+    "EDR"
   ],
   "week": {
     "critical": 7,
@@ -87,6 +87,13 @@
     ]
   },
   "digests": [
+    {
+      "date": "2026-11-20",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
     {
       "date": "2026-11-19",
       "threat": "ELEVATED",
@@ -709,13 +716,6 @@
       "critical": 2,
       "high": 5,
       "medium": 2
-    },
-    {
-      "date": "2026-08-22",
-      "threat": "ELEVATED",
-      "critical": 2,
-      "high": 4,
-      "medium": 1
     }
   ]
 }
