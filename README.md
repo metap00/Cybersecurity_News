@@ -27,12 +27,9 @@ On Sundays a short recap replaces the brief: read rate, the week's pattern, one 
 
 ## How it runs
 
-One GitHub Actions workflow, `.github/workflows/digest.yml`, daily at **04:30 UTC**.
+A systemd user timer on the owner's VPS (user `openclaw`), daily at **06:30 Europe/Bucharest**, all year (the timer follows the time zone, so summer time needs no change).
 
-| Season | Arrives (Romania) |
-|---|---|
-| Winter (EET, UTC+2) | 06:30 |
-| Summer (EEST, UTC+3) | 07:30, unless the cron is changed to `'30 3 * * *'` |
+`.github/workflows/digest.yml` has no schedule any more. It stays for manual runs: Actions → Daily brief → Run workflow, dry run by default. Keep it on dry run: a real run there sends a second brief and commits its own `data/`, which then blocks the VPS's `git pull`.
 
 ```text
 python -m brief.run
@@ -45,15 +42,69 @@ python -m brief.run
 Sunday: sync → weekly (claude-sonnet-5-5) → send --weekly
 ```
 
-State lives in `data/state.json` and `data/digests/`, committed by the workflow. A failed run sends one Telegram line with a link to the run. API cost: about $3–4 a month (estimate).
+State lives in `data/state.json` and `data/digests/` on the VPS, written by `brief/state.py` and never committed. A failed run sends one Telegram line naming the log file. API cost: about $3–4 a month (estimate).
 
-## Setup (about 10 minutes)
+## VPS setup
 
-1. **Anthropic API key.** Create one in the Anthropic Console. Add it as repo secret `ANTHROPIC_API_KEY`.
-2. **Telegram bot.** Message `@BotFather`, send `/newbot`, put the token in repo secret `TELEGRAM_BOT_TOKEN`. Send "hi" to the new bot, open `https://api.telegram.org/bot<TOKEN>/getUpdates`, put the `chat.id` number in repo secret `TELEGRAM_CHAT_ID`.
-3. **`profile.md`.** Fill in the `i use` line (see below).
-4. **Test it.** Actions → Daily brief → Run workflow (dry run is on by default). The job summary shows the rendered brief.
-5. **After the first real brief:** switch off the old Claude Code cloud routine and revoke the GitHub token in its prompt. Optional: delete the unused secrets `GMAIL_APP_PASSWORD` and `RESEND_API_KEY`.
+What is on the VPS:
+
+| Path | What |
+|---|---|
+| `~/Cybersecurity_News` | clone of `main`; each run starts with `git pull --ff-only` |
+| `~/venvs/cybernews` | venv with `requirements.txt` |
+| `~/Cybersecurity_News/.env` | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `ANTHROPIC_API_KEY`; mode 600, gitignored |
+| `~/.config/systemd/user/cybernews.{service,timer}` | the schedule |
+| `~/Cybersecurity_News/logs/YYYY-MM-DD.log` | one log per day, kept 60 days |
+| `~/Cybersecurity_News/data/` | state and sent digests |
+
+The brief sends with the Telegram Bot API (`sendMessage`, `sendPoll`, `stopPoll`) and never calls `getUpdates`, so it can share a bot with another app that polls for updates.
+
+Rebuild from scratch:
+
+```sh
+git clone https://github.com/metap00/Cybersecurity_News.git ~/Cybersecurity_News
+python3 -m venv ~/venvs/cybernews && ~/venvs/cybernews/bin/pip install -r ~/Cybersecurity_News/requirements.txt
+# write ~/Cybersecurity_News/.env (the three variables above), then: chmod 600 ~/Cybersecurity_News/.env
+```
+
+`~/.config/systemd/user/cybernews.service`:
+
+```ini
+[Unit]
+Description=Cybersecurity News daily brief (~/Cybersecurity_News)
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Cybersecurity_News
+EnvironmentFile=%h/Cybersecurity_News/.env
+ExecStart=/bin/sh -c 'mkdir -p logs; log=logs/$(date +%%F).log; { git pull -q --ff-only || echo "git pull failed, running current code"; %h/venvs/cybernews/bin/python -m brief.run; } >> "$log" 2>&1 || { curl -sS -o /dev/null --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=Cybersecurity brief failed today, see ~/Cybersecurity_News/$log" "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage"; exit 1; }; find logs -name "*.log" -mtime +60 -delete'
+```
+
+`~/.config/systemd/user/cybernews.timer`:
+
+```ini
+[Unit]
+Description=Cybersecurity News brief at 06:30 Romania time
+
+[Timer]
+OnCalendar=*-*-* 06:30 Europe/Bucharest
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+```sh
+systemctl --user daemon-reload && systemctl --user enable --now cybernews.timer
+systemctl --user list-timers cybernews.timer      # next run
+systemctl --user start cybernews.service          # run now (real send)
+tail -n 50 ~/Cybersecurity_News/logs/$(date +%F).log
+```
+
+The user needs lingering (`loginctl enable-linger openclaw`) so the timer runs while nobody is logged in.
+
+Getting the values: an Anthropic API key from the Anthropic Console. A bot token from `@BotFather` (`/newbot`). The chat id: send "hi" to the bot, open `https://api.telegram.org/bot<TOKEN>/getUpdates` and copy `chat.id` (skip this if another app already polls that bot; it would hide the update).
 
 ## Edit `profile.md`
 
