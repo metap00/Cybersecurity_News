@@ -73,7 +73,7 @@ def main(argv=None) -> int:
         llm.save("out/weekly.json", out)
         print(f"[weekly] {len(digests)} digests → pattern + {'a pick' if out['pick'] else 'no pick'}")
 
-    return llm.run(stage, __name__)
+    return llm.run(stage, "weekly")
 
 
 if __name__ == "__main__":

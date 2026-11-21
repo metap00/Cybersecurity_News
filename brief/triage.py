@@ -59,7 +59,7 @@ def stage():
 
 def main(argv=None) -> int:
     sys.stdout.reconfigure(encoding="utf-8")
-    return llm.run(stage, __name__)
+    return llm.run(stage, "triage")
 
 
 if __name__ == "__main__":

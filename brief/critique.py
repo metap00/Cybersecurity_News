@@ -120,7 +120,7 @@ def main(argv=None) -> int:
         llm.save("out/digest.json", digest)
         print(f"[critique] mode {digest['mode']}, {len(digest['items'])} items picked")
 
-    return llm.run(stage, __name__)
+    return llm.run(stage, "critique")
 
 
 if __name__ == "__main__":
