@@ -300,6 +300,7 @@ def send_daily(args, s) -> int:
     entry["sent_at"] = now_iso()
     put_day(s, entry, args.force)
     remember(s, digest)
+    st.remember_stories(s, digest, args.force)
     st.save(s)
     DIGESTS.mkdir(parents=True, exist_ok=True)
     with open(DIGESTS / f"{args.date}.json", "w", encoding="utf-8") as f:

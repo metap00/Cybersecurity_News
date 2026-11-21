@@ -257,3 +257,55 @@ def test_update_item_renders_whats_new_and_reminder():
     assert "<i>Reminder:</i> Chrome had a zero-day under attack." in first
     assert "🔴" not in first and "Why it matters to you:" in first
     assert rest == plain[0].split("\n\n")[1:]  # other items unchanged
+
+
+# ---------- story memory ----------
+
+def item(i, headline="Old story", **kw):
+    return {"id": i, "headline": headline, "summary": f"SUMMARY-{i}", "keys": [f"u:x.test/{i}"], **kw}
+
+
+def test_sent_item_creates_a_story_record(repo):
+    assert deliver.main(["send", "--date", "2026-11-21"]) == 0
+    [r, *_] = st.load()["stories"]
+    assert r["id"] == "2026-11-21-c01" and r["first"] == r["last"] == "2026-11-21"
+    assert r["told"] == [{"date": "2026-11-21", "type": "first", "text": digest()["items"][0]["summary"]}]
+    assert "cve-2026-125350" in r["keys"]
+
+
+def test_update_appends_to_told_and_moves_last():
+    s = {"days": []}
+    st.remember_stories(s, {"date": "2026-11-21", "items": [item("c09", names=["Armory Castle"])]})
+    up = item("c02", update={"story": "2026-11-21-c09", "type": "patch", "since": "2026-11-21"},
+              new="Fixed builds are out.", names=["VMware vCenter"])
+    st.remember_stories(s, {"date": "2026-11-24", "items": [up]})
+    [r] = s["stories"]
+    assert r["last"] == "2026-11-24" and r["first"] == "2026-11-21"
+    assert r["told"][-1] == {"date": "2026-11-24", "type": "patch", "text": "Fixed builds are out."}
+    assert r["names"] == ["Armory Castle", "VMware vCenter"] and r["keys"] == ["u:x.test/c09", "u:x.test/c02"]
+
+
+def test_story_15_days_old_is_removed():
+    s = {"days": []}
+    st.remember_stories(s, {"date": "2026-11-01", "items": [item("c01")]})
+    st.remember_stories(s, {"date": "2026-11-15", "items": [item("c02")]})
+    assert [r["id"] for r in st.stories(s, "2026-11-15")] == ["2026-11-01-c01", "2026-11-15-c02"]
+    st.remember_stories(s, {"date": "2026-11-16", "items": []})
+    assert [r["id"] for r in s["stories"]] == ["2026-11-15-c02"]
+
+
+def test_without_stories_key_records_come_from_digest_files(repo):
+    Path("data/digests").mkdir(parents=True)
+    for date in ("2026-11-01", "2026-11-20"):
+        Path(f"data/digests/{date}.json").write_text(json.dumps({"date": date, "items": [item("c03")]}), encoding="utf-8")
+    assert [r["id"] for r in st.stories({"days": []}, "2026-11-21")] == ["2026-11-20-c03"]
+
+
+def test_force_replaces_the_days_records():
+    s = {"days": []}
+    st.remember_stories(s, {"date": "2026-11-21", "items": [item("c09")]})
+    up = item("c02", update={"story": "2026-11-21-c09", "type": "patch", "since": "2026-11-21"}, new="Fixed.")
+    st.remember_stories(s, {"date": "2026-11-22", "items": [up, item("c05")]})
+    st.remember_stories(s, {"date": "2026-11-22", "items": [item("c07")]}, force=True)
+    assert [r["id"] for r in s["stories"]] == ["2026-11-21-c09", "2026-11-22-c07"]
+    assert s["stories"][0]["last"] == "2026-11-21" and len(s["stories"][0]["told"]) == 1

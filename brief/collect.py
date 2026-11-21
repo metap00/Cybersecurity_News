@@ -189,7 +189,8 @@ def make_candidate(raw, feed, tier=2):
 
 
 def _same(a, b):
-    if set(a["keys"]) & set(b["keys"]):  # same canonical URL or a shared CVE
+    # Same canonical URL. A shared CVE is not enough: an article may name it in passing (the triage model decides).
+    if any(k.startswith("u:") for k in set(a["keys"]) & set(b["keys"])):
         return True
     ratio = difflib.SequenceMatcher(None, a["title"].lower(), b["title"].lower()).ratio()
     return ratio >= SIMILAR
@@ -237,9 +238,10 @@ def window_start(state, now):
 
 
 def recent_keys(state, now, days=14):
+    """URL and KEV-batch keys sent in the last 14 days. CVEs are left to story memory (triage)."""
     cutoff = (now - timedelta(days=days)).date().isoformat()
     return {k for d in state.get("days", []) if d.get("date", "") >= cutoff
-            for k in d.get("keys", [])}
+            for k in d.get("keys", []) if k.startswith(("u:", "kev:"))}
 
 
 def kev_candidates(vulns, since):
@@ -317,7 +319,7 @@ def main(argv=None):
         return 1
 
     seen = recent_keys(state, now)
-    # KEV batches join after merge: a shared CVE must not pull unrelated flaws into one story.
+    # KEV batches join after merge, so code never groups them; the triage model does.
     cands = [c for c in merge(raw) + kev_cands if not seen & set(c["keys"])]
 
     cands.sort(key=lambda c: c["published"], reverse=True)

@@ -101,3 +101,56 @@ def streak(state) -> int:
             break
         n += 1
     return n
+
+
+# ---------- story memory (PLAN-sources section 4.3) ----------
+
+STORY_DAYS = 14  # D4: a story is remembered 14 days after its last send
+DIGESTS = Path("data/digests")
+
+
+def stories(state, today) -> list:
+    """Story records whose last send is within STORY_DAYS of today.
+
+    Without a `stories` key they are built from data/digests/*.json, like polls() converts old days.
+    """
+    cutoff = (_day(today) - timedelta(days=STORY_DAYS)).isoformat()
+    if "stories" not in state:
+        state["stories"] = []
+        for p in sorted(DIGESTS.glob("*.json")):
+            if cutoff <= p.stem <= str(today):
+                with open(p, encoding="utf-8") as f:
+                    _add_items(state["stories"], json.load(f))
+    return [r for r in state["stories"] if r["last"] >= cutoff]
+
+
+def _add_items(recs, digest):
+    """A new record per sent item, or for an update: append to told, move last, add keys and names."""
+    date = digest["date"]
+    by_id = {r["id"]: r for r in recs}
+    for it in digest.get("items") or []:
+        u = it.get("update")
+        r = by_id.get(u["story"]) if u else None
+        if r:
+            r["told"].append({"date": date, "type": u["type"], "text": it.get("new") or ""})
+        else:
+            r = {"id": f"{date}-{it['id']}", "first": date, "headline": it["headline"], "keys": [], "names": [],
+                 "told": [{"date": date, "type": "first", "text": it["summary"]}]}
+            recs.append(r)
+            by_id[r["id"]] = r
+        r["last"] = date
+        r["keys"] = list(dict.fromkeys(r["keys"] + (it.get("keys") or [])))
+        r["names"] = list(dict.fromkeys(r["names"] + (it.get("names") or [])))[:4]
+
+
+def remember_stories(state, digest, force=False) -> None:
+    """Record what this digest sent. force: first undo everything recorded for that date."""
+    date = digest["date"]
+    recs = stories(state, date)
+    if force:
+        recs = [r for r in recs if r["first"] != date]
+        for r in recs:
+            r["told"] = [t for t in r["told"] if t["date"] != date]
+            r["last"] = r["told"][-1]["date"]
+    _add_items(recs, digest)
+    state["stories"] = recs
