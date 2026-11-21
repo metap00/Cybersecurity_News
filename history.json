@@ -1,17 +1,14 @@
 {
   "til": [
-    "Return-Oriented Programming (ROP)",
     "Threat Modeling",
     "Certificate Transparency",
     "Zero-Click Exploit",
     "DNS Cache Poisoning",
     "CDN-Based Supply Chain Compromise",
-    "Lateral Movement"
+    "Lateral Movement",
+    "Fuzzing"
   ],
   "glossary": [
-    "OT",
-    "SSH",
-    "AI Agent",
     "VPN",
     "Zero-Day Chain",
     "SIEM",
@@ -58,7 +55,10 @@
     "OGNL",
     "TTPs",
     "IOC",
-    "EDR"
+    "EDR",
+    "Fuzzing",
+    "FIDO2",
+    "WebAuthn"
   ],
   "week": {
     "critical": 7,
@@ -87,6 +87,13 @@
     ]
   },
   "digests": [
+    {
+      "date": "2026-11-21",
+      "threat": "QUIET",
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
     {
       "date": "2026-11-20",
       "threat": "QUIET",
