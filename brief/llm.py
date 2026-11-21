@@ -1,18 +1,18 @@
-"""Shared model plumbing for the T2 stages: the one API call, caps, file helpers."""
+"""Shared model plumbing for the T2 stages: the one model call (Claude Code CLI), caps, file helpers."""
 import datetime as dt
 import json
 import re
+import subprocess
+import tempfile
 from pathlib import Path
 
 HAIKU, SONNET, OPUS = "claude-haiku-5-5", "claude-sonnet-5-5", "claude-opus-5-5"
-FALLBACK_BETA = "server-side-fallback-2026-07-01"
-PRICES = {HAIKU: (0.10, 0.50), SONNET: (2.0, 10.0), OPUS: (4.0, 20.0)}  # $ per MTok in/out
 PROMPTS = Path(__file__).resolve().parent.parent / "prompts"
 ATTACK_RE = re.compile(r"^T\d{4}(\.\d{3})?$")
 FORBIDDEN = ("http", "www.", "<")
+TIMEOUT = 900  # seconds per CLI call
 
-_client = None
-spent = []  # (model, in_tokens, out_tokens, dollars) per call, for the stage summary
+spent = []  # (model, in_tokens, out_tokens) per call, for the stage summary
 
 
 class Refused(RuntimeError):
@@ -23,38 +23,42 @@ class Invalid(RuntimeError):
     pass
 
 
-def client():
-    global _client
-    if _client is None:
-        import anthropic
-        _client = anthropic.Anthropic()
-    return _client
+def claude(model, system, user, schema, effort) -> dict:
+    """Run `claude -p` once (the owner's subscription login) and return its JSON result.
+
+    No tools, no MCP, no skills, no session saved. It runs in an empty temp dir so no CLAUDE.md is read.
+    """
+    cmd = ["claude", "-p", "--model", model, "--output-format", "json", "--effort", effort,
+           "--system-prompt", system, "--json-schema", json.dumps(schema), "--tools", "",
+           "--strict-mcp-config", "--disable-slash-commands", "--no-session-persistence"]
+    with tempfile.TemporaryDirectory() as cwd:
+        p = subprocess.run(cmd, input=user, capture_output=True, text=True, encoding="utf-8",
+                           cwd=cwd, timeout=TIMEOUT)
+    try:
+        return json.loads(p.stdout)
+    except ValueError:
+        raise RuntimeError(f"claude CLI exited {p.returncode}: {(p.stderr or p.stdout).strip()[:300]}") from None
 
 
 def call(model, system, user, schema, effort) -> dict:
-    """One schema-constrained call. Refusal: Sonnet/Opus fall back server-side, Haiku re-runs on Sonnet."""
-    kw = dict(
-        model=model, max_tokens=16000, system=system,
-        messages=[{"role": "user", "content": user}],
-        output_config={"effort": effort, "format": {"type": "json_schema", "schema": schema}},
-    )
-    if model == HAIKU:
-        resp = client().messages.create(**kw)
-    else:
-        resp = client().beta.messages.create(**kw, betas=[FALLBACK_BETA], fallbacks="default")
-    u = resp.usage
-    pin, pout = PRICES.get(getattr(resp, "model", model), PRICES.get(model, (0, 0)))
-    cost = (u.input_tokens * pin + u.output_tokens * pout) / 1e6
-    spent.append((model, u.input_tokens, u.output_tokens, cost))
-    print(f"[llm] {model}: {u.input_tokens} in / {u.output_tokens} out tokens (${cost:.4f})")
-    if resp.stop_reason == "refusal":
+    """One schema-constrained call. Refusal: Haiku re-runs on Sonnet, Sonnet/Opus raise Refused."""
+    r = claude(model, system, user, schema, effort)
+    u = r.get("usage") or {}
+    tin = sum(u.get(k) or 0 for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens"))
+    tout = u.get("output_tokens") or 0
+    spent.append((model, tin, tout))
+    print(f"[llm] {model}: {tin} in / {tout} out tokens")
+    if r.get("stop_reason") == "refusal":
         if model == HAIKU:
             print("[llm] Haiku refused; re-running once on Sonnet")
             return call(SONNET, system, user, schema, effort)
-        raise Refused(f"{model} refused ({getattr(resp, 'stop_details', None)})")
-    if resp.stop_reason == "max_tokens":
+        raise Refused(f"{model} refused")
+    if r.get("stop_reason") == "max_tokens":
         raise Invalid(f"{model} hit max_tokens")
-    return json.loads(next(b.text for b in resp.content if b.type == "text"))
+    if r.get("is_error"):
+        raise RuntimeError(f"claude CLI: {str(r.get('result'))[:300]}")
+    out = r.get("structured_output")
+    return out if out is not None else json.loads(r["result"])
 
 
 def call_checked(model, system, user, schema, effort, check) -> dict:
@@ -201,7 +205,6 @@ def run(stage, name):
     except Exception as e:  # noqa: BLE001 - every failure stops the run
         print(f"[{name}] FAILED: {type(e).__name__}: {e}")
         return 1
-    total = sum(s[3] for s in spent)
     if spent:
-        print(f"[llm] stage cost ${total:.4f}")
+        print(f"[llm] stage tokens: {sum(s[1] for s in spent)} in / {sum(s[2] for s in spent)} out")
     return 0
