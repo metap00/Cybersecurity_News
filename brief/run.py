@@ -32,7 +32,7 @@ def call(name, argv):
 
 def captured(name, argv):
     """call(), keeping a copy of what it printed (the rendered brief in dry-run)."""
-    buf = io.TextIOWrapper(io.BytesIO(), encoding="utf-8")  # has reconfigure(), unlike StringIO
+    buf = io.TextIOWrapper(io.BytesIO(), encoding="utf-8", newline="\n")  # reconfigure(), unlike StringIO; \n kept as-is on Windows
     with contextlib.redirect_stdout(buf):
         code = call(name, argv)
     buf.flush()
