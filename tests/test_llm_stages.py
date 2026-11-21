@@ -25,14 +25,15 @@ def repo(tmp_path, monkeypatch):
 @pytest.fixture
 def canned(monkeypatch):
     """Replace llm.call with a queue of canned JSON answers; record each call."""
-    calls, answers = [], []
+    calls, answers, users = [], [], []
 
     def fake(model, system, user, schema, effort):
         calls.append(model)
+        users.append(user)
         return copy.deepcopy(answers.pop(0))
 
     monkeypatch.setattr(llm, "call", fake)
-    return SimpleNamespace(calls=calls, answers=answers)
+    return SimpleNamespace(calls=calls, answers=answers, users=users)
 
 
 def ranked(n=4):
@@ -93,6 +94,67 @@ def test_url_in_model_string_rejected():
     assert any("no links" in e for e in llm.check_item(item))
     item["you"] = "Visit www.evil.example now"
     assert llm.check_item(item)
+
+
+def as_update(item):
+    return {**item, "summary": "word " * 20, "new": "Broadcom has released fixed vCenter builds."}
+
+
+def test_update_caps():
+    item = fixture("draft.json")["items"][0]
+    item["new"] = "Something new."
+    assert any("'new' must be null" in e for e in llm.check_item(item))
+    up = as_update(fixture("draft.json")["items"][0])
+    assert llm.check_item(up, update=True) == []
+    assert any("needs 'new'" in e for e in llm.check_item({**up, "new": "word " * 31}, update=True))
+    assert any("needs 'new'" in e for e in llm.check_item({**up, "new": None}, update=True))
+    assert any("reminder" in e for e in llm.check_item({**up, "summary": "word " * 41}, update=True))
+    assert any("reminder" in e for e in llm.check_item({**up, "summary": "word " * 14}, update=True))
+
+
+def test_item_words_counts_new():
+    it = {"headline": "h", "summary": "s", "you": "y", "new": "one two three"}
+    assert critique.item_words(it) == critique.item_words({**it, "new": None}) + 3
+
+
+UPDATE = {"story": "2026-11-21-c09", "type": "patch", "since": "2026-11-21", "hint": "fixed builds"}
+SECOND = {"feed": "Bleeping Computer", "tier": 2, "title": "Second source title", "summary": "SECOND-SOURCE-TEXT"}
+
+
+def multi_source_shortlist():
+    short = ranked()
+    short[0]["sources"] = [SECOND]
+    short[1]["update"] = UPDATE
+    short[1]["previous"] = {"headline": "Old", "first": "2026-11-21", "told": [{"date": "2026-11-21", "type": "first", "text": "PREVIOUS-TOLD"}]}
+    short[1]["names"] = ["VMware vCenter"]
+    return short
+
+
+def test_write_and_critique_see_every_source_and_the_update(repo, canned):
+    llm.save("out/ranked.json", {"shortlist": multi_source_shortlist()})
+    draft = fixture("draft.json")
+    draft["items"][1] = as_update(draft["items"][1])
+    canned.answers += [draft, verdicts("pass", "pass", "pass", "pass")]
+    assert write.main([]) == 0
+    assert critique.main(["--mode", "full", "--date", "2026-11-22"]) == 0
+    assert len(canned.calls) == 2  # the update draft passed its caps: no retry
+    for user in canned.users:
+        assert "SECOND-SOURCE-TEXT" in user and "PREVIOUS-TOLD" in user and "2026-11-21-c09" in user
+
+
+def test_update_copied_from_shortlist_not_model(repo, canned):
+    llm.save("out/ranked.json", {"shortlist": multi_source_shortlist()})
+    draft = fixture("draft.json")
+    draft["items"][1] = as_update(draft["items"][1])
+    llm.save("out/draft.json", draft)
+    v = verdicts("pass", "fixed", "pass", "pass")
+    v["items"][1]["fixed"] = {**draft["items"][1], "update": {"story": "x", "type": "poc", "since": "2020-01-01"}}
+    canned.answers.append(v)
+    assert critique.main(["--mode", "full", "--date", "2026-11-22"]) == 0
+    items = {i["id"]: i for i in llm.load("out/digest.json")["items"]}
+    assert items["c02"]["update"] == {"story": "2026-11-21-c09", "type": "patch", "since": "2026-11-21"}
+    assert items["c02"]["new"] == draft["items"][1]["new"] and items["c02"]["names"] == ["VMware vCenter"]
+    assert items["c01"]["update"] is None and items["c01"]["new"] is None
 
 
 def test_write_retries_once_then_fails_on_missing_item(repo, canned):

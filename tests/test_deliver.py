@@ -243,3 +243,17 @@ def test_errors_never_print_the_token(repo, capsys):
     out = capsys.readouterr().out
     assert "sendMessage failed" in out and TOKEN not in out and "42" not in out
     assert not Path("data/state.json").exists()
+
+
+def test_update_item_renders_whats_new_and_reminder():
+    d = digest()
+    plain = deliver.render(d, {"days": []})
+    d["items"][0] |= {"update": {"story": "2026-11-20-c01", "type": "patch", "since": "2026-11-21"},
+                      "new": "Google shipped the fix.", "summary": "Chrome had a zero-day under attack."}
+    stories = deliver.render(d, {"days": []})[0]
+    first, *rest = stories.split("\n\n")
+    assert first.startswith("🔄 <b>Update: Chrome zero-day is being exploited</b>")
+    assert "<i>What's new since 21 Nov:</i> Google shipped the fix." in first
+    assert "<i>Reminder:</i> Chrome had a zero-day under attack." in first
+    assert "🔴" not in first and "Why it matters to you:" in first
+    assert rest == plain[0].split("\n\n")[1:]  # other items unchanged
