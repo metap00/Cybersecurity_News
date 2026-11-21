@@ -110,8 +110,8 @@ def check_question(q, where):
         return [f"{where}: question missing"]
     if words(q["text"]) > QUESTION_WORDS:
         errs.append(f"{where}: question text over {QUESTION_WORDS} words")
-    if len(q["options"]) != 3:
-        errs.append(f"{where}: needs exactly 3 options")
+    if len(q["options"]) not in (3, 4):
+        errs.append(f"{where}: needs 3 or 4 options")
     errs += [f"{where}: option '{o}' over {OPTION} words" for o in q["options"] if words(o) > OPTION]
     if not (isinstance(q["correct"], int) and 0 <= q["correct"] < len(q["options"])):
         errs.append(f"{where}: correct index out of range")
@@ -255,6 +255,13 @@ def recent_days(n=14, today=None):
     today = today or dt.datetime.now(dt.timezone.utc).date()
     cutoff = (today - dt.timedelta(days=n)).isoformat()
     return [d for d in load("data/state.json", {"days": []}).get("days", []) if d.get("date", "") >= cutoff]
+
+
+def recent_topics(n=14):
+    """Quiz topics of the last n days, from every poll."""
+    from brief import state
+    return sorted({p["question"]["topic"] for d in recent_days(n) for p in state.polls(d)
+                   if p.get("question") and p["question"].get("topic")})
 
 
 def history():

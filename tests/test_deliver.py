@@ -53,13 +53,22 @@ def write_digest(d):
 def day(date, answered=True, correct=True, mode="full", poll=1, reasked=False):
     return {"date": date, "mode": mode, "sent_at": f"{date}T05:20:00Z", "keys": [], "titles": [],
             "poll_message_id": poll if mode not in ("weekly", "none") else None,
-            "question": digest()["question"], "answered": answered, "correct": correct, "reasked": reasked}
+            "question": digest()["questions"][0], "answered": answered, "correct": correct, "reasked": reasked}
+
+
+def new_day(date, answers, mode="full"):
+    """A day in the 3-poll format. answers: list of (answered, correct) per poll."""
+    return {"date": date, "mode": mode, "sent_at": f"{date}T05:20:00Z", "keys": [], "titles": [],
+            "answered": None if any(a is None for a, _ in answers) else any(a for a, _ in answers),
+            "polls": [{"message_id": 100 + i, "question": q, "answered": a, "correct": c, "reasked": False}
+                      for i, ((a, c), q) in enumerate(zip(answers, digest()["questions"]))]}
 
 
 def test_send_delivers_message_then_silent_quiz_and_records_state(repo):
     assert deliver.main(["send", "--date", "2026-11-21"]) == 0
-    assert [m for m, _ in repo.calls] == ["sendMessage", "sendMessage", "sendPoll"]
-    stories, extras, poll = (c[1] for c in repo.calls)
+    assert [m for m, _ in repo.calls] == ["sendMessage", "sendMessage", "sendPoll", "sendPoll", "sendPoll"]
+    stories, extras, poll = (c[1] for c in repo.calls[:3])
+    assert [c[1]["question"] for c in repo.calls[3:]] == ["What is a hash?", digest()["questions"][2]["text"]]
     assert stories["parse_mode"] == "HTML" and stories["link_preview_options"] == {"is_disabled": True}
     first = stories["text"].split("\n\n")[0]
     assert first.startswith("🔴 <b>Chrome zero-day is being exploited</b>\nAttackers are already exploiting")
@@ -69,12 +78,13 @@ def test_send_delivers_message_then_silent_quiz_and_records_state(repo):
     assert extras["text"].startswith("💡 <b>Today I learned: Forced Authentication</b>")
     assert "📖 <b>Words of the day</b>\n• <b>hash</b>:" in extras["text"]
     assert "▶ Do now (1 min): ⋮ → Help → About Google Chrome → Relaunch\n<i>For: Chrome zero-day" in extras["text"]
-    assert extras["text"].endswith("Done. One tap below ↓")
+    assert extras["text"].endswith("Done. 3 quick questions below ↓")
     assert poll["disable_notification"] is True and poll["correct_option_ids"] == [1]
     s = st.load()
     assert s["glossary"] == ["hash", "root"] and s["til"] == ["Forced Authentication"]
     d = s["days"][-1]
-    assert d["poll_message_id"] == 4711 and d["answered"] is None
+    assert [p["message_id"] for p in d["polls"]] == [4711] * 3 and d["answered"] is None
+    assert [p["question"]["kind"] for p in d["polls"]] == ["story", "term", "soc"]
     assert "cve-2026-125350" in d["keys"] and d["titles"][0] == "Chrome zero-day is being exploited"
     assert json.loads(Path("data/digests/2026-11-21.json").read_text(encoding="utf-8")) == digest()
 
@@ -98,7 +108,7 @@ def test_model_text_is_escaped(repo):
 def test_second_send_for_same_date_is_refused_unless_forced(repo):
     assert deliver.main(["send", "--date", "2026-11-21"]) == 0
     assert deliver.main(["send", "--date", "2026-11-21"]) == 1
-    assert len(repo.calls) == 3
+    assert len(repo.calls) == 5
     assert deliver.main(["send", "--date", "2026-11-21", "--force"]) == 0
     assert len(st.load()["days"]) == 1
 
@@ -151,7 +161,30 @@ def test_sync_turns_voter_counts_into_answered_and_correct(repo):
     assert deliver.main(["sync"]) == 0
     assert repo.calls == [("stopPoll", {"chat_id": "42", "message_id": 99})]
     d = st.load()["days"][-1]
-    assert d["answered"] is True and d["correct"] is False  # tapped option 0, correct is 1
+    assert d["answered"] is True and d["polls"][0]["correct"] is False  # tapped option 0, correct is 1
+
+
+def test_sync_closes_every_poll_and_a_day_counts_if_one_was_answered(repo):
+    st.save({"version": 1, "days": [new_day("2026-11-20", [(None, None)] * 3)]})
+    answers = iter([0, 1, 0])  # voters per poll: only the second was answered
+    def stop(req, timeout=None):
+        n = next(answers)
+        repo.calls.append(("stopPoll", json.loads(req.data)))
+        opts = [{"voter_count": 0}, {"voter_count": n}, {"voter_count": 0}]  # every vote goes to option 1
+        return io.BytesIO(json.dumps({"ok": True, "result": {"total_voter_count": n, "options": opts}}).encode())
+    urllib.request.urlopen = stop
+    assert deliver.main(["sync"]) == 0
+    assert [c[1]["message_id"] for c in repo.calls] == [100, 101, 102]
+    d = st.load()["days"][-1]
+    assert [p["answered"] for p in d["polls"]] == [False, True, False] and d["answered"] is True
+    assert st.score(d) == (0, 3)  # the term poll's right option is 0
+    assert st.streak(st.load()) == 1
+
+
+def test_footer_shows_the_last_quiz_score(repo):
+    st.save({"version": 1, "days": [new_day("2026-11-20", [(True, True), (True, False), (False, False)])]})
+    assert deliver.main(["send", "--date", "2026-11-21"]) == 0
+    assert "Done. Last quiz 1/3 · Last 7 days" in repo.calls[1][1]["text"]
 
 
 def test_sync_closed_poll_counts_as_unanswered(repo):
@@ -178,8 +211,8 @@ def test_quiz_only_and_none_modes(repo):
     d.update(mode="quiz_only", items=[], action=None)
     write_digest(d)
     assert deliver.main(["send", "--date", "2026-11-21"]) == 0
-    assert repo.calls[0][1]["text"] == "Nothing worth your minute today. One question:"
-    d.update(date="2026-11-23", mode="none", question=None)
+    assert repo.calls[0][1]["text"] == "Nothing worth your minute today. 3 questions:"
+    d.update(date="2026-11-23", mode="none", questions=[])
     write_digest(d)
     repo.calls.clear()
     assert deliver.main(["send", "--date", "2026-11-23"]) == 0
@@ -197,9 +230,10 @@ def test_weekly_counts_from_state_and_reasks_missed_questions(repo):
     assert deliver.main(["send", "--weekly", "--date", "2026-11-22"]) == 0
     text = repo.calls[0][1]["text"]
     assert text.startswith("📅 Your week: read 3 of 5 · 2 of 3 right · streak 1")
-    assert [m for m, _ in repo.calls] == ["sendMessage", "sendPoll", "sendPoll"]
+    assert [m for m, _ in repo.calls] == ["sendMessage", "sendPoll", "sendPoll", "sendPoll"]
+    assert "3 questions you missed or got wrong come next" in text
     s = st.load()
-    assert [d["reasked"] for d in s["days"][:4]] == [True, True, False, False]  # oldest two missed
+    assert [st.polls(d)[0]["reasked"] for d in s["days"][:4]] == [True, True, False, True]  # missed or wrong; the 18th was right
     assert s["days"][-1]["mode"] == "weekly"
 
 

@@ -7,11 +7,12 @@ from brief import llm
 SCHEMA = {
     "type": "object",
     "properties": {"items": {"type": "array", "items": llm.ITEM}, "review_question": llm.QUESTION,
-                   **llm.EXTRAS["properties"]},
-    "required": ["items", "review_question", "glossary", "til"],
+                   "term_question": llm.QUESTION, "soc_question": llm.QUESTION, **llm.EXTRAS["properties"]},
+    "required": ["items", "review_question", "term_question", "soc_question", "glossary", "til"],
     "additionalProperties": False,
 }
 FIELDS = ("id", "title", "summary", "feed", "kind", "cves", "kev")
+QUESTIONS = ("review_question", "term_question", "soc_question")
 
 
 def check_draft(data, ids, terms=(), tils=()):
@@ -21,15 +22,15 @@ def check_draft(data, ids, terms=(), tils=()):
     errs += [f"duplicate id {i}" for i in set(got) if got.count(i) > 1]
     for it in data["items"]:
         errs += llm.check_item(it)
-    rq = data["review_question"]
-    errs += llm.check_question(rq, "review_question") + llm.check_strings(rq, "review_question")
+    for k in QUESTIONS:
+        errs += llm.check_question(data[k], k) + llm.check_strings(data[k], k)
     return errs + llm.check_extras(data, terms, tils)
 
 
 def stage():
     shortlist = llm.load("out/ranked.json")["shortlist"]
     ids = [s["id"] for s in shortlist]
-    topics = sorted({d["question"]["topic"] for d in llm.recent_days() if d.get("question")})
+    topics = llm.recent_topics()
     terms, tils = llm.history()
     user = (
         "<profile>\n" + llm.profile() + "\n</profile>\n\n"
@@ -42,9 +43,9 @@ def stage():
     data = llm.call_checked(llm.SONNET, llm.prompt("write"), user, SCHEMA, "medium",
                             lambda d: check_draft(d, ids, terms, tils), fatal=lambda e: " id " in f" {e}")
     by_id = {it["id"]: it for it in data["items"]}
-    llm.save("out/draft.json", {"items": [by_id[i] for i in ids], "review_question": data["review_question"],
+    llm.save("out/draft.json", {"items": [by_id[i] for i in ids], **{k: data[k] for k in QUESTIONS},
                                 "glossary": data["glossary"], "til": data["til"]})
-    print(f"[write] drafted {len(ids)} items + review question + {len(data['glossary'])} terms"
+    print(f"[write] drafted {len(ids)} items + 3 extra questions + {len(data['glossary'])} terms"
           + (" + TIL" if data["til"] else ""))
 
 

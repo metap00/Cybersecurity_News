@@ -112,5 +112,28 @@
  "til": {
   "concept": "Patch Gap",
   "text": "The patch gap is the time between a fix coming out and it being installed. Attackers study new patches to find the bug and hit systems that are still behind. Defenders shrink the gap with automatic updates and by checking that patches really landed."
+ },
+ "term_question": {
+  "text": "Which word means a flaw attackers use before a fix exists?",
+  "options": [
+   "Zero-day",
+   "Patch",
+   "Firewall rule",
+   "Hash"
+  ],
+  "correct": 0,
+  "explanation": "A zero-day has had zero days of a vendor fix when it is first exploited.",
+  "topic": "zero-day"
+ },
+ "soc_question": {
+  "text": "An alert shows Chrome on a staff laptop crashing on a strange page. You are on shift. First move?",
+  "options": [
+   "Check the Chrome version",
+   "Wipe the laptop",
+   "Ignore it, crashes are normal"
+  ],
+  "correct": 0,
+  "explanation": "An old version means the exploited bug may still be open; that decides the next step.",
+  "topic": "triage"
  }
 }

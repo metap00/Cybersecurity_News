@@ -87,8 +87,8 @@ def quiz_errors(q) -> list:
     errs = []
     if not 1 <= len(q["text"]) <= 300:
         errs.append("question must be 1-300 characters")
-    if len(q["options"]) != 3 or not all(1 <= len(o) <= 100 for o in q["options"]):
-        errs.append("need 3 options of 1-100 characters")
+    if len(q["options"]) not in (3, 4) or not all(1 <= len(o) <= 100 for o in q["options"]):
+        errs.append("need 3 or 4 options of 1-100 characters")
     if not 0 <= q["correct"] < len(q["options"]):
         errs.append("correct index out of range")
     if len(q["explanation"]) > 200:
@@ -96,16 +96,20 @@ def quiz_errors(q) -> list:
     return errs
 
 
-def footer(s, today) -> str:
+def footer(s, today, n=1) -> str:
+    below = "one tap below ↓" if n == 1 else f"{n} quick questions below ↓"
     if not s["days"]:
-        return "Done. One tap below ↓"
-    return f"Done. Last 7 days {st.dots(s, today)} · streak {st.streak(s)} · one tap below ↓"
+        return f"Done. {below[0].upper()}{below[1:]}"
+    last = st.last_score(s, today)
+    yesterday = f"Last quiz {last[0]}/{last[1]} · " if last else ""
+    return f"Done. {yesterday}Last 7 days {st.dots(s, today)} · streak {st.streak(s)} · {below}"
 
 
 def render(digest, s) -> list:
     """Two messages: the stories, then Today I Learned + glossary + Do now + streak. The quiz follows."""
+    n = len(digest.get("questions") or [])
     if digest["mode"] == "quiz_only":
-        return ["Nothing worth your minute today. One question:"]
+        return ["Nothing worth your minute today. " + ("One question:" if n == 1 else f"{n} questions:")]
     stories = []
     for it in digest["items"]:
         lines = [f"{MARKERS.get(it['kind'], '🟡')} <b>{esc(it['headline'])}</b>", esc(it["summary"])]
@@ -128,7 +132,7 @@ def render(digest, s) -> list:
         about = next((it["headline"] for it in digest["items"] if it["id"] == action.get("item_id")), None)
         extras.append(f"▶ Do now ({int(action['minutes'])} min): {esc(action['text'])}"
                       + (f"\n<i>For: {esc(about)}</i>" if about else ""))
-    extras.append(footer(s, digest["date"]))
+    extras.append(footer(s, digest["date"], n))
     return ["\n\n".join(stories), "\n\n".join(extras)] if stories else ["\n\n".join(extras)]
 
 
@@ -142,8 +146,9 @@ def remember(s, digest):
 def render_weekly(weekly, s, today, n_reask) -> str:
     week = [d for d in st.last_week(s, today) if st.has_quiz(d)]
     read = [d for d in week if d.get("answered")]
-    right = [d for d in read if d.get("correct")]
-    blocks = [f"📅 Your week: read {len(read)} of {len(week)} · {len(right)} of {len(read)} right · streak {st.streak(s)}"]
+    answered = [p for d in week for p in st.polls(d) if p.get("answered")]
+    right = [p for p in answered if p.get("correct")]
+    blocks = [f"📅 Your week: read {len(read)} of {len(week)} · {len(right)} of {len(answered)} right · streak {st.streak(s)}"]
     if weekly.get("pattern"):
         blocks.append(f"<b>The week's pattern</b>\n{esc(weekly['pattern'])}")
     pick = weekly.get("pick")
@@ -151,16 +156,20 @@ def render_weekly(weekly, s, today, n_reask) -> str:
         blocks.append(f"<b>Weekend read (15 min): {esc(pick['headline'])}</b>\n{esc(pick['why'])}\n"
                       f"<i>{link(pick['url'], 'Source')}: {esc(pick['feed'])}</i>")
     if n_reask:
-        blocks.append("Two questions you missed come next ↓" if n_reask == 2 else "One question you missed comes next ↓")
+        blocks.append("One question you missed comes next ↓" if n_reask == 1
+                      else f"{n_reask} questions you missed or got wrong come next ↓")
     return "\n\n".join(blocks)
 
 
+MAX_REASK = 3
+
+
 def to_reask(s, today) -> list:
+    """Polls of the last 7 days that were missed or wrong and not re-asked yet, oldest first."""
     return [
-        d for d in st.last_week(s, today)
-        if st.has_quiz(d) and d.get("question") and not d.get("reasked")
-        and not (d.get("answered") and d.get("correct"))
-    ][:2]
+        p for d in st.last_week(s, today) if st.has_quiz(d) for p in st.polls(d)
+        if p.get("question") and not p.get("reasked") and not (p.get("answered") and p.get("correct"))
+    ][:MAX_REASK]
 
 
 def now_iso() -> str:
@@ -195,27 +204,34 @@ def put_day(s, entry, force):
 
 
 def cmd_sync(args) -> int:
+    """Close the open polls of the latest quiz day and record each answer. A day counts as read if any was answered."""
     s = st.load()
-    pending = [d for d in s["days"] if d.get("poll_message_id") is not None and d.get("answered") is None]
+    pending = [d for d in s["days"] if any(p.get("answered") is None for p in st.polls(d))]
     if not pending:
         print("sync: no open quiz")
         return 0
     day = pending[-1]
     if args.dry_run:
-        print(f"sync (dry run): would close the quiz of {day['date']}")
+        print(f"sync (dry run): would close {len(st.polls(day))} poll(s) of {day['date']}")
         return 0
-    try:
-        poll = api("stopPoll", message_id=day["poll_message_id"])
-        day["answered"] = poll["total_voter_count"] > 0
-        day["correct"] = poll["options"][day["question"]["correct"]]["voter_count"] > 0
-    except TelegramError as e:
-        if e.code != 400:  # 400 = already closed or gone; anything else is a real failure
-            print(f"sync: {e.method} failed: {e.description}")
-            return 1
-        print(f"sync: quiz of {day['date']} already closed or gone ({e.description})")
-        day["answered"], day["correct"] = False, False
+    for p in st.polls(day):
+        if p.get("answered") is not None:
+            continue
+        try:
+            poll = api("stopPoll", message_id=p["message_id"])
+            p["answered"] = poll["total_voter_count"] > 0
+            p["correct"] = poll["options"][p["question"]["correct"]]["voter_count"] > 0
+        except TelegramError as e:
+            if e.code != 400:  # 400 = already closed or gone; anything else is a real failure
+                print(f"sync: {e.method} failed: {e.description}")
+                st.save(s)  # keep the polls already closed
+                return 1
+            print(f"sync: a poll of {day['date']} was already closed or gone ({e.description})")
+            p["answered"], p["correct"] = False, False
+    day["answered"] = any(p["answered"] for p in st.polls(day))
+    right, asked = st.score(day)
     st.save(s)
-    print(f"sync: {day['date']} answered={day['answered']} correct={day['correct']}")
+    print(f"sync: {day['date']} answered={day['answered']} score={right}/{asked}")
     return 0
 
 
@@ -232,13 +248,12 @@ def send_daily(args, s) -> int:
     if digest.get("date") != args.date:
         print(f"send: out/digest.json is for {digest.get('date')}, not {args.date}")
         return 1
-    mode, q = digest["mode"], digest.get("question")
+    mode, questions = digest["mode"], digest.get("questions") or []
     entry = {
         "date": args.date, "mode": mode, "sent_at": now_iso(),
         "keys": sorted({k for it in digest.get("items", []) for k in it.get("keys", [])}),
         "titles": [it["headline"] for it in digest.get("items", [])],
-        "poll_message_id": None, "question": q if mode != "none" else None,
-        "answered": None, "correct": None, "reasked": False,
+        "polls": [], "answered": None,
     }
     if mode == "none":
         print("send: mode none, nothing to send")
@@ -252,22 +267,28 @@ def send_daily(args, s) -> int:
     if words > MAX_WORDS:
         print(f"send: brief has {words} words, cap is {MAX_WORDS}; nothing sent")
         return 1
-    if errs := quiz_errors(q):
+    if errs := [f"question {n}: {e}" for n, q in enumerate(questions, 1) for e in quiz_errors(q)]:
         print(f"send: quiz rejected: {'; '.join(errs)}; nothing sent")
         return 1
-    payload = poll_payload(q)
+    payloads = [poll_payload(q) for q in questions]
     if args.dry_run:
         print(NEXT.join(messages))
-        print(f"\n--- {words} words, {sum(len(chunks(m)) for m in messages)} messages ---\nsendPoll:")
-        print(json.dumps(payload, ensure_ascii=False, indent=2))
+        print(f"\n--- {words} words, {sum(len(chunks(m)) for m in messages)} messages, {len(payloads)} polls ---")
+        for p in payloads:
+            print("sendPoll:\n" + json.dumps(p, ensure_ascii=False, indent=2))
         return 0
 
     try:
         for m in messages:
             send_message(m)
-        entry["poll_message_id"] = api("sendPoll", **payload)["message_id"]
+        for q, p in zip(questions, payloads):
+            entry["polls"].append({"message_id": api("sendPoll", **p)["message_id"], "question": q,
+                                   "answered": None, "correct": None, "reasked": False})
     except TelegramError as e:
         print(f"send: {e.method} failed: {e.description}")
+        if entry["polls"]:  # the brief is out: record it so sync closes those polls and nothing is sent twice
+            put_day(s, entry, args.force)
+            st.save(s)
         return 1
     entry["sent_at"] = now_iso()
     put_day(s, entry, args.force)
@@ -277,7 +298,7 @@ def send_daily(args, s) -> int:
     with open(DIGESTS / f"{args.date}.json", "w", encoding="utf-8") as f:
         json.dump(digest, f, ensure_ascii=False, indent=2)
         f.write("\n")
-    print(f"send: {args.date} delivered ({words} words, {len(digest['items'])} items)")
+    print(f"send: {args.date} delivered ({words} words, {len(digest['items'])} items, {len(entry['polls'])} polls)")
     return 0
 
 
@@ -289,7 +310,7 @@ def send_weekly(args, s) -> int:
     if words > MAX_WEEKLY_WORDS:
         print(f"send: recap has {words} words, cap is {MAX_WEEKLY_WORDS}; nothing sent")
         return 1
-    payloads = [poll_payload(d["question"]) for d in reask]
+    payloads = [poll_payload(p["question"]) for p in reask]
     if args.dry_run:
         print(text)
         print(f"\n--- {words} words ---")
@@ -299,16 +320,16 @@ def send_weekly(args, s) -> int:
 
     try:
         send_message(text)
-        for d, p in zip(reask, payloads):
+        for poll, p in zip(reask, payloads):
             api("sendPoll", **p)
-            d["reasked"] = True
+            poll["reasked"] = True
     except TelegramError as e:
         print(f"send: {e.method} failed: {e.description}")
         st.save(s)  # keep any reasked marks already earned; the day itself is not recorded
         return 1
     put_day(s, {
         "date": args.date, "mode": "weekly", "sent_at": now_iso(), "keys": [], "titles": [],
-        "poll_message_id": None, "question": None, "answered": None, "correct": None, "reasked": False,
+        "polls": [], "answered": None,
     }, args.force)
     st.save(s)
     print(f"send: weekly recap {args.date} delivered ({words} words, {len(reask)} re-asked)")

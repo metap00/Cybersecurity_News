@@ -54,25 +54,6 @@
     "text": "⋮ → Help → About Google Chrome → Relaunch",
     "minutes": 1
   },
-  "question": {
-    "text": "An email made Outlook send your password hash to an attacker's server, with no click. What is this technique called?",
-    "options": [
-      "Phishing (T1566)",
-      "Forced Authentication (T1187)",
-      "Brute Force (T1110)"
-    ],
-    "correct": 1,
-    "explanation": "Forced Authentication: the victim's machine is tricked into authenticating to an attacker's server, leaking a hash.",
-    "topic": "T1187"
-  },
-  "also": [
-    {
-      "id": "c07",
-      "headline": "Krebs on a new phishing kit",
-      "url": "https://krebsonsecurity.com/2026/11/kit/",
-      "feed": "Krebs on Security"
-    }
-  ],
   "glossary": [
     {
       "term": "hash",
@@ -86,5 +67,51 @@
   "til": {
     "concept": "Forced Authentication",
     "text": "Forced authentication tricks a machine into logging in to a server the attacker runs. The login leaks a password hash that can be cracked or relayed. Defenders block outbound SMB and watch for logins to unknown servers."
-  }
+  },
+  "questions": [
+    {
+      "kind": "story",
+      "text": "An email made Outlook send your password hash to an attacker's server, with no click. What is this technique called?",
+      "options": [
+        "Phishing (T1566)",
+        "Forced Authentication (T1187)",
+        "Brute Force (T1110)"
+      ],
+      "correct": 1,
+      "explanation": "Forced Authentication: the victim's machine is tricked into authenticating to an attacker's server, leaking a hash.",
+      "topic": "T1187"
+    },
+    {
+      "kind": "term",
+      "text": "What is a hash?",
+      "options": [
+        "A scrambled form of a password",
+        "A kind of firewall",
+        "A phishing email"
+      ],
+      "correct": 0,
+      "explanation": "A hash is a one-way scrambled form of a password.",
+      "topic": "hash"
+    },
+    {
+      "kind": "soc",
+      "text": "An alert shows Chrome on a staff laptop crashing on a strange page. You are on shift. First move?",
+      "options": [
+        "Check the Chrome version",
+        "Wipe the laptop",
+        "Ignore it, crashes are normal"
+      ],
+      "correct": 0,
+      "explanation": "An old version means the exploited bug may still be open; that decides the next step.",
+      "topic": "triage"
+    }
+  ],
+  "also": [
+    {
+      "id": "c07",
+      "headline": "Krebs on a new phishing kit",
+      "url": "https://krebsonsecurity.com/2026/11/kit/",
+      "feed": "Krebs on Security"
+    }
+  ]
 }

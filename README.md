@@ -1,6 +1,6 @@
 # 🛡 Cybersecurity News: the morning brief
 
-A daily cybersecurity brief for one reader on the way to a junior SOC analyst role. Every morning Telegram brings **3 to 5 stories summarized in plain English, one new concept, the day's new words, 1 thing to do and 1 question to answer**. About 600-700 words, readable without clicking anything: each story ends with a small optional source link. Answering the quiz is the proof it was read, and it shows up as a streak.
+A daily cybersecurity brief for one reader on the way to a junior SOC analyst role. Every morning Telegram brings **3 to 5 stories summarized in plain English, one new concept, the day's new words, 1 thing to do and 3 quiz questions**. About 600-700 words, readable without clicking anything: each story ends with a small optional source link. Answering the quiz is the proof it was read, and it shows up as a streak.
 
 ## Example
 
@@ -30,12 +30,12 @@ Message 2, the rest:
 ▶ Do now (1 min): ⋮ → Help → About Google Chrome → Relaunch
 For: Chrome zero-day is being exploited
 
-Done. Last 7 days ✅✅⬜✅ · streak 2 · one tap below ↓
+Done. Last quiz 2/3 · Last 7 days ✅✅⬜✅ · streak 2 · 3 quick questions below ↓
 ```
 
-Then a native Telegram quiz with 3 options. 🔴 do something · 🟠 on your path · 🟡 worth knowing. Glossary terms are never repeated within the last 50, Today I Learned concepts within the last 7 (kept in `data/state.json`; before the first send they come from the frozen `history.json`). A message over Telegram's 4096 characters is split between stories.
+Then 3 native Telegram quiz polls (3-4 options each, the explanation shows after the tap): one on the top story, one on a word of the day or the Today I Learned concept, and one applied "you are the SOC analyst on shift, what do you do first?" question. A day counts as read when at least one is answered; the next brief shows the score. 🔴 do something · 🟠 on your path · 🟡 worth knowing. Glossary terms are never repeated within the last 50, Today I Learned concepts within the last 7 (kept in `data/state.json`; before the first send they come from the frozen `history.json`). A message over Telegram's 4096 characters is split between stories.
 
-On Sundays a short recap replaces the brief, in the same plain style: read rate, the week's pattern in 2-3 sentences, one weekend read with what it is about, and up to 2 missed questions re-asked.
+On Sundays a short recap replaces the brief, in the same plain style: read rate, the week's pattern in 2-3 sentences, one weekend read with what it is about, and up to 3 missed or wrong questions re-asked.
 
 ## How it runs
 
@@ -45,13 +45,13 @@ A systemd user timer on the owner's VPS (user `openclaw`), daily at **06:30 Euro
 
 ```text
 python -m brief.run
-  0 sync      close yesterday's quiz, record the answer      code
+  0 sync      close yesterday's 3 polls, record the answers  code
   1 collect   10 feeds + CISA KEV → out/candidates.json      code
   2 triage    score against profile.md → out/ranked.json     claude-haiku-5-5
   3 write     draft the top 5 + glossary + TIL → out/draft.json  claude-sonnet-5-5
   4 critique  check every fact against the source, fix or drop,
               pick 3-5 (word budget) → out/digest.json       claude-opus-5-5
-  5 send      message + quiz to Telegram, save state         code
+  5 send      2 messages + 3 quiz polls, save state          code
 Sunday: sync → weekly (claude-sonnet-5-5) → send --weekly
 ```
 
