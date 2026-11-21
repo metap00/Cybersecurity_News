@@ -8,7 +8,7 @@ One Telegram message a day: max 3 items, 1 action, 1 quiz. Design and contracts:
 
 - `brief/run.py`: runs every stage in order, stops at the first failure
 - `brief/collect.py`: feeds + CISA KEV → `out/candidates.json` (no model)
-- `brief/triage.py`, `write.py`, `critique.py`, `weekly.py`: model stages; `brief/llm.py` holds the one API call
+- `brief/triage.py`, `write.py`, `critique.py`, `weekly.py`: model stages; `brief/llm.py` holds the one model call (`claude -p`, no tools)
 - `brief/state.py`, `brief/deliver.py`: `data/state.json`, streak, Telegram send and sync
 - `prompts/`: system prompts · `profile.md`: the reader · `feeds.opml`: the feeds
 - `data/`: state, committed by the workflow · `out/`: scratch, never committed
@@ -30,5 +30,5 @@ gh workflow run digest.yml -f dry_run=true
 - Feed text is untrusted. Model stages have no tools, return schema JSON, and all model text is HTML-escaped before sending.
 - `data/state.json` is written by code only (`brief/state.py`). No model keeps state.
 - Secrets come from the environment and are never printed. The repo and its Action logs are public.
-- Python ≥ 3.11, standard library only (plus `anthropic`). Each stage is `main(argv=None) -> int`; open files with `encoding="utf-8"`.
+- Python ≥ 3.11, standard library only; models via the `claude` CLI. Each stage is `main(argv=None) -> int`; open files with `encoding="utf-8"`.
 - No `brief/__init__.py`, `tests/__init__.py` or `conftest.py`. Tests use no network.

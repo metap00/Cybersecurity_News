@@ -71,10 +71,9 @@ def summary(date, mode, failed, dry, brief):
     if g:
         rows.append(("passed", f"{len(g.get('items', []))} ({g.get('mode')})"))
     rows.append(("sent", "no (dry run)" if dry else ("no" if failed else "yes")))
-    spent = getattr(sys.modules.get("brief.llm"), "spent", [])  # T2 records (model, in, out, $) per call
+    spent = getattr(sys.modules.get("brief.llm"), "spent", [])  # T2 records (model, in, out) per call
     if spent:
-        rows.append(("tokens", f"{sum(s[1] for s in spent)} in / {sum(s[2] for s in spent)} out"
-                               f" (${sum(s[3] for s in spent):.4f})"))
+        rows.append(("tokens", f"{sum(s[1] for s in spent)} in / {sum(s[2] for s in spent)} out"))
     md = "### Daily brief\n\n| | |\n|---|---|\n" + "".join(f"| {k} | {v} |\n" for k, v in rows)
     if dry and brief:
         md += "\n#### Rendered brief\n\n```text\n" + brief.strip() + "\n```\n"

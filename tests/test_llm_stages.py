@@ -100,31 +100,61 @@ def test_triage_empty_candidates_no_call(repo, canned):
     assert canned.calls == []
 
 
-def test_refused_triage_reruns_on_sonnet(repo, monkeypatch):
+def cli(monkeypatch, answer):
+    """Fake `claude -p`: answer(model, argv, stdin) -> the CLI's JSON result dict. Returns the calls seen."""
     seen = []
 
-    def resp(stop, text):
-        return SimpleNamespace(stop_reason=stop, content=[SimpleNamespace(type="text", text=text)],
-                               usage=SimpleNamespace(input_tokens=10, output_tokens=5))
+    def run(cmd, input, **kw):
+        model = cmd[cmd.index("--model") + 1]
+        seen.append(SimpleNamespace(model=model, cmd=cmd, stdin=input, cwd=kw["cwd"]))
+        return SimpleNamespace(returncode=0, stdout=json.dumps(answer(model, cmd, input)), stderr="")
 
-    ok = json.dumps({"items": [{"id": f"c{i:02d}", "score": 7, "kind": "know", "reason": "x"} for i in range(1, 7)]})
+    monkeypatch.setattr(llm.subprocess, "run", run)
+    return seen
 
-    class Msgs:
-        def create(self, **kw):
-            seen.append(kw["model"])
-            return resp("refusal", "") if kw["model"] == llm.HAIKU else resp("end_turn", ok)
 
-    fake = SimpleNamespace(messages=Msgs(), beta=SimpleNamespace(messages=Msgs()))
-    monkeypatch.setattr(llm, "client", lambda: fake)
+def result(out=None, stop="end_turn", is_error=False, text=None):
+    return {"type": "result", "is_error": is_error, "stop_reason": stop, "structured_output": out,
+            "result": text if text is not None else json.dumps(out),
+            "usage": {"input_tokens": 3, "cache_creation_input_tokens": 7, "output_tokens": 5}}
+
+
+def test_call_runs_cli_without_tools(repo, monkeypatch):
+    seen = cli(monkeypatch, lambda m, c, i: result({"ok": 1}))
+    llm.spent.clear()
+    assert llm.call(llm.OPUS, "sys", "user text", {"type": "object"}, "high") == {"ok": 1}
+    [c] = seen
+    assert c.cmd[:2] == ["claude", "-p"] and c.stdin == "user text"
+    assert c.cmd[c.cmd.index("--tools") + 1] == ""
+    assert c.cmd[c.cmd.index("--system-prompt") + 1] == "sys"
+    assert json.loads(c.cmd[c.cmd.index("--json-schema") + 1]) == {"type": "object"}
+    assert c.cmd[c.cmd.index("--effort") + 1] == "high"
+    assert c.cwd != str(repo)  # never in the repo, so its CLAUDE.md is not read
+    assert llm.spent == [(llm.OPUS, 10, 5)]
+
+
+def test_call_parses_result_text_without_structured_output(repo, monkeypatch):
+    cli(monkeypatch, lambda m, c, i: result(None, text='{"a": 2}'))
+    assert llm.call(llm.HAIKU, "s", "u", {}, "low") == {"a": 2}
+
+
+def test_cli_error_raises(repo, monkeypatch):
+    cli(monkeypatch, lambda m, c, i: result(None, is_error=True, text="Failed to authenticate"))
+    with pytest.raises(RuntimeError, match="Failed to authenticate"):
+        llm.call(llm.HAIKU, "s", "u", {}, "low")
+    assert triage.main([]) == 1
+
+
+def test_refused_triage_reruns_on_sonnet(repo, monkeypatch):
+    ok = {"items": [{"id": f"c{i:02d}", "score": 7, "kind": "know", "reason": "x"} for i in range(1, 7)]}
+    seen = cli(monkeypatch, lambda m, c, i: result(None, "refusal", text="") if m == llm.HAIKU else result(ok))
     assert triage.main([]) == 0
-    assert seen == [llm.HAIKU, llm.SONNET]
+    assert [c.model for c in seen] == [llm.HAIKU, llm.SONNET]
     assert len(llm.load("out/ranked.json")["shortlist"]) == 5
 
 
 def test_refused_opus_raises(repo, monkeypatch):
-    msgs = SimpleNamespace(create=lambda **kw: SimpleNamespace(
-        stop_reason="refusal", content=[], usage=SimpleNamespace(input_tokens=1, output_tokens=0)))
-    monkeypatch.setattr(llm, "client", lambda: SimpleNamespace(messages=msgs, beta=SimpleNamespace(messages=msgs)))
+    cli(monkeypatch, lambda m, c, i: result(None, "refusal", text=""))
     with pytest.raises(llm.Refused):
         llm.call(llm.OPUS, "s", "u", {}, "medium")
 
