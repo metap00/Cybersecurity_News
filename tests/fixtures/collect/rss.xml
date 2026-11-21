@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Fixture RSS</title>
+    <item>
+      <title>Google issues emergency Chrome update for exploited zero-day</title>
+      <link>https://thehackernews.com/2026/11/chrome-zero-day.html?utm_source=rss</link>
+      <pubDate>Fri, 20 Nov 2026 09:12:00 +0000</pubDate>
+      <description>Short teaser.</description>
+      <content:encoded><![CDATA[<p>Google patched <b>CVE-2026-12345</b> in Chrome.</p><script>evil()</script><p>Update   now &amp; relaunch.</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Old story outside the window</title>
+      <link>https://example.com/old</link>
+      <pubDate>Mon, 16 Nov 2026 09:00:00 +0000</pubDate>
+      <description>Too old.</description>
+    </item>
+  </channel>
+</rss>
