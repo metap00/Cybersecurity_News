@@ -3,7 +3,7 @@
 Redesign of the Cybersecurity News agent around one goal: **the brief gets read.**
 
 - **Reader:** one person moving into a junior SOC analyst role, with a small daily attention budget. So the output is short, scannable, action first, in small doses, with visible progress.
-- **Status:** plan only. Nothing below is built yet.
+- **Status:** built and running since 2026-11-21. After the first real briefs the reader asked for more to read and a longer quiz, so the brief grew from 3 items / 120 words / 1 question to 3-5 summarized stories, a glossary, Today I Learned and 3 quiz polls. `README.md` describes the current version; this file is the original diagnosis and design.
 - **Workers:** start at [section 5](#5-implementation-4-tasks). Contracts are in [section 8](#8-contracts).
 
 ## 1. Before and after
