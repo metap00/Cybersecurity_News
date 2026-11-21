@@ -49,10 +49,12 @@ def stage():
     data = llm.call_checked(llm.HAIKU, llm.prompt("triage"), user, SCHEMA, "low", check)
     by_id = {c["id"]: c for c in cands}
     order = {i: n for n, i in enumerate(ids)}
-    scored = [s for s in data["items"] if s["id"] in by_id and s["kind"] != "skip" and s["score"] >= 6]
+    # Up to 5 with score >= 6; on a quiet day, topped up to 3 with the best scoring >= 4.
+    scored = [s for s in data["items"] if s["id"] in by_id and s["kind"] != "skip" and s["score"] >= 4]
     scored.sort(key=lambda s: (-s["score"], order[s["id"]]))
+    keep = min(max(sum(s["score"] >= 6 for s in scored), 3), 5)
     shortlist = [{**by_id[s["id"]], "score": s["score"], "kind": s["kind"],
-                  "reason": " ".join(s["reason"].split()[:12])} for s in scored[:5]]
+                  "reason": " ".join(s["reason"].split()[:12])} for s in scored[:keep]]
     llm.save("out/ranked.json", {"shortlist": shortlist})
     print(f"[triage] {len(cands)} candidates → {len(shortlist)} shortlisted")
 

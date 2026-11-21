@@ -10,6 +10,11 @@ HAIKU, SONNET, OPUS = "claude-haiku-5-5", "claude-sonnet-5-5", "claude-opus-5-5"
 PROMPTS = Path(__file__).resolve().parent.parent / "prompts"
 ATTACK_RE = re.compile(r"^T\d{4}(\.\d{3})?$")
 FORBIDDEN = ("http", "www.", "<")
+# Caps (PLAN section 3.2), in words unless noted
+HEADLINE, SUMMARY_MIN, SUMMARY, YOU, NOTE, ACTION = 12, 40, 80, 15, 25, 14
+QUESTION_WORDS, OPTION, EXPLANATION_CHARS = 30, 8, 200
+GLOSSARY_MAX, MEANING, TIL_MIN, TIL = 6, 20, 30, 60
+KEEP_TERMS, KEEP_TIL = 50, 7  # glossary terms and TIL concepts never repeated
 TIMEOUT = 900  # seconds per CLI call
 
 spent = []  # (model, in_tokens, out_tokens) per call, for the stage summary
@@ -61,8 +66,12 @@ def call(model, system, user, schema, effort) -> dict:
     return out if out is not None else json.loads(r["result"])
 
 
-def call_checked(model, system, user, schema, effort, check) -> dict:
-    """call(), then check(data) -> list of errors. One retry with the error list, then Invalid."""
+def call_checked(model, system, user, schema, effort, check, fatal=None) -> dict:
+    """call(), then check(data) -> list of errors. One retry with the error list, then Invalid.
+
+    fatal(error) -> bool: when given, only those errors raise after the retry; the rest are printed and
+    left for the next stage (the critic fixes or drops an item that breaks a cap).
+    """
     data = call(model, system, user, schema, effort)
     errs = check(data)
     if errs:
@@ -70,8 +79,11 @@ def call_checked(model, system, user, schema, effort, check) -> dict:
         fix = user + "\n\nYour previous answer broke these rules. Return a corrected answer:\n- " + "\n- ".join(errs)
         data = call(model, system, fix, schema, effort)
         errs = check(data)
+        hard = errs if fatal is None else [e for e in errs if fatal(e)]
+        if hard:
+            raise Invalid("; ".join(hard))
         if errs:
-            raise Invalid("; ".join(errs))
+            print("[llm] still broken after the retry, left for the critic:\n  " + "\n  ".join(errs))
     return data
 
 
@@ -96,15 +108,15 @@ def check_question(q, where):
     errs = []
     if not isinstance(q, dict):
         return [f"{where}: question missing"]
-    if words(q["text"]) > 30:
-        errs.append(f"{where}: question text over 30 words")
+    if words(q["text"]) > QUESTION_WORDS:
+        errs.append(f"{where}: question text over {QUESTION_WORDS} words")
     if len(q["options"]) != 3:
         errs.append(f"{where}: needs exactly 3 options")
-    errs += [f"{where}: option '{o}' over 6 words" for o in q["options"] if words(o) > 6]
+    errs += [f"{where}: option '{o}' over {OPTION} words" for o in q["options"] if words(o) > OPTION]
     if not (isinstance(q["correct"], int) and 0 <= q["correct"] < len(q["options"])):
         errs.append(f"{where}: correct index out of range")
-    if len(q["explanation"]) > 200:
-        errs.append(f"{where}: explanation over 200 characters")
+    if len(q["explanation"]) > EXPLANATION_CHARS:
+        errs.append(f"{where}: explanation over {EXPLANATION_CHARS} characters")
     return errs
 
 
@@ -112,20 +124,47 @@ def check_item(it):
     """Caps for one drafted item. Returns a list of errors."""
     w = it.get("id", "?")
     errs = []
-    if words(it["headline"]) > 10:
-        errs.append(f"{w}: headline over 10 words")
-    if words(it["you"]) > 12:
-        errs.append(f"{w}: 'you' line over 12 words")
+    if words(it["headline"]) > HEADLINE:
+        errs.append(f"{w}: headline over {HEADLINE} words")
+    if not SUMMARY_MIN <= words(it["summary"]) <= SUMMARY:
+        errs.append(f"{w}: summary must be {SUMMARY_MIN}-{SUMMARY} words")
+    if words(it["you"]) > YOU:
+        errs.append(f"{w}: 'you' line over {YOU} words")
+    if (it.get("attack_id") is None) != (it.get("attack_note") is None):
+        errs.append(f"{w}: attack_note and attack_id go together (both set or both null)")
+    for k in ("attack_note", "actor"):
+        if it.get(k) is not None and words(it[k]) > NOTE:
+            errs.append(f"{w}: {k} over {NOTE} words")
     a = it.get("action")
     if a is not None:
-        if words(a["text"]) > 14:
-            errs.append(f"{w}: action over 14 words")
+        if words(a["text"]) > ACTION:
+            errs.append(f"{w}: action over {ACTION} words")
         if a["minutes"] not in (1, 2):
             errs.append(f"{w}: action must take 1 or 2 minutes")
     if it.get("attack_id") is not None and not ATTACK_RE.match(it["attack_id"]):
         errs.append(f"{w}: attack_id must match T1234 or T1234.123, or be null")
     errs += check_question(it["question"], w)
     return errs + check_strings(it, w)
+
+
+def check_extras(ex, known_terms=(), recent_til=()):
+    """Caps for the glossary and Today I Learned. known_terms / recent_til must not be repeated."""
+    errs = []
+    if len(ex["glossary"]) > GLOSSARY_MAX:
+        errs.append(f"glossary: max {GLOSSARY_MAX} terms")
+    known = {t.casefold() for t in known_terms}
+    for g in ex["glossary"]:
+        if words(g["meaning"]) > MEANING:
+            errs.append(f"glossary '{g['term']}': meaning over {MEANING} words")
+        if g["term"].casefold() in known:
+            errs.append(f"glossary '{g['term']}': already defined recently, leave it out")
+    t = ex["til"]
+    if t is not None:
+        if not TIL_MIN <= words(t["text"]) <= TIL:
+            errs.append(f"til: text must be {TIL_MIN}-{TIL} words")
+        if t["concept"].casefold() in {c.casefold() for c in recent_til}:
+            errs.append(f"til: '{t['concept']}' was used in the last {KEEP_TIL} days, pick another")
+    return errs + check_strings(ex, "extras")
 
 
 def check_strings(obj, where):
@@ -152,6 +191,7 @@ ITEM = {
     "properties": {
         "id": {"type": "string"},
         "headline": {"type": "string"},
+        "summary": {"type": "string"},
         "you": {"type": "string"},
         "action": {"anyOf": [{
             "type": "object",
@@ -159,9 +199,28 @@ ITEM = {
             "required": ["text", "minutes"], "additionalProperties": False,
         }, {"type": "null"}]},
         "attack_id": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+        "attack_note": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+        "actor": {"anyOf": [{"type": "string"}, {"type": "null"}]},
         "question": QUESTION,
     },
-    "required": ["id", "headline", "you", "action", "attack_id", "question"],
+    "required": ["id", "headline", "summary", "you", "action", "attack_id", "attack_note", "actor", "question"],
+    "additionalProperties": False,
+}
+EXTRAS = {
+    "type": "object",
+    "properties": {
+        "glossary": {"type": "array", "items": {
+            "type": "object",
+            "properties": {"term": {"type": "string"}, "meaning": {"type": "string"}},
+            "required": ["term", "meaning"], "additionalProperties": False,
+        }},
+        "til": {"anyOf": [{
+            "type": "object",
+            "properties": {"concept": {"type": "string"}, "text": {"type": "string"}},
+            "required": ["concept", "text"], "additionalProperties": False,
+        }, {"type": "null"}]},
+    },
+    "required": ["glossary", "til"],
     "additionalProperties": False,
 }
 
@@ -196,6 +255,15 @@ def recent_days(n=14, today=None):
     today = today or dt.datetime.now(dt.timezone.utc).date()
     cutoff = (today - dt.timedelta(days=n)).isoformat()
     return [d for d in load("data/state.json", {"days": []}).get("days", []) if d.get("date", "") >= cutoff]
+
+
+def history():
+    """(glossary terms, TIL concepts) already taught. state.json first; before its first send, the frozen history.json."""
+    s = load("data/state.json", {})
+    if "glossary" in s or "til" in s:
+        return s.get("glossary", []), s.get("til", [])
+    old = load("history.json", {})
+    return old.get("glossary", [])[-KEEP_TERMS:], old.get("til", [])[-KEEP_TIL:]
 
 
 def run(stage, name):

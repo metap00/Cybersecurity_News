@@ -3,40 +3,88 @@
   "mode": "full",
   "items": [
     {
-      "id": "c01", "kind": "act",
+      "id": "c01",
+      "kind": "act",
       "headline": "Chrome zero-day is being exploited",
+      "summary": "Attackers are already exploiting a new bug in Chrome. Visiting one bad web page is enough to run their code on your computer. Google has released a fix, and defenders push the update and check that browsers restarted. This is a test story for the fixture.",
       "you": "You run Chrome, so this one is yours.",
       "attack_id": null,
       "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html",
       "feed": "The Hacker News",
-      "keys": ["cve-2026-125350", "u:thehackernews.com/2026/11/google-issues-chrome-security-update.html"]
+      "keys": [
+        "cve-2026-125350",
+        "u:thehackernews.com/2026/11/google-issues-chrome-security-update.html"
+      ],
+      "attack_note": null,
+      "actor": null
     },
     {
-      "id": "c02", "kind": "learn",
+      "id": "c02",
+      "kind": "learn",
       "headline": "One Outlook email can leak your Windows login hash",
+      "summary": "A crafted email makes Outlook connect to an attacker's server and send your Windows login hash, with no click. A hash is a scrambled form of your password that can be cracked or reused. Defenders block outbound SMB and patch Outlook. This is a test story for the fixture.",
       "you": "SOC view: this is forced authentication, a technique on your path.",
       "attack_id": "T1187",
       "url": "https://www.securityweek.com/outlook-hash-leak/?a=1&b=2",
       "feed": "SecurityWeek",
-      "keys": ["u:securityweek.com/outlook-hash-leak"]
+      "keys": [
+        "u:securityweek.com/outlook-hash-leak"
+      ],
+      "attack_note": "Forced Authentication: the email makes Outlook log in to the attacker's server.",
+      "actor": null
     },
     {
-      "id": "c03", "kind": "know",
+      "id": "c03",
+      "kind": "know",
       "headline": "Check Point firewall bug exploited at about 24 customers",
+      "summary": "Attackers used a bug in Check Point firewalls to turn a limited login into full control (root) at about 24 customers. Check Point has a fix; defenders patch and review firewall admin logins. This is a test story for the fixture.",
       "you": "Path: privilege escalation, a limited login became root.",
       "attack_id": "T1068",
       "url": "https://www.bleepingcomputer.com/news/security/check-point-firewall-bug/",
       "feed": "Bleeping Computer",
-      "keys": ["u:bleepingcomputer.com/news/security/check-point-firewall-bug"]
+      "keys": [
+        "u:bleepingcomputer.com/news/security/check-point-firewall-bug"
+      ],
+      "attack_note": "Exploitation for Privilege Escalation: a limited login becomes root on the firewall.",
+      "actor": "UNC5221: China-linked hackers who target network edge devices."
     }
   ],
-  "action": {"item_id": "c01", "text": "⋮ → Help → About Google Chrome → Relaunch", "minutes": 1},
+  "action": {
+    "item_id": "c01",
+    "text": "⋮ → Help → About Google Chrome → Relaunch",
+    "minutes": 1
+  },
   "question": {
     "text": "An email made Outlook send your password hash to an attacker's server, with no click. What is this technique called?",
-    "options": ["Phishing (T1566)", "Forced Authentication (T1187)", "Brute Force (T1110)"],
+    "options": [
+      "Phishing (T1566)",
+      "Forced Authentication (T1187)",
+      "Brute Force (T1110)"
+    ],
     "correct": 1,
     "explanation": "Forced Authentication: the victim's machine is tricked into authenticating to an attacker's server, leaking a hash.",
     "topic": "T1187"
   },
-  "also": [{"id": "c07", "headline": "Krebs on a new phishing kit", "url": "https://krebsonsecurity.com/2026/11/kit/", "feed": "Krebs on Security"}]
+  "also": [
+    {
+      "id": "c07",
+      "headline": "Krebs on a new phishing kit",
+      "url": "https://krebsonsecurity.com/2026/11/kit/",
+      "feed": "Krebs on Security"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "hash",
+      "meaning": "A scrambled, fixed-length form of a password that can be cracked or reused."
+    },
+    {
+      "term": "root",
+      "meaning": "The all-powerful admin account on Linux and similar systems."
+    }
+  ],
+  "til": {
+    "concept": "Forced Authentication",
+    "text": "Forced authentication tricks a machine into logging in to a server the attacker runs. The login leaks a password hash that can be cracked or relayed. Defenders block outbound SMB and watch for logins to unknown servers."
+  }
 }

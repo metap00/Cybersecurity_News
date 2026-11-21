@@ -3,12 +3,15 @@
   {
    "id": "c01",
    "headline": "Chrome zero-day is being exploited",
+   "summary": "Attackers are already exploiting a new bug in Chrome. Visiting one bad web page is enough to run their code on your computer, with no other click. Google has released a fix. Defenders push the update to every browser and check that each one restarted.",
    "you": "You run Chrome, so this one is yours.",
    "action": {
     "text": "Open Chrome Help, About, then relaunch to update.",
     "minutes": 1
    },
    "attack_id": "T1203",
+   "attack_note": "Exploitation for Client Execution: a bad web page runs code through the browser bug.",
+   "actor": null,
    "question": {
     "text": "An email made Outlook send your password hash to an attacker server. What is this technique called?",
     "options": [
@@ -24,9 +27,12 @@
   {
    "id": "c02",
    "headline": "One Outlook email can leak your Windows login hash",
+   "summary": "Attackers are already exploiting a new bug in Chrome. Visiting one bad web page is enough to run their code on your computer, with no other click. Google has released a fix. Defenders push the update to every browser and check that each one restarted.",
    "you": "You run Chrome, so this one is yours.",
    "action": null,
    "attack_id": "T1187",
+   "attack_note": "Forced Authentication: the email makes Outlook log in to the attacker's server.",
+   "actor": null,
    "question": {
     "text": "An email made Outlook send your password hash to an attacker server. What is this technique called?",
     "options": [
@@ -42,9 +48,12 @@
   {
    "id": "c03",
    "headline": "Check Point firewall bug exploited at about 24 customers",
+   "summary": "Attackers are already exploiting a new bug in Chrome. Visiting one bad web page is enough to run their code on your computer, with no other click. Google has released a fix. Defenders push the update to every browser and check that each one restarted.",
    "you": "You run Chrome, so this one is yours.",
    "action": null,
    "attack_id": "T1068",
+   "attack_note": "Exploitation for Privilege Escalation: a limited login becomes root on the firewall.",
+   "actor": null,
    "question": {
     "text": "An email made Outlook send your password hash to an attacker server. What is this technique called?",
     "options": [
@@ -60,9 +69,12 @@
   {
    "id": "c04",
    "headline": "Phishing kit targets Microsoft 365 logins",
+   "summary": "Attackers are already exploiting a new bug in Chrome. Visiting one bad web page is enough to run their code on your computer, with no other click. Google has released a fix. Defenders push the update to every browser and check that each one restarted.",
    "you": "You run Chrome, so this one is yours.",
    "action": null,
    "attack_id": "T1566",
+   "attack_note": "Technique name: how it applies to this story.",
+   "actor": null,
    "question": {
     "text": "An email made Outlook send your password hash to an attacker server. What is this technique called?",
     "options": [
@@ -86,5 +98,19 @@
   "correct": 1,
   "explanation": "The client authenticated to an attacker server on its own.",
   "topic": "ports"
+ },
+ "glossary": [
+  {
+   "term": "zero-day",
+   "meaning": "A flaw attackers use before the vendor has a fix."
+  },
+  {
+   "term": "XDR",
+   "meaning": "A tool that joins endpoint, network and cloud alerts in one console."
+  }
+ ],
+ "til": {
+  "concept": "Patch Gap",
+  "text": "The patch gap is the time between a fix coming out and it being installed. Attackers study new patches to find the bug and hit systems that are still behind. Defenders shrink the gap with automatic updates and by checking that patches really landed."
  }
 }

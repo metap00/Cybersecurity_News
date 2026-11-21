@@ -14,12 +14,14 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-from brief import state as st
+from brief import llm, state as st
 
 OUT = Path("out")
 DIGESTS = Path("data/digests")
-MAX_WORDS = 120
-MAX_WEEKLY_WORDS = 100
+MAX_WORDS = 750
+NEXT = "\n\n— next message —\n\n"  # dry-run marker between messages
+MAX_WEEKLY_WORDS = 150
+MAX_CHARS = 4096  # Telegram's limit for one message
 MARKERS = {"act": "🔴", "learn": "🟠", "know": "🟡"}
 
 
@@ -100,37 +102,57 @@ def footer(s, today) -> str:
     return f"Done. Last 7 days {st.dots(s, today)} · streak {st.streak(s)} · one tap below ↓"
 
 
-def render(digest, s) -> str:
+def render(digest, s) -> list:
+    """Two messages: the stories, then Today I Learned + glossary + Do now + streak. The quiz follows."""
     if digest["mode"] == "quiz_only":
-        return "Nothing worth your minute today. One question:"
-    action = digest.get("action")
-    blocks = []
+        return ["Nothing worth your minute today. One question:"]
+    stories = []
     for it in digest["items"]:
-        lines = [f"{MARKERS.get(it['kind'], '🟡')} <b>{esc(it['headline'])}</b>", esc(it["you"])]
-        if action and action.get("item_id") == it["id"]:
-            lines.append(f"▶ Do now ({int(action['minutes'])} min): {esc(action['text'])}")
-        src = f"{link(it['url'], it['feed'])} ↗"
-        if it.get("attack_id"):
-            src += f" · {link(attack_url(it['attack_id']), it['attack_id'])} ↗"
-        lines.append(src)
-        blocks.append("\n".join(lines))
-    blocks.append(footer(s, digest["date"]))
-    return "\n\n".join(blocks)
+        lines = [f"{MARKERS.get(it['kind'], '🟡')} <b>{esc(it['headline'])}</b>", esc(it["summary"])]
+        if it.get("attack_id") and it.get("attack_note"):
+            lines.append(f"🎯 {link(attack_url(it['attack_id']), it['attack_id'])} {esc(it['attack_note'])}")
+        if it.get("actor"):
+            lines.append(f"👤 {esc(it['actor'])}")
+        lines.append(f"<i>Why it matters to you:</i> {esc(it['you'])}")
+        lines.append(f"<i>{link(it['url'], 'Source')}: {esc(it['feed'])}</i>")
+        stories.append("\n".join(lines))
+    extras = []
+    til = digest.get("til")
+    if til:
+        extras.append(f"💡 <b>Today I learned: {esc(til['concept'])}</b>\n{esc(til['text'])}")
+    if digest.get("glossary"):
+        extras.append("📖 <b>Words of the day</b>\n" + "\n".join(
+            f"• <b>{esc(g['term'])}</b>: {esc(g['meaning'])}" for g in digest["glossary"]))
+    action = digest.get("action")
+    if action:
+        about = next((it["headline"] for it in digest["items"] if it["id"] == action.get("item_id")), None)
+        extras.append(f"▶ Do now ({int(action['minutes'])} min): {esc(action['text'])}"
+                      + (f"\n<i>For: {esc(about)}</i>" if about else ""))
+    extras.append(footer(s, digest["date"]))
+    return ["\n\n".join(stories), "\n\n".join(extras)] if stories else ["\n\n".join(extras)]
+
+
+def remember(s, digest):
+    """Keep the last glossary terms and TIL concepts so they are not taught twice."""
+    terms, tils = llm.history()
+    s["glossary"] = (terms + [g["term"] for g in digest.get("glossary") or []])[-llm.KEEP_TERMS:]
+    s["til"] = (tils + ([digest["til"]["concept"]] if digest.get("til") else []))[-llm.KEEP_TIL:]
 
 
 def render_weekly(weekly, s, today, n_reask) -> str:
     week = [d for d in st.last_week(s, today) if st.has_quiz(d)]
     read = [d for d in week if d.get("answered")]
     right = [d for d in read if d.get("correct")]
-    lines = [f"📅 Your week: read {len(read)} of {len(week)} · {len(right)} of {len(read)} right · streak {st.streak(s)}"]
+    blocks = [f"📅 Your week: read {len(read)} of {len(week)} · {len(right)} of {len(read)} right · streak {st.streak(s)}"]
     if weekly.get("pattern"):
-        lines.append(f"Pattern: {esc(weekly['pattern'])}")
+        blocks.append(f"<b>The week's pattern</b>\n{esc(weekly['pattern'])}")
     pick = weekly.get("pick")
     if pick:
-        lines.append(f"Weekend pick (15 min): {link(pick['url'], pick['headline'])} ↗ {esc(pick['feed'])}. {esc(pick['why'])}")
+        blocks.append(f"<b>Weekend read (15 min): {esc(pick['headline'])}</b>\n{esc(pick['why'])}\n"
+                      f"<i>{link(pick['url'], 'Source')}: {esc(pick['feed'])}</i>")
     if n_reask:
-        lines.append("Two questions you missed come next ↓" if n_reask == 2 else "One question you missed comes next ↓")
-    return "\n".join(lines)
+        blocks.append("Two questions you missed come next ↓" if n_reask == 2 else "One question you missed comes next ↓")
+    return "\n\n".join(blocks)
 
 
 def to_reask(s, today) -> list:
@@ -150,8 +172,20 @@ def read_json(p):
         return json.load(f)
 
 
+def chunks(text, limit=MAX_CHARS) -> list:
+    """Split at blank lines (between items, so no HTML tag is cut) into messages of at most `limit` characters."""
+    out = []
+    for block in text.split("\n\n"):
+        if out and len(out[-1]) + 2 + len(block) <= limit:
+            out[-1] += "\n\n" + block
+        else:
+            out.append(block)
+    return out
+
+
 def send_message(text):
-    api("sendMessage", text=text, parse_mode="HTML", link_preview_options={"is_disabled": True})
+    for part in chunks(text):
+        api("sendMessage", text=part, parse_mode="HTML", link_preview_options={"is_disabled": True})
 
 
 def put_day(s, entry, force):
@@ -213,8 +247,8 @@ def send_daily(args, s) -> int:
             st.save(s)
         return 0
 
-    text = render(digest, s)
-    words = visible_words(text)
+    messages = render(digest, s)
+    words = visible_words("\n\n".join(messages))
     if words > MAX_WORDS:
         print(f"send: brief has {words} words, cap is {MAX_WORDS}; nothing sent")
         return 1
@@ -223,19 +257,21 @@ def send_daily(args, s) -> int:
         return 1
     payload = poll_payload(q)
     if args.dry_run:
-        print(text)
-        print(f"\n--- {words} words ---\nsendPoll:")
+        print(NEXT.join(messages))
+        print(f"\n--- {words} words, {sum(len(chunks(m)) for m in messages)} messages ---\nsendPoll:")
         print(json.dumps(payload, ensure_ascii=False, indent=2))
         return 0
 
     try:
-        send_message(text)
+        for m in messages:
+            send_message(m)
         entry["poll_message_id"] = api("sendPoll", **payload)["message_id"]
     except TelegramError as e:
         print(f"send: {e.method} failed: {e.description}")
         return 1
     entry["sent_at"] = now_iso()
     put_day(s, entry, args.force)
+    remember(s, digest)
     st.save(s)
     DIGESTS.mkdir(parents=True, exist_ok=True)
     with open(DIGESTS / f"{args.date}.json", "w", encoding="utf-8") as f:

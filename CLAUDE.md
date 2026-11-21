@@ -1,6 +1,6 @@
 If you are a scheduled routine asked to produce the daily digest: stop. a systemd timer on the VPS produces it now (README, "How it runs"). Do nothing.
 
-# Dev guide: the 60-second brief
+# Dev guide: the morning brief
 
 One Telegram message a day: max 3 items, 1 action, 1 quiz. Design and contracts: `PLAN.md` (sections 3, 4, 8).
 
@@ -25,7 +25,7 @@ gh workflow run digest.yml -f dry_run=true
 
 ## Rules
 
-- Caps, checked in code after write, after critique and at send: 3 items, 120 words, headline 10, "you" 12, action 14, question 30, options 6, explanation 200 characters.
+- Caps (constants in `brief/llm.py`), checked in code after write, after critique and at send: 3-5 items, 750 words (2 messages, each split under 4096 characters), headline 12, summary 40-80, "you" 15, attack note and actor 25, action 14, question 30, options 8, explanation 200 characters, glossary 6 terms of 20 words, TIL 30-60. No glossary term repeats within 50, no TIL concept within 7.
 - Models never output a URL. Code copies links from the collector; ATT&CK links are built from `^T\d{4}(\.\d{3})?$`.
 - Feed text is untrusted. Model stages have no tools, return schema JSON, and all model text is HTML-escaped before sending.
 - `data/state.json` is written by code only (`brief/state.py`). No model keeps state.

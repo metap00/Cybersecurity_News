@@ -1,29 +1,41 @@
-# 🛡 Cybersecurity News: the 60-second brief
+# 🛡 Cybersecurity News: the morning brief
 
-A daily cybersecurity brief for one reader on the way to a junior SOC analyst role. Every morning one Telegram message brings **3 things to know, 1 thing to do, 1 question to answer**. Max 120 words. Nothing behind a click. Answering the quiz is the proof it was read, and it shows up as a streak.
+A daily cybersecurity brief for one reader on the way to a junior SOC analyst role. Every morning Telegram brings **3 to 5 stories summarized in plain English, one new concept, the day's new words, 1 thing to do and 1 question to answer**. About 600-700 words, readable without clicking anything: each story ends with a small optional source link. Answering the quiz is the proof it was read, and it shows up as a streak.
 
 ## Example
 
+Message 1, the stories:
+
 ```text
-🔴 Chrome zero-day is being exploited
-You run Chrome, so this one is yours.
-▶ Do now (1 min): ⋮ → Help → About Google Chrome → Relaunch
-The Hacker News ↗
-
 🟠 One Outlook email can leak your Windows login hash
-SOC view: this is forced authentication, a technique on your path.
-SecurityWeek ↗ · T1187 ↗
+A crafted email makes Outlook connect to an attacker's server and send your Windows
+login hash, with no click. A hash is a scrambled form of your password that can be
+cracked or reused. Microsoft has a fix. Defenders block outbound SMB and patch Outlook.
+🎯 T1187 Forced Authentication: the email makes Outlook log in to the attacker's server.
+👤 (only when the source names a group) who they are, state or criminal, who they target
+Why it matters to you: you use Outlook, and this technique is on your path.
+Source: SecurityWeek
+```
 
-🟡 Check Point firewall bug exploited at about 24 customers
-Path: privilege escalation, a limited login became root.
-Bleeping Computer ↗
+Message 2, the rest:
+
+```text
+💡 Today I learned: Patch Gap
+(3 plain sentences: what it is, how attackers use it, how defenders stop it)
+
+📖 Words of the day
+• hash: a scrambled, fixed-length form of a password that can be cracked or reused.
+• SMB: the Windows file-sharing protocol.
+
+▶ Do now (1 min): ⋮ → Help → About Google Chrome → Relaunch
+For: Chrome zero-day is being exploited
 
 Done. Last 7 days ✅✅⬜✅ · streak 2 · one tap below ↓
 ```
 
-Then a native Telegram quiz with 3 options. 🔴 do something · 🟠 on your path · 🟡 worth knowing.
+Then a native Telegram quiz with 3 options. 🔴 do something · 🟠 on your path · 🟡 worth knowing. Glossary terms are never repeated within the last 50, Today I Learned concepts within the last 7 (kept in `data/state.json`; before the first send they come from the frozen `history.json`). A message over Telegram's 4096 characters is split between stories.
 
-On Sundays a short recap replaces the brief: read rate, the week's pattern, one weekend read, and up to 2 missed questions re-asked.
+On Sundays a short recap replaces the brief, in the same plain style: read rate, the week's pattern in 2-3 sentences, one weekend read with what it is about, and up to 2 missed questions re-asked.
 
 ## How it runs
 
@@ -36,8 +48,9 @@ python -m brief.run
   0 sync      close yesterday's quiz, record the answer      code
   1 collect   10 feeds + CISA KEV → out/candidates.json      code
   2 triage    score against profile.md → out/ranked.json     claude-haiku-5-5
-  3 write     draft the top 5 → out/draft.json               claude-sonnet-5-5
-  4 critique  check, fix or drop, pick 3 → out/digest.json   claude-opus-5-5
+  3 write     draft the top 5 + glossary + TIL → out/draft.json  claude-sonnet-5-5
+  4 critique  check every fact against the source, fix or drop,
+              pick 3-5 (word budget) → out/digest.json       claude-opus-5-5
   5 send      message + quiz to Telegram, save state         code
 Sunday: sync → weekly (claude-sonnet-5-5) → send --weekly
 ```

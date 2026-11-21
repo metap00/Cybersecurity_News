@@ -58,12 +58,21 @@ def day(date, answered=True, correct=True, mode="full", poll=1, reasked=False):
 
 def test_send_delivers_message_then_silent_quiz_and_records_state(repo):
     assert deliver.main(["send", "--date", "2026-11-21"]) == 0
-    assert [m for m, _ in repo.calls] == ["sendMessage", "sendPoll"]
-    msg, poll = repo.calls[0][1], repo.calls[1][1]
-    assert msg["parse_mode"] == "HTML" and msg["link_preview_options"] == {"is_disabled": True}
-    assert "▶ Do now (1 min)" in msg["text"].split("\n\n")[0]  # action sits under item c01
+    assert [m for m, _ in repo.calls] == ["sendMessage", "sendMessage", "sendPoll"]
+    stories, extras, poll = (c[1] for c in repo.calls)
+    assert stories["parse_mode"] == "HTML" and stories["link_preview_options"] == {"is_disabled": True}
+    first = stories["text"].split("\n\n")[0]
+    assert first.startswith("🔴 <b>Chrome zero-day is being exploited</b>\nAttackers are already exploiting")
+    assert "<i>Why it matters to you:</i> You run Chrome" in first and ">Source</a>: The Hacker News</i>" in first
+    assert "🎯 <a href=\"https://attack.mitre.org/techniques/T1187/\">T1187</a> Forced Authentication:" in stories["text"]
+    assert "👤 UNC5221: China-linked" in stories["text"]
+    assert extras["text"].startswith("💡 <b>Today I learned: Forced Authentication</b>")
+    assert "📖 <b>Words of the day</b>\n• <b>hash</b>:" in extras["text"]
+    assert "▶ Do now (1 min): ⋮ → Help → About Google Chrome → Relaunch\n<i>For: Chrome zero-day" in extras["text"]
+    assert extras["text"].endswith("Done. One tap below ↓")
     assert poll["disable_notification"] is True and poll["correct_option_ids"] == [1]
     s = st.load()
+    assert s["glossary"] == ["hash", "root"] and s["til"] == ["Forced Authentication"]
     d = s["days"][-1]
     assert d["poll_message_id"] == 4711 and d["answered"] is None
     assert "cve-2026-125350" in d["keys"] and d["titles"][0] == "Chrome zero-day is being exploited"
@@ -72,7 +81,7 @@ def test_send_delivers_message_then_silent_quiz_and_records_state(repo):
 
 def test_word_cap_blocks_the_send(repo):
     d = digest()
-    d["items"][0]["you"] = "word " * 60
+    d["items"][0]["you"] = "word " * 800
     write_digest(d)
     assert deliver.main(["send", "--date", "2026-11-21"]) == 1
     assert repo.calls == [] and not Path("data/state.json").exists()
@@ -81,7 +90,7 @@ def test_word_cap_blocks_the_send(repo):
 def test_model_text_is_escaped(repo):
     d = digest()
     d["items"][0]["headline"] = "<script> & friends"
-    text = deliver.render(d, st.load())
+    text = "\n\n".join(deliver.render(d, st.load()))
     assert "&lt;script&gt; &amp; friends" in text and "<script>" not in text
     assert 'href="https://www.securityweek.com/outlook-hash-leak/?a=1&amp;b=2"' in text
 
@@ -89,9 +98,24 @@ def test_model_text_is_escaped(repo):
 def test_second_send_for_same_date_is_refused_unless_forced(repo):
     assert deliver.main(["send", "--date", "2026-11-21"]) == 0
     assert deliver.main(["send", "--date", "2026-11-21"]) == 1
-    assert len(repo.calls) == 2
+    assert len(repo.calls) == 3
     assert deliver.main(["send", "--date", "2026-11-21", "--force"]) == 0
     assert len(st.load()["days"]) == 1
+
+
+def test_long_message_splits_at_blank_lines_under_4096():
+    blocks = ["<b>x</b>" + "y" * 1500 for _ in range(5)]
+    parts = deliver.chunks("\n\n".join(blocks))
+    assert len(parts) == 3 and all(len(p) <= 4096 for p in parts)
+    assert "\n\n".join(parts) == "\n\n".join(blocks)
+
+
+def test_glossary_and_til_history_is_capped(repo):
+    st.save({"version": 1, "days": [], "glossary": [f"t{i}" for i in range(50)], "til": list("abcdefg")})
+    assert deliver.main(["send", "--date", "2026-11-21"]) == 0
+    s = st.load()
+    assert len(s["glossary"]) == 50 and s["glossary"][-2:] == ["hash", "root"] and s["glossary"][0] == "t2"
+    assert s["til"] == list("bcdefg") + ["Forced Authentication"]
 
 
 def test_dots_and_streak_across_answered_unanswered_and_no_quiz():
