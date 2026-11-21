@@ -154,8 +154,12 @@ def main(argv=None) -> int:
         draft = llm.load("out/draft.json")
         ids = [d["id"] for d in draft["items"]]
         src = {s["id"]: {k: s.get(k) for k in SOURCE} for s in shortlist}
+        problems = [e for d in draft["items"] for e in llm.check_item(d)]
+        problems += llm.check_question(draft["review_question"], "review_question")
+        problems += llm.check_extras({"glossary": draft.get("glossary", []), "til": draft.get("til")}, *llm.history())
         user = (
             "<profile>\n" + llm.profile() + "\n</profile>\n\n"
+            "<known_problems>\n" + json.dumps(problems, ensure_ascii=False) + "\n</known_problems>\n\n"
             "<sources>\n" + json.dumps([src[i] for i in ids], ensure_ascii=False, indent=1) + "\n</sources>\n\n"
             "<drafts>\n" + json.dumps(draft, ensure_ascii=False, indent=1) + "\n</drafts>"
         )

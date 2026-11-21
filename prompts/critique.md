@@ -12,6 +12,8 @@ For every draft item, compare it with its source (same `id`) and the rules below
 
 Also check: the `attack_note` names the technique that `attack_id` really is, and its sentence fits the story; the `actor` line names a group the source names, and its background (nation-state or criminal, targets) is correct, otherwise set it to `null`; the marked `correct` option really is the right answer and the other two are wrong; the explanation is true; the action follows rule 4.
 
+`<known_problems>` lists hard-limit breaks that code already found in the drafts. Each one must end in `fixed` (corrected within the limits) or `drop`; never `pass` an item, question or extras block that has one.
+
 Do the same for the `review_question` under `review` (`fixed` holds a corrected question, or `null`).
 
 Under `extras`, check the draft's `glossary` and `til` together: every definition and every TIL sentence must be true, plain, and within the limits. `fixed` holds the corrected `{glossary, til}` (remove a wrong entry rather than guess; `til` may become `null`), or `null`.

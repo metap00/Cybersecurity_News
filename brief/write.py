@@ -40,7 +40,7 @@ def stage():
         + "\n</shortlist>"
     )
     data = llm.call_checked(llm.SONNET, llm.prompt("write"), user, SCHEMA, "medium",
-                            lambda d: check_draft(d, ids, terms, tils))
+                            lambda d: check_draft(d, ids, terms, tils), fatal=lambda e: " id " in f" {e}")
     by_id = {it["id"]: it for it in data["items"]}
     llm.save("out/draft.json", {"items": [by_id[i] for i in ids], "review_question": data["review_question"],
                                 "glossary": data["glossary"], "til": data["til"]})

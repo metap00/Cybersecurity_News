@@ -66,8 +66,12 @@ def call(model, system, user, schema, effort) -> dict:
     return out if out is not None else json.loads(r["result"])
 
 
-def call_checked(model, system, user, schema, effort, check) -> dict:
-    """call(), then check(data) -> list of errors. One retry with the error list, then Invalid."""
+def call_checked(model, system, user, schema, effort, check, fatal=None) -> dict:
+    """call(), then check(data) -> list of errors. One retry with the error list, then Invalid.
+
+    fatal(error) -> bool: when given, only those errors raise after the retry; the rest are printed and
+    left for the next stage (the critic fixes or drops an item that breaks a cap).
+    """
     data = call(model, system, user, schema, effort)
     errs = check(data)
     if errs:
@@ -75,8 +79,11 @@ def call_checked(model, system, user, schema, effort, check) -> dict:
         fix = user + "\n\nYour previous answer broke these rules. Return a corrected answer:\n- " + "\n- ".join(errs)
         data = call(model, system, fix, schema, effort)
         errs = check(data)
+        hard = errs if fatal is None else [e for e in errs if fatal(e)]
+        if hard:
+            raise Invalid("; ".join(hard))
         if errs:
-            raise Invalid("; ".join(errs))
+            print("[llm] still broken after the retry, left for the critic:\n  " + "\n  ".join(errs))
     return data
 
 

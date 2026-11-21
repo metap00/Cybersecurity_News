@@ -93,13 +93,24 @@ def test_url_in_model_string_rejected():
     assert llm.check_item(item)
 
 
-def test_write_retries_once_then_fails(repo, canned):
+def test_write_retries_once_then_fails_on_missing_item(repo, canned):
     llm.save("out/ranked.json", {"shortlist": ranked()})
     bad = fixture("draft.json")
-    bad["items"][1]["question"]["options"] = ["a", "b"]
+    bad["items"].pop()
     canned.answers += [bad, bad]
     assert write.main([]) == 1
     assert len(canned.calls) == 2
+
+
+def test_write_leaves_a_cap_break_to_the_critic(repo, canned):
+    llm.save("out/ranked.json", {"shortlist": ranked()})
+    bad = fixture("draft.json")
+    bad["items"][1]["question"]["options"][0] = "one two three four five six seven eight nine"
+    canned.answers += [bad, bad, verdicts("pass", "pass", "pass", "pass")]
+    assert write.main([]) == 0
+    assert len(canned.calls) == 2
+    assert critique.main(["--mode", "full", "--date", "2026-11-21"]) == 0
+    assert [i["id"] for i in llm.load("out/digest.json")["items"]] == ["c01", "c03", "c04"]  # c02 still broken: dropped
 
 
 def test_write_fixes_on_retry(repo, canned):
