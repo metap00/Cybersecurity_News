@@ -42,15 +42,47 @@ def ranked(n=4):
 
 def verdicts(*vs, review="pass"):
     return {"items": [{"id": f"c{i:02d}", "verdict": v, "issues": [], "fixed": None} for i, v in enumerate(vs, 1)],
-            "review": {"verdict": review, "issues": [], "fixed": None}}
+            "review": {"verdict": review, "issues": [], "fixed": None},
+            "extras": {"verdict": "pass", "issues": [], "fixed": None}}
 
 
 # ---------- caps ----------
 
 def test_overlong_headline_rejected():
     item = fixture("draft.json")["items"][0]
-    item["headline"] = "one two three four five six seven eight nine ten eleven"
+    item["headline"] = "word " * 13
     assert any("headline" in e for e in llm.check_item(item))
+
+
+def test_summary_and_notes_checked_and_options_allow_8_words():
+    item = fixture("draft.json")["items"][0]
+    assert llm.check_item(item) == []
+    item["question"]["options"][0] = "one two three four five six seven eight"
+    assert llm.check_item(item) == []
+    for bad in ("Too short to read.", "word " * 81):
+        item["summary"] = bad
+        assert any("summary" in e for e in llm.check_item(item))
+    item = fixture("draft.json")["items"][0]
+    item["attack_note"] = None  # attack_id is set
+    assert any("attack_note" in e for e in llm.check_item(item))
+    item["attack_id"], item["actor"] = None, "word " * 26
+    assert any("actor" in e for e in llm.check_item(item))
+
+
+def test_glossary_and_til_never_repeat(repo):
+    ex = {k: fixture("draft.json")[k] for k in ("glossary", "til")}
+    assert llm.check_extras(ex) == []
+    errs = llm.check_extras(ex, known_terms=["Zero-Day"], recent_til=["patch gap"])
+    assert any("zero-day" in e for e in errs) and any("Patch Gap" in e for e in errs)
+
+
+def test_history_comes_from_state_else_frozen_history_json(repo):
+    assert llm.history() == ([], [])
+    llm.save("history.json", {"glossary": ["t%d" % i for i in range(60)], "til": list("abcdefghij")})
+    terms, tils = llm.history()
+    assert len(terms) == 50 and terms[-1] == "t59" and tils == list("defghij")
+    llm.save("data/state.json", {"days": [], "glossary": ["MFA"], "til": []})
+    assert llm.history() == (["MFA"], [])
 
 
 def test_url_in_model_string_rejected():
@@ -184,9 +216,31 @@ def test_critique_picks_3_in_rank_order(repo, canned):
     d = llm.load("out/digest.json")
     assert d["mode"] == "full"
     assert [i["id"] for i in d["items"]] == ["c01", "c03", "c04"]
+    first = fixture("draft.json")["items"][0]
+    assert {k: d["items"][0][k] for k in ("summary", "attack_note", "actor")} == \
+        {k: first[k] for k in ("summary", "attack_note", "actor")}
     assert d["action"]["item_id"] == "c01"
     assert d["question"]["topic"] == "T1203"
     assert d["also"] == []
+    assert [g["term"] for g in d["glossary"]] == ["zero-day"]  # XDR is not used in the picked items
+    assert d["til"]["concept"] == "Patch Gap"
+
+
+def test_critique_dropped_extras_leave_glossary_and_til_empty(repo, canned):
+    critique_setup(canned, "pass", "pass", "pass", "pass")
+    canned.answers[0]["extras"] = {"verdict": "drop", "issues": ["wrong definition"], "fixed": None}
+    assert critique.main(["--mode", "full", "--date", "2026-11-21"]) == 0
+    d = llm.load("out/digest.json")
+    assert d["glossary"] == [] and d["til"] is None and len(d["items"]) == 4
+
+
+def test_pick_takes_3_then_more_only_within_word_budget():
+    def it(n):
+        return {"headline": "h", "summary": "w " * n, "you": "y", "attack_note": None, "actor": None}
+    assert len(critique.pick([it(40)] * 7, "full")) == 5   # 230 + 5 * 50 = 480
+    assert len(critique.pick([it(100)] * 7, "full")) == 4  # 230 + 4 * 110 = 670; a 5th would be 780 > 700
+    assert len(critique.pick([it(200)] * 7, "full")) == 3  # never fewer than 3 when 3 pass
+    assert len(critique.pick([it(40)] * 7, "small")) == 1
 
 
 def test_critique_small_mode_picks_1(repo, canned):
@@ -217,7 +271,7 @@ def test_critique_everything_dropped_none(repo, canned):
 def test_critique_fix_breaking_cap_is_drop(repo, canned):
     critique_setup(canned, "fixed", "pass", "pass", "pass")
     fixed = fixture("draft.json")["items"][0]
-    fixed["headline"] = "word " * 12
+    fixed["headline"] = "word " * 13
     canned.answers[0]["items"][0]["fixed"] = fixed
     assert critique.main(["--mode", "full", "--date", "2026-11-21"]) == 0
     assert [i["id"] for i in llm.load("out/digest.json")["items"]] == ["c02", "c03", "c04"]

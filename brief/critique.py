@@ -24,8 +24,15 @@ SCHEMA = {
             "required": ["verdict", "issues", "fixed"],
             "additionalProperties": False,
         },
+        "extras": {
+            "type": "object",
+            "properties": {"verdict": VERDICT, "issues": ISSUES,
+                           "fixed": {"anyOf": [llm.EXTRAS, {"type": "null"}]}},
+            "required": ["verdict", "issues", "fixed"],
+            "additionalProperties": False,
+        },
     },
-    "required": ["items", "review"],
+    "required": ["items", "review", "extras"],
     "additionalProperties": False,
 }
 SOURCE = ("id", "title", "summary", "feed", "also", "cves", "kev", "kind")
@@ -38,8 +45,8 @@ def check_verdicts(data, ids):
     errs += [f"duplicate verdict for {i}" for i in set(got) if got.count(i) > 1]
     errs += [f"{v['id']}: verdict 'fixed' needs the fixed item" for v in data["items"]
              if v["verdict"] == "fixed" and v["fixed"] is None]
-    if data["review"]["verdict"] == "fixed" and data["review"]["fixed"] is None:
-        errs.append("review: verdict 'fixed' needs the fixed question")
+    errs += [f"{k}: verdict 'fixed' needs the fixed {k}" for k in ("review", "extras")
+             if data[k]["verdict"] == "fixed" and data[k]["fixed"] is None]
     return errs
 
 
@@ -66,15 +73,54 @@ def apply_review(review, rq):
     return q
 
 
+def apply_extras(verdict, draft, picked):
+    """Glossary + TIL after review. Glossary keeps only terms that appear in the picked items."""
+    none = {"glossary": [], "til": None}
+    if verdict["verdict"] == "drop":
+        return none
+    ex = {"glossary": draft.get("glossary", []), "til": draft.get("til")} if verdict["verdict"] == "pass" else verdict["fixed"]
+    errs = llm.check_extras(ex, *llm.history())
+    if errs:
+        print("[critique] dropping glossary and TIL: " + "; ".join(errs))
+        return none
+    text = " ".join(" ".join(filter(None, (it["headline"], it["summary"], it["you"], it.get("attack_note"),
+                                           it.get("actor"), (it.get("action") or {}).get("text"))))
+                    for it in picked).casefold()
+    return {"glossary": [g for g in ex["glossary"] if g["term"].casefold() in text], "til": ex["til"]}
+
+
+MAX_ITEMS, MIN_ITEMS, BUDGET = 5, 3, 700  # deliver.MAX_WORDS (750) is the hard cap
+OVERHEAD = 230  # worst case outside the items: TIL, glossary, the action line, the footer
+
+
+def item_words(it):
+    return 8 + sum(llm.words(it.get(k) or "") for k in ("headline", "summary", "you", "attack_note", "actor"))
+
+
+def pick(passing, mode):
+    """Rank order. Small mode: 1. Full: at least 3 (the caps make 3 fit), then more while under the word budget."""
+    if mode == "small":
+        return passing[:1]
+    picked, total = [], OVERHEAD
+    for it in passing[:MAX_ITEMS]:
+        if len(picked) >= MIN_ITEMS and total + item_words(it) > BUDGET:
+            break
+        picked.append(it)
+        total += item_words(it)
+    return picked
+
+
 def build(date, mode, shortlist, draft, verdicts):
     """Pure code: verdicts → digest dict (contract in PLAN section 8)."""
     src = {s["id"]: s for s in shortlist}
     by_id = {v["id"]: v for v in verdicts["items"]}
     passing = [it for it in (apply(by_id[d["id"]], d) for d in draft["items"]) if it]
-    n = 1 if mode == "small" else 3
-    picked, rest = passing[:n], passing[n:n + 2]
-    items = [{"id": it["id"], "kind": src[it["id"]]["kind"], "headline": it["headline"], "you": it["you"],
-              "attack_id": it["attack_id"], "url": src[it["id"]]["url"], "feed": src[it["id"]]["feed"],
+    picked = pick(passing, mode)
+    rest = passing[len(picked):len(picked) + 2]
+    items = [{"id": it["id"], "kind": src[it["id"]]["kind"], "headline": it["headline"],
+              "summary": it["summary"], "you": it["you"], "attack_id": it["attack_id"],
+              "attack_note": it.get("attack_note"), "actor": it.get("actor"),
+              "url": src[it["id"]]["url"], "feed": src[it["id"]]["feed"],
               "keys": src[it["id"]]["keys"]} for it in picked]
     act = next((it for it in picked if src[it["id"]]["kind"] == "act" and it["action"]), None)
     if act is None and picked and picked[0]["action"]:
@@ -90,6 +136,7 @@ def build(date, mode, shortlist, draft, verdicts):
         "items": items,
         "action": {"item_id": act["id"], **act["action"]} if act else None,
         "question": question,
+        **apply_extras(verdicts["extras"], draft, picked),
         "also": [{"id": it["id"], "headline": it["headline"], "url": src[it["id"]]["url"],
                   "feed": src[it["id"]]["feed"]} for it in rest],
     }

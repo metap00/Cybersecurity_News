@@ -34,14 +34,14 @@ def stories(digests):
 
 def check(data, known):
     errs = []
-    if llm.words(data["pattern"]) > 40:
-        errs.append("pattern over 40 words")
+    if llm.words(data["pattern"]) > 60:
+        errs.append("pattern over 60 words")
     p = data["pick"]
     if p:
         if (p["date"], p["id"]) not in known:
             errs.append(f"pick {p['date']}/{p['id']} is not one of the listed stories")
-        if llm.words(p["why"]) > 20:
-            errs.append("why over 20 words")
+        if llm.words(p["why"]) > 40:
+            errs.append("why over 40 words")
     return errs + llm.check_strings(data, "weekly")
 
 
@@ -60,7 +60,7 @@ def main(argv=None) -> int:
             return
         known = stories(digests)
         week = [{"date": d["date"],
-                 "items": [{k: s.get(k) for k in ("id", "kind", "headline", "attack_id", "feed")} for s in d.get("items", [])],
+                 "items": [{k: s.get(k) for k in ("id", "kind", "headline", "summary", "attack_id", "feed")} for s in d.get("items", [])],
                  "also": [{k: s.get(k) for k in ("id", "headline", "feed")} for s in d.get("also", [])]}
                 for d in digests]
         user = ("<profile>\n" + llm.profile() + "\n</profile>\n\n<week>\n"

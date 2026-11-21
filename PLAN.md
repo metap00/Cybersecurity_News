@@ -493,7 +493,12 @@ Fixed. A change goes through the coordinator.
   "items": [
     {
       "id": "c01", "kind": "act",
-      "headline": "...", "you": "...", "attack_id": null,
+      "headline": "...",
+      "summary": "...",               // 3-5 plain sentences, 40-80 words (added 2026-11-21)
+      "you": "...",
+      "attack_id": "T1187",           // or null
+      "attack_note": "Forced Authentication: how it applies here",   // null when attack_id is null
+      "actor": null,                  // named group only: who, state or criminal, targets
       "url": "https://...",          // copied from the candidate by code
       "feed": "The Hacker News",     // copied
       "keys": ["cve-2026-125350"]    // copied
@@ -501,6 +506,8 @@ Fixed. A change goes through the coordinator.
   ],
   "action": {"item_id": "c01", "text": "...", "minutes": 1},   // or null
   "question": {"text": "...", "options": ["...", "...", "..."], "correct": 1, "explanation": "...", "topic": "T1187"},   // null when mode is none
+  "glossary": [{"term": "SMB", "meaning": "..."}],   // terms used in today's items, max 6, none from the last 50
+  "til": {"concept": "Patch Gap", "text": "..."},     // or null; concept not in the last 7
   "also": [{"id": "c07", "headline": "...", "url": "https://...", "feed": "..."}]   // max 2, for the Sunday pick
 }
 ```
