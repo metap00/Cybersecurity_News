@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- tier: 1 first-hand, 2 newsroom or CERT relay, 3 aggregator (missing: 2). See PLAN-sources.md section 3.
+     The 18th source, CISA KEV (tier 1), is the JSON catalog brief/collect.py downloads. -->
 <opml version="1.0">
   <head>
     <title>Cybersecurity News Feeds</title>
   </head>
   <body>
     <outline text="Cybersecurity" title="Cybersecurity">
-      <outline type="rss" text="Krebs on Security" title="Krebs on Security" xmlUrl="https://krebsonsecurity.com/feed/" htmlUrl="https://krebsonsecurity.com"/>
-      <outline type="rss" text="The Hacker News" title="The Hacker News" xmlUrl="https://feeds.feedburner.com/TheHackersNews" htmlUrl="https://thehackernews.com"/>
-      <outline type="rss" text="Bleeping Computer" title="Bleeping Computer" xmlUrl="https://www.bleepingcomputer.com/feed/" htmlUrl="https://www.bleepingcomputer.com"/>
-      <outline type="rss" text="SANS Internet Storm Center" title="SANS Internet Storm Center" xmlUrl="https://isc.sans.edu/rssfeed.xml" htmlUrl="https://isc.sans.edu"/>
-      <outline type="rss" text="CISA Advisories" title="CISA Advisories" xmlUrl="https://www.cisa.gov/cybersecurity-advisories/all.xml" htmlUrl="https://www.cisa.gov"/>
-      <outline type="rss" text="Ars Technica Security" title="Ars Technica Security" xmlUrl="https://arstechnica.com/security/feed/" htmlUrl="https://arstechnica.com/security"/>
-      <outline type="rss" text="Schneier on Security" title="Schneier on Security" xmlUrl="https://www.schneier.com/feed/atom/" htmlUrl="https://www.schneier.com"/>
-      <outline type="rss" text="SecurityWeek" title="SecurityWeek" xmlUrl="https://www.securityweek.com/feed/" htmlUrl="https://www.securityweek.com"/>
-      <outline type="rss" text="Dark Reading" title="Dark Reading" xmlUrl="https://www.darkreading.com/rss.xml" htmlUrl="https://www.darkreading.com"/>
-      <outline type="rss" text="Graham Cluley" title="Graham Cluley" xmlUrl="https://grahamcluley.com/feed/" htmlUrl="https://grahamcluley.com"/>
+      <outline type="rss" tier="1" text="CERT-EU" title="CERT-EU" xmlUrl="https://cert.europa.eu/publications/security-advisories-rss" htmlUrl="https://cert.europa.eu"/>
+      <outline type="rss" tier="1" text="NCSC (UK)" title="NCSC (UK)" xmlUrl="https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml" htmlUrl="https://www.ncsc.gov.uk"/>
+      <outline type="rss" tier="1" text="Microsoft Threat Intelligence" title="Microsoft Threat Intelligence" xmlUrl="https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/feed/" htmlUrl="https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/"/>
+      <outline type="rss" tier="1" text="Google Threat Intelligence" title="Google Threat Intelligence" xmlUrl="https://feeds.feedburner.com/threatintelligence/pvexyqv7v0v" htmlUrl="https://cloud.google.com/blog/topics/threat-intelligence"/>
+      <outline type="rss" tier="1" text="Cisco Talos" title="Cisco Talos" xmlUrl="https://blog.talosintelligence.com/rss/" htmlUrl="https://blog.talosintelligence.com"/>
+      <outline type="rss" tier="1" text="Unit 42" title="Unit 42" xmlUrl="https://unit42.paloaltonetworks.com/feed/" htmlUrl="https://unit42.paloaltonetworks.com"/>
+      <outline type="rss" tier="1" text="Kaspersky Securelist" title="Kaspersky Securelist" xmlUrl="https://securelist.com/feed/" htmlUrl="https://securelist.com"/>
+      <outline type="rss" tier="1" text="Proofpoint Threat Insight" title="Proofpoint Threat Insight" xmlUrl="https://www.proofpoint.com/us/threat-insight-blog.xml" htmlUrl="https://www.proofpoint.com/us/threat-insight"/>
+      <outline type="rss" tier="1" text="The DFIR Report" title="The DFIR Report" xmlUrl="https://thedfirreport.com/feed/" htmlUrl="https://thedfirreport.com"/>
+      <outline type="rss" tier="1" text="SANS Internet Storm Center" title="SANS Internet Storm Center" xmlUrl="https://isc.sans.edu/rssfeed_full.xml" htmlUrl="https://isc.sans.edu"/>
+      <outline type="rss" tier="2" text="DNSC (Romania)" title="DNSC (Romania)" xmlUrl="https://dnsc.ro/feed" htmlUrl="https://dnsc.ro"/>
+      <outline type="rss" tier="2" text="Krebs on Security" title="Krebs on Security" xmlUrl="https://krebsonsecurity.com/feed/" htmlUrl="https://krebsonsecurity.com"/>
+      <outline type="rss" tier="2" text="Bleeping Computer" title="Bleeping Computer" xmlUrl="https://www.bleepingcomputer.com/feed/" htmlUrl="https://www.bleepingcomputer.com"/>
+      <outline type="rss" tier="2" text="The Record" title="The Record" xmlUrl="https://therecord.media/feed" htmlUrl="https://therecord.media"/>
+      <outline type="rss" tier="2" text="Ars Technica Security" title="Ars Technica Security" xmlUrl="https://arstechnica.com/security/feed/" htmlUrl="https://arstechnica.com/security"/>
+      <outline type="rss" tier="2" text="SecurityWeek" title="SecurityWeek" xmlUrl="https://www.securityweek.com/feed/" htmlUrl="https://www.securityweek.com"/>
+      <outline type="rss" tier="3" text="The Hacker News" title="The Hacker News" xmlUrl="https://feeds.feedburner.com/TheHackersNews" htmlUrl="https://thehackernews.com"/>
     </outline>
   </body>
 </opml>
