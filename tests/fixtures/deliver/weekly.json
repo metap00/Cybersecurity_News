@@ -1,0 +1,5 @@
+{
+  "date": "2026-11-22",
+  "pattern": "Three top stories were the same move, exploiting an app that faces the internet (T1190).",
+  "pick": {"headline": "Inside a new phishing kit", "url": "https://krebsonsecurity.com/2026/11/kit/", "feed": "Krebs on Security", "why": "Shows a full phishing chain end to end."}
+}

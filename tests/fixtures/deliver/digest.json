@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-21",
+  "mode": "full",
+  "items": [
+    {
+      "id": "c01", "kind": "act",
+      "headline": "Chrome zero-day is being exploited",
+      "you": "You run Chrome, so this one is yours.",
+      "attack_id": null,
+      "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html",
+      "feed": "The Hacker News",
+      "keys": ["cve-2026-125350", "u:thehackernews.com/2026/11/google-issues-chrome-security-update.html"]
+    },
+    {
+      "id": "c02", "kind": "learn",
+      "headline": "One Outlook email can leak your Windows login hash",
+      "you": "SOC view: this is forced authentication, a technique on your path.",
+      "attack_id": "T1187",
+      "url": "https://www.securityweek.com/outlook-hash-leak/?a=1&b=2",
+      "feed": "SecurityWeek",
+      "keys": ["u:securityweek.com/outlook-hash-leak"]
+    },
+    {
+      "id": "c03", "kind": "know",
+      "headline": "Check Point firewall bug exploited at about 24 customers",
+      "you": "Path: privilege escalation, a limited login became root.",
+      "attack_id": "T1068",
+      "url": "https://www.bleepingcomputer.com/news/security/check-point-firewall-bug/",
+      "feed": "Bleeping Computer",
+      "keys": ["u:bleepingcomputer.com/news/security/check-point-firewall-bug"]
+    }
+  ],
+  "action": {"item_id": "c01", "text": "⋮ → Help → About Google Chrome → Relaunch", "minutes": 1},
+  "question": {
+    "text": "An email made Outlook send your password hash to an attacker's server, with no click. What is this technique called?",
+    "options": ["Phishing (T1566)", "Forced Authentication (T1187)", "Brute Force (T1110)"],
+    "correct": 1,
+    "explanation": "Forced Authentication: the victim's machine is tricked into authenticating to an attacker's server, leaking a hash.",
+    "topic": "T1187"
+  },
+  "also": [{"id": "c07", "headline": "Krebs on a new phishing kit", "url": "https://krebsonsecurity.com/2026/11/kit/", "feed": "Krebs on Security"}]
+}
