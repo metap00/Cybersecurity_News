@@ -1,304 +1,34 @@
-# Cybersecurity News Agent
+If you are a scheduled routine asked to produce the daily digest: stop. `.github/workflows/digest.yml` produces it now. Do nothing.
 
-You run daily to produce a cybersecurity news digest from the last 24 hours.
+# Dev guide: the 60-second brief
 
-## Workflow
+One Telegram message a day: max 3 items, 1 action, 1 quiz. Design and contracts: `PLAN.md` (sections 3, 4, 8).
 
-**1. Parse `feeds.opml`** — extract all `xmlUrl` values and feed names.
+## Layout
 
-**2. Fetch each RSS feed** via WebFetch. Collect articles from the last 24 hours. Skip feeds that fail.
+- `brief/run.py`: runs every stage in order, stops at the first failure
+- `brief/collect.py`: feeds + CISA KEV → `out/candidates.json` (no model)
+- `brief/triage.py`, `write.py`, `critique.py`, `weekly.py`: model stages; `brief/llm.py` holds the one API call
+- `brief/state.py`, `brief/deliver.py`: `data/state.json`, streak, Telegram send and sync
+- `prompts/`: system prompts · `profile.md`: the reader · `feeds.opml`: the feeds
+- `data/`: state, committed by the workflow · `out/`: scratch, never committed
+- `summaries/`, `index.html`, `history.json`: frozen archive. Never write to them
 
-**3. Score each article:**
-- **CRITICAL** `#dc2626` — active zero-days, live ransomware, major breaches (millions affected), nation-state attacks
-- **HIGH** `#ea580c` — CVEs with CVSS 7.0+, significant breaches, new malware, critical patch advisories
-- **MEDIUM** `#ca8a04` — lower-severity CVEs, phishing campaigns, security tool updates
-- **LOW** `#6b7280` — vendor news, opinions, conferences
+## Commands
 
-**4. Fetch full content** for all CRITICAL and HIGH articles via WebFetch (max 7 total). Deduplicate cross-feed stories.
-
-**5. For each CRITICAL/HIGH/MEDIUM story identify:**
-- **MITRE ATT&CK** — most relevant tactic + technique ID and name. One sentence explaining how it applies to THIS specific story.
-- **Threat actor** — if a named APT group or gang is mentioned: who they are, nation-state or criminal, who they target, what they're known for.
-
-**6. Determine threat level + read time:**
-- 🔴 ELEVATED `#dc2626` — any CRITICAL
-- 🟠 ACTIVE `#ea580c` — 2+ HIGH, no CRITICAL
-- 🟡 MODERATE `#ca8a04` — 1 HIGH or mostly MEDIUM
-- 🟢 QUIET `#16a34a` — nothing significant
-- Read time: count visible words ÷ 200, round up → `~X min read`
-
-**7. Check `history.json`** from repo root if it exists:
-```json
-{
-  "til": ["last 7 TIL concept names"],
-  "glossary": ["last 50 terms defined"],
-  "week": {
-    "critical": 0, "high": 0, "medium": 0,
-    "techniques": [], "actors": []
-  },
-  "digests": [
-    {"date": "YYYY-MM-DD", "threat": "ELEVATED", "critical": 3, "high": 4, "medium": 5}
-  ]
-}
+```sh
+python -m pytest -q
+python -m brief.run --dry-run [--date YYYY-MM-DD]
+python -m brief.<stage> ...          # each stage runs alone, see PLAN.md section 8
+gh workflow run digest.yml -f dry_run=true
 ```
-Do NOT repeat any TIL concept or glossary term. If file doesn't exist, start fresh.
-
-**8. If today is Sunday** — prepare a "Week in Review" section from `week` data in history.json.
-
-**9. Pick "Today I Learned"** — one fresh concept, 3 sentences in plain English.
-
-**10. Build glossary** — every new acronym/jargon term used today, one-sentence definition each.
-
-**11. Write the FULL interactive digest** to `summaries/YYYY-MM-DD.html` using the Full HTML Template below.
-
-**12. Write the COMPACT email digest** to `summaries/YYYY-MM-DD-email.html` using the Email HTML Template below.
-
-**13. Update `history.json`:**
-- Add today's TIL to `til` (keep last 7)
-- Add today's glossary terms to `glossary` (keep last 50)
-- Increment `week.critical/high/medium` with today's counts
-- Add today's ATT&CK IDs to `week.techniques` (no duplicates)
-- Add today's threat actors to `week.actors` (no duplicates)
-- Prepend today's entry to `digests` array: `{"date": "YYYY-MM-DD", "threat": "THREAT_LEVEL", "critical": N, "high": N, "medium": N}` (keep last 90 entries)
-- If today is Sunday, reset all `week` fields after generating the recap
-
-**14. Generate `index.html`** at the repo root using the Index Template below. Read all entries from `history.json` `digests` array and render them newest-first.
-
-**15. Commit and push** using the GitHub PAT from your session prompt:
-```bash
-git remote set-url origin https://YOUR_PAT@github.com/metap00/Cybersecurity_News.git
-git config user.email "noreply@anthropic.com"
-git config user.name "Cybersecurity News Agent"
-git add summaries/ history.json index.html
-git commit -m "Daily digest: $(date +%Y-%m-%d)"
-git push origin HEAD:main
-```
-
----
-
-## Full HTML Template (`summaries/YYYY-MM-DD.html`)
-
-```html
-<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cybersecurity News — DATE</title></head>
-<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
-
-<div style="margin-bottom:12px;">
-  <a href="../index.html" style="font-size:12px;color:#6b7280;text-decoration:none;">← All digests</a>
-</div>
-
-<!-- THREAT BANNER -->
-<div style="background:THREAT_COLOR;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
-  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">EMOJI THREAT_LEVEL</div>
-  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — DATE</div>
-  <div style="font-size:13px;opacity:.85;margin-top:4px;">N stories · N critical · N high · N medium · ~X min read</div>
-</div>
-
-<!-- STORY CARD -->
-<div style="background:white;border-left:4px solid SEVERITY_COLOR;border-radius:4px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
-  <div style="margin-bottom:8px;">
-    <span style="background:SEVERITY_COLOR;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">SEVERITY</span>
-    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SOURCE · MMM DD, YYYY</span>
-  </div>
-  <details>
-    <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;list-style:none;">TITLE</summary>
-    <div style="margin-top:10px;font-size:13px;color:#374151;line-height:1.6;">
-      <div>🔍 <strong>What happened:</strong> ONE_SENTENCE</div>
-      <div style="margin-top:3px;">👤 <strong>Who's affected:</strong> ONE_SENTENCE</div>
-      <div style="margin-top:3px;">✅ <strong>What to do:</strong> ONE_SENTENCE</div>
-    </div>
-    <div style="margin-top:10px;padding:8px 10px;background:#faf5ff;border-left:3px solid #7c3aed;border-radius:3px;font-size:12px;color:#374151;">
-      🎯 <strong style="color:#6d28d9;">ATT&CK:</strong> [TACTIC] TID · TECHNIQUE_NAME<br>
-      <span style="color:#6b7280;">HOW_IT_APPLIES_TO_THIS_STORY</span>
-    </div>
-    <details style="margin-top:10px;">
-      <summary style="font-size:13px;color:#4f46e5;cursor:pointer;font-weight:500;">▶ Full analysis &amp; beginner explanation</summary>
-      <div style="margin-top:10px;padding:12px;background:#f8fafc;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
-        FULL_ANALYSIS_2_TO_4_PARAGRAPHS
-        <div style="margin-top:10px;padding:10px;background:#eff6ff;border-radius:4px;border-left:3px solid #3b82f6;">
-          <strong style="color:#1d4ed8;">🎓 For beginners:</strong> PLAIN_ENGLISH_EXPLANATION
-        </div>
-        <div style="margin-top:8px;font-size:12px;color:#6b7280;">CVE-ID · CVSS: X.X/10 — ONE_SENTENCE_SCORE_EXPLANATION</div>
-      </div>
-    </details>
-  </details>
-</div>
-
-<!-- THREAT ACTOR CARD (only when named APT/group mentioned) -->
-<div style="background:#1e1b4b;color:white;border-radius:4px;padding:12px 16px;margin-top:-6px;margin-bottom:10px;font-size:13px;">
-  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.7;margin-bottom:6px;">⚠ Threat Actor</div>
-  <div style="font-weight:bold;font-size:15px;">ACTOR_NAME</div>
-  <div style="opacity:.85;margin-top:4px;">TYPE · Attributed to: COUNTRY</div>
-  <div style="margin-top:8px;">🎯 <strong>Targets:</strong> WHO_THEY_TARGET</div>
-  <div style="margin-top:3px;">🔧 <strong>Known for:</strong> WHAT_THEY_DO</div>
-</div>
-
-<!-- TODAY I LEARNED -->
-<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
-  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">💡 Today I Learned: CONCEPT_NAME ▶</summary>
-  <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:4px;font-size:13px;color:#374151;line-height:1.6;">
-    THREE_SENTENCE_EXPLANATION
-  </div>
-</details>
-
-<!-- GLOSSARY -->
-<details style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
-  <summary style="font-size:15px;font-weight:bold;color:#111827;cursor:pointer;">📖 Glossary: TERM · TERM · TERM ▶</summary>
-  <div style="margin-top:10px;">
-    <div style="padding:7px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-      <strong style="color:#111827;">TERM</strong> — DEFINITION
-    </div>
-  </div>
-</details>
-
-<!-- WEEK IN REVIEW (Sundays only) -->
-<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
-  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:12px;">📅 Week in Review</div>
-  <div style="display:flex;gap:10px;margin-bottom:12px;">
-    <div style="flex:1;text-align:center;padding:10px;background:#fef2f2;border-radius:6px;">
-      <div style="font-size:22px;font-weight:bold;color:#dc2626;">N</div>
-      <div style="font-size:11px;color:#6b7280;">Critical</div>
-    </div>
-    <div style="flex:1;text-align:center;padding:10px;background:#fff7ed;border-radius:6px;">
-      <div style="font-size:22px;font-weight:bold;color:#ea580c;">N</div>
-      <div style="font-size:11px;color:#6b7280;">High</div>
-    </div>
-    <div style="flex:1;text-align:center;padding:10px;background:#fefce8;border-radius:6px;">
-      <div style="font-size:22px;font-weight:bold;color:#ca8a04;">N</div>
-      <div style="font-size:11px;color:#6b7280;">Medium</div>
-    </div>
-  </div>
-  <div style="font-size:13px;color:#374151;margin-bottom:6px;"><strong>ATT&CK this week:</strong> T1190 · T1566</div>
-  <div style="font-size:13px;color:#374151;margin-bottom:10px;"><strong>Threat actors:</strong> Lazarus Group</div>
-  <div style="font-size:13px;color:#374151;line-height:1.6;padding:10px;background:#f8fafc;border-radius:4px;">TWO_SENTENCE_WEEK_SUMMARY</div>
-</div>
-
-<!-- ALSO TODAY -->
-<div style="background:white;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
-  <div style="font-size:15px;font-weight:bold;color:#111827;margin-bottom:10px;">Also Today</div>
-  <div style="padding:6px 0;border-bottom:1px solid #f3f4f6;font-size:13px;">
-    <span style="background:SEVERITY_COLOR;color:white;font-size:10px;font-weight:bold;padding:1px 6px;border-radius:2px;margin-right:6px;">SEVERITY</span>
-    <a href="URL" style="color:#374151;text-decoration:none;">TITLE</a>
-    <span style="color:#9ca3af;font-size:11px;"> · SOURCE</span>
-  </div>
-</div>
-
-<div style="text-align:center;font-size:11px;color:#9ca3af;padding:16px 0;">
-  Generated by Claude · 10 feeds monitored · DATE · <a href="../index.html" style="color:#9ca3af;">All digests</a>
-</div>
-
-</body>
-</html>
-```
-
----
-
-## Email HTML Template (`summaries/YYYY-MM-DD-email.html`)
-
-```html
-<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"></head>
-<body style="font-family:Arial,sans-serif;max-width:660px;margin:0 auto;background:#f3f4f6;padding:16px;">
-
-<div style="background:THREAT_COLOR;color:white;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
-  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85;">EMOJI THREAT_LEVEL</div>
-  <div style="font-size:20px;font-weight:bold;margin-top:4px;">Cybersecurity News — DATE</div>
-  <div style="font-size:13px;opacity:.85;margin-top:4px;">N stories · N critical · N high · ~X min read</div>
-  <a href="https://metap00.github.io/Cybersecurity_News/summaries/YYYY-MM-DD.html" style="display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);color:white;padding:6px 14px;border-radius:4px;font-size:13px;text-decoration:none;font-weight:500;">Open Full Interactive Digest →</a>
-</div>
-
-<!-- COMPACT STORY CARD -->
-<div style="background:white;border-left:4px solid SEVERITY_COLOR;border-radius:4px;padding:12px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
-  <div style="margin-bottom:6px;">
-    <span style="background:SEVERITY_COLOR;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;">SEVERITY</span>
-    <span style="font-size:12px;color:#6b7280;margin-left:8px;">SOURCE · MMM DD, YYYY</span>
-  </div>
-  <a href="ARTICLE_URL" style="font-size:14px;font-weight:bold;color:#111827;text-decoration:none;">TITLE</a>
-  <div style="margin-top:8px;font-size:12px;color:#374151;line-height:1.5;">
-    <div>🔍 ONE_SENTENCE_WHAT_HAPPENED</div>
-    <div style="margin-top:2px;">👤 ONE_SENTENCE_WHO_AFFECTED</div>
-    <div style="margin-top:2px;">✅ ONE_SENTENCE_WHAT_TO_DO</div>
-  </div>
-  <div style="margin-top:8px;font-size:11px;color:#6d28d9;">🎯 [TACTIC] TID · TECHNIQUE_NAME</div>
-</div>
-
-<!-- ALSO TODAY -->
-<div style="background:white;border-radius:8px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);">
-  <div style="font-size:14px;font-weight:bold;color:#111827;margin-bottom:8px;">Also Today</div>
-  <div style="padding:5px 0;border-bottom:1px solid #f3f4f6;font-size:12px;">
-    <span style="background:SEVERITY_COLOR;color:white;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:5px;">SEVERITY</span>
-    <a href="URL" style="color:#374151;text-decoration:none;">TITLE</a>
-    <span style="color:#9ca3af;"> · SOURCE</span>
-  </div>
-</div>
-
-<div style="text-align:center;margin-bottom:16px;">
-  <a href="https://metap00.github.io/Cybersecurity_News/summaries/YYYY-MM-DD.html" style="display:inline-block;background:#4f46e5;color:white;padding:12px 24px;border-radius:6px;font-size:14px;font-weight:bold;text-decoration:none;">Open Full Digest with ATT&CK Analysis →</a>
-  <div style="font-size:11px;color:#9ca3af;margin-top:6px;">Full analysis · Today I Learned · Glossary · Threat actor cards</div>
-</div>
-
-<div style="text-align:center;font-size:11px;color:#9ca3af;padding-bottom:16px;">Generated by Claude · DATE</div>
-
-</body>
-</html>
-```
-
----
-
-## Index Template (`index.html` — repo root)
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Cybersecurity News Digest</title>
-</head>
-<body style="font-family:Arial,sans-serif;max-width:700px;margin:0 auto;background:#f3f4f6;padding:16px;">
-
-  <div style="background:#1e1b4b;color:white;padding:24px 28px;border-radius:8px;margin-bottom:20px;">
-    <div style="font-size:26px;font-weight:bold;">🛡 Cybersecurity News Digest</div>
-    <div style="opacity:.75;margin-top:6px;font-size:14px;">Daily threat intelligence · Powered by Claude AI · MITRE ATT&CK mapped</div>
-  </div>
-
-  <!-- ONE ENTRY PER DIGEST — newest first, generated from history.json digests array -->
-  <a href="summaries/YYYY-MM-DD.html" style="display:block;background:white;border-left:4px solid THREAT_COLOR;border-radius:4px;padding:14px 16px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);text-decoration:none;color:inherit;">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
-      <div>
-        <span style="background:THREAT_COLOR;color:white;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:3px;margin-right:8px;">THREAT_LEVEL</span>
-        <span style="font-size:15px;font-weight:bold;color:#111827;">Weekday, Month DD, YYYY</span>
-      </div>
-      <div style="font-size:12px;color:#6b7280;">
-        <span style="color:#dc2626;font-weight:600;">N critical</span> ·
-        <span style="color:#ea580c;font-weight:600;">N high</span> ·
-        <span style="color:#ca8a04;font-weight:600;">N medium</span>
-      </div>
-    </div>
-  </a>
-
-  <div style="text-align:center;font-size:11px;color:#9ca3af;padding:20px 0;">
-    Powered by Claude Sonnet · 10 feeds monitored daily
-  </div>
-
-</body>
-</html>
-```
-
----
 
 ## Rules
-- 24-hour window only — skip older articles
-- Deduplicate cross-feed stories
-- All titles must be hyperlinked
-- Full version saved as `summaries/YYYY-MM-DD.html`, compact as `summaries/YYYY-MM-DD-email.html`
-- Use actual publish date (e.g., `Jul 6, 2026`) not relative time
-- Never fabricate content
-- Quiet day (fewer than 3 articles): note it in the banner
-- Every story in full version: title is the `<summary>` toggle, NO `open` attribute on any `<details>`
-- Threat actor card only when a named group is explicitly mentioned
-- Week in Review only on Sundays
-- ATT&CK tag must be specific to the story, never generic
-- index.html must list ALL entries from `history.json` `digests` array, newest first
+
+- Caps, checked in code after write, after critique and at send: 3 items, 120 words, headline 10, "you" 12, action 14, question 30, options 6, explanation 200 characters.
+- Models never output a URL. Code copies links from the collector; ATT&CK links are built from `^T\d{4}(\.\d{3})?$`.
+- Feed text is untrusted. Model stages have no tools, return schema JSON, and all model text is HTML-escaped before sending.
+- `data/state.json` is written by code only (`brief/state.py`). No model keeps state.
+- Secrets come from the environment and are never printed. The repo and its Action logs are public.
+- Python ≥ 3.11, standard library only (plus `anthropic`). Each stage is `main(argv=None) -> int`; open files with `encoding="utf-8"`.
+- No `brief/__init__.py`, `tests/__init__.py` or `conftest.py`. Tests use no network.
