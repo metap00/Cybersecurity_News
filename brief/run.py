@@ -47,7 +47,7 @@ def plan(mode, date, dry):
     d = ["--dry-run"] if dry else []
     if mode == "weekly":
         return [("weekly", ["--date", date]), ("deliver", ["send", "--weekly", "--date", date] + d)]
-    return [("collect", []), ("triage", []), ("write", []),
+    return [("collect", []), ("triage", ["--date", date]), ("write", []),
             ("critique", ["--mode", mode, "--date", date]),
             ("deliver", ["send", "--date", date] + d)]
 

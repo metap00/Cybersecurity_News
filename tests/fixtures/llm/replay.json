@@ -1,0 +1,129 @@
+{
+ "generated_at": "2026-11-22T04:30:00Z",
+ "since": "2026-11-21T04:30:00Z",
+ "_replay": "PLAN-sources T3 live replay. Memory: the four stories of examples/digest.json (2026-11-21). Expected: c02 an update of type patch (since 2026-11-21), c01 not an entry of its own, c03 not linked to a sent story, c04+c05+c06 one entry cited to Microsoft Threat Intelligence.",
+ "feeds": [],
+ "candidates": [
+  {
+   "id": "c01",
+   "title": "Chinese Hackers 'Armory Castle' Exploit VMware vCenter Zero-Day in Ongoing Attacks",
+   "url": "https://thehackernews.com/2026/11/chinese-hackers-armory-castle-exploit.html",
+   "feed": "The Hacker News",
+   "tier": 3,
+   "published": "2026-11-22T03:10:00Z",
+   "summary": "A China-nexus threat cluster tracked as Armory Castle has been exploiting a zero-day vulnerability in VMware vCenter Server, according to reports this week. The group appears to have kept the flaw in reserve during the previous round of vCenter updates. Successful exploitation gives the attackers control of the virtualization management layer. Organizations are urged to restrict network access to vCenter and review its logs for suspicious activity.",
+   "cves": [],
+   "kev": false,
+   "also": [],
+   "sources": [],
+   "keys": [
+    "u:thehackernews.com/2026/11/chinese-hackers-armory-castle-exploit.html"
+   ]
+  },
+  {
+   "id": "c02",
+   "title": "Broadcom releases vCenter Server updates for zero-day exploited by Chinese hackers",
+   "url": "https://www.bleepingcomputer.com/news/security/broadcom-releases-vcenter-server-updates-for-exploited-zero-day/",
+   "feed": "Bleeping Computer",
+   "tier": 2,
+   "published": "2026-11-21T19:40:00Z",
+   "summary": "Broadcom has released security updates for VMware vCenter Server that fix CVE-2026-129448, a zero-day flaw that the China-linked Armory Castle group exploited in attacks. Fixed versions are vCenter Server 8.0 Update 3h and 9.0.2.1. Broadcom says there is no workaround and urges administrators to install the updates immediately. The flaw was added to CISA's Known Exploited Vulnerabilities catalog earlier this week.",
+   "cves": [
+    "CVE-2026-129448"
+   ],
+   "kev": true,
+   "also": [],
+   "sources": [],
+   "keys": [
+    "cve-2026-129448",
+    "u:www.bleepingcomputer.com/news/security/broadcom-releases-vcenter-server-updates-for-exploited-zero-day"
+   ]
+  },
+  {
+   "id": "c03",
+   "title": "A Simple Workflow for Triaging Honeypot Web Logs",
+   "url": "https://isc.sans.edu/diary/32540",
+   "feed": "SANS Internet Storm Center",
+   "tier": 1,
+   "published": "2026-11-21T08:00:00Z",
+   "summary": "Guest diary. Our honeypots receive thousands of web requests a day, and most are noise. This diary walks through a small workflow: group requests by URI path, tag known scanners by user agent, then look up the paths that remain. For example, this week we saw probes for the path used by CVE-2026-129448, and a quick search told us which product it targets. Write each new pattern into a notes file so the next analyst does not start from zero. The same steps work for firewall and proxy logs.",
+   "cves": [
+    "CVE-2026-129448"
+   ],
+   "kev": true,
+   "also": [],
+   "sources": [],
+   "keys": [
+    "cve-2026-129448",
+    "u:isc.sans.edu/diary/32540"
+   ]
+  },
+  {
+   "id": "c04",
+   "title": "Storm-2961 abuses Microsoft Teams external chats to deliver a ransomware loader",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/21/storm-2961-teams-external-chats-ransomware-loader/",
+   "feed": "Microsoft Threat Intelligence",
+   "tier": 1,
+   "published": "2026-11-21T17:00:00Z",
+   "summary": "Microsoft Threat Intelligence observed a financially motivated actor it tracks as Storm-2961 sending Microsoft Teams chat requests from external tenants to employees, posing as IT help desk staff. After a target accepts, the actor shares a link to a fake security update that installs a loader, which later dropped ransomware in some environments. Microsoft recommends limiting external Teams access to trusted domains, warning users about external chat requests, and alerting on new remote management tools. The campaign started in October and hit organisations in several sectors.",
+   "cves": [],
+   "kev": false,
+   "also": [],
+   "sources": [],
+   "keys": [
+    "u:www.microsoft.com/en-us/security/blog/2026/11/21/storm-2961-teams-external-chats-ransomware-loader"
+   ]
+  },
+  {
+   "id": "c05",
+   "title": "Ransomware crew posing as IT help desk on Microsoft Teams, Microsoft warns",
+   "url": "https://therecord.media/microsoft-teams-help-desk-ransomware-storm-2961",
+   "feed": "The Record",
+   "tier": 2,
+   "published": "2026-11-21T18:30:00Z",
+   "summary": "Microsoft said a ransomware-linked group is messaging employees on Teams from outside organisations while pretending to be the help desk.",
+   "cves": [],
+   "kev": false,
+   "also": [],
+   "sources": [],
+   "keys": [
+    "u:therecord.media/microsoft-teams-help-desk-ransomware-storm-2961"
+   ]
+  },
+  {
+   "id": "c06",
+   "title": "Hackers Use Fake Help Desk Teams Chats to Spread Ransomware Loader",
+   "url": "https://thehackernews.com/2026/11/hackers-use-fake-help-desk-teams-chats.html",
+   "feed": "The Hacker News",
+   "tier": 3,
+   "published": "2026-11-22T02:00:00Z",
+   "summary": "Threat actors are using Microsoft Teams chats from external tenants, posing as IT support, to trick employees into installing a malware loader that has led to ransomware, Microsoft disclosed.",
+   "cves": [],
+   "kev": false,
+   "also": [],
+   "sources": [],
+   "keys": [
+    "u:thehackernews.com/2026/11/hackers-use-fake-help-desk-teams-chats.html"
+   ]
+  },
+  {
+   "id": "c07",
+   "title": "Firefox 146 fixes a sandbox escape that could chain with a renderer bug",
+   "url": "https://arstechnica.com/security/2026/11/firefox-146-fixes-sandbox-escape/",
+   "feed": "Ars Technica Security",
+   "tier": 2,
+   "published": "2026-11-21T21:00:00Z",
+   "summary": "Mozilla released Firefox 146, which fixes a high-severity sandbox escape tracked as CVE-2026-131207. The sandbox keeps web content isolated from the rest of the computer, so an escape lets an attacker who already controls a browser tab run code with more privileges. Mozilla says it has no reports of exploitation. Firefox updates itself, but users can check the version under Help, About Firefox. Enterprise builds get the same fix in Firefox ESR 140.6.",
+   "cves": [
+    "CVE-2026-131207"
+   ],
+   "kev": false,
+   "also": [],
+   "sources": [],
+   "keys": [
+    "cve-2026-131207",
+    "u:arstechnica.com/security/2026/11/firefox-146-fixes-sandbox-escape"
+   ]
+  }
+ ]
+}

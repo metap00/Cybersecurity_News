@@ -188,10 +188,16 @@ def test_write_fixes_on_retry(repo, canned):
 
 # ---------- triage ----------
 
+def tri(i, score, kind="know", dup_of=None, story=None, update="none", new="", names=()):
+    """One canned triage verdict."""
+    return {"id": i, "score": score, "kind": kind, "reason": "x", "dup_of": dup_of, "story": story,
+            "update": update, "new": new, "names": list(names)}
+
+
 def test_triage_keeps_top5_score_6_plus(repo, canned):
     scores = {"c01": 9, "c02": 6, "c03": 5, "c04": 8, "c05": 7, "c06": 10}
     kinds = {"c06": "skip"}
-    canned.answers.append({"items": [{"id": i, "score": s, "kind": kinds.get(i, "know"), "reason": "x"}
+    canned.answers.append({"items": [tri(i, s, kinds.get(i, "know"))
                                      for i, s in scores.items()]})
     assert triage.main([]) == 0
     short = llm.load("out/ranked.json")["shortlist"]
@@ -202,7 +208,7 @@ def test_triage_keeps_top5_score_6_plus(repo, canned):
 
 def test_triage_tops_up_to_3_on_a_quiet_day(repo, canned):
     scores = {"c01": 3, "c02": 7, "c03": 4, "c04": 5, "c05": 2, "c06": 1}
-    canned.answers.append({"items": [{"id": i, "score": s, "kind": "know", "reason": "x"} for i, s in scores.items()]})
+    canned.answers.append({"items": [tri(i, s) for i, s in scores.items()]})
     assert triage.main([]) == 0
     assert [s["id"] for s in llm.load("out/ranked.json")["shortlist"]] == ["c02", "c04", "c03"]
 
@@ -216,7 +222,7 @@ def set_feeds(feeds):
 
 def test_triage_source_cap_one_per_tier3_two_per_feed(repo, canned):
     set_feeds([("THN", 3)] * 4 + [("A", 2), ("B", 1)])
-    canned.answers.append({"items": [{"id": f"c0{n}", "score": 10 - n, "kind": "know", "reason": "x"}
+    canned.answers.append({"items": [tri(f"c0{n}", 10 - n)
                                      for n in range(1, 7)]})
     assert triage.main([]) == 0
     short = llm.load("out/ranked.json")["shortlist"]
@@ -225,10 +231,102 @@ def test_triage_source_cap_one_per_tier3_two_per_feed(repo, canned):
 
 def test_triage_source_cap_gives_way_to_reach_3(repo, canned):
     set_feeds([("THN", 3)] * 6)
-    canned.answers.append({"items": [{"id": f"c0{n}", "score": 10 - n, "kind": "know", "reason": "x"}
+    canned.answers.append({"items": [tri(f"c0{n}", 10 - n)
                                      for n in range(1, 7)]})
     assert triage.main([]) == 0
     assert [s["id"] for s in llm.load("out/ranked.json")["shortlist"]] == ["c01", "c02", "c03"]
+
+
+def sent_story(n=9, told=("first",), cve="cve-2026-10003"):
+    return {"id": f"2026-11-21-c{n:02d}", "first": "2026-11-21", "last": "2026-11-21",
+            "headline": "Armory Castle exploits a firewall zero-day", "keys": [cve, f"u:old.example/{n}"],
+            "names": ["Armory Castle"], "told": [{"date": "2026-11-21", "type": t, "text": f"TOLD-{t}"} for t in told]}
+
+
+def run_triage(canned, verdicts_, stories=(), date="2026-11-22"):
+    llm.save("data/state.json", {"days": [], "stories": list(stories)})
+    canned.answers.append({"items": verdicts_})
+    assert triage.main(["--date", date]) == 0
+    return {e["id"]: e for e in llm.load("out/ranked.json")["shortlist"]}
+
+
+def base(**over):
+    """c01-c05 scored 9..5, every one a new story; over maps id -> tri() keyword changes."""
+    return [tri(f"c0{n}", 10 - n, **over.get(f"c0{n}", {})) for n in range(1, 7)]
+
+
+def test_triage_repeat_is_not_shortlisted_and_is_logged(repo, canned, capsys):
+    short = run_triage(canned, base(c03={"story": "2026-11-21-c09"}), [sent_story()])
+    assert "c03" not in short
+    out = capsys.readouterr().out
+    assert "[triage] c03: repeat of 2026-11-21-c09, nothing new" in out
+    assert "TOLD-first" in canned.users[0] and '"2026-11-21-c09"' in canned.users[0].split("<candidates>")[1]
+
+
+def test_triage_update_gets_since_and_previous(repo, canned):
+    v = base(c03={"story": "2026-11-21-c09", "update": "patch", "new": "Fixed builds are out."})
+    e = run_triage(canned, v, [sent_story()])["c03"]
+    assert e["update"] == {"story": "2026-11-21-c09", "type": "patch", "since": "2026-11-21", "hint": "Fixed builds are out."}
+    assert e["previous"]["told"][0]["text"] == "TOLD-first" and e["previous"]["first"] == "2026-11-21"
+
+
+def test_triage_second_patch_is_a_repeat(repo, canned, capsys):
+    v = base(c03={"story": "2026-11-21-c09", "update": "patch", "new": "Fixed builds are out."})
+    assert "c03" not in run_triage(canned, v, [sent_story(told=("first", "patch"))])
+    assert "c03: repeat of 2026-11-21-c09, patch already told" in capsys.readouterr().out
+
+
+def test_triage_one_event_from_three_feeds_is_one_entry(repo, canned):
+    set_feeds([("The Hacker News", 3), ("Google Threat Intelligence", 1), ("SecurityWeek", 2),
+               ("Bleeping Computer", 2), ("A", 2), ("B", 2)])
+    short = run_triage(canned, base(c02={"dup_of": "c01"}, c03={"dup_of": "c02"}))
+    assert "c01" not in short and "c03" not in short
+    e = short["c02"]
+    assert e["feed"] == "Google Threat Intelligence" and e["score"] == 9
+    assert {m["feed"] for m in e["sources"]} == {"The Hacker News", "SecurityWeek"}
+    assert set(e["also"]) == {"The Hacker News", "SecurityWeek"}
+    assert set(e["cves"]) == {"CVE-2026-10001", "CVE-2026-10002", "CVE-2026-10003"}
+
+
+def test_triage_unknown_dup_of_retries(repo, canned):
+    canned.answers.append({"items": base(c02={"dup_of": "c99"})})
+    run_triage(canned, base())
+    assert len(canned.calls) == 2 and "c02: dup_of" in canned.users[1]
+
+
+def test_triage_story_and_update_rules_checked():
+    ids, sent = ["c01", "c02"], {"s1"}
+    assert triage.check({"items": [tri("c01", 5, story="s9"), tri("c02", 5, update="patch", new="x")]}, ids, sent) == [
+        "c01: story must be a sent story's id or null", "c02: update must be none when story is null"]
+    assert triage.check({"items": [tri("c01", 5, story="s1", update="poc"), tri("c02", 5, new="x")]}, ids, sent) == [
+        "c01: new is filled exactly when update is not none", "c02: new is filled exactly when update is not none"]
+
+
+def test_triage_names_not_in_text_are_discarded(repo, canned):
+    e = run_triage(canned, base(c01={"names": ["chrome", "Armory Castle"]}))["c01"]
+    assert e["names"] == ["chrome"]
+
+
+def test_triage_third_update_is_skipped(repo, canned):
+    stories = [sent_story(n, cve=f"cve-2026-0000{n}") for n in (7, 8, 9)]
+    v = base(**{f"c0{n}": {"story": f"2026-11-21-c0{n + 6}", "update": "victims", "new": "More victims."} for n in (1, 2, 3)})
+    short = run_triage(canned, v, stories)
+    assert [i for i, e in short.items() if e["update"]] == ["c01", "c02"]
+    assert list(short) == ["c01", "c02", "c04"]  # c03 skipped; c05 scores under 6
+
+
+def test_triage_entries_sharing_a_cve_become_one(repo, canned, capsys):
+    doc = fixture("candidates.json")
+    doc["candidates"][1]["cves"] = ["CVE-2026-10001"]
+    llm.save("out/candidates.json", doc)
+    short = run_triage(canned, base())
+    assert "c02" not in short and "SecurityWeek" in short["c01"]["also"]
+    assert "c02: shares a CVE with c01" in capsys.readouterr().out
+
+
+def test_triage_seen_but_new_story_is_logged(repo, canned, capsys):
+    run_triage(canned, base(), [sent_story()])
+    assert "c03: shares a CVE or name with 2026-11-21-c09, judged a different story" in capsys.readouterr().out
 
 
 def test_triage_empty_candidates_no_call(repo, canned):
@@ -284,7 +382,7 @@ def test_cli_error_raises(repo, monkeypatch):
 
 
 def test_refused_triage_reruns_on_sonnet(repo, monkeypatch):
-    ok = {"items": [{"id": f"c{i:02d}", "score": 7, "kind": "know", "reason": "x"} for i in range(1, 7)]}
+    ok = {"items": [tri(f"c{i:02d}", 7) for i in range(1, 7)]}
     seen = cli(monkeypatch, lambda m, c, i: result(None, "refusal", text="") if m == llm.HAIKU else result(ok))
     assert triage.main([]) == 0
     assert [c.model for c in seen] == [llm.HAIKU, llm.SONNET]
@@ -314,6 +412,16 @@ def test_critique_url_copied_from_candidate(repo, canned):
         assert it["url"] == cands[it["id"]]["url"]
         assert it["feed"] == cands[it["id"]]["feed"]
     assert d["items"][0]["keys"] == cands["c01"]["keys"]
+
+
+def test_critique_drops_a_repeat_of_a_sent_story(repo, canned):
+    llm.save("data/state.json", {"days": [], "stories": [sent_story()]})
+    critique_setup(canned, "pass", "drop", "pass", "pass")
+    canned.answers[0]["items"][1]["issues"] = ["repeat of 2026-11-21-c09"]
+    assert critique.main(["--mode", "full", "--date", "2026-11-22"]) == 0
+    assert "c02" not in [i["id"] for i in llm.load("out/digest.json")["items"]]
+    sent = canned.users[0].split("<sent_stories>")[1].split("</sent_stories>")[0]
+    assert "2026-11-21-c09" in sent and "Armory Castle" in sent and "TOLD-first" not in sent
 
 
 def test_critique_picks_3_in_rank_order(repo, canned):

@@ -432,6 +432,8 @@ D1 must be confirmed before T3 starts. T1 and T2 do not depend on it. T4 depends
 
 Fixed. A change goes through the coordinator.
 
+Additions for sources, story memory and update items (tiers, `sources`, `dup_of`/`story`/`update`/`new`/`names`, `update`/`previous`, `stories` in `data/state.json`): [`PLAN-sources.md` section 6](PLAN-sources.md#6-contract-changes).
+
 `out/candidates.json` (T1 → T2)
 
 ```jsonc

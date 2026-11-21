@@ -3,7 +3,7 @@ import argparse
 import json
 import sys
 
-from brief import llm, write
+from brief import llm, state, write
 
 VERDICT = {"type": "string", "enum": ["pass", "fixed", "drop"]}
 ISSUES = {"type": "array", "items": {"type": "string"}}
@@ -171,8 +171,10 @@ def main(argv=None) -> int:
         problems += [e for k in ("review_question", "term_question", "soc_question") if draft.get(k)
                      for e in llm.check_question(draft[k], k)]
         problems += llm.check_extras({"glossary": draft.get("glossary", []), "til": draft.get("til")}, *llm.history())
+        sent = [{k: r[k] for k in ("id", "last", "headline", "names")} for r in state.stories(state.load(), args.date)]
         user = (
             "<profile>\n" + llm.profile() + "\n</profile>\n\n"
+            "<sent_stories>\n" + json.dumps(sent, ensure_ascii=False, indent=1) + "\n</sent_stories>\n\n"
             "<known_problems>\n" + json.dumps(problems, ensure_ascii=False) + "\n</known_problems>\n\n"
             "<sources>\n" + json.dumps([src[i] for i in ids], ensure_ascii=False, indent=1) + "\n</sources>\n\n"
             "<drafts>\n" + json.dumps(draft, ensure_ascii=False, indent=1) + "\n</drafts>"

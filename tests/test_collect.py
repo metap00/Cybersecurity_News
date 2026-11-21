@@ -110,12 +110,10 @@ def test_merge_same_url():
     assert m["feed"] == "B" and m["also"] == ["A"]
 
 
-def test_merge_shared_cve():
+def test_shared_cve_alone_does_not_merge():
     a = raw("Chrome bug CVE-2026-1111", "https://a.com/1", feed="A", text="longest summary here")
-    b = raw("Patch now", "https://b.com/2", text="CVE-2026-1111", feed="B")
-    [m] = collect.merge([a, b])
-    assert m["feed"] == "A" and m["also"] == ["B"]
-    assert set(m["keys"]) == {"cve-2026-1111", "u:a.com/1", "u:b.com/2"}
+    b = raw("How to triage honeypot logs", "https://b.com/2", text="for example CVE-2026-1111", feed="B")
+    assert len(collect.merge([a, b])) == 2
 
 
 def test_merge_similar_title():
@@ -187,17 +185,21 @@ def test_run_fewer_than_min_sources(tmp_path, monkeypatch):
     assert not out.exists()
 
 
-def test_run_14_day_drop_and_kev_failure(tmp_path, monkeypatch):
+def test_run_14_day_drop_on_url_only_and_kev_failure(tmp_path, monkeypatch):
     state = {"version": 1, "days": [
         {"date": "2026-11-15", "mode": "full", "sent_at": "2026-11-15T05:20:00Z",
-         "keys": ["cve-2026-12345"]},
+         "keys": ["cve-2026-12345", "u:example.com/ransomware"]},  # a shared CVE alone no longer drops
         {"date": "2026-11-01", "mode": "full", "sent_at": "2026-11-01T05:20:00Z",
          "keys": ["u:atom.example.org/ransomware"]},  # older than 14 days: ignored
     ]}
     argv, out = setup_run(tmp_path, monkeypatch, ["rss", "atom", "rss2"], state, kev_fails=True)
     assert collect.main(argv) == 0
-    [only] = json.loads(out.read_text(encoding="utf-8"))["candidates"]
-    assert only["title"].startswith("Ransomware") and only["kev"] is False
+    cands = json.loads(out.read_text(encoding="utf-8"))["candidates"]
+    assert [c["title"][:6] for c in cands] == ["Ransom", "Google"] and not cands[0]["kev"]
+    state["days"][0]["keys"].append(next(k for k in cands[1]["keys"] if k.startswith("u:")))  # its URL was sent
+    argv, out = setup_run(tmp_path, monkeypatch, ["rss", "atom", "rss2"], state, kev_fails=True)
+    assert collect.main(argv) == 0
+    assert [c["title"][:6] for c in json.loads(out.read_text(encoding="utf-8"))["candidates"]] == ["Ransom"]
 
 
 def test_quiet_day_exits_0(tmp_path, monkeypatch):
