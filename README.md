@@ -1,61 +1,83 @@
-# 🛡 Cybersecurity News Digest
+# 🛡 Cybersecurity News: the 60-second brief
 
-An automated daily cybersecurity intelligence agent that monitors 10 threat feeds, scores stories by severity, maps attacks to the MITRE ATT&CK framework, and delivers a formatted digest every morning at 6:30am.
+A daily cybersecurity brief for one reader on the way to a junior SOC analyst role. Every morning one Telegram message brings **3 things to know, 1 thing to do, 1 question to answer**. Max 120 words. Nothing behind a click. Answering the quiz is the proof it was read, and it shows up as a streak.
 
-**[Browse all digests →](https://metap00.github.io/Cybersecurity_News/)**
+## Example
 
----
+```text
+🔴 Chrome zero-day is being exploited
+You run Chrome, so this one is yours.
+▶ Do now (1 min): ⋮ → Help → About Google Chrome → Relaunch
+The Hacker News ↗
 
-## How It Works
+🟠 One Outlook email can leak your Windows login hash
+SOC view: this is forced authentication, a technique on your path.
+SecurityWeek ↗ · T1187 ↗
 
-```
-Claude Cloud Agent (6:30am daily, Anthropic infrastructure)
-  → Reads 10 RSS feeds (Bleeping Computer, Krebs, CISA, SANS, etc.)
-  → Scores articles: CRITICAL / HIGH / MEDIUM / LOW
-  → Fetches full content for top 5–7 high-priority stories
-  → Maps each story to MITRE ATT&CK tactic + technique
-  → Identifies threat actors (APT groups, criminal gangs)
-  → Writes educational sections (Today I Learned, Glossary)
-  → Pushes HTML digest to GitHub
+🟡 Check Point firewall bug exploited at about 24 customers
+Path: privilege escalation, a limited login became root.
+Bleeping Computer ↗
 
-GitHub Actions (triggers on push)
-  → Sends compact teaser email via Gmail SMTP
-
-GitHub Pages
-  → Hosts full interactive digest with expandable analysis
+Done. Last 7 days ✅✅⬜✅ · streak 2 · one tap below ↓
 ```
 
-## Features
+Then a native Telegram quiz with 3 options. 🔴 do something · 🟠 on your path · 🟡 worth knowing.
 
-- **Color-coded severity** — CRITICAL / HIGH / MEDIUM / LOW with visual indicators
-- **MITRE ATT&CK mapping** — every top story tagged with tactic, technique ID, and contextual explanation
-- **Threat actor cards** — when named APT groups or criminal gangs appear
-- **Two-tier fetching** — RSS metadata for all stories, full article content for high-priority only (token-efficient)
-- **Educational content** — "Today I Learned" concept + glossary, non-repeating within 7 days
-- **Weekly recap** — every Sunday, a summary of the week's threat landscape
-- **Two-format delivery** — compact email for quick morning scan, full interactive page for deep reading
+On Sundays a short recap replaces the brief: read rate, the week's pattern, one weekend read, and up to 2 missed questions re-asked.
 
-## Tech Stack
+## How it runs
 
-| Component | Technology |
+One GitHub Actions workflow, `.github/workflows/digest.yml`, daily at **04:30 UTC**.
+
+| Season | Arrives (Romania) |
 |---|---|
-| AI Agent | Claude Sonnet 4.6 (Anthropic) |
-| Scheduling | Claude Code Cloud Routines |
-| Feed parsing | RSS/OPML — no third-party API |
-| Hosting | GitHub Pages |
-| Email delivery | GitHub Actions + Gmail SMTP |
-| Threat framework | MITRE ATT&CK |
+| Winter (EET, UTC+2) | 06:30 |
+| Summer (EEST, UTC+3) | 07:30, unless the cron is changed to `'30 3 * * *'` |
 
-## Monitored Feeds
+```text
+python -m brief.run
+  0 sync      close yesterday's quiz, record the answer      code
+  1 collect   10 feeds + CISA KEV → out/candidates.json      code
+  2 triage    score against profile.md → out/ranked.json     claude-haiku-5-5
+  3 write     draft the top 5 → out/draft.json               claude-sonnet-5-5
+  4 critique  check, fix or drop, pick 3 → out/digest.json   claude-opus-5-5
+  5 send      message + quiz to Telegram, save state         code
+Sunday: sync → weekly (claude-sonnet-5-5) → send --weekly
+```
 
-Bleeping Computer · Krebs on Security · The Hacker News · SANS ISC · CISA Advisories · Ars Technica Security · Schneier on Security · SecurityWeek · Dark Reading · Graham Cluley
+State lives in `data/state.json` and `data/digests/`, committed by the workflow. A failed run sends one Telegram line with a link to the run. API cost: about $3–4 a month (estimate).
 
-## Architecture Notes
+## Setup (about 10 minutes)
 
-The agent runs entirely in Anthropic's cloud — no local machine required. A `history.json` file in the repo serves as the agent's weekly memory, preventing repetition of educational content across runs. Two output files per day:
+1. **Anthropic API key.** Create one in the Anthropic Console. Add it as repo secret `ANTHROPIC_API_KEY`.
+2. **Telegram bot.** Message `@BotFather`, send `/newbot`, put the token in repo secret `TELEGRAM_BOT_TOKEN`. Send "hi" to the new bot, open `https://api.telegram.org/bot<TOKEN>/getUpdates`, put the `chat.id` number in repo secret `TELEGRAM_CHAT_ID`.
+3. **`profile.md`.** Fill in the `i use` line (see below).
+4. **Test it.** Actions → Daily brief → Run workflow (dry run is on by default). The job summary shows the rendered brief.
+5. **After the first real brief:** switch off the old Claude Code cloud routine and revoke the GitHub token in its prompt. Optional: delete the unused secrets `GMAIL_APP_PASSWORD` and `RESEND_API_KEY`.
 
-- `summaries/YYYY-MM-DD.html` — full interactive digest (GitHub Pages, collapsible sections)
-- `summaries/YYYY-MM-DD-email.html` — compact teaser with link to full page
+## Edit `profile.md`
 
----
-*Automated with Claude Code · Runs daily at 6:30am*
+It drives the ranking and the "you" line of every item. Two minutes:
+
+- `i use`: your OS, browser, phone OS, mail, apps. A 🔴 item needs a match here.
+- `now`: what you are studying. 🟠 items and quiz topics come from it.
+- `skip`: what you never want to see.
+
+The repo is public, so keep it generic.
+
+## Run locally
+
+Python 3.11+.
+
+```sh
+pip install -r requirements.txt
+python -m pytest -q                       # all tests, no network
+python -m brief.run --dry-run             # full pipeline, prints the brief, sends nothing
+python -m brief.deliver send --dry-run --date 2026-11-21   # render out/digest.json only
+```
+
+The model stages need `ANTHROPIC_API_KEY`. A real send needs `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`. `out/` is scratch and not committed.
+
+## The old archive
+
+Until 2026-11-21 a Claude Code routine wrote a long HTML digest plus an email every day. Those stay frozen in place: `summaries/` (one page per day), `index.html` (the list, [on GitHub Pages](https://metap00.github.io/Cybersecurity_News/)) and `history.json`. Nothing writes to them any more. `PLAN.md` explains why the format changed.
