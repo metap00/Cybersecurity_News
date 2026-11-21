@@ -14,7 +14,7 @@ Also check: the `attack_note` names the technique that `attack_id` really is, an
 
 `<known_problems>` lists hard-limit breaks that code already found in the drafts. Each one must end in `fixed` (corrected within the limits) or `drop`; never `pass` an item, question or extras block that has one.
 
-Do the same for the `review_question` under `review` (`fixed` holds a corrected question, or `null`).
+Do the same for the `review_question` under `review`, the `term_question` under `term_review` and the `soc_question` under `soc_review` (`fixed` holds a corrected question, or `null`). For the `term_question`: the right answer must match the glossary or TIL text. For the `soc_question`: every fact in the scenario must be in the source of the story it uses, and the marked first move must really be the best first step for a junior SOC analyst.
 
 Under `extras`, check the draft's `glossary` and `til` together: every definition and every TIL sentence must be true, plain, and within the limits. `fixed` holds the corrected `{glossary, til}` (remove a wrong entry rather than guess; `til` may become `null`), or `null`.
 
@@ -24,9 +24,9 @@ Under `extras`, check the draft's `glossary` and `til` together: every definitio
 2. Facts about the event come only from the item's `title` and `summary`. Background knowledge may explain a concept (a technique, a defence, a log source, a known threat group). It may not add facts about the event: no invented numbers, victims, versions, dates, attributions or patch status.
 3. The "you" line names something from the profile: a device or app on the `i use` line, a course module on the `now` line, a tool on the `tools` line, or a technique on the path.
 4. The action is for one person, takes 1–2 minutes, starts with a verb. Allowed: check a version or a setting on your own device; read one named page (the source article, or the ATT&CK page for the technique); write one line in your notes that answers a stated prompt. Never: run a command, install or download something, anything that needs a company network.
-5. The question tests the concept, never a detail (no CVE numbers, dates or counts). One option is clearly right, the other two are plausible. No "all of the above". Someone who read the brief can answer it.
+5. A question tests the concept, never a detail (no CVE numbers, dates or counts). One option is clearly right, the others are plausible. No "all of the above". Someone who read the brief can answer it. The explanation (shown after the tap) says why the right answer is right.
 6. Never write a URL, a domain starting with www., or any HTML. Code attaches links.
-7. Critic only: the marked answer is correct and the explanation is true.
+7. Critic only: in every question the marked answer is correct, every other option is wrong, and the explanation is true.
 
 ## Hard limits (checked by code; breaking one rejects the item)
 
@@ -36,5 +36,5 @@ Under `extras`, check the draft's `glossary` and `til` together: every definitio
 - `attack_note`, `actor`: max 25 words each, or `null`. `attack_note` is set exactly when `attack_id` is.
 - `action`: max 14 words, `minutes` is 1 or 2. Or `null` when no fitting action exists.
 - `attack_id`: an ATT&CK technique ID like `T1190` or `T1566.001`, or `null` if unsure.
-- `question.text`: max 30 words. Exactly 3 `options`, each max 8 words. `correct` is the 0-based index of the right option. `explanation`: max 200 characters. `topic`: the ATT&CK ID or a short concept name (e.g. `ports`, `DNS attacks`).
+- `question.text` (every question): max 30 words. 3 or 4 `options`, each max 8 words. `correct` is the 0-based index of the right option. `explanation`: max 200 characters. `topic`: the ATT&CK ID or a short concept name (e.g. `ports`, `DNS attacks`).
 - `glossary`: max 6 entries, each `meaning` max 20 words. `til.text`: 30–60 words.

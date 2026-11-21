@@ -505,7 +505,10 @@ Fixed. A change goes through the coordinator.
     }
   ],
   "action": {"item_id": "c01", "text": "...", "minutes": 1},   // or null
-  "question": {"text": "...", "options": ["...", "...", "..."], "correct": 1, "explanation": "...", "topic": "T1187"},   // null when mode is none
+  "questions": [   // 3 polls since 2026-11-21: top story, a word/TIL, an applied SOC question; [] when mode is none
+    {"kind": "story", "text": "...", "options": ["...", "...", "..."], "correct": 1, "explanation": "...", "topic": "T1187"},
+    {"kind": "term", ...}, {"kind": "soc", ...}   // 3 or 4 options each; quiz_only sends one "review" question
+  ],
   "glossary": [{"term": "SMB", "meaning": "..."}],   // terms used in today's items, max 6, none from the last 50
   "til": {"concept": "Patch Gap", "text": "..."},     // or null; concept not in the last 7
   "also": [{"id": "c07", "headline": "...", "url": "https://...", "feed": "..."}]   // max 2, for the Sunday pick
@@ -534,14 +537,18 @@ Fixed. A change goes through the coordinator.
       "sent_at": "2026-11-21T05:21:04Z",
       "keys": ["cve-2026-125350", "u:thehackernews.com/2026/11/..."],   // T1 reads: last 14 days
       "titles": ["Chrome zero-day is being exploited"],                 // T2 reads: last 14 days
-      "poll_message_id": 4711,   // null when no quiz was sent
-      "question": {"text": "...", "options": ["...", "...", "..."], "correct": 1, "explanation": "...", "topic": "T1187"},   // T2 reads topic: last 14 days
-      "answered": null,          // null until the next run's sync, then true or false
-      "correct": null,
-      "reasked": false
+      "polls": [   // one per quiz poll sent; [] when none. T2 reads question.topic: last 14 days
+        {"message_id": 4711, "question": {"kind": "story", "text": "...", "topic": "T1187", ...},
+         "answered": null, "correct": null, "reasked": false}   // answered/correct: null until the next sync
+      ],
+      "answered": null   // the day counts as read when any poll was answered
     }
-  ]
+  ],
+  "glossary": ["KEV", "..."],   // last 50 terms taught
+  "til": ["Overlay Attack"]      // last 7 concepts taught
 }
+// Days written before the 3-poll quiz have flat poll_message_id/question/answered/correct/reasked
+// fields; brief/state.py polls() converts them on read.
 ```
 
 Command lines

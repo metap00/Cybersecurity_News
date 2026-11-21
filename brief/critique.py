@@ -17,13 +17,13 @@ SCHEMA = {
             "required": ["id", "verdict", "issues", "fixed"],
             "additionalProperties": False,
         }},
-        "review": {
+        **{k: {
             "type": "object",
             "properties": {"verdict": VERDICT, "issues": ISSUES,
                            "fixed": {"anyOf": [llm.QUESTION, {"type": "null"}]}},
             "required": ["verdict", "issues", "fixed"],
             "additionalProperties": False,
-        },
+        } for k in ("review", "term_review", "soc_review")},
         "extras": {
             "type": "object",
             "properties": {"verdict": VERDICT, "issues": ISSUES,
@@ -32,7 +32,7 @@ SCHEMA = {
             "additionalProperties": False,
         },
     },
-    "required": ["items", "review", "extras"],
+    "required": ["items", "review", "term_review", "soc_review", "extras"],
     "additionalProperties": False,
 }
 SOURCE = ("id", "title", "summary", "feed", "also", "cves", "kev", "kind")
@@ -45,7 +45,7 @@ def check_verdicts(data, ids):
     errs += [f"duplicate verdict for {i}" for i in set(got) if got.count(i) > 1]
     errs += [f"{v['id']}: verdict 'fixed' needs the fixed item" for v in data["items"]
              if v["verdict"] == "fixed" and v["fixed"] is None]
-    errs += [f"{k}: verdict 'fixed' needs the fixed {k}" for k in ("review", "extras")
+    errs += [f"{k}: verdict 'fixed' needs the fixed {k}" for k in ("review", "term_review", "soc_review", "extras")
              if data[k]["verdict"] == "fixed" and data[k]["fixed"] is None]
     return errs
 
@@ -62,13 +62,13 @@ def apply(verdict, draft):
     return item
 
 
-def apply_review(review, rq):
-    if review["verdict"] == "drop":
+def apply_review(review, rq, name="review_question"):
+    if review["verdict"] == "drop" or rq is None:
         return None
     q = rq if review["verdict"] == "pass" else review["fixed"]
-    errs = llm.check_question(q, "review_question") + llm.check_strings(q, "review_question")
+    errs = llm.check_question(q, name) + llm.check_strings(q, name)
     if errs:
-        print("[critique] dropping review question: " + "; ".join(errs))
+        print(f"[critique] dropping {name}: " + "; ".join(errs))
         return None
     return q
 
@@ -126,17 +126,23 @@ def build(date, mode, shortlist, draft, verdicts):
     if act is None and picked and picked[0]["action"]:
         act = picked[0]
     rq = apply_review(verdicts["review"], draft["review_question"])
-    if picked:
-        question = picked[0]["question"]
-    else:
-        mode, question = ("quiz_only", rq) if rq else ("none", None)
+    extras = apply_extras(verdicts["extras"], draft, picked)
+    first = ("story", picked[0]["question"]) if picked else ("review", rq)
+    term = apply_review(verdicts["term_review"], draft.get("term_question"), "term_question")
+    if not (extras["glossary"] or extras["til"]):
+        term = None  # it asks about a word or concept the reader was not shown
+    soc = apply_review(verdicts["soc_review"], draft.get("soc_question"), "soc_question")
+    asked = (first, ("term", term), ("soc", soc)) if picked else (first,)  # no stories: term/SOC lack context
+    questions = [{"kind": k, **q} for k, q in asked if q]
+    if not picked:
+        mode = "quiz_only" if questions else "none"
     return {
         "date": date,
         "mode": mode,
         "items": items,
         "action": {"item_id": act["id"], **act["action"]} if act else None,
-        "question": question,
-        **apply_extras(verdicts["extras"], draft, picked),
+        "questions": questions,
+        **extras,
         "also": [{"id": it["id"], "headline": it["headline"], "url": src[it["id"]]["url"],
                   "feed": src[it["id"]]["feed"]} for it in rest],
     }
@@ -155,7 +161,8 @@ def main(argv=None) -> int:
         ids = [d["id"] for d in draft["items"]]
         src = {s["id"]: {k: s.get(k) for k in SOURCE} for s in shortlist}
         problems = [e for d in draft["items"] for e in llm.check_item(d)]
-        problems += llm.check_question(draft["review_question"], "review_question")
+        problems += [e for k in ("review_question", "term_question", "soc_question") if draft.get(k)
+                     for e in llm.check_question(draft[k], k)]
         problems += llm.check_extras({"glossary": draft.get("glossary", []), "til": draft.get("til")}, *llm.history())
         user = (
             "<profile>\n" + llm.profile() + "\n</profile>\n\n"

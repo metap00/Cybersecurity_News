@@ -43,6 +43,8 @@ def ranked(n=4):
 def verdicts(*vs, review="pass"):
     return {"items": [{"id": f"c{i:02d}", "verdict": v, "issues": [], "fixed": None} for i, v in enumerate(vs, 1)],
             "review": {"verdict": review, "issues": [], "fixed": None},
+            "term_review": {"verdict": "pass", "issues": [], "fixed": None},
+            "soc_review": {"verdict": "pass", "issues": [], "fixed": None},
             "extras": {"verdict": "pass", "issues": [], "fixed": None}}
 
 
@@ -238,7 +240,8 @@ def test_critique_picks_3_in_rank_order(repo, canned):
     assert {k: d["items"][0][k] for k in ("summary", "attack_note", "actor")} == \
         {k: first[k] for k in ("summary", "attack_note", "actor")}
     assert d["action"]["item_id"] == "c01"
-    assert d["question"]["topic"] == "T1203"
+    assert [q["kind"] for q in d["questions"]] == ["story", "term", "soc"]
+    assert d["questions"][0]["topic"] == "T1203" and d["questions"][2]["topic"] == "triage"
     assert d["also"] == []
     assert [g["term"] for g in d["glossary"]] == ["zero-day"]  # XDR is not used in the picked items
     assert d["til"]["concept"] == "Patch Gap"
@@ -250,6 +253,7 @@ def test_critique_dropped_extras_leave_glossary_and_til_empty(repo, canned):
     assert critique.main(["--mode", "full", "--date", "2026-11-21"]) == 0
     d = llm.load("out/digest.json")
     assert d["glossary"] == [] and d["til"] is None and len(d["items"]) == 4
+    assert [q["kind"] for q in d["questions"]] == ["story", "soc"]  # no word list shown: no term question
 
 
 def test_pick_takes_3_then_more_only_within_word_budget():
@@ -276,14 +280,14 @@ def test_critique_all_dropped_quiz_only(repo, canned):
     assert critique.main(["--mode", "full", "--date", "2026-11-21"]) == 0
     d = llm.load("out/digest.json")
     assert d["mode"] == "quiz_only" and d["items"] == []
-    assert d["question"]["topic"] == "ports"
+    assert [(q["kind"], q["topic"]) for q in d["questions"]] == [("review", "ports")]
 
 
 def test_critique_everything_dropped_none(repo, canned):
     critique_setup(canned, "drop", "drop", "drop", "drop", review="drop")
     assert critique.main(["--mode", "full", "--date", "2026-11-21"]) == 0
     d = llm.load("out/digest.json")
-    assert d["mode"] == "none" and d["question"] is None
+    assert d["mode"] == "none" and d["questions"] == []
 
 
 def test_critique_fix_breaking_cap_is_drop(repo, canned):

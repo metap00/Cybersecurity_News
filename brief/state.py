@@ -29,12 +29,40 @@ def _day(d) -> date:
     return d if isinstance(d, date) else date.fromisoformat(str(d))
 
 
+def polls(day) -> list:
+    """The day's quiz polls: [{message_id, question, answered, correct, reasked}].
+
+    Days from before the 3-question quiz had one poll in flat fields; they are converted in place.
+    """
+    if "polls" not in day:
+        day["polls"] = [] if day.get("poll_message_id") is None else [{
+            "message_id": day["poll_message_id"], "question": day.get("question"), "answered": day.get("answered"),
+            "correct": day.get("correct"), "reasked": day.get("reasked", False)}]
+    return day["polls"]
+
+
 def has_quiz(day) -> bool:
-    return day.get("mode") not in NO_QUIZ_MODES and day.get("poll_message_id") is not None
+    return day.get("mode") not in NO_QUIZ_MODES and bool(polls(day))
+
+
+def score(day):
+    """(right, asked) once the day's polls are closed, else None."""
+    ps = polls(day)
+    if not ps or any(p.get("answered") is None for p in ps):
+        return None
+    return sum(bool(p.get("correct")) for p in ps), len(ps)
+
+
+def last_score(state, today):
+    """(right, asked) of the latest closed quiz day before today, or None."""
+    for d in reversed(state["days"]):
+        if d["date"] < str(today) and has_quiz(d) and score(d):
+            return score(d)
+    return None
 
 
 def mark(day) -> str:
-    """✅ answered, ⬜ sent but not answered, ➖ no quiz that day."""
+    """✅ at least one question answered, ⬜ sent but none answered, ➖ no quiz that day."""
     if day is None or not has_quiz(day):
         return "➖"
     return "✅" if day.get("answered") else "⬜"
