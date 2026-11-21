@@ -162,7 +162,7 @@ Sunday: 0 sync → weekly (claude-sonnet-5-5) → send --weekly
 | Stage | Model | What it does | Why this model |
 |---|---|---|---|
 | collect | none | Fetches feeds since the last send. Parses RSS and Atom. Merges duplicates (same URL, same CVE, similar title). Drops anything sent in the last 14 days. Flags CVEs listed in CISA KEV | A fetch is deterministic work |
-| triage | `claude-haiku-5-5` | Scores each candidate 0–10 against `profile.md`. Labels it `act`, `learn`, `know` or `skip`. Code keeps the top 5 with score ≥ 6 | Volume: about 45 items a day, cheapest tokens |
+| triage | `claude-haiku-5-5` | Scores each candidate 0–10 against `profile.md`. Labels it `act`, `learn`, `know` or `skip`. Code keeps the top 5 with score ≥ 6, topped up to 3 with score ≥ 4 on a quiet day | Volume: about 45 items a day, cheapest tokens |
 | write | `claude-sonnet-5-5` | Drafts all 5: headline, "you" line, one action, one quiz question | Tight wording under hard caps |
 | critique | `claude-opus-5-5` | Checks each draft against the feed text and the rules. Verdict per item: pass, fixed, or drop. Code then picks the top 3 | Judgment. It reads about 4k tokens a day, so the strongest checker costs cents. A wrong quiz answer teaches the wrong thing |
 | send | none | Renders, re-checks the word cap, sends message and quiz, writes state | Sending is deterministic work |
@@ -275,7 +275,7 @@ python -m brief.collect
 Spec
 
 - `brief/llm.py`: one function, `call(model, system, user, schema, effort) -> dict`. Official `anthropic` SDK. Prints input and output tokens for each call. On refusal: Sonnet and Opus use the server-side fallback; a refused Haiku call is re-run once on `claude-sonnet-5-5`. Still refused → raise, and the stage exits 1.
-- `brief/triage.py`: one call. Input: candidates (`id`, `title`, `summary`, `feed`, `also`, `cves`, `kev`), `profile.md`, and `days[].titles` of the last 14 days. Output per candidate: `score`, `kind`, `reason`. Code keeps the top 5 with score ≥ 6 and writes `out/ranked.json`. Empty candidates → empty shortlist, exit 0.
+- `brief/triage.py`: one call. Input: candidates (`id`, `title`, `summary`, `feed`, `also`, `cves`, `kev`), `profile.md`, and `days[].titles` of the last 14 days. Output per candidate: `score`, `kind`, `reason`. Code keeps the top 5 with score ≥ 6 (topped up to 3 with score ≥ 4 on a quiet day) and writes `out/ranked.json`. Empty candidates → empty shortlist, exit 0.
   - `act`: touches something on the profile's `i use` line and there is something to do. `learn`: matches a `now` topic or a `tools` entry on the profile. `know`: big event (several feeds, or `kev`). `skip`: vendor news, funding, opinion, conferences, minor bugs in software the reader does not run.
 - `brief/write.py`: one call. Drafts every shortlisted item, plus one `review_question` taken from `profile.md` alone. Avoids the `days[].question.topic` values of the last 14 days. Writes `out/draft.json`.
 - `brief/critique.py --mode full|small --date YYYY-MM-DD`: one call. Verdict per item: `pass`, `fixed` (with replacement text), or `drop`, each with a list of issues. Then code:

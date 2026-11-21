@@ -136,6 +136,13 @@ def test_triage_keeps_top5_score_6_plus(repo, canned):
     assert canned.calls == [llm.HAIKU]
 
 
+def test_triage_tops_up_to_3_on_a_quiet_day(repo, canned):
+    scores = {"c01": 3, "c02": 7, "c03": 4, "c04": 5, "c05": 2}
+    canned.answers.append({"items": [{"id": i, "score": s, "kind": "know", "reason": "x"} for i, s in scores.items()]})
+    assert triage.main([]) == 0
+    assert [s["id"] for s in llm.load("out/ranked.json")["shortlist"]] == ["c02", "c04", "c03"]
+
+
 def test_triage_empty_candidates_no_call(repo, canned):
     llm.save("out/candidates.json", {"candidates": []})
     assert triage.main([]) == 0
