@@ -52,9 +52,21 @@ def stage():
     # Up to 5 with score >= 6; on a quiet day, topped up to 3 with the best scoring >= 4.
     scored = [s for s in data["items"] if s["id"] in by_id and s["kind"] != "skip" and s["score"] >= 4]
     scored.sort(key=lambda s: (-s["score"], order[s["id"]]))
-    keep = min(max(sum(s["score"] >= 6 for s in scored), 3), 5)
+    # Source cap: max 2 entries per feed, 1 for a tier 3 feed; waived only to reach 3.
+    taken, skipped, per_feed = [], [], {}
+    for s in scored:
+        if len(taken) == 5 or (len(taken) >= 3 and s["score"] < 6):
+            break
+        c = by_id[s["id"]]
+        if per_feed.get(c["feed"], 0) >= (1 if c.get("tier", 2) == 3 else 2):
+            skipped.append(s)
+            continue
+        per_feed[c["feed"]] = per_feed.get(c["feed"], 0) + 1
+        taken.append(s)
+    taken += skipped[:max(0, 3 - len(taken))]
+    taken.sort(key=scored.index)
     shortlist = [{**by_id[s["id"]], "score": s["score"], "kind": s["kind"],
-                  "reason": " ".join(s["reason"].split()[:12])} for s in scored[:keep]]
+                  "reason": " ".join(s["reason"].split()[:12])} for s in taken]
     llm.save("out/ranked.json", {"shortlist": shortlist})
     print(f"[triage] {len(cands)} candidates → {len(shortlist)} shortlisted")
 

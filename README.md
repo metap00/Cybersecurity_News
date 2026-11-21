@@ -2,7 +2,7 @@
 
 [![Tests](https://github.com/metap00/Cybersecurity_News/actions/workflows/tests.yml/badge.svg)](https://github.com/metap00/Cybersecurity_News/actions/workflows/tests.yml)
 
-**A self-hosted pipeline that turns ~10 security feeds into a plain-English Telegram brief every morning: 3-5 fact-checked stories, the day's new words, and 3 quiz questions that prove it was read.** Four small stages with three Claude models (Haiku, Sonnet, Opus) and plain Python, standard library only, 60+ tests.
+**A self-hosted pipeline that turns 18 security sources into a plain-English Telegram brief every morning: 3-5 fact-checked stories, the day's new words, and 3 quiz questions that prove it was read.** Four small stages with three Claude models (Haiku, Sonnet, Opus) and plain Python, standard library only, 60+ tests.
 
 ```sh
 python -m brief.run --demo     # see a real brief in your terminal: no tokens, no network, no setup
@@ -26,7 +26,7 @@ So I redesigned it around one goal: **the brief gets read.** It is written for o
 
 ```mermaid
 flowchart LR
-    F[("~10 RSS/Atom feeds<br/>+ CISA KEV")] --> C["collect<br/><i>code</i>"]
+    F[("17 RSS/Atom feeds<br/>+ CISA KEV catalog")] --> C["collect<br/><i>code</i>"]
     C -->|candidates.json| T["triage<br/><b>Haiku</b><br/>score vs reader profile"]
     T -->|top 3-5| W["write<br/><b>Sonnet</b><br/>summaries, glossary,<br/>3 quiz questions"]
     W -->|draft.json| K["critique<br/><b>Opus</b><br/>check every fact<br/>against the source"]
@@ -39,8 +39,8 @@ flowchart LR
 
 | Stage | Who | What it does |
 |---|---|---|
-| **collect** | code | Fetches the feeds since the last send. Merges duplicates (same URL or same CVE) and drops anything sent in the last 14 days. Flags CVEs on CISA's Known Exploited Vulnerabilities (KEV) list. |
-| **triage** | Claude Haiku | Scores each candidate 0-10 against the reader profile and labels it *act* / *learn* / *know* / *skip*. Code keeps the top 3-5. |
+| **collect** | code | Fetches 17 feeds since the last send, each ranked by tier (1 first-hand, 2 newsroom, 3 aggregator). Merges duplicates (same URL, same CVE or near-identical title), cites the most first-hand member and keeps the others' text as extra sources. Drops anything sent in the last 14 days. Turns each new batch of CISA's Known Exploited Vulnerabilities (KEV) catalog into a story of its own and flags KEV CVEs. |
+| **triage** | Claude Haiku | Scores each candidate 0-10 against the reader profile and labels it *act* / *learn* / *know* / *skip*. Code keeps the top 3-5, at most 2 per source and 1 from the aggregator unless that leaves fewer than 3. |
 | **write** | Claude Sonnet | Drafts each story: a 3-5 sentence summary, the ATT&CK technique and how it applies, the threat actor (only if the source names one), and why it matters to the reader. Also drafts a glossary, a "Today I learned" concept and 3 quiz questions. |
 | **critique** | Claude Opus | Checks every sentence against the feed text and every quiz answer. Gives each item *pass*, *fixed* or *drop*. Code then picks the stories within a word budget. |
 | **deliver** | code | Renders Telegram HTML, enforces the caps, sends 2 messages and 3 quiz polls, and records state. The next run closes the polls and reads the answers. |

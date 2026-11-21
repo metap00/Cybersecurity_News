@@ -207,6 +207,30 @@ def test_triage_tops_up_to_3_on_a_quiet_day(repo, canned):
     assert [s["id"] for s in llm.load("out/ranked.json")["shortlist"]] == ["c02", "c04", "c03"]
 
 
+def set_feeds(feeds):
+    doc = fixture("candidates.json")
+    for c, (feed, tier) in zip(doc["candidates"], feeds):
+        c["feed"], c["tier"] = feed, tier
+    llm.save("out/candidates.json", doc)
+
+
+def test_triage_source_cap_one_per_tier3_two_per_feed(repo, canned):
+    set_feeds([("THN", 3)] * 4 + [("A", 2), ("B", 1)])
+    canned.answers.append({"items": [{"id": f"c0{n}", "score": 10 - n, "kind": "know", "reason": "x"}
+                                     for n in range(1, 7)]})
+    assert triage.main([]) == 0
+    short = llm.load("out/ranked.json")["shortlist"]
+    assert [s["id"] for s in short] == ["c01", "c05", "c06"]
+
+
+def test_triage_source_cap_gives_way_to_reach_3(repo, canned):
+    set_feeds([("THN", 3)] * 6)
+    canned.answers.append({"items": [{"id": f"c0{n}", "score": 10 - n, "kind": "know", "reason": "x"}
+                                     for n in range(1, 7)]})
+    assert triage.main([]) == 0
+    assert [s["id"] for s in llm.load("out/ranked.json")["shortlist"]] == ["c01", "c02", "c03"]
+
+
 def test_triage_empty_candidates_no_call(repo, canned):
     llm.save("out/candidates.json", {"candidates": []})
     assert triage.main([]) == 0
