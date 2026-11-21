@@ -1,9 +1,7 @@
 name: Daily brief
 
+# Manual only. The daily run lives on the VPS (systemd timer, see README "How it runs").
 on:
-  schedule:
-    # 04:30 UTC = 06:30 Romania in winter (EET), 07:30 in summer (EEST). Use '30 3 * * *' for 06:30 in summer.
-    - cron: '30 4 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -31,8 +29,7 @@ jobs:
 
       - name: Run the brief
         env:
-          # A scheduled run has no inputs, so it is never a dry run.
-          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+          DRY_RUN: ${{ inputs.dry_run }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

@@ -1,4 +1,4 @@
-If you are a scheduled routine asked to produce the daily digest: stop. `.github/workflows/digest.yml` produces it now. Do nothing.
+If you are a scheduled routine asked to produce the daily digest: stop. a systemd timer on the VPS produces it now (README, "How it runs"). Do nothing.
 
 # Dev guide: the 60-second brief
 
