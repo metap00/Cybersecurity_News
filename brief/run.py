@@ -1,6 +1,7 @@
 """Run the whole brief: sync → mode → (weekly | collect → triage → write → critique) → send.
 
 python -m brief.run [--dry-run] [--date YYYY-MM-DD]
+python -m brief.run --demo      # render examples/digest.json: no tokens, no network, no files written
 """
 import argparse
 import contextlib
@@ -80,13 +81,47 @@ def summary(date, mode, failed, dry, brief):
     return md
 
 
+EXAMPLE = Path(__file__).resolve().parent.parent / "examples" / "digest.json"
+
+
+def plain(html_text):
+    """Telegram HTML → terminal text: links keep their label, tags go, entities are decoded."""
+    import html
+    import re
+    return html.unescape(re.sub(r"<[^>]+>", "", html_text))
+
+
+def demo() -> int:
+    """Render a real brief (examples/digest.json) exactly as deliver would, plus its quiz polls."""
+    deliver = stage("deliver")
+    digest = json.loads(EXAMPLE.read_text(encoding="utf-8"))
+    today = dt.date.fromisoformat(digest["date"])
+    # A made-up week of answers, so the streak footer has something to show.
+    pattern = [[True, True, False], [True, False, True], [False, False, False], [True, True, True], [True, True, False]]
+    days = [{"date": (today - dt.timedelta(days=len(pattern) - i)).isoformat(), "mode": "full",
+             "answered": any(p), "polls": [{"answered": a, "correct": a} for a in p]} for i, p in enumerate(pattern)]
+    for n, message in enumerate(deliver.render(digest, {"days": days}), 1):
+        print(f"──── Telegram message {n} " + "─" * 40)
+        print(plain(message) + "\n")
+    for n, q in enumerate(digest["questions"], 1):
+        print(f"──── Quiz poll {n}/{len(digest['questions'])} ({q['kind']}) " + "─" * 30)
+        print(q["text"])
+        for i, o in enumerate(q["options"]):
+            print(f"  {'ABCD'[i]}) {o}")
+        print(f"  ✔ {'ABCD'[q['correct']]}: {q['explanation']}\n")
+    return 0
+
+
 def main(argv=None) -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser(prog="python -m brief.run")
+    ap.add_argument("--demo", action="store_true", help="render the example brief; no tokens, no network")
     ap.add_argument("--dry-run", action="store_true")
     # ponytail: UTC date equals the local date for a 04:30 UTC run; revisit if the send time moves near midnight.
     ap.add_argument("--date", default=dt.datetime.now(dt.timezone.utc).date().isoformat())
     args = ap.parse_args(argv)
+    if args.demo:
+        return demo()
 
     mode, failed, brief = None, None, ""
     try:

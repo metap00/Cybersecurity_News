@@ -93,3 +93,17 @@ def test_summary_counts_from_out_files(fakes, monkeypatch, tmp_path):
     text = summary.read_text(encoding="utf-8")
     for row in ("| feeds OK | 1/2 |", "| candidates | 3 |", "| shortlisted | 2 |", "| passed | 1 (full) |", "| sent | yes |"):
         assert row in text
+
+
+def test_demo_renders_the_example_with_no_network_and_no_files(monkeypatch, tmp_path, capsys):
+    import urllib.request
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(urllib.request, "urlopen", lambda *a, **k: pytest.fail("network used"))
+    for name in ("brief.deliver", "brief.state"):
+        monkeypatch.delitem(sys.modules, name, raising=False)  # the real modules, not another test's fakes
+    assert run.main(["--demo"]) == 0
+    out = capsys.readouterr().out
+    assert "Telegram message 2" in out and "Quiz poll 3/3 (soc)" in out
+    assert "Why it matters to you:" in out and "<b>" not in out and "&amp;" not in out
+    assert "Last quiz 2/3" in out
+    assert list(tmp_path.iterdir()) == []

@@ -1,4 +1,4 @@
-If you are a scheduled routine asked to produce the daily digest: stop. a systemd timer on the VPS produces it now (README, "How it runs"). Do nothing.
+If you are a scheduled routine asked to produce the daily digest: stop. A systemd timer on a VPS produces it now (`docs/deploy.md`). Do nothing.
 
 # Dev guide: the morning brief
 
@@ -12,12 +12,14 @@ One brief a day in Telegram: 3-5 stories, 1 action, 3 quiz polls. Design and con
 - `brief/state.py`, `brief/deliver.py`: `data/state.json`, streak, Telegram send and sync
 - `prompts/`: system prompts · `profile.md`: the reader · `feeds.opml`: the feeds
 - `data/`: state, committed by the workflow · `out/`: scratch, never committed
-- `summaries/`, `index.html`, `history.json`: frozen archive. Never write to them
+- `summaries/`, `index.html`, `history.json`: frozen archive of the old version, served on GitHub Pages; `llm.history()` reads `history.json`. Never write to them
+- `examples/digest.json`: a real day's output for `--demo` · `docs/deploy.md`: VPS setup
 
 ## Commands
 
 ```sh
 python -m pytest -q
+python -m brief.run --demo           # render examples/digest.json, no tokens, no network
 python -m brief.run --dry-run [--date YYYY-MM-DD]
 python -m brief.<stage> ...          # each stage runs alone, see PLAN.md section 8
 gh workflow run digest.yml -f dry_run=true

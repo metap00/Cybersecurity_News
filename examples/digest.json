@@ -1,0 +1,143 @@
+{
+  "date": "2026-11-21",
+  "mode": "full",
+  "items": [
+    {
+      "id": "c06",
+      "kind": "know",
+      "headline": "CISA warns four flaws in VMware, Cisco, SAP, Apache are exploited",
+      "summary": "CISA, the US cyber agency, added four flaws to its KEV list (flaws attackers are using right now). They affect Apache Roller, Cisco Expressway, SAP NetWeaver and Broadcom VMware vCenter. One is a deserialization bug rated CVSS 9.8 (a 0–10 severity score). CISA cites evidence of active exploitation. Defenders should check whether they run these products, patch, and hunt for signs of compromise.",
+      "you": "Practice KEV lookups when triaging alerts in your LetsDefend path.",
+      "attack_id": "T1190",
+      "attack_note": "Exploit Public-Facing Application: attackers abuse flaws in internet-facing products like vCenter and Expressway to get a first foothold.",
+      "actor": null,
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html",
+      "feed": "The Hacker News",
+      "keys": [
+        "cve-2026-129448",
+        "u:thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html"
+      ]
+    },
+    {
+      "id": "c09",
+      "kind": "learn",
+      "headline": "China-linked group Armory Castle exploits VMware vCenter zero-day",
+      "summary": "Dark Reading reports that a China-linked threat group, called Armory Castle, is attacking VMware vCenter with a zero-day (a flaw the vendor did not know about yet). The group likely held this flaw in reserve while the last big round of vCenter updates shipped. vCenter manages virtual machines, so control of it gives wide reach. Defenders should watch for vendor patches, limit who can reach vCenter, and review its logs.",
+      "you": "vCenter attacks fit the Cyber Kill Chain stages you're studying.",
+      "attack_id": "T1190",
+      "attack_note": "Exploit Public-Facing Application: a zero-day in a reachable management platform like vCenter can give attackers entry before defenders can patch.",
+      "actor": "Armory Castle: a China-nexus threat group, reported here going after VMware vCenter with a zero-day.",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/china-armory-castle-vmware-vcenter-zero-day",
+      "feed": "Dark Reading",
+      "keys": [
+        "u:www.darkreading.com/cyberattacks-data-breaches/china-armory-castle-vmware-vcenter-zero-day"
+      ]
+    },
+    {
+      "id": "c13",
+      "kind": "know",
+      "headline": "WhatsApp patches three flaws, one Android bug tied to scams",
+      "summary": "WhatsApp fixed three security flaws. One affects WhatsApp for Android and WhatsApp Business for Android before version 2.26.17.4. It is incomplete validation of external ad-reply URLs, meaning the app does not fully check a link before trusting it. The score is low (CVSS 3.5), but WhatsApp suspects it was used in scam messages. Users should update the app.",
+      "you": "Phone scams show your phishing analysis skills apply beyond email.",
+      "attack_id": "T1566",
+      "attack_note": "Phishing: WhatsApp suspects this link-check flaw was abused in scam messages sent to lure users.",
+      "actor": null,
+      "url": "https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html",
+      "feed": "The Hacker News",
+      "keys": [
+        "cve-2026-23871",
+        "u:thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html",
+        "u:www.securityweek.com/whatsapp-fixes-flaw-uncovered-while-disrupting-scam-campaign"
+      ]
+    },
+    {
+      "id": "c15",
+      "kind": "learn",
+      "headline": "Bazuka Android malware hides credential theft behind fake screen overlays",
+      "summary": "Researchers at ThreatFabric disclosed Bazuka, a previously unknown Android malware framework. It offers large language model (LLM) integration to manage and control victims at scale. Fake screen overlays, drawn over real apps, hide credential theft and device control. ThreatFabric found it while investigating an NFC-relay banking Trojan (malware that relays contactless card data). Defenders should block untrusted app installs and watch for odd accessibility permissions.",
+      "you": "Fits your malware analysis basics module: overlays are a classic Trojan trick.",
+      "attack_id": null,
+      "attack_note": null,
+      "actor": null,
+      "url": "https://thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html",
+      "feed": "The Hacker News",
+      "keys": [
+        "u:thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html"
+      ]
+    }
+  ],
+  "action": {
+    "item_id": "c06",
+    "text": "Read the ATT&CK page for T1190 Exploit Public-Facing Application.",
+    "minutes": 2
+  },
+  "questions": [
+    {
+      "kind": "story",
+      "text": "What does a CISA KEV listing tell a defender about a vulnerability?",
+      "options": [
+        "Attackers are exploiting it in the wild",
+        "A patch has been proven safe",
+        "It only affects very old software"
+      ],
+      "correct": 0,
+      "explanation": "KEV lists flaws with evidence of active exploitation, so they jump the patching queue ahead of flaws that are only theoretical.",
+      "topic": "KEV"
+    },
+    {
+      "kind": "term",
+      "text": "What does a CVSS score such as 9.8 describe?",
+      "options": [
+        "How severe the flaw is, 0 to 10",
+        "How many victims were hit",
+        "Which vendor shipped the flaw"
+      ],
+      "correct": 0,
+      "explanation": "CVSS rates a vulnerability's severity from 0 to 10. It says nothing about victim counts or vendor.",
+      "topic": "CVSS"
+    },
+    {
+      "kind": "soc",
+      "text": "CISA adds a VMware vCenter flaw to KEV. Your asset list shows an internet-facing vCenter server. What is your first move?",
+      "options": [
+        "Check vCenter version and exposure against advisory",
+        "Ignore it until a scanner flags it",
+        "Reboot the vCenter server right away"
+      ],
+      "correct": 0,
+      "explanation": "First confirm whether you are actually affected (version and exposure), then escalate for patching. Rebooting or waiting does not address the flaw.",
+      "topic": "triage"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "KEV",
+      "meaning": "CISA's Known Exploited Vulnerabilities list: flaws with evidence that attackers are using them right now."
+    },
+    {
+      "term": "CVSS",
+      "meaning": "A 0–10 score for how severe a vulnerability is; 9.0 and above counts as critical."
+    },
+    {
+      "term": "zero-day",
+      "meaning": "A flaw attackers use before the vendor has released a patch."
+    },
+    {
+      "term": "screen overlay",
+      "meaning": "A fake window drawn on top of a real app to trick users or hide what malware is doing."
+    },
+    {
+      "term": "NFC-relay",
+      "meaning": "Forwarding contactless card signals to another device so criminals can make payments remotely."
+    },
+    {
+      "term": "LLM",
+      "meaning": "Large language model: an AI system that generates text, here used to help run victim management."
+    }
+  ],
+  "til": {
+    "concept": "Overlay Attack",
+    "text": "An overlay attack draws a fake screen on top of a real app. Banking Trojans use it to capture passwords or to hide what the malware is doing underneath, often after gaining accessibility permissions. Defenders spot it by alerting on unusual accessibility requests and by blocking apps from outside official stores."
+  },
+  "also": []
+}
