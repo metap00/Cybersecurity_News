@@ -1,0 +1,116 @@
+{
+ "generated_at": "2026-11-21T05:17:40Z",
+ "since": "2026-11-20T05:21:04Z",
+ "feeds": [
+  {
+   "name": "The Hacker News",
+   "ok": true,
+   "items": 6,
+   "error": null
+  }
+ ],
+ "candidates": [
+  {
+   "id": "c01",
+   "title": "Google issues emergency Chrome update for exploited zero-day",
+   "url": "https://example.com/c01",
+   "feed": "The Hacker News",
+   "published": "2026-11-20T09:12:00Z",
+   "summary": "Google issues emergency Chrome update for exploited zero-day. Details from the feed.",
+   "cves": [
+    "CVE-2026-10001"
+   ],
+   "kev": true,
+   "also": [],
+   "keys": [
+    "cve-2026-10001",
+    "u:example.com/c01"
+   ]
+  },
+  {
+   "id": "c02",
+   "title": "Outlook flaw leaks NTLM hashes via crafted email",
+   "url": "https://example.com/c02",
+   "feed": "SecurityWeek",
+   "published": "2026-11-20T09:12:00Z",
+   "summary": "Outlook flaw leaks NTLM hashes via crafted email. Details from the feed.",
+   "cves": [
+    "CVE-2026-10002"
+   ],
+   "kev": true,
+   "also": [],
+   "keys": [
+    "cve-2026-10002",
+    "u:example.com/c02"
+   ]
+  },
+  {
+   "id": "c03",
+   "title": "Check Point firewall bug exploited at 24 customers",
+   "url": "https://example.com/c03",
+   "feed": "Bleeping Computer",
+   "published": "2026-11-20T09:12:00Z",
+   "summary": "Check Point firewall bug exploited at 24 customers. Details from the feed.",
+   "cves": [
+    "CVE-2026-10003"
+   ],
+   "kev": false,
+   "also": [],
+   "keys": [
+    "cve-2026-10003",
+    "u:example.com/c03"
+   ]
+  },
+  {
+   "id": "c04",
+   "title": "New phishing kit targets Microsoft 365 logins",
+   "url": "https://example.com/c04",
+   "feed": "Dark Reading",
+   "published": "2026-11-20T09:12:00Z",
+   "summary": "New phishing kit targets Microsoft 365 logins. Details from the feed.",
+   "cves": [
+    "CVE-2026-10004"
+   ],
+   "kev": false,
+   "also": [],
+   "keys": [
+    "cve-2026-10004",
+    "u:example.com/c04"
+   ]
+  },
+  {
+   "id": "c05",
+   "title": "Splunk patches XSS in Enterprise web UI",
+   "url": "https://example.com/c05",
+   "feed": "SANS ISC",
+   "published": "2026-11-20T09:12:00Z",
+   "summary": "Splunk patches XSS in Enterprise web UI. Details from the feed.",
+   "cves": [
+    "CVE-2026-10005"
+   ],
+   "kev": false,
+   "also": [],
+   "keys": [
+    "cve-2026-10005",
+    "u:example.com/c05"
+   ]
+  },
+  {
+   "id": "c06",
+   "title": "Security startup raises $40M Series B",
+   "url": "https://example.com/c06",
+   "feed": "SecurityWeek",
+   "published": "2026-11-20T09:12:00Z",
+   "summary": "Security startup raises $40M Series B. Details from the feed.",
+   "cves": [
+    "CVE-2026-10006"
+   ],
+   "kev": false,
+   "also": [],
+   "keys": [
+    "cve-2026-10006",
+    "u:example.com/c06"
+   ]
+  }
+ ]
+}
