@@ -3,7 +3,7 @@ import argparse
 import json
 import sys
 
-from brief import llm
+from brief import llm, write
 
 VERDICT = {"type": "string", "enum": ["pass", "fixed", "drop"]}
 ISSUES = {"type": "array", "items": {"type": "string"}}
@@ -50,12 +50,12 @@ def check_verdicts(data, ids):
     return errs
 
 
-def apply(verdict, draft):
+def apply(verdict, draft, update=False):
     """Return the final item text, or None when dropped (a fix that breaks a cap is a drop)."""
     if verdict["verdict"] == "drop":
         return None
     item = draft if verdict["verdict"] == "pass" else {**verdict["fixed"], "id": draft["id"]}
-    errs = llm.check_item(item)
+    errs = llm.check_item(item, update)
     if errs:
         print(f"[critique] dropping {draft['id']}: " + "; ".join(errs))
         return None
@@ -94,7 +94,7 @@ OVERHEAD = 230  # worst case outside the items: TIL, glossary, the action line, 
 
 
 def item_words(it):
-    return 8 + sum(llm.words(it.get(k) or "") for k in ("headline", "summary", "you", "attack_note", "actor"))
+    return 8 + sum(llm.words(it.get(k) or "") for k in ("headline", "summary", "new", "you", "attack_note", "actor"))
 
 
 def pick(passing, mode):
@@ -110,18 +110,25 @@ def pick(passing, mode):
     return picked
 
 
+def update_of(entry):
+    """story, type and since come from the shortlist (code), never from a model."""
+    u = entry.get("update")
+    return {k: u[k] for k in ("story", "type", "since")} if u else None
+
+
 def build(date, mode, shortlist, draft, verdicts):
     """Pure code: verdicts → digest dict (contract in PLAN section 8)."""
     src = {s["id"]: s for s in shortlist}
     by_id = {v["id"]: v for v in verdicts["items"]}
-    passing = [it for it in (apply(by_id[d["id"]], d) for d in draft["items"]) if it]
+    passing = [it for it in (apply(by_id[d["id"]], d, bool(src[d["id"]].get("update"))) for d in draft["items"]) if it]
     picked = pick(passing, mode)
     rest = passing[len(picked):len(picked) + 2]
     items = [{"id": it["id"], "kind": src[it["id"]]["kind"], "headline": it["headline"],
               "summary": it["summary"], "you": it["you"], "attack_id": it["attack_id"],
               "attack_note": it.get("attack_note"), "actor": it.get("actor"),
               "url": src[it["id"]]["url"], "feed": src[it["id"]]["feed"],
-              "keys": src[it["id"]]["keys"]} for it in picked]
+              "keys": src[it["id"]]["keys"], "new": it.get("new"),
+              "update": update_of(src[it["id"]]), "names": src[it["id"]].get("names") or []} for it in picked]
     act = next((it for it in picked if src[it["id"]]["kind"] == "act" and it["action"]), None)
     if act is None and picked and picked[0]["action"]:
         act = picked[0]
@@ -159,8 +166,8 @@ def main(argv=None) -> int:
         shortlist = llm.load("out/ranked.json")["shortlist"]
         draft = llm.load("out/draft.json")
         ids = [d["id"] for d in draft["items"]]
-        src = {s["id"]: {k: s.get(k) for k in SOURCE} for s in shortlist}
-        problems = [e for d in draft["items"] for e in llm.check_item(d)]
+        src = {s["id"]: {k: s.get(k) for k in SOURCE} | write.model_view(s) for s in shortlist}
+        problems = [e for d in draft["items"] for e in llm.check_item(d, bool(src[d["id"]]["update"]))]
         problems += [e for k in ("review_question", "term_question", "soc_question") if draft.get(k)
                      for e in llm.check_question(draft[k], k)]
         problems += llm.check_extras({"glossary": draft.get("glossary", []), "til": draft.get("til")}, *llm.history())

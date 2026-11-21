@@ -112,7 +112,14 @@ def render(digest, s) -> list:
         return ["Nothing worth your minute today. " + ("One question:" if n == 1 else f"{n} questions:")]
     stories = []
     for it in digest["items"]:
-        lines = [f"{MARKERS.get(it['kind'], '🟡')} <b>{esc(it['headline'])}</b>", esc(it["summary"])]
+        up = it.get("update")
+        if up:  # PLAN-sources section 4.4: the reminder sits in "summary"
+            since = datetime.strptime(up["since"], "%Y-%m-%d")
+            lines = [f"🔄 <b>Update: {esc(it['headline'])}</b>",
+                     f"<i>What's new since {since.day} {since:%b}:</i> {esc(it.get('new') or '')}",
+                     f"<i>Reminder:</i> {esc(it['summary'])}"]
+        else:
+            lines = [f"{MARKERS.get(it['kind'], '🟡')} <b>{esc(it['headline'])}</b>", esc(it["summary"])]
         if it.get("attack_id") and it.get("attack_note"):
             lines.append(f"🎯 {link(attack_url(it['attack_id']), it['attack_id'])} {esc(it['attack_note'])}")
         if it.get("actor"):

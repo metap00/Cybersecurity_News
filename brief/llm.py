@@ -14,6 +14,7 @@ FORBIDDEN = ("http", "www.", "<")
 HEADLINE, SUMMARY_MIN, SUMMARY, YOU, NOTE, ACTION = 12, 40, 80, 15, 25, 14
 QUESTION_WORDS, OPTION, EXPLANATION_CHARS = 30, 8, 200
 GLOSSARY_MAX, MEANING, TIL_MIN, TIL = 6, 20, 30, 60
+NEW, REMINDER_MIN, REMINDER = 30, 15, 40  # update items: what's-new line, reminder (PLAN-sources section 6)
 KEEP_TERMS, KEEP_TIL = 50, 7  # glossary terms and TIL concepts never repeated
 TIMEOUT = 900  # seconds per CLI call
 
@@ -120,14 +121,23 @@ def check_question(q, where):
     return errs
 
 
-def check_item(it):
-    """Caps for one drafted item. Returns a list of errors."""
+def check_item(it, update=False):
+    """Caps for one drafted item. update: the item continues a sent story. Returns a list of errors."""
     w = it.get("id", "?")
     errs = []
     if words(it["headline"]) > HEADLINE:
         errs.append(f"{w}: headline over {HEADLINE} words")
-    if not SUMMARY_MIN <= words(it["summary"]) <= SUMMARY:
-        errs.append(f"{w}: summary must be {SUMMARY_MIN}-{SUMMARY} words")
+    new = it.get("new")
+    if update:
+        if not (isinstance(new, str) and 0 < words(new) <= NEW):
+            errs.append(f"{w}: update item needs 'new', 1-{NEW} words")
+        if not REMINDER_MIN <= words(it["summary"]) <= REMINDER:
+            errs.append(f"{w}: update reminder (summary) must be {REMINDER_MIN}-{REMINDER} words")
+    else:
+        if new is not None:
+            errs.append(f"{w}: 'new' must be null on an item that is not an update")
+        if not SUMMARY_MIN <= words(it["summary"]) <= SUMMARY:
+            errs.append(f"{w}: summary must be {SUMMARY_MIN}-{SUMMARY} words")
     if words(it["you"]) > YOU:
         errs.append(f"{w}: 'you' line over {YOU} words")
     if (it.get("attack_id") is None) != (it.get("attack_note") is None):
@@ -192,6 +202,7 @@ ITEM = {
         "id": {"type": "string"},
         "headline": {"type": "string"},
         "summary": {"type": "string"},
+        "new": {"anyOf": [{"type": "string"}, {"type": "null"}]},
         "you": {"type": "string"},
         "action": {"anyOf": [{
             "type": "object",
@@ -203,7 +214,7 @@ ITEM = {
         "actor": {"anyOf": [{"type": "string"}, {"type": "null"}]},
         "question": QUESTION,
     },
-    "required": ["id", "headline", "summary", "you", "action", "attack_id", "attack_note", "actor", "question"],
+    "required": ["id", "headline", "summary", "new", "you", "action", "attack_id", "attack_note", "actor", "question"],
     "additionalProperties": False,
 }
 EXTRAS = {
